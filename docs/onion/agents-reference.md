@@ -352,6 +352,47 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 - ⚡ **Performance focus**: Memory optimization, startup time, context caching
 - 🔗 **Delegation automática**: Integração com comandos `/engineer/*` para setup de ambiente
 
+### **gitflow-specialist**
+**Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Light Green
+
+**Especialidades**: GitFlow workflows, branch management, release processes, team collaboration, semantic versioning
+
+**Quando usar**:
+- ✅ Setup inicial de repositórios GitFlow
+- ✅ Guidance para workflows de feature development
+- ✅ Processos de release estruturados
+- ✅ Emergency hotfix workflows
+- ✅ Migração master → main em projetos GitFlow
+- ✅ Resolução de conflitos GitFlow complexos
+- ✅ Onboarding de equipes em GitFlow
+- ✅ Otimização de workflows colaborativos
+
+**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `grep`, `web_search`, `todo_write`
+
+**Exemplo de uso**:
+```bash
+# Para setup inicial
+@gitflow-specialist "Configurar GitFlow em repositório novo com detecção automática master/main"
+
+# Para workflows
+@gitflow-specialist "Orientar equipe no processo de release v2.1.0 com semantic versioning"
+
+# Para emergências
+@gitflow-specialist "Hotfix crítico em produção - orientar processo completo"
+
+# Para migração
+@gitflow-specialist "Migrar repositório de master para main mantendo GitFlow ativo"
+```
+
+**Características únicas**:
+- 🌿 **Flexibilidade master/main**: Detecção automática e suporte a ambas convenções
+- 🎯 **Guidance-focused**: Ensina e orienta ao invés de automatizar
+- 📚 **6 Templates completos**: Setup, feature, release, hotfix, migration, conflicts
+- 🧠 **Semantic versioning**: Conventional commits + análise automática de versioning
+- 👥 **Team enablement**: Onboarding em 3 níveis (iniciante, intermediário, avançado)
+- 📊 **Analytics integration**: Métricas de equipe e health checks
+- 🔗 **Complementaridade**: Integração perfeita com @mermaid-specialist (workflows vs diagramas)
+
 ### **nodejs-specialist**
 **Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Teal
 
