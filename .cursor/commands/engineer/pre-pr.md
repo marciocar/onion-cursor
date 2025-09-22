@@ -16,7 +16,7 @@ Este comando **automaticamente atualiza** a task ClickUp durante preparação pa
 ```
 🔍 PREPARAÇÃO PARA PULL REQUEST
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ✅ VERIFICAÇÕES REALIZADAS:
    ◆ Meta-specs compliance: [✅/❌]
@@ -35,7 +35,7 @@ Este comando **automaticamente atualiza** a task ClickUp durante preparação pa
 🚀 STATUS PARA PR:
    ∟ [PRONTO/REQUER_AJUSTES]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Preparação: [TIMESTAMP] | 🎯 Próximo: Abrir Pull Request
 ```

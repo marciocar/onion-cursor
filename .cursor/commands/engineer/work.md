@@ -27,7 +27,7 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
 ```
 🔧 PROGRESSO DE DESENVOLVIMENTO
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 📋 FASE COMPLETADA:
    ▶ [Nome da Fase]
@@ -47,7 +47,7 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
 
 📊 PROGRESSO GERAL: [X]% completo ([Y]/[Z] fases)
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Atualização: [TIMESTAMP] | 🎯 Próximo: [Próxima ação]
 ```

@@ -248,7 +248,7 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa:
 ```
 📊 VALIDAÇÃO ESTRATÉGICA
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 🎯 ANÁLISE EXECUTIVA:
    ∟ Viabilidade: [X]/10
@@ -268,7 +268,7 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa:
 🚀 STATUS VALIDAÇÃO:
    ∟ [APROVADA/REQUER_AJUSTES/NÃO_RECOMENDADA]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Validado: [TIMESTAMP] | 🤖 Sistema de Validação Onion
 ```

@@ -283,7 +283,7 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa:
 ```
 🔍 VERIFICAÇÃO DE IMPLEMENTAÇÃO
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 📊 RESULTADO DA VERIFICAÇÃO:
    ∟ Status: [IMPLEMENTADA/PARCIAL/NÃO_IMPLEMENTADA]
@@ -299,7 +299,7 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa:
 🎯 PRÓXIMOS PASSOS:
    ∟ [Ações específicas recomendadas]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Verificado: [TIMESTAMP] | 🤖 Sistema de Verificação Onion
 ```

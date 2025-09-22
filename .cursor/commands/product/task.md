@@ -128,7 +128,7 @@ Este comando **automaticamente cria** a task ClickUp e configura:
 ```
 🚀 TASK SETUP COMPLETO
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 🏗️ AMBIENTE PREPARADO:
    ▶ Branch: feature/[task-slug]
@@ -145,7 +145,7 @@ Este comando **automaticamente cria** a task ClickUp e configura:
    ∟ Seguir plano de implementação
    ∟ Verificar com: /product/task-check
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Setup: [TIMESTAMP] | 🤖 Sistema Onion
 ```
