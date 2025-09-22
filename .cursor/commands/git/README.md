@@ -129,7 +129,7 @@ flowchart LR
    ▶ Comment added: Sync completed
 
 📁 SESSION STATUS:
-   ▶ Session archived: .cursor/sessions/archived/2025-09-22_my-feature/
+   ▶ Session archived: .cursor/sessions/archived/2025-09-22_1743_my-feature/
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -195,7 +195,7 @@ Preservadas:     feature, bug, improvement, research
 ### **Estrutura de Arquivamento:**
 ```
 .cursor/sessions/archived/
-├── 2025-09-22_sync-command/
+├── 2025-09-22_1747_sync-command/
 │   ├── context.md           # Contexto preservado
 │   ├── plan.md             # Plano de implementação
 │   ├── notes.md            # Notas de desenvolvimento

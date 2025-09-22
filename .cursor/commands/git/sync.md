@@ -1847,7 +1847,8 @@ async function promptUserForArchive(session: SessionInfo, conditions: ArchiveCon
     console.log("   ∟ Other important files in session");
     
     console.log("\n📍 ARCHIVE LOCATION:");
-    const timestamp = new Date().toISOString().split('T')[0];
+    const now = new Date();
+    const timestamp = `${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}_${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}`;
     const archiveSlug = `${timestamp}_${session.name}`;
     console.log(`   ∟ .cursor/sessions/archived/${archiveSlug}/`);
     
@@ -1907,9 +1908,10 @@ async function executeSessionArchive(session: SessionInfo, taskId: string | null
 async function createArchiveStructure(sessionName: string, taskId: string | null): Promise<string> {
     /**
      * Cria estrutura de diretórios para arquivamento
-     * Formato: .cursor/sessions/archived/YYYY-MM-DD_session-name/
+     * Formato: .cursor/sessions/archived/YYYY-MM-DD_HHMM_session-name/
      */
-    const timestamp = new Date().toISOString().split('T')[0];
+    const now = new Date();
+    const timestamp = `${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}_${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}`;
     const archiveSlug = `${timestamp}_${sessionName}`;
     const archivePath = join('.cursor', 'sessions', 'archived', archiveSlug);
     
