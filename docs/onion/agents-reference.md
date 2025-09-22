@@ -246,6 +246,40 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 - ✅ Adiciona comentários contextuais
 - ✅ Gerencia tags e prioridades
 
+### **cursor-specialist**
+**Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Light Blue
+
+**Especialidades**: Otimização Cursor IDE, configuração workspace, troubleshooting, produtividade
+
+**Quando usar**:
+- ✅ Resolver problemas de performance do Cursor IDE
+- ✅ Configurar ambiente para novos projetos
+- ✅ Otimizar settings para workflows específicos
+- ✅ Troubleshoot extension conflicts ou API connectivity
+- ✅ Criar `.cursorrules` e `.cursorignore` templates
+- ✅ Setup automation para comandos `/engineer/*`
+
+**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `list_dir`, `glob_file_search`, `web_search`, `read_lints`, `todo_write`
+
+**Exemplo de uso**:
+```bash
+# Configuração de projeto novo
+@cursor-specialist "Setup otimizado para projeto React TypeScript com foco em AI development"
+
+# Troubleshooting
+@cursor-specialist "Resolver erro 'HTTP/2 blocked by proxy' e otimizar connectivity"
+
+# Performance Issues
+@cursor-specialist "Cursor está lento, analisar memory usage e otimizar configurations"
+```
+
+**Características únicas**:
+- 🎯 **7 especialidades técnicas**: configuration, workspace, extensions, API, performance, productivity, troubleshooting
+- 🚀 **Integração automática**: Chamado automaticamente por outros agentes quando há problemas de IDE
+- 🔧 **Criação de artefatos**: `.cursorrules`, `.cursorignore`, workspace settings otimizados
+- ⚡ **Performance focus**: Memory optimization, startup time, context caching
+- 🔗 **Delegation automática**: Integração com comandos `/engineer/*` para setup de ambiente
+
 ---
 
 ## ⚙️ Como Escolher o Agente Certo
