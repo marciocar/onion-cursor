@@ -69,6 +69,44 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 - ⚡ Performance optimization
 - 🧪 Testing com React Testing Library
 
+### **clickup-specialist**
+**Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Orange
+
+**Especialidades**: ClickUp MCP técnico, automações avançadas, performance, workflows
+
+**Quando usar**:
+- ✅ Otimizações técnicas do ClickUp
+- ✅ Automações de workflow complexas
+- ✅ Bulk operations e performance
+- ✅ Configurações avançadas (webhooks, custom fields)
+- ✅ Time tracking e análise de produtividade
+
+**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `web_search`, **todas as 15+ ferramentas ClickUp MCP** (bulk operations, webhooks, time tracking, etc.)
+
+**Exemplo de uso**:
+```bash
+# Para automações de workflow
+@clickup-specialist "Configurar automação: task 'in progress' → start time tracking + add tag 'development'"
+
+# Para operações em bulk
+@clickup-specialist "Criar 20 tasks de feature seguindo template padrão com bulk operations"
+
+# Para configurações avançadas
+@clickup-specialist "Setup webhook para sync status ClickUp → GitHub quando PR é criado"
+```
+
+**Principais recursos**:
+- 🚀 **Performance First**: Bulk operations para eficiência máxima
+- 🤖 **Workflow Automation**: Automações baseadas em triggers inteligentes
+- ⚡ **Rate Limit Management**: Otimização respeitando limites da API
+- 🔧 **Advanced Configuration**: Custom fields, templates, webhooks
+- 📊 **Time Tracking Integration**: Automação de tracking e análise de produtividade
+- 🎯 **Complementa product-agent**: Foco técnico vs estratégico
+
+**Complementaridade**:
+- **product-agent**: Estratégia, coordenação, especificação (O QUE fazer)
+- **clickup-specialist**: Implementação técnica, automação, performance (COMO otimizar)
+
 ---
 
 ## 🔷 Agentes de Testes
