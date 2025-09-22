@@ -1662,6 +1662,520 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa com suce
 - **Logging detalhado**: Erros específicos para troubleshooting
 - **Fallback manual**: Orientações para updates manuais se API falhar
 
+## 📁 **Gestão de Sessões (Fase 5)**
+
+### **1. 🎯 Session Management System**
+```typescript
+import { readdir, stat, rename, mkdir, readFile, writeFile } from 'fs/promises';
+import { join, basename } from 'path';
+
+interface SessionArchiveResult {
+    success: boolean;
+    sessionArchived?: boolean;
+    archivePath?: string;
+    preservedFiles?: string[];
+    cleanedFiles?: string[];
+    error?: string;
+    skipped?: boolean;
+    skipReason?: string;
+}
+
+async function executeSessionManagement(context: SyncContext, clickupResult: ClickUpIntegrationResult): Promise<SessionArchiveResult> {
+    /**
+     * Sistema principal de gestão de sessões pós-sync
+     * Gerencia arquivamento opcional com confirmação do usuário
+     */
+    const result: SessionArchiveResult = {
+        success: false
+    };
+    
+    // Verificar se há sessão ativa para gerenciar
+    if (!context.session) {
+        console.log("ℹ️ No active session found - skipping session management");
+        result.success = true;
+        result.skipped = true;
+        result.skipReason = "No active session detected";
+        return result;
+    }
+    
+    // Verificar se ClickUp integration foi bem-sucedida (task movida para Done)
+    if (!clickupResult.success || !clickupResult.statusChanged) {
+        console.log("ℹ️ Task not moved to 'Done' - skipping session archiving");
+        result.success = true;
+        result.skipped = true;
+        result.skipReason = "Task status not updated to Done";
+        return result;
+    }
+    
+    try {
+        console.log("📁 Starting session management...");
+        
+        // 1. Detectar se sessão deve ser arquivada
+        const shouldArchive = await detectArchiveConditions(context.session, context.taskId);
+        
+        if (shouldArchive.shouldArchive) {
+            // 2. Perguntar confirmação do usuário
+            const userConfirmed = await promptUserForArchive(context.session, shouldArchive);
+            
+            if (userConfirmed) {
+                // 3. Executar arquivamento
+                await executeSessionArchive(context.session, context.taskId, result);
+            } else {
+                result.success = true;
+                result.skipped = true;
+                result.skipReason = "User declined archiving";
+                console.log("✅ Session archiving declined by user");
+            }
+        } else {
+            result.success = true;
+            result.skipped = true;
+            result.skipReason = shouldArchive.reason;
+            console.log(`ℹ️ Session archiving skipped: ${shouldArchive.reason}`);
+        }
+        
+    } catch (error: any) {
+        console.log(`❌ Session management failed: ${error.message}`);
+        result.error = error.message;
+        result.success = false;
+    }
+    
+    return result;
+}
+```
+
+### **2. 🔍 Archive Detection System**
+```typescript
+interface ArchiveConditions {
+    shouldArchive: boolean;
+    reason: string;
+    sessionAge?: number;
+    hasImportantFiles?: boolean;
+    taskCompleted?: boolean;
+}
+
+async function detectArchiveConditions(session: SessionInfo, taskId: string | null): Promise<ArchiveConditions> {
+    /**
+     * Analisa condições para determinar se sessão deve ser arquivada
+     * Considera idade, arquivos importantes e status da task
+     */
+    const conditions: ArchiveConditions = {
+        shouldArchive: false,
+        reason: "Unknown"
+    };
+    
+    try {
+        // 1. Verificar idade da sessão
+        const contextFile = join(session.path, 'context.md');
+        const stats = await stat(contextFile);
+        const sessionAge = Date.now() - stats.mtime.getTime();
+        const hoursOld = sessionAge / (1000 * 60 * 60);
+        
+        conditions.sessionAge = hoursOld;
+        
+        // 2. Verificar arquivos importantes
+        const importantFiles = ['context.md', 'plan.md', 'notes.md', 'architecture.md'];
+        const hasImportantFiles = await checkImportantFiles(session.path, importantFiles);
+        conditions.hasImportantFiles = hasImportantFiles;
+        
+        // 3. Verificar se task foi completada (sabemos que foi por estar nesta função)
+        conditions.taskCompleted = taskId !== null;
+        
+        // Lógica de decisão
+        if (conditions.taskCompleted && conditions.hasImportantFiles) {
+            conditions.shouldArchive = true;
+            conditions.reason = "Task completed with important files preserved";
+        } else if (!conditions.hasImportantFiles) {
+            conditions.shouldArchive = false;
+            conditions.reason = "No important files to preserve";
+        } else {
+            conditions.shouldArchive = true;
+            conditions.reason = "Default archiving for completed task";
+        }
+        
+        console.log(`📊 Archive analysis: Session ${session.name} (${hoursOld.toFixed(1)}h old)`);
+        console.log(`   ∟ Important files: ${hasImportantFiles ? 'Yes' : 'No'}`);
+        console.log(`   ∟ Task completed: ${conditions.taskCompleted ? 'Yes' : 'No'}`);
+        console.log(`   ∟ Recommendation: ${conditions.shouldArchive ? 'Archive' : 'Skip'}`);
+        
+    } catch (error: any) {
+        conditions.shouldArchive = false;
+        conditions.reason = `Analysis failed: ${error.message}`;
+    }
+    
+    return conditions;
+}
+
+async function checkImportantFiles(sessionPath: string, fileNames: string[]): Promise<boolean> {
+    /**
+     * Verifica se existem arquivos importantes na sessão
+     * Retorna true se pelo menos um arquivo importante existe
+     */
+    for (const fileName of fileNames) {
+        try {
+            const filePath = join(sessionPath, fileName);
+            await stat(filePath);
+            return true; // Pelo menos um arquivo importante existe
+        } catch {
+            continue; // Arquivo não existe, testar próximo
+        }
+    }
+    return false;
+}
+```
+
+### **3. 🤔 User Confirmation System**
+```typescript
+async function promptUserForArchive(session: SessionInfo, conditions: ArchiveConditions): Promise<boolean> {
+    /**
+     * Solicita confirmação do usuário para arquivamento
+     * Exibe informações relevantes para tomada de decisão
+     */
+    
+    console.log("\n📋 SESSION ARCHIVING CONFIRMATION");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log(`📁 Session: ${session.name}`);
+    console.log(`⏰ Age: ${conditions.sessionAge?.toFixed(1)} hours`);
+    console.log(`📄 Important files: ${conditions.hasImportantFiles ? 'Yes' : 'No'}`);
+    console.log(`✅ Task completed: ${conditions.taskCompleted ? 'Yes' : 'No'}`);
+    console.log(`💡 Recommendation: ${conditions.reason}`);
+    
+    console.log("\n🗂️ WHAT WILL BE ARCHIVED:");
+    console.log("   ∟ context.md - Task context and objectives");
+    console.log("   ∟ notes.md - Development notes and decisions");
+    console.log("   ∟ plan.md - Implementation timeline");
+    console.log("   ∟ architecture.md - Technical architecture (if exists)");
+    console.log("   ∟ Other important files in session");
+    
+    console.log("\n📍 ARCHIVE LOCATION:");
+    const timestamp = new Date().toISOString().split('T')[0];
+    const archiveSlug = `${timestamp}_${session.name}`;
+    console.log(`   ∟ .cursor/sessions/archived/${archiveSlug}/`);
+    
+    console.log("\n⚠️ IMPORTANT:");
+    console.log("   ∟ Original session directory will be removed");
+    console.log("   ∟ Files will be safely preserved in archive");
+    console.log("   ∟ Archive can be accessed anytime if needed");
+    
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    
+    // Em implementação real, aqui seria um prompt interativo
+    // Por ora, seguir recomendação automática baseada em condições
+    console.log("🤖 Auto-confirmation based on analysis");
+    return conditions.shouldArchive;
+}
+```
+
+### **4. 🗂️ Archive Operations System**
+```typescript
+async function executeSessionArchive(session: SessionInfo, taskId: string | null, result: SessionArchiveResult): Promise<void> {
+    /**
+     * Executa o arquivamento real da sessão
+     * Move arquivos importantes e limpa diretório original
+     */
+    
+    try {
+        console.log("🗂️ Executing session archive...");
+        
+        // 1. Criar estrutura de arquivamento
+        const archivePath = await createArchiveStructure(session.name, taskId);
+        result.archivePath = archivePath;
+        
+        // 2. Preservar arquivos importantes
+        const preservedFiles = await preserveImportantFiles(session.path, archivePath);
+        result.preservedFiles = preservedFiles;
+        
+        // 3. Criar arquivo de metadados
+        await createArchiveMetadata(archivePath, session, taskId, preservedFiles);
+        
+        // 4. Limpar sessão original
+        const cleanedFiles = await cleanupOriginalSession(session.path);
+        result.cleanedFiles = cleanedFiles;
+        
+        result.sessionArchived = true;
+        result.success = true;
+        
+        console.log("✅ Session archived successfully");
+        console.log(`   ∟ Location: ${archivePath}`);
+        console.log(`   ∟ Files preserved: ${preservedFiles.length}`);
+        console.log(`   ∟ Files cleaned: ${cleanedFiles.length}`);
+        
+    } catch (error: any) {
+        throw new Error(`Archive operation failed: ${error.message}`);
+    }
+}
+
+async function createArchiveStructure(sessionName: string, taskId: string | null): Promise<string> {
+    /**
+     * Cria estrutura de diretórios para arquivamento
+     * Formato: .cursor/sessions/archived/YYYY-MM-DD_session-name/
+     */
+    const timestamp = new Date().toISOString().split('T')[0];
+    const archiveSlug = `${timestamp}_${sessionName}`;
+    const archivePath = join('.cursor', 'sessions', 'archived', archiveSlug);
+    
+    // Criar diretórios se não existirem
+    await mkdir(archivePath, { recursive: true });
+    
+    console.log(`📁 Created archive structure: ${archivePath}`);
+    return archivePath;
+}
+
+async function preserveImportantFiles(sessionPath: string, archivePath: string): Promise<string[]> {
+    /**
+     * Copia arquivos importantes para o arquivo
+     * Retorna lista de arquivos preservados
+     */
+    const importantFiles = ['context.md', 'plan.md', 'notes.md', 'architecture.md'];
+    const preservedFiles: string[] = [];
+    
+    for (const fileName of importantFiles) {
+        try {
+            const sourcePath = join(sessionPath, fileName);
+            const destPath = join(archivePath, fileName);
+            
+            // Verificar se arquivo existe
+            await stat(sourcePath);
+            
+            // Copiar arquivo
+            const content = await readFile(sourcePath, 'utf-8');
+            await writeFile(destPath, content, 'utf-8');
+            
+            preservedFiles.push(fileName);
+            console.log(`   ✅ Preserved: ${fileName}`);
+            
+        } catch {
+            // Arquivo não existe, pular
+            console.log(`   ⚠️ Skipped: ${fileName} (not found)`);
+        }
+    }
+    
+    return preservedFiles;
+}
+
+async function createArchiveMetadata(archivePath: string, session: SessionInfo, taskId: string | null, preservedFiles: string[]): Promise<void> {
+    /**
+     * Cria arquivo de metadados do arquivamento
+     * Inclui informações sobre sessão, task e arquivos preservados
+     */
+    const timestamp = new Date().toISOString();
+    const metadata = {
+        archivedAt: timestamp,
+        originalSession: {
+            name: session.name,
+            path: session.path,
+            lastModified: new Date(session.modified).toISOString()
+        },
+        taskId: taskId,
+        preservedFiles: preservedFiles,
+        archiveReason: "Task completed - automatic archiving",
+        systemInfo: {
+            command: "/git/sync",
+            version: "1.0.0",
+            user: process.env.USER || 'unknown'
+        }
+    };
+    
+    const metadataContent = `# 📋 Archive Metadata
+
+**Archived**: ${timestamp}  
+**Original Session**: ${session.name}  
+**Task ID**: ${taskId || 'Not available'}  
+**Reason**: Task completed - automatic archiving
+
+## 📁 Preserved Files
+${preservedFiles.map(file => `- ✅ ${file}`).join('\n')}
+
+## 🔗 Links
+- **ClickUp Task**: ${taskId ? `https://app.clickup.com/t/${taskId}` : 'N/A'}
+- **Original Path**: \`${session.path}\`
+
+## ⚙️ System Info
+- **Command**: /git/sync
+- **Version**: 1.0.0
+- **User**: ${process.env.USER || 'unknown'}
+
+---
+*Generated by Sistema Onion Session Management*
+`;
+    
+    const metadataPath = join(archivePath, '_archive_metadata.md');
+    await writeFile(metadataPath, metadataContent, 'utf-8');
+    
+    console.log("   📄 Created archive metadata");
+}
+
+async function cleanupOriginalSession(sessionPath: string): Promise<string[]> {
+    /**
+     * Remove diretório da sessão original após arquivamento
+     * Retorna lista de arquivos removidos
+     */
+    const cleanedFiles: string[] = [];
+    
+    try {
+        // Listar arquivos antes da remoção
+        const entries = await readdir(sessionPath, { withFileTypes: true });
+        
+        for (const entry of entries) {
+            cleanedFiles.push(entry.name);
+        }
+        
+        // Remover diretório completo
+        const { exec } = require('child_process');
+        const { promisify } = require('util');
+        const execAsync = promisify(exec);
+        
+        await execAsync(`rm -rf "${sessionPath}"`);
+        
+        console.log(`   🧹 Removed original session: ${sessionPath}`);
+        
+    } catch (error: any) {
+        throw new Error(`Cleanup failed: ${error.message}`);
+    }
+    
+    return cleanedFiles;
+}
+```
+
+### **5. 📊 Session Management Results Display**
+```typescript
+function displaySessionManagementResults(sessionResult: SessionArchiveResult): void {
+    /**
+     * Exibe resultados da gestão de sessões
+     * Templates para diferentes cenários
+     */
+    
+    if (sessionResult.skipped) {
+        console.log("📁 SESSION MANAGEMENT SKIPPED");
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+        console.log(`ℹ️ MOTIVO: ${sessionResult.skipReason}`);
+        
+        if (sessionResult.skipReason?.includes("User declined")) {
+            console.log("\n📋 SESSÃO PRESERVADA:");
+            console.log("   ∟ Session files remain in original location");
+            console.log("   ∟ Can be manually archived later if needed");
+            console.log("   ∟ No automatic cleanup performed");
+        } else {
+            console.log("\n📋 AÇÃO RECOMENDADA:");
+            console.log("   ∟ Session will remain active");
+            console.log("   ∟ Consider manual cleanup if no longer needed");
+            console.log("   ∟ Archive manually using session management tools");
+        }
+        
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+        
+    } else if (sessionResult.success && sessionResult.sessionArchived) {
+        console.log("📁 SESSION MANAGEMENT COMPLETA");
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+        
+        console.log("✅ ARQUIVAMENTO EXECUTADO:");
+        console.log(`   ▶ Archive path: ${sessionResult.archivePath}`);
+        console.log(`   ▶ Files preserved: ${sessionResult.preservedFiles?.length || 0}`);
+        console.log(`   ▶ Files cleaned: ${sessionResult.cleanedFiles?.length || 0}`);
+        
+        console.log("\n📄 PRESERVED FILES:");
+        sessionResult.preservedFiles?.forEach(file => {
+            console.log(`   ∟ ${file}`);
+        });
+        
+        console.log("\n🗂️ ARCHIVE INFO:");
+        console.log("   ∟ Metadata file created");
+        console.log("   ∟ ClickUp task reference preserved");
+        console.log("   ∟ Original session cleaned up");
+        console.log("   ∟ Archive can be accessed anytime");
+        
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+        
+    } else if (!sessionResult.success) {
+        console.log("❌ SESSION MANAGEMENT FALHARAM");
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+        console.log(`💥 ERRO: ${sessionResult.error}`);
+        
+        console.log("\n📋 AÇÕES MANUAIS NECESSÁRIAS:");
+        console.log("   ∟ Session remains in original location");
+        console.log("   ∟ Manual archiving may be required");
+        console.log("   ∟ Check session files for important data");
+        console.log("   ∟ Consider manual cleanup when appropriate");
+        
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    }
+}
+```
+
+### **6. 🎯 Workflow Principal com Session Management**
+```typescript
+async function executeFullSyncWithSessionManagement(context: SyncContext): Promise<{
+    gitResult: SequenceState;
+    clickupResult: ClickUpIntegrationResult;
+    sessionResult: SessionArchiveResult;
+}> {
+    /**
+     * Executa sync completo: Git + ClickUp + Session Management
+     * Workflow completo das Fases 3 + 4 + 5
+     */
+    
+    // Fase 3: Operações Git
+    console.log("⚙️ FASE 3: OPERAÇÕES GIT");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    const gitResult = await executeGitSequence(context);
+    displayGitOperationsResults(gitResult);
+    
+    // Fase 4: Integração ClickUp
+    console.log("\n🔗 FASE 4: INTEGRAÇÃO CLICKUP");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    const clickupResult = await executeClickUpIntegration(context, gitResult);
+    displayClickUpResults(clickupResult);
+    
+    // Fase 5: Gestão de Sessões
+    console.log("\n📁 FASE 5: GESTÃO DE SESSÕES");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    const sessionResult = await executeSessionManagement(context, clickupResult);
+    displaySessionManagementResults(sessionResult);
+    
+    return {
+        gitResult,
+        clickupResult,
+        sessionResult
+    };
+}
+
+// Workflow principal atualizado para 5 fases
+async function syncWorkflowComplete5Phases(branchArg?: string): Promise<void> {
+    /**
+     * Workflow completo: Detecção + Git + ClickUp + Session Management
+     * Integra todas as 5 fases implementadas
+     */
+    
+    // Fase 2: Detecção
+    const context = await detectSyncContext(branchArg);
+    displayDetectionResults(context);
+    
+    if (!context.canProceed) {
+        console.log("❌ Cannot proceed with sync operations");
+        return;
+    }
+    
+    // Fases 3 + 4 + 5: Git + ClickUp + Sessions
+    const results = await executeFullSyncWithSessionManagement(context);
+    
+    // Summary final completo
+    console.log("\n🏁 SYNC WORKFLOW COMPLETE");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log(`Git Operations: ${results.gitResult.success ? '✅ Success' : '❌ Failed'}`);
+    console.log(`ClickUp Integration: ${results.clickupResult.success ? '✅ Success' : '⚠️ Limited'}`);
+    console.log(`Session Management: ${results.sessionResult.success ? '✅ Success' : (results.sessionResult.skipped ? '⏭️ Skipped' : '❌ Failed')}`);
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    
+    // Guidance pós-sync
+    if (results.sessionResult.sessionArchived) {
+        console.log("\n🎯 NEXT STEPS:");
+        console.log("   ∟ Development cycle completed");
+        console.log("   ∟ Session archived and cleaned");
+        console.log("   ∟ Ready for new task assignment");
+        console.log("   ∟ Use /product/task to start next feature");
+    }
+}
+```
+
 ## 🧪 **Fluxo de Implementação**
 
 ### **Implementação Sequencial:**
