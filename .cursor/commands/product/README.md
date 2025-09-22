@@ -6,23 +6,23 @@ Este documento descreve o workflow completo dos comandos de produto no Sistema O
 
 ```mermaid
 graph TD
-    A[📝 Ideia/Requisito] --> B[/product/task]
-    B --> C[✅ Task ClickUp Criada]
-    B --> D[🌿 Feature Branch]
-    B --> E[📁 Sessão .cursor/sessions/]
+    A[Ideia/Requisito] --> B[/product/task]
+    B --> C[Task ClickUp Criada]
+    B --> D[Feature Branch]
+    B --> E[Sessao .cursor/sessions/]
     
     E --> F[/engineer/start]
-    F --> G[🏗️ Desenvolvimento]
+    F --> G[Desenvolvimento]
     
     G --> H[/product/task-check]
-    H --> I{Implementação OK?}
+    H --> I{Implementacao OK?}
     
-    I -->|✅ Sim| J[🚀 Próxima Fase]
-    I -->|❌ Não| K[🔧 Correções]
+    I -->|Sim| J[Proxima Fase]
+    I -->|Nao| K[Correcoes]
     K --> H
     
     J --> L[/product/validate-task]
-    L --> M[📊 Análise Estratégica]
+    L --> M[Analise Estrategica]
 ```
 
 ## 🛠️ **Comandos Disponíveis**
