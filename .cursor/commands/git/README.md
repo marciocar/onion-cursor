@@ -129,11 +129,11 @@ flowchart LR
    ▶ Comment added: Sync completed
 
 📁 SESSION STATUS:
-   ▶ Session archived: .cursor/sessions/archived/2025-09-22_1743_my-feature/
+   ▶ Session archived: .cursor/sessions/archived/[YYYY-MM-DD_HHMM_session-name]/
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
-⏰ Completed: 22/09/2025 16:30 | 🎯 Ready for next task
+⏰ Completed: $(date +'%d/%m/%Y %H:%M') | 🎯 Ready for next task
 ```
 
 ### **Tratamento de Erros:**
@@ -195,7 +195,7 @@ Preservadas:     feature, bug, improvement, research
 ### **Estrutura de Arquivamento:**
 ```
 .cursor/sessions/archived/
-├── 2025-09-22_1747_sync-command/
+├── [YYYY-MM-DD_HHMM_session-name]/
 │   ├── context.md           # Contexto preservado
 │   ├── plan.md             # Plano de implementação
 │   ├── notes.md            # Notas de desenvolvimento
@@ -274,5 +274,5 @@ git status                  # Estado atual do repo
 ---
 
 **Sistema Onion Git Commands v1.0**  
-**Documentação atualizada**: 22/09/2025  
+**Documentação atualizada**: $(date +'%d/%m/%Y')  
 **Próxima revisão**: Após implementação completa
