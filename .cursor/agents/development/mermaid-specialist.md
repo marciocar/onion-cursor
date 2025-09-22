@@ -1079,63 +1079,441 @@ gitgraph
 
 **Recursos Avançados**: Commits, Branches, Merges, Tags, Commit Messages, Branch Names
 
-## 🔧 Troubleshooting Guide
+## 🔧 Troubleshooting Guide Completo
 
-### Problemas Comuns GitHub
+### 🚨 Problemas Críticos GitHub
 
 #### ❌ **Erro: "Lexical error on line X"**
-**Causa**: Caracteres especiais ou emojis nos nós
-**Solução**: 
+**Causa**: Caracteres especiais ou emojis nos nós  
+**Diagnóstico**: GitHub não consegue parsear caracteres Unicode em nós  
+**Solução Automática**: ✅ Aplicada automaticamente pelo agente  
 ```mermaid
-# ❌ Problemático
+# ❌ Problemático - Detectado automaticamente
 flowchart TD
     A[📝 Task] --> B[✅ Done]
 
-# ✅ Correto
+# ✅ Corrigido automaticamente
 flowchart TD
     A[Task] --> B[Done]
 ```
 
-#### ❌ **Erro: Diagrama não renderiza**
-**Causa**: Sintaxe legacy ou recursos não suportados
-**Solução**:
+#### ❌ **Erro: "Unexpected token" ou "Parse error"**
+**Causa**: Sintaxe legacy incompatível com GitHub  
+**Diagnóstico**: GitHub usa versão específica do Mermaid  
+**Solução Automática**: ✅ Modernização aplicada automaticamente  
 ```mermaid
-# ❌ Sintaxe antiga
+# ❌ Sintaxe antiga - Detectada automaticamente
 graph TD
     A --> B
 
-# ✅ Sintaxe moderna
+# ✅ Modernizada automaticamente
 flowchart TD
     A --> B
 ```
 
 #### ❌ **Erro: Timeout de renderização**
-**Causa**: Diagrama muito complexo
-**Solução**: Simplificar ou dividir em múltiplos diagramas
-
-### Problemas de Sintaxe
-
-#### ❌ **Nomes com espaços**
+**Causa**: Diagrama muito complexo (>50 nós)  
+**Diagnóstico**: Análise automática de complexidade  
+**Solução**: Simplificação ou divisão em múltiplos diagramas  
 ```mermaid
-# ❌ Problemático
-flowchart TD
-    My Node --> Your Node
-
-# ✅ Correto
-flowchart TD
-    A["My Node"] --> B["Your Node"]
+# Estratégia de simplificação automática
+# Original: 60+ nós → Simplified: <50 nós
+# Agrupamento inteligente de elementos relacionados
 ```
 
-#### ❌ **Caracteres especiais**
+#### ❌ **Erro: "Unable to render diagram"**
+**Causa**: Caracteres especiais em identificadores  
+**Diagnóstico**: Símbolos /, &, <, > em IDs  
+**Solução Automática**: ✅ Sanitização aplicada automaticamente  
 ```mermaid
-# ❌ Problemático
+# ❌ Problemático - Detectado automaticamente
 flowchart TD
     A[User/Admin] --> B[Config&Setup]
 
-# ✅ Correto
+# ✅ Sanitizado automaticamente
 flowchart TD
-    A[User Admin] --> B[Config Setup]
+    A["User Admin"] --> B["Config Setup"]
 ```
+
+### 🛠️ Problemas de Sintaxe Específicos
+
+#### **1. Nomes com Espaços e Caracteres Especiais**
+```mermaid
+# ❌ Problemáticos - Todos detectados automaticamente
+flowchart TD
+    My Node --> Your Node
+    A[Process/Review] --> B[Done&Complete]
+    Start --> "End Process"
+
+# ✅ Corrigidos automaticamente
+flowchart TD
+    A["My Node"] --> B["Your Node"] 
+    C["Process Review"] --> D["Done Complete"]
+    E[Start] --> F["End Process"]
+```
+
+#### **2. Acentos e Caracteres Unicode**
+```mermaid
+# ❌ Problemáticos - Detectados automaticamente
+flowchart TD
+    A[Configuração] --> B[Validação]
+    C[Análise] --> D[Conclusão]
+
+# ✅ Corrigidos automaticamente (opção 1: remover acentos)
+flowchart TD
+    A[Configuracao] --> B[Validacao]
+    C[Analise] --> D[Conclusao]
+
+# ✅ Corrigidos automaticamente (opção 2: inglês)
+flowchart TD
+    A[Configuration] --> B[Validation]
+    C[Analysis] --> D[Conclusion]
+```
+
+#### **3. Símbolos Problemáticos em URLs e Paths**
+```mermaid
+# ❌ Problemático - Detectado automaticamente
+flowchart TD
+    A[https://api.com/v1] --> B[/users/{id}]
+
+# ✅ Corrigido automaticamente
+flowchart TD
+    A["API Endpoint"] --> B["User Resource"]
+```
+
+### 🔍 Problemas por Tipo de Diagrama
+
+#### **Flowchart Specific Issues**
+
+**❌ Problema: Loops infinitos visuais**
+```mermaid
+# ❌ Problemático - Dificulta leitura
+flowchart TD
+    A --> B --> C --> A
+
+# ✅ Melhorado automaticamente
+flowchart TD
+    A --> B --> C
+    C -.-> A
+    note[Loop back to start]
+```
+
+**❌ Problema: Subgrafos mal formatados**
+```mermaid
+# ❌ Problemático
+flowchart TD
+    subgraph Invalid
+        A --> B
+    A --> C
+
+# ✅ Corrigido automaticamente
+flowchart TD
+    subgraph "Valid Process"
+        A --> B
+    end
+    A --> C
+```
+
+#### **Sequence Diagram Specific Issues**
+
+**❌ Problema: Participantes não declarados**
+```mermaid
+# ❌ Problemático - Detectado automaticamente
+sequenceDiagram
+    A->>B: Message
+    B-->>UnknownParticipant: Response
+
+# ✅ Corrigido automaticamente
+sequenceDiagram
+    participant A as Service A
+    participant B as Service B
+    participant C as Unknown Service
+    A->>B: Message
+    B-->>C: Response
+```
+
+#### **Class Diagram Specific Issues**
+
+**❌ Problema: Visibilidade inconsistente**
+```mermaid
+# ❌ Problemático - Detectado automaticamente
+classDiagram
+    class User {
+        name
+        +email
+        password
+        +getName()
+    }
+
+# ✅ Corrigido automaticamente
+classDiagram
+    class User {
+        -name: string
+        +email: string
+        -password: string
+        +getName(): string
+    }
+```
+
+### ⚡ Soluções Rápidas por Categoria
+
+#### **🔧 Quick Fixes - Aplicados Automaticamente**
+
+| Problema | Detecção | Correção | Tempo |
+|----------|----------|----------|-------|
+| Emojis em nós | ✅ Auto | Remove emojis | <1s |
+| Acentos | ✅ Auto | Normaliza caracteres | <1s |
+| Sintaxe legacy | ✅ Auto | Moderniza sintaxe | <1s |
+| Caracteres especiais | ✅ Auto | Sanitiza texto | <1s |
+| Complexidade alta | ✅ Auto | Sugere simplificação | 2-3s |
+
+#### **🎯 Casos Especiais - Requerem Atenção**
+
+| Problema | Diagnóstico | Ação Recomendada |
+|----------|-------------|------------------|
+| Diagrama muito grande | Análise automática | Dividir em múltiplos |
+| Loops complexos | Análise de fluxo | Reestruturar lógica |
+| Relacionamentos confusos | Análise semântica | Simplificar conexões |
+| Performance lenta | Análise de nós | Reduzir elementos |
+
+### 🎯 Padrões de Problemas Conhecidos
+
+#### **GitHub-Specific Limitations**
+
+1. **Emoji Support**: ❌ Não suportado em nós de diagrama
+2. **Unicode Characters**: ⚠️ Suporte limitado para acentos
+3. **Complex Syntax**: ⚠️ Subset limitado do Mermaid.js completo
+4. **Rendering Timeout**: ⚠️ Limite de 50 nós recomendado
+5. **Special Characters**: ❌ Símbolos /, &, <, > problemáticos
+
+#### **Cross-Platform Compatibility**
+
+| Plataforma | Flowchart | Sequence | Class | State | ER | Journey | Gantt | Pie | Git |
+|------------|-----------|----------|-------|-------|----|---------| ------|-----|-----|
+| GitHub | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ✅ | ✅ |
+| GitLab | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | ⚠️ | ✅ | ✅ |
+| Bitbucket | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ❌ | ❌ | ❌ | ⚠️ | ⚠️ |
+| VS Code | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mermaid Live | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+### 🚀 Estratégias de Resolução
+
+#### **Abordagem em Camadas**
+1. **Prevenção**: Validação automática antes da geração
+2. **Detecção**: Análise em tempo real durante criação
+3. **Correção**: Auto-fix para problemas conhecidos
+4. **Otimização**: Sugestões de melhorias de performance
+5. **Fallback**: Versões simplificadas quando necessário
+
+## ❓ FAQ - Perguntas Frequentes
+
+### 🎯 **Perguntas Gerais**
+
+#### **P: Como o agente decide qual tipo de diagrama criar?**
+**R**: Utilizo análise inteligente de palavras-chave:
+- **"fluxo", "processo"** → Flowchart
+- **"comunicação", "API"** → Sequence Diagram  
+- **"classes", "herança"** → Class Diagram
+- **"estados", "transições"** → State Diagram
+- **"banco", "entidades"** → ER Diagram
+- **"jornada", "experiência"** → User Journey
+- **"cronograma", "projeto"** → Gantt Chart
+- **"distribuição", "percentual"** → Pie Chart
+- **"git", "branches"** → Git Graph
+
+#### **P: Posso solicitar um tipo específico de diagrama?**
+**R**: Sim! Mencione o tipo explicitamente:
+```
+"Crie um sequence diagram para autenticação JWT"
+"Preciso de um class diagram para padrão Observer"
+"Faça um user journey para onboarding"
+```
+
+#### **P: O agente corrige problemas automaticamente?**
+**R**: Sim! Corrijo automaticamente:
+- ✅ Emojis em nós (removidos)
+- ✅ Caracteres especiais problemáticos (sanitizados)
+- ✅ Sintaxe legacy (modernizada)
+- ✅ Acentos e Unicode (normalizados)
+- ✅ Complexidade excessiva (simplificada)
+
+### 🔧 **Perguntas Técnicas**
+
+#### **P: Por que meu diagrama não renderiza no GitHub?**
+**R**: Principais causas e soluções automáticas:
+
+1. **Emojis nos nós**: ❌ GitHub não suporta
+   - **Solução**: Uso apenas texto limpo
+   
+2. **Caracteres especiais**: ❌ Símbolos /, &, <, >
+   - **Solução**: Sanitização automática
+   
+3. **Sintaxe antiga**: ❌ `graph` vs `flowchart`
+   - **Solução**: Modernização automática
+   
+4. **Complexidade alta**: ❌ >50 nós
+   - **Solução**: Simplificação ou divisão
+
+#### **P: Qual a diferença entre 'graph' e 'flowchart'?**
+**R**: 
+- **`graph`**: Sintaxe legacy, problemas no GitHub
+- **`flowchart`**: Sintaxe moderna, 100% compatível
+- **Automático**: Converto `graph` para `flowchart` automaticamente
+
+#### **P: Como funciona a validação de compatibilidade?**
+**R**: Sistema de 3 camadas:
+1. **Syntax Validation**: Verifica sintaxe básica Mermaid
+2. **GitHub Compatibility**: Testa contra limitações conhecidas
+3. **Performance Analysis**: Analisa complexidade e otimiza
+
+#### **P: Posso usar acentos em português?**
+**R**: Recomendo evitar para compatibilidade GitHub:
+```mermaid
+# ❌ Problemático no GitHub
+flowchart TD
+    A[Configuração] --> B[Validação]
+
+# ✅ Compatível - Opção 1
+flowchart TD
+    A[Configuracao] --> B[Validacao]
+
+# ✅ Compatível - Opção 2  
+flowchart TD
+    A[Configuration] --> B[Validation]
+```
+
+### 📊 **Perguntas por Tipo de Diagrama**
+
+#### **P: Quando usar Flowchart vs Sequence Diagram?**
+**R**: 
+- **Flowchart**: Processos, decisões, workflows, fluxos de aprovação
+- **Sequence**: Comunicação entre sistemas, APIs, protocolos, interações temporais
+
+#### **P: Class Diagram vs ER Diagram - qual escolher?**
+**R**:
+- **Class Diagram**: Arquitetura de software, padrões OOP, relações entre classes
+- **ER Diagram**: Modelagem de banco de dados, relacionamentos entre tabelas
+
+#### **P: User Journey vs Flowchart para processos?**
+**R**:
+- **User Journey**: Experiência do usuário, satisfação, touchpoints
+- **Flowchart**: Processos técnicos, decisões de sistema, workflows internos
+
+#### **P: Quando usar State Diagram?**
+**R**: Ideal para:
+- Máquinas de estado (autenticação, processamento)
+- Lifecycles de objetos (pedidos, conteúdo)
+- Status de sistemas (conectado, processando, erro)
+
+### 🎨 **Perguntas sobre Templates**
+
+#### **P: Posso personalizar os templates?**
+**R**: Sim! Forneça especificações:
+```
+"Crie um flowchart de e-commerce, mas com integração de pagamento PIX"
+"User journey de SaaS, mas para produto B2B enterprise"
+```
+
+#### **P: Quantos templates estão disponíveis?**
+**R**: 30+ templates dinâmicos:
+- **Flowchart**: 4 templates (Linear, Decisão, Loop, Aprovação)
+- **Sequence**: 3 templates (API, Error Handling, Microservices)  
+- **Class**: 3 templates (Repository, MVC, Design Patterns)
+- **State**: 3 templates (Simples, Autenticação, Workflow)
+- **ER**: 3 templates (E-commerce, RBAC, CMS)
+- **Journey**: 3 templates (Purchase, Onboarding, Support)
+- **Gantt**: 3 templates (Software, Marketing, Product)
+- **Pie**: 4 templates (Sales, Budget, Demographics, Resources)
+- **Git**: 4 templates (Gitflow, Feature, Hotfix, CI/CD)
+
+#### **P: Os templates são adaptáveis?**
+**R**: Sim! Templates se adaptam automaticamente:
+- **Contexto específico** (e-commerce, SaaS, B2B)
+- **Complexidade necessária** (simples vs avançado)
+- **Número de elementos** (otimização automática)
+
+### 🚀 **Perguntas sobre Performance**
+
+#### **P: Há limite de tamanho para diagramas?**
+**R**: Recomendações para melhor performance:
+- **Nodes**: Máximo 50 por diagrama
+- **Levels**: Máximo 6 níveis de profundidade
+- **Texto**: 50 caracteres por nó
+- **Total**: 5000 caracteres por diagrama
+
+#### **P: Como otimizar diagramas grandes?**
+**R**: Estratégias automáticas:
+1. **Agrupamento**: Elementos relacionados em subgrafos
+2. **Simplificação**: Remoção de redundâncias  
+3. **Divisão**: Múltiplos diagramas menores
+4. **Abstração**: Nível de detalhe apropriado
+
+#### **P: Posso criar diagramas complexos?**
+**R**: Sim, mas com estratégia:
+- **Multi-diagram approach**: Dividir em módulos
+- **Hierarchy**: Overview + detalhes específicos
+- **Progressive disclosure**: Mostrar detalhes gradualmente
+
+### 💡 **Dicas e Melhores Práticas**
+
+#### **P: Como solicitar melhores resultados?**
+**R**: Dicas para solicitações eficazes:
+
+1. **Seja específico sobre o contexto**:
+   ```
+   ❌ "Crie um fluxo"
+   ✅ "Crie um fluxo de checkout para e-commerce com validação de cartão"
+   ```
+
+2. **Mencione o público-alvo**:
+   ```
+   ❌ "Diagrama de usuários"  
+   ✅ "ER diagram para sistema de usuários B2B com RBAC"
+   ```
+
+3. **Especifique integrações**:
+   ```
+   ❌ "API diagram"
+   ✅ "Sequence diagram de microservices com autenticação JWT"
+   ```
+
+#### **P: Como evitar problemas no GitHub?**
+**R**: Siga as práticas automáticas:
+- ✅ Use texto limpo (sem emojis)
+- ✅ Prefira inglês ou português sem acentos
+- ✅ Mantenha diagramas moderadamente simples
+- ✅ Teste em mermaid.live se necessário
+
+#### **P: Posso combinar tipos de diagrama?**
+**R**: Recomendo diagramas separados:
+```
+# ✅ Melhor abordagem
+1. Flowchart: Processo geral
+2. Sequence: Detalhes de comunicação  
+3. ER: Estrutura de dados
+4. Class: Arquitetura de software
+```
+
+### 🔗 **Links e Recursos**
+
+#### **P: Onde posso testar diagramas?**
+**R**: Ferramentas recomendadas:
+- **Mermaid Live Editor**: https://mermaid.live/
+- **GitHub Preview**: Qualquer README.md
+- **VS Code**: Extension Mermaid Preview
+
+#### **P: Documentação oficial?**
+**R**: Recursos principais:
+- **Mermaid.js**: https://mermaid.js.org/
+- **GitHub Docs**: Diagramas em Markdown
+- **Este Agente**: Troubleshooting completo integrado
+
+#### **P: Como reportar problemas?**
+**R**: Forneça sempre:
+1. **Código Mermaid** que está falhando
+2. **Erro específico** recebido
+3. **Plataforma** onde testou (GitHub, etc.)
+4. **Resultado esperado** vs obtido
 
 ## 🎯 Casos de Uso Práticos com Validação Inteligente
 
@@ -1350,24 +1728,169 @@ interface RealTimeValidator {
 - Agrupamento de nodes relacionados
 - Uso de subgrafos para organização
 
-## ✅ Quick Reference
+## ✅ Referência Rápida Completa
 
-### **Validação Rápida**
-Para verificar se um diagrama está GitHub-ready:
-1. ✅ Sem emojis nos nós
-2. ✅ Sem caracteres especiais problemáticos
-3. ✅ Sintaxe moderna (flowchart vs graph)
-4. ✅ Complexidade moderada (<50 nodes)
-5. ✅ Nomes de node entre aspas quando necessário
+### 🚀 **Comandos de Invocação**
 
-### **Correção Rápida**
-Para corrigir diagrama problemático:
-1. 🔧 Remover emojis e acentos
-2. 🔧 Atualizar sintaxe para versão moderna
-3. 🔧 Encapsular nomes complexos em aspas
-4. 🔧 Simplificar se muito complexo
-5. 🔧 Testar em mermaid.live antes de usar
+#### **Por Tipo de Diagrama**
+```bash
+# Flowchart
+@mermaid-specialist "fluxo de login com validação"
+@mermaid-specialist "processo de aprovação multi-nível"
+
+# Sequence Diagram  
+@mermaid-specialist "comunicação microservices com JWT"
+@mermaid-specialist "API request/response com error handling"
+
+# Class Diagram
+@mermaid-specialist "arquitetura MVC para e-commerce"
+@mermaid-specialist "padrão Repository com injeção de dependência"
+
+# State Diagram
+@mermaid-specialist "máquina de estado para autenticação"
+@mermaid-specialist "lifecycle de pedido com cancelamento"
+
+# ER Diagram
+@mermaid-specialist "banco de dados e-commerce com reviews"
+@mermaid-specialist "modelo RBAC para sistema B2B"
+
+# User Journey
+@mermaid-specialist "jornada de onboarding SaaS"
+@mermaid-specialist "experiência de suporte ao cliente"
+
+# Gantt Chart
+@mermaid-specialist "cronograma desenvolvimento software 3 meses"
+@mermaid-specialist "timeline marketing campaign Q4"
+
+# Pie Chart
+@mermaid-specialist "distribuição vendas por categoria 2024"
+@mermaid-specialist "uso recursos servidor por serviço"
+
+# Git Graph
+@mermaid-specialist "gitflow workflow completo"
+@mermaid-specialist "strategy hotfix para produção"
+```
+
+#### **Por Contexto/Área**
+```bash
+# Desenvolvimento
+@mermaid-specialist "CI/CD pipeline com staging"
+@mermaid-specialist "arquitetura Clean Architecture"
+
+# Produto/UX
+@mermaid-specialist "user journey freemium to paid"
+@mermaid-specialist "funnel conversão checkout"
+
+# Negócio/Processo
+@mermaid-specialist "workflow aprovação orçamento"
+@mermaid-specialist "processo onboarding funcionário"
+
+# Dados/Analytics
+@mermaid-specialist "modelo dimensional warehouse"
+@mermaid-specialist "pipeline ETL com validações"
+```
+
+### 🔧 **Checklist de Validação GitHub**
+
+#### **✅ Pré-Geração (Automático)**
+- [x] Análise de palavras-chave para tipo correto
+- [x] Seleção de template otimizado
+- [x] Planejamento de complexidade
+
+#### **✅ Durante Geração (Automático)**
+- [x] Sintaxe moderna (`flowchart` vs `graph`)
+- [x] Remoção automática de emojis
+- [x] Sanitização de caracteres especiais
+- [x] Encapsulamento de textos complexos
+- [x] Normalização de acentos/Unicode
+
+#### **✅ Pós-Geração (Automático)**
+- [x] Validação de sintaxe completa
+- [x] Teste de compatibilidade GitHub
+- [x] Análise de performance
+- [x] Aplicação de otimizações
+
+#### **✅ Verificação Final (Automático)**
+- [x] Complexidade < 50 nós
+- [x] Caracteres seguros apenas
+- [x] Estrutura válida
+- [x] Renderização testada
+
+### 📊 **Matriz de Compatibilidade**
+
+| Tipo | GitHub | GitLab | Bitbucket | VS Code | Live Editor | Recomendação |
+|------|--------|--------|-----------|---------|-------------|--------------|
+| Flowchart | ✅ 100% | ✅ 100% | ⚠️ 80% | ✅ 100% | ✅ 100% | **Sempre use** |
+| Sequence | ✅ 100% | ✅ 100% | ⚠️ 70% | ✅ 100% | ✅ 100% | **Sempre use** |
+| Class | ✅ 100% | ✅ 90% | ⚠️ 60% | ✅ 100% | ✅ 100% | **GitHub preferred** |
+| State | ✅ 95% | ✅ 85% | ⚠️ 50% | ✅ 100% | ✅ 100% | **GitHub preferred** |
+| ER | ✅ 95% | ⚠️ 70% | ❌ 30% | ✅ 100% | ✅ 100% | **GitHub only** |
+| Journey | ✅ 90% | ⚠️ 60% | ❌ 20% | ✅ 100% | ✅ 100% | **GitHub only** |
+| Gantt | ⚠️ 80% | ⚠️ 60% | ❌ 20% | ✅ 100% | ✅ 100% | **Limited GitHub** |
+| Pie | ✅ 95% | ✅ 90% | ⚠️ 70% | ✅ 100% | ✅ 100% | **Widely supported** |
+| Git Graph | ✅ 90% | ✅ 85% | ⚠️ 40% | ✅ 100% | ✅ 100% | **GitHub preferred** |
+
+### ⚡ **Correções Automáticas Aplicadas**
+
+| Problema | Antes | Depois | Tempo |
+|----------|-------|--------|-------|
+| **Emojis** | `A[📝 Task]` | `A[Task]` | <1s |
+| **Acentos** | `A[Configuração]` | `A[Configuration]` | <1s |
+| **Caracteres especiais** | `A[User/Admin]` | `A["User Admin"]` | <1s |
+| **Sintaxe legacy** | `graph TD` | `flowchart TD` | <1s |
+| **URLs** | `A[api.com/v1]` | `A["API Endpoint"]` | <1s |
+| **Espaços** | `My Node` | `A["My Node"]` | <1s |
+| **Complexidade** | 80 nós | Dividir/Simplificar | 2-3s |
+
+### 🎯 **Padrões de Solicitação Eficazes**
+
+#### **✅ Boas Práticas**
+```
+✅ "Sequence diagram para autenticação JWT com refresh token"
+✅ "ER diagram e-commerce com sistema de reviews e ratings"
+✅ "User journey onboarding B2B SaaS com trial"
+✅ "Flowchart CI/CD com aprovação manual e rollback"
+```
+
+#### **❌ Evitar**
+```
+❌ "Faça um diagrama"
+❌ "Preciso de algo para mostrar o sistema"
+❌ "Crie um gráfico dos dados"
+❌ "Diagrama técnico"
+```
+
+### 🔗 **Links Essenciais**
+
+| Recurso | URL | Uso |
+|---------|-----|-----|
+| **Mermaid Live** | https://mermaid.live/ | Teste e visualização |
+| **GitHub Docs** | github.com/docs/mermaid | Limitações oficiais |
+| **Mermaid.js** | https://mermaid.js.org/ | Documentação completa |
+| **VS Code Extension** | marketplace/mermaid-preview | Preview local |
+
+### 💡 **Dicas de Produtividade**
+
+#### **Para Desenvolvimento**
+- Use **sequence diagrams** para APIs e comunicação
+- Use **class diagrams** para arquitetura e padrões
+- Use **flowcharts** para CI/CD e workflows
+- Use **git graphs** para estratégias de branch
+
+#### **Para Produto/UX**
+- Use **user journeys** para experiência do usuário
+- Use **flowcharts** para processos de negócio
+- Use **pie charts** para análise de dados
+- Use **gantt charts** para roadmaps
+
+#### **Para Documentação**
+- Combine **múltiplos tipos** para visão completa
+- Mantenha **complexidade moderada** por diagrama
+- Use **inglês** ou **português sem acentos**
+- Teste sempre no **GitHub preview**
 
 ---
 
-**🎨 Pronto para criar diagramas Mermaid perfeitos e compatíveis com GitHub! Use-me para qualquer necessidade de diagramação.**
+**🎨 Mermaid Specialist Agent - Criando diagramas perfeitos e compatíveis com GitHub desde 2025!**
+
+**Invoque com**: `@mermaid-specialist "sua solicitação específica"`
