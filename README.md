@@ -1,7 +1,9 @@
 # 🧅 Sistema Onion
 
 [![Comandos](https://img.shields.io/badge/Comandos-26-blue)](docs/onion/commands-guide.md)
-[![Agentes](https://img.shields.io/badge/Agentes-13-green)](docs/onion/agents-reference.md)
+
+[![Agentes](https://img.shields.io/badge/Agentes-15-green)](docs/onion/agents-reference.md)
+
 [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](docs/onion/clickup-integration.md)
 
 ## 🎯 Visão Geral

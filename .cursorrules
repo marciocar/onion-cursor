@@ -1,0 +1,69 @@
+# 🧅 Sistema Onion - Cursor Rules
+
+## 🎯 Contexto do Projeto
+Este é o Sistema Onion - um framework avançado de comandos `.cursor/` com:
+- 26 comandos organizados por categoria
+- 14 agentes especializados de IA  
+- Integração completa com ClickUp MCP
+- Workflows automatizados de desenvolvimento
+
+## 📝 Diretrizes de Linguagem
+- **Comentários e documentação**: Português brasileiro (pt-BR)
+- **Código, variáveis, funções**: Inglês 
+- **Commits**: Português brasileiro
+- **Logs e debugging**: Inglês
+
+## 🛠️ Padrões Técnicos
+
+### Estrutura de Arquivos
+- Comandos: `.cursor/commands/` organizados por categoria
+- Agentes: `.cursor/agents/` com YAML header + Markdown
+- Sessões: `.cursor/sessions/<feature>/` para contexto de desenvolvimento
+
+### Padrões de Código
+- Siga convenções estabelecidas de cada linguagem/framework
+- Priorize legibilidade e manutenibilidade
+- Use type hints quando disponível
+- Documente funções complexas
+
+### Agentes Especializados
+- Use `@agente-nome` para invocar agentes específicos
+- Prefira agentes especializados para tarefas específicas
+- `@product-agent` para gestão de produto e ClickUp (estratégico)
+- `@clickup-specialist` para otimizações técnicas do ClickUp MCP
+- `@cursor-specialist` para problemas de IDE e configuração
+- `@python-developer` / `@react-developer` para desenvolvimento
+- `@code-reviewer` para review de código
+- `@test-engineer` para testes
+
+## ⚡ Performance e Produtividade
+- Minimize archivos irrelevantes com `.cursorignore`
+- Use configurações otimizadas de context window
+- Prefira chunks menores para melhor performance
+- Configure API keys apropriadas para models
+
+## 🔗 Integração ClickUp
+- Sempre mantenha tasks sincronizadas
+- Use tags apropriadas para organização
+- Atualize progresso em tempo real
+- Comente mudanças importantes nas tasks
+
+## 📚 Documentação
+- Mantenha documentação sincronizada em `docs/onion/`
+- Use exemplos práticos e casos de uso reais
+- Estruture informação para consumo por IA
+- Inclua troubleshooting para problemas comuns
+
+## 🧪 Testes e Qualidade
+- Inclua testes para funcionalidades críticas
+- Valide mudanças arquiteturais com `@metaspec-gate-keeper`
+- Use linting e formatting automático
+- Mantenha cobertura de testes adequada
+
+## 🚀 Deployment
+- Siga fluxos `/engineer/*` para desenvolvimento
+- Use feature branches para mudanças
+- Mantenha commits atômicos e descritivos
+- Documente breaking changes
+
+Lembre-se: O Sistema Onion é sobre **eficiência**, **qualidade** e **automação inteligente**. Use os agentes e comandos para maximizar produtividade!

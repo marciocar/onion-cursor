@@ -284,6 +284,74 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 - ✅ Adiciona comentários contextuais
 - ✅ Gerencia tags e prioridades
 
+### **clickup-specialist**
+**Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Orange
+
+**Especialidades**: ClickUp MCP técnico, automações avançadas, performance, workflows
+
+**Quando usar**:
+- ✅ Otimizações técnicas do ClickUp (bulk operations, rate limiting)
+- ✅ Automações de workflow complexas (triggers, status changes)
+- ✅ Performance optimization (batching, caching, query optimization)
+- ✅ Configurações avançadas (webhooks, custom fields, templates)
+- ✅ Time tracking automation e análise de produtividade
+- ✅ Integração com comandos `/engineer/*` para automação
+
+**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `web_search`, **todas as 15+ ferramentas ClickUp MCP**
+
+**Exemplo de uso**:
+```bash
+# Automações de workflow
+@clickup-specialist "Configurar automação: task 'in progress' → start time tracking + add tag 'development'"
+
+# Operações em bulk
+@clickup-specialist "Criar 20 tasks em lote com template feature e assignees automáticos"
+
+# Performance optimization  
+@clickup-specialist "Otimizar queries ClickUp usando filtros server-side e batching"
+```
+
+**Características únicas**:
+- 🚀 **Complementa product-agent**: Técnico vs Estratégico
+- ⚡ **Performance first**: Bulk operations, rate limiting, query optimization
+- 🔧 **Automação avançada**: Workflows inteligentes, triggers, status automation
+- 📊 **15+ ferramentas ClickUp MCP**: Cobertura completa da API ClickUp
+- 🎯 **7 especialidades técnicas**: workflow-automation, performance-optimization, webhooks
+
+### **cursor-specialist**
+**Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Light Blue
+
+**Especialidades**: Otimização Cursor IDE, configuração workspace, troubleshooting, produtividade
+
+**Quando usar**:
+- ✅ Resolver problemas de performance do Cursor IDE
+- ✅ Configurar ambiente para novos projetos
+- ✅ Otimizar settings para workflows específicos
+- ✅ Troubleshoot extension conflicts ou API connectivity
+- ✅ Criar `.cursorrules` e `.cursorignore` templates
+- ✅ Setup automation para comandos `/engineer/*`
+
+**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `list_dir`, `glob_file_search`, `web_search`, `read_lints`, `todo_write`
+
+**Exemplo de uso**:
+```bash
+# Configuração de projeto novo
+@cursor-specialist "Setup otimizado para projeto React TypeScript com foco em AI development"
+
+# Troubleshooting
+@cursor-specialist "Resolver erro 'HTTP/2 blocked by proxy' e otimizar connectivity"
+
+# Performance Issues
+@cursor-specialist "Cursor está lento, analisar memory usage e otimizar configurations"
+```
+
+**Características únicas**:
+- 🎯 **7 especialidades técnicas**: configuration, workspace, extensions, API, performance, productivity, troubleshooting
+- 🚀 **Integração automática**: Chamado automaticamente por outros agentes quando há problemas de IDE
+- 🔧 **Criação de artefatos**: `.cursorrules`, `.cursorignore`, workspace settings otimizados
+- ⚡ **Performance focus**: Memory optimization, startup time, context caching
+- 🔗 **Delegation automática**: Integração com comandos `/engineer/*` para setup de ambiente
+
 ---
 
 ## ⚙️ Como Escolher o Agente Certo
