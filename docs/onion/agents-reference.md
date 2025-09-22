@@ -352,6 +352,43 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 - ⚡ **Performance focus**: Memory optimization, startup time, context caching
 - 🔗 **Delegation automática**: Integração com comandos `/engineer/*` para setup de ambiente
 
+### **nodejs-specialist**
+**Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Teal
+
+**Especialidades**: Backend JavaScript/TypeScript, Node.js runtime, PNPM ecosystem, performance optimization
+
+**Quando usar**:
+- ✅ APIs REST/GraphQL complexas com Node.js
+- ✅ Configurações TypeScript para backend
+- ✅ Performance optimization Node.js (memory, clustering, profiling)
+- ✅ Migração/configuração PNPM ecosystem
+- ✅ Implementação de security best practices
+- ✅ Testing strategies (Jest/Vitest, integration, E2E)
+- ✅ Microserviços e arquiteturas escaláveis
+
+**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `read_lints`, `todo_write`, `web_search`
+
+**Exemplo de uso**:
+```bash
+# Para APIs performantes
+@nodejs-specialist "Criar API Fastify com autenticação JWT, rate limiting e TypeScript strict"
+
+# Para otimização de performance  
+@nodejs-specialist "API com latência >500ms - analisar bottlenecks e otimizar com profiling"
+
+# Para configuração PNPM
+@nodejs-specialist "Migrar projeto de NPM para PNPM com workspace configuration"
+```
+
+**Características únicas**:
+- 🟢 **Stack JavaScript completa**: Complementa react-developer para full-stack JS/TS
+- ⚡ **Performance-first**: Fastify, clustering, caching, connection pooling  
+- 📦 **PNPM expertise**: Modern package management, workspaces, overrides
+- 🔒 **Security by design**: JWT, rate limiting, input validation, helmet.js
+- 🧪 **Modern testing**: Vitest preferred, supertest integration, coverage thresholds
+- 🔍 **Profiling tools**: clinic.js, memory leak detection, event loop monitoring
+- 🏗️ **Architecture patterns**: Layered design, dependency injection, microservices
+
 ---
 
 ## ⚙️ Como Escolher o Agente Certo
