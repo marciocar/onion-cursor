@@ -42,6 +42,19 @@ Este é o Sistema Onion - um framework avançado de comandos `.cursor/` com:
 - Prefira chunks menores para melhor performance
 - Configure API keys apropriadas para models
 
+## 🎨 Formatação ClickUp MCP - Estratégia Dual
+### **📋 Task Descriptions (markdown_description):**
+- **USE:** Markdown nativo: `## Headers`, `| Tabelas |`, `**Bold**`, `- Listas`
+- **QUANDO:** create_task, update_task descriptions
+- **TEMPLATES:** `.cursor/utils/clickup-formatting.md` - seção DESCRIPTIONS
+
+### **💬 Task Comments (commentText):**
+- **USE:** Formatação visual Unicode: `━━━`, `∟`, `▶`, `◆`, `✅`
+- **QUANDO:** create_task_comment, progress updates, PR comments
+- **TEMPLATES:** `.cursor/utils/clickup-formatting.md` - seção COMMENTS
+- **OBRIGATÓRIO:** Timestamp + status em todos os comments
+- **ESTRUTURA:** Header + separador + conteúdo + footer
+
 ## 🔗 Integração ClickUp
 - Sempre mantenha tasks sincronizadas
 - Use tags apropriadas para organização
