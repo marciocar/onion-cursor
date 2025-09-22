@@ -68,6 +68,44 @@ Se o humano concordar com seu entendimento, você pode prosseguir para o próxim
 
 Uma vez que o architecture.md esteja finalizado, informe ao humano que você está pronto para prosseguir para o próximo passo.
 
+## 🔄 **Auto-Update ClickUp**
+
+Este comando **automaticamente atualiza** a task ClickUp quando inicia:
+
+### **✅ Updates Automáticos SEMPRE:**
+- **Status → "In Progress"** quando sessão tem task-id válido
+- **Comentário de início** com detalhes da arquitetura e plano
+- **Tag 'in-development'** para tracking de progresso
+- **Atualização do context.md** com informações arquiteturais
+
+### **💬 Formato do Comentário Automático:**
+```
+🚀 DESENVOLVIMENTO INICIADO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🏗️ SESSÃO ATIVADA:
+   ▶ Branch: feature/[slug]
+   ▶ Sessão: .cursor/sessions/[slug]/
+   ▶ Arquitetura: Definida e validada
+
+📋 PLANO DE IMPLEMENTAÇÃO:
+   ∟ Fase 1: [Descrição]
+   ∟ Fase 2: [Descrição]
+   ∟ Fase N: [Descrição]
+
+🎯 STACK TECNOLÓGICO:
+   ∟ [Tecnologias definidas na arquitetura]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏰ Iniciado: [TIMESTAMP] | 🎯 Próximo: Implementar Fase 1
+```
+
+### **📋 Identificação da Task:**
+1. **Context.md**: Lê task-id do arquivo `.cursor/sessions/[slug]/context.md`
+2. **Não encontrada**: Pergunta ao usuário se deve vincular a uma task específica
+
 ## Pesquisa
 
 Se você não tem certeza de como uma biblioteca específica funciona, você pode usar Context7 e Perplexity para buscar informações sobre ela. Então, não tente adivinhar.

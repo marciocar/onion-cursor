@@ -223,6 +223,58 @@ O sistema irá:
 
 ---
 
+## 🔄 **Auto-Update ClickUp**
+
+Este comando **automaticamente atualiza** a task ClickUp quando executa:
+
+### **✅ Updates Automáticos SEMPRE:**
+- **Comentário de validação** com análise estratégica detalhada usando formatação Unicode
+- **Tag 'validated'** após análise completa
+- **Tag 'needs-refinement'** se requisitos precisam ser melhorados
+- **Atualização do notes.md** da sessão com insights e decisões
+
+### **⚠️ Confirmação Necessária PARA:**
+- **Mudança de prioridade** baseada na análise de valor/complexidade
+- **Alteração de timeline** se análise revela maior complexidade
+- **Quebra em subtasks** se escopo for muito amplo
+- **Mudança de assignee** se requer skills específicos não disponíveis
+
+### **📋 Identificação da Task:**
+1. **Sessão ativa**: Usa task-id do arquivo `.cursor/sessions/*/context.md`
+2. **Argumento fornecido**: Usa task-id passado pelo usuário
+3. **Não identificada**: Pergunta ao usuário qual task validar
+
+### **💬 Formato do Comentário Automático:**
+```
+📊 VALIDAÇÃO ESTRATÉGICA
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 ANÁLISE EXECUTIVA:
+   ∟ Viabilidade: [X]/10
+   ∟ Alinhamento: [Y]/10
+   ∟ Complexidade: [BAIXA/MÉDIA/ALTA]
+   ∟ Valor de Negócio: [Z]/10
+
+✅ PONTOS FORTES:
+   ∟ [Lista dos aspectos bem definidos]
+
+⚠️ RISCOS IDENTIFICADOS:
+   ∟ [Lista dos riscos técnicos/negócio]
+
+💡 RECOMENDAÇÕES:
+   ∟ [Ações específicas para melhorar a task]
+
+🚀 STATUS VALIDAÇÃO:
+   ∟ [APROVADA/REQUER_AJUSTES/NÃO_RECOMENDADA]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏰ Validado: [TIMESTAMP] | 🤖 Sistema de Validação Onion
+```
+
+---
+
 **Agora proceda com a validação da task fornecida:**
 
 <task_id>
