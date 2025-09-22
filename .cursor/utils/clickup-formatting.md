@@ -74,7 +74,7 @@ Use sempre nos comentários/atividades para garantir formatação consistente:
 ```
 🔄 STATUS UPDATE: [TITLE]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ✅ COMPLETED:
    ∟ [ITEM_1]
@@ -88,7 +88,7 @@ Use sempre nos comentários/atividades para garantir formatação consistente:
    ◦ [NEXT_TASK_1]
    ◦ [NEXT_TASK_2]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Updated: [TIMESTAMP] | 🎯 Status: [CURRENT_STATUS]
 ```
@@ -97,7 +97,7 @@ Use sempre nos comentários/atividades para garantir formatação consistente:
 ```
 🚀 PULL REQUEST CREATED
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 📋 CHANGES IMPLEMENTED:
    ∟ [CHANGE_1]
@@ -115,7 +115,7 @@ Use sempre nos comentários/atividades para garantir formatação consistente:
    ◆ Documentation updated
    ◆ Task status updated
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Created: [TIMESTAMP] | 🎯 Next: Code review and approval
 ```

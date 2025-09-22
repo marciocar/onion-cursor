@@ -41,7 +41,7 @@ create_task_comment({
   taskId: taskId,
   commentText: `🔍 VERIFICAÇÃO DE IMPLEMENTAÇÃO
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 📊 RESULTADO DA VERIFICAÇÃO:
    ∟ Status: ${verificationStatus}
@@ -54,7 +54,7 @@ create_task_comment({
 ⚠️ PENDENTE:
    ∟ ${pendingItems.join('\n   ∟ ')}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Verificado: ${timestamp} | 🎯 Próximo: ${nextAction}`
 })
@@ -79,7 +79,7 @@ create_task_comment({
   taskId: taskId,
   commentText: `📊 VALIDAÇÃO ESTRATÉGICA
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 🎯 ANÁLISE EXECUTIVA:
    ∟ Viabilidade: ${viabilityScore}/10
@@ -95,7 +95,7 @@ create_task_comment({
 💡 RECOMENDAÇÕES:
    ∟ ${recommendations.join('\n   ∟ ')}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Validado: ${timestamp} | 🎯 Status: ${validationResult}`
 })
@@ -121,7 +121,7 @@ create_task_comment({
   taskId: sessionTaskId,
   commentText: `🔧 PROGRESSO DE DESENVOLVIMENTO
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 📋 FASE COMPLETADA:
    ▶ ${completedPhase}
@@ -132,7 +132,7 @@ create_task_comment({
    ▶ ${nextPhase}
    ▶ Estimativa: ${nextPhaseEstimate}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Atualização: ${timestamp}`
 })
@@ -151,7 +151,7 @@ create_task_comment({
   taskId: sessionTaskId,
   commentText: `🚀 DESENVOLVIMENTO INICIADO
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 🏗️ SESSÃO ATIVADA:
    ▶ Branch: ${featureBranch}
@@ -161,7 +161,7 @@ create_task_comment({
 📋 PLANO DE IMPLEMENTAÇÃO:
    ∟ ${phases.join('\n   ∟ ')}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Iniciado: ${timestamp} | 🎯 Próximo: Implementar Fase 1`
 })

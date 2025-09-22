@@ -11,7 +11,7 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
 ```
 🚀 PULL REQUEST CREATED
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 📋 CHANGES IMPLEMENTED:
    ∟ [DESCREVER_MUDANÇAS_PRINCIPAIS]
@@ -30,7 +30,7 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
    ◆ Task moved to "in progress"
    ◆ Tag "under-review" added
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Created: [TIMESTAMP] | 🎯 Next: Code review and merge approval
 ``` 

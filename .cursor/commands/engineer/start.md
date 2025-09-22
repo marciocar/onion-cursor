@@ -82,7 +82,7 @@ Este comando **automaticamente atualiza** a task ClickUp quando inicia:
 ```
 🚀 DESENVOLVIMENTO INICIADO
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 🏗️ SESSÃO ATIVADA:
    ▶ Branch: feature/[slug]
@@ -97,7 +97,7 @@ Este comando **automaticamente atualiza** a task ClickUp quando inicia:
 🎯 STACK TECNOLÓGICO:
    ∟ [Tecnologias definidas na arquitetura]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Iniciado: [TIMESTAMP] | 🎯 Próximo: Implementar Fase 1
 ```
