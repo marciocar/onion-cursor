@@ -116,7 +116,7 @@ flowchart LR
 ```
 🔄 SINCRONIZAÇÃO COMPLETA
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ✅ GIT OPERATIONS:
    ▶ Switched to: develop
@@ -131,7 +131,7 @@ flowchart LR
 📁 SESSION STATUS:
    ▶ Session archived: .cursor/sessions/archived/2025-09-22_my-feature/
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━
 
 ⏰ Completed: 22/09/2025 16:30 | 🎯 Ready for next task
 ```
@@ -188,7 +188,7 @@ Preservadas:     feature, bug, improvement, research
 
 ### **Formato de Comentários:**
 - **Header**: `✅ TASK CONCLUÍDA - SYNC COMPLETED`
-- **Separador**: `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
+- **Separador**: `━━━━━━━━━━━━━━━━━━━━━━━━`
 - **Seções**: Git Operations, Development Status, Final Status
 - **Footer**: `⏰ Timestamp | 🤖 Sistema Onion Sync`
 
