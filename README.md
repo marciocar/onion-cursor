@@ -1,12 +1,12 @@
 # 🧅 Sistema Onion
 
-[![Comandos](https://img.shields.io/badge/Comandos-26-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-17-green)](docs/onion/agents-reference.md) [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](docs/onion/clickup-integration.md)
+[![Comandos](https://img.shields.io/badge/Comandos-28-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-17-green)](docs/onion/agents-reference.md) [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](docs/onion/clickup-integration.md)
 
 ## 🎯 Visão Geral
 
 Bem-vindo ao **Sistema Onion**! Framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **26 comandos especializados** organizados por categoria
+- 🤖 **28 comandos especializados** organizados por categoria
 - 🎯 **17 agentes de IA especializados** para tarefas específicas  
 - 🔗 **Integração completa com ClickUp MCP** para gestão automática de projetos
 - ⚡ **Workflows automatizados** do planejamento ao deploy
@@ -30,11 +30,12 @@ Documentação completa disponível em [`docs/onion/`](docs/onion/) para dominar
 ## 🎯 Navegação Rápida
 
 ### 📂 Por Categoria de Comando
-- **🔧 Engenharia**: `engineer/start`, `engineer/pr`, `engineer/work`, `engineer/pre-pr`, `engineer/plan`, `engineer/docs`
-- **📋 Produto**: `product/task`, `product/collect`, `product/refine`, `product/light-arch`, `product/spec`  
-- **📚 Documentação**: `docs/build-tech-docs`, `docs/build-business-docs`
+- **🔧 Engenharia**: `engineer/start`, `engineer/work`, `engineer/pr`, `engineer/pre-pr`, `engineer/plan`, `engineer/docs`
+- **📋 Produto**: `product/task`, `product/spec`, `product/collect`, `product/refine`, `product/light-arch`, `product/task-check`  
+- **📚 Documentação**: `docs/build-tech-docs`, `docs/build-business-docs`, `docs/build-index`
 - **🌿 Git**: `git/sync`
-- **⚙️ Meta**: `meta/create-agent`, `meta/all-tools`
+- **⚙️ Meta**: `meta/all-tools`, `meta/create-agent`
+- **🚀 Utilitários**: `warm-up`, `engineer/warm-up`, `product/warm-up`
 
 ### 🔄 Por Fluxo de Trabalho
 1. **Planejamento** → `/product/task` → `/product/spec`
