@@ -1,7 +1,11 @@
 ---
 name: branch-metaspec-checker
-description: Verifica o trabalho do branch atual contra as meta specs do projeto para garantir que esteja alinhado com elas.
-tools: Read, Write, Edit, MultiEdit, Glob, Grep, LS, Bash
+description: Especialista em verificação de conformidade que valida o trabalho do branch atual contra metaspecs do projeto para garantir alinhamento arquitetural.
+model: sonnet
+tools: read_file, codebase_search, grep, MultiEdit, todo_write, web_search, list_dir
+color: red
+priority: alta
+expertise: ["metaspec-validation", "branch-compliance", "architecture-alignment", "pre-merge-checking"]
 ---
 
 # Pré-PR

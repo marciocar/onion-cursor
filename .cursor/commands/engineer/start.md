@@ -7,13 +7,13 @@ Este é o comando para iniciar o desenvolvimento de uma funcionalidade.
 - Se não estivermos em uma feature branch, peça permissão para criar uma
 - Se estivermos em uma feature branch que corresponde ao nome da funcionalidade, estamos prontos.
 - Certifique-se de que existe uma pasta .cursor/sessions/<feature_slug>
-- Peça ao usuário o input para esta sessão (você receberá um ou mais cards do Linear para trabalhar)
+- Peça ao usuário o input para esta sessão (você receberá um ou mais tasks do ClickUp para trabalhar)
 
 ## Análise
 
-Analise os cards, pais e filhos se necessário, e construa um entendimento inicial do que precisa ser desenvolvido. Pense cuidadosamente sobre o que é solicitado, certifique-se de entender exatamente:
+Analise as tasks, pais e filhos se necessário, e construa um entendimento inicial do que precisa ser desenvolvido. Pense cuidadosamente sobre o que é solicitado, certifique-se de entender exatamente:
     - Por que isso está sendo construído (contexto)
-    - Qual é o resultado esperado para esta issue? (objetivo)
+    - Qual é o resultado esperado para esta task? (objetivo)
     - Como deve ser construído, apenas direcionalmente, não em detalhes (abordagem)
     - Se requer o uso de novas APIs/ferramentas, você as entende?
     - Como deve ser testado?
@@ -30,7 +30,7 @@ Se o humano concordar com seu entendimento, você pode prosseguir para o próxim
 
 Se algo que você discutiu aqui afeta o que foi escrito nos requisitos, peça permissão ao humano para editar esses requisitos e fazer ajustes seja editando (mudanças estruturais) ou adicionando comentários (clarificações).
 
-Se o requisito estiver em um card do Linear, edite o card do Linear.
+Se o requisito estiver em um card do ClickUp, edite o card do ClickUp.
 Se o requisito for de um arquivo de texto, edite o arquivo de texto.
 
 ## Arquitetura

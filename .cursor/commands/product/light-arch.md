@@ -7,7 +7,7 @@ Este é o comando para disparar o início do design de arquitetura para uma func
 
 1. Passe pelos cards, pais e filhos se necessário, e construa um entendimento inicial do que precisa ser construído. Pense cuidadosamente sobre o que é solicitado, certifique-se de que entende exatamente:
     - Por que isso está sendo construído (contexto)
-    - Qual é o resultado esperado para esta issue? (objetivo)
+    - Qual é o resultado esperado para esta task? (objetivo)
     - Como deve ser construído, apenas direcionalmente, não em detalhes (abordagem)
     - Se requer usar novas APIs/ferramentas, você as entende?
     - Como deve ser testado?
@@ -24,7 +24,7 @@ Este é o comando para disparar o início do design de arquitetura para uma func
 
 6. Se o humano concordar com seu entendimento, você pode proceder para o próximo passo. Caso contrário, continue iterando juntos até obter aprovação explícita para prosseguir.
 
-7. Se algo que vocês discutiram aqui afeta o que foi escrito nos requisitos, peça permissão ao humano para editar esses requisitos e fazer ajustes seja editando (mudanças estruturais) ou adicionando comentários (esclarecimentos). Se o requisito está em um card do Linear, edite o card do linear.
+7. Se algo que vocês discutiram aqui afeta o que foi escrito nos requisitos, peça permissão ao humano para editar esses requisitos e fazer ajustes seja editando (mudanças estruturais) ou adicionando comentários (esclarecimentos). Se o requisito está em um card do ClickUp, edite o card do ClickUp.
 
 8. Não proceda para o próximo passo a menos que o humano tenha claramente dado o sinal verde nesta fase.
 
@@ -62,7 +62,7 @@ Se ajudar a construir um diagrama MERMAID, sinta-se livre para fazê-lo.
 
 5. Uma vez que tenha um bom entendimento do que está sendo construído, mostre ao usuário na forma de um artefato e aguarde sua aprovação. Iterate juntos até estar pronto. PAUSE para aguardar a aprovação do humano.
 
-6. Quando o humano concordar com seu entendimento, você pode proceder ao próximo passo, salvando os detalhes da arquitetura no card do linear como um comentário ao card original.
+6. Quando o humano concordar com seu entendimento, você pode proceder ao próximo passo, salvando os detalhes da arquitetura no card do ClickUp como um comentário ao card original.
 
 ## Pesquisa
 

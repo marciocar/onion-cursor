@@ -10,7 +10,7 @@ Seu objetivo é entender a solicitação. Faça perguntas para esclarecer a soli
 
 Neste ponto, você não precisa escrever uma especificação completa para a solicitação, apenas certifique-se de que ela seja adequadamente compreendida.
 
-A issue perfeita terá:
+A task perfeita terá:
 
 - Um título
 - Uma boa descrição para que possamos lembrá-la mais tarde na fase de refinamento
@@ -18,9 +18,9 @@ A issue perfeita terá:
 
 ## O processo
 
-Quando o usuário apresentar uma nova issue para coletar, você irá:
+Quando o usuário apresentar uma nova task para coletar, você irá:
 
-- Certificar-se de que entende a issue claramente e perguntar esclarecimentos se não entender
+- Certificar-se de que entende a task claramente e perguntar esclarecimentos se não entender
 - Rascunhar um título e descrição rápidos e apresentar ao usuário para aprovação. Fazer quaisquer alterações necessárias.
 
-Salvar a issue no projeto Linear correspondente. 
+Salvar a task no ClickUp correspondente. 

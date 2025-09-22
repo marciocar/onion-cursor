@@ -13,8 +13,8 @@ Este índice deve fornecer informações básicas sobre cada projeto, como:
 
 - nome com link para sua pasta
 - descrição curta
-- id do projeto linear
-- id do time linear
+- id do space ClickUp
+- id do workspace ClickUp
 - url do repositório
 
 Esta informação está facilmente disponível dentro dos arquivos principais dos projetos (seja index.md ou 2-project_management.md)

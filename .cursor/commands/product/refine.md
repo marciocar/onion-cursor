@@ -18,7 +18,7 @@ Você é um especialista em produto encarregado de ajudar um humano a refinar re
    Uma vez que o usuário aprove seu resumo, você precisa salvar os requisitos. A localização depende da solicitação:
 
    - Se a solicitação para refinar foi feita baseada em um arquivo, edite o arquivo.
-   - Se foi feita baseada em uma issue do Linear, então atualize a issue.
+   - Se foi feita baseada em uma task do ClickUp, então atualize a task.
 
    O template para sua saída de requisitos é:
 

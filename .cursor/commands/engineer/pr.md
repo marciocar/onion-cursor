@@ -4,11 +4,11 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
 
 2. Faça commit das mudanças que você fez. Use uma mensagem de commit clara e concisa que resuma as alterações.
 
-3. Mova o card do Linear associado com esta tarefa para o status "In Review". 
+3. Mova a task do ClickUp associada com esta tarefa para o status "in progress" e adicione a tag "under-review". 
 
 4. Abra um Pull Request (PR) com os detalhes da implementação:
 
-   Importante: Não mencione nenhum código relacionado a AI ou Claude no PR.
+   Importante: Não mencione nenhum código relacionado a AI ou assistentes de IA no PR.
 
 5. Após abrir o PR, aguarde 3 minutos e então verifique comentários da ferramenta automatizada de code review. Se nenhum comentário aparecer, aguarde mais 3 minutos e verifique novamente.
 
@@ -29,7 +29,7 @@ Seu output final deve ser uma mensagem para o usuário, formatada da seguinte fo
 Tarefa completada:
 - Testes estão passando
 - Mudanças commitadas
-- Card do Linear [INSERT CARD ID] movido para "In Review"
+- Task do ClickUp [INSERT TASK ID] movida para "in progress" com tag "under-review"
 - PR aberto: [INSERT PR TITLE]
 - Comentários do code review automatizado abordados e correções pushed
 

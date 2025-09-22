@@ -1,6 +1,6 @@
 # Prompts de Geração de Documentação
 
-Este diretório contém prompts abrangentes projetados para guiar o Claude Code na geração automática de arquiteturas completas de documentação para projetos. Estes prompts fazem engenharia reversa da estrutura de documentação multi-arquivo que desenvolvemos.
+Este diretório contém prompts abrangentes projetados para guiar o Cursor na geração automática de arquiteturas completas de documentação para projetos. Estes prompts fazem engenharia reversa da estrutura de documentação multi-arquivo que desenvolvemos.
 
 ## Prompts Disponíveis
 
@@ -38,14 +38,14 @@ Este diretório contém prompts abrangentes projetados para guiar o Claude Code 
 ### Geração de Documentação Técnica
 ```bash
 # Para um projeto Python
-claude-code --prompt @prompts/technical.md \
+cursor --prompt .cursor/commands/common/prompts/technical.md \
   --project-path ./my-python-project \
   --output-path ./my-python-project/docs/technical \
   --technology-stack "Python, FastAPI, PostgreSQL" \
   --focus-areas "performance,security"
 
 # Para uma aplicação React  
-claude-code --prompt @prompts/technical.md \
+cursor --prompt .cursor/commands/common/prompts/technical.md \
   --project-path ./my-react-app \
   --output-path ./docs/technical \
   --existing-docs ./current-docs \
@@ -55,7 +55,7 @@ claude-code --prompt @prompts/technical.md \
 ### Geração de Documentação de Negócio
 ```bash
 # Para um produto SaaS
-claude-code --prompt @prompts/business.md \
+cursor --prompt .cursor/commands/common/prompts/business.md \
   --project-path ./my-saas-product \
   --output-path ./docs/business \
   --business-model "B2B SaaS" \
@@ -63,20 +63,20 @@ claude-code --prompt @prompts/business.md \
   --competitive-analysis "Competitor1,Competitor2"
 
 # For an open source project
-claude-code --prompt @prompts/business.md \
+cursor --prompt .cursor/commands/common/prompts/business.md \
   --project-path ./my-oss-project \
   --output-path ./specs/business \
   --business-model "Open Source" \
   --customer-research ./community-feedback.md
 ```
 
-## Prompt Architecture
+## Arquitetura de Prompts
 
-Both prompts follow a systematic approach:
+Ambos os prompts seguem uma abordagem sistemática:
 
-1. **Analysis Phase**: Deep understanding of the project/product
-2. **Research Phase**: Gathering context from multiple sources
-3. **Generation Phase**: Creating the multi-file documentation structure
+1. **Fase de Análise**: Compreensão profunda do projeto/produto
+2. **Fase de Pesquisa**: Coleta de contexto de múltiplas fontes
+3. **Fase de Geração**: Criação da estrutura de documentação multi-arquivo
 4. **Garantia de Qualidade**: Garantindo precisão e otimização para IA
 
 ## Funcionalidades Principais
@@ -97,7 +97,7 @@ Both prompts follow a systematic approach:
 - Valida afirmações com código, configurações e feedback
 
 ### 🔄 **Integração com Templates**
-- Referencia os templates abrangentes em `@common/templates/`
+- Referencia os templates abrangentes em `.cursor/commands/common/templates/`
 - Garante consistência entre diferentes projetos
 - Segue melhores práticas estabelecidas
 
@@ -127,7 +127,7 @@ Os prompts são projetados para serem flexíveis e podem ser adaptados para:
 - Ferramentas de desenvolvedor
 - Software empresarial
 
-### Business Models
+### Modelos de Negócio
 - B2B SaaS
 - B2C applications
 - Open source projects
@@ -135,41 +135,41 @@ Os prompts são projetados para serem flexíveis e podem ser adaptados para:
 - Marketplace platforms
 - Developer tools
 
-### Company Stages
+### Estágios da Empresa
 - Early stage / startup
 - Growth stage
 - Enterprise / mature
 
-## Integration with Templates
+## Integração com Templates
 
-These prompts work in conjunction with:
-- `@common/templates/technical_context_template.md`
-- `@common/templates/business_context_template.md`
+Estes prompts funcionam em conjunto com:
+- `.cursor/commands/common/templates/technical_context_template.md`
+- `.cursor/commands/common/templates/business_context_template.md`
 
-The templates provide the structure and frameworks, while these prompts provide the analysis methodology and execution strategy.
+Os templates fornecem a estrutura e frameworks, enquanto estes prompts fornecem a metodologia de análise e estratégia de execução.
 
-## Expected Outcomes
+## Resultados Esperados
 
-Using these prompts should result in:
+O uso destes prompts deve resultar em:
 
-### For Development Teams
-- Faster onboarding of new team members
-- Better AI-assisted development experience
-- Consistent technical decision-making
-- Improved code review efficiency
+### Para Equipes de Desenvolvimento
+- Onboarding mais rápido de novos membros da equipe
+- Melhor experiência de desenvolvimento assistido por IA
+- Tomada de decisões técnicas consistentes
+- Eficiência aprimorada na revisão de código
 
-### For Business Teams  
-- Enhanced AI customer support capabilities
-- Aligned sales and marketing messaging
-- Data-driven product decisions
-- Comprehensive competitive intelligence
+### Para Equipes de Negócio  
+- Capacidades aprimoradas de suporte ao cliente com IA
+- Mensagens alinhadas de vendas e marketing
+- Decisões de produto baseadas em dados
+- Inteligência competitiva abrangente
 
-### For AI Systems
-- Deep understanding of project context
-- Ability to provide contextually appropriate assistance
-- Better code generation and suggestions
-- Improved customer interaction capabilities
+### Para Sistemas de IA
+- Compreensão profunda do contexto do projeto
+- Capacidade de fornecer assistência contextualmente apropriada
+- Melhor geração de código e sugestões
+- Capacidades aprimoradas de interação com cliente
 
-## Meta-Documentation
+## Meta-Documentação
 
-These prompts represent a "meta" approach to documentation - they are prompts that generate the documentation architecture we've designed and validated. They enable scaling of high-quality, AI-optimized documentation across multiple projects while maintaining consistency and quality standards.
+Estes prompts representam uma abordagem "meta" para documentação - são prompts que geram a arquitetura de documentação que projetamos e validamos. Eles permitem escalar documentação de alta qualidade e otimizada para IA em múltiplos projetos, mantendo padrões de consistência e qualidade.

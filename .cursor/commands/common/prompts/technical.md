@@ -4,7 +4,7 @@ Você é um arquiteto de documentação técnica especializado em criar contexto
 
 ## Objetivo Principal
 
-Gerar uma arquitetura completa de contexto técnico seguindo o template em `@common/templates/technical_context_template.md`. Criar uma estrutura de documentação modular e multi-arquivo que permita tanto desenvolvedores humanos quanto sistemas de IA entender e trabalhar efetivamente com o codebase.
+Gerar uma arquitetura completa de contexto técnico seguindo o template em `.cursor/commands/common/templates/technical_context_template.md`. Criar uma estrutura de documentação modular e multi-arquivo que permita tanto desenvolvedores humanos quanto sistemas de IA entender e trabalhar efetivamente com o codebase.
 
 ## Parâmetros de Entrada
 
@@ -18,139 +18,139 @@ Gerar uma arquitetura completa de contexto técnico seguindo o template em `@com
 - `--existing-docs`: Caminho para documentação existente a incorporar
 - `--focus-areas`: Áreas específicas para enfatizar (performance, segurança, escalabilidade, etc.)
 
-## Analysis Framework
+## Framework de Análise
 
-### Phase 1: Codebase Discovery
-1. **Project Structure Analysis**
-   - Scan directory structure and identify key architectural patterns
-   - Analyze package.json, requirements.txt, Cargo.toml, or equivalent dependency files
-   - Identify build systems, testing frameworks, and deployment configurations
-   - Detect technology stack, frameworks, and key dependencies
+### Fase 1: Descoberta do Codebase
+1. **Análise da Estrutura do Projeto**
+   - Escanear estrutura de diretórios e identificar padrões arquiteturais-chave
+   - Analisar package.json, requirements.txt, Cargo.toml, ou arquivos de dependência equivalentes
+   - Identificar sistemas de build, frameworks de teste e configurações de deployment
+   - Detectar stack tecnológico, frameworks e dependências principais
 
-2. **Architecture Pattern Recognition**
-   - Identify design patterns (MVC, microservices, event-driven, etc.)
-   - Analyze data flow and integration points
-   - Understand deployment and scaling architecture
-   - Document key abstractions and interfaces
+2. **Reconhecimento de Padrões Arquiteturais**
+   - Identificar padrões de design (MVC, microservices, event-driven, etc.)
+   - Analisar fluxo de dados e pontos de integração
+   - Compreender arquitetura de deployment e escalabilidade
+   - Documentar abstrações e interfaces principais
 
-3. **Development Workflow Discovery**
-   - Analyze CI/CD configurations (.github/workflows, .gitlab-ci.yml, etc.)
-   - Identify testing strategies and coverage requirements
-   - Review contribution guidelines and development setup
-   - Document build, lint, and deployment processes
+3. **Descoberta do Workflow de Desenvolvimento**
+   - Analisar configurações de CI/CD (.github/workflows, .gitlab-ci.yml, etc.)
+   - Identificar estratégias de teste e requisitos de cobertura
+   - Revisar diretrizes de contribuição e configuração de desenvolvimento
+   - Documentar processos de build, lint e deployment
 
-### Phase 2: Context Generation
+### Fase 2: Geração de Contexto
 
-Follow the multi-file structure from the technical template:
+Siga a estrutura multi-arquivo do template técnico:
 
-#### Create Index File (`index.md`)
+#### Criar Arquivo Índice (`index.md`)
 ```markdown
-## Project Context Profile
-[Basic project information, technology stack, team structure, development constraints]
+## Perfil de Contexto do Projeto
+[Informações básicas do projeto, stack tecnológico, estrutura da equipe, restrições de desenvolvimento]
 
-## Layer 1: Core Project Context
+## Camada 1: Contexto Central do Projeto
 - [Project Charter](project_charter.md)
 - [Architecture Decision Records](adr/)
 
-## Layer 2: AI-Optimized Context Files
-- [AI Development Guide](CLAUDE.meta.md)
+## Camada 2: Arquivos de Contexto Otimizados para IA
+- [AI Development Guide](CURSOR.meta.md)
 - [Codebase Navigation Guide](CODEBASE_GUIDE.md)
 
-## Layer 3: Domain-Specific Context
+## Camada 3: Contexto Específico de Domínio
 - [Business Logic Documentation](BUSINESS_LOGIC.md)
 - [API Specifications](API_SPECIFICATION.md)
 
-## Layer 4: Development Workflow Context
+## Camada 4: Contexto de Workflow de Desenvolvimento
 - [Development Workflow Guide](CONTRIBUTING.md)
 - [Troubleshooting Guide](TROUBLESHOOTING.md)
 ```
 
-#### Generate Individual Files
+#### Gerar Arquivos Individuais
 
 **1. `project_charter.md`**
-- Synthesize project vision from README, documentation, and code analysis
-- Define success criteria based on project goals and metrics
-- Establish scope boundaries from codebase analysis
-- Identify key stakeholders from contributor data
-- Document technical constraints from architecture analysis
+- Sintetizar visão do projeto a partir do README, documentação e análise de código
+- Definir critérios de sucesso baseados em objetivos e métricas do projeto
+- Estabelecer limites de escopo a partir da análise do codebase
+- Identificar stakeholders-chave a partir dos dados de contribuidores
+- Documentar restrições técnicas a partir da análise arquitetural
 
-**2. `adr/` Directory**
-- Create ADRs for major architectural decisions discovered in codebase
-- Document technology choices, patterns, and trade-offs
-- Include database choices, framework selections, deployment strategies
-- Reference commit history and comments for decision context
+**2. Diretório `adr/`**
+- Criar ADRs para decisões arquiteturais importantes descobertas no codebase
+- Documentar escolhas tecnológicas, padrões e trade-offs
+- Incluir escolhas de banco de dados, seleções de framework, estratégias de deployment
+- Referenciar histórico de commits e comentários para contexto de decisões
 
-**3. `CLAUDE.meta.md` (AI Development Guide)**
-- Extract code style patterns from existing codebase
-- Document testing approaches from test files and configurations
-- Identify common patterns from code analysis
-- List gotchas from comments, issues, and documentation
-- Include performance considerations and security patterns
+**3. `CURSOR.meta.md` (Guia de Desenvolvimento com IA)**
+- Extrair padrões de estilo de código do codebase existente
+- Documentar abordagens de teste a partir de arquivos e configurações de teste
+- Identificar padrões comuns a partir da análise de código
+- Listar pegadinhas a partir de comentários, issues e documentação
+- Incluir considerações de performance e padrões de segurança
 
 **4. `CODEBASE_GUIDE.md`**
-- Generate directory structure with purpose annotations
-- List key files and their roles in the system
-- Document data flow patterns from code analysis
-- Identify integration points and external dependencies
-- Describe deployment architecture from configurations
+- Gerar estrutura de diretórios com anotações de propósito
+- Listar arquivos-chave e seus papéis no sistema
+- Documentar padrões de fluxo de dados a partir da análise de código
+- Identificar pontos de integração e dependências externas
+- Descrever arquitetura de deployment a partir das configurações
 
-**5. `BUSINESS_LOGIC.md`** (if complex domain logic exists)
-- Extract domain concepts from models, schemas, and business logic
-- Document business rules from validation logic and workflows
-- Identify edge cases from tests and error handling
-- Map workflow processes from state machines and business logic
+**5. `BUSINESS_LOGIC.md`** (se existir lógica de domínio complexa)
+- Extrair conceitos de domínio de models, schemas e lógica de negócio
+- Documentar regras de negócio a partir de lógica de validação e workflows
+- Identificar casos extremos a partir de testes e tratamento de erros
+- Mapear processos de workflow a partir de máquinas de estado e lógica de negócio
 
-**6. `API_SPECIFICATION.md`** (if APIs exist)
-- Generate API documentation from routes, controllers, and schemas
-- Document authentication from middleware and security implementations
-- Extract data models from schemas and type definitions
-- Document error handling from exception handling code
-- Include rate limiting and performance characteristics
+**6. `API_SPECIFICATION.md`** (se APIs existirem)
+- Gerar documentação de API a partir de routes, controllers e schemas
+- Documentar autenticação a partir de middleware e implementações de segurança
+- Extrair modelos de dados a partir de schemas e definições de tipo
+- Documentar tratamento de erros a partir do código de tratamento de exceções
+- Incluir rate limiting e características de performance
 
 **7. `CONTRIBUTING.md`**
-- Extract branch strategy from git history and configurations
-- Document code review process from PR templates and workflows
-- List testing requirements from test configurations
-- Document deployment process from CI/CD configurations
-- Include environment setup from README and development configurations
+- Extrair estratégia de branch do histórico git e configurações
+- Documentar processo de code review a partir de templates de PR e workflows
+- Listar requisitos de teste a partir das configurações de teste
+- Documentar processo de deployment a partir das configurações de CI/CD
+- Incluir configuração de ambiente a partir do README e configurações de desenvolvimento
 
 **8. `TROUBLESHOOTING.md`**
-- Extract common issues from GitHub issues, comments, and documentation
-- Document debugging approaches from logging and monitoring setup
-- Include performance troubleshooting from profiling and optimization code
-- List integration issues from error handling and documentation
+- Extrair problemas comuns de issues do GitHub, comentários e documentação
+- Documentar abordagens de debugging a partir da configuração de logging e monitoramento
+- Incluir troubleshooting de performance a partir de código de profiling e otimização
+- Listar problemas de integração a partir do tratamento de erros e documentação
 
-## Quality Assurance
+## Garantia de Qualidade
 
-### Content Quality Checks
-- [ ] All generated content is accurate to the actual codebase
-- [ ] Examples are working and tested against the actual project
-- [ ] Architecture documentation matches implementation
-- [ ] Performance claims are backed by actual benchmarks or code analysis
-- [ ] All links between files work correctly
+### Verificações de Qualidade de Conteúdo
+- [ ] Todo conteúdo gerado é preciso em relação ao codebase real
+- [ ] Exemplos estão funcionando e testados contra o projeto real
+- [ ] Documentação de arquitetura corresponde à implementação
+- [ ] Afirmações de performance são apoiadas por benchmarks reais ou análise de código
+- [ ] Todos os links entre arquivos funcionam corretamente
 
-### Completeness Validation
-- [ ] All layers of technical context are addressed
-- [ ] Files follow the established template structure
-- [ ] Content is specific to the project, not generic
-- [ ] AI optimization guidelines are practical and actionable
-- [ ] Development workflow matches actual project practices
+### Validação de Completude
+- [ ] Todas as camadas de contexto técnico são abordadas
+- [ ] Arquivos seguem a estrutura de template estabelecida
+- [ ] Conteúdo é específico do projeto, não genérico
+- [ ] Diretrizes de otimização para IA são práticas e acionáveis
+- [ ] Workflow de desenvolvimento corresponde às práticas reais do projeto
 
-### AI Optimization
-- [ ] Content enables AI to understand project architecture
-- [ ] Code examples are copy-pasteable and functional
-- [ ] Technical constraints and trade-offs are clearly documented
-- [ ] Cross-references between files create comprehensive context
-- [ ] File naming follows established conventions
+### Otimização para IA
+- [ ] Conteúdo permite que IA compreenda a arquitetura do projeto
+- [ ] Exemplos de código são copy-pasteable e funcionais
+- [ ] Restrições técnicas e trade-offs são claramente documentados
+- [ ] Referências cruzadas entre arquivos criam contexto abrangente
+- [ ] Nomenclatura de arquivos segue convenções estabelecidas
 
-## Execution Strategy
+## Estratégia de Execução
 
-1. **Deep Analysis First**: Spend significant time understanding the codebase before writing
-2. **Evidence-Based Documentation**: Every claim should be backed by code, configurations, or project artifacts
-3. **Multi-File Structure**: Always create separate files linked through the index
-4. **AI-Optimized Content**: Write for both human and AI consumption
-5. **Project-Specific Details**: Avoid generic advice; focus on actual project specifics
-6. **Cross-Reference Integration**: Ensure files reference each other appropriately
+1. **Análise Profunda Primeiro**: Dedique tempo significativo para compreender o codebase antes de escrever
+2. **Documentação Baseada em Evidência**: Toda afirmação deve ser apoiada por código, configurações ou artefatos do projeto
+3. **Estrutura Multi-Arquivo**: Sempre crie arquivos separados vinculados através do índice
+4. **Conteúdo Otimizado para IA**: Escreva tanto para consumo humano quanto de IA
+5. **Detalhes Específicos do Projeto**: Evite conselhos genéricos; foque nas especificidades reais do projeto
+6. **Integração de Referências Cruzadas**: Garanta que os arquivos se referenciem adequadamente
 
 ## Critérios de Sucesso da Saída
 

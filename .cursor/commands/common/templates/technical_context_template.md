@@ -48,7 +48,7 @@ Este template ajuda times de desenvolvimento de software a projetar sua **Arquit
   - [ ] Mixed team
 - **AI Tool Usage:**
   - [ ] GitHub Copilot
-  - [ ] Claude/ChatGPT for development
+  - [ ] Cursor AI for development
   - [ ] Cursor/Windsurf
   - [ ] Other: `__________`
 
@@ -95,7 +95,7 @@ Este template ajuda times de desenvolvimento de software a projetar sua **Arquit
 
 ## Layer 2: AI-Optimized Context Files
 
-- [AI Development Guide](CLAUDE.meta.md) - Example CLAUDE.md file for project level  
+- [AI Development Guide](CURSOR.meta.md) - Example CURSOR.md file for project level  
 - [Codebase Navigation Guide](CODEBASE_GUIDE.md)
 
 ## Layer 3: Domain-Specific Context
@@ -159,7 +159,7 @@ What other options did we evaluate?
 
 ### Layer 2: AI-Optimized Context Files
 
-**Create: `CLAUDE.meta.md` (AI Development Guide)**
+**Create: `CURSOR.meta.md` (AI Development Guide)**
 ```markdown
 # AI Development Guide
 
@@ -364,7 +364,7 @@ Critical issue response procedures
   /adr/                        # Layer 1: Architecture decisions
     001-database-choice.md
     002-authentication-strategy.md
-  CLAUDE.meta.md              # Layer 2: AI development guide
+  CURSOR.meta.md              # Layer 2: AI development guide
   CODEBASE_GUIDE.md           # Layer 2: Navigation guide
   BUSINESS_LOGIC.md           # Layer 3: Domain knowledge
   API_SPECIFICATION.md        # Layer 3: API documentation
@@ -385,7 +385,7 @@ Critical issue response procedures
 - Use clear, descriptive file names
 - Include relevant examples and code snippets
 
-**For Claude/ChatGPT Development:**
+**For Cursor AI Development:**
 - Create consolidated context packages for complex discussions
 - Maintain current context summaries for long development sessions
 - Include relevant error logs and debugging context

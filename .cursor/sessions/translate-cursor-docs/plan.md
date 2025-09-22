@@ -57,9 +57,9 @@ Se você está trabalhando nesta funcionalidade, certifique-se de atualizar este
 - all-tools.md - Já estava 100% traduzido
 - warm-up.md - Pequeno ajuste no path
 
-### Documentação Esperanto [Completada ✅] - **NOVA DESCOBERTA**
-- esperanto-prompter/ai_prompter.md - Traduzida completamente
-- esperanto-prompter/esperanto.md - Traduzida completamente
+### ~~Documentação Esperanto~~ [Removida 🗑️] - **LIMPEZA TÉCNICA**
+- ~~esperanto-prompter/ai_prompter.md~~ - Removida (não utilizada no projeto)
+- ~~esperanto-prompter/esperanto.md~~ - Removida (não utilizada no projeto)
 
 ### Comandos docs/ [Completada ✅]
 - build-business-docs.md - Traduzido completamente (seções principais)
