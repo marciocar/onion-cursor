@@ -29,7 +29,8 @@ Este é o Sistema Onion - um framework avançado de comandos `.cursor/` com:
 ### Agentes Especializados
 - Use `@agente-nome` para invocar agentes específicos
 - Prefira agentes especializados para tarefas específicas
-- `@product-agent` para gestão de produto e ClickUp
+- `@product-agent` para gestão de produto e ClickUp (estratégico)
+- `@clickup-specialist` para otimizações técnicas do ClickUp MCP
 - `@cursor-specialist` para problemas de IDE e configuração
 - `@python-developer` / `@react-developer` para desenvolvimento
 - `@code-reviewer` para review de código
