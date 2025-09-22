@@ -340,7 +340,7 @@ Por favor, forneça essas informações.
 🔍 Analisando commits recentes...
 
 **COMMIT SUSPEITO ENCONTRADO**: 
-feat: optimize dashboard API response (sexta, 14:30)
+feat: optimize dashboard API response ([dia_da_semana, HH:MM])
 - Changed response.data.items → response.items
 - Frontend não atualizado para nova estrutura
 

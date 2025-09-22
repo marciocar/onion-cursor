@@ -88,7 +88,7 @@ Se sessão ativa encontrada:
 
 📁 SESSION STATUS:
    ▶ Active session: Archived
-   ▶ Location: .cursor/sessions/archived/2025-09-22_sync-command/
+   ▶ Location: .cursor/sessions/archived/[YYYY-MM-DD_HHMM_sync-command]/
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -3086,7 +3086,7 @@ $ /git/sync
 ✅ Task completed: Yes
 
 🗂️ Executing session archive...
-📁 Created archive structure: .cursor/sessions/archived/2025-09-22_sync-command/
+📁 Created archive structure: .cursor/sessions/archived/[YYYY-MM-DD_HHMM_sync-command]/
    ✅ Preserved: context.md
    ✅ Preserved: notes.md
    ✅ Preserved: plan.md
