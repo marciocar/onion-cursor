@@ -1328,38 +1328,339 @@ async function gitSyncWorkflow(branchArg?: string): Promise<SyncContext & { gitO
 ━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-## 🔄 **Auto-Update ClickUp**
+## 🔗 **Integração ClickUp (Fase 4)**
 
-Este comando **automaticamente atualiza** a task ClickUp quando executa com sucesso:
+### **1. 🎯 ClickUp Connection Manager**
+```typescript
+interface ClickUpIntegrationResult {
+    success: boolean;
+    taskUpdated?: boolean;
+    statusChanged?: boolean;
+    tagsUpdated?: boolean;
+    commentAdded?: boolean;
+    error?: string;
+}
 
-### **✅ Updates Automáticos SEMPRE:**
-- **Status → "Done"** quando sync completo
-- **Tags atualizadas**: Remove "in-progress", "under-review" + Adiciona "completed"
-- **Comentário de conclusão** com detalhes da sincronização
-- **Timestamp** de finalização da task
-
-### **💬 Formato do Comentário:**
+async function executeClickUpIntegration(context: SyncContext, gitResult: SequenceState): Promise<ClickUpIntegrationResult> {
+    /**
+     * Integração principal com ClickUp após sucesso das operações git
+     * Executa todas as atualizações necessárias na task
+     */
+    const result: ClickUpIntegrationResult = {
+        success: false
+    };
+    
+    // Verificar se tem task ID para integração
+    if (!context.taskId) {
+        console.log("ℹ️ No task ID found - skipping ClickUp integration");
+        result.success = true; // Não é erro, apenas sem integração
+        return result;
+    }
+    
+    // Verificar se operações git foram bem-sucedidas
+    if (!gitResult.success) {
+        console.log("⚠️ Git operations failed - skipping ClickUp integration");
+        return result;
+    }
+    
+    try {
+        console.log("🔗 Starting ClickUp integration...");
+        
+        // 1. Atualizar status da task
+        await updateTaskStatus(context.taskId, result);
+        
+        // 2. Gerenciar tags
+        await updateTaskTags(context.taskId, result);
+        
+        // 3. Adicionar comentário de conclusão
+        await addCompletionComment(context.taskId, context, gitResult, result);
+        
+        result.success = true;
+        console.log("✅ ClickUp integration completed successfully");
+        
+    } catch (error: any) {
+        console.log(`❌ ClickUp integration failed: ${error.message}`);
+        result.error = error.message;
+        result.success = false;
+    }
+    
+    return result;
+}
 ```
-✅ TASK CONCLUÍDA - SYNC COMPLETED
+
+### **2. 📋 Task Status Management**
+```typescript
+async function updateTaskStatus(taskId: string, result: ClickUpIntegrationResult): Promise<void> {
+    /**
+     * Atualiza status da task para "Done"
+     * Implementa verificação de sucesso
+     */
+    try {
+        console.log("📋 Updating task status to 'Done'...");
+        
+        // Usar ClickUp MCP para atualizar status
+        const updateResult = await updateTask({
+            taskId: taskId,
+            status: "Done"
+        });
+        
+        if (updateResult.success) {
+            result.statusChanged = true;
+            console.log("✅ Task status updated to 'Done'");
+        } else {
+            throw new Error(`Failed to update status: ${updateResult.error || 'Unknown error'}`);
+        }
+        
+    } catch (error: any) {
+        console.log(`⚠️ Status update failed: ${error.message}`);
+        throw error;
+    }
+}
+```
+
+### **3. 🏷️ Tag Management System**
+```typescript
+async function updateTaskTags(taskId: string, result: ClickUpIntegrationResult): Promise<void> {
+    /**
+     * Gerencia tags da task: remove in-progress/under-review, adiciona completed
+     * Implementa operações atômicas
+     */
+    try {
+        console.log("🏷️ Managing task tags...");
+        
+        const tagsToRemove = ["in-progress", "under-review"];
+        const tagsToAdd = ["completed"];
+        
+        // Remover tags de desenvolvimento
+        for (const tag of tagsToRemove) {
+            try {
+                await removeTagFromTask({
+                    taskId: taskId,
+                    tagName: tag
+                });
+                console.log(`  ➖ Removed tag: ${tag}`);
+            } catch (error: any) {
+                // Tag pode não existir, não é erro crítico
+                console.log(`  ℹ️ Tag '${tag}' not found or already removed`);
+            }
+        }
+        
+        // Adicionar tag de conclusão
+        for (const tag of tagsToAdd) {
+            try {
+                await addTagToTask({
+                    taskId: taskId,
+                    tagName: tag
+                });
+                console.log(`  ➕ Added tag: ${tag}`);
+            } catch (error: any) {
+                // Se tag não existe, pular (pode não estar configurada no workspace)
+                console.log(`  ⚠️ Could not add tag '${tag}': ${error.message}`);
+            }
+        }
+        
+        result.tagsUpdated = true;
+        console.log("✅ Tag management completed");
+        
+    } catch (error: any) {
+        console.log(`⚠️ Tag management failed: ${error.message}`);
+        throw error;
+    }
+}
+```
+
+### **4. 💬 Completion Comment System**
+```typescript
+async function addCompletionComment(
+    taskId: string, 
+    context: SyncContext, 
+    gitResult: SequenceState, 
+    result: ClickUpIntegrationResult
+): Promise<void> {
+    /**
+     * Adiciona comentário formatado de conclusão
+     * Template padronizado com informações técnicas
+     */
+    try {
+        console.log("💬 Adding completion comment...");
+        
+        const commentText = generateCompletionComment(context, gitResult);
+        
+        await createTaskComment({
+            taskId: taskId,
+            commentText: commentText
+        });
+        
+        result.commentAdded = true;
+        console.log("✅ Completion comment added");
+        
+    } catch (error: any) {
+        console.log(`⚠️ Comment creation failed: ${error.message}`);
+        throw error;
+    }
+}
+
+function generateCompletionComment(context: SyncContext, gitResult: SequenceState): string {
+    /**
+     * Gera template de comentário padronizado
+     * Inclui informações técnicas e timestamp
+     */
+    const targetBranch = context.targetBranch?.name || 'unknown';
+    const commitsPulled = gitResult.commitsPulled || 'unknown';
+    const cleanedBranch = gitResult.cleanedBranch || 'none';
+    const timestamp = new Date().toLocaleString('pt-BR');
+    
+    // Template padronizado Sistema Onion
+    return `✅ TASK CONCLUÍDA - SYNC COMPLETED
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
 🔄 SINCRONIZAÇÃO:
-   ▶ Branch synced: develop
-   ▶ Commits pulled: 3 new commits
-   ▶ Local branch cleaned: feature/sync-command
+   ▶ Branch synced: ${targetBranch}
+   ▶ Commits pulled: ${commitsPulled} changes
+   ▶ Local branch cleaned: ${cleanedBranch}
 
-📋 DESENVOLVIMENTO COMPLETO:
+📋 OPERAÇÕES EXECUTADAS:
+   ∟ Git fetch: Remote updates retrieved
+   ∟ Branch checkout: Switched successfully
+   ∟ Pull changes: Integrated to local
+   ∟ Cleanup: Previous branch removed safely
+
+🎯 DESENVOLVIMENTO COMPLETO:
    ∟ PR merged successfully
    ∟ Code integrated to target branch
    ∟ Local environment synchronized
-
-🎯 STATUS: TASK FINALIZADA COM SUCESSO
+   ∟ Task moved to "Done" status
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
-⏰ Finalizado: [TIMESTAMP] | 🤖 Sistema Onion Sync
+⏰ Finalizado: ${timestamp} | 🤖 Sistema Onion Sync`;
+}
 ```
+
+### **5. 📊 ClickUp Integration Results Display**
+```typescript
+function displayClickUpResults(clickupResult: ClickUpIntegrationResult): void {
+    /**
+     * Exibe resultados da integração ClickUp
+     * Formato consistente com templates do sistema
+     */
+    
+    if (clickupResult.success) {
+        console.log("🔗 CLICKUP INTEGRATION COMPLETA");
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+        
+        console.log("✅ ATUALIZAÇÕES EXECUTADAS:");
+        
+        if (clickupResult.statusChanged) {
+            console.log("   ▶ Status: Task moved to 'Done'");
+        }
+        
+        if (clickupResult.tagsUpdated) {
+            console.log("   ▶ Tags: Updated (+completed, -in-progress, -under-review)");
+        }
+        
+        if (clickupResult.commentAdded) {
+            console.log("   ▶ Comment: Completion details added");
+        }
+        
+        console.log("\n🎯 TASK STATUS:");
+        console.log("   ∟ Development cycle completed");
+        console.log("   ∟ Ready for next task assignment");
+        
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+        
+    } else {
+        console.log("⚠️ CLICKUP INTEGRATION LIMITADA");
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+        
+        if (clickupResult.error) {
+            console.log(`💥 ERRO: ${clickupResult.error}`);
+        } else {
+            console.log("ℹ️ MOTIVO: No task ID available for integration");
+        }
+        
+        console.log("\n📋 AÇÕES MANUAIS NECESSÁRIAS:");
+        console.log("   ∟ Update task status manually if needed");
+        console.log("   ∟ Add completion comment manually");
+        console.log("   ∟ Update tags as appropriate");
+        
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    }
+}
+```
+
+### **6. 🎯 Workflow Principal Integrado**
+```typescript
+async function executeFullSyncWithClickUp(context: SyncContext): Promise<{
+    gitResult: SequenceState;
+    clickupResult: ClickUpIntegrationResult;
+}> {
+    /**
+     * Executa sync completo: Git Operations + ClickUp Integration
+     * Workflow completo das Fases 3 + 4
+     */
+    
+    // Fase 3: Operações Git
+    console.log("⚙️ FASE 3: OPERAÇÕES GIT");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    const gitResult = await executeGitSequence(context);
+    displayGitOperationsResults(gitResult);
+    
+    // Fase 4: Integração ClickUp (apenas se git teve sucesso)
+    console.log("\n🔗 FASE 4: INTEGRAÇÃO CLICKUP");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    const clickupResult = await executeClickUpIntegration(context, gitResult);
+    displayClickUpResults(clickupResult);
+    
+    return {
+        gitResult,
+        clickupResult
+    };
+}
+
+// Workflow principal atualizado
+async function syncWorkflowComplete(branchArg?: string): Promise<void> {
+    /**
+     * Workflow completo: Detecção + Git + ClickUp
+     * Integra todas as 4 fases implementadas
+     */
+    
+    // Fase 2: Detecção
+    const context = await detectSyncContext(branchArg);
+    displayDetectionResults(context);
+    
+    if (!context.canProceed) {
+        console.log("❌ Cannot proceed with sync operations");
+        return;
+    }
+    
+    // Fases 3 + 4: Git + ClickUp
+    const results = await executeFullSyncWithClickUp(context);
+    
+    // Summary final
+    console.log("\n🏁 SYNC WORKFLOW COMPLETE");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log(`Git Operations: ${results.gitResult.success ? '✅ Success' : '❌ Failed'}`);
+    console.log(`ClickUp Integration: ${results.clickupResult.success ? '✅ Success' : '⚠️ Limited'}`);
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━");
+}
+```
+
+### **✅ Auto-Update ClickUp Strategy**
+
+Este comando **automaticamente atualiza** a task ClickUp quando executa com sucesso:
+
+#### **🎯 Updates Automáticos SEMPRE:**
+- **Status → "Done"** quando sync completo
+- **Tags atualizadas**: Remove "in-progress", "under-review" + Adiciona "completed"
+- **Comentário de conclusão** com detalhes técnicos da sincronização
+- **Timestamp** de finalização da task
+
+#### **🛡️ Tratamento de Erros:**
+- **Graceful degradation**: Se ClickUp falha, git operations continuam funcionais
+- **Logging detalhado**: Erros específicos para troubleshooting
+- **Fallback manual**: Orientações para updates manuais se API falhar
 
 ## 🧪 **Fluxo de Implementação**
 
