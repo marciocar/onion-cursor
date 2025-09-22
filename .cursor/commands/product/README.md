@@ -5,24 +5,24 @@ Este documento descreve o workflow completo dos comandos de produto no Sistema O
 ## 🔄 **Fluxo de Trabalho Ideal**
 
 ```mermaid
-graph TD
-    A[Ideia/Requisito] --> B[/product/task]
-    B --> C[Task ClickUp Criada]
-    B --> D[Feature Branch]
-    B --> E[Sessao .cursor/sessions/]
+flowchart TD
+    A[Ideia] --> B[Create Task]
+    B --> C[Task Created]
+    B --> D[Branch Created]
+    B --> E[Session Created]
     
-    E --> F[/engineer/start]
-    F --> G[Desenvolvimento]
+    E --> F[Start Development]
+    F --> G[Development]
     
-    G --> H[/product/task-check]
-    H --> I{Implementacao OK?}
+    G --> H[Check Implementation]
+    H --> I{Implementation OK?}
     
-    I -->|Sim| J[Proxima Fase]
-    I -->|Nao| K[Correcoes]
+    I -->|Yes| J[Next Phase]
+    I -->|No| K[Fix Issues]
     K --> H
     
-    J --> L[/product/validate-task]
-    L --> M[Analise Estrategica]
+    J --> L[Validate Task]
+    L --> M[Analysis Complete]
 ```
 
 ## 🛠️ **Comandos Disponíveis**
@@ -173,17 +173,18 @@ Depois de criar uma task com `/product/task`:
 3. **Usar** `/product/task-check` periodicamente durante desenvolvimento
 4. **Finalizar** com `/product/validate-task` para análise completa
 
-## 📊 **Matriz de Auto-Updates por Comando**
+## 📊 **Auto-Updates por Comando**
 
-| Comando | Auto-Update | Confirmação | Tags Automáticas |
-|---------|-------------|-------------|------------------|
-| `/product/task` | ✅ Comment setup | - | feature/bug/improvement |
-| `/engineer/start` | ✅ Status → "In Progress"<br>✅ Comment início | - | in-development |
-| `/engineer/work` | ✅ Comments progresso | - | - |
-| `/engineer/pre-pr` | ✅ Comment checklist | - | ready-for-pr/needs-fixes |
-| `/engineer/pr` | ✅ Status ajuste<br>✅ Comment PR | - | under-review |
-| `/product/task-check` | ✅ Comment verificação | ⚠️ Status → Done | verified/needs-work |
-| `/product/validate-task` | ✅ Comment validação | ⚠️ Prioridade/Escopo | validated/needs-refinement |
+### **✅ Updates Automáticos**
+- **`/product/task`**: Comment setup + tags automáticas
+- **`/engineer/start`**: Status → "In Progress" + comment início  
+- **`/engineer/work`**: Comments de progresso por fase
+- **`/engineer/pre-pr`**: Comment checklist + tags qualidade
+- **`/engineer/pr`**: Status ajuste + comment PR + tag "under-review"
+
+### **⚠️ Com Confirmação**
+- **`/product/task-check`**: Comment verificação + pergunta para status "Done"
+- **`/product/validate-task`**: Comment validação + confirmação para mudanças de prioridade
 
 ## 💡 **Benefícios da Estratégia**
 
