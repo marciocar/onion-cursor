@@ -4,22 +4,51 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
 
 2. Faça commit das mudanças que você fez. Use uma mensagem de commit clara e concisa que resuma as alterações.
 
-3. Mova a task do ClickUp associada com esta tarefa para o status "in progress" e adicione a tag "under-review". 
+3. Mova a task do ClickUp associada com esta tarefa para o status "in progress" e adicione a tag "under-review".
 
-4. Abra um Pull Request (PR) com os detalhes da implementação:
+4. Adicione um comentário formatado na task do ClickUp documentando o PR:
+
+```
+🚀 PULL REQUEST CREATED
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 CHANGES IMPLEMENTED:
+   ∟ [DESCREVER_MUDANÇAS_PRINCIPAIS]
+   ∟ Code review requested
+   ∟ All tests passing ✅
+
+🔗 REVIEW DETAILS:
+   ▶ PR: [PR_LINK]
+   ▶ Branch: [BRANCH_NAME]
+   ▶ Status: Ready for review
+
+✅ CHECKLIST:
+   ◆ Code committed and pushed
+   ◆ Tests passing
+   ◆ Documentation updated
+   ◆ Task moved to "in progress"
+   ◆ Tag "under-review" added
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏰ Created: [TIMESTAMP] | 🎯 Next: Code review and merge approval
+``` 
+
+5. Abra um Pull Request (PR) com os detalhes da implementação:
 
    Importante: Não mencione nenhum código relacionado a AI ou assistentes de IA no PR.
 
-5. Após abrir o PR, aguarde 3 minutos e então verifique comentários da ferramenta automatizada de code review. Se nenhum comentário aparecer, aguarde mais 3 minutos e verifique novamente.
+6. Após abrir o PR, aguarde 3 minutos e então verifique comentários da ferramenta automatizada de code review. Se nenhum comentário aparecer, aguarde mais 3 minutos e verifique novamente.
 
-6. Uma vez que você receba comentários da ferramenta automatizada de code review, analise cada comentário cuidadosamente. Determine quais comentários requerem correções e quais podem ser ignorados com segurança ou explicados. Apresente suas sugestões ao usuário e peça permissão para fazer as mudanças.
+7. Uma vez que você receba comentários da ferramenta automatizada de code review, analise cada comentário cuidadosamente. Determine quais comentários requerem correções e quais podem ser ignorados com segurança ou explicados. Apresente suas sugestões ao usuário e peça permissão para fazer as mudanças.
 
-7. Para os comentários que requerem correções:
+8. Para os comentários que requerem correções:
    a. Faça as mudanças necessárias no código
    b. Faça commit dessas mudanças com uma mensagem de commit clara
    c. Faça push do(s) novo(s) commit(s) para a mesma branch
 
-8. Após abordar os comentários e fazer push das atualizações, notifique o usuário que a tarefa está completa e pronta para sua revisão final e merge manual.
+9. Após abordar os comentários e fazer push das atualizações, notifique o usuário que a tarefa está completa e pronta para sua revisão final e merge manual.
 
 REGRA DE OURO: Sempre faça commit APENAS dos arquivos que você alterou. Não use `git add .` para prevenir commits de arquivos que não deveriam ser commitados.
 
