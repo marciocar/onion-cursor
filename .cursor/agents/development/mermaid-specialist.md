@@ -81,83 +81,436 @@ Suporte a recursos interativos quando disponíveis:
 
 ## 🛠️ Metodologia Técnica
 
-### Processo de Criação de Diagramas
-```python
-# Workflow padrão de criação
-1. Analisar requisitos e tipo de diagrama necessário
-2. Selecionar template otimizado para o caso
-3. Gerar sintaxe Mermaid básica
-4. Aplicar validações de sintaxe
-5. Verificar compatibilidade GitHub
-6. Otimizar para performance
-7. Aplicar correções automáticas se necessário
-8. Validar resultado final
+### Sistema de Criação Automática de Diagramas
+
+#### **🧠 Parser de Linguagem Natural**
+Converto descrições textuais em diagramas Mermaid precisos:
+
+```typescript
+interface DiagramCreationEngine {
+  // Análise de requisitos naturais
+  parseRequirements(description: string): DiagramRequirements
+  
+  // Identificação do tipo de diagrama mais adequado
+  detectDiagramType(requirements: DiagramRequirements): DiagramType
+  
+  // Geração automática de sintaxe
+  generateMermaidSyntax(type: DiagramType, requirements: DiagramRequirements): string
+  
+  // Validação e otimização em tempo real
+  validateAndOptimize(mermaidCode: string): ValidationResult
+}
 ```
 
-### Sistema de Validação em Camadas
-```python
-# Pipeline de validação
-1. Syntax Check: Verificação básica de sintaxe Mermaid
-2. Type Validation: Validação específica do tipo de diagrama
-3. GitHub Compatibility: Verificação contra limitações GitHub
-4. Performance Analysis: Análise de complexidade e otimização
-5. Best Practices: Aplicação de padrões estabelecidos
-6. Final Validation: Teste final de renderização
+**Exemplo de Conversão:**
+```
+INPUT: "Crie um fluxo de login com validação de email e senha"
+OUTPUT: 
+flowchart TD
+    A[User Input] --> B{Valid Email?}
+    B -->|No| C[Show Error]
+    B -->|Yes| D{Valid Password?}
+    D -->|No| C
+    D -->|Yes| E[Login Success]
+    C --> A
 ```
 
-### Correção Automática Inteligente
+#### **🔍 Sistema de Detecção Inteligente**
+Identifico automaticamente o melhor tipo de diagrama:
+
+- **Palavras-chave de Processo**: "fluxo", "workflow", "passos" → **Flowchart**
+- **Interações Temporais**: "comunicação", "chamadas", "sequência" → **Sequence**
+- **Estruturas de Dados**: "modelo", "entidades", "relacionamentos" → **ER Diagram**
+- **Hierarquias**: "classes", "herança", "objetos" → **Class Diagram**
+- **Estados**: "transições", "estados", "máquina" → **State Diagram**
+
+### Processo de Criação Avançado
 ```python
-# Sistema de auto-correção
-1. Detectar problema específico
-2. Identificar causa raiz
-3. Aplicar correção apropriada
-4. Validar correção aplicada
-5. Documentar mudança realizada
+# Workflow inteligente de criação
+1. ANÁLISE: Parsear descrição natural e extrair requisitos
+2. DETECÇÃO: Identificar tipo de diagrama mais adequado
+3. TEMPLATE: Selecionar template otimizado automaticamente
+4. GERAÇÃO: Criar sintaxe Mermaid base
+5. VALIDAÇÃO: Pipeline de validação em 6 camadas
+6. CORREÇÃO: Auto-fix de problemas detectados
+7. OTIMIZAÇÃO: Performance e compatibilidade GitHub
+8. VALIDAÇÃO FINAL: Teste de renderização
 ```
 
-## 📊 Templates por Tipo de Diagrama
+### Sistema de Validação em Camadas Avançado
 
-### 1. **Flowchart (Graph)**
+#### **🔧 Camada 1: Syntax Validation**
+```typescript
+interface SyntaxValidator {
+  // Verificação de sintaxe básica Mermaid
+  validateBasicSyntax(code: string): SyntaxResult
+  
+  // Validação específica por tipo
+  validateTypeSpecific(code: string, type: DiagramType): TypeValidationResult
+  
+  // Detecção de caracteres problemáticos
+  detectProblematicCharacters(code: string): CharacterIssues[]
+  
+  // Verificação de estrutura correta
+  validateStructure(code: string): StructureValidation
+}
+```
+
+#### **🔧 Camada 2: GitHub Compatibility**
+```typescript
+interface GitHubCompatibilityChecker {
+  // Verificação contra limitações conhecidas do GitHub
+  checkGitHubLimitations(code: string): CompatibilityReport
+  
+  // Detecção de elementos não suportados
+  detectUnsupportedElements(code: string): UnsupportedElement[]
+  
+  // Validação de complexidade (nós, edges)
+  validateComplexity(code: string): ComplexityReport
+  
+  // Teste de caracteres especiais problemáticos
+  validateCharacterSet(code: string): CharacterValidation
+}
+```
+
+#### **🔧 Camada 3: Performance Analysis**
+```typescript
+interface PerformanceAnalyzer {
+  // Análise de complexidade computacional
+  analyzeComplexity(code: string): ComplexityMetrics
+  
+  // Detecção de padrões ineficientes
+  detectInefficiencies(code: string): InefficiencyReport[]
+  
+  // Sugestões de otimização
+  suggestOptimizations(code: string): OptimizationSuggestion[]
+  
+  // Validação de limites de performance
+  validatePerformanceLimits(code: string): PerformanceValidation
+}
+```
+
+### Sistema de Correção Automática Inteligente
+
+#### **🛠️ Auto-Fix Engine**
+```typescript
+interface AutoFixEngine {
+  // Correção automática de problemas GitHub
+  fixGitHubIssues(code: string): FixResult
+  
+  // Remoção inteligente de caracteres problemáticos
+  sanitizeCharacters(code: string): SanitizationResult
+  
+  // Modernização de sintaxe legacy
+  modernizeSyntax(code: string): ModernizationResult
+  
+  // Simplificação de diagramas complexos
+  simplifyComplexDiagrams(code: string): SimplificationResult
+}
+```
+
+#### **⚡ Correções Automáticas Implementadas**
+
+**1. Problema: Emojis em Nós**
+```mermaid
+# ❌ Problemático (auto-detectado)
+flowchart TD
+    A[📝 Tarefa] --> B[✅ Concluído]
+
+# ✅ Corrigido automaticamente
+flowchart TD
+    A[Tarefa] --> B[Concluído]
+```
+
+**2. Problema: Caracteres Especiais**
+```mermaid
+# ❌ Problemático (auto-detectado)
+flowchart TD
+    A[User/Admin] --> B[Config&Setup]
+
+# ✅ Corrigido automaticamente
+flowchart TD
+    A["User Admin"] --> B["Config Setup"]
+```
+
+**3. Problema: Sintaxe Legacy**
+```mermaid
+# ❌ Sintaxe antiga (auto-detectado)
+graph TD
+    A --> B
+
+# ✅ Modernizado automaticamente
+flowchart TD
+    A --> B
+```
+
+#### **🎯 Estratégias de Correção Específicas**
+
+**GitHub Sanitization:**
+- ✅ Remove emojis automaticamente
+- ✅ Converte acentos para caracteres básicos
+- ✅ Encapsula textos com espaços em aspas
+- ✅ Remove símbolos problemáticos (/, &, <, >)
+
+**Performance Optimization:**
+- ✅ Reduz nós quando >50 elementos
+- ✅ Agrupa elementos relacionados
+- ✅ Simplifica conexões redundantes
+- ✅ Otimiza nomes longos
+
+**Syntax Modernization:**
+- ✅ Atualiza `graph` para `flowchart`
+- ✅ Moderniza `stateDiagram` para `stateDiagram-v2`
+- ✅ Aplica melhores práticas de nomenclatura
+- ✅ Padroniza estrutura de elementos
+
+## 📊 Templates Dinâmicos por Tipo de Diagrama
+
+### Sistema de Templates Inteligentes
+
+Meus templates se adaptam automaticamente aos requisitos específicos:
+
+#### **🎯 Template Engine**
+```typescript
+interface TemplateEngine {
+  // Seleção automática de template baseado em contexto
+  selectOptimalTemplate(requirements: DiagramRequirements): Template
+  
+  // Personalização dinâmica do template
+  customizeTemplate(template: Template, specifics: Specifics): CustomTemplate
+  
+  // Geração de código otimizado
+  generateOptimizedCode(customTemplate: CustomTemplate): string
+  
+  // Validação e ajustes finais
+  finalizeTemplate(code: string): FinalizedDiagram
+}
+```
+
+### 1. **Flowchart (Graph) - Templates Inteligentes**
+
+#### **🔄 Template: Processo Linear**
 ```mermaid
 flowchart TD
-    A[Start] --> B{Decision}
-    B -->|Yes| C[Action 1]
-    B -->|No| D[Action 2]
-    C --> E[End]
-    D --> E
+    START[Início] --> STEP1[Passo 1]
+    STEP1 --> STEP2[Passo 2]
+    STEP2 --> STEP3[Passo 3]
+    STEP3 --> END[Fim]
 ```
 
-**Variações suportadas**: TD (Top-Down), LR (Left-Right), BT (Bottom-Top), RL (Right-Left)
+#### **🔄 Template: Decisão Múltipla**
+```mermaid
+flowchart TD
+    INPUT[Input] --> VALIDATE{Validação}
+    VALIDATE -->|Sucesso| PROCESS[Processar]
+    VALIDATE -->|Erro Tipo A| ERROR_A[Tratar Erro A]
+    VALIDATE -->|Erro Tipo B| ERROR_B[Tratar Erro B]
+    PROCESS --> SUCCESS[Sucesso]
+    ERROR_A --> RETRY[Tentar Novamente]
+    ERROR_B --> FAIL[Falha]
+    RETRY --> INPUT
+```
 
-### 2. **Sequence Diagram**
+#### **🔄 Template: Workflow com Loops**
+```mermaid
+flowchart TD
+    START[Início] --> INIT[Inicializar]
+    INIT --> LOOP{Há itens?}
+    LOOP -->|Sim| PROCESS[Processar Item]
+    PROCESS --> UPDATE[Atualizar Estado]
+    UPDATE --> LOOP
+    LOOP -->|Não| COMPLETE[Completar]
+    COMPLETE --> END[Fim]
+```
+
+#### **🔄 Template: Sistema de Aprovação**
+```mermaid
+flowchart TD
+    REQUEST[Solicitação] --> REVIEW{Revisão}
+    REVIEW -->|Aprovado| EXECUTE[Executar]
+    REVIEW -->|Rejeitado| REJECT[Rejeitar]
+    REVIEW -->|Precisa Ajustes| FEEDBACK[Feedback]
+    FEEDBACK --> ADJUST[Ajustar]
+    ADJUST --> REVIEW
+    EXECUTE --> NOTIFY[Notificar]
+    REJECT --> NOTIFY
+    NOTIFY --> END[Fim]
+```
+
+**Variações Automáticas**: TD, LR, BT, RL baseado no contexto e espaço disponível
+
+### 2. **Sequence Diagram - Templates Dinâmicos**
+
+#### **🔄 Template: API Request/Response**
 ```mermaid
 sequenceDiagram
-    participant A as Alice
-    participant B as Bob
-    A->>B: Hello Bob!
-    B-->>A: Hello Alice!
-    A->>B: How are you?
-    B-->>A: I'm good, thanks!
+    participant CLIENT as Client
+    participant API as API Server
+    participant DB as Database
+    
+    CLIENT->>+API: POST /api/login
+    API->>+DB: Validate credentials
+    DB-->>-API: User data
+    API-->>-CLIENT: JWT token
+    
+    Note over CLIENT,DB: Authentication flow
 ```
 
-**Recursos**: Participants, Messages, Loops, Alt/Opt, Notes
+#### **🔄 Template: Sistema com Erro Handling**
+```mermaid
+sequenceDiagram
+    participant USER as User
+    participant APP as Application
+    participant SERVICE as Service
+    participant ERROR as Error Handler
+    
+    USER->>+APP: Request action
+    APP->>+SERVICE: Process request
+    
+    alt Success
+        SERVICE-->>APP: Success response
+        APP-->>USER: Success message
+    else Error
+        SERVICE-->>ERROR: Error details
+        ERROR-->>APP: Formatted error
+        APP-->>USER: Error message
+    end
+    
+    deactivate SERVICE
+    deactivate APP
+```
 
-### 3. **Class Diagram**
+#### **🔄 Template: Microservices Communication**
+```mermaid
+sequenceDiagram
+    participant GATEWAY as API Gateway
+    participant AUTH as Auth Service
+    participant USER as User Service
+    participant ORDER as Order Service
+    participant NOTIFY as Notification
+    
+    GATEWAY->>+AUTH: Validate token
+    AUTH-->>-GATEWAY: Token valid
+    
+    GATEWAY->>+USER: Get user info
+    USER-->>-GATEWAY: User details
+    
+    GATEWAY->>+ORDER: Create order
+    ORDER->>+NOTIFY: Send confirmation
+    NOTIFY-->>-ORDER: Notification sent
+    ORDER-->>-GATEWAY: Order created
+    
+    GATEWAY-->>CLIENT: Response
+```
+
+**Recursos Avançados**: Participants, Messages, Loops, Alt/Opt/Par, Notes, Activation Boxes
+
+### 3. **Class Diagram - Templates Dinâmicos**
+
+#### **🔄 Template: Padrão Repository**
 ```mermaid
 classDiagram
-    class Animal {
-        +String name
-        +int age
-        +makeSound()
+    class IRepository~T~ {
+        <<interface>>
+        +findById(id: string) T
+        +findAll() T[]
+        +save(entity: T) T
+        +delete(id: string) boolean
     }
-    class Dog {
-        +String breed
-        +bark()
+    
+    class UserRepository {
+        -connection: Database
+        +findById(id: string) User
+        +findByEmail(email: string) User
+        +save(user: User) User
+        +delete(id: string) boolean
     }
-    Animal <|-- Dog
+    
+    class User {
+        +id: string
+        +email: string
+        +name: string
+        +createdAt: Date
+        +validate() boolean
+    }
+    
+    IRepository~User~ <|.. UserRepository
+    UserRepository --> User : manages
 ```
 
-**Recursos**: Classes, Inheritance, Composition, Interfaces
+#### **🔄 Template: Sistema MVC**
+```mermaid
+classDiagram
+    class Controller {
+        <<abstract>>
+        #request: Request
+        #response: Response
+        +handleRequest() void
+    }
+    
+    class UserController {
+        -userService: UserService
+        +getUser() void
+        +createUser() void
+        +updateUser() void
+        +deleteUser() void
+    }
+    
+    class UserService {
+        -userRepository: UserRepository
+        +findUser(id: string) User
+        +createUser(data: UserData) User
+        +validateUser(user: User) boolean
+    }
+    
+    class User {
+        +id: string
+        +email: string
+        +name: string
+        +validate() boolean
+    }
+    
+    Controller <|-- UserController
+    UserController --> UserService : uses
+    UserService --> User : manages
+```
+
+#### **🔄 Template: Design Patterns**
+```mermaid
+classDiagram
+    class Subject {
+        <<interface>>
+        +attach(observer: Observer) void
+        +detach(observer: Observer) void
+        +notify() void
+    }
+    
+    class ConcreteSubject {
+        -observers: Observer[]
+        -state: string
+        +attach(observer: Observer) void
+        +detach(observer: Observer) void
+        +notify() void
+        +getState() string
+        +setState(state: string) void
+    }
+    
+    class Observer {
+        <<interface>>
+        +update(subject: Subject) void
+    }
+    
+    class ConcreteObserver {
+        -name: string
+        +update(subject: Subject) void
+    }
+    
+    Subject <|.. ConcreteSubject
+    Observer <|.. ConcreteObserver
+    ConcreteSubject o-- Observer : notifies
+```
+
+**Recursos Avançados**: Classes, Inheritance, Composition, Interfaces, Generics, Annotations
 
 ### 4. **State Diagram**
 ```mermaid
@@ -290,47 +643,174 @@ flowchart TD
     A[User Admin] --> B[Config Setup]
 ```
 
-## 🎯 Casos de Uso Específicos
+## 🎯 Casos de Uso Práticos com Validação Inteligente
 
-### **Documentação de Arquitetura**
-Ideal para diagramas de sistema, fluxos de dados, componentes:
-```mermaid
-flowchart TB
-    UI[User Interface] --> API[REST API]
-    API --> DB[Database]
-    API --> CACHE[Redis Cache]
-    API --> QUEUE[Message Queue]
-```
+### **📋 Sistema de Criação Guiada**
 
-### **Processos de Negócio**
-Perfeito para workflows, aprovações, fluxos operacionais:
+#### **Exemplo 1: "Preciso documentar o fluxo de checkout do e-commerce"**
+
+**Minha Análise Automática:**
+- ✅ **Tipo Detectado**: Flowchart (palavras-chave: "fluxo", "checkout")
+- ✅ **Complexidade**: Média (múltiplas etapas + validações)
+- ✅ **Template Selecionado**: Processo com Decisões + Erro Handling
+
+**Código Gerado Automaticamente:**
 ```mermaid
 flowchart TD
-    START[Request] --> REVIEW{Needs Review?}
-    REVIEW -->|Yes| APPROVE[Manager Approval]
-    REVIEW -->|No| AUTO[Auto Process]
-    APPROVE --> FINAL[Complete]
-    AUTO --> FINAL
+    START[Carrinho] --> LOGIN{Usuário Logado?}
+    LOGIN -->|Não| AUTH[Login/Registro]
+    LOGIN -->|Sim| ADDRESS[Selecionar Endereço]
+    AUTH --> ADDRESS
+    
+    ADDRESS --> PAYMENT[Método Pagamento]
+    PAYMENT --> VALIDATE{Validar Dados?}
+    VALIDATE -->|Erro| ERROR[Mostrar Erro]
+    VALIDATE -->|OK| PROCESS[Processar Pagamento]
+    ERROR --> PAYMENT
+    
+    PROCESS --> CONFIRM{Pagamento OK?}
+    CONFIRM -->|Sim| SUCCESS[Pedido Confirmado]
+    CONFIRM -->|Não| RETRY[Tentar Novamente]
+    RETRY --> PAYMENT
+    SUCCESS --> EMAIL[Enviar Email]
+    EMAIL --> END[Finalizar]
 ```
 
-### **Modelagem de Dados**
-Excelente para ERDs, relacionamentos, estruturas:
-```mermaid
-erDiagram
-    USER ||--o{ ORDER : "places"
-    ORDER ||--|{ ITEM : "contains"
-    USER }|--|| PROFILE : "has"
-```
+**Validações Aplicadas Automaticamente:**
+- ✅ Sintaxe modernizada (`flowchart TD`)
+- ✅ Nomes limpos (sem caracteres especiais)
+- ✅ Estrutura otimizada para GitHub
+- ✅ Complexidade dentro dos limites (15 nós)
 
-### **Diagramas de Sequência**
-Ideal para APIs, protocolos, interações:
+#### **Exemplo 2: "Como documentar a comunicação entre microservices?"**
+
+**Minha Análise Automática:**
+- ✅ **Tipo Detectado**: Sequence Diagram (palavras-chave: "comunicação", "microservices")
+- ✅ **Padrão Identificado**: Microservices Architecture
+- ✅ **Template Selecionado**: Multi-Service Communication
+
+**Código Gerado Automaticamente:**
 ```mermaid
 sequenceDiagram
-    Client->>+Server: POST /api/login
-    Server->>+DB: Validate credentials
-    DB-->>-Server: User data
-    Server-->>-Client: JWT token
+    participant CLIENT as Client App
+    participant GATEWAY as API Gateway
+    participant AUTH as Auth Service
+    participant USER as User Service
+    participant ORDER as Order Service
+    participant PAYMENT as Payment Service
+    participant NOTIFY as Notification Service
+    
+    CLIENT->>+GATEWAY: POST /orders
+    GATEWAY->>+AUTH: Validate JWT
+    AUTH-->>-GATEWAY: Token Valid
+    
+    GATEWAY->>+USER: GET /users/{id}
+    USER-->>-GATEWAY: User Data
+    
+    GATEWAY->>+ORDER: Create Order
+    ORDER->>+PAYMENT: Process Payment
+    PAYMENT-->>-ORDER: Payment Success
+    
+    ORDER->>+NOTIFY: Send Email
+    NOTIFY-->>-ORDER: Email Sent
+    ORDER-->>-GATEWAY: Order Created
+    
+    GATEWAY-->>-CLIENT: 201 Created
 ```
+
+#### **Exemplo 3: "Modelar sistema de usuários e permissões"**
+
+**Minha Análise Automática:**
+- ✅ **Tipo Detectado**: Class Diagram (palavras-chave: "modelar", "usuários", "permissões")
+- ✅ **Padrão Identificado**: RBAC (Role-Based Access Control)
+- ✅ **Template Selecionado**: User Management System
+
+**Código Gerado Automaticamente:**
+```mermaid
+classDiagram
+    class User {
+        +id: string
+        +email: string
+        +name: string
+        +isActive: boolean
+        +createdAt: Date
+        +login() boolean
+        +logout() void
+    }
+    
+    class Role {
+        +id: string
+        +name: string
+        +description: string
+        +permissions: Permission[]
+        +addPermission(permission: Permission) void
+    }
+    
+    class Permission {
+        +id: string
+        +resource: string
+        +action: string
+        +description: string
+    }
+    
+    class UserRole {
+        +userId: string
+        +roleId: string
+        +assignedAt: Date
+        +assignedBy: string
+    }
+    
+    User ||--o{ UserRole : has
+    Role ||--o{ UserRole : assigned_to
+    Role ||--o{ Permission : contains
+```
+
+### **🔍 Sistema de Validação em Tempo Real**
+
+#### **Validação Durante Criação:**
+```typescript
+// Sistema de feedback instantâneo
+interface RealTimeValidator {
+  onTypeDetection: (type: DiagramType) => void
+  onSyntaxValidation: (result: ValidationResult) => void
+  onGitHubCompatibility: (result: CompatibilityResult) => void
+  onPerformanceAnalysis: (metrics: PerformanceMetrics) => void
+  onAutoCorrection: (fixes: AutoFix[]) => void
+}
+```
+
+#### **Feedback Instantâneo:**
+```
+🔍 Analisando: "fluxo de aprovação com múltiplos níveis"
+   ✅ Tipo detectado: Flowchart
+   ✅ Template selecionado: Sistema de Aprovação Multi-nível
+   ✅ Estimativa: 8 nós, complexidade média
+   ⚠️ Sugestão: Adicionar timeout para aprovações pendentes
+   ✅ GitHub compatible: 100%
+   ✅ Performance: Otimizada para renderização rápida
+```
+
+### **📊 Casos de Uso por Contexto**
+
+#### **🏗️ Documentação de Arquitetura**
+- **Fluxos de Sistema**: API Gateway → Services → Database
+- **Componentes**: Frontend ↔ Backend ↔ Storage
+- **Deploy Pipeline**: Code → Build → Test → Deploy
+
+#### **💼 Processos de Negócio**
+- **Workflows**: Solicitação → Aprovação → Execução
+- **Customer Journey**: Descoberta → Avaliação → Compra → Suporte
+- **Operações**: Ticket → Triagem → Resolução → Follow-up
+
+#### **🔧 Desenvolvimento de Software**
+- **Git Flow**: Feature → Review → Merge → Release
+- **CI/CD**: Commit → Build → Test → Deploy → Monitor
+- **Bug Tracking**: Report → Triage → Fix → Verify → Close
+
+#### **📈 Análise de Dados**
+- **ETL Pipelines**: Extract → Transform → Load → Validate
+- **Data Flow**: Source → Processing → Storage → Analytics
+- **ML Workflow**: Data → Training → Model → Inference → Feedback
 
 ## 🚀 Performance Guidelines
 
