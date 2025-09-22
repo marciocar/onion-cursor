@@ -4,7 +4,14 @@
 
 ## 🎯 Visão Geral
 
-Bem-vindo ao projeto Onion! Sistema avançado de comandos `.cursor/` com integração ClickUp e agentes especializados de IA. Documentação completa disponível em [`docs/onion/`](docs/onion/) para usar efetivamente todos os comandos, agentes e fluxos de trabalho.
+Bem-vindo ao **Sistema Onion**! Framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
+
+- 🤖 **26 comandos especializados** organizados por categoria
+- 🎯 **17 agentes de IA especializados** para tarefas específicas  
+- 🔗 **Integração completa com ClickUp MCP** para gestão automática de projetos
+- ⚡ **Workflows automatizados** do planejamento ao deploy
+
+Documentação completa disponível em [`docs/onion/`](docs/onion/) para dominar todos os comandos, agentes e fluxos de trabalho.
 
 ## 📖 Guias Disponíveis
 
@@ -22,50 +29,94 @@ Bem-vindo ao projeto Onion! Sistema avançado de comandos `.cursor/` com integra
 
 ## 🎯 Navegação Rápida
 
-### Por Categoria de Comando
-- **🔧 [Comandos de Engenharia](#comandos-de-engenharia)**: start, pr, work, pre-pr, plan, docs
-- **📋 [Comandos de Produto](#comandos-de-produto)**: task, collect, refine, light-arch, spec
-- **📚 [Comandos de Documentação](#comandos-de-documentacao)**: build-tech-docs, build-business-docs
-- **⚙️ [Meta Comandos](#meta-comandos)**: create-agent, all-tools
+### 📂 Por Categoria de Comando
+- **🔧 Engenharia**: `engineer/start`, `engineer/pr`, `engineer/work`, `engineer/pre-pr`, `engineer/plan`, `engineer/docs`
+- **📋 Produto**: `product/task`, `product/collect`, `product/refine`, `product/light-arch`, `product/spec`  
+- **📚 Documentação**: `docs/build-tech-docs`, `docs/build-business-docs`
+- **🌿 Git**: `git/sync`
+- **⚙️ Meta**: `meta/create-agent`, `meta/all-tools`
 
-### Por Fluxo de Trabalho
-1. **[Criação de Task](#criacao-de-task)** → `product/task`
-2. **[Desenvolvimento](#desenvolvimento)** → `engineer/start` → `engineer/work` 
-3. **[Review & Deploy](#review-deploy)** → `engineer/pr`
-4. **[Documentação](#documentacao)** → `docs/build-*`
+### 🔄 Por Fluxo de Trabalho
+1. **Planejamento** → `/product/task` → `/product/spec`
+2. **Desenvolvimento** → `/engineer/start` → `/engineer/work` → `/engineer/pr`
+3. **Sincronização** → `/git/sync`
+4. **Documentação** → `/docs/build-*`
 
-## 🎪 Início Rápido
+## 🚀 Início Rápido
 
-Para começar rapidamente:
-
+### 🎯 Primeiro Uso - Workflow Completo
 ```bash
-# 1. Criar uma nova task
+# 1. Criar nova task com especificações
 /product/task "Implementar autenticação de usuário"
 
-# 2. Iniciar desenvolvimento
+# 2. Iniciar desenvolvimento (cria branch, sessão)
 /engineer/start
 
-# 3. Trabalhar na funcionalidade
+# 3. Trabalhar na funcionalidade (development loop)
 /engineer/work
 
-# 4. Fazer PR quando pronto
+# 4. Criar Pull Request (testes, build, PR)  
 /engineer/pr
+
+# 5. Sincronizar após merge (cleanup, ClickUp update)
+/git/sync
 ```
 
-## 🤝 Integração ClickUp
+### 🔧 Comandos Essenciais
+- **`/meta/all-tools`** - Lista todos os comandos disponíveis
+- **`@agent-name`** - Invoca agente especializado específico
+- **`/product/task`** - Gerencia tasks e planejamento
+- **`/engineer/*`** - Workflows de desenvolvimento
 
-Todos os comandos estão integrados com ClickUp MCP para:
-- ✅ Criação automática de tasks
-- ✅ Atualização de status de progresso
-- ✅ Adição de comentários e atualizações
-- ✅ Gerenciamento de tags e assignees
+## 🔗 Integração ClickUp
 
-## 📞 Suporte
+O Sistema Onion oferece **integração nativa e bidirecional** com ClickUp através do ClickUp MCP:
 
-Para dúvidas ou problemas:
-1. Consulte os guias específicos em cada arquivo
-2. Veja exemplos práticos em `practical-examples.md`
-3. Verifique a integração ClickUp se houver problemas de sincronização
+### ⚡ Automações Principais
+- **🎯 Gestão Inteligente de Tasks**: Criação, atualização e sincronização automática
+- **📊 Status em Tempo Real**: Atualizações automáticas baseadas no progresso do desenvolvimento
+- **💬 Comentários Contextuais**: Formatação Unicode padronizada para máxima clareza
+- **🏷️ Tag Management**: Aplicação automática de tags baseada no estágio do desenvolvimento
+- **👥 Assignment**: Gerenciamento inteligente de assignees e responsáveis
+
+### 🛠️ Recursos Técnicos
+- **Bulk Operations**: Otimização para operações em massa
+- **Real-time Sync**: Sincronização bidirecional instantânea
+- **Conflict Resolution**: Tratamento inteligente de conflitos de dados
+- **Fallback Gracioso**: Funcionamento garantido mesmo com falhas de rede
+
+## 🤖 Agentes Especializados
+
+O Sistema Onion inclui **17 agentes de IA especializados** que podem ser invocados diretamente:
+
+### 🎯 Agentes Principais
+- **`@product-agent`** - Gestão estratégica de produto e coordenação de projetos
+- **`@gitflow-specialist`** - Expert em workflows Git e branching strategies  
+- **`@clickup-specialist`** - Otimizações técnicas do ClickUp MCP
+- **`@cursor-specialist`** - Configuração e troubleshooting do Cursor IDE
+
+### 🔧 Agentes de Desenvolvimento
+- **`@python-developer`** - Especialista em desenvolvimento Python
+- **`@react-developer`** - Expert em React e TypeScript
+- **`@test-engineer`** - Automação e estratégias de teste
+- **`@code-reviewer`** - Análise e review de código
+
+**[Ver lista completa →](docs/onion/agents-reference.md)**
+
+## 📞 Suporte e Recursos
+
+### 🆘 Resolução de Problemas
+1. **Comandos**: Consulte [`docs/onion/commands-guide.md`](docs/onion/commands-guide.md)
+2. **Exemplos**: Veja casos práticos em [`docs/onion/practical-examples.md`](docs/onion/practical-examples.md)
+3. **ClickUp**: Verifique [`docs/onion/clickup-integration.md`](docs/onion/clickup-integration.md)
+4. **Configuração**: Siga [`docs/onion/getting-started.md`](docs/onion/getting-started.md)
+
+### 🔧 Comandos de Debug
+```bash
+/meta/all-tools              # Lista todos os comandos
+@cursor-specialist "ajuda"   # Troubleshooting do IDE  
+/product/task-check [ID]     # Verifica status de task
+```
 
 ---
 
