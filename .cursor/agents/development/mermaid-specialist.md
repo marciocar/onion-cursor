@@ -115,14 +115,44 @@ flowchart TD
     C --> A
 ```
 
-#### **🔍 Sistema de Detecção Inteligente**
-Identifico automaticamente o melhor tipo de diagrama:
+#### **🔍 Sistema de Detecção Inteligente Completo**
+Identifico automaticamente o melhor tipo de diagrama através de análise de palavras-chave:
 
-- **Palavras-chave de Processo**: "fluxo", "workflow", "passos" → **Flowchart**
-- **Interações Temporais**: "comunicação", "chamadas", "sequência" → **Sequence**
-- **Estruturas de Dados**: "modelo", "entidades", "relacionamentos" → **ER Diagram**
-- **Hierarquias**: "classes", "herança", "objetos" → **Class Diagram**
-- **Estados**: "transições", "estados", "máquina" → **State Diagram**
+**🔄 Flowchart Detection:**
+- **Palavras-chave**: "fluxo", "workflow", "processo", "passos", "decisão", "aprovação"
+- **Contextos**: Processos de negócio, workflows, tomada de decisão
+
+**🔄 Sequence Diagram Detection:**
+- **Palavras-chave**: "comunicação", "interação", "API", "microservices", "chamadas", "protocolo"
+- **Contextos**: Sistemas distribuídos, APIs, protocolos de comunicação
+
+**🔄 Class Diagram Detection:**
+- **Palavras-chave**: "classes", "herança", "objetos", "modelo de dados", "arquitetura", "padrões"
+- **Contextos**: Design de software, arquitetura OOP, padrões de design
+
+**🔄 State Diagram Detection:**
+- **Palavras-chave**: "estados", "transições", "máquina", "status", "lifecycle", "autenticação"
+- **Contextos**: Máquinas de estado, lifecycles, fluxos de status
+
+**🔄 ER Diagram Detection:**
+- **Palavras-chave**: "banco", "database", "entidades", "relacionamentos", "modelagem", "tabelas"
+- **Contextos**: Design de banco de dados, modelagem de dados
+
+**🔄 User Journey Detection:**
+- **Palavras-chave**: "jornada", "experiência", "usuário", "customer", "satisfação", "touchpoints"
+- **Contextos**: UX/UI design, customer experience, análise de satisfação
+
+**🔄 Gantt Chart Detection:**
+- **Palavras-chave**: "cronograma", "projeto", "timeline", "planejamento", "marcos", "dependências"
+- **Contextos**: Gestão de projetos, planejamento temporal
+
+**🔄 Pie Chart Detection:**
+- **Palavras-chave**: "distribuição", "percentual", "proporção", "análise", "dados", "estatísticas"
+- **Contextos**: Análise de dados, relatórios, distribuições
+
+**🔄 Git Graph Detection:**
+- **Palavras-chave**: "git", "branches", "commits", "merge", "workflow", "versionamento"
+- **Contextos**: Fluxos de desenvolvimento, estratégias de branch, CI/CD
 
 ### Processo de Criação Avançado
 ```python
@@ -512,78 +542,542 @@ classDiagram
 
 **Recursos Avançados**: Classes, Inheritance, Composition, Interfaces, Generics, Annotations
 
-### 4. **State Diagram**
+### 4. **State Diagram - Templates Dinâmicos**
+
+#### **🔄 Template: Máquina de Estados Simples**
 ```mermaid
 stateDiagram-v2
-    [*] --> Still
-    Still --> [*]
-    Still --> Moving
-    Moving --> Still
-    Moving --> Crash
-    Crash --> [*]
+    [*] --> Idle
+    Idle --> Processing : start_process
+    Processing --> Complete : success
+    Processing --> Error : failure
+    Error --> Idle : reset
+    Complete --> [*]
+    
+    note right of Processing : Processing data...
+    note left of Error : Handle error state
 ```
 
-**Recursos**: States, Transitions, Composite States, Parallel States
+#### **🔄 Template: Sistema de Autenticação**
+```mermaid
+stateDiagram-v2
+    [*] --> LoggedOut
+    LoggedOut --> Authenticating : login_attempt
+    Authenticating --> LoggedIn : success
+    Authenticating --> Failed : invalid_credentials
+    Failed --> LoggedOut : timeout
+    Failed --> Authenticating : retry
+    LoggedIn --> LoggedOut : logout
+    LoggedIn --> SessionExpired : timeout
+    SessionExpired --> LoggedOut : confirm
+    
+    state LoggedIn {
+        [*] --> Active
+        Active --> Inactive : idle
+        Inactive --> Active : activity
+    }
+```
 
-### 5. **Entity Relationship Diagram**
+#### **🔄 Template: Workflow de Aprovação**
+```mermaid
+stateDiagram-v2
+    [*] --> Draft
+    Draft --> PendingReview : submit
+    PendingReview --> InReview : assign_reviewer
+    InReview --> Approved : approve
+    InReview --> ChangesRequested : request_changes
+    InReview --> Rejected : reject
+    ChangesRequested --> Draft : make_changes
+    Approved --> Published : publish
+    Published --> Archived : archive
+    Rejected --> [*]
+    
+    state InReview {
+        [*] --> FirstReview
+        FirstReview --> SecondReview : first_approve
+        SecondReview --> FinalApproval : second_approve
+    }
+```
+
+**Recursos Avançados**: States, Transitions, Composite States, Parallel States, Notes
+
+### 5. **Entity Relationship Diagram - Templates Dinâmicos**
+
+#### **🔄 Template: E-commerce Database**
 ```mermaid
 erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE-ITEM : contains
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+    USER ||--o{ ORDER : places
+    USER ||--o{ CART : owns
+    USER }|--|| PROFILE : has
+    USER }|--o{ ADDRESS : uses
+    
+    ORDER ||--|{ ORDER_ITEM : contains
+    ORDER }|--|| PAYMENT : has
+    ORDER }|--|| SHIPPING : has
+    
+    PRODUCT ||--o{ ORDER_ITEM : referenced_by
+    PRODUCT }|--|| CATEGORY : belongs_to
+    PRODUCT ||--o{ REVIEW : has
+    
+    USER {
+        int id PK
+        string email UK
+        string name
+        datetime created_at
+        boolean is_active
+    }
+    
+    ORDER {
+        int id PK
+        int user_id FK
+        decimal total
+        string status
+        datetime created_at
+    }
+    
+    PRODUCT {
+        int id PK
+        int category_id FK
+        string name
+        decimal price
+        int stock
+        text description
+    }
 ```
 
-**Recursos**: Entities, Relationships, Cardinality, Attributes
+#### **🔄 Template: Sistema de Usuários e Permissões**
+```mermaid
+erDiagram
+    USER ||--o{ USER_ROLE : has
+    ROLE ||--o{ USER_ROLE : assigned_to
+    ROLE ||--o{ ROLE_PERMISSION : contains
+    PERMISSION ||--o{ ROLE_PERMISSION : granted_by
+    
+    ORGANIZATION ||--o{ USER : employs
+    ORGANIZATION ||--o{ TEAM : contains
+    TEAM ||--o{ TEAM_MEMBER : includes
+    USER ||--o{ TEAM_MEMBER : participates
+    
+    USER {
+        uuid id PK
+        string email UK
+        string name
+        string password_hash
+        uuid organization_id FK
+        datetime created_at
+        boolean is_active
+    }
+    
+    ROLE {
+        uuid id PK
+        string name UK
+        string description
+        string scope
+        datetime created_at
+    }
+    
+    PERMISSION {
+        uuid id PK
+        string resource
+        string action
+        text description
+    }
+```
 
-### 6. **User Journey**
+#### **🔄 Template: Sistema de Blogs/CMS**
+```mermaid
+erDiagram
+    AUTHOR ||--o{ POST : writes
+    POST ||--o{ COMMENT : receives
+    USER ||--o{ COMMENT : makes
+    POST }|--|| CATEGORY : belongs_to
+    POST ||--o{ POST_TAG : tagged_with
+    TAG ||--o{ POST_TAG : applied_to
+    
+    POST {
+        int id PK
+        int author_id FK
+        int category_id FK
+        string title
+        text content
+        string slug UK
+        string status
+        datetime published_at
+        datetime created_at
+    }
+    
+    COMMENT {
+        int id PK
+        int post_id FK
+        int user_id FK
+        int parent_id FK
+        text content
+        string status
+        datetime created_at
+    }
+```
+
+**Recursos Avançados**: Entities, Relationships, Cardinality, Attributes, Primary Keys, Foreign Keys
+
+### 6. **User Journey - Templates Dinâmicos**
+
+#### **🔄 Template: Customer E-commerce Journey**
 ```mermaid
 journey
-    title My working day
-    section Go to work
-      Make tea: 5: Me
-      Go upstairs: 3: Me
-      Do work: 1: Me, Cat
-    section Go home
-      Go downstairs: 5: Me
-      Sit down: 5: Me
+    title Customer Purchase Journey
+    section Discovery
+      See ads: 3: Customer
+      Visit website: 4: Customer
+      Browse products: 4: Customer
+      Read reviews: 3: Customer
+    section Evaluation
+      Compare prices: 2: Customer
+      Check features: 3: Customer
+      Add to cart: 4: Customer
+      Calculate shipping: 2: Customer
+    section Purchase
+      Create account: 3: Customer
+      Enter payment: 2: Customer, Support
+      Confirm order: 5: Customer
+      Receive confirmation: 5: Customer, System
+    section Post-Purchase
+      Track shipment: 4: Customer, System
+      Receive product: 5: Customer
+      Leave review: 4: Customer
+      Contact support: 3: Customer, Support
 ```
 
-**Recursos**: Sections, Tasks, Actors, Satisfaction Scores
+#### **🔄 Template: SaaS Product Onboarding**
+```mermaid
+journey
+    title New User Onboarding Experience
+    section Signup
+      Land on page: 4: Visitor
+      Watch demo: 3: Visitor
+      Start trial: 5: Visitor
+      Create account: 4: User
+    section First Use
+      Email verification: 3: User
+      Complete profile: 2: User
+      Take tutorial: 3: User, Assistant
+      Import data: 2: User, Support
+    section Activation
+      Create first project: 4: User
+      Invite teammates: 3: User, Admin
+      Configure settings: 2: User, Admin
+      See first results: 5: User
+    section Conversion
+      Upgrade prompt: 3: User, Sales
+      Choose plan: 4: User
+      Enter payment: 4: User
+      Become customer: 5: User, Sales
+```
 
-### 7. **Gantt Chart**
+#### **🔄 Template: Support Ticket Journey**
+```mermaid
+journey
+    title Customer Support Experience
+    section Problem Discovery
+      Encounter issue: 1: Customer
+      Check documentation: 2: Customer
+      Search FAQ: 2: Customer
+      Decide to contact: 3: Customer
+    section Contact
+      Find contact form: 3: Customer
+      Describe problem: 2: Customer
+      Submit ticket: 3: Customer
+      Receive confirmation: 4: Customer, System
+    section Resolution
+      Agent assignment: 4: Agent, System
+      Initial response: 4: Customer, Agent
+      Investigation: 3: Agent
+      Provide solution: 5: Customer, Agent
+    section Follow-up
+      Confirm resolution: 5: Customer
+      Rate experience: 4: Customer
+      Close ticket: 5: Customer, Agent
+      Follow-up survey: 3: Customer
+```
+
+**Recursos Avançados**: Sections, Tasks, Multiple Actors, Satisfaction Scores (1-5)
+
+### 7. **Gantt Chart - Templates Dinâmicos**
+
+#### **🔄 Template: Desenvolvimento de Software**
 ```mermaid
 gantt
-    title A Gantt Diagram
-    dateFormat  YYYY-MM-DD
-    section Section
-    A task           :a1, 2014-01-01, 30d
-    Another task     :after a1  , 20d
+    title Software Development Project Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+    
+    section Planning
+    Requirements Analysis    :done, req, 2024-01-01, 2024-01-10
+    System Design          :done, design, after req, 8d
+    Architecture Planning   :done, arch, after design, 5d
+    
+    section Development
+    Backend Development     :active, backend, after arch, 20d
+    Frontend Development    :frontend, after arch, 18d
+    Database Setup         :db, after arch, 10d
+    API Integration        :api, after backend, 8d
+    
+    section Testing
+    Unit Testing           :test1, after frontend, 7d
+    Integration Testing    :test2, after api, 10d
+    User Acceptance Testing :test3, after test2, 5d
+    
+    section Deployment
+    Production Setup       :deploy1, after test3, 3d
+    Go Live               :milestone, after deploy1, 1d
+    Post-Launch Support   :support, after deploy1, 14d
 ```
 
-**Recursos**: Tasks, Dependencies, Milestones, Sections
-
-### 8. **Pie Chart**
+#### **🔄 Template: Marketing Campaign**
 ```mermaid
-pie title Pets adopted by volunteers
-    "Dogs" : 386
-    "Cats" : 85
-    "Rats" : 15
+gantt
+    title Marketing Campaign Launch
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+    
+    section Strategy
+    Market Research        :done, research, 2024-01-01, 10d
+    Competitor Analysis    :done, compete, after research, 7d
+    Campaign Strategy      :done, strategy, after compete, 5d
+    
+    section Creative
+    Brand Guidelines       :brand, after strategy, 8d
+    Content Creation       :content, after brand, 12d
+    Design Assets         :design, after brand, 10d
+    Video Production      :video, after content, 14d
+    
+    section Execution
+    Website Updates       :web, after design, 7d
+    Social Media Setup    :social, after content, 5d
+    Email Campaign       :email, after content, 8d
+    Launch Event         :milestone, event, after video, 1d
+    
+    section Analysis
+    Performance Tracking  :tracking, after event, 30d
+    ROI Analysis         :roi, after tracking, 7d
 ```
 
-**Recursos**: Title, Data Labels, Percentages
+#### **🔄 Template: Product Launch**
+```mermaid
+gantt
+    title Product Launch Timeline
+    dateFormat YYYY-MM-DD
+    
+    section Research & Development
+    Market Research       :done, market, 2024-01-01, 14d
+    Product Design       :done, design, after market, 21d
+    Prototype Development :proto, after design, 28d
+    User Testing         :testing, after proto, 14d
+    
+    section Production
+    Manufacturing Setup   :mfg, after testing, 10d
+    Quality Assurance    :qa, after mfg, 7d
+    Packaging Design     :pack, after testing, 14d
+    Initial Production   :prod, after qa, 21d
+    
+    section Marketing
+    Marketing Strategy   :mark_strat, after testing, 14d
+    Campaign Development :campaign, after mark_strat, 21d
+    PR & Media          :pr, after campaign, 14d
+    Launch Event        :milestone, launch, after prod, 1d
+    
+    section Post-Launch
+    Customer Support    :support, after launch, 60d
+    Performance Analysis :analysis, after launch, 30d
+```
 
-### 9. **Git Graph**
+**Recursos Avançados**: Tasks, Dependencies, Milestones, Sections, Date Formatting, Status Tracking
+
+### 8. **Pie Chart - Templates Dinâmicos**
+
+#### **🔄 Template: Análise de Vendas**
+```mermaid
+pie title Sales by Product Category (Q4 2024)
+    "Software Licenses" : 450
+    "Support Services" : 280
+    "Training Programs" : 120
+    "Custom Development" : 85
+    "Maintenance Contracts" : 65
+```
+
+#### **🔄 Template: Distribuição de Orçamento**
+```mermaid
+pie title Marketing Budget Allocation
+    "Digital Advertising" : 40
+    "Content Marketing" : 25
+    "Events & Conferences" : 15
+    "PR & Communications" : 10
+    "Marketing Tools" : 7
+    "Other" : 3
+```
+
+#### **🔄 Template: User Demographics**
+```mermaid
+pie title User Base by Region
+    "North America" : 342
+    "Europe" : 298
+    "Asia Pacific" : 189
+    "Latin America" : 87
+    "Middle East & Africa" : 45
+    "Others" : 39
+```
+
+#### **🔄 Template: System Resources**
+```mermaid
+pie title Server Resource Usage
+    "Application Services" : 45
+    "Database" : 30
+    "Cache & Redis" : 12
+    "File Storage" : 8
+    "Monitoring" : 3
+    "Available" : 2
+```
+
+**Recursos Avançados**: Title, Data Labels, Automatic Percentages, Value Display
+
+### 9. **Git Graph - Templates Dinâmicos**
+
+#### **🔄 Template: Gitflow Workflow**
 ```mermaid
 gitgraph
-    commit
+    commit id: "Initial commit"
     branch develop
     checkout develop
-    commit
+    commit id: "Setup project structure"
+    
+    branch feature/login
+    checkout feature/login
+    commit id: "Add login form"
+    commit id: "Add authentication"
+    
+    checkout develop
+    merge feature/login
+    commit id: "Merge login feature"
+    
+    branch feature/dashboard
+    checkout feature/dashboard
+    commit id: "Create dashboard layout"
+    commit id: "Add widgets"
+    
+    checkout develop
+    merge feature/dashboard
+    
+    branch release/v1.0
+    checkout release/v1.0
+    commit id: "Prepare v1.0 release"
+    commit id: "Fix release bugs"
+    
     checkout main
-    merge develop
+    merge release/v1.0
+    commit id: "Release v1.0" tag: "v1.0.0"
+    
+    checkout develop
+    merge release/v1.0
 ```
 
-**Recursos**: Commits, Branches, Merges, Tags
+#### **🔄 Template: Feature Branch Workflow**
+```mermaid
+gitgraph
+    commit id: "Initial setup"
+    commit id: "Add basic structure"
+    
+    branch feature/user-auth
+    checkout feature/user-auth
+    commit id: "Implement signup"
+    commit id: "Add password validation"
+    commit id: "Create login endpoint"
+    
+    checkout main
+    branch feature/api-integration
+    checkout feature/api-integration
+    commit id: "Setup API client"
+    commit id: "Add error handling"
+    
+    checkout main
+    merge feature/user-auth
+    commit id: "Merge: User authentication"
+    
+    checkout feature/api-integration
+    commit id: "Update with main changes"
+    
+    checkout main
+    merge feature/api-integration
+    commit id: "Merge: API integration"
+    
+    commit id: "Deploy to production" tag: "v1.0"
+```
+
+#### **🔄 Template: Hotfix Workflow**
+```mermaid
+gitgraph
+    commit id: "Version 1.0" tag: "v1.0.0"
+    commit id: "Regular development"
+    
+    branch develop
+    checkout develop
+    commit id: "New feature work"
+    commit id: "Add new component"
+    
+    checkout main
+    branch hotfix/security-patch
+    checkout hotfix/security-patch
+    commit id: "Fix security vulnerability"
+    commit id: "Add security tests"
+    
+    checkout main
+    merge hotfix/security-patch
+    commit id: "Hotfix: Security patch" tag: "v1.0.1"
+    
+    checkout develop
+    merge hotfix/security-patch
+    commit id: "Merge hotfix into develop"
+    
+    commit id: "Continue feature development"
+    
+    checkout main
+    merge develop
+    commit id: "Release v1.1" tag: "v1.1.0"
+```
+
+#### **🔄 Template: CI/CD Pipeline Branches**
+```mermaid
+gitgraph
+    commit id: "Initial commit"
+    
+    branch staging
+    checkout staging
+    commit id: "Deploy to staging"
+    
+    branch develop
+    checkout develop
+    commit id: "Feature development"
+    
+    branch feature/new-api
+    checkout feature/new-api
+    commit id: "Implement new API"
+    commit id: "Add API tests"
+    
+    checkout develop
+    merge feature/new-api
+    
+    checkout staging
+    merge develop
+    commit id: "Test in staging"
+    
+    checkout main
+    merge staging
+    commit id: "Production release" tag: "v2.0.0"
+    
+    checkout develop
+    merge main
+    commit id: "Sync with production"
+```
+
+**Recursos Avançados**: Commits, Branches, Merges, Tags, Commit Messages, Branch Names
 
 ## 🔧 Troubleshooting Guide
 
@@ -811,6 +1305,36 @@ interface RealTimeValidator {
 - **ETL Pipelines**: Extract → Transform → Load → Validate
 - **Data Flow**: Source → Processing → Storage → Analytics
 - **ML Workflow**: Data → Training → Model → Inference → Feedback
+
+#### **🎯 Modelagem de Dados (ER Diagrams)**
+- **E-commerce**: User ↔ Order ↔ Product ↔ Category
+- **CMS/Blog**: Author → Post ← Comment ← User
+- **RBAC System**: User ↔ Role ↔ Permission ↔ Resource
+
+#### **🎭 Experiência do Usuário (User Journey)**
+- **Onboarding**: Signup → Verification → Tutorial → First Use
+- **Customer Support**: Problem → Contact → Resolution → Feedback
+- **Purchase Flow**: Discovery → Evaluation → Purchase → Post-Purchase
+
+#### **📅 Gestão de Projetos (Gantt)**
+- **Software Development**: Planning → Development → Testing → Deploy
+- **Marketing Campaign**: Strategy → Creative → Execution → Analysis
+- **Product Launch**: R&D → Production → Marketing → Launch
+
+#### **📊 Análise Estatística (Pie Charts)**
+- **Sales Analysis**: Product categories, Revenue distribution
+- **Resource Usage**: Server resources, Budget allocation
+- **Demographics**: User regions, Age groups, Device types
+
+#### **🔄 Controle de Estado (State Diagrams)**
+- **Authentication**: LoggedOut → Authenticating → LoggedIn → Expired
+- **Order Processing**: Created → Paid → Shipped → Delivered
+- **Content Workflow**: Draft → Review → Published → Archived
+
+#### **🌿 Fluxos Git (Git Graph)**
+- **Gitflow**: main ← release ← develop ← feature
+- **Feature Branches**: main ← feature → merge
+- **Hotfix Workflow**: main → hotfix → merge → deploy
 
 ## 🚀 Performance Guidelines
 

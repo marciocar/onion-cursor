@@ -2,7 +2,7 @@
 
 **Task**: 86ac03vpw - Mermaid Specialist Agent - Criação Completa  
 **Estimativa Total**: 2-3 dias  
-**Status Atual**: ✅ Fases 1-2 CONCLUÍDAS - 🔄 Pronto para Fase 3
+**Status Atual**: ✅ Fases 1-3 CONCLUÍDAS - 🔄 Fase 4 PULADA - Próximo: Fase 5
 
 ---
 
@@ -178,8 +178,18 @@
 - ✅ Validação especializada por tipo
 - ✅ Exemplos práticos incluídos
 
+### **📋 Implementado:**
+- ✅ **State Diagrams**: 3 templates (Máquina Simples, Autenticação, Workflow)
+- ✅ **Entity Relationship**: 3 templates (E-commerce, RBAC, CMS/Blog)
+- ✅ **User Journey**: 3 templates (E-commerce, SaaS Onboarding, Support)
+- ✅ **Gantt Charts**: 3 templates (Software Dev, Marketing, Product Launch)
+- ✅ **Pie Charts**: 4 templates (Sales, Budget, Demographics, Resources)
+- ✅ **Git Graph**: 4 templates (Gitflow, Feature Branch, Hotfix, CI/CD)
+- ✅ **Sistema detecção expandido**: 9 tipos com palavras-chave específicas
+- ✅ **Casos de uso ampliados**: Exemplos para todos os 9 tipos
+
 ### **⏱️ Estimativa**: 8-10 horas
-### **📋 Status**: ⏳ PENDENTE
+### **📋 Status**: ✅ CONCLUÍDA (22/09/2025)
 
 ---
 
