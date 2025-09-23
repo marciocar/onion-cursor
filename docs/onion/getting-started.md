@@ -242,8 +242,9 @@ npm test  # ou comando apropriado do projeto
 
 ### **📖 Aprofundar Conhecimento**
 1. **[Guia de Comandos](commands-guide.md)** - Documentação completa
-2. **[Fluxos de Engenharia](engineering-flows.md)** - Workflows detalhados  
-3. **[Integração ClickUp](clickup-integration.md)** - Configuração avançada
+2. **[Referência de Ferramentas](tools-reference.md)** - Todas as ferramentas disponíveis em TypeScript
+3. **[Fluxos de Engenharia](engineering-flows.md)** - Workflows detalhados  
+4. **[Integração ClickUp](clickup-integration.md)** - Configuração avançada
 
 ### **🎯 Cenários Avançados**
 1. **[Exemplos Práticos](practical-examples.md)** - Casos reais de uso
