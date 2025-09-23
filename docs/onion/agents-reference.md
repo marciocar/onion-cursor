@@ -30,6 +30,8 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 
 **Ferramentas disponíveis**: `read_file`, `write`, `search_replace`, `MultiEdit`, `run_terminal_cmd`, `read_lints`, `todo_write`, `codebase_search`
 
+> 📚 **Referência Completa**: Veja todas as ferramentas em detalhes em [tools-reference.md](tools-reference.md)
+
 **Exemplo de uso**:
 ```bash
 # Para desenvolver API Python
