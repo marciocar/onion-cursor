@@ -19,6 +19,7 @@ Este documento lista todas as ferramentas disponíveis no sistema Onion em forma
 - [💻 Code Understanding MCP](#-code-understanding-mcp-análise-de-repositórios)
 - [🕷️ Firecrawl MCP](#️-firecrawl-mcp-web-scraping)
 - [⚙️ NX Extension MCP](#️-nx-extension-mcp-framework-nx)
+- [🌿 Comandos Git Gitflow](#-comandos-git-gitflow)
 
 ---
 
@@ -952,6 +953,82 @@ graph TD
 
 ---
 
+---
+
+## 🌿 Comandos Git Gitflow
+
+Sistema completo de comandos Git com workflows Gitflow integrados ao Sistema Onion, incluindo automação de versionamento semântico e integração ClickUp MCP.
+
+### Comandos Implementados
+```typescript
+// Setup e Ajuda
+'/git/help': void;           // Sistema de ajuda completo
+'/git/init': void;           // Setup Gitflow automático
+
+// Feature Development  
+'/git/feature/start': (nome: string) => void;    // Criar feature backlog ClickUp
+'/git/feature/finish': void;                     // Merge + cleanup automático
+
+// Release Management
+'/git/release/start': (version: string) => void; // Release + versionamento
+'/git/release/finish': void;                     // Deploy production + tags
+
+// Emergency Hotfix
+'/git/hotfix/start': (nome: string) => void;     // Emergency setup < 2h SLA  
+'/git/hotfix/finish': void;                      // Deploy crítico emergencial
+
+// Workflow Híbrido
+'/engineer/hotfix': (desc: string, params?: {
+  'related-tasks'?: string;  // "id1,id2,id3"
+  'tags'?: string;          // "urgent,critical"  
+  'status'?: string;        // "In Progress"
+  'priority'?: number;      // 1=urgent, 4=low
+}) => void;                 // Task ClickUp + Git workflow completo
+
+// Pós-Merge
+'/git/sync': (branch?: string) => void;          // Sincronização automática
+```
+
+### Funcionalidades Principais
+- **Versionamento Semântico**: Auto-bump patch/minor/major + versões específicas
+- **ClickUp Integration**: 20+ API calls com task creation, updates, comments
+- **Master/Main Detection**: Auto-detecção de convenção do repositório
+- **Emergency Workflows**: SLA < 2 horas com production-first strategy
+- **Session Management**: Integração completa com `/engineer/*` commands
+- **Error Recovery**: Graceful degradation e rollback preparation
+
+### Examples de Uso
+```bash
+# Setup inicial
+/git/init
+
+# Feature development
+/git/feature/start "oauth-authentication"
+/engineer/start oauth-authentication  
+/git/feature/finish
+
+# Release workflow  
+/git/release/start "minor"    # 2.0.1 → 2.1.0
+# ... testing ...
+/git/release/finish
+
+# Emergency hotfix
+/engineer/hotfix "Critical payment timeout" --related-tasks="123,456" --tags="urgent"
+# ... fix implementation ...
+/git/hotfix/finish
+
+# Synchronization
+/git/sync develop
+```
+
+### Integração Sistema Onion
+- **Workflows Completos**: Planejamento → Desenvolvimento → Deploy
+- **ClickUp MCP**: Tracking automático de progresso e decisões técnicas
+- **Session Context**: Mantém estado entre comandos e sessões
+- **Agent Integration**: Complementa `@gitflow-specialist` (guidance vs execution)
+
+---
+
 **Sistema Onion** - Desenvolvimento inteligente com IA 🧅 🚀
 
-*Última atualização: Setembro 2025*
+*Última atualização: Janeiro 2025 - Comandos Git Gitflow implementados*
