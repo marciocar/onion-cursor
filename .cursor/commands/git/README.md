@@ -274,5 +274,5 @@ git status                  # Estado atual do repo
 ---
 
 **Sistema Onion Git Commands v1.0**  
-**Documentação atualizada**: $(date +'%d/%m/%Y')  
+**Documentação atualizada**: 22/09/2025 19:18  
 **Próxima revisão**: Após implementação completa
