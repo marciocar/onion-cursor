@@ -16,7 +16,14 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
 
 1. Primeiro, garanta que todos os testes estão funcionando para a branch atual. Execute a suíte de testes apropriada para seu projeto e confirme que todos os testes passam. Se algum teste falhar, corrija os problemas antes de prosseguir.
 
-2. Faça commit das mudanças que você fez. Use uma mensagem de commit clara e concisa que resuma as alterações.
+2. **CRÍTICO - Criar Feature Branch PRIMEIRO:**
+   a. Crie uma feature branch a partir da branch base (develop/main):
+      ```bash
+      git checkout -b feature/[descricao-sucinta]
+      git push -u origin feature/[descricao-sucinta]
+      ```
+   b. Faça commit das mudanças que você fez. Use uma mensagem de commit clara e concisa que resuma as alterações.
+   c. Push dos commits para a feature branch.
 
 3. Mova a task do ClickUp associada com esta tarefa para o status "in progress" e adicione a tag "under-review".
 
