@@ -32,6 +32,21 @@ git fetch origin                    # Pode ser pulado para no-op
 git checkout [target-branch]        # Otimizado para fast-forward
 git pull origin [target-branch]     # Com validações específicas
 git branch -d [previous-branch]     # Baseado em guidance cleanup
+
+# Remote branch cleanup com confirmação (NOVO - Fix v2.0.1)
+if git show-ref --verify --quiet refs/remotes/origin/[previous-branch]; then
+    echo "⚠️  Branch remota 'origin/[previous-branch]' detectada."
+    echo "💡 Remover branch remota também? (recomendado para manter repo limpo)"
+    read -p "🗑️  Deletar 'origin/[previous-branch]'? (y/N): " -r
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        git push origin --delete [previous-branch]
+        echo "✅ Branch remota removida com sucesso"
+    else
+        echo "⏩ Branch remota mantida (pode ser removida manualmente depois)"
+    fi
+else
+    echo "ℹ️  Branch remota não encontrada - apenas limpeza local executada"
+fi
 ```
 
 **Estratégias de Sync:**
@@ -278,10 +293,11 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa com suce
 ### **Categorias de Erro:**
 - **GIT_STATE**: Uncommitted changes, merge conflicts, repository issues
 - **NETWORK**: Fetch timeout, connectivity issues
-- **PERMISSIONS**: Branch deletion, write permissions
+- **PERMISSIONS**: Branch deletion, write permissions, remote branch deletion
 - **CLICKUP_API**: Task update failures, API errors
 - **SESSION_MANAGEMENT**: Archive failures, filesystem issues
-- **USER_INPUT**: Invalid parameters, user confirmation needed
+- **USER_INPUT**: Invalid parameters, user confirmation needed, remote cleanup confirmation
+- **REMOTE_CLEANUP**: Remote branch deletion failures, protection rules
 - **SYSTEM**: Critical failures, unknown errors
 
 ### **Auto-Recovery Actions:**
@@ -315,6 +331,24 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa com suce
 + 🤖 Phase 2.5: GitFlow Analysis ← NOVA
 ⚙️ Phase 3-5: Main Operations (GitFlow Enhanced)
 ```
+
+### **🆕 Fix v2.0.1 - Remote Branch Cleanup:**
+```diff
+# Fase 3: Operações Git
+git branch -d [previous-branch]     # Local cleanup
++ # Remote branch cleanup com confirmação
++ if git show-ref --verify --quiet refs/remotes/origin/[previous-branch]; then
++     read -p "🗑️ Deletar 'origin/[previous-branch]'? (y/N): " -r
++     if [[ $REPLY =~ ^[Yy]$ ]]; then
++         git push origin --delete [previous-branch]
++     fi
++ fi
+```
+
+**✅ Problema Corrigido:**
+- **Antes**: Branches remotas "órfãs" ficavam no GitHub após merge
+- **Depois**: Confirmação do usuário para remover branch remota também
+- **Segurança**: Operação irreversível requer confirmação explícita
 
 ### **Guidance Aplicada:**
 - **Otimizações**: Skip operations baseado na estratégia
