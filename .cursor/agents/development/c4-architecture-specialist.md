@@ -20,7 +20,7 @@ Agente especialista em análise e documentação de arquiteturas de software usa
 
 ### **Tipos de Projeto Suportados**
 - **React/Vue/Angular SPAs**
-- **APIs Node.js/Express/NestJS** 
+- **APIs Node.js/Express/Fastify/NestJS** 
 - **Aplicações Full-stack Next.js/Nuxt.js**
 - **Monorepos NX/Lerna/npm Workspaces**
 - **Funções Serverless**
