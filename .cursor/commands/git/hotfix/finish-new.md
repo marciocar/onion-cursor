@@ -678,7 +678,21 @@ echo "$(cli_highlight "✅ Emergency resolved? Document lessons learned and impr
 cli_performance_end
 ```
 
-# Emergency version detection is handled by utilities
+# Helper function for emergency version detection
+detect_emergency_version() {
+    if [ -f "package.json" ] && grep -q "version" package.json; then
+        current_version=$(grep '"version"' package.json | sed 's/.*"version": *"\\([^"]*\\)".*/\\1/' | head -1)
+        # Increment patch version for emergency
+        echo "$current_version" | awk -F. '{printf "%d.%d.%d", $1, $2, $3+1}'
+    elif [ -f "version.txt" ]; then
+        cat version.txt | head -1
+    elif [ -f "VERSION" ]; then
+        cat VERSION | head -1
+    else
+        # Default emergency version
+        echo "0.0.1"
+    fi
+}
 
 ---
 

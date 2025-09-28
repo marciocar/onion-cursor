@@ -1,17 +1,48 @@
 # 🧅 Sistema Onion
 
-[![Comandos](https://img.shields.io/badge/Comandos-28-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-17-green)](docs/onion/agents-reference.md) [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](docs/onion/clickup-integration.md)
+[![Comandos](https://img.shields.io/badge/Comandos-36-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-19-green)](docs/onion/agents-reference.md) [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](docs/onion/clickup-integration.md)
 
 ## 🎯 Visão Geral
 
 Bem-vindo ao **Sistema Onion**! Framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **28 comandos especializados** organizados por categoria
-- 🎯 **17 agentes de IA especializados** para tarefas específicas  
+- 🤖 **36 comandos especializados** organizados por categoria
+- 🎯 **19 agentes de IA especializados** para tarefas específicas  
 - 🔗 **Integração completa com ClickUp MCP** para gestão automática de projetos
 - ⚡ **Workflows automatizados** do planejamento ao deploy
 
 Documentação completa disponível em [`docs/onion/`](docs/onion/) para dominar todos os comandos, agentes e fluxos de trabalho.
+
+## ⚡ **Como Funcionam os Comandos**
+
+### 🎮 **Cursor Commands - Interface Natural**
+Todos os comandos do Sistema Onion são **[Cursor Commands](https://cursor.com/pt-BR/docs/agent/chat/commands)** executados diretamente no **chat da Cursor**:
+
+```markdown
+# ✅ CORRETO - No chat da Cursor:
+/git/init
+/git/feature/start "user-auth"  
+/engineer/work "implement login"
+/product/task "add user dashboard"
+
+# ❌ INCORRETO - NÃO são comandos bash/terminal:
+$ /git/init                    # Não funciona no terminal
+$ /engineer/work               # Não é comando shell
+```
+
+### 🧠 **Arquitetura Inteligente**
+| Camada | Tecnologia | Função |
+|--------|------------|--------|
+| **Interface** | Cursor Commands | Usuário digita `/comando` no chat |
+| **Definição** | Markdown Files | `.cursor/commands/` define workflows |
+| **Execução** | Cursor AI | Interpreta e executa inteligentemente |
+| **Implementação** | Scripts | Bash/Python dentro dos workflows |
+
+### 🎯 **Vantagens dos Cursor Commands**
+- ✅ **Context-Aware**: Cursor entende o projeto e arquivos abertos
+- ✅ **AI-Powered**: Execução inteligente e adaptativa
+- ✅ **Educational**: Interface rica e educativa no chat
+- ✅ **Universal**: Funciona em qualquer projeto, qualquer pasta
 
 ## 📖 Guias Disponíveis
 
@@ -88,7 +119,7 @@ O Sistema Onion oferece **integração nativa e bidirecional** com ClickUp atrav
 
 ## 🤖 Agentes Especializados
 
-O Sistema Onion inclui **17 agentes de IA especializados** que podem ser invocados diretamente:
+O Sistema Onion inclui **19 agentes de IA especializados** que podem ser invocados diretamente:
 
 ### 🎯 Agentes Principais
 - **`@product-agent`** - Gestão estratégica de produto e coordenação de projetos
