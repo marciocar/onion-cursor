@@ -1,0 +1,194 @@
+# 🎮 Cursor Commands Architecture - Sistema Onion
+
+Este documento explica como funcionam os comandos do Sistema Onion e a diferença crítica entre **Cursor Commands** e comandos de terminal.
+
+## ⚡ **CONCEITO FUNDAMENTAL: Cursor Commands**
+
+### 🎯 **O que são Cursor Commands**
+Cursor Commands são comandos personalizados executados diretamente no **chat da Cursor IDE**, conforme a [documentação oficial da Cursor](https://cursor.com/pt-BR/docs/agent/chat/commands).
+
+### ✅ **Como Usar (CORRETO)**
+```markdown
+# No chat da Cursor IDE:
+/git/init                      # Inicializar Git Flow
+/git/feature/start "login"     # Criar feature branch
+/engineer/work "implement API" # Iniciar desenvolvimento
+/product/task "add dashboard"  # Criar task no ClickUp
+```
+
+### ❌ **Como NÃO Usar (INCORRETO)**
+```bash
+# ❌ NO TERMINAL - NÃO FUNCIONA:
+$ /git/init                    # Comando não encontrado
+$ ./git/feature/start          # Arquivo não executável
+$ bash /git/init               # Não é script bash direto
+```
+
+---
+
+## 🏗️ **Arquitetura do Sistema**
+
+### 📁 **Estrutura de Arquivos**
+```
+.cursor/commands/
+├── git/
+│   ├── init.md               # Define /git/init command
+│   ├── help.md               # Define /git/help command
+│   └── feature/
+│       ├── start.md          # Define /git/feature/start command
+│       ├── publish.md        # Define /git/feature/publish command
+│       └── finish.md         # Define /git/feature/finish command
+├── engineer/
+│   ├── start.md              # Define /engineer/start command
+│   └── work.md               # Define /engineer/work command
+└── product/
+    ├── task.md               # Define /product/task command
+    └── spec.md               # Define /product/spec command
+```
+
+### 🔄 **Fluxo de Execução**
+
+| Passo | Camada | Tecnologia | Função |
+|-------|--------|------------|--------|
+| 1 | **Interface** | Cursor Chat | Usuário digita `/git/init` |
+| 2 | **Detecção** | Cursor AI | Reconhece comando personalizado |
+| 3 | **Carregamento** | File System | Lê `.cursor/commands/git/init.md` |
+| 4 | **Interpretação** | Cursor AI | Analisa workflow definido |
+| 5 | **Execução** | Scripts | Executa bash/python dentro do workflow |
+| 6 | **UX** | Modern CLI | `.cursor/utils/modern-cli-ux.sh` |
+| 7 | **Feedback** | Cursor Chat | Resposta rica e educativa |
+
+---
+
+## 🎯 **Exemplo Detalhado: `/git/init`**
+
+### 📝 **1. Usuário Executa Comando**
+```markdown
+# No chat da Cursor:
+User: /git/init
+```
+
+### 📄 **2. Cursor Carrega Definição**
+```markdown
+# Arquivo: .cursor/commands/git/init.md
+# Define workflow completo de inicialização Git Flow
+```
+
+### 🧠 **3. Cursor AI Interpreta Workflow**
+```bash
+# Bash scripts embutidos no markdown executam:
+# - Detecção master/main
+# - Criação develop branch  
+# - Configuração Git Flow
+# - Validações de segurança
+```
+
+### 💬 **4. Resposta Rica no Chat**
+```markdown
+🔧 GIT FLOW - Modern Initialization Wizard
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔍 REPOSITORY ANALYSIS:
+   ▶ Primary branch: ✅ main detected
+   ▶ Git Flow status: ⚠️ Not initialized
+   
+❓ Initialize Git Flow in this repository? [Y/n]
+```
+
+---
+
+## 🎨 **Vantagens dos Cursor Commands**
+
+### 🤖 **AI-Powered Intelligence**
+- ✅ **Context Awareness**: Cursor entende arquivos abertos, histórico, projeto
+- ✅ **Adaptive Execution**: Workflows se adaptam ao contexto atual
+- ✅ **Error Recovery**: Sugestões inteligentes para problemas
+- ✅ **Educational Feedback**: Explica o que está fazendo
+
+### 🎯 **Developer Experience**
+- ✅ **Natural Interface**: Chat natural, sem sintaxe complexa
+- ✅ **Rich Responses**: Feedback visual rico com cores e formatação
+- ✅ **Context Preservation**: Mantém estado entre comandos
+- ✅ **Universal Access**: Funciona em qualquer pasta, qualquer projeto
+
+### 🔒 **Enterprise Features**
+- ✅ **Safety First**: Confirmações para operações críticas
+- ✅ **Team Integration**: ClickUp, sessions, project management
+- ✅ **Audit Trail**: Histórico completo no chat da Cursor
+- ✅ **Knowledge Sharing**: Comandos compartilháveis entre equipe
+
+---
+
+## 🛠️ **Para Desenvolvedores do Sistema**
+
+### 📝 **Criando Novos Comandos**
+```markdown
+# 1. Criar arquivo markdown:
+.cursor/commands/category/command.md
+
+# 2. Definir cabeçalho com metadados
+# 3. Escrever workflow em bash/python
+# 4. Usar funções UX: cli_header, cli_success_box, etc.
+# 5. Testar via chat: /category/command
+```
+
+### 🎨 **Padrões UX**
+```bash
+# Usar funções da biblioteca UX:
+source "$HOME/.cursor/utils/modern-cli-ux.sh"
+
+cli_header "TITLE" "color"          # Headers consistentes
+cli_success_box "TITLE" "message"   # Success feedback  
+cli_error_box "TITLE" "message"     # Error handling
+cli_progress_start "message"        # Progress indicators
+```
+
+### 🔗 **Integrações**
+```bash
+# ClickUp MCP
+clickup_get_task_id_from_session    # Detectar task ativa
+clickup_add_comment $TASK_ID        # Adicionar comentário
+clickup_update_task $TASK_ID        # Atualizar status
+
+# Session Management  
+session_create $NAME                # Criar sessão desenvolvimento
+session_update $NAME                # Atualizar contexto
+```
+
+---
+
+## 📚 **Recursos Adicionais**
+
+### 🔗 **Documentação Oficial**
+- [Cursor Commands Documentation](https://cursor.com/pt-BR/docs/agent/chat/commands)
+- [Sistema Onion Commands Guide](commands-guide.md)
+- [Engineering Flows](engineering-flows.md)
+
+### 🎯 **Exemplos Práticos**
+- [Practical Examples](practical-examples.md)
+- [ClickUp Integration](clickup-integration.md)
+- [Tools Reference](tools-reference.md)
+
+### 🚀 **Getting Started**
+- [Configuração Inicial](getting-started.md)
+- [Primeiro Uso](getting-started.md#primeiro-uso)
+- [Troubleshooting](getting-started.md#troubleshooting)
+
+---
+
+## ⚠️ **Avisos Importantes**
+
+### 🔴 **NÃO Confundir Com:**
+- ❌ **Bash scripts diretos** (não são executáveis de terminal)
+- ❌ **NPM scripts** (não estão no package.json)  
+- ❌ **Make targets** (não usam Makefile)
+- ❌ **CLI tools globais** (não são instalados via npm/pip)
+
+### ✅ **São Cursor Commands Porque:**
+- ✅ **Executados no chat** da Cursor IDE
+- ✅ **Definidos em markdown** na pasta `.cursor/commands/`
+- ✅ **Interpretados pela Cursor AI** com context awareness
+- ✅ **Integrados ao ambiente** de desenvolvimento
+
+---
+
+**🎯 Lembre-se sempre: Sistema Onion = Cursor Commands executados no chat da Cursor!** 🚀

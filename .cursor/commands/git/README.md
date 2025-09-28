@@ -4,6 +4,29 @@
 
 Este módulo oferece automação completa para desenvolvimento com Git, desde planejamento até deploy, com integração nativa ClickUp MCP.
 
+## ⚡ **CRÍTICO: Cursor Commands vs Terminal**
+
+### 🎮 **Como Usar os Comandos Git**
+Todos os comandos deste módulo são **[Cursor Commands](https://cursor.com/pt-BR/docs/agent/chat/commands)** executados no **chat da Cursor**:
+
+```markdown
+# ✅ CORRETO - No chat da Cursor IDE:
+/git/init
+/git/feature/start "user-authentication"
+/git/feature/publish
+/git/release/finish
+
+# ❌ INCORRETO - NÃO são comandos bash/shell:
+$ /git/init                    # Não funciona no terminal
+$ ./git/feature/start          # Não é script executável
+```
+
+### 🧠 **Arquitetura dos Comandos**
+- **Interface**: Cursor Commands (digitados no chat)
+- **Definição**: Arquivos `.md` nesta pasta definem workflows  
+- **Execução**: Cursor AI interpreta e executa bash scripts internos
+- **UX**: Modern CLI via `.cursor/utils/modern-cli-ux.sh`
+
 ---
 
 ## 📋 **Comandos Disponíveis**

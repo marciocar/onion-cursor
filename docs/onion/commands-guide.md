@@ -12,6 +12,32 @@ Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organi
 
 ---
 
+## 🎯 Como Usar os Comandos
+
+### ⚡ **CRÍTICO: Cursor Commands vs Terminal**
+
+**TODOS** os comandos deste guia são **[Cursor Commands](https://cursor.com/pt-BR/docs/agent/chat/commands)** executados no **chat da Cursor**:
+
+```markdown
+# ✅ CORRETO - No chat da Cursor IDE:
+/git/init
+/engineer/start
+/product/task "implementar login"
+
+# ❌ INCORRETO - NÃO são comandos bash/terminal:
+$ /git/init                    # Comando não encontrado
+$ ./engineer/start             # Não é executável
+```
+
+📚 **[Leia mais sobre a arquitetura](cursor-commands-architecture.md)**
+
+### 📋 Sintaxe Geral
+```bash
+/categoria/comando "parâmetro"
+```
+
+---
+
 ## 🔧 Comandos de Engenharia
 
 ### `/engineer/start`

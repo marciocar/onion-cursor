@@ -5,6 +5,7 @@ Bem-vindo ao sistema Onion! Este guia vai te ajudar a começar rapidamente com o
 ## 📋 Checklist de Setup
 
 ### **✅ Pré-requisitos**
+- [ ] **Node.js v22.14.0+** instalado (necessário para chrome-devtools-mcp)
 - [ ] Cursor instalado e configurado
 - [ ] ClickUp MCP instalado 
 - [ ] Acesso ao workspace ClickUp configurado
@@ -291,6 +292,78 @@ Agora você tem tudo para ser produtivo com o sistema Onion:
 - ✅ **Troubleshooting** na ponta da língua
 
 **Comece pequeno, pratique os fluxos básicos, e gradualmente explore funcionalidades mais avançadas!**
+
+---
+
+## 🛠️ Troubleshooting Node.js v22.14.0+
+
+### **Problema**: chrome-devtools-mcp não funciona
+**Erro comum**: `chrome-devtools-mcp does not support Node v20.x.x`
+
+#### **Solução 1: Verificar versão do Node.js**
+```bash
+# Verificar versão atual
+node --version
+
+# Se for menor que v22.14.0, atualizar via NVM:
+nvm install v22.14.0
+nvm use v22.14.0
+nvm alias default v22.14.0
+
+# Confirmar atualização
+node --version  # Deve mostrar v22.14.0
+```
+
+#### **Solução 2: Limpar cache do NPX**
+```bash
+# Limpar cache do npx
+rm -rf ~/.npm/_npx/
+
+# Testar novamente
+npx chrome-devtools-mcp@latest --version
+```
+
+#### **Solução 3: Verificar instalação do Chrome**
+```bash
+# Ubuntu/Debian
+which google-chrome || which chromium-browser
+
+# Se não encontrar, instalar Chrome:
+sudo apt update
+sudo apt install google-chrome-stable
+```
+
+### **Problema**: Comandos `.cursor/` não funcionam
+**Sintomas**: Comandos não são reconhecidos
+
+#### **Solução**:
+```bash
+# 1. Verificar estrutura .cursor/
+ls -la .cursor/commands/
+
+# 2. Verificar se está no diretório do projeto
+pwd  # Deve estar na raiz com .cursor/
+
+# 3. Invocar agente cursor-specialist
+@cursor-specialist "comandos não funcionam"
+```
+
+### **Problema**: Integração ClickUp falha
+**Sintomas**: Tasks não são criadas/atualizadas
+
+#### **Soluções**:
+```bash
+# 1. Verificar variáveis de ambiente
+echo $CLICKUP_WORKSPACE_ID
+echo $CLICKUP_SPACE_ID  
+echo $CLICKUP_LIST_ID
+
+# 2. Testar conectividade
+/warm-up
+
+# 3. Invocar especialista
+@clickup-specialist "integração não funciona"
+```
 
 ---
 
