@@ -18,6 +18,7 @@ Este documento lista todas as ferramentas disponíveis no sistema Onion em forma
 - [🧭 Sequential Thinking MCP](#-sequential-thinking-mcp-análise-complexa)
 - [💻 Code Understanding MCP](#-code-understanding-mcp-análise-de-repositórios)
 - [🕷️ Firecrawl MCP](#️-firecrawl-mcp-web-scraping)
+- [🖥️ Chrome DevTools MCP](#️-chrome-devtools-mcp-automação-browser)
 - [⚙️ NX Extension MCP](#️-nx-extension-mcp-framework-nx)
 - [🌿 Comandos Git Gitflow](#-comandos-git-gitflow)
 
@@ -873,6 +874,75 @@ function mcp_firecrawl_extract(
 ```
 
 **Dica de Performance**: Use `maxAge` para scraping 500% mais rápido com cache
+
+---
+
+## 🖥️ Chrome DevTools MCP (Automação Browser)
+
+### `mcp_chrome-devtools_navigate_page`
+```typescript
+function mcp_chrome-devtools_navigate_page(url: string): void
+```
+**Propósito**: Navega para URL específica no browser controlado
+
+### `mcp_chrome-devtools_take_snapshot`
+```typescript
+function mcp_chrome-devtools_take_snapshot(): PageSnapshot
+```
+**Propósito**: Captura snapshot textual da página atual com elementos identificados
+
+### `mcp_chrome-devtools_click`
+```typescript
+function mcp_chrome-devtools_click(uid: string, dblClick?: boolean): void
+```
+**Propósito**: Clica em elementos específicos da página usando UID
+
+### `mcp_chrome-devtools_fill`
+```typescript
+function mcp_chrome-devtools_fill(uid: string, value: string): void
+```
+**Propósito**: Preenche campos de formulário identificados por UID
+
+### `mcp_chrome-devtools_evaluate_script`
+```typescript
+function mcp_chrome-devtools_evaluate_script(function: string, args?: object[]): any
+```
+**Propósito**: Executa JavaScript personalizado na página atual
+
+### `mcp_chrome-devtools_take_screenshot`
+```typescript
+function mcp_chrome-devtools_take_screenshot(uid?: string, fullPage?: boolean): Image
+```
+**Propósito**: Captura screenshots da página completa ou elementos específicos
+
+**Recursos do Chrome DevTools MCP**:
+- ✅ **Automação completa** de browsers Chrome/Chromium
+- ✅ **Interação com elementos** via UID únicos
+- ✅ **Execução de JavaScript** customizado
+- ✅ **Screenshots e snapshots** para debug
+- ✅ **Navegação programática** entre páginas
+- ✅ **Preenchimento de formulários** automático
+
+**Casos de uso típicos**:
+- 🔧 **Testes E2E** automatizados
+- 📊 **Scraping inteligente** de dados
+- 🔄 **Automação de workflows** web
+- 📸 **Documentação visual** de interfaces
+- 🧪 **Validação de funcionalidades** web
+
+**Exemplo de uso**:
+```bash
+# Navegar e capturar informações
+mcp_chrome-devtools_navigate_page("https://example.com")
+mcp_chrome-devtools_take_snapshot()  # Ver elementos disponíveis
+mcp_chrome-devtools_click("button_uid_123")
+mcp_chrome-devtools_take_screenshot()  # Capturar resultado
+```
+
+**Pré-requisitos**:
+- ✅ **Node.js v22.14.0+** instalado
+- ✅ **chrome-devtools-mcp@0.4.0+** disponível via npx
+- ✅ **Browser Chrome/Chromium** instalado
 
 ---
 

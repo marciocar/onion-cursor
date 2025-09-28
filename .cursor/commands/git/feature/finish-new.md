@@ -277,7 +277,7 @@ fi
 ### **5. Integrations Enhancement**
 ```bash
 # Enhanced ClickUp Integration 
-        echo ""
+echo ""
 cli_section_header "🔗 CLICKUP INTEGRATION"
 
 # Detect task ID from session
@@ -333,7 +333,7 @@ fi
 echo ""
 cli_section_header "📁 SESSION MANAGEMENT"
 
-    SESSION_PATH=$(find .cursor/sessions -name "*$FEATURE_NAME*" -type d 2>/dev/null | head -1)
+SESSION_PATH=$(find .cursor/sessions -name "*$FEATURE_NAME*" -type d 2>/dev/null | head -1)
 if [ "$SESSION_PATH" != "" ]; then
     cli_progress_start "Archiving development session"
     

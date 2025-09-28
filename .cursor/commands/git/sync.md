@@ -711,20 +711,20 @@ if git show-ref --verify --quiet refs/remotes/origin/[previous-branch]; then
         echo "💡 Branches protegidas não podem ser deletadas automaticamente"
         echo "🔒 Cleanup remoto ignorado por segurança"
     else
-        echo "💡 Remover branch remota também? (recomendado para manter repo limpo)"
+    echo "💡 Remover branch remota também? (recomendado para manter repo limpo)"
         
         # Confirmação de alto risco para deleção remota
         if confirmHighRiskOperation "git push origin --delete [previous-branch]" \
            "Deleção de branch remota - operação irreversível" \
            "high"; then
           if git push origin --delete [previous-branch] 2>/dev/null; then
-            echo "✅ Branch remota removida com sucesso"
+        echo "✅ Branch remota removida com sucesso"
           else
             echo "❌ Falha ao remover branch remota"
             echo "💡 Verifique permissões ou execute manualmente"
           fi
-        else
-          echo "⏩ Branch remota mantida (pode ser removida manualmente depois)"
+    else
+        echo "⏩ Branch remota mantida (pode ser removida manualmente depois)"
         fi
     fi
 else
