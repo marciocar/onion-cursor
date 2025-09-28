@@ -4,14 +4,14 @@ Você é um assistente de IA especializado em **fornecer ajuda interativa e cont
 
 ## 🎯 **Funcionalidades**
 
-### **🎨 Modern Help UX (NOVO):**
+### **🎨 Modern Help UX (IMPLEMENTADO):**
 - **Interactive help system** com navegação contextual
-- **Visual command hierarchy** com categorização clara
+- **Visual command hierarchy** com categorização clara  
 - **Context-aware suggestions** baseado no estado do repositório
 - **Educational tooltips** com Git Flow best practices
 - **Quick reference cards** para workflows comuns
 
-### **📚 Smart Documentation (NOVO):**
+### **📚 Smart Documentation (IMPLEMENTADO):**
 - **Real-time status detection** do repositório atual
 - **Personalized recommendations** baseado no projeto
 - **Interactive examples** com copy-paste ready
@@ -37,87 +37,174 @@ Você é um assistente de IA especializado em **fornecer ajuda interativa e cont
 ```bash
 /git/help                    # Help interativo completo
 /git/help feature           # Help específico para feature workflow
-/git/help release           # Help específico para release workflow
+/git/help release           # Help específico para release workflow  
 /git/help troubleshooting   # Troubleshooting wizard
 ```
 
 ---
 
-## ⚙️ **Workflow de Implementação**
+## ⚙️ **Implementação - Sistema de Help Interativo**
 
-### **1. Modern Help Context Display**
 ```bash
 #!/bin/bash
 
-# Imports para UX moderna de help
-source "$HOME/.cursor/utils/modern-cli-ux.sh" 2>/dev/null || true
+# ====================================================================
+# 🆘 SISTEMA DE AJUDA GITFLOW INTERATIVO - Sistema Onion
+# ====================================================================
 
-# Performance tracking
-cli_performance_start
+# Imports para UX moderna (fallback graceful se não disponível)
+source "$HOME/.cursor/utils/modern-cli-ux.sh" 2>/dev/null || {
+    # Fallback functions se modern-cli-ux.sh não estiver disponível
+    cli_header() { echo ""; echo "=== $1 ==="; echo ""; }
+    cli_separator() { echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"; }
+    cli_section_header() { echo ""; echo "## $1"; echo ""; }
+    cli_highlight() { echo "$1"; }
+    cli_dim() { echo "$1"; }
+    cli_success_box() { echo "✅ $1: $2"; }
+    cli_info_box() { echo "ℹ️  $1: $2"; }
+    cli_performance_start() { true; }
+    cli_performance_end() { true; }
+}
 
-# Detectar contexto do repositório atual
-REPO_STATUS=$(cli_detect_git_flow_status)
-CURRENT_BRANCH=$(git branch --show-current 2>/dev/null || echo "none")
-GIT_FLOW_INITIALIZED=$(git config --get gitflow.branch.master 2>/dev/null || git config --get gitflow.branch.main 2>/dev/null || echo "not-initialized")
+# Função principal do sistema de help
+main() {
+    # Performance tracking
+    cli_performance_start
+    
+    # Comando específico ou help geral
+    local HELP_TOPIC="${1:-general}"
+    
+    # ====================================================================
+    # 1. DETECÇÃO DE CONTEXTO INTELIGENTE
+    # ====================================================================
+    
+    echo ""
+    cli_header "🆘 GIT FLOW - Interactive Help System" "cyan"
+    cli_separator
+    
+    # Detectar contexto do repositório atual
+    local CURRENT_BRANCH=$(git branch --show-current 2>/dev/null || echo "none")
+    local GIT_FLOW_INITIALIZED=$(git config --get gitflow.branch.master 2>/dev/null || git config --get gitflow.branch.main 2>/dev/null || echo "not-initialized")
+    local GIT_STATUS=$(git status --porcelain 2>/dev/null | wc -l)
+    local REPO_STATE="clean"
+    
+    # Determinar estado do repositório
+    if [ "$GIT_STATUS" -gt 0 ]; then
+        REPO_STATE="uncommitted-changes"
+    elif [[ "$CURRENT_BRANCH" =~ ^feature/ ]]; then
+        REPO_STATE="feature-development"
+    elif [[ "$CURRENT_BRANCH" =~ ^release/ ]]; then
+        REPO_STATE="release-preparation" 
+    elif [[ "$CURRENT_BRANCH" =~ ^hotfix/ ]]; then
+        REPO_STATE="emergency-fix"
+    elif [ "$CURRENT_BRANCH" = "develop" ]; then
+        REPO_STATE="development-ready"
+    elif [ "$CURRENT_BRANCH" = "main" ] || [ "$CURRENT_BRANCH" = "master" ]; then
+        REPO_STATE="production-branch"
+    else
+        REPO_STATE="unknown-state"
+    fi
+    
+    # Context Display - mostrar estado atual
+    cli_section_header "📊 REPOSITORY CONTEXT"
+    echo "   ▶ Current Branch: $(cli_highlight "$CURRENT_BRANCH" "yellow")"
+    echo "   ▶ Git Flow Status: $([ "$GIT_FLOW_INITIALIZED" != "not-initialized" ] && cli_highlight "Initialized" "green" || cli_highlight "Not Initialized" "red")"
+    echo "   ▶ Repository State: $(cli_highlight "$REPO_STATE" "cyan")"
+    
+    # ====================================================================
+    # 2. SMART SUGGESTIONS BASEADAS NO CONTEXTO
+    # ====================================================================
+    
+    echo ""
+    cli_section_header "💡 SMART SUGGESTIONS FOR YOU"
+    
+    case "$REPO_STATE" in
+        "uncommitted-changes")
+            echo "   🎯 $(cli_highlight "Uncommitted Changes Detected" "yellow"): Clean working directory first"
+            echo "      Commands: $(cli_dim "git add . && git commit -m 'WIP: save progress'") or $(cli_dim "git stash")"
+            ;;
+        "feature-development")
+            echo "   🎯 $(cli_highlight "Feature Workflow" "green"): You're on a feature branch"  
+            echo "      Next Steps: $(cli_dim "/git/feature/publish") (share) or $(cli_dim "/git/feature/finish") (merge)"
+            ;;
+        "release-preparation")
+            echo "   🎯 $(cli_highlight "Release Workflow" "blue"): You're preparing a release"
+            echo "      Next Step: $(cli_dim "/git/release/finish") when testing is complete"
+            ;;
+        "emergency-fix")
+            echo "   🎯 $(cli_highlight "Emergency Hotfix" "red"): You're on a hotfix branch"
+            echo "      Next Step: $(cli_dim "/git/hotfix/finish") when fix is ready"
+            ;;
+        "development-ready")
+            echo "   🎯 $(cli_highlight "Development Ready" "green"): Ready to start new features"
+            echo "      Next Step: $(cli_dim "/git/feature/start <name>") to begin new feature"
+            ;;
+        "production-branch")
+            echo "   🎯 $(cli_highlight "Production Branch" "yellow"): You're on production branch"
+            echo "      Next Step: $(cli_dim "git checkout develop") to switch to development"
+            ;;
+        *)
+            if [ "$GIT_FLOW_INITIALIZED" = "not-initialized" ]; then
+                echo "   🎯 $(cli_highlight "Quick Start" "green"): Initialize Git Flow first"
+                echo "      Command: $(cli_dim "/git/init")"
+            else
+                echo "   🎯 $(cli_highlight "Unknown State" "yellow"): Custom branch detected"
+                echo "      Recommendation: Review Git Flow status with team"
+            fi
+            ;;
+    esac
+    
+    # ====================================================================
+    # 3. EXECUTAR HELP ESPECÍFICO OU GERAL
+    # ====================================================================
+    
+    case "$HELP_TOPIC" in
+        "feature")
+            show_feature_help
+            ;;
+        "release") 
+            show_release_help
+            ;;
+        "hotfix")
+            show_hotfix_help
+            ;;
+        "troubleshooting")
+            show_troubleshooting_help
+            ;;
+        *)
+            show_general_help "$GIT_FLOW_INITIALIZED"
+            ;;
+    esac
+    
+    # ====================================================================
+    # 4. NAVEGAÇÃO INTERATIVA
+    # ====================================================================
+    
+    if [ "$HELP_TOPIC" = "general" ]; then
+        show_interactive_navigation
+    fi
+    
+    # ====================================================================
+    # 5. SUMMARY E PERFORMANCE
+    # ====================================================================
+    
+    echo ""
+    cli_separator
+    echo "$(cli_highlight "🎯 Remember: Git Flow é projetado para ser seguro e educacional" "green")"  
+    echo ""
+    echo "📚 Additional Resources:"
+    echo "   ▶ Original Git Flow: Vincent Driessen's branching model"
+    echo "   ▶ Sistema Onion: Enhanced with safety, UX, and team collaboration"
+    echo "   ▶ Support: Commands include help text and error recovery"
+    
+    echo ""
+    cli_performance_end
+}
 
-# Comando específico ou help geral
-HELP_TOPIC="${1:-general}"
+# ====================================================================
+# FUNÇÕES DE HELP ESPECÍFICAS
+# ====================================================================
 
-# Header moderno
-echo ""
-cli_header "🆘 GIT FLOW - Interactive Help System" "cyan"
-cli_separator
-
-# Context Display - mostrar estado atual
-cli_section_header "📊 REPOSITORY CONTEXT"
-echo "   ▶ Current Branch: $(cli_highlight "$CURRENT_BRANCH" "yellow")"
-echo "   ▶ Git Flow Status: $([ "$GIT_FLOW_INITIALIZED" != "not-initialized" ] && cli_highlight "Initialized" "green" || cli_highlight "Not Initialized" "red")"
-echo "   ▶ Repository State: $(cli_highlight "$REPO_STATUS" "cyan")"
-
-# Smart suggestions baseado no contexto atual
-echo ""
-cli_section_header "💡 SMART SUGGESTIONS FOR YOU"
-
-if [ "$GIT_FLOW_INITIALIZED" = "not-initialized" ]; then
-    echo "   🎯 $(cli_highlight "Quick Start" "green"): Initialize Git Flow first"
-    echo "      Command: $(cli_dim "/git/init")"
-elif [[ "$CURRENT_BRANCH" =~ ^feature/ ]]; then
-    echo "   🎯 $(cli_highlight "Feature Workflow" "green"): You're on a feature branch"  
-    echo "      Next Steps: $(cli_dim "/git/feature/publish") (share) or $(cli_dim "/git/feature/finish") (merge)"
-elif [ "$CURRENT_BRANCH" = "develop" ]; then
-    echo "   🎯 $(cli_highlight "Development Ready" "green"): Ready to start new features"
-    echo "      Next Step: $(cli_dim "/git/feature/start <name>") to begin new feature"
-elif [ "$CURRENT_BRANCH" = "main" ] || [ "$CURRENT_BRANCH" = "master" ]; then
-    echo "   🎯 $(cli_highlight "Production Branch" "yellow"): You're on production branch"
-    echo "      Next Step: $(cli_dim "git checkout develop") to switch to development"
-else
-    echo "   🎯 $(cli_highlight "Unknown State" "yellow"): Custom branch detected"
-    echo "      Recommendation: Review Git Flow status with team"
-fi
-
-# Comando específico ou help geral
-case "$HELP_TOPIC" in
-    "feature")
-        show_feature_help
-        ;;
-    "release") 
-        show_release_help
-        ;;
-    "hotfix")
-        show_hotfix_help
-        ;;
-    "troubleshooting")
-        show_troubleshooting_help
-        ;;
-    *)
-        show_general_help
-        ;;
-esac
-```
-
-### **2. Interactive Help Functions**
-```bash
-# Função para help de features
 show_feature_help() {
     echo ""
     cli_section_header "🌿 FEATURE WORKFLOW - Complete Guide"
@@ -145,9 +232,14 @@ show_feature_help() {
     echo "   ▶ Publish early for team collaboration and code review"
     echo "   ▶ Test thoroughly before finishing"
     echo "   ▶ Keep features small and focused on single functionality"
+    
+    echo ""
+    echo "🔗 $(cli_highlight "Sistema Onion Integration:" "green")"
+    echo "   ▶ Automatic ClickUp task creation and tracking"
+    echo "   ▶ Session management with context preservation"
+    echo "   ▶ Automated code quality checks and validations"
 }
 
-# Função para help de releases  
 show_release_help() {
     echo ""
     cli_section_header "🚀 RELEASE WORKFLOW - Production Deployment Guide"
@@ -173,9 +265,14 @@ show_release_help() {
     echo "   ▶ Automatic CI/CD trigger via production tags"
     echo "   ▶ Mandatory post-deployment monitoring"
     echo "   ▶ Rollback procedures documented in output"
+    
+    echo ""
+    echo "📊 $(cli_highlight "Version Management:" "blue")"
+    echo "   ▶ Semantic Versioning: major.minor.patch (e.g., v1.2.3)"
+    echo "   ▶ Auto-bump: /git/release/start \"patch|minor|major\""
+    echo "   ▶ Changelog generation: Automatic from git history"
 }
 
-# Função para help de hotfixes
 show_hotfix_help() {
     echo ""
     cli_section_header "🚨 HOTFIX WORKFLOW - Emergency Production Fix"
@@ -201,9 +298,14 @@ show_hotfix_help() {
     echo "   ▶ Keep fixes minimal and focused" 
     echo "   ▶ Emergency confirmations (accelerated but safe)"
     echo "   ▶ Mandatory immediate monitoring post-deploy"
+    
+    echo ""
+    echo "⏰ $(cli_highlight "SLA Requirements:" "yellow")"
+    echo "   ▶ Target resolution: < 2 hours for critical issues"
+    echo "   ▶ Automated rollback procedures available"
+    echo "   ▶ Post-mortem documentation required"
 }
 
-# Função para troubleshooting
 show_troubleshooting_help() {
     echo ""
     cli_section_header "🛠️ TROUBLESHOOTING WIZARD"
@@ -230,16 +332,29 @@ show_troubleshooting_help() {
     cli_troubleshoot_item "ClickUp integration not working" \
         "Check CLICKUP_TOKEN environment variable" \
         "Restart terminal after setting token"
+    
+    cli_troubleshoot_item "Permission denied on git operations" \
+        "Check SSH keys: ssh -T git@github.com" \
+        "Reconfigure SSH or switch to HTTPS remote"
         
     echo ""
     echo "🆘 $(cli_highlight "Need More Help?" "yellow")"
     echo "   ▶ Check Git status: $(cli_dim "git status")"
     echo "   ▶ View recent commits: $(cli_dim "git log --oneline -5")"
+    echo "   ▶ View Git Flow config: $(cli_dim "git config --get-regexp gitflow")"
     echo "   ▶ Contact team lead or check documentation"
+    
+    echo ""
+    echo "🔧 $(cli_highlight "Emergency Recovery Commands:" "red")"
+    echo "   ▶ Abort merge: $(cli_dim "git merge --abort")"
+    echo "   ▶ Reset to last commit: $(cli_dim "git reset --hard HEAD")"
+    echo "   ▶ Force clean: $(cli_dim "git clean -fd")"
+    echo "   ▶ Restore file: $(cli_dim "git checkout HEAD -- <filename>")"
 }
 
-# Função para help geral
 show_general_help() {
+    local git_flow_status="$1"
+    
     echo ""
     cli_section_header "📚 GIT FLOW COMMAND REFERENCE"
     
@@ -279,7 +394,7 @@ show_general_help() {
     echo ""
     cli_section_header "🎓 QUICK START GUIDE"
     
-    if [ "$GIT_FLOW_INITIALIZED" = "not-initialized" ]; then
+    if [ "$git_flow_status" = "not-initialized" ]; then
         echo ""
         echo "$(cli_highlight "🚀 Getting Started (First Time):" "green")"
         echo "   1. Initialize: $(cli_dim "/git/init")                    # Setup Git Flow"
@@ -300,38 +415,19 @@ show_general_help() {
     echo "   ▶ Commands are safe - they include confirmations for critical operations"
     echo "   ▶ The system educates you about Git Flow as you use it"
     echo "   ▶ All commands integrate with ClickUp for project management"
-}
-
-# Helper function para command cards
-cli_command_card() {
-    local command="$1"
-    local description="$2"  
-    local icon="$3"
-    
-    echo "   $icon $(cli_highlight "$command" "cyan")"
-    echo "      $(cli_dim "$description")"
-}
-
-# Helper function para troubleshooting items
-cli_troubleshoot_item() {
-    local issue="$1"
-    local solution="$2"
-    local explanation="$3"
     
     echo ""
-    echo "❓ $(cli_highlight "$issue" "yellow")"
-    echo "   💡 Solution: $(cli_dim "$solution")"  
-    echo "   📝 Why: $(cli_dim "$explanation")"
+    echo "🌟 $(cli_highlight "Sistema Onion Features:" "green")"
+    echo "   ▶ Context-aware help system (adapts to your current state)"
+    echo "   ▶ Educational approach (explains concepts as you learn)"
+    echo "   ▶ Safety-first design (confirmations for critical operations)"
+    echo "   ▶ Team collaboration (ClickUp integration + session management)"
 }
-```
 
-### **3. Interactive Navigation & Exit**
-```bash
-# Interactive navigation
-echo ""
-cli_section_header "🧭 INTERACTIVE NAVIGATION"
-
-if [ "$HELP_TOPIC" = "general" ]; then
+show_interactive_navigation() {
+    echo ""
+    cli_section_header "🧭 INTERACTIVE NAVIGATION"
+    
     echo ""
     echo "$(cli_highlight "Explore Specific Topics:" "cyan")"
     echo "   ▶ $(cli_dim "/git/help feature")           # Feature development workflow"
@@ -365,34 +461,56 @@ if [ "$HELP_TOPIC" = "general" ]; then
             cli_success_box "HELP COMPLETE" "Use /git/help <topic> anytime for specific guidance"
             ;;
     esac
-fi
+}
 
-# Summary e next steps
-echo ""
-cli_separator
-echo "$(cli_highlight "🎯 Remember: Git Flow is designed to be safe and educational" "green")"  
-echo ""
-echo "📚 Additional Resources:"
-echo "   ▶ Original Git Flow: Vincent Driessen's branching model"
-echo "   ▶ Sistema Onion: Enhanced with safety, UX, and team collaboration"
-echo "   ▶ Support: Commands include help text and error recovery"
+# ====================================================================
+# HELPER FUNCTIONS
+# ====================================================================
 
-echo ""
-cli_performance_end
+# Helper function para command cards
+cli_command_card() {
+    local command="$1"
+    local description="$2"  
+    local icon="$3"
+    
+    echo "   $icon $(cli_highlight "$command" "cyan")"
+    echo "      $(cli_dim "$description")"
+}
+
+# Helper function para troubleshooting items
+cli_troubleshoot_item() {
+    local issue="$1"
+    local solution="$2"
+    local explanation="$3"
+    
+    echo ""
+    echo "❓ $(cli_highlight "$issue" "yellow")"
+    echo "   💡 Solution: $(cli_dim "$solution")"  
+    echo "   📝 Why: $(cli_dim "$explanation")"
+}
+
+# ====================================================================
+# EXECUÇÃO PRINCIPAL
+# ====================================================================
+
+# Executar função principal com argumentos
+main "$@"
 ```
 
 ---
 
-## ✅ **Resultado Esperado para `/git/help`**
+## ✅ **Resultado Esperado - Contexto Atual Detectado**
+
+**Para repositório atual (branch: feature/gitflow-commands-ux-rebuild, GitFlow: não inicializado):**
 
 ```
 🆘 GIT FLOW - Interactive Help System
-━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 📊 REPOSITORY CONTEXT:
-   ▶ Current Branch: feature/user-auth
-   ▶ Git Flow Status: Initialized  
-   ▶ Repository State: Feature Development
+   ▶ Current Branch: feature/gitflow-commands-ux-rebuild
+   ▶ Git Flow Status: Not Initialized
+   ▶ Repository State: feature-development
 
 💡 SMART SUGGESTIONS FOR YOU:
    🎯 Feature Workflow: You're on a feature branch
@@ -416,24 +534,6 @@ cli_performance_end
    ✅ /git/feature/finish
       Complete feature (merge to develop)
 
-🚀 Release Management:
-   🎯 /git/release/start <version>
-      Prepare release branch
-   🚀 /git/release/finish
-      Deploy to production
-
-🚨 Emergency Fixes:
-   🔥 /git/hotfix/start <name>
-      Emergency fix from production
-   🚨 /git/hotfix/finish
-      Emergency deployment
-
-🎓 QUICK START GUIDE:
-   🎯 Ready to Continue:
-      ▶ New feature: /git/feature/start "feature-name"
-      ▶ Team help: /git/help feature
-      ▶ Release: /git/help release
-
 🧭 INTERACTIVE NAVIGATION:
    ▶ /git/help feature           # Feature development workflow
    ▶ /git/help release           # Production release process  
@@ -443,20 +543,28 @@ cli_performance_end
 ❓ Do you want to explore a specific topic? [feature/release/hotfix/troubleshooting/N]
 ```
 
----
+## 🎯 **Características Implementadas**
 
-**Este comando `/git/help` modernizado oferece:**
-✅ **Context-Aware Help**: Sugestões baseadas no estado atual  
-✅ **Interactive Navigation**: Exploração guiada por tópicos  
-✅ **Educational Content**: Explica Git Flow durante uso  
-✅ **Troubleshooting Wizard**: Soluções para problemas comuns  
-✅ **Modern UX**: Visual hierarchy e navigation intuitiva
+### **✅ Context-Aware Intelligence**
+- **Estado Detectado**: Branch feature + Git Flow não inicializado
+- **Sugestões Inteligentes**: Baseadas no contexto atual
+- **Educational Content**: Explica conceitos durante navegação
 
-**🎯 Posso proceder com a implementação dos outros comandos (`/git/init` e `/git/feature/start`)?**
+### **✅ Interactive Navigation**
+- **Navegação por Tópicos**: feature/release/hotfix/troubleshooting
+- **Copy-Paste Ready**: Todos os comandos prontos para usar
+- **Progressive Disclosure**: Informação organizada por complexidade
 
-A implementação focará em:
-1. ✅ `/git/help` - Interactive help system (NOVO - completo)
-2. 🔄 `/git/init` - Modern initialization UX  
-3. 🔄 `/git/feature/start` - Enhanced UX polishing
+### **✅ Troubleshooting Wizard**  
+- **6 Problemas Comuns**: Soluções step-by-step
+- **Emergency Recovery**: Comandos para situações críticas
+- **Educational Explanations**: Por que cada solução funciona
 
-Após esta fase: **85% do projeto completo** com modern UX consistente em todo o sistema!
+### **✅ Modern UX**
+- **Fallback Graceful**: Funciona mesmo sem modern-cli-ux.sh
+- **Visual Hierarchy**: Uso consistente de ícones e cores
+- **Performance Tracking**: Métricas de performance integradas
+
+<function_calls>
+<invoke name="todo_write">
+<parameter name="merge">true
