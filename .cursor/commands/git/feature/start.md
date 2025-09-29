@@ -472,7 +472,7 @@ cat > "$SESSION_DIR/context.md" << EOF
 ## 🌿 GitFlow Information
 **Base Branch**: \`$BASE_BRANCH\`  
 **Status**: ✅ Development Started  
-**Created**: $(date +'%Y-%m-%d %H:%M:%S')
+**Created**: $(date +'%d/%m/%Y %H:%M')
 
 ## 🤖 GitFlow Specialist Analysis
 **Repository Type**: $(echo "$GITFLOW_ANALYSIS" | jq -r '.analysis.repositoryType')  
@@ -567,14 +567,14 @@ cat > "$SESSION_DIR/notes.md" << EOF
 
 ## 🎯 Session Overview
 **Feature**: $FEATURE_NAME  
-**Started**: $(date +'%Y-%m-%d %H:%M:%S')  
+**Started**: $(date +'%d/%m/%Y %H:%M')  
 **Branch**: \`$BRANCH_NAME\`
 
 ---
 
 ## 💡 Development Log
 
-### **$(date +'%Y-%m-%d') - Session Initialization**
+### **$(date +'%d/%m/%Y') - Session Initialization**
 - ✅ **GitFlow Analysis**: Completed with @gitflow-specialist
 - ✅ **Branch Creation**: \`$BRANCH_NAME\` created from \`$BASE_BRANCH\`
 - ✅ **Session Setup**: Development environment initialized
