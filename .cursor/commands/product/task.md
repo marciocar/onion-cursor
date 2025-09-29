@@ -206,11 +206,27 @@ if has_clickup_optimizations:
 4. **User Confirmation**: Obter confirmação antes de proceder (OBRIGATÓRIO)
 5. **Pattern Detection**: Identificar pattern apropriado (Feature/Bug/Tech Debt/Research)
 6. **Decomposition**: Usar @task-specialist para estrutura hierárquica (se complexa)
-7. **ClickUp Creation**: Criar task + subtasks + action items (bulk operation)
+7. **ClickUp Creation**: ⚠️ **CRIAR TASK PRINCIPAL PRIMEIRO** → **DEPOIS SUBTASKS COM PARENT**
 8. **Git Integration**: Executar comandos git apropriados (/git/feature/start ou branch direta)
 9. **Environment Setup**: Session directory + context files
 10. **Integration**: Links entre ClickUp, Git, e desenvolvimento  
 11. **Handoff**: Preparar para `/engineer/start`
+
+### **🚨 CORREÇÃO CRÍTICA: ClickUp Hierarchy Implementation**
+**PROBLEMA**: Subtasks eram criadas independentemente (parent: null)
+**SOLUÇÃO**: Sequência correta ClickUp MCP:
+
+```bash
+# PASSO 1: Criar Task Principal
+MAIN_TASK_ID = create_task(name, description, listId, ...)
+
+# PASSO 2: Criar Subtasks com Parent Relationship  
+SUBTASK_1_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
+SUBTASK_2_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
+SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
+```
+
+**NEVER use create_bulk_tasks for hierarchical structure** - não suporta parent parameter!
 
 ## 📊 **Patterns de Decomposição Automática**
 
@@ -479,6 +495,54 @@ O comando agora integra automaticamente com comandos git:
 8. **🚀 Ready**: Pronto para `/engineer/start jwt-authentication`
 
 **Resultado:** Task estruturada + branch git + sessão preparada + integração completa
+
+---
+
+## 🔧 **IMPLEMENTAÇÃO CORRETA DE HIERARQUIA CLICKUP**
+
+### **Template de Criação Hierárquica:**
+```javascript
+// 1. CRIAR TASK PRINCIPAL
+const mainTask = await mcp_clickup_create_task({
+  name: "🎯 [TASK NAME]",
+  listId: "901314121395",
+  description: "[DETAILED DESCRIPTION]",
+  tags: ["feature", "priority-high"],
+  priority: 2
+});
+
+// 2. CRIAR SUBTASKS COM PARENT RELATIONSHIP
+const subtask1 = await mcp_clickup_create_task({
+  name: "🔧 [SUBTASK 1 NAME]", 
+  listId: "901314121395",
+  description: "[SUBTASK DESCRIPTION]",
+  parent: mainTask.id,  // ← CRITICAL: Link para task principal
+  tags: ["subtask", "backend"]
+});
+
+const subtask2 = await mcp_clickup_create_task({
+  name: "🔧 [SUBTASK 2 NAME]",
+  listId: "901314121395", 
+  description: "[SUBTASK DESCRIPTION]",
+  parent: mainTask.id,  // ← CRITICAL: Link para task principal
+  tags: ["subtask", "frontend"]
+});
+
+// Resultado: Hierarquia correta no ClickUp!
+```
+
+### **✅ VALIDAÇÃO DA HIERARQUIA:**
+```javascript
+// Verificar se subtasks foram criadas corretamente
+const mainTaskWithSubtasks = await mcp_clickup_get_task({
+  taskId: mainTask.id,
+  subtasks: true
+});
+
+console.log(`Task Principal: ${mainTaskWithSubtasks.name}`);
+console.log(`Subtasks: ${mainTaskWithSubtasks.subtasks.length}`);
+// Output esperado: Task Principal: 🎯 [NAME] | Subtasks: 2+
+```
 
 ---
 
