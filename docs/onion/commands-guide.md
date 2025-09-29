@@ -105,6 +105,46 @@ $ ./engineer/start             # Não é executável
 4. Cria Pull Request com detalhes da implementação
 5. Aguarda e processa feedback automatizado
 
+### `/engineer/pr-update` 🆕
+**Propósito**: Atualizar Pull Request existente com mudanças adicionais  
+**Input**: Mudanças pendentes após PR criado  
+**Integração ClickUp**: ✅ Documenta updates automáticos
+
+```bash
+# Exemplo de uso
+/engineer/pr-update
+# → Detecta mudanças pendentes automaticamente
+# → Commit inteligente com tipo contextual
+# → Push para branch do PR existente
+# → Atualiza ClickUp com detalhes
+```
+
+**Fluxo detalhado**:
+1. Detecta contexto (branch feature + PR existente)
+2. Analisa mudanças para categorização automática
+3. Gera commit inteligente (fix/feat/docs/refactor)
+4. Push automático para atualizar PR
+5. Comentário detalhado no ClickUp
+
+### `/engineer/validate-phase-sync` 🆕
+**Propósito**: Validar sincronização entre fases e subtasks ClickUp  
+**Input**: Sessão de desenvolvimento ativa  
+**Integração ClickUp**: ✅ Corrige inconsistências automaticamente
+
+```bash
+# Exemplo de uso
+/engineer/validate-phase-sync
+# → Analisa plan.md vs status subtasks
+# → Identifica discrepâncias
+# → Corrige status automaticamente
+# → Documenta correções aplicadas
+```
+
+**Casos de uso**:
+- Verificar sincronização após interrupção de trabalho
+- Validar antes de finalizar desenvolvimento
+- Corrigir status desatualizados retroativamente
+
 ### `/engineer/pre-pr`
 **Propósito**: Validações antes do Pull Request  
 **Input**: Código atual da branch  
@@ -333,18 +373,27 @@ graph TD
     E --> F[Desenvolvimento iterativo]
     F --> G{Pronto?}
     G -->|Não| E
-    G -->|Sim| H[/engineer/pr]
-    H --> I[PR criado + ClickUp atualizado]
-    I --> J[Review e merge]
-    J --> K[Task marcada como concluída]
+    G -->|Sim| H[/engineer/pre-pr]
+    H --> I[/engineer/pr]
+    I --> J{Mudanças adicionais?}
+    J -->|Sim| K[/engineer/pr-update]
+    K --> J
+    J -->|Não| L[Merge & Deploy]
+    L --> M[Task marcada como concluída]
+    
+    style K fill:#e1f5fe
+    style J fill:#fff3e0
 ```
 
 ## 📊 Status de Integração ClickUp
 
 | Comando | Status | Ação |
 |---------|--------|------|
-| `/engineer/start` | ✅ | Lê tasks |
-| `/engineer/pr` | ✅ | Atualiza status + tag |
+| `/engineer/start` | ✅ | Lê tasks + cria Phase-Subtask mapping |
+| `/engineer/work` | ✅ | Auto-sync de subtasks status |
+| `/engineer/pr` | ✅ | Move para "in progress" + tag "under-review" |
+| `/engineer/pr-update` | ✅ | Documenta updates automáticos |
+| `/engineer/validate-phase-sync` | ✅ | Corrige status inconsistentes |
 | `/product/task` | ✅ | Cria task |
 | `/product/collect` | ✅ | Salva no backlog |
 | `/product/refine` | ✅ | Atualiza task |
