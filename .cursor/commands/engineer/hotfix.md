@@ -304,14 +304,14 @@ cat > "$SESSION_DIR/context.md" << EOF
 
 ## 🔥 **Emergency Branch**
 **Nome**: hotfix/$HOTFIX_SLUG  
-**Criada**: $(date '+%Y-%m-%d %H:%M:%S')  
+**Criada**: $(date '+%d/%m/%Y %H:%M')  
 **Base**: main/master (production)  
 **Status**: 🚨 Emergency Active
 
 ## ⏰ **Emergency Timeline**
 **SLA**: < 2 hours resolution  
-**Início**: $(date '+%Y-%m-%d %H:%M:%S')  
-**Target**: $(date -d '+2 hours' '+%Y-%m-%d %H:%M:%S')
+**Início**: $(date '+%d/%m/%Y %H:%M')  
+**Target**: $(date -d '+2 hours' '+%d/%m/%Y %H:%M')
 
 ## 🎯 **Emergency Context**
 
@@ -460,7 +460,7 @@ cat > "$SESSION_DIR/notes.md" << EOF
 ## 📊 **Emergency Metrics**
 
 ### **Timeline Tracking**:
-- Emergency Start: $(date '+%Y-%m-%d %H:%M:%S')
+- Emergency Start: $(date '+%d/%m/%Y %H:%M')
 - Task Created: ✅ $EMERGENCY_TASK_ID  
 - Session Setup: ✅ Completed
 - Git Hotfix: ⏳ In Progress
