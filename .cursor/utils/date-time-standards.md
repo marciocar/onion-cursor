@@ -22,7 +22,7 @@ mv .cursor/sessions/nome-sessao .cursor/sessions/archived/$(date +%Y-%m-%d_%H%M)
 **✅ FORMATO CORRETO:**
 ```bash
 # Em comandos bash
-⏰ Completed: $(date +'%d/%m/%Y %H:%M')
+⏰ Completed: $(date +'%d/%m/%Y %H:%M:%S')
 
 # Em JavaScript (templates)
 new Date().toLocaleString('pt-BR', {
@@ -42,9 +42,9 @@ new Date().toLocaleString('pt-BR', {
 
 **✅ FORMATO CORRETO:**
 ```bash
-**Created**: $(date +'%d/%m/%Y %H:%M')
-**Started**: $(date +'%d/%m/%Y %H:%M')
-**Emergency Start**: $(date +'%d/%m/%Y %H:%M')
+**Created**: $(date +'%d/%m/%Y %H:%M:%S')
+**Started**: $(date +'%d/%m/%Y %H:%M:%S')
+**Emergency Start**: $(date +'%d/%m/%Y %H:%M:%S')
 ```
 
 **📋 Padrão**: `dd/mm/yyyy hh:mm` (formato brasileiro)
@@ -153,6 +153,25 @@ sed -i 's/\$(date +'\''%Y-%m-%d %H:%M'\'')/\$(date +'\''%d\/%m\/%Y %H:%M'\'')/g'
 2. **ClickUp Integration** - Comentários vs task descriptions  
 3. **Git Commands** - Logs vs metadados
 4. **JavaScript Templates** - Locale correto vs fallback
+
+### **🚨 ERRO CRÍTICO IDENTIFICADO:**
+**NEVER use bash commands in ClickUp comments!**
+
+❌ **INCORRETO**:
+```bash
+# Em comentários ClickUp - NÃO FUNCIONA
+⏰ Setup Complete: $(date +'%d/%m/%Y %H:%M:%S')
+```
+
+✅ **CORRETO**:
+```bash
+# Gerar timestamp ANTES de enviar para ClickUp
+TIMESTAMP=$(date +'%d/%m/%Y %H:%M:%S')
+# Então usar $TIMESTAMP no comentário ClickUp
+⏰ Setup Complete: 29/09/2025 00:18
+```
+
+**Razão**: ClickUp não executa comandos bash - exibe literalmente `$(date +...)` no comentário.
 
 ### **Validação Obrigatória:**
 Todo novo comando ou template que gere data/hora deve ser validado contra este documento antes do merge.
