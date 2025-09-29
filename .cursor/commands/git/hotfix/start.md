@@ -341,7 +341,7 @@ HOTFIX_DESCRIPTION="## 🚨 **EMERGENCY HOTFIX**
 ---
 
 ## 📊 **EMERGENCY METRICS**
-- **Start Time**: $(date +'%Y-%m-%d %H:%M:%S')
+- **Start Time**: $(date +'%d/%m/%Y %H:%M')
 - **SLA Target**: < 2 hours resolution
 - **Rollback Available**: Previous version tagged
 - **Monitor**: Enable critical alerts

@@ -192,7 +192,13 @@ const prComment = createClickUpComment(PR_TEMPLATE, {
   CHANGE_2: "Bug Y fixed", 
   PR_LINK: "https://github.com/repo/pull/123",
   BRANCH_NAME: "feature/new-feature",
-  TIMESTAMP: new Date().toLocaleString()
+  TIMESTAMP: new Date().toLocaleString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit', 
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
 });
 ```
 
