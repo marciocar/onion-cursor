@@ -118,9 +118,17 @@ Este comando **automaticamente atualiza** a task ClickUp quando inicia:
 ### **📋 Identificação da Task:**
 1. **Context.md**: Lê task-id do arquivo `.cursor/sessions/[slug]/context.md`
 2. **ClickUp MCP**: Usa `get_task` com `subtasks=true` para estrutura completa
-3. **Checklists Nativos**: Lê e incorpora checklists nativos na análise
-4. **Status Híbrido**: Combina informações de texto + checklists interativos
-5. **Não encontrada**: Pergunta ao usuário se deve vincular a uma task específica
+3. **🆕 PHASE-SUBTASK MAPPING**: Cria mapeamento automático fase→subtask no context.md
+4. **Checklists Nativos**: Lê e incorpora checklists nativos na análise
+5. **Status Híbrido**: Combina informações de texto + checklists interativos
+6. **Não encontrada**: Pergunta ao usuário se deve vincular a uma task específica
+
+### **🗺️ OBRIGATÓRIO: Criar Phase-Subtask Mapping**
+Quando subtasks existem, o sistema deve **automaticamente**:
+1. **Detectar subtasks** da task principal via ClickUp MCP
+2. **Correlacionar com fases** do plan.md (por ordem ou nome)
+3. **Salvar mapeamento** no context.md para uso pelo `/engineer/work`
+4. **Validar correlação** e alertar se houver mismatch
 
 ### **🔄 Monitoramento de Checklists:**
 - **Leitura automática** de todos os checklists nativos das subtasks
