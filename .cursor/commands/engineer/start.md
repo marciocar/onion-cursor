@@ -11,7 +11,19 @@ Este é o comando para iniciar o desenvolvimento de uma funcionalidade.
 
 ## Análise
 
-Analise as tasks, pais e filhos se necessário, e construa um entendimento inicial do que precisa ser desenvolvido. Pense cuidadosamente sobre o que é solicitado, certifique-se de entender exatamente:
+Analise as tasks, pais e filhos se necessário, e construa um entendimento inicial do que precisa ser desenvolvido. 
+
+### **📋 Análise de Estrutura Híbrida:**
+**IMPORTANTE**: O sistema agora suporta **checklists nativos** do ClickUp. Durante a análise:
+
+1. **Leia a task principal** usando ClickUp MCP (`get_task` com `subtasks=true`)
+2. **Verifique checklists nativos** em cada subtask para action items interativos
+3. **Combine informações** de descrição markdown + checklists nativos
+4. **Monitore progresso** baseado no status dos checklists (resolved/unresolved)
+5. **Documente estrutura híbrida** no context.md
+
+### **🔍 Questões de Análise:**
+Pense cuidadosamente sobre o que é solicitado, certifique-se de entender exatamente:
     - Por que isso está sendo construído (contexto)
     - Qual é o resultado esperado para esta task? (objetivo)
     - Como deve ser construído, apenas direcionalmente, não em detalhes (abordagem)
@@ -19,6 +31,7 @@ Analise as tasks, pais e filhos se necessário, e construa um entendimento inici
     - Como deve ser testado?
     - Quais são as dependências?
     - Quais são as restrições?
+    - **NOVO**: Qual é o status atual dos checklists nativos? (se existirem)
 
 Após refletir sobre essas questões, formule as 3-5 clarificações mais importantes necessárias para completar a tarefa. Pergunte essas questões ao humano, enquanto também fornece seu entendimento e sugestões.
 
@@ -104,7 +117,24 @@ Este comando **automaticamente atualiza** a task ClickUp quando inicia:
 
 ### **📋 Identificação da Task:**
 1. **Context.md**: Lê task-id do arquivo `.cursor/sessions/[slug]/context.md`
-2. **Não encontrada**: Pergunta ao usuário se deve vincular a uma task específica
+2. **ClickUp MCP**: Usa `get_task` com `subtasks=true` para estrutura completa
+3. **🆕 PHASE-SUBTASK MAPPING**: Cria mapeamento automático fase→subtask no context.md
+4. **Checklists Nativos**: Lê e incorpora checklists nativos na análise
+5. **Status Híbrido**: Combina informações de texto + checklists interativos
+6. **Não encontrada**: Pergunta ao usuário se deve vincular a uma task específica
+
+### **🗺️ OBRIGATÓRIO: Criar Phase-Subtask Mapping**
+Quando subtasks existem, o sistema deve **automaticamente**:
+1. **Detectar subtasks** da task principal via ClickUp MCP
+2. **Correlacionar com fases** do plan.md (por ordem ou nome)
+3. **Salvar mapeamento** no context.md para uso pelo `/engineer/work`
+4. **Validar correlação** e alertar se houver mismatch
+
+### **🔄 Monitoramento de Checklists:**
+- **Leitura automática** de todos os checklists nativos das subtasks
+- **Status tracking** de action items (resolved: true/false, unresolved count)
+- **Progress reporting** baseado em completion de checklists
+- **Documentação** da estrutura híbrida no context.md
 
 ## Pesquisa
 

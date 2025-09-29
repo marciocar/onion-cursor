@@ -19,9 +19,16 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
 
 ### **✅ Updates Automáticos A CADA FASE:**
 - **Comentário de progresso** quando fase é completada
+- **SUBTASK STATUS UPDATE** - Atualiza status da subtask correspondente para "done"
 - **Atualização do plan.md** com status e decisões
 - **Progresso % estimado** baseado nas fases concluídas
 - **Timestamp de atividade** para tracking temporal
+
+### **🔗 CRITICAL: Phase→Subtask Mapping**
+**OBRIGATÓRIO**: Quando uma fase é completada, o sistema deve:
+1. **Identificar subtask correspondente** via mapeamento estabelecido no context.md
+2. **Atualizar status da subtask** para "done" automaticamente
+3. **Documentar conclusão** com timestamp e métricas da fase
 
 ### **💬 Formato do Comentário de Progresso:**
 ```
@@ -55,6 +62,23 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
 ### **📋 Identificação da Task:**
 1. **Context.md**: Lê task-id do arquivo de contexto da sessão
 2. **Sessão ativa**: Detecta automaticamente a sessão em `.cursor/sessions/`
+3. **🆕 PHASE-SUBTASK MAPPING**: Lê mapeamento de context.md para correlacionar fases→subtasks
+
+### **🗺️ SUBTASK MAPPING STRUCTURE (context.md):**
+```markdown
+## 📋 Phase-Subtask Mapping
+- **Phase 1**: "Template Consolidation" → Subtask ID: [subtask-id-1]
+- **Phase 2**: "Feature Commands" → Subtask ID: [subtask-id-2] 
+- **Phase 3**: "Release Commands" → Subtask ID: [subtask-id-3]
+- **Phase 4**: "Hotfix Commands" → Subtask ID: [subtask-id-4]
+```
+
+### **⚡ AUTOMATIC EXECUTION:**
+Quando uma fase é marcada como "Completada ✅" no plan.md, o sistema deve:
+1. Ler o mapeamento do context.md
+2. Identificar a subtask correspondente àquela fase
+3. Usar ClickUp MCP para atualizar subtask status → "done"
+4. Adicionar comentário de conclusão na subtask
 
 ## Importante:
 
