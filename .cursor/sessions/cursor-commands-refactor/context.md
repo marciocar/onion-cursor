@@ -47,9 +47,28 @@
 3. **ClickUp Automation Simplificada** - manter pontos importantes e comentários
 4. **Cleanup Total** - remover backups, não deve ter arquivos -new.md
 
-## 🚀 Next Steps
-1. ✅ Environment setup (branch + session) - CONCLUÍDO
-2. 🔄 Remover arquivos backup e desnecessários - EM PROGRESSO
-3. ⏳ Refatorar comandos individuais seguindo padrão
-4. ⏳ Testing e validation
-5. ⏳ Final cleanup e documentation
+## 🔍 CLARIFICAÇÕES CRÍTICAS RESPONDIDAS
+
+### **1. Decomposição em Subtasks:**
+- **Ação**: Criar subtasks retroativamente no ClickUp para organizar trabalho
+- **Estrutura**: 3 subtasks para comandos restantes (feature, release, hotfix)
+
+### **2. Estratégia de Validação:**  
+- **Ação**: Testar comandos localmente conforme refatoração
+- **Método**: Validar reconhecimento + execução básica + integração @gitflow-specialist
+
+### **3. Template Padronizado:**
+- **Ação**: Usar template consolidado (estabelecido em 3 comandos) nos 5 restantes
+- **Estrutura**: Funcionalidades → Como Usar → @gitflow-specialist → Processo → Problemas
+
+### **4. Progresso vs. Correção:**
+- **Ação**: Continuar progresso + documentar arquitetura retroativamente  
+- **Estratégia**: Não refazer 3 comandos, focar nos 5 restantes
+
+### **5. Métricas de Sucesso:**
+- **Ação**: Validar comandos em ambiente real + documentar comportamento
+
+## 🚀 STATUS ATUAL
+**Comandos Concluídos**: 3/8 (37.5%) - help, init, feature/start
+**Progresso**: 1,544 linhas eliminadas, 82% redução média
+**Próximo**: Arquitetura + subtasks + continuar refatoração

@@ -20,14 +20,18 @@ Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organi
 
 ```markdown
 # ✅ CORRETO - No chat da Cursor IDE:
-/git/init
-/engineer/start
+/git/init                       # GitFlow setup inteligente
+/git/feature/start "login"      # Iniciar feature branch
+/engineer/start                 # Ambiente de desenvolvimento
 /product/task "implementar login"
 
 # ❌ INCORRETO - NÃO são comandos bash/terminal:
 $ /git/init                    # Comando não encontrado
 $ ./engineer/start             # Não é executável
 ```
+
+### 🚀 **Recentemente Refatorado (Janeiro 2025)**
+**Comandos Git**: Simplificação radical com 87.3% redução de código. Scripts bash complexos foram transformados em comandos Cursor Commands inteligentes com @gitflow-specialist integration nativa.
 
 📚 **[Leia mais sobre a arquitetura](cursor-commands-architecture.md)**
 

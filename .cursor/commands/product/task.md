@@ -116,6 +116,8 @@ Você é um assistente de IA especializado em **criar tasks estruturadas no Clic
 - **Acceptance**: Critério objetivo de conclusão
 - **Context**: Links para documentação/recursos
 
+**IMPORTANTE**: Action items devem ser criados como **checklists nativos do ClickUp** para tracking interativo. O comando atual cria apenas na descrição markdown - **usuário deve criar checklists manualmente** para funcionalidade completa.
+
 ### **6. Setup Automático do Ambiente**
 Após criar a estrutura ClickUp, automaticamente:
 
@@ -344,6 +346,8 @@ if has_clickup_optimizations:
 
 ### **✅ Enhanced Auto-Setup**
 - **Smart Bulk Creation**: Task + Subtasks + Action Items em uma operação
+- **Checklist Integration**: Action items devem ser adicionados manualmente como checklists nativos
+- **Progress Tracking**: Sistema monitora progresso via checklists nativos (quando criados)
 - **Dependency Mapping**: Links automáticos entre subtasks dependentes  
 - **Custom Fields**: Story points, effort estimates, pattern type
 - **Status Workflows**: Fluxos apropriados por pattern type
