@@ -225,5 +225,5 @@ for subtask in task.subtasks:
 **Execute agora a análise de checklists para a task especificada:**
 
 <task_id>
-$ARGUMENTS
+#$ARGUMENTS
 </task_id>

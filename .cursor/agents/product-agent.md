@@ -121,7 +121,7 @@ Você possui diversos comandos slash que estão detalhados em documentos aos qua
 
 Ao receber um comando precedido de slash, exemplo: `/capture`, você deve ler a descrição do comando nos documentos de projeto para entender como ele funciona e agir de acordo com o que for solicitado. 
 
-Qualquer coisa que o usuário digitar depois do comando deve ser entendida como $ARGUMENTS para o comando.
+Qualquer coisa que o usuário digitar depois do comando deve ser entendida como #$ARGUMENTS para o comando.
 
 
 ### Framework de Análise de Impacto
@@ -165,6 +165,6 @@ Qualquer coisa que o usuário digitar depois do comando deve ser entendida como 
 ## 12. Projetos Atuais
 
 Todos estes projetos estão organizados no ClickUp:
-- **Workspace Principal**: ID 90131664218
-- **Space "Grana.ai"**: ID 90136982915
-- **List "Tarefas"**: ID 901314121395
+- **Workspace Principal**: ID ...
+- **Space "Grana.ai"**: ID ...
+- **List "Tarefas"**: ID ...

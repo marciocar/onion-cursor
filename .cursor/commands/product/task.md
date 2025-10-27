@@ -127,11 +127,11 @@ Após criar a estrutura ClickUp, automaticamente:
 ```bash
 # Para Features: Integração com /git/feature/start
 if task_type == "feature" and is_new_development:
-    execute("/git/feature/start <task-slug>")  # Cria backlog + branch
+    execute("/git/feature/start <feature-slug>")  # Cria backlog + branch
     
 # Para outras tasks: Branch direta
 else:
-    git checkout -b feature/<task-slug>  # Pattern: feature/task-name-implementation
+    git checkout -b feature/<feature-slug>  # Pattern: feature/task-name-implementation
 ```
 
 **Detalhamento da Integração:**
@@ -142,7 +142,7 @@ else:
 
 #### **📁 Session Directory Structure** 
 ```
-.cursor/sessions/<task-slug>/
+.cursor/sessions/<feature-slug>/
 ├── context.md          # Task context + decomposition overview
 ├── architecture.md     # Technical architecture (created by @c4-architecture-specialist if needed)
 ├── implementation.md   # Detailed implementation plan per subtask
@@ -182,7 +182,7 @@ else:
 
 ## 🚀 Next Steps
 1. Review structure in ClickUp
-2. Execute: `/engineer/start <task-slug>`
+2. Execute: `/engineer/start <feature-slug>`
 3. Follow implementation plan per subtask
 ```
 
@@ -331,8 +331,8 @@ SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
 
 ## 🌿 **Git Integration & Development Environment**
 **Git Command Executed**: [/git/feature/start | direct branch creation]
-**Feature Branch**: `[branch-pattern]/<task-slug>` ✅ Created
-**Session Directory**: `.cursor/sessions/<task-slug>/` ✅ Initialized
+**Feature Branch**: `[branch-pattern]/<feature-slug>` ✅ Created
+**Session Directory**: `.cursor/sessions/<feature-slug>/` ✅ Initialized
 **Context Documentation**: ✅ Complete with technical details
 
 ## 🎯 **Acceptance Criteria Defined**
@@ -349,7 +349,7 @@ SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
 
 ## 🚀 **Next Steps & Integration**
 1. **Review Structure**: Examine task hierarchy in ClickUp ([CLICKUP_URL])
-2. **Start Development**: Execute `/engineer/start <task-slug>`
+2. **Start Development**: Execute `/engineer/start <feature-slug>`
 3. **Follow Implementation**: Work through subtasks sequentially
 4. **Track Progress**: Update action items as completed
 5. **Finish Feature**: Use `/git/feature/finish` when ready
@@ -382,8 +382,8 @@ SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
    ▶ Total Estimate: [STORY_POINTS]pts / [TIME]
 
 🏗️ AMBIENTE PREPARADO:
-   ▶ Branch: feature/[task-slug] ✅
-   ▶ Session: .cursor/sessions/[task-slug]/ ✅
+   ▶ Branch: feature/[feature-slug] ✅
+   ▶ Session: .cursor/sessions/[feature-slug]/ ✅
    ▶ Docs: Architecture + Implementation + Context ✅
 
 🎯 ACCEPTANCE CRITERIA:
@@ -393,7 +393,7 @@ SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
 
 🚀 PRÓXIMOS PASSOS:
    1. Revisar decomposição no ClickUp
-   2. Executar: /engineer/start [task-slug]  
+   2. Executar: /engineer/start [feature-slug]  
    3. Seguir implementação por subtask
    4. Validar com: /product/task-check [task-id]
 
@@ -549,5 +549,5 @@ console.log(`Subtasks: ${mainTaskWithSubtasks.subtasks.length}`);
 **Execute agora a criação da task seguindo todo o workflow de decomposição inteligente:**
 
 <task_description>
-$ARGUMENTS
+#$ARGUMENTS
 </task_description>
