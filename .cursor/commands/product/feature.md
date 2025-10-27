@@ -285,7 +285,7 @@ fi
 ### **Quando NÃO usar:**
 - ❌ Desenvolvimento imediato (use `/git/feature/start`)
 - ❌ Hotfixes urgentes (use `/engineer/hotfix`)  
-- ❌ Tasks já existem (use `/engineer/start task-slug`)
+- ❌ Tasks já existem (use `/engineer/start <feature-slug>`)
 
 ---
 

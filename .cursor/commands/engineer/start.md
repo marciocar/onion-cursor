@@ -6,7 +6,7 @@ Este é o comando para iniciar o desenvolvimento de uma funcionalidade.
 ## Configuração
 - Se não estivermos em uma feature branch, peça permissão para criar uma
 - Se estivermos em uma feature branch que corresponde ao nome da funcionalidade, estamos prontos.
-- Certifique-se de que existe uma pasta .cursor/sessions/<feature_slug>
+- Certifique-se de que existe uma pasta .cursor/sessions/<feature-slug>
 - Peça ao usuário o input para esta sessão (você receberá um ou mais tasks do ClickUp para trabalhar)
 
 ## Análise
@@ -37,7 +37,7 @@ Após refletir sobre essas questões, formule as 3-5 clarificações mais import
 
 Depois de obter as respostas do humano, considere se precisa fazer mais perguntas. Se sim, faça mais perguntas ao humano.
 
-Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature_slug>/context.md e peça ao humano para revisar.
+Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature-slug>/context.md e peça ao humano para revisar.
 
 Se o humano concordar com seu entendimento, você pode prosseguir para o próximo passo. Caso contrário, continue iterando juntos até obter aprovação explícita para seguir em frente.
 
@@ -75,7 +75,7 @@ Se ajudar a construir um diagrama MERMAID, sinta-se livre para fazê-lo.
 
 Se, a qualquer momento, você tiver dúvidas ou encontrar algo que contradiga o que entendeu anteriormente, peça esclarecimentos ao humano.
 
-Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature_slug>/architecture.md e peça ao humano para revisar.
+Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature-slug>/architecture.md e peça ao humano para revisar.
 
 Se o humano concordar com seu entendimento, você pode prosseguir para o próximo passo. Caso contrário, continue iterando juntos até obter aprovação explícita para seguir em frente.
 
@@ -140,6 +140,6 @@ Quando subtasks existem, o sistema deve **automaticamente**:
 
 Se você não tem certeza de como uma biblioteca específica funciona, você pode usar Context7 e Perplexity para buscar informações sobre ela. Então, não tente adivinhar.
 
-<feature_slug>
+<feature-slug>
 #$ARGUMENTS
-</feature_slug>
+</feature-slug>

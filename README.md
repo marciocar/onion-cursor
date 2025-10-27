@@ -1,17 +1,39 @@
 # 🧅 Sistema Onion
 
-[![Comandos](https://img.shields.io/badge/Comandos-36-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-19-green)](docs/onion/agents-reference.md) [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](docs/onion/clickup-integration.md)
+[![Comandos](https://img.shields.io/badge/Comandos-58-blue)](.cursor/docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-38-green)](.cursor/docs/onion/agents-reference.md) [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](.cursor/docs/onion/clickup-integration.md)
 
 ## 🎯 Visão Geral
 
 Bem-vindo ao **Sistema Onion**! Framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **36 comandos especializados** organizados por categoria
-- 🎯 **19 agentes de IA especializados** para tarefas específicas  
+- 🤖 **58 comandos especializados** organizados por categoria
+- 🎯 **38 agentes de IA especializados** para tarefas específicas
+- 🧅 **Comando `/onion`** - ponto de entrada inteligente para o sistema
+- 🧅 **Agente `@onion`** - orquestrador master que conhece todo o sistema
 - 🔗 **Integração completa com ClickUp MCP** para gestão automática de projetos
 - ⚡ **Workflows automatizados** do planejamento ao deploy
 
-Documentação completa disponível em [`docs/onion/`](docs/onion/) para dominar todos os comandos, agentes e fluxos de trabalho.
+Documentação completa disponível em [`.cursor/docs/onion/`](.cursor/docs/onion/) para dominar todos os comandos, agentes e fluxos de trabalho.
+
+## 🧅 **Comece com `/onion`**
+
+**Novo no sistema?** Use o comando `/onion` - seu guia inteligente para navegar, aprender e executar:
+
+```bash
+# Primeira vez?
+/onion "Sou novo aqui, me ajude a começar"
+
+# Precisa criar uma task?
+/onion "Criar task para implementar autenticação"
+
+# Quer desenvolver uma feature?
+/onion "Desenvolver feature completa do zero"
+
+# Tem dúvidas?
+/onion "Qual comando usar para X?"
+```
+
+O comando `/onion` invoca automaticamente o agente `@onion` com contexto otimizado, analisando sua solicitação e orquestrando a melhor solução - seja um comando específico, um agente especializado ou um workflow completo.
 
 ## ⚡ **Como Funcionam os Comandos**
 
@@ -47,16 +69,46 @@ $ /engineer/work               # Não é comando shell
 ## 📖 Guias Disponíveis
 
 ### 🎯 Guias Principais
-- **[Guia de Comandos](docs/onion/commands-guide.md)** - Documentação completa de todos os comandos disponíveis
-- **[Fluxos de Engenharia](docs/onion/engineering-flows.md)** - Workflows detalhados para desenvolvimento
-- **[Integração ClickUp](docs/onion/clickup-integration.md)** - Como integrar comandos com ClickUp MCP
+- **[Guia de Comandos](.cursor/docs/onion/commands-guide.md)** - Documentação completa de todos os comandos disponíveis
+- **[Fluxos de Engenharia](.cursor/docs/onion/engineering-flows.md)** - Workflows detalhados para desenvolvimento
+- **[Integração ClickUp](.cursor/docs/onion/clickup-integration.md)** - Como integrar comandos com ClickUp MCP
 
 ### 🛠️ Referências Técnicas
-- **[Agentes Disponíveis](docs/onion/agents-reference.md)** - Lista e descrição de todos os agentes especializados
-- **[Exemplos Práticos](docs/onion/practical-examples.md)** - Casos de uso reais com exemplos
+- **[Agentes Disponíveis](.cursor/docs/onion/agents-reference.md)** - Lista e descrição de todos os agentes especializados
+- **[Exemplos Práticos](.cursor/docs/onion/practical-examples.md)** - Casos de uso reais com exemplos
 
 ### 🚀 Início Rápido
-- **[Configuração Inicial](docs/onion/getting-started.md)** - Como configurar e começar a usar o sistema
+- **[Configuração Inicial](.cursor/docs/onion/getting-started.md)** - Como configurar e começar a usar o sistema
+
+## 📁 Estrutura de Documentação
+
+### 🧅 Sistema Onion (`.cursor/docs/onion/`)
+Documentação do **framework de comandos e agentes**:
+- 📖 Guias de uso de comandos
+- 🔄 Workflows de desenvolvimento
+- 🤖 Referências de agentes
+- 💡 Exemplos práticos
+- ⚙️ Configuração e troubleshooting
+
+**Localização:** `.cursor/docs/onion/`  
+**Propósito:** Documentar o Sistema Onion em si
+
+### 📚 Projeto (`docs/`)
+Documentação **específica do seu projeto**:
+- 🎯 Contexto de negócio
+- 🏗️ Arquitetura técnica
+- 📋 Meta-especificações (PRDs)
+- 🧠 ADRs (Architecture Decision Records)
+- 📊 Análises e relatórios
+
+**Localização:** `docs/`  
+**Propósito:** Documentar o projeto que você está desenvolvendo
+
+### 💡 Por Que Separar?
+- ✅ **Clareza**: Sistema vs Projeto bem definidos
+- ✅ **Portabilidade**: `.cursor/` é autocontido
+- ✅ **Organização**: Cada tipo de doc no lugar certo
+- ✅ **Manutenibilidade**: Atualizações independentes
 
 ## 🎯 Navegação Rápida
 
@@ -119,7 +171,7 @@ O Sistema Onion oferece **integração nativa e bidirecional** com ClickUp atrav
 
 ## 🤖 Agentes Especializados
 
-O Sistema Onion inclui **19 agentes de IA especializados** que podem ser invocados diretamente:
+O Sistema Onion inclui **38 agentes de IA especializados** que podem ser invocados diretamente:
 
 ### 🎯 Agentes Principais
 - **`@product-agent`** - Gestão estratégica de produto e coordenação de projetos
@@ -133,15 +185,15 @@ O Sistema Onion inclui **19 agentes de IA especializados** que podem ser invocad
 - **`@test-engineer`** - Automação e estratégias de teste
 - **`@code-reviewer`** - Análise e review de código
 
-**[Ver lista completa →](docs/onion/agents-reference.md)**
+**[Ver lista completa →](.cursor/docs/onion/agents-reference.md)**
 
 ## 📞 Suporte e Recursos
 
 ### 🆘 Resolução de Problemas
-1. **Comandos**: Consulte [`docs/onion/commands-guide.md`](docs/onion/commands-guide.md)
-2. **Exemplos**: Veja casos práticos em [`docs/onion/practical-examples.md`](docs/onion/practical-examples.md)
-3. **ClickUp**: Verifique [`docs/onion/clickup-integration.md`](docs/onion/clickup-integration.md)
-4. **Configuração**: Siga [`docs/onion/getting-started.md`](docs/onion/getting-started.md)
+1. **Comandos**: Consulte [`.cursor/docs/onion/commands-guide.md`](.cursor/docs/onion/commands-guide.md)
+2. **Exemplos**: Veja casos práticos em [`.cursor/docs/onion/practical-examples.md`](.cursor/docs/onion/practical-examples.md)
+3. **ClickUp**: Verifique [`.cursor/docs/onion/clickup-integration.md`](.cursor/docs/onion/clickup-integration.md)
+4. **Configuração**: Siga [`.cursor/docs/onion/getting-started.md`](.cursor/docs/onion/getting-started.md)
 
 ### 🔧 Comandos de Debug
 ```bash
