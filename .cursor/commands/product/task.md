@@ -97,10 +97,15 @@ Você é um assistente de IA especializado em **criar tasks estruturadas no Clic
 
 #### **📋 Task Principal**
 - **Título**: Objetivo claro e acionável
-- **Descrição**: Overview funcional + arquitetura técnica + bibliotecas + componentes + critérios de aceitação + estratégia de testes
+- **Descrição**: **USAR `markdown_description`** (não `description`) com template markdown estruturado
 - **Tags**: Categoria confirmada (bug/feature/improvement/research)
 - **Priority**: Baseada em impacto e urgência
 - **Estimation**: Story points + time estimate
+
+**⚠️ IMPORTANTE - Formatação ClickUp:**
+- **SEMPRE use `markdown_description`** (renderiza markdown corretamente)
+- **NUNCA use `description`** (mostra markdown cru sem formatação)
+- Veja template completo em `.cursor/docs/clickup/clickup-formatting.md`
 
 #### **🔧 Subtasks (se aplicável - Componentes Funcionais)**
 - **Título**: Componente específico ou área funcional
@@ -506,7 +511,42 @@ O comando agora integra automaticamente com comandos git:
 const mainTask = await mcp_clickup_create_task({
   name: "🎯 [TASK NAME]",
   listId: "901314121395",
-  description: "[DETAILED DESCRIPTION]",
+  markdown_description: `## 🎯 Objetivo da Task
+
+[DESCRIÇÃO_DETALHADA_DO_OBJETIVO]
+
+---
+
+## 📋 Escopo de Implementação
+
+### ✅ Funcionalidades:
+- Feature A - [DESCRIÇÃO]
+- Feature B - [DESCRIÇÃO]
+
+### 🔧 Arquitetura Técnica:
+- Componente X modificado
+- Integration Y implementada
+
+### 📊 Métricas Esperadas:
+
+| Metric | Before | After | Target |
+|--------|--------|-------|--------|
+| Performance | [VALOR] | [VALOR] | ✅ |
+| Coverage | [VALOR] | [VALOR] | ✅ |
+
+---
+
+## ✅ Critérios de Aceitação
+
+- [ ] Funcionalidade A implementada
+- [ ] Testes passando > 95%
+- [ ] Documentation atualizada
+- [ ] Performance dentro do target
+
+---
+
+**🎯 Success Metric**: [MÉTRICA_PRINCIPAL]  
+**🕒 Timeline**: [PRAZO_ESTIMADO]`,
   tags: ["feature", "priority-high"],
   priority: 2
 });
@@ -515,7 +555,15 @@ const mainTask = await mcp_clickup_create_task({
 const subtask1 = await mcp_clickup_create_task({
   name: "🔧 [SUBTASK 1 NAME]", 
   listId: "901314121395",
-  description: "[SUBTASK DESCRIPTION]",
+  markdown_description: `## 🔧 Componente: [NOME]
+
+### 📋 Objetivos:
+- [OBJETIVO_1]
+- [OBJETIVO_2]
+
+### ✅ Critérios de Aceitação:
+- [ ] [CRITÉRIO_1]
+- [ ] [CRITÉRIO_2]`,
   parent: mainTask.id,  // ← CRITICAL: Link para task principal
   tags: ["subtask", "backend"]
 });
@@ -523,7 +571,15 @@ const subtask1 = await mcp_clickup_create_task({
 const subtask2 = await mcp_clickup_create_task({
   name: "🔧 [SUBTASK 2 NAME]",
   listId: "901314121395", 
-  description: "[SUBTASK DESCRIPTION]",
+  markdown_description: `## 🔧 Componente: [NOME]
+
+### 📋 Objetivos:
+- [OBJETIVO_1]
+- [OBJETIVO_2]
+
+### ✅ Critérios de Aceitação:
+- [ ] [CRITÉRIO_1]
+- [ ] [CRITÉRIO_2]`,
   parent: mainTask.id,  // ← CRITICAL: Link para task principal
   tags: ["subtask", "frontend"]
 });
