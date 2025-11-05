@@ -300,6 +300,11 @@ Esta documentação é viva e evolui com o projeto. Para sugestões:
 
 ## 📝 Notas da Versão
 
+### v1.0.1 - Atualização (2025-01-27)
+- ✅ Adicionadas ferramentas MCP gerais (list_mcp_resources, fetch_mcp_resource)
+- ✅ Validação completa de todas as ferramentas disponíveis
+- ✅ Documentação sincronizada com contexto atual
+
 ### v1.0.0 - Setup Inicial (2025-01-27)
 - ✅ 50+ ferramentas MCP documentadas
 - ✅ 14+ agentes especializados catalogados

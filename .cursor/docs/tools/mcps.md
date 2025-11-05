@@ -481,6 +481,26 @@ function clickup_update_document_page(params: {
 // Propósito: Atualiza página de documento (com modos de edição)
 ```
 
+### 📊 Recursos MCP Gerais
+
+#### `list_mcp_resources`
+```typescript
+function list_mcp_resources(params: {
+  server?: string; // Filtrar por servidor específico
+}): MCPResources[]
+// Propósito: Lista recursos disponíveis de servidores MCP configurados
+```
+
+#### `fetch_mcp_resource`
+```typescript
+function fetch_mcp_resource(params: {
+  server: string;
+  uri: string;
+  downloadPath?: string; // Caminho relativo para salvar recurso
+}): ResourceContent
+// Propósito: Busca recurso específico de servidor MCP
+```
+
 ---
 
 ## Postman MCP
