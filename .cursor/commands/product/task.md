@@ -538,15 +538,21 @@ const mainTask = await mcp_clickup_create_task({
 
 ## ✅ Critérios de Aceitação
 
+**📝 Checkboxes Interativos**: Marque conforme completa! ✅
+
 - [ ] Funcionalidade A implementada
-- [ ] Testes passando > 95%
-- [ ] Documentation atualizada
-- [ ] Performance dentro do target
+- [ ] Funcionalidade B implementada
+- [ ] Testes passando com cobertura > 95%
+- [ ] Documentation técnica atualizada
+- [ ] Performance dentro do target estabelecido
+- [ ] Code review aprovado
+- [ ] Deploy validado em staging
 
 ---
 
 **🎯 Success Metric**: [MÉTRICA_PRINCIPAL]  
-**🕒 Timeline**: [PRAZO_ESTIMADO]`,
+**🕒 Timeline**: [PRAZO_ESTIMADO]  
+**📊 Progresso**: Marque os checkboxes à medida que cada critério for atendido`,
   tags: ["feature", "priority-high"],
   priority: 2
 });

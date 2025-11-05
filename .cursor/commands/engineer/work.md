@@ -148,6 +148,10 @@ Quando uma fase é marcada como "Completada ✅" no plan.md, o sistema deve **EX
 Quando você desenvolver o código para a fase atual, use os sub-agentes de desenvolvimento, code-review e teste quando apropriado para preservar o máximo possível do seu contexto.
 Toda vez que completar uma fase do plano:
 - **AUTO-UPDATE**: Adicione comentário de progresso no ClickUp automaticamente
+- **RASTREAMENTO**: Marque checkboxes na description correspondentes aos critérios completados
+  * Os checkboxes são **interativos** - clique para marcar `[x]`
+  * Atualiza description com progresso visual
+  * Facilita visão geral da completude
 - Pause e peça ao usuário para validar seu código.
 - Faça as mudanças necessárias até ser aprovado
 - Atualize a fase correspondente no arquivo plan.md marcando o que foi feito e adicionando comentários úteis para o desenvolvedor que abordará as próximas fases, especialmente sobre questões, decisões, etc.
