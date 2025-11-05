@@ -15,11 +15,26 @@ Este comando **automaticamente atualiza** a task ClickUp durante preparação pa
 
 ### **💬 Formato do Comentário de Pre-PR:**
 
-Para formato exato, consulte:
-- **Padrão 5 (Validação Pre-PR)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
-- **Abstração MCP**: `commentPrePRValidation()` em `.cursor/utils/clickup-mcp-wrappers.md`
+**Chamar abstrações MCP para validação automatizada:**
 
-O comentário será adicionado automaticamente com checklist de qualidade.
+```typescript
+// 1. Validar Critérios de Aceitação
+const validation = await validateAcceptanceCriteria(taskId);
+// Retorna: { isComplete, coverage, criteria[], pendingCriteria[] }
+
+// 2. Criar comentário de validação com resultado
+await commentPrePRValidation(taskId, {
+  validationResult: validation,
+  technicalChecks: { metaSpecs: true, codeReview: true, tests: true },
+  readyForPR: validation.isComplete
+});
+```
+
+**Referências:**
+- **Padrão 5 (Validação Pre-PR)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
+- **Abstrações MCP**: 
+  - `validateAcceptanceCriteria()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 534-600)
+  - `commentPrePRValidation()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 603-629)
 
 ### **📋 Identificação da Task:**
 1. **Context.md**: Lê task-id da sessão ativa

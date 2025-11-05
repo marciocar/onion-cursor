@@ -45,11 +45,23 @@ Atualizar um Pull Request existente com mudanças adicionais. Este comando autom
 
 ### Comentário Automático Padronizado
 
-Para formato exato do comentário, consulte:
-- **Padrão 4 (PR Atualizada)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
-- **Abstração MCP**: `commentPRUpdated()` em `.cursor/utils/clickup-mcp-wrappers.md`
+**Chamar abstração MCP para documentação de atualização:**
 
-O comentário será adicionado automaticamente com detalhes dos commits adicionais.
+```typescript
+// Ao atualizar PR com novos commits, chamar:
+await commentPRUpdated(taskId, {
+  commitType: "fix|feat|refactor|docs|chore",
+  commitHash: "[hash do commit]",
+  filesModified: N,
+  linesAdded: N,
+  linesRemoved: N,
+  description: "[descrição das mudanças]"
+});
+```
+
+**Referências:**
+- **Padrão 4 (PR Atualizada)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
+- **Abstração MCP**: `commentPRUpdated()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 632-661)
 
 ## ⚙️ Processo Automático
 

@@ -29,11 +29,21 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
 
 4. Adicione um comentário na task do ClickUp documentando o PR:
 
-Para formato exato do comentário, consulte:
-- **Padrão 3 (PR Criada)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
-- **Abstração MCP**: `commentPRCreated()` em `.cursor/utils/clickup-mcp-wrappers.md`
+**Chamar abstração MCP para comentário automatizado:**
 
-O comentário será adicionado automaticamente com todos os detalhes da PR. 
+```typescript
+// Ao criar PR, chamar:
+await commentPRCreated(taskId, {
+  prUrl: "[PR_URL]",
+  branch: "[branch-name]",
+  changesDescription: "[descrição das mudanças]",
+  testsStatus: "passing|review|pending"
+});
+```
+
+**Referências:**
+- **Padrão 3 (PR Criada)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
+- **Abstração MCP**: `commentPRCreated()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 632-661) 
 
 5. Abra um Pull Request (PR) com os detalhes da implementação:
 
