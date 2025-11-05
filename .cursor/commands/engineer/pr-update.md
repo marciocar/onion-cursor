@@ -44,30 +44,12 @@ Atualizar um Pull Request existente com mudanças adicionais. Este comando autom
 - Valida se task está em status "in progress" com tag "under-review"
 
 ### Comentário Automático Padronizado
-Adiciona comentário formatado na task ClickUp:
-```
-📝 PR ATUALIZADO - [COMMIT_TYPE]
 
-━━━━━━━━━━━━
+Para formato exato do comentário, consulte:
+- **Padrão 4 (PR Atualizada)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
+- **Abstração MCP**: `commentPRUpdated()` em `.cursor/utils/clickup-mcp-wrappers.md`
 
-🔄 COMMIT ADICIONAL REALIZADO:
-   ▶ Commit: [HASH]
-   ▶ Tipo: [TYPE]
-   ▶ Arquivos: [N] modificados ([+X/-Y] lines)
-
-🛠️ MUDANÇAS IMPLEMENTADAS:
-   ∟ [Lista automática baseada nos arquivos]
-
-✅ STATUS DO PR:
-   ∟ Branch: [BRANCH_NAME]
-   ∟ Commit anterior: [PREVIOUS_HASH]
-   ∟ Commit atual: [CURRENT_HASH]
-   ∟ Status: ✅ Ready for review
-
-━━━━━━━━━━━━
-
-⏰ Updated: [TIMESTAMP] | 🚀 Next: Review & merge
-```
+O comentário será adicionado automaticamente com detalhes dos commits adicionais.
 
 ## ⚙️ Processo Automático
 

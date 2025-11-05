@@ -32,57 +32,21 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
 
 ### **💬 Estratégia DUAL de Comentários:**
 
-**IMPORTANTE**: Ao completar uma fase, adicionar **DOIS comentários**:
+**IMPORTANTE**: Padrões de comentários centralizados em `.cursor/docs/strategies/clickup-comment-patterns.md`
 
-#### **1. Comentário DETALHADO na SUBTASK** (Técnico Completo):
-```
-🔧 FASE COMPLETADA: [Nome da Fase]
+Ao completar uma fase, o sistema automaticamente:
 
-━━━━━━━━━━━━━━━━
+1. **Cria comentário DETALHADO na SUBTASK** (Padrão 1: Fase Completada)
+   - Referência: Padrão 1 em clickup-comment-patterns.md
+   - Use abstração: `commentPhaseCompletion()` de clickup-mcp-wrappers.md
 
-📁 ARQUIVOS MODIFICADOS:
-   ∟ [arquivo1.ts]
-   ∟ [arquivo2.tsx]
-   ∟ [arquivo3.spec.ts]
-   ∟ ... e mais [N] arquivos
+2. **Cria comentário RESUMIDO na TASK PRINCIPAL** (Padrão 2: Progress Update)
+   - Referência: Padrão 2 em clickup-comment-patterns.md
+   - Use abstração: `commentProgressUpdate()` de clickup-mcp-wrappers.md
 
-🔧 IMPLEMENTAÇÕES:
-   ▶ [Funcionalidade 1 implementada]
-   ▶ [Funcionalidade 2 implementada]
-   ▶ [Funcionalidade 3 implementada]
-
-✅ TESTES ADICIONADOS:
-   ∟ [test-file-1.spec.ts] ([N] testes)
-   ∟ [test-file-2.spec.ts] ([N] testes)
-   ∟ Cobertura: [X]%
-
-💡 DECISÕES TÉCNICAS:
-   ∟ [Decisão 1 e justificativa]
-   ∟ [Decisão 2 e justificativa]
-   ∟ [Bibliotecas adicionadas e versões]
-
-🚀 PRÓXIMOS PASSOS:
-   ∟ [Próxima fase]
-   ∟ [Ação específica 1]
-   ∟ [Ação específica 2]
-
-━━━━━━━━━━━━━━━━
-
-⏰ Completado: [TIMESTAMP] | 🎯 Status: Done
-```
-
-#### **2. Comentário RESUMIDO na TASK PRINCIPAL** (Executivo):
-```
-📝 PROGRESSO: Fase [N]/[TOTAL] Completada
-
-✅ [Nome da Fase] - Concluída
-   ∟ Subtask: #[SUBTASK_ID]
-   ∟ Detalhes: Ver comentário na subtask
-
-🎯 Próximo: Fase [N+1] - [Nome Próxima Fase]
-
-⏰ [TIMESTAMP]
-```
+Para templates exatos, consulte:
+- `.cursor/docs/strategies/clickup-comment-patterns.md` (padrões + exemplos)
+- `.cursor/utils/clickup-mcp-wrappers.md` (abstrações MCP)
 
 ### **📋 Identificação da Task:**
 1. **Context.md**: Lê task-id do arquivo de contexto da sessão

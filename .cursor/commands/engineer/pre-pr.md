@@ -14,36 +14,12 @@ Este comando **automaticamente atualiza** a task ClickUp durante preparação pa
 - **Progresso estimado** para 90% (quase pronto)
 
 ### **💬 Formato do Comentário de Pre-PR:**
-```
-🔍 PREPARAÇÃO PARA PULL REQUEST
 
-━━━━━━━━━━━━
+Para formato exato, consulte:
+- **Padrão 5 (Validação Pre-PR)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
+- **Abstração MCP**: `commentPrePRValidation()` em `.cursor/utils/clickup-mcp-wrappers.md`
 
-✅ CRITÉRIOS DE ACEITAÇÃO:
-   ◆ [x] Todos os checkboxes marcados
-   ◆ Total: 7/7 critérios completos ✅
-
-✅ VERIFICAÇÕES TÉCNICAS:
-   ◆ Meta-specs compliance: [✅/❌]
-   ◆ Code review: [✅/❌]
-   ◆ Documentation updated: [✅/❌]
-   ◆ Tests coverage: [✅/❌]
-
-📊 QUALIDADE DO CÓDIGO:
-   ∟ Lint errors: [N] encontrados
-   ∟ Test coverage: [X]%
-   ∟ Documentation: [Atualizada/Pendente]
-
-🔧 CORREÇÕES APLICADAS:
-   ∟ [Lista das correções feitas]
-
-🚀 STATUS PARA PR:
-   ∟ [PRONTO/REQUER_AJUSTES]
-
-━━━━━━━━━━━━
-
-⏰ Preparação: [TIMESTAMP] | 🎯 Próximo: Abrir Pull Request
-```
+O comentário será adicionado automaticamente com checklist de qualidade.
 
 ### **📋 Identificação da Task:**
 1. **Context.md**: Lê task-id da sessão ativa
