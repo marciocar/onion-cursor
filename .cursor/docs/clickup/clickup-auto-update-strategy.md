@@ -22,7 +22,7 @@ Este documento define quando e como os comandos do Sistema Onion devem **automat
 |---------|-------------|-------------|----------|
 | **`/product/task`** | ✅ Status → "To Do" | - | Task criada em estado inicial |
 | **`/engineer/start`** | ✅ Status → "In Progress" | - | Início natural do desenvolvimento |
-| **`/engineer/work`** | ✅ Comments de progresso | - | Updates de atividade |
+| **`/engineer/work`** | ✅ Comentário DETALHADO na subtask<br>✅ Comentário RESUMIDO na task principal<br>✅ Status da subtask → "Done" | - | **ESTRATÉGIA DUAL** - Ver `.cursor/docs/clickup/clickup-dual-comment-strategy.md` |
 | **`/engineer/pre-pr`** | ✅ Comments de checklist | - | Preparação para PR |
 | **`/engineer/pr`** | ✅ Status → "In Progress"<br>✅ Tag "under-review"<br>✅ Comment PR details | - | **JÁ IMPLEMENTADO** |
 | **`/product/task-check`** | ✅ Comments de verificação | ⚠️ Status change | Verificação é tracking, mas status requer decisão |
@@ -112,31 +112,78 @@ if (recommendations.includes('SCOPE_REDUCTION')) {
 }
 ```
 
-### **3. `/engineer/work` (quando em sessão ativa)**
+### **3. `/engineer/work` (ESTRATÉGIA DUAL)**
 
-#### **Auto-Update SEMPRE:**
+#### **Auto-Update SEMPRE (em ORDEM):**
+
+**1. Comentário DETALHADO na SUBTASK:**
 ```javascript
-// A cada fase completada no plan.md
-create_task_comment({
-  taskId: sessionTaskId,
-  commentText: `🔧 PROGRESSO DE DESENVOLVIMENTO
+// Comentário técnico completo na subtask correspondente
+const subtaskId = getSubtaskIdForPhase(currentPhase, contextMd);
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+await mcp_clickup_create_task_comment({
+  task_id: subtaskId,  // ← SUBTASK ID
+  workspace_id: workspaceId,
+  comment_text: `🔧 FASE COMPLETADA: ${phaseName}
 
-📋 FASE COMPLETADA:
-   ▶ ${completedPhase}
-   ▶ Arquivos modificados: ${modifiedFiles.length}
-   ▶ Testes adicionados: ${testsAdded}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🚀 PRÓXIMA FASE:
-   ▶ ${nextPhase}
-   ▶ Estimativa: ${nextPhaseEstimate}
+📁 ARQUIVOS MODIFICADOS:
+   ∟ ${file1}
+   ∟ ${file2}
+   ∟ ... e mais ${moreFiles.length} arquivos
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+🔧 IMPLEMENTAÇÕES:
+   ▶ ${implementation1}
+   ▶ ${implementation2}
 
-⏰ Atualização: ${timestamp}`
-})
+✅ TESTES ADICIONADOS:
+   ∟ ${testFile1} (${testCount1} testes)
+   ∟ Cobertura: ${coverage}%
+
+💡 DECISÕES TÉCNICAS:
+   ∟ ${decision1}
+   ∟ ${decision2}
+
+🚀 PRÓXIMOS PASSOS:
+   ∟ ${nextPhase}
+   ∟ ${nextAction1}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏰ Completado: ${timestamp} | 🎯 Status: Done`
+});
 ```
+
+**2. Atualizar STATUS da SUBTASK:**
+```javascript
+await mcp_clickup_update_task({
+  task_id: subtaskId,  // ← SUBTASK ID
+  workspace_id: workspaceId,
+  status: 'Done'
+});
+```
+
+**3. Comentário RESUMIDO na TASK PRINCIPAL:**
+```javascript
+const mainTaskId = getMainTaskId(contextMd);
+
+await mcp_clickup_create_task_comment({
+  task_id: mainTaskId,  // ← MAIN TASK ID
+  workspace_id: workspaceId,
+  comment_text: `📝 PROGRESSO: Fase ${phaseNum}/${totalPhases} Completada
+
+✅ ${phaseName} - Concluída
+   ∟ Subtask: #${subtaskId}
+   ∟ Detalhes: Ver comentário na subtask
+
+🎯 Próximo: Fase ${nextPhaseNum} - ${nextPhaseName}
+
+⏰ ${timestamp}`
+});
+```
+
+**📚 Documentação completa**: `.cursor/docs/clickup/clickup-dual-comment-strategy.md`
 
 ### **4. `/engineer/start <slug>` (quando sessão tem task-id)**
 

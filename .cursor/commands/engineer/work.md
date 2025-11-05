@@ -30,33 +30,58 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
 2. **Atualizar status da subtask** para "done" automaticamente
 3. **Documentar conclusão** com timestamp e métricas da fase
 
-### **💬 Formato do Comentário de Progresso:**
+### **💬 Estratégia DUAL de Comentários:**
+
+**IMPORTANTE**: Ao completar uma fase, adicionar **DOIS comentários**:
+
+#### **1. Comentário DETALHADO na SUBTASK** (Técnico Completo):
 ```
-🔧 PROGRESSO DE DESENVOLVIMENTO
+🔧 FASE COMPLETADA: [Nome da Fase]
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📋 FASE COMPLETADA:
-   ▶ [Nome da Fase]
-   ▶ Arquivos modificados: [N] arquivos
-   ▶ Funcionalidades: [Lista implementada]
-   ▶ Testes: [Testes adicionados/atualizados]
+📁 ARQUIVOS MODIFICADOS:
+   ∟ [arquivo1.ts]
+   ∟ [arquivo2.tsx]
+   ∟ [arquivo3.spec.ts]
+   ∟ ... e mais [N] arquivos
 
-✅ DECISÕES TÉCNICAS:
-   ∟ [Decisões importantes tomadas]
-   ∟ [Patterns utilizados]
-   ∟ [Bibliotecas adicionadas]
+🔧 IMPLEMENTAÇÕES:
+   ▶ [Funcionalidade 1 implementada]
+   ▶ [Funcionalidade 2 implementada]
+   ▶ [Funcionalidade 3 implementada]
 
-🚀 PRÓXIMA FASE:
-   ▶ [Nome da próxima fase]
-   ▶ Estimativa: [Tempo estimado]
-   ▶ Bloqueadores: [Se houver]
+✅ TESTES ADICIONADOS:
+   ∟ [test-file-1.spec.ts] ([N] testes)
+   ∟ [test-file-2.spec.ts] ([N] testes)
+   ∟ Cobertura: [X]%
 
-📊 PROGRESSO GERAL: [X]% completo ([Y]/[Z] fases)
+💡 DECISÕES TÉCNICAS:
+   ∟ [Decisão 1 e justificativa]
+   ∟ [Decisão 2 e justificativa]
+   ∟ [Bibliotecas adicionadas e versões]
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 PRÓXIMOS PASSOS:
+   ∟ [Próxima fase]
+   ∟ [Ação específica 1]
+   ∟ [Ação específica 2]
 
-⏰ Atualização: [TIMESTAMP] | 🎯 Próximo: [Próxima ação]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏰ Completado: [TIMESTAMP] | 🎯 Status: Done
+```
+
+#### **2. Comentário RESUMIDO na TASK PRINCIPAL** (Executivo):
+```
+📝 PROGRESSO: Fase [N]/[TOTAL] Completada
+
+✅ [Nome da Fase] - Concluída
+   ∟ Subtask: #[SUBTASK_ID]
+   ∟ Detalhes: Ver comentário na subtask
+
+🎯 Próximo: Fase [N+1] - [Nome Próxima Fase]
+
+⏰ [TIMESTAMP]
 ```
 
 ### **📋 Identificação da Task:**
@@ -73,12 +98,50 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
 - **Phase 4**: "Hotfix Commands" → Subtask ID: [subtask-id-4]
 ```
 
-### **⚡ AUTOMATIC EXECUTION:**
-Quando uma fase é marcada como "Completada ✅" no plan.md, o sistema deve:
-1. Ler o mapeamento do context.md
-2. Identificar a subtask correspondente àquela fase
-3. Usar ClickUp MCP para atualizar subtask status → "done"
-4. Adicionar comentário de conclusão na subtask
+### **⚡ AUTOMATIC EXECUTION (Estratégia Dual):**
+Quando uma fase é marcada como "Completada ✅" no plan.md, o sistema deve **EXECUTAR NESTA ORDEM**:
+
+1. **Ler mapeamento** do context.md (Phase→Subtask)
+2. **Identificar subtask** correspondente àquela fase
+3. **Comentário DETALHADO na SUBTASK**:
+   ```typescript
+   await mcp_clickup_create_task_comment({
+     task_id: subtaskId,  // ← ID da SUBTASK
+     workspace_id: workspaceId,
+     comment_text: generateDetailedComment({
+       phaseName,
+       filesModified,
+       implementations,
+       tests,
+       decisions,
+       nextSteps
+     })
+   });
+   ```
+4. **Atualizar STATUS da SUBTASK**:
+   ```typescript
+   await mcp_clickup_update_task({
+     task_id: subtaskId,  // ← ID da SUBTASK
+     workspace_id: workspaceId,
+     status: 'Done'
+   });
+   ```
+5. **Comentário RESUMIDO na TASK PRINCIPAL**:
+   ```typescript
+   await mcp_clickup_create_task_comment({
+     task_id: mainTaskId,  // ← ID da TASK PRINCIPAL
+     workspace_id: workspaceId,
+     comment_text: generateSummaryComment({
+       phaseNum,
+       totalPhases,
+       phaseName,
+       subtaskId,
+       nextPhaseName
+     })
+   });
+   ```
+
+**📚 Documentação completa**: `.cursor/docs/clickup/clickup-dual-comment-strategy.md`
 
 ## Importante:
 
