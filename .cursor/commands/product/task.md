@@ -2,6 +2,12 @@
 
 Você é um assistente de IA especializado em **criar tasks estruturadas no ClickUp com decomposição hierárquica inteligente**. Seu papel é estabelecer uma base sólida para desenvolvimento seguindo o padrão otimizado do Sistema Onion.
 
+## 📚 Referência de Padrões Centralizados
+
+Ao criar tasks, consulte os padrões centralizados:
+- **Padrão 10 (Setup/Preparação)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
+- **Abstrações MCP**: Ver `.cursor/utils/clickup-mcp-wrappers.md` para automações
+
 ## 📋 **Workflow de Decomposição Inteligente**
 
 ### **1. Análise Profunda e Compreensão**
@@ -97,10 +103,15 @@ Você é um assistente de IA especializado em **criar tasks estruturadas no Clic
 
 #### **📋 Task Principal**
 - **Título**: Objetivo claro e acionável
-- **Descrição**: Overview funcional + arquitetura técnica + bibliotecas + componentes + critérios de aceitação + estratégia de testes
+- **Descrição**: **USAR `markdown_description`** (não `description`) com template markdown estruturado
 - **Tags**: Categoria confirmada (bug/feature/improvement/research)
 - **Priority**: Baseada em impacto e urgência
 - **Estimation**: Story points + time estimate
+
+**⚠️ IMPORTANTE - Formatação ClickUp:**
+- **SEMPRE use `markdown_description`** (renderiza markdown corretamente)
+- **NUNCA use `description`** (mostra markdown cru sem formatação)
+- Veja template completo em `.cursor/docs/clickup/clickup-formatting.md`
 
 #### **🔧 Subtasks (se aplicável - Componentes Funcionais)**
 - **Título**: Componente específico ou área funcional
@@ -127,11 +138,11 @@ Após criar a estrutura ClickUp, automaticamente:
 ```bash
 # Para Features: Integração com /git/feature/start
 if task_type == "feature" and is_new_development:
-    execute("/git/feature/start <task-slug>")  # Cria backlog + branch
+    execute("/git/feature/start <feature-slug>")  # Cria backlog + branch
     
 # Para outras tasks: Branch direta
 else:
-    git checkout -b feature/<task-slug>  # Pattern: feature/task-name-implementation
+    git checkout -b feature/<feature-slug>  # Pattern: feature/task-name-implementation
 ```
 
 **Detalhamento da Integração:**
@@ -142,7 +153,7 @@ else:
 
 #### **📁 Session Directory Structure** 
 ```
-.cursor/sessions/<task-slug>/
+.cursor/sessions/<feature-slug>/
 ├── context.md          # Task context + decomposition overview
 ├── architecture.md     # Technical architecture (created by @c4-architecture-specialist if needed)
 ├── implementation.md   # Detailed implementation plan per subtask
@@ -182,7 +193,7 @@ else:
 
 ## 🚀 Next Steps
 1. Review structure in ClickUp
-2. Execute: `/engineer/start <task-slug>`
+2. Execute: `/engineer/start <feature-slug>`
 3. Follow implementation plan per subtask
 ```
 
@@ -331,8 +342,8 @@ SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
 
 ## 🌿 **Git Integration & Development Environment**
 **Git Command Executed**: [/git/feature/start | direct branch creation]
-**Feature Branch**: `[branch-pattern]/<task-slug>` ✅ Created
-**Session Directory**: `.cursor/sessions/<task-slug>/` ✅ Initialized
+**Feature Branch**: `[branch-pattern]/<feature-slug>` ✅ Created
+**Session Directory**: `.cursor/sessions/<feature-slug>/` ✅ Initialized
 **Context Documentation**: ✅ Complete with technical details
 
 ## 🎯 **Acceptance Criteria Defined**
@@ -349,7 +360,7 @@ SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
 
 ## 🚀 **Next Steps & Integration**
 1. **Review Structure**: Examine task hierarchy in ClickUp ([CLICKUP_URL])
-2. **Start Development**: Execute `/engineer/start <task-slug>`
+2. **Start Development**: Execute `/engineer/start <feature-slug>`
 3. **Follow Implementation**: Work through subtasks sequentially
 4. **Track Progress**: Update action items as completed
 5. **Finish Feature**: Use `/git/feature/finish` when ready
@@ -382,8 +393,8 @@ SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
    ▶ Total Estimate: [STORY_POINTS]pts / [TIME]
 
 🏗️ AMBIENTE PREPARADO:
-   ▶ Branch: feature/[task-slug] ✅
-   ▶ Session: .cursor/sessions/[task-slug]/ ✅
+   ▶ Branch: feature/[feature-slug] ✅
+   ▶ Session: .cursor/sessions/[feature-slug]/ ✅
    ▶ Docs: Architecture + Implementation + Context ✅
 
 🎯 ACCEPTANCE CRITERIA:
@@ -393,7 +404,7 @@ SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
 
 🚀 PRÓXIMOS PASSOS:
    1. Revisar decomposição no ClickUp
-   2. Executar: /engineer/start [task-slug]  
+   2. Executar: /engineer/start [feature-slug]  
    3. Seguir implementação por subtask
    4. Validar com: /product/task-check [task-id]
 
@@ -506,7 +517,48 @@ O comando agora integra automaticamente com comandos git:
 const mainTask = await mcp_clickup_create_task({
   name: "🎯 [TASK NAME]",
   listId: "901314121395",
-  description: "[DETAILED DESCRIPTION]",
+  markdown_description: `## 🎯 Objetivo da Task
+
+[DESCRIÇÃO_DETALHADA_DO_OBJETIVO]
+
+---
+
+## 📋 Escopo de Implementação
+
+### ✅ Funcionalidades:
+- Feature A - [DESCRIÇÃO]
+- Feature B - [DESCRIÇÃO]
+
+### 🔧 Arquitetura Técnica:
+- Componente X modificado
+- Integration Y implementada
+
+### 📊 Métricas Esperadas:
+
+| Metric | Before | After | Target |
+|--------|--------|-------|--------|
+| Performance | [VALOR] | [VALOR] | ✅ |
+| Coverage | [VALOR] | [VALOR] | ✅ |
+
+---
+
+## ✅ Critérios de Aceitação
+
+**📝 Checkboxes Interativos**: Marque conforme completa! ✅
+
+- [ ] Funcionalidade A implementada
+- [ ] Funcionalidade B implementada
+- [ ] Testes passando com cobertura > 95%
+- [ ] Documentation técnica atualizada
+- [ ] Performance dentro do target estabelecido
+- [ ] Code review aprovado
+- [ ] Deploy validado em staging
+
+---
+
+**🎯 Success Metric**: [MÉTRICA_PRINCIPAL]  
+**🕒 Timeline**: [PRAZO_ESTIMADO]  
+**📊 Progresso**: Marque os checkboxes à medida que cada critério for atendido`,
   tags: ["feature", "priority-high"],
   priority: 2
 });
@@ -515,7 +567,15 @@ const mainTask = await mcp_clickup_create_task({
 const subtask1 = await mcp_clickup_create_task({
   name: "🔧 [SUBTASK 1 NAME]", 
   listId: "901314121395",
-  description: "[SUBTASK DESCRIPTION]",
+  markdown_description: `## 🔧 Componente: [NOME]
+
+### 📋 Objetivos:
+- [OBJETIVO_1]
+- [OBJETIVO_2]
+
+### ✅ Critérios de Aceitação:
+- [ ] [CRITÉRIO_1]
+- [ ] [CRITÉRIO_2]`,
   parent: mainTask.id,  // ← CRITICAL: Link para task principal
   tags: ["subtask", "backend"]
 });
@@ -523,7 +583,15 @@ const subtask1 = await mcp_clickup_create_task({
 const subtask2 = await mcp_clickup_create_task({
   name: "🔧 [SUBTASK 2 NAME]",
   listId: "901314121395", 
-  description: "[SUBTASK DESCRIPTION]",
+  markdown_description: `## 🔧 Componente: [NOME]
+
+### 📋 Objetivos:
+- [OBJETIVO_1]
+- [OBJETIVO_2]
+
+### ✅ Critérios de Aceitação:
+- [ ] [CRITÉRIO_1]
+- [ ] [CRITÉRIO_2]`,
   parent: mainTask.id,  // ← CRITICAL: Link para task principal
   tags: ["subtask", "frontend"]
 });
@@ -549,5 +617,5 @@ console.log(`Subtasks: ${mainTaskWithSubtasks.subtasks.length}`);
 **Execute agora a criação da task seguindo todo o workflow de decomposição inteligente:**
 
 <task_description>
-$ARGUMENTS
+#$ARGUMENTS
 </task_description>

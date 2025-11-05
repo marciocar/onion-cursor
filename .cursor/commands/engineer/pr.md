@@ -27,40 +27,23 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
 
 3. Mova a task do ClickUp associada com esta tarefa para o status "in progress" e adicione a tag "under-review".
 
-4. Adicione um comentário formatado na task do ClickUp documentando o PR:
+4. Adicione um comentário na task do ClickUp documentando o PR:
 
+**Chamar abstração MCP para comentário automatizado:**
+
+```typescript
+// Ao criar PR, chamar:
+await commentPRCreated(taskId, {
+  prUrl: "[PR_URL]",
+  branch: "[branch-name]",
+  changesDescription: "[descrição das mudanças]",
+  testsStatus: "passing|review|pending"
+});
 ```
-🚀 PULL REQUEST CREATED
 
-━━━━━━━━━━━━━━━━━━━━━━━━
-
-📋 CHANGES IMPLEMENTED:
-   ∟ [DESCREVER_MUDANÇAS_PRINCIPAIS]
-   ∟ Code review requested
-   ∟ All tests passing ✅
-
-🔗 REVIEW DETAILS:
-   ▶ PR: [PR_LINK]
-   ▶ Branch: [BRANCH_NAME]
-   ▶ Status: Ready for review
-
-✅ CHECKLIST:
-   ◆ Code committed and pushed
-   ◆ Tests passing
-   ◆ Documentation updated
-   ◆ Task moved to "in progress"
-   ◆ Tag "under-review" added
-
-🤖 GITFLOW INTEGRATION:
-   ∟ Auto-sync scheduled pós-merge
-   ∟ GitFlow analysis will optimize cleanup
-   ∟ Session archiving automático
-   ∟ Performance-optimized operations
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-
-⏰ Created: [TIMESTAMP] | 🎯 Next: Code review, merge, auto-sync
-``` 
+**Referências:**
+- **Padrão 3 (PR Criada)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
+- **Abstração MCP**: `commentPRCreated()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 632-661) 
 
 5. Abra um Pull Request (PR) com os detalhes da implementação:
 

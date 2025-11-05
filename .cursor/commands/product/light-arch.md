@@ -68,6 +68,6 @@ Se ajudar a construir um diagrama MERMAID, sinta-se livre para fazê-lo.
 
 Se não tiver certeza de como uma biblioteca específica funciona, você pode usar Context7 e Perplexity para buscar informações sobre ela. Então, não tente adivinhar.
 
-<feature_slug>
+<feature-slug>
 #$ARGUMENTS
-</feature_slug>
+</feature-slug>

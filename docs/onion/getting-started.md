@@ -162,7 +162,7 @@ graph LR
 - 🚀 Desenvolvimento iniciado
 - 📊 Progresso por fase
 - 🔍 PR criado com detalhes
-- ✅ Conclusão com métricas
+-  Conclusão com métricas
 
 ---
 
@@ -285,11 +285,11 @@ Se algo não funciona:
 
 Agora você tem tudo para ser produtivo com o sistema Onion:
 
-- ✅ **Setup validado** e funcionando
-- ✅ **Primeiros comandos** executados com sucesso  
-- ✅ **Fluxos principais** compreendidos
-- ✅ **Integração ClickUp** ativa
-- ✅ **Troubleshooting** na ponta da língua
+-  **Setup validado** e funcionando
+-  **Primeiros comandos** executados com sucesso  
+-  **Fluxos principais** compreendidos
+-  **Integração ClickUp** ativa
+-  **Troubleshooting** na ponta da língua
 
 **Comece pequeno, pratique os fluxos básicos, e gradualmente explore funcionalidades mais avançadas!**
 

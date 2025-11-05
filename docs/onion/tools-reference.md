@@ -1,3 +1,11 @@
+---
+title: "Referência Completa de Ferramentas"
+description: "Todas as ferramentas do Sistema Onion organizadas por categoria"
+last_updated: "2025-10-03"
+category: "onion"
+tags: [tools, reference, onion, esperanto, ai-agents]
+---
+
 # 🛠️ Referência Completa de Ferramentas
 
 Este documento lista todas as ferramentas disponíveis no sistema Onion em formato TypeScript, organizadas por categoria para facilitar o uso e compreensão.
@@ -38,9 +46,9 @@ function codebase_search(
 **Propósito**: Busca semântica por significado no código, não por texto exato
 
 **Quando usar**:
-- ✅ Explorar codebases desconhecidas
-- ✅ Perguntas sobre "como/onde/o que" funciona
-- ✅ Encontrar código por significado
+-  Explorar codebases desconhecidas
+-  Perguntas sobre "como/onde/o que" funciona
+-  Encontrar código por significado
 
 **Exemplo**:
 ```bash
@@ -66,9 +74,9 @@ function grep(
 **Propósito**: Busca poderosa baseada em ripgrep com regex completo
 
 **Quando usar**:
-- ✅ Busca exata de símbolos/strings
-- ✅ Padrões regex complexos
-- ✅ Múltiplos arquivos rapidamente
+-  Busca exata de símbolos/strings
+-  Padrões regex complexos
+-  Múltiplos arquivos rapidamente
 
 ### `glob_file_search`
 ```typescript
@@ -213,9 +221,9 @@ function web_search(
 **Propósito**: Busca informações em tempo real na web
 
 **Quando usar**:
-- ✅ Informações atualizadas não disponíveis nos dados de treinamento
-- ✅ Verificação de fatos atuais
-- ✅ Pesquisa de tecnologias/eventos recentes
+-  Informações atualizadas não disponíveis nos dados de treinamento
+-  Verificação de fatos atuais
+-  Pesquisa de tecnologias/eventos recentes
 
 ---
 
@@ -916,12 +924,12 @@ function mcp_chrome-devtools_take_screenshot(uid?: string, fullPage?: boolean): 
 **Propósito**: Captura screenshots da página completa ou elementos específicos
 
 **Recursos do Chrome DevTools MCP**:
-- ✅ **Automação completa** de browsers Chrome/Chromium
-- ✅ **Interação com elementos** via UID únicos
-- ✅ **Execução de JavaScript** customizado
-- ✅ **Screenshots e snapshots** para debug
-- ✅ **Navegação programática** entre páginas
-- ✅ **Preenchimento de formulários** automático
+-  **Automação completa** de browsers Chrome/Chromium
+-  **Interação com elementos** via UID únicos
+-  **Execução de JavaScript** customizado
+-  **Screenshots e snapshots** para debug
+-  **Navegação programática** entre páginas
+-  **Preenchimento de formulários** automático
 
 **Casos de uso típicos**:
 - 🔧 **Testes E2E** automatizados
@@ -940,9 +948,9 @@ mcp_chrome-devtools_take_screenshot()  # Capturar resultado
 ```
 
 **Pré-requisitos**:
-- ✅ **Node.js v22.14.0+** instalado
-- ✅ **chrome-devtools-mcp@0.4.0+** disponível via npx
-- ✅ **Browser Chrome/Chromium** instalado
+-  **Node.js v22.14.0+** instalado
+-  **chrome-devtools-mcp@0.4.0+** disponível via npx
+-  **Browser Chrome/Chromium** instalado
 
 ---
 
