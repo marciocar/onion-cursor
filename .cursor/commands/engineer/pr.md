@@ -32,7 +32,7 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
 ```
 🚀 PULL REQUEST CREATED
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━
 
 📋 CHANGES IMPLEMENTED:
    ∟ [DESCREVER_MUDANÇAS_PRINCIPAIS]
@@ -57,7 +57,7 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
    ∟ Session archiving automático
    ∟ Performance-optimized operations
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━
 
 ⏰ Created: [TIMESTAMP] | 🎯 Next: Code review, merge, auto-sync
 ``` 

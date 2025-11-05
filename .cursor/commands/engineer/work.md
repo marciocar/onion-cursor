@@ -38,7 +38,7 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
 ```
 🔧 FASE COMPLETADA: [Nome da Fase]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━
 
 📁 ARQUIVOS MODIFICADOS:
    ∟ [arquivo1.ts]
@@ -66,7 +66,7 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
    ∟ [Ação específica 1]
    ∟ [Ação específica 2]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━
 
 ⏰ Completado: [TIMESTAMP] | 🎯 Status: Done
 ```

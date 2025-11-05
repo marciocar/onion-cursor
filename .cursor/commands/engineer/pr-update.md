@@ -48,7 +48,7 @@ Adiciona comentário formatado na task ClickUp:
 ```
 📝 PR ATUALIZADO - [COMMIT_TYPE]
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━
 
 🔄 COMMIT ADICIONAL REALIZADO:
    ▶ Commit: [HASH]
@@ -64,7 +64,7 @@ Adiciona comentário formatado na task ClickUp:
    ∟ Commit atual: [CURRENT_HASH]
    ∟ Status: ✅ Ready for review
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━
 
 ⏰ Updated: [TIMESTAMP] | 🚀 Next: Review & merge
 ```

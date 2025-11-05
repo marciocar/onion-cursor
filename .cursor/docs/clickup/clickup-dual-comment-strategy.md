@@ -107,7 +107,7 @@ Manter **contexto técnico detalhado nas subtasks** e **resumo executivo na task
 ```typescript
 const detailedComment = `🔧 FASE COMPLETADA: ${phaseName}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━
 
 📁 ARQUIVOS MODIFICADOS:
    ∟ ${file1}
@@ -135,7 +135,7 @@ const detailedComment = `🔧 FASE COMPLETADA: ${phaseName}
    ∟ ${nextAction1}
    ∟ ${nextAction2}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━
 
 ⏰ Completado: ${timestamp} | 🎯 Status: Done`;
 ```
@@ -304,7 +304,7 @@ await create_task_comment({
 ```
 🔧 FASE COMPLETADA: Backend Implementation
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━
 
 📁 ARQUIVOS MODIFICADOS:
    ∟ src/services/auth.service.ts
@@ -337,7 +337,7 @@ await create_task_comment({
    ∟ Criar AuthContext no React
    ∟ Implementar token storage seguro
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━
 
 ⏰ Completado: 2025-11-05 16:45 | 🎯 Status: Done
 ```
@@ -363,7 +363,7 @@ await create_task_comment({
 ```
 🔧 FASE COMPLETADA: Frontend Integration
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━
 
 📁 ARQUIVOS MODIFICADOS:
    ∟ src/contexts/AuthContext.tsx
@@ -396,7 +396,7 @@ await create_task_comment({
    ∟ E2E tests com Cypress
    ∟ Security audit
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━
 
 ⏰ Completado: 2025-11-06 10:30 | 🎯 Status: Done
 ```
