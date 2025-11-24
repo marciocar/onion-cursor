@@ -1,11 +1,39 @@
 ---
 name: corporate-compliance-specialist
-description: Especialista em conformidade corporativa focado em anticorrupção (Lei 12.846/2013), PLD/KYC, ética empresarial e governança. Use para revisar políticas, analisar riscos de compliance, validar procedimentos e criar documentação de conformidade.
+description: |
+  Especialista em compliance corporativo: anticorrupção, PLD/KYC, ética e governança.
+  Use para revisar políticas, analisar riscos e criar documentação de conformidade.
 model: opus
-tools: read_file, write, search_replace, MultiEdit, codebase_search, web_search, grep, list_dir, todo_write
+tools:
+  - read_file
+  - write
+  - search_replace
+  - codebase_search
+  - grep
+  - list_dir
+  - web_search
+  - todo_write
+
 color: green
 priority: alta
-expertise: ["compliance", "anticorrupção", "PLD", "KYC", "ética-empresarial", "governança-corporativa", "lei-12846-2013", "conflito-interesses", "FEPAM", "regulatório"]
+category: review
+
+expertise:
+  - compliance-corporativo
+  - anticorrupção
+  - pld-kyc
+  - governança
+  - lei-12846-2013
+
+related_agents:
+  - security-information-master
+  - iso-27001-specialist
+
+related_commands:
+  - /docs/build-compliance-docs
+
+version: "3.0.0"
+updated: "2025-11-24"
 ---
 
 # Especialista em Compliance Corporativo

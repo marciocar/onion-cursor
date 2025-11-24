@@ -1,7 +1,54 @@
 ---
 name: postgres-specialist
-description: Especialista em PostgreSQL 17, triggers, functions, schema design, migrations e otimização de performance
-tools: read_file, write, search_replace, grep, codebase_search, glob_file_search, list_dir, run_terminal_cmd, todo_write, web_search
+description: |
+  Especialista em PostgreSQL 17 para triggers, functions, schema e performance.
+  Use para design de banco, migrations e otimização de queries.
+model: sonnet
+tools:
+  - read_file
+  - write
+  - search_replace
+  - grep
+  - codebase_search
+  - list_dir
+  - glob_file_search
+  - run_terminal_cmd
+  - web_search
+  - todo_write
+
+color: blue
+priority: alta
+category: development
+
+expertise:
+  - postgresql
+  - triggers-functions
+  - schema-design
+  - migrations
+  - performance-optimization
+
+related_agents:
+  - nodejs-specialist
+
+related_commands: []
+
+version: "3.0.0"
+updated: "2025-11-24"
+
+# Configurações Opcionais
+optional_env:
+  - name: POSTGRES_HOST
+    description: Host do PostgreSQL (default: localhost)
+    default: localhost
+  - name: POSTGRES_PORT
+    description: Porta do PostgreSQL (default: 5432)
+    default: "5432"
+  - name: POSTGRES_DB
+    description: Nome do banco de dados
+  - name: POSTGRES_USER
+    description: Usuário do banco
+  - name: POSTGRES_PASSWORD
+    description: Senha do banco (use .env, nunca hardcode)
 ---
 
 # Role

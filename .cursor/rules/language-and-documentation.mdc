@@ -3,7 +3,9 @@ title: Language and Documentation Standards
 description: Regras de idioma, documentação e fluxo de trabalho para o projeto
 tags: [language, documentation, workflow, standards]
 priority: high
-version: 1.0.0
+version: 3.0.0
+globs: ["**/*"]
+alwaysApply: true
 ---
 
 # Language and Documentation Standards
@@ -329,6 +331,41 @@ Antes de finalizar qualquer tarefa, verificar:
 
 ---
 
-**Última atualização:** 2025-10-14  
-**Versão:** 1.0.0  
-**Mantido por:** AI Assistant (Cursor)
+## 🔐 Gestão de Configurações
+
+### Variáveis de Ambiente (.env)
+- **NUNCA** commitar `.env` com valores sensíveis
+- **SEMPRE** manter `.env.example` atualizado com placeholders
+- Usar prefixos para organização: `CLICKUP_`, `GITHUB_`, `DB_`
+
+```bash
+# ✅ CORRETO - .env.example
+CLICKUP_API_TOKEN=your_token_here
+GITHUB_TOKEN=ghp_xxxxxxxxxxxx
+
+# ❌ INCORRETO - Nunca no repositório
+CLICKUP_API_TOKEN=pk_12345_secret
+```
+
+### Integrações Opcionais
+- Comandos e agentes devem funcionar sem integrações quando possível
+- Se integração não configurada: perguntar ao usuário ou abortar com mensagem clara
+- Documentar variáveis necessárias no header do comando/agente
+
+## 📚 Knowledge Bases
+
+As Knowledge Bases do projeto estão em `docs/knowbase/`:
+
+| KB | Propósito |
+|----|-----------|
+| `cursor-commands-best-practices-2025.md` | Padrões de comandos Cursor |
+| `spec-as-code-strategy.md` | Estratégia de especificações |
+| `ai-agent-design-patterns.md` | Padrões de design de agentes |
+| `context-window-optimization.md` | Otimização de contexto |
+| `configuration-management.md` | Gestão de configurações |
+
+---
+
+**Última atualização:** 2025-11-24  
+**Versão:** 3.0.0  
+**Mantido por:** Sistema Onion

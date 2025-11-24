@@ -1,3 +1,12 @@
+---
+name: work
+description: Continuar trabalho em feature ativa. Lê sessão e identifica próxima fase.
+model: sonnet
+category: engineer
+tags: [development, workflow, session]
+version: "3.0.0"
+updated: "2025-11-24"
+---
 
 # Engineer Work
 

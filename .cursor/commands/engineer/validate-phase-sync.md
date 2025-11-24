@@ -1,3 +1,13 @@
+---
+name: validate-phase-sync
+description: Validar sincronização entre fases do plan.md e subtasks ClickUp.
+model: sonnet
+category: engineer
+tags: [validation, sync, clickup]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🔄 Validate Phase-Subtask Sync
 
 Validar e corrigir sincronização automática entre fases do plan.md e status das subtasks no ClickUp. Este comando identifica discrepâncias e corrige status desatualizados.

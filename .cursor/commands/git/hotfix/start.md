@@ -1,3 +1,13 @@
+---
+name: start
+description: Iniciar hotfix branch para correção emergencial em produção.
+model: sonnet
+category: git
+tags: [hotfix, gitflow, emergency]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🚨 Git Flow - Iniciar Hotfix
 
 Iniciar correção emergencial criando hotfix branch a partir de main/master para resolver problemas críticos em produção. Workflow otimizado para máxima velocidade com validações de segurança essenciais.

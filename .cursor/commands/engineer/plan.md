@@ -1,3 +1,12 @@
+---
+name: plan
+description: Planejamento de feature. Analisa e cria plano estruturado.
+model: sonnet
+category: engineer
+tags: [planning, architecture, design]
+version: "3.0.0"
+updated: "2025-11-24"
+---
 
 # Engineer Reason
 

@@ -1,3 +1,12 @@
+---
+name: build-index
+description: Gerenciar e atualizar índices de documentação.
+model: sonnet
+category: docs
+tags: [index, navigation, documentation]
+version: "3.0.0"
+updated: "2025-11-24"
+---
 
 Este comando gerencia os índices de documentação do Granaai, mantendo a estrutura organizada e navegável.
 

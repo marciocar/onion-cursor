@@ -1,3 +1,13 @@
+---
+name: init
+description: Inicializar repositório com GitFlow e convenções padrão.
+model: sonnet
+category: git
+tags: [init, gitflow, setup]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🔧 Git Flow - Inicialização
 
 Configurar repositório Git com GitFlow seguindo as melhores práticas. Detectar automaticamente se deve usar `main` ou `master` como branch principal e configurar todas as branches e convenções necessárias.

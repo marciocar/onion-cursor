@@ -1,3 +1,12 @@
+---
+name: start
+description: Iniciar desenvolvimento de feature. Cria sessão e analisa tasks.
+model: sonnet
+category: engineer
+tags: [development, workflow, session]
+version: "3.0.0"
+updated: "2025-11-24"
+---
 
 # Engineer Start
 

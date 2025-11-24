@@ -850,3 +850,5 @@ Tempo: 4 min
 **Tempo Total**: ~2 horas  
 **Próxima Fase**: Tarefa 5.2 - Testes de Integração
 
+
+

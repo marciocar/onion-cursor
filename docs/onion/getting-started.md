@@ -1,22 +1,47 @@
 # 🚀 Guia de Início Rápido
 
-Bem-vindo ao sistema Onion! Este guia vai te ajudar a começar rapidamente com os comandos `.cursor/` e integração ClickUp.
+> **Versão**: 3.0.0 | **Última atualização**: 2025-11-24
+
+Bem-vindo ao sistema Onion v3.0! Este guia vai te ajudar a começar rapidamente com os comandos `.cursor/` e integração ClickUp.
+
+## 📊 Visão Geral v3.0
+
+| Componente | Quantidade | Descrição |
+|------------|------------|-----------|
+| Comandos | 56 | Organizados em 8 categorias |
+| Agentes | 38 | 9 categorias especializadas |
+| Regras | 4 | Padrões e validações |
+| Knowledge Bases | 5 | Documentação estruturada |
 
 ## 📋 Checklist de Setup
 
 ### **✅ Pré-requisitos**
-- [ ] **Node.js v22.14.0+** instalado (necessário para chrome-devtools-mcp)
-- [ ] Cursor instalado e configurado
-- [ ] ClickUp MCP instalado 
-- [ ] Acesso ao workspace ClickUp configurado
-- [ ] Projeto Git inicializado
+- [ ] **Node.js v22.14.0+** instalado
+- [ ] Cursor IDE instalado e configurado
+- [ ] Git inicializado no projeto
 - [ ] Pasta `.cursor/` presente no projeto
 
-### **✅ Configuração ClickUp**
-- [ ] `CLICKUP_WORKSPACE_ID` configurado
-- [ ] `CLICKUP_SPACE_ID` configurado  
-- [ ] `CLICKUP_LIST_ID` configurado
-- [ ] API token com permissões adequadas
+### **✅ Configuração de Integrações (Opcional)**
+
+Use o comando `/meta/setup-integration` para configurar:
+
+```bash
+/meta/setup-integration
+```
+
+Ou configure manualmente no `.env`:
+```bash
+# ClickUp (principal)
+CLICKUP_API_TOKEN=pk_xxxxx
+
+# GitHub (PRs)
+GITHUB_TOKEN=ghp_xxxxx
+
+# Outras integrações
+GAMMA_TOKEN=xxxxx
+```
+
+> **Referência**: Veja `.env.example` para todas as variáveis disponíveis.
 
 ### **✅ Validação**
 ```bash

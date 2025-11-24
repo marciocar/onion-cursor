@@ -1,19 +1,31 @@
 # 🧅 Sistema Onion
 
-[![Comandos](https://img.shields.io/badge/Comandos-58-blue)](.cursor/docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-38-green)](.cursor/docs/onion/agents-reference.md) [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](.cursor/docs/onion/clickup-integration.md)
+[![Versão](https://img.shields.io/badge/Versão-3.0.0-purple)](CHANGELOG-ONION-V3.md) [![Comandos](https://img.shields.io/badge/Comandos-56-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-38-green)](docs/onion/agents-reference.md) [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](docs/onion/clickup-integration.md)
 
 ## 🎯 Visão Geral
 
-Bem-vindo ao **Sistema Onion**! Framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
+Bem-vindo ao **Sistema Onion v3.0**! Framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **58 comandos especializados** organizados por categoria
-- 🎯 **38 agentes de IA especializados** para tarefas específicas
+- 🤖 **56 comandos especializados** organizados em 8 categorias
+- 🎯 **38 agentes de IA especializados** em 9 categorias
+- 📚 **5 Knowledge Bases** estruturadas para IA
+- 📋 **4 regras** de padronização e validação
 - 🧅 **Comando `/onion`** - ponto de entrada inteligente para o sistema
 - 🧅 **Agente `@onion`** - orquestrador master que conhece todo o sistema
 - 🔗 **Integração completa com ClickUp MCP** para gestão automática de projetos
 - ⚡ **Workflows automatizados** do planejamento ao deploy
 
-Documentação completa disponível em [`.cursor/docs/onion/`](.cursor/docs/onion/) para dominar todos os comandos, agentes e fluxos de trabalho.
+### 🆕 Novidades v3.0
+
+- **Headers YAML padronizados** em todos os comandos e agentes
+- **Prompts modulares** em `common/prompts/` (redução de 66% em tokens)
+- **Validações automatizadas** nos geradores (`/meta/create-*`)
+- **Sessions estruturadas** em `.cursor/sessions/<feature>/`
+- **Gestão de .env** com `/meta/setup-integration`
+
+📋 **[Ver CHANGELOG completo](CHANGELOG-ONION-V3.md)**
+
+Documentação completa disponível em [`docs/onion/`](docs/onion/) para dominar todos os comandos, agentes e fluxos de trabalho.
 
 ## 🧅 **Comece com `/onion`**
 
@@ -69,13 +81,14 @@ $ /engineer/work               # Não é comando shell
 ## 📖 Guias Disponíveis
 
 ### 🎯 Guias Principais
-- **[Guia de Comandos](.cursor/docs/onion/commands-guide.md)** - Documentação completa de todos os comandos disponíveis
-- **[Fluxos de Engenharia](.cursor/docs/onion/engineering-flows.md)** - Workflows detalhados para desenvolvimento
-- **[Integração ClickUp](.cursor/docs/onion/clickup-integration.md)** - Como integrar comandos com ClickUp MCP
+- **[Guia de Comandos](docs/onion/commands-guide.md)** - Documentação completa de todos os comandos disponíveis
+- **[Fluxos de Engenharia](docs/onion/engineering-flows.md)** - Workflows detalhados para desenvolvimento
+- **[Integração ClickUp](docs/onion/clickup-integration.md)** - Como integrar comandos com ClickUp MCP
 
 ### 🛠️ Referências Técnicas
-- **[Agentes Disponíveis](.cursor/docs/onion/agents-reference.md)** - Lista e descrição de todos os agentes especializados
-- **[Exemplos Práticos](.cursor/docs/onion/practical-examples.md)** - Casos de uso reais com exemplos
+- **[Agentes Disponíveis](docs/onion/agents-reference.md)** - Lista e descrição de todos os agentes especializados
+- **[Exemplos Práticos](docs/onion/practical-examples.md)** - Casos de uso reais com exemplos
+- **[Knowledge Bases](docs/knowbase/)** - Documentação estruturada para IA
 
 ### 🚀 Início Rápido
 - **[Configuração Inicial](.cursor/docs/onion/getting-started.md)** - Como configurar e começar a usar o sistema

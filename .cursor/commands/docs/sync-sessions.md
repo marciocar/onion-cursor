@@ -1,3 +1,13 @@
+---
+name: sync-sessions
+description: Sincronizar e organizar sessões de trabalho do Sistema Onion.
+model: sonnet
+category: docs
+tags: [sessions, sync, organization]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🔄 Sync Sessions - Sincronização de Sessões Onion
 
 Sincroniza e organiza todas as sessões de trabalho do Sistema Onion, garantindo que o contexto de desenvolvimento esteja preservado e acessível para referência futura.

@@ -1,3 +1,12 @@
+---
+name: light-arch
+description: Design de arquitetura leve para features.
+model: sonnet
+category: product
+tags: [architecture, design, planning]
+version: "3.0.0"
+updated: "2025-11-24"
+---
 
 # Início da Engenharia
 

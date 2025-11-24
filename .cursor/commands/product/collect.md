@@ -1,3 +1,13 @@
+---
+name: collect
+description: Coletar novas ideias de features ou bugs para o projeto.
+model: sonnet
+category: product
+tags: [ideation, features, bugs]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 Você é um especialista em produto encarregado de ajudar um humano a coletar novas ideias de funcionalidades/bugs para este projeto.
 
 O usuário forneceu os seguintes argumentos:

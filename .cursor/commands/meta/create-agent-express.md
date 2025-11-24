@@ -1,3 +1,13 @@
+---
+name: create-agent-express
+description: Criar agente de forma rápida e simplificada.
+model: sonnet
+category: meta
+tags: [agent, creation, quick]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # Comando Criar Agente
 
 Você tem a tarefa de criar um novo sub-agente do Claude Code baseado nos requisitos do usuário. Siga esta abordagem sistemática para construir um agente bem estruturado.

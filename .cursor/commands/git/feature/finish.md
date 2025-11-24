@@ -1,3 +1,13 @@
+---
+name: finish
+description: Finalizar feature com merge para develop e cleanup.
+model: sonnet
+category: git
+tags: [feature, gitflow, merge]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # ✅ Git Flow - Finalizar Feature
 
 Finalizar desenvolvimento de feature realizando merge seguro para develop branch com validações automáticas e cleanup completo. Processo seguro com confirmações obrigatórias para prevenir erros de produção.

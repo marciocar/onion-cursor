@@ -1,7 +1,38 @@
 ---
 name: nx-migration-specialist
-description: Especialista em migração segura de NX Monorepo de v19+ para v21+, resolve breaking changes e valida workspace
-tools: read_file, write, search_replace, grep, codebase_search, list_dir, glob_file_search, run_terminal_cmd, todo_write, read_lints, web_search
+description: |
+  Especialista em migração segura de NX Monorepo (v19+ para v21+).
+  Use para resolver breaking changes, validar workspace e upgrades NX.
+model: sonnet
+tools:
+  - read_file
+  - write
+  - search_replace
+  - grep
+  - codebase_search
+  - list_dir
+  - glob_file_search
+  - run_terminal_cmd
+  - web_search
+  - todo_write
+
+color: teal
+priority: alta
+category: development
+
+expertise:
+  - nx-migration
+  - breaking-changes
+  - workspace-validation
+  - version-upgrade
+
+related_agents:
+  - nx-monorepo-specialist
+
+related_commands: []
+
+version: "3.0.0"
+updated: "2025-11-24"
 ---
 
 # Role

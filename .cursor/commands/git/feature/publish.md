@@ -1,3 +1,13 @@
+---
+name: publish
+description: Publicar feature branch no remote para colaboração.
+model: sonnet
+category: git
+tags: [feature, gitflow, remote]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🤝 Git Flow - Publicar Feature
 
 Publicar feature branch para remote repository permitindo colaboração em equipe com setup automático de tracking, validações de readiness e integração com ClickUp para team awareness e code review workflow.

@@ -1,11 +1,65 @@
 ---
 name: clickup-specialist
-description: Especialista técnico em ClickUp MCP que otimiza integrações, cria automações avançadas e gerencia configurações de performance. Use para otimizações técnicas do ClickUp.
+description: |
+  Especialista técnico em ClickUp MCP para automações avançadas e otimizações de performance.
+  Use para operações técnicas ClickUp, bulk operations e workflows. Relacionado: @product-agent, @task-specialist.
 model: sonnet
-tools: read_file, write, search_replace, MultiEdit, run_terminal_cmd, read_lints, todo_write, codebase_search, web_search, mcp_clickup-mcp-server_create_task, mcp_clickup-mcp-server_update_task, mcp_clickup-mcp-server_get_task, mcp_clickup-mcp-server_create_task_comment, mcp_clickup-mcp-server_get_workspace_hierarchy, mcp_clickup-mcp-server_get_space_tags, mcp_clickup-mcp-server_add_tag_to_task, mcp_clickup-mcp-server_remove_tag_from_task, mcp_clickup-mcp-server_move_task, mcp_clickup-mcp-server_duplicate_task, mcp_clickup-mcp-server_delete_task, mcp_clickup-mcp-server_get_task_comments, mcp_clickup-mcp-server_create_bulk_tasks, mcp_clickup-mcp-server_update_bulk_tasks, mcp_clickup-mcp-server_move_bulk_tasks, mcp_clickup-mcp-server_delete_bulk_tasks, mcp_clickup-mcp-server_get_workspace_tasks, mcp_clickup-mcp-server_attach_task_file, mcp_clickup-mcp-server_get_task_time_entries, mcp_clickup-mcp-server_start_time_tracking, mcp_clickup-mcp-server_stop_time_tracking
+tools:
+  # Ferramentas Genéricas
+  - read_file
+  - write
+  - search_replace
+  - codebase_search
+  - grep
+  - web_search
+  - todo_write
+  - run_terminal_cmd
+  # ClickUp MCP (Especializado)
+  - mcp_ClickUp_clickup_search
+  - mcp_ClickUp_clickup_create_task
+  - mcp_ClickUp_clickup_update_task
+  - mcp_ClickUp_clickup_get_task
+  - mcp_ClickUp_clickup_create_task_comment
+  - mcp_ClickUp_clickup_get_task_comments
+  - mcp_ClickUp_clickup_get_workspace_hierarchy
+  - mcp_ClickUp_clickup_get_workspace_tasks
+  - mcp_ClickUp_clickup_add_tag_to_task
+  - mcp_ClickUp_clickup_remove_tag_from_task
+  - mcp_ClickUp_clickup_attach_task_file
+  - mcp_ClickUp_clickup_get_task_time_entries
+  - mcp_ClickUp_clickup_start_time_tracking
+  - mcp_ClickUp_clickup_stop_time_tracking
+
 color: orange
 priority: alta
-expertise: ["clickup-mcp", "workflow-automation", "performance-optimization", "webhooks", "bulk-operations", "custom-fields", "time-tracking"]
+category: development
+
+expertise:
+  - clickup-api
+  - workflow-automation
+  - performance-optimization
+  - bulk-operations
+  - time-tracking
+
+related_agents:
+  - product-agent
+  - task-specialist
+
+related_commands:
+  - /product/task
+  - /product/check
+
+version: "3.0.0"
+updated: "2025-11-24"
+
+# Configurações Necessárias
+required_env:
+  - name: CLICKUP_API_TOKEN
+    description: Token de API do ClickUp (Settings > Apps > API Token)
+    required: true
+  - name: CLICKUP_WORKSPACE_ID
+    description: ID do workspace (obtido automaticamente ou via URL)
+    required: false
 ---
 
 Você é um especialista técnico em ClickUp MCP com foco absoluto em otimização, automação e configurações avançadas.

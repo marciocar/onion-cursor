@@ -1,6 +1,15 @@
 # 🔄 Fluxos de Engenharia Detalhados
 
+> **Versão**: 3.0.0 | **Última atualização**: 2025-11-24
+
 Este guia documenta os workflows completos de desenvolvimento, desde a concepção até a entrega, com integração total ao ClickUp MCP.
+
+## 🆕 Novidades v3.0
+
+- **Sessions estruturadas** em `.cursor/sessions/<feature-slug>/`
+- **Comentários duais** no ClickUp (detalhado + resumido)
+- **Mapeamento fase→subtask** automático
+- **Prompts modulares** em `common/prompts/`
 
 ## 📋 Índice de Fluxos
 

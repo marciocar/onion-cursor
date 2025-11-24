@@ -1,17 +1,34 @@
 # 🤖 Referência de Agentes
 
+> **Versão**: 3.0.0 | **Última atualização**: 2025-11-24 | **Total**: 38 agentes
+
 Este guia documenta todos os agentes especializados disponíveis no sistema `.cursor/`, suas capacidades e quando utilizá-los.
+
+## 📊 Resumo v3.0
+
+| Categoria | Agentes | Descrição |
+|-----------|---------|-----------|
+| `development/` | 16 | Desenvolvimento (Python, React, Postgres, etc.) |
+| `compliance/` | 5 | Compliance e regulatório |
+| `meta/` | 4 | Meta (Onion, criadores, gate-keeper) |
+| `git/` | 4 | Git (branch review, documentation) |
+| `product/` | 3 | Produto (product-agent, task-specialist) |
+| `review/` | 2 | Code review |
+| `testing/` | 2 | Testes (engineer, planner) |
+| `research/` | 1 | Pesquisa |
+| `deployment/` | 1 | Deployment |
+| **Total** | **38** | |
 
 ## 📋 Índice de Agentes
 
-- [🔵 Agentes de Desenvolvimento](#-agentes-de-desenvolvimento)
-- [🔷 Agentes de Testes](#-agentes-de-testes)
-- [🟢 Agentes de Review](#-agentes-de-review)
-- [🟣 Agentes de Pesquisa](#-agentes-de-pesquisa)
-- [🔴 Agentes de Arquitetura](#-agentes-de-arquitetura)
-- [🟠 Agentes de Documentação](#-agentes-de-documentação)
-- [🛡️ Agentes de Compliance](#️-agentes-de-compliance-) 🆕
-- [🟡 Agentes de Produto](#-agentes-de-produto)
+- [🔵 Agentes de Desenvolvimento](#-agentes-de-desenvolvimento) (16)
+- [🔷 Agentes de Testes](#-agentes-de-testes) (2)
+- [🟢 Agentes de Review](#-agentes-de-review) (2)
+- [🟣 Agentes de Pesquisa](#-agentes-de-pesquisa) (1)
+- [🔴 Agentes Meta](#-agentes-meta) (4)
+- [🌲 Agentes Git](#-agentes-git) (4)
+- [🛡️ Agentes de Compliance](#️-agentes-de-compliance) (5)
+- [🟡 Agentes de Produto](#-agentes-de-produto) (3)
 - [⚙️ Como Escolher o Agente Certo](#️-como-escolher-o-agente-certo)
 
 ---

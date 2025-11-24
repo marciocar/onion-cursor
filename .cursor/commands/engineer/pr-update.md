@@ -1,3 +1,13 @@
+---
+name: pr-update
+description: Atualizar PR existente com mudanças adicionais.
+model: sonnet
+category: engineer
+tags: [pr, update, git]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🔄 Engineer PR Update
 
 Atualizar um Pull Request existente com mudanças adicionais. Este comando automatiza o processo completo de commit, push e documentação quando você já executou `/engineer/pr` mas fez mudanças subsequentes.

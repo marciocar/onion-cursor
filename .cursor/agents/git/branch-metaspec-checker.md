@@ -1,11 +1,36 @@
 ---
 name: branch-metaspec-checker
-description: Especialista em verificação de conformidade que valida o trabalho do branch atual contra metaspecs do projeto para garantir alinhamento arquitetural.
+description: |
+  Especialista em validação de conformidade com metaspecs para o branch atual.
+  Use para garantir alinhamento arquitetural antes do merge.
 model: sonnet
-tools: read_file, codebase_search, grep, MultiEdit, todo_write, web_search, list_dir
+tools:
+  - read_file
+  - codebase_search
+  - grep
+  - list_dir
+  - web_search
+  - todo_write
+
 color: red
 priority: alta
-expertise: ["metaspec-validation", "branch-compliance", "architecture-alignment", "pre-merge-checking"]
+category: git
+
+expertise:
+  - metaspec-validation
+  - branch-compliance
+  - architecture-alignment
+  - pre-merge-checking
+
+related_agents:
+  - metaspec-gate-keeper
+  - branch-code-reviewer
+
+related_commands:
+  - /engineer/pre-pr
+
+version: "3.0.0"
+updated: "2025-11-24"
 ---
 
 # Pré-PR
