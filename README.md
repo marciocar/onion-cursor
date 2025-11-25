@@ -6,7 +6,7 @@
 
 Bem-vindo ao **Sistema Onion v3.0**! Framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **56 comandos especializados** organizados em 8 categorias
+- 🤖 **57 comandos especializados** organizados em 8 categorias
 - 🎯 **38 agentes de IA especializados** em 9 categorias
 - 📚 **5 Knowledge Bases** estruturadas para IA
 - 📋 **4 regras** de padronização e validação

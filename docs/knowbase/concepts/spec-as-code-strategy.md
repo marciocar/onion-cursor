@@ -424,6 +424,12 @@ Fazer o login funcionar
 
 ## 📚 Recursos Adicionais
 
+### Internos (Sistema Onion)
+- [Specification-Driven AI Abstraction Layer](specification-driven-ai-abstraction-layer.md) - Aplicação de Spec-as-Code para abstrações técnicas
+- [Task Manager Abstraction](task-manager-abstraction.md) - Exemplo prático do padrão
+- [AI Agent Design Patterns](ai-agent-design-patterns.md) - Padrões complementares de agentes
+
+### Externos
 - [Behavior Driven Development](https://cucumber.io/docs/bdd/)
 - [Specification by Example](https://specificationbyexample.com)
 - [Living Documentation](https://leanpub.com/livingdocumentation)

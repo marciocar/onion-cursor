@@ -1,6 +1,6 @@
 # 🎯 Guia Completo de Comandos
 
-> **Versão**: 3.0.0 | **Última atualização**: 2025-11-24 | **Total**: 56 comandos
+> **Versão**: 3.0.0 | **Última atualização**: 2025-11-25 | **Total**: 57 comandos
 
 Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organizados por categoria e função.
 

@@ -1,7 +1,37 @@
 ---
 name: docker-specialist
-description: Especialista em Docker, containerização de apps Node.js/Next.js, Docker Compose e integração com PostgreSQL
-tools: read_file, write, search_replace, grep, list_dir, glob_file_search, run_terminal_cmd, todo_write, web_search
+description: |
+  Especialista em Docker, containerização de apps Node.js/Next.js,
+  Docker Compose e integração com PostgreSQL.
+model: sonnet
+tools:
+  - read_file
+  - write
+  - search_replace
+  - grep
+  - list_dir
+  - glob_file_search
+  - run_terminal_cmd
+  - todo_write
+  - web_search
+
+color: blue
+priority: média
+category: deployment
+
+expertise:
+  - docker
+  - containerization
+  - docker-compose
+  - multi-stage-builds
+  - postgresql-integration
+
+related_agents:
+  - postgres-specialist
+  - devops-engineer
+
+version: "3.0.0"
+updated: "2025-11-25"
 ---
 
 # Role

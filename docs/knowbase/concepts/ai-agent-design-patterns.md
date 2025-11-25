@@ -539,6 +539,12 @@ Faça o que achar melhor.
 
 ## 📚 Recursos Adicionais
 
+### Internos (Sistema Onion)
+- [Specification-Driven AI Abstraction Layer](specification-driven-ai-abstraction-layer.md) - Padrão para abstrações documentais
+- [Task Manager Abstraction](task-manager-abstraction.md) - Implementação de referência do SDAAL
+- [Spec-as-Code Strategy](spec-as-code-strategy.md) - Metodologia de especificações
+
+### Externos
 - [LangChain Agents](https://python.langchain.com/docs/modules/agents/)
 - [CrewAI Documentation](https://docs.crewai.com/)
 - [AutoGen](https://microsoft.github.io/autogen/)

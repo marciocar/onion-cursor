@@ -338,7 +338,9 @@ Provedor configurado: clickup
 
 ## 📚 Relacionados
 
+- [Specification-Driven AI Abstraction Layer](specification-driven-ai-abstraction-layer.md) - Padrão de design usado nesta abstração
 - [AI Agent Design Patterns](ai-agent-design-patterns.md)
+- [Spec-as-Code Strategy](spec-as-code-strategy.md)
 - [Configuration Management](configuration-management.md)
 - [Cursor Commands Best Practices](../tools/cursor-commands-best-practices-2025.md)
 
