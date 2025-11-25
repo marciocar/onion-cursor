@@ -28,6 +28,7 @@ updated: "2025-11-24"
 related_commands:
   - /meta/create-agent
   - /meta/create-agent-express
+  - /meta/create-abstraction
 
 related_agents:
   - command-creator-specialist

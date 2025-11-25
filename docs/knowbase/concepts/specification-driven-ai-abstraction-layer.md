@@ -575,6 +575,11 @@ O [Task Manager Abstraction](task-manager-abstraction.md) é a implementação d
 
 ## 📚 Recursos Adicionais
 
+### Internos (Sistema Onion)
+- [Comando /meta/create-abstraction](../../../.cursor/commands/meta/create-abstraction.md) - Gerador automático de SDAAL
+- [Template de Abstração](../../../.cursor/commands/common/templates/abstraction-template.md) - Template base
+
+### Externos
 - [Adapter Pattern - Refactoring Guru](https://refactoring.guru/design-patterns/adapter)
 - [Factory Method - Refactoring Guru](https://refactoring.guru/design-patterns/factory-method)
 - [Null Object Pattern](https://refactoring.guru/design-patterns/null-object)
