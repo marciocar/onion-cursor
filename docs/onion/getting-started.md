@@ -31,17 +31,41 @@ Use o comando `/meta/setup-integration` para configurar:
 
 Ou configure manualmente no `.env`:
 ```bash
-# ClickUp (principal)
+# ═══════════════════════════════════════
+# GERENCIADOR DE TAREFAS (escolha um)
+# ═══════════════════════════════════════
+TASK_MANAGER_PROVIDER=clickup  # clickup | asana | linear | none
+
+# ClickUp
 CLICKUP_API_TOKEN=pk_xxxxx
+CLICKUP_DEFAULT_WORKSPACE=90131664218
+CLICKUP_DEFAULT_LIST=901314121395
 
-# GitHub (PRs)
+# Asana (alternativa)
+# ASANA_ACCESS_TOKEN=1/xxxxx
+# ASANA_DEFAULT_WORKSPACE=1234567890
+
+# ═══════════════════════════════════════
+# OUTRAS INTEGRAÇÕES
+# ═══════════════════════════════════════
 GITHUB_TOKEN=ghp_xxxxx
-
-# Outras integrações
 GAMMA_TOKEN=xxxxx
 ```
 
 > **Referência**: Veja `.env.example` para todas as variáveis disponíveis.
+
+### **🔄 Abstração de Task Manager**
+
+O Sistema Onion v3.0 suporta múltiplos gerenciadores de tarefas via abstração:
+
+| Provedor | Status | Configuração |
+|----------|--------|--------------|
+| **ClickUp** | ✅ Completo | `TASK_MANAGER_PROVIDER=clickup` |
+| **Asana** | ✅ Completo | `TASK_MANAGER_PROVIDER=asana` |
+| **Linear** | 📝 Stub | `TASK_MANAGER_PROVIDER=linear` |
+| **None** | ✅ Offline | `TASK_MANAGER_PROVIDER=none` |
+
+> **Documentação**: `docs/knowbase/concepts/task-manager-abstraction.md`
 
 ### **✅ Validação**
 ```bash
@@ -58,7 +82,7 @@ GAMMA_TOKEN=xxxxx
 /product/task "Implementar página de sobre da empresa"
 ```
 
-**Resultado esperado**: Task criada no ClickUp com ID (ex: ABOUT-123)
+**Resultado esperado**: Task criada no gerenciador configurado com ID (ex: ABOUT-123)
 
 ### **2. Iniciar Desenvolvimento (1 min)**
 ```bash
@@ -81,7 +105,7 @@ GAMMA_TOKEN=xxxxx
 /engineer/pr
 ```
 
-**Resultado**: PR criado, ClickUp atualizado com status "under-review"
+**Resultado**: PR criado, Task Manager atualizado com status "in_review"
 
 ### **✨ Parabéns!** 
 Você completou seu primeiro ciclo completo de desenvolvimento com integração ClickUp! 🎉

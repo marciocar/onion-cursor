@@ -1,22 +1,23 @@
 ---
 name: task
 description: |
-  Criação de tasks ClickUp com decomposição hierárquica inteligente.
+  Criação de tasks com decomposição hierárquica inteligente.
   Use para criar tasks estruturadas com subtasks e action items.
+  Suporta: ClickUp, Asana, Linear (via TASK_MANAGER_PROVIDER).
 model: sonnet
 
 parameters:
   - name: description
     description: Descrição da task
     required: true
-  - name: list_name
-    description: Nome da lista no ClickUp
+  - name: project_name
+    description: Nome do projeto/lista (opcional)
     required: false
 
 category: product
 tags:
   - task
-  - clickup
+  - task-manager
   - decomposition
 
 version: "3.0.0"
@@ -29,12 +30,23 @@ related_commands:
 related_agents:
   - task-specialist
   - product-agent
-  - clickup-specialist
 ---
 
 # 🚀 Criação de Task com Decomposição
 
-Criar tasks estruturadas no ClickUp com hierarquia inteligente.
+Criar tasks estruturadas no gerenciador de tarefas configurado.
+
+## 🔧 Pré-requisito: Verificar Provedor
+
+```markdown
+Antes de criar tasks, verificar configuração:
+1. Ler `.env` para TASK_MANAGER_PROVIDER
+2. Se não configurado ou "none":
+   - Avisar: "⚠️ Nenhum gerenciador configurado. Execute /meta/setup-integration"
+   - Continuar com estrutura local (sem sincronização)
+3. Se configurado:
+   - Usar adapter correspondente de `.cursor/utils/task-manager/adapters/`
+```
 
 ## 🎯 Objetivo
 
@@ -42,7 +54,19 @@ Estabelecer base sólida para desenvolvimento com decomposição Task → Subtas
 
 ## ⚡ Fluxo de Execução
 
-### Passo 1: Análise de Contexto
+### Passo 1: Detectar Provedor
+
+```typescript
+// Consultar .cursor/utils/task-manager/detector.md
+const provider = detectProvider();
+
+if (!provider.isConfigured) {
+  console.warn('⚠️ Modo offline - tasks não serão sincronizadas');
+  console.warn('💡 Execute /meta/setup-integration para configurar');
+}
+```
+
+### Passo 2: Análise de Contexto
 
 ```bash
 # Revisar documentação do projeto
@@ -53,7 +77,7 @@ ls docs/*.md
 list_dir src/
 ```
 
-### Passo 2: Compreender Tarefa
+### Passo 3: Compreender Tarefa
 
 1. **Ler descrição**: `{{description}}`
 2. **Identificar complexidade**:
@@ -64,7 +88,7 @@ list_dir src/
 
 3. **Confirmar com usuário** antes de criar
 
-### Passo 3: Decompor Hierarquicamente
+### Passo 4: Decompor Hierarquicamente
 
 Consultar @task-specialist para estrutura:
 
@@ -79,30 +103,51 @@ Consultar @task-specialist para estrutura:
     └── ✅ Action Item 2.2 (1-4h)
 ```
 
-### Passo 4: Criar no ClickUp
+### Passo 5: Criar no Gerenciador
 
-Via @clickup-specialist:
+Via abstração (consultar adapter do provedor configurado):
 
 1. **Criar Task Principal**
-   ```yaml
-   name: "{{description}}"
-   list_id: [resolver de list_name]
-   markdown_description: |
-     ## 🎯 Objetivo
-     [extraído da análise]
-     
-     ## ✅ Critérios de Aceite
-     - [ ] Critério 1
-     - [ ] Critério 2
+   ```typescript
+   // Usar interface ITaskManager
+   const taskManager = getTaskManager();
+   
+   const task = await taskManager.createTask({
+     name: "{{description}}",
+     projectId: resolveProjectId(project_name),
+     markdownDescription: `
+       ## 🎯 Objetivo
+       [extraído da análise]
+       
+       ## ✅ Critérios de Aceite
+       - [ ] Critério 1
+       - [ ] Critério 2
+     `,
+     priority: 'high',
+     tags: ['feature']
+   });
    ```
 
 2. **Criar Subtasks**
-   Para cada subtask identificada
+   ```typescript
+   for (const subtask of decomposition.subtasks) {
+     await taskManager.createSubtask(task.id, {
+       name: subtask.name,
+       description: subtask.description
+     });
+   }
+   ```
 
-3. **Adicionar Comment Inicial**
-   Usar padrão de `common/prompts/clickup-patterns.md`
+3. **Adicionar Comentário Inicial**
+   ```typescript
+   await taskManager.addComment(task.id, 
+     '🚀 Task criada via /product/task\n' +
+     `📊 Complexidade: ${complexity}\n` +
+     `📈 Estimativa: ${estimate}`
+   );
+   ```
 
-### Passo 5: Apresentar Resultado
+### Passo 6: Apresentar Resultado
 
 ## 📤 Output Esperado
 
@@ -112,8 +157,9 @@ Via @clickup-specialist:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 📋 Task: {{description}}
-🔗 URL: https://app.clickup.com/t/[id]
-📊 Complexidade: [simples/média/complexa]
+🔗 URL: [url do provedor]
+📊 Provedor: [clickup/asana/linear/local]
+📈 Complexidade: [simples/média/complexa]
 
 🔧 Estrutura:
 ├── Subtask 1: [nome]
@@ -139,12 +185,13 @@ Via @clickup-specialist:
 
 ## 🔗 Referências
 
-- Padrões: `common/prompts/clickup-patterns.md`
+- Abstração: `.cursor/utils/task-manager/`
 - Decomposição: @task-specialist
-- ClickUp: @clickup-specialist
+- Padrões: `common/prompts/clickup-patterns.md`
 
 ## ⚠️ Notas
 
 - SEMPRE confirmar com usuário antes de criar
 - Action items: máximo 4h cada
 - Se épico: sugerir quebrar em múltiplas tasks
+- Se provedor não configurado: funciona em modo local

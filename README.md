@@ -12,7 +12,7 @@ Bem-vindo ao **Sistema Onion v3.0**! Framework avançado de comandos `.cursor/` 
 - 📋 **4 regras** de padronização e validação
 - 🧅 **Comando `/onion`** - ponto de entrada inteligente para o sistema
 - 🧅 **Agente `@onion`** - orquestrador master que conhece todo o sistema
-- 🔗 **Integração completa com ClickUp MCP** para gestão automática de projetos
+- 🔗 **Task Manager Abstraction** para ClickUp, Asana e Linear (via adapter pattern)
 - ⚡ **Workflows automatizados** do planejamento ao deploy
 
 ### 🆕 Novidades v3.0
@@ -22,6 +22,7 @@ Bem-vindo ao **Sistema Onion v3.0**! Framework avançado de comandos `.cursor/` 
 - **Validações automatizadas** nos geradores (`/meta/create-*`)
 - **Sessions estruturadas** em `.cursor/sessions/<feature>/`
 - **Gestão de .env** com `/meta/setup-integration`
+- **🆕 Task Manager Abstraction** - suporte a ClickUp, Asana, Linear via adapter pattern
 
 📋 **[Ver CHANGELOG completo](CHANGELOG-ONION-V3.md)**
 
