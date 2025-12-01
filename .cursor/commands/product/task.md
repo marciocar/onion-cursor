@@ -1,553 +1,424 @@
-# 🚀 Criação de Task com Decomposição Inteligente
+---
+name: task
+description: |
+  Criação de tasks com decomposição hierárquica inteligente.
+  Use para criar tasks estruturadas com subtasks e action items.
+  Suporta: ClickUp, Asana, Linear (via TASK_MANAGER_PROVIDER).
+model: sonnet
 
-Você é um assistente de IA especializado em **criar tasks estruturadas no ClickUp com decomposição hierárquica inteligente**. Seu papel é estabelecer uma base sólida para desenvolvimento seguindo o padrão otimizado do Sistema Onion.
+parameters:
+  - name: description
+    description: Descrição da task
+    required: true
+  - name: project_name
+    description: Nome do projeto/lista (opcional)
+    required: false
 
-## 📋 **Workflow de Decomposição Inteligente**
+category: product
+tags:
+  - task
+  - task-manager
+  - decomposition
 
-### **1. Análise Profunda e Compreensão**
-**SEMPRE siga esta sequência obrigatória:**
+version: "3.0.0"
+updated: "2025-11-24"
 
-#### **📚 Revisão de Documentação (OBRIGATÓRIO)**
-1. **Revise PRIMEIRO a documentação atual do projeto**: README.md e arquivos .md na pasta `docs/`
-2. **Analise estrutura existente** baseado na documentação revisada
-3. **Identifique padrões e tecnologias** já estabelecidos no projeto
+related_commands:
+  - /product/spec
+  - /product/estimate
+  - /engineer/start
 
-#### **🤔 Compreensão da Tarefa**
-1. **Leia cuidadosamente** a descrição da tarefa fornecida
-2. **Formule perguntas internas** para esclarecer ambiguidades ou informações faltantes
-3. **Analise como a tarefa se encaixa** na estrutura existente do projeto
-4. **Identifique complexidade, dependências e padrões aplicáveis**
+related_agents:
+  - task-specialist
+  - product-agent
+  - story-points-framework-specialist
+---
 
-#### **✅ Confirmação e Esclarecimento (OBRIGATÓRIO)**
-1. **Antes de proceder**, confirme seu entendimento da tarefa
-2. **Se precisar de mais informações**, declare quais detalhes adicionais seriam úteis
-3. **SEMPRE apresente seu plano** ao usuário antes de criar a task
-4. **Peça confirmação explícita** antes de executar criação no ClickUp
+# 🚀 Criação de Task com Decomposição
 
-### **2. Decomposição Hierárquica Estruturada**
-**Use a estrutura otimizada de 3 níveis:**
+Criar tasks estruturadas no gerenciador de tarefas configurado.
+
+## 🔧 Pré-requisito: Verificar Provedor
+
+```markdown
+Antes de criar tasks, verificar configuração:
+1. Ler `.env` para TASK_MANAGER_PROVIDER
+2. Se não configurado ou "none":
+   - Avisar: "⚠️ Nenhum gerenciador configurado. Execute /meta/setup-integration"
+   - Continuar com estrutura local (sem sincronização)
+3. Se configurado:
+   - Usar adapter correspondente de `.cursor/utils/task-manager/adapters/`
+```
+
+## 🎯 Objetivo
+
+Estabelecer base sólida para desenvolvimento com decomposição Task → Subtask → Action Item.
+
+## ⚡ Fluxo de Execução
+
+### Passo 1: Detectar Provedor e Configuração
+
+**CRÍTICO:** Executar estas ações na ordem:
+
+1. **Ler `.env` para detectar provedor:**
+   ```bash
+   # Usar read_file para ler .env
+   read_file .env
+   
+   # Extrair TASK_MANAGER_PROVIDER (padrão: 'none')
+   # Verificar variáveis obrigatórias:
+   # - ClickUp: CLICKUP_API_TOKEN
+   # - Asana: ASANA_ACCESS_TOKEN
+   # - Linear: LINEAR_API_KEY
+   ```
+
+2. **Validar configuração:**
+   ```markdown
+   SE TASK_MANAGER_PROVIDER = 'clickup':
+     ✅ Verificar CLICKUP_API_TOKEN existe
+     ✅ Se não existe: avisar e continuar em modo offline
+     
+   SE TASK_MANAGER_PROVIDER = 'asana':
+     ✅ Verificar ASANA_ACCESS_TOKEN existe
+     ✅ Se não existe: avisar e continuar em modo offline
+     
+   SE TASK_MANAGER_PROVIDER = 'none' ou não configurado:
+     ⚠️ Modo offline - tasks não serão sincronizadas
+     💡 Avisar: Execute /meta/setup-integration para configurar
+   ```
+
+3. **Resolver projeto/lista (se `project_name` fornecido):**
+   ```markdown
+   SE project_name fornecido:
+     - ClickUp: usar mcp_ClickUp_clickup_get_list com list_name
+     - Asana: usar mcp_asana_asana_get_projects e buscar por nome
+     - Se não encontrado: perguntar ao usuário ou usar padrão
+   
+   SE project_name não fornecido:
+     - ClickUp: usar CLICKUP_DEFAULT_LIST_ID do .env
+     - Asana: usar ASANA_DEFAULT_PROJECT_ID do .env
+     - Se não configurado: listar opções e perguntar ao usuário
+   ```
+
+### Passo 2: Análise de Contexto
+
+```bash
+# Revisar documentação do projeto
+read_file README.md
+ls docs/*.md
+
+# Entender estrutura existente
+list_dir src/
+```
+
+### Passo 3: Compreender Tarefa
+
+1. **Ler descrição**: `{{description}}`
+2. **Identificar complexidade**:
+   - Simples (1-3 dias): 2-3 subtasks
+   - Média (4-7 dias): 3-4 subtasks
+   - Complexa (1-2 sem): 4-6 subtasks
+   - Épico (>2 sem): Quebrar em múltiplas tasks
+
+3. **Confirmar com usuário** antes de criar
+
+### Passo 4: Decompor Hierarquicamente
+
+Consultar @task-specialist para estrutura:
+
 ```
 📋 TASK (Objetivo de Alto Nível)
 ├── 🔧 Subtask 1 (Componente Funcional)  
-│   ├── ✅ Action Item 1.1 (Ação Específica 1-4h)
-│   ├── ✅ Action Item 1.2 (Ação Específica 1-4h)
-│   └── ✅ Action Item 1.3 (Ação Específica 1-4h)
+│   ├── ✅ Action Item 1.1 (1-4h)
+│   ├── ✅ Action Item 1.2 (1-4h)
+│   └── ✅ Action Item 1.3 (1-4h)
 └── 🔧 Subtask 2 (Componente Funcional)
-    ├── ✅ Action Item 2.1 (Ação Específica 1-4h)
-    └── ✅ Action Item 2.2 (Ação Específica 1-4h)
+    ├── ✅ Action Item 2.1 (1-4h)
+    └── ✅ Action Item 2.2 (1-4h)
 ```
 
-**Regras de Balanceamento:**
-- **Tasks Simples** (1-3 dias): 2-3 subtasks
-- **Tasks Médias** (4-7 dias): 3-4 subtasks  
-- **Tasks Complexas** (1-2 semanas): 4-6 subtasks
-- **Épicos** (>2 semanas): Quebrar em múltiplas tasks
+### Passo 5: Estimar Story Points (Automático)
 
-### **2. Quebra de Tarefa (se necessário)**
-**Para tarefas complexas, considere criar estrutura hierárquica:**
-- **Se a tarefa for complexa** (>1 semana de trabalho), declare sua intenção de quebrar
-- **Explique brevemente o porquê** da quebra ser necessária  
-- **Use @task-specialist** para decomposição quando a complexidade for alta
-- **Mantenha foco no valor de negócio** em cada componente
+**CRÍTICO:** Após decomposição, SEMPRE estimar story points para task principal e cada subtask.
 
-### **3. Rotulagem e Categorização**
-**Adicione uma das seguintes etiquetas conforme relevante:**
-- **Bug**: Correções de problemas existentes
-- **Feature**: Novas funcionalidades  
-- **Improvement**: Melhorias em funcionalidades existentes
-- **Research**: Investigação e análise técnica
-
-### **4. Apresentação do Plano Final**
-**OBRIGATÓRIO: Apresente seu plano ao usuário e peça confirmação antes de criar:**
+#### 5.1. Estimar Task Principal
 
 ```markdown
-## 🎯 PLANO DE TASK PROPOSTO
+@story-points-framework-specialist
 
-### **📋 Task Principal**
-**Nome**: [NOME_DA_TASK]
-**Tipo**: [Feature/Bug/Improvement/Research]
-**Complexidade**: [Simples/Média/Alta]
-**Estimativa**: [TEMPO_ESTIMADO]
+Por favor, analise e estime a seguinte tarefa:
 
-### **📝 Descrição Funcional**
-[DESCRIÇÃO_CLARA_DO_OBJETIVO]
+**Tarefa Principal:** {{description}}
+**Subtasks identificadas:** [lista de subtasks]
+**Complexidade inicial:** [simples/média/complexa]
 
-### **🏗️ Arquitetura Técnica** 
-[DETALHAMENTO_TÉCNICO_E_IMPLEMENTAÇÃO]
-
-### **📚 Bibliotecas/Dependências Sugeridas**
-[LISTA_DE_DEPENDÊNCIAS_PRIORIZANDO_CONHECIDAS]
-
-### **🔧 Componentes Afetados**
-[COMPONENTES_QUE_SERÃO_MODIFICADOS]
-
-### **✅ Critérios de Aceitação**
-- [ ] [CRITÉRIO_1]
-- [ ] [CRITÉRIO_2]  
-- [ ] [CRITÉRIO_3]
-
-### **🧪 Pontos de Atenção para Teste**
-[ESTRATÉGIA_DE_TESTES_E_VALIDAÇÃO]
-
-❓ **Este plano está correto? Posso proceder com a criação da task no ClickUp?** [Y/n]
+Forneça:
+1. Story points para task principal
+2. Análise de complexidade, risco e incerteza
+3. Recomendações (quebra, riscos, dependências)
 ```
 
-### **5. Criação no ClickUp com Estrutura Completa**
-**APÓS confirmação do usuário**, crie usando **bulk operations otimizadas**:
+**Output esperado:**
+- Story points da task principal
+- Análise completa de fatores
+- Recomendações
 
-#### **📋 Task Principal**
-- **Título**: Objetivo claro e acionável
-- **Descrição**: Overview funcional + arquitetura técnica + bibliotecas + componentes + critérios de aceitação + estratégia de testes
-- **Tags**: Categoria confirmada (bug/feature/improvement/research)
-- **Priority**: Baseada em impacto e urgência
-- **Estimation**: Story points + time estimate
-
-#### **🔧 Subtasks (se aplicável - Componentes Funcionais)**
-- **Título**: Componente específico ou área funcional
-- **Descrição**: Objetivos técnicos e contexto  
-- **Acceptance Criteria**: Critérios específicos do componente
-- **Dependencies**: Links para subtasks dependentes
-- **Assignee**: Owner responsável pelo componente
-
-#### **✅ Action Items (se aplicável - Ações Executáveis)**
-- **Título**: Verbo + objeto específico (ex: "Implementar JWT middleware")
-- **Descrição**: Detalhes técnicos de implementação
-- **Estimation**: 1-4 horas idealmente
-- **Acceptance**: Critério objetivo de conclusão
-- **Context**: Links para documentação/recursos
-
-**IMPORTANTE**: Action items devem ser criados como **checklists nativos do ClickUp** para tracking interativo. O comando atual cria apenas na descrição markdown - **usuário deve criar checklists manualmente** para funcionalidade completa.
-
-### **6. Setup Automático do Ambiente**
-Após criar a estrutura ClickUp, automaticamente:
-
-#### **🌿 Git Integration & Branch Management**
-**Integração inteligente com comandos Git do Sistema Onion:**
-
-```bash
-# Para Features: Integração com /git/feature/start
-if task_type == "feature" and is_new_development:
-    execute("/git/feature/start <task-slug>")  # Cria backlog + branch
-    
-# Para outras tasks: Branch direta
-else:
-    git checkout -b feature/<task-slug>  # Pattern: feature/task-name-implementation
-```
-
-**Detalhamento da Integração:**
-- **Features novas**: Usa `/git/feature/start` para criar task backlog no ClickUp + feature branch
-- **Bugs/Improvements**: Cria branch diretamente com padrão `bugfix/` ou `feature/`  
-- **Research/Spike**: Usa padrão `spike/` para branches exploratórias
-- **Hotfixes**: Integração com `/git/hotfix/start` quando aplicável
-
-#### **📁 Session Directory Structure** 
-```
-.cursor/sessions/<task-slug>/
-├── context.md          # Task context + decomposition overview
-├── architecture.md     # Technical architecture (created by @c4-architecture-specialist if needed)
-├── implementation.md   # Detailed implementation plan per subtask
-├── acceptance.md       # Complete acceptance criteria
-└── notes.md           # Development notes and decisions
-```
-
-#### **📄 Enhanced Context File**
-```markdown
-# Task Context - [TASK_NAME]
-
-## 📋 ClickUp Structure
-**Task ID**: [CLICKUP_TASK_ID]
-**Task URL**: [CLICKUP_URL]
-**Estimation**: [STORY_POINTS] points / [TIME_ESTIMATE]
-
-## 🏗️ Decomposition Overview
-**Pattern Used**: [PATTERN_NAME] (Feature/Bug/Tech Debt/Research)
-**Subtasks**: [COUNT] components
-**Action Items**: [COUNT] executable actions  
-**Dependencies**: [DEPENDENCY_LIST]
-
-## 🎯 Success Metrics
-- [METRIC_1]
-- [METRIC_2]  
-- [METRIC_3]
-
-## 🔧 Technical Context
-**Affected Components**: [COMPONENTS]
-**Stack/Technologies**: [TECH_STACK]
-**Integration Points**: [INTEGRATIONS]
-
-## 📝 Implementation Strategy
-**Phase 1**: [PHASE_DESCRIPTION]
-**Phase 2**: [PHASE_DESCRIPTION]
-**Phase 3**: [PHASE_DESCRIPTION]
-
-## 🚀 Next Steps
-1. Review structure in ClickUp
-2. Execute: `/engineer/start <task-slug>`
-3. Follow implementation plan per subtask
-```
-
-## 🎯 **Enhanced Template Execution**
-
-### **🤖 Delegação Inteligente**
-```python
-# Lógica de delegação automática
-if task_complexity >= "medium" or task_effort > "5 days":
-    delegate_to("@task-specialist", "decompose with full hierarchy")
-if has_architecture_implications:
-    delegate_to("@c4-architecture-specialist", "analyze and document")
-if has_clickup_optimizations:
-    delegate_to("@clickup-specialist", "optimize bulk creation")
-```
-
-### **🔄 Workflow Sequence OBRIGATÓRIO**
-1. **Documentation Review**: Revisar README.md e docs/ primeiro
-2. **Task Analysis**: Compreender requisitos e identificar complexidade
-3. **Plan Presentation**: Apresentar plano detalhado ao usuário
-4. **User Confirmation**: Obter confirmação antes de proceder (OBRIGATÓRIO)
-5. **Pattern Detection**: Identificar pattern apropriado (Feature/Bug/Tech Debt/Research)
-6. **Decomposition**: Usar @task-specialist para estrutura hierárquica (se complexa)
-7. **ClickUp Creation**: ⚠️ **CRIAR TASK PRINCIPAL PRIMEIRO** → **DEPOIS SUBTASKS COM PARENT**
-8. **Git Integration**: Executar comandos git apropriados (/git/feature/start ou branch direta)
-9. **Environment Setup**: Session directory + context files
-10. **Integration**: Links entre ClickUp, Git, e desenvolvimento  
-11. **Handoff**: Preparar para `/engineer/start`
-
-### **🚨 CORREÇÃO CRÍTICA: ClickUp Hierarchy Implementation**
-**PROBLEMA**: Subtasks eram criadas independentemente (parent: null)
-**SOLUÇÃO**: Sequência correta ClickUp MCP:
-
-```bash
-# PASSO 1: Criar Task Principal
-MAIN_TASK_ID = create_task(name, description, listId, ...)
-
-# PASSO 2: Criar Subtasks com Parent Relationship  
-SUBTASK_1_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
-SUBTASK_2_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
-SUBTASK_3_ID = create_task(name, description, listId, parent=MAIN_TASK_ID, ...)
-```
-
-**NEVER use create_bulk_tasks for hierarchical structure** - não suporta parent parameter!
-
-## 📊 **Patterns de Decomposição Automática**
-
-### **🚀 Feature Development Pattern**
-```
-📋 FEATURE: [Feature Name]
-├── 🔧 Backend Implementation
-│   ├── ✅ Data model and migrations
-│   ├── ✅ Business logic and services  
-│   ├── ✅ API endpoints and validation
-│   └── ✅ Unit and integration tests
-├── 🔧 Frontend Integration
-│   ├── ✅ UI components and pages
-│   ├── ✅ State management integration
-│   ├── ✅ API client and error handling
-│   └── ✅ E2E tests and user validation
-└── 🔧 Quality & Deployment
-    ├── ✅ Code review and refactoring
-    ├── ✅ Performance optimization
-    └── ✅ Documentation and deployment
-```
-
-### **🐛 Bug Fix Pattern** 
-```
-📋 BUG: [Bug Description]
-├── 🔧 Investigation & Root Cause
-│   ├── ✅ Reproduce in controlled environment
-│   ├── ✅ Analyze logs and error patterns
-│   └── ✅ Identify root cause and scope
-├── 🔧 Fix Implementation
-│   ├── ✅ Implement primary fix
-│   ├── ✅ Add error handling and resilience
-│   └── ✅ Create regression tests
-└── 🔧 Validation & Prevention
-    ├── ✅ Validate fix in staging
-    ├── ✅ Update monitoring and alerts
-    └── ✅ Document postmortem and prevention
-```
-
-### **🔧 Technical Debt Pattern**
-```
-📋 TECH DEBT: [Debt Description]
-├── 🔧 Analysis & Strategy
-│   ├── ✅ Audit current implementation
-│   ├── ✅ Define target architecture
-│   └── ✅ Create incremental migration plan
-├── 🔧 Incremental Refactoring
-│   ├── ✅ Refactor core components
-│   ├── ✅ Update dependencies and integrations
-│   └── ✅ Maintain backward compatibility
-└── 🔧 Validation & Optimization
-    ├── ✅ Performance benchmarking
-    ├── ✅ Integration testing
-    └── ✅ Documentation and knowledge transfer
-```
-
-### **📚 Research/Spike Pattern**
-```
-📋 RESEARCH: [Research Question]
-├── 🔧 Discovery & Analysis
-│   ├── ✅ Literature and market research
-│   ├── ✅ Technology evaluation and comparison
-│   └── ✅ Risk and feasibility analysis
-├── 🔧 Proof of Concept
-│   ├── ✅ Minimal viable implementation
-│   ├── ✅ Performance and integration testing
-│   └── ✅ Comparison with current solution
-└── 🔧 Decision & Documentation
-    ├── ✅ Findings and recommendations report
-    ├── ✅ Implementation roadmap (if applicable)
-    └── ✅ Knowledge sharing with team
-```
-
-## 📝 **Enhanced Output Format**
+#### 5.2. Estimar Cada Subtask
 
 ```markdown
-# ✅ TASK CRIADA COM DECOMPOSIÇÃO INTELIGENTE
+Para cada subtask identificada:
 
-## 📋 **ClickUp Structure Created**
-**Main Task**: [TASK_ID] - [TASK_NAME]
-**Type**: [Feature/Bug/Improvement/Research]
-**Pattern Used**: [PATTERN_NAME]
-**Complexity**: [Simples/Média/Alta]
-**Subtasks Created**: [COUNT] functional components  
-**Action Items Created**: [COUNT] executable actions
-**Total Estimation**: [STORY_POINTS] points / [TIME_ESTIMATE]
+@story-points-framework-specialist
 
-### **🔧 Decomposition Summary (if applicable)**
-```
-📋 [TASK_NAME] 
-├── 🔧 [SUBTASK_1] ([EST])
-│   ├── ✅ [ACTION_1] ([EST])
-│   ├── ✅ [ACTION_2] ([EST])  
-│   └── ✅ [ACTION_3] ([EST])
-├── 🔧 [SUBTASK_2] ([EST])
-│   ├── ✅ [ACTION_1] ([EST])
-│   └── ✅ [ACTION_2] ([EST])
-└── 🔧 [SUBTASK_3] ([EST])
-    ├── ✅ [ACTION_1] ([EST])
-    └── ✅ [ACTION_2] ([EST])
+**Subtask:** [nome da subtask]
+**Descrição:** [descrição da subtask]
+**Action items:** [lista de action items]
+
+Estime story points para esta subtask.
 ```
 
-## 🌿 **Git Integration & Development Environment**
-**Git Command Executed**: [/git/feature/start | direct branch creation]
-**Feature Branch**: `[branch-pattern]/<task-slug>` ✅ Created
-**Session Directory**: `.cursor/sessions/<task-slug>/` ✅ Initialized
-**Context Documentation**: ✅ Complete with technical details
+**Armazenar:**
+- Story points por subtask
+- Total de pontos (soma das subtasks)
 
-## 🎯 **Acceptance Criteria Defined**
-- [ ] [MAIN_CRITERIA_1]
-- [ ] [MAIN_CRITERIA_2]  
-- [ ] [MAIN_CRITERIA_3]
-- [ ] [PERFORMANCE_CRITERIA]
-- [ ] [QUALITY_CRITERIA]
+#### 5.3. Validar Consistência
 
-## 📚 **Components & Dependencies**
-**Affected Components**: [COMPONENT_LIST]
-**Tech Stack**: [TECHNOLOGIES_USED]
-**Dependencies**: [LIBRARIES_AND_TOOLS]
-
-## 🚀 **Next Steps & Integration**
-1. **Review Structure**: Examine task hierarchy in ClickUp ([CLICKUP_URL])
-2. **Start Development**: Execute `/engineer/start <task-slug>`
-3. **Follow Implementation**: Work through subtasks sequentially
-4. **Track Progress**: Update action items as completed
-5. **Finish Feature**: Use `/git/feature/finish` when ready
-6. **Validate Completion**: Check acceptance criteria compliance
-
-**Status**: ✅ READY FOR DEVELOPMENT WITH INTELLIGENT STRUCTURE
+```markdown
+SE soma(subtasks) > task_principal:
+  ⚠️ AVISO: Soma das subtasks maior que task principal
+  Ajustar task principal para: soma(subtasks)
+  
+SE task_principal > 13 pontos:
+  ⚠️ ALERTA: Task identificada como ÉPICO
+  Propor quebra em múltiplas tasks menores
 ```
 
-## 🔗 **ClickUp Automation & Integration**
+### Passo 6: Criar no Gerenciador
 
-### **✅ Enhanced Auto-Setup**
-- **Smart Bulk Creation**: Task + Subtasks + Action Items em uma operação
-- **Checklist Integration**: Action items devem ser adicionados manualmente como checklists nativos
-- **Progress Tracking**: Sistema monitora progresso via checklists nativos (quando criados)
-- **Dependency Mapping**: Links automáticos entre subtasks dependentes  
-- **Custom Fields**: Story points, effort estimates, pattern type
-- **Status Workflows**: Fluxos apropriados por pattern type
-- **Tag Management**: Tags hierárquicas (main-tag + pattern-tag)
+**CRÍTICO:** 
+- ✅ Usar ferramentas MCP diretamente (`mcp_ClickUp_*`, `mcp_asana_*`)
+- ✅ Seguir padrão de abstração do Task Manager para normalizar entrada/saída
+- ✅ Consultar `.cursor/utils/task-manager/interface.md` para formato de dados
+- ✅ Consultar `.cursor/utils/task-manager/adapters/{provedor}.md` para mapeamentos específicos
 
-### **💬 Structured Comment Format**
-```
-🚀 TASK SETUP COMPLETO - DECOMPOSIÇÃO INTELIGENTE
+**IMPORTANTE:** Mesmo usando MCP diretamente, os dados devem seguir o padrão da abstração:
+- Entrada normalizada (priority: urgent/high/normal/low)
+- Saída normalizada (TaskOutput com campos padronizados)
+- Mapeamento de status conforme interface
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#### 6.1. Preparar Dados Normalizados (Padrão Abstração)
 
-📊 ESTRUTURA CRIADA:
-   ▶ Pattern: [PATTERN_NAME]
-   ▶ Subtasks: [COUNT] componentes funcionais
-   ▶ Action Items: [COUNT] ações executáveis
-   ▶ Total Estimate: [STORY_POINTS]pts / [TIME]
+```markdown
+Preparar estrutura normalizada seguindo interface ITaskManager:
 
-🏗️ AMBIENTE PREPARADO:
-   ▶ Branch: feature/[task-slug] ✅
-   ▶ Session: .cursor/sessions/[task-slug]/ ✅
-   ▶ Docs: Architecture + Implementation + Context ✅
+**Task Principal:**
+- name: "{{description}}"
+- markdownDescription: [formato markdown com objetivo, critérios, story points]
+- priority: 'high' (normalizado: urgent/high/normal/low)
+- tags: ['feature']
+- projectId: [resolvido no Passo 1]
 
-🎯 ACCEPTANCE CRITERIA:
-   ∟ [COUNT] critérios principais definidos
-   ∟ Performance targets estabelecidos
-   ∟ Quality gates configurados
-
-🚀 PRÓXIMOS PASSOS:
-   1. Revisar decomposição no ClickUp
-   2. Executar: /engineer/start [task-slug]  
-   3. Seguir implementação por subtask
-   4. Validar com: /product/task-check [task-id]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-⏰ Created: [TIMESTAMP] | 🤖 Sistema Onion | 🎯 Task Specialist
+**Cada Subtask:**
+- name: [nome da subtask]
+- markdownDescription: [descrição + story points]
+- priority: [herdar da task principal ou 'normal']
+- tags: [tags da subtask se houver]
 ```
 
-## 🎯 **Advanced Integration Features**
+#### 6.2. Criar Task Principal (Executar MCP)
 
-### **🤝 Agent Coordination**
-- **@task-specialist**: Decomposição hierárquica e patterns
-- **@clickup-specialist**: Otimizações técnicas e bulk operations  
-- **@c4-architecture-specialist**: Diagramas arquiteturais quando necessário
-- **@product-agent**: Validação estratégica e priorização
+**SE provedor = 'clickup':**
+```markdown
+1. Chamar mcp_ClickUp_clickup_create_task com:
+   - list_id: [projectId resolvido]
+   - name: [nome normalizado]
+   - markdown_description: [descrição markdown completa]
+   - priority: 'high' (mapear: high → 'high' no ClickUp)
+   - tags: ['feature']
+   - workspace_id: [CLICKUP_WORKSPACE_ID do .env, se disponível]
 
-### **📊 Quality Metrics Integration**
-- **Structure Quality Score**: Validação automática da decomposição
-- **Estimation Accuracy**: Tracking histórico para melhoria contínua
-- **Pattern Effectiveness**: Análise de success rate por pattern type
-- **Team Velocity**: Adaptação baseada na velocity da equipe
-
-### **🔄 Continuous Improvement**
-- **Pattern Refinement**: Melhoria baseada em feedback e resultados
-- **Template Evolution**: Adaptação para novos contexts e tecnologias
-- **Team Optimization**: Personalização para working style da equipe
-- **Success Metrics**: Tracking de KPIs e otimização contínua
-
-## 🛠️ **Usage Instructions**
-
-### **Fluxo de Uso OBRIGATÓRIO**
-O comando agora segue o padrão do template original com confirmações:
-
-1. **Execução**: `/product/task "descrição da funcionalidade"`
-2. **Análise Automática**: Sistema analisa documentação e identifica padrões
-3. **Apresentação**: Plano detalhado é apresentado para confirmação
-4. **Confirmação**: Usuário confirma antes da criação (OBRIGATÓRIO)
-5. **Criação**: Task estruturada é criada no ClickUp
-6. **Git Integration**: Comandos git apropriados são executados automaticamente
-7. **Environment Setup**: Branch + session + context files
-8. **Development Ready**: Pronto para `/engineer/start`
-
-### **Comando Básico**
-```bash
-/product/task "Implementar autenticação JWT com refresh tokens"
-# → Sistema apresentará plano completo para confirmação antes de criar
+2. Extrair task.id da resposta
+3. Armazenar task.url para output final
 ```
 
-### **Comando com Pattern Hint**  
-```bash
-/product/task "Feature: Dashboard analytics interativo"
-/product/task "Bug: Memory leak em notificações real-time" 
-/product/task "Tech Debt: Refatorar sistema de cache legacy"
-/product/task "Research: Avaliar GraphQL vs REST para nova API"
-# → Pattern hint ajuda na categorização automática
+**SE provedor = 'asana':**
+```markdown
+1. Chamar mcp_asana_asana_create_task com:
+   - name: [nome normalizado]
+   - html_notes: [descrição markdown convertida para HTML]
+   - project_id: [projectId resolvido]
+   - workspace: [ASANA_WORKSPACE_ID do .env, se disponível]
+
+2. Extrair task.gid da resposta (data.gid)
+3. Construir URL: https://app.asana.com/0/0/{gid}
 ```
 
-### **Comando com Complexidade**
-```bash  
-/product/task "Implementar sistema completo de pagamentos (COMPLEX)"
-# → Força decomposição hierárquica com @task-specialist
-# → Apresenta estrutura de subtasks/action items para confirmação
+**SE provedor = 'none' ou não configurado:**
+```markdown
+⚠️ Modo offline - criar apenas estrutura local
+- Gerar ID local: local-{timestamp}
+- Criar documento em .cursor/sessions/tasks/{id}.md
+- Avisar que não será sincronizado
 ```
 
-### **Integração Git Automática**
-O comando agora integra automaticamente com comandos git:
+#### 6.3. Criar Subtasks (Executar MCP)
 
-```bash
-# Features novas → usa /git/feature/start
-/product/task "Feature: Sistema de notificações"
-# → Cria task ClickUp + executa /git/feature/start automaticamente
+**Para cada subtask da decomposição:**
 
-# Bugs/Improvements → branch direta 
-/product/task "Bug: Corrigir timeout na API"
-# → Cria task ClickUp + branch bugfix/corrigir-timeout-na-api
-
-# Research → branch spike
-/product/task "Research: Avaliar tecnologias de cache"
-# → Cria task ClickUp + branch spike/avaliar-tecnologias-de-cache
+**SE provedor = 'clickup':**
+```markdown
+Chamar mcp_ClickUp_clickup_create_task com:
+- list_id: [mesmo list_id da task principal]
+- parent: [task.id da task principal criada]
+- name: [nome da subtask]
+- markdown_description: [descrição + story points]
+- priority: [mapear para ClickUp]
+- tags: [tags da subtask]
 ```
 
----
-
-## 🎯 **Exemplo de Execução Completa**
-
-**Input do Usuário:**
-```bash
-/product/task "Implementar sistema de autenticação JWT com refresh tokens"
+**SE provedor = 'asana':**
+```markdown
+Chamar mcp_asana_asana_create_task com:
+- name: [nome da subtask]
+- html_notes: [descrição + story points em HTML]
+- parent: [task.gid da task principal]
+- workspace: [ASANA_WORKSPACE_ID]
 ```
 
-**Fluxo Executado:**
-1. **📚 Documentation Review**: README.md e docs/ analisados
-2. **🤔 Task Analysis**: Identifica como feature de segurança, complexidade média
-3. **📋 Plan Presentation**: Apresenta plano com arquitetura, componentes, critérios
-4. **✅ User Confirmation**: Aguarda confirmação do usuário
-5. **🔧 ClickUp Creation**: Task principal + subtasks + action items criados
-6. **🌿 Git Integration**: Executa `/git/feature/start jwt-authentication`
-7. **📁 Environment Setup**: Session directory + context files
-8. **🚀 Ready**: Pronto para `/engineer/start jwt-authentication`
-
-**Resultado:** Task estruturada + branch git + sessão preparada + integração completa
-
----
-
-## 🔧 **IMPLEMENTAÇÃO CORRETA DE HIERARQUIA CLICKUP**
-
-### **Template de Criação Hierárquica:**
-```javascript
-// 1. CRIAR TASK PRINCIPAL
-const mainTask = await mcp_clickup_create_task({
-  name: "🎯 [TASK NAME]",
-  listId: "901314121395",
-  description: "[DETAILED DESCRIPTION]",
-  tags: ["feature", "priority-high"],
-  priority: 2
-});
-
-// 2. CRIAR SUBTASKS COM PARENT RELATIONSHIP
-const subtask1 = await mcp_clickup_create_task({
-  name: "🔧 [SUBTASK 1 NAME]", 
-  listId: "901314121395",
-  description: "[SUBTASK DESCRIPTION]",
-  parent: mainTask.id,  // ← CRITICAL: Link para task principal
-  tags: ["subtask", "backend"]
-});
-
-const subtask2 = await mcp_clickup_create_task({
-  name: "🔧 [SUBTASK 2 NAME]",
-  listId: "901314121395", 
-  description: "[SUBTASK DESCRIPTION]",
-  parent: mainTask.id,  // ← CRITICAL: Link para task principal
-  tags: ["subtask", "frontend"]
-});
-
-// Resultado: Hierarquia correta no ClickUp!
+**SE provedor = 'none':**
+```markdown
+Criar documento local: .cursor/sessions/tasks/{parent-id}/subtasks/{subtask-id}.md
 ```
 
-### **✅ VALIDAÇÃO DA HIERARQUIA:**
-```javascript
-// Verificar se subtasks foram criadas corretamente
-const mainTaskWithSubtasks = await mcp_clickup_get_task({
-  taskId: mainTask.id,
-  subtasks: true
-});
+#### 6.4. Adicionar Comentário Inicial (Executar MCP)
 
-console.log(`Task Principal: ${mainTaskWithSubtasks.name}`);
-console.log(`Subtasks: ${mainTaskWithSubtasks.subtasks.length}`);
-// Output esperado: Task Principal: 🎯 [NAME] | Subtasks: 2+
+**Preparar comentário formatado:**
+```markdown
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 TASK CRIADA VIA /product/task
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 COMPLEXIDADE: ${complexity}
+🎲 STORY POINTS:
+∟ Task Principal: ${mainTaskStoryPoints} pontos
+∟ Subtasks: ${subtasksPoints} pontos (${subtasks.length} subtasks)
+∟ Total: ${totalPoints} pontos
+
+⚡ FATORES:
+${factorsSummary}
+
+💡 RECOMENDAÇÕES:
+${recommendations}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
----
+**SE provedor = 'clickup':**
+```markdown
+Chamar mcp_ClickUp_clickup_create_task_comment com:
+- task_id: [task.id]
+- comment_text: [comentário formatado acima]
+```
 
-**Execute agora a criação da task seguindo todo o workflow de decomposição inteligente:**
+**SE provedor = 'asana':**
+```markdown
+Chamar mcp_asana_asana_create_task_story com:
+- task_id: [task.gid]
+- text: [comentário formatado acima]
+```
 
-<task_description>
-$ARGUMENTS
-</task_description>
+**SE provedor = 'none':**
+```markdown
+Adicionar comentário ao documento local
+```
+
+#### 6.5. Normalizar Saída (Padrão Abstração)
+
+```markdown
+Após criar, normalizar resposta para formato padrão:
+
+**TaskOutput normalizado:**
+- id: [task.id ou task.gid]
+- provider: [clickup/asana/none]
+- name: [nome da task]
+- url: [URL completa da task]
+- status: 'todo' (padrão inicial)
+- createdAt: [timestamp ISO]
+- projectId: [ID do projeto/lista]
+- storyPoints: [story points da task principal]
+- subtasks: [array de subtasks normalizadas]
+```
+
+### Passo 7: Apresentar Resultado
+
+## 📤 Output Esperado
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ TASK CRIADA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 Task: {{description}}
+🔗 URL: [url do provedor]
+📊 Provedor: [clickup/asana/linear/local]
+
+🎲 STORY POINTS:
+∟ Task Principal: [X] pontos
+∟ Subtasks: [Y] pontos ([N] subtasks)
+∟ Total: [Z] pontos
+
+📊 ANÁLISE:
+∟ Complexidade: [alta/média/baixa]
+∟ Risco: [alto/médio/baixo]
+∟ Incerteza: [alta/média/baixa]
+
+🔧 ESTRUTURA:
+├── Subtask 1: [nome] - [X] pontos
+│   ├── ✅ Item 1.1
+│   └── ✅ Item 1.2
+└── Subtask 2: [nome] - [Y] pontos
+    └── ✅ Item 2.1
+
+💡 RECOMENDAÇÕES:
+${recommendations}
+
+🚀 Próximo: /engineer/start [feature-slug]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+## 📏 Regras de Decomposição
+
+| Tipo | Duração | Subtasks | Action Items/Subtask |
+|------|---------|----------|---------------------|
+| Simples | 1-3d | 2-3 | 2-3 |
+| Média | 4-7d | 3-4 | 3-4 |
+| Complexa | 1-2sem | 4-6 | 3-5 |
+| Épico | >2sem | Quebrar | - |
+
+## 🔗 Referências
+
+### Task Manager Abstraction
+- **Interface:** `.cursor/utils/task-manager/interface.md` - Formato de entrada/saída normalizado
+- **Detector:** `.cursor/utils/task-manager/detector.md` - Como detectar provedor do .env
+- **Adapters (Guias de Mapeamento):**
+  - `.cursor/utils/task-manager/adapters/clickup.md` - Mapeamento ClickUp MCP
+  - `.cursor/utils/task-manager/adapters/asana.md` - Mapeamento Asana MCP
+  - `.cursor/utils/task-manager/types.md` - Tipos compartilhados
+
+### Decomposição e Estimativas
+- **Decomposição:** @task-specialist
+- **Estimativas:** @story-points-framework-specialist, /product/estimate
+- **Framework:** `docs/knowbase/frameworks/framework_story_points.md`
+
+### Padrões de Formatação
+- **ClickUp:** `.cursor/commands/common/prompts/clickup-patterns.md`
+- **Formatação:** `.cursor/utils/clickup-formatting.md`
+
+## ⚠️ Notas
+
+- SEMPRE confirmar com usuário antes de criar
+- Action items: máximo 4h cada
+- Se épico: sugerir quebrar em múltiplas tasks
+- Se provedor não configurado: funciona em modo local
+- **Estimativas automáticas:** Story points calculados automaticamente para task principal e todas subtasks
+- **Validação:** Se soma(subtasks) > task principal, ajustar task principal
+- **Épicos:** Se task > 13 pontos, alertar e propor quebra

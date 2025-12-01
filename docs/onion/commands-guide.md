@@ -1,6 +1,21 @@
 # 🎯 Guia Completo de Comandos
 
+> **Versão**: 3.0.0 | **Última atualização**: 2025-11-25 | **Total**: 57 comandos
+
 Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organizados por categoria e função.
+
+## 📊 Resumo v3.0
+
+| Categoria | Comandos | Descrição |
+|-----------|----------|-----------|
+| `engineer/` | 11 | Fluxos de desenvolvimento |
+| `product/` | 12 | Gestão de produto |
+| `git/` | 11 | Operações Git (GitFlow) |
+| `docs/` | 10 | Documentação |
+| `meta/` | 8 | Meta-comandos (criadores) |
+| `validate/` | 1 | Validações |
+| `quick/` | 1 | Ações rápidas |
+| **Total** | **56** | |
 
 ## 📋 Índice por Categoria
 
@@ -8,6 +23,7 @@ Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organi
 - [📋 Comandos de Produto](#-comandos-de-produto)
 - [📚 Comandos de Documentação](#-comandos-de-documentacao)
 - [⚙️ Meta Comandos](#️-meta-comandos)
+- [🌲 Comandos Git](#-comandos-git)
 - [🌟 Comandos Globais](#-comandos-globais)
 
 ---
@@ -30,8 +46,12 @@ $ /git/init                    # Comando não encontrado
 $ ./engineer/start             # Não é executável
 ```
 
-### 🚀 **Recentemente Refatorado (Janeiro 2025)**
-**Comandos Git**: Simplificação radical com 87.3% redução de código. Scripts bash complexos foram transformados em comandos Cursor Commands inteligentes com @gitflow-specialist integration nativa.
+### 🚀 **Padronização v3.0 (Novembro 2025)**
+**Todos os comandos foram padronizados** com:
+- Headers YAML obrigatórios (`name`, `description`, `version: "3.0.0"`)
+- Limite de 400 linhas (otimização de tokens)
+- Prompts modulares em `common/prompts/`
+- Validações automatizadas nos geradores
 
 📚 **[Leia mais sobre a arquitetura](cursor-commands-architecture.md)**
 
@@ -318,6 +338,57 @@ $ ./engineer/start             # Não é executável
 **Propósito**: Gerar documentação de negócio  
 **Input**: Informações de produto e mercado  
 **Integração ClickUp**: ✅ Organiza docs por workspace
+
+### `/docs/build-compliance` 🆕
+**Propósito**: Gerar documentação de compliance (ISO 27001, ISO 22301, PMBOK, SOC2)  
+**Input**: Frameworks desejados ou checklist de due diligence  
+**Integração ClickUp**: ✅ Rastreia compliance requirements  
+**Agentes**: `@security-information-master`, `@iso-27001-specialist`, `@iso-22301-specialist`, `@pmbok-specialist`, `@soc2-specialist`
+
+```bash
+# Exemplo de uso - Modo Seletivo
+/docs/build-compliance frameworks="iso27001,soc2"
+# → Gera apenas ISO 27001 (SGSI) + SOC2 (Trust Services)
+# → Output: docs/compliance/security/ + docs/compliance/soc2/
+
+# Exemplo de uso - Modo Due Diligence
+/docs/build-compliance due-diligence="docs/serasa-requirements.md"
+# → Analisa checklist automaticamente
+# → Detecta frameworks necessários (ISO 22301 + SOC2)
+# → Gera docs/compliance/ com 8/8 requisitos cobertos
+
+# Exemplo de uso - Modo Interativo
+/docs/build-compliance
+# → Analisa projeto (business/technical context)
+# → Sugere frameworks relevantes
+# → Pergunta confirmação ao usuário
+
+# Exemplo de uso - Modo Completo
+/docs/build-compliance frameworks="all"
+# → Gera todos os 4 frameworks (22 documentos)
+# → ISO 27001, ISO 22301, PMBOK, SOC2
+```
+
+**Fluxo detalhado**:
+1. **Descoberta**: Analisa contexto do projeto (docs/business-context/, docs/technical-context/)
+2. **Questionamento**: Determina frameworks aplicáveis via:
+   - Argumentos explícitos (`frameworks="..."`)
+   - Análise de checklist due diligence (keywords + LLM)
+   - Sugestão interativa baseada no perfil do projeto
+3. **Geração**: Delega para agentes especialistas conforme frameworks selecionados
+4. **Consolidação**: `@security-information-master` cria index.md e COMPLIANCE_OVERVIEW.md
+
+**Frameworks Suportados**:
+- **ISO 27001:2022** (SGSI): 5 docs (security/) - Access Control, Risk Assessment, Incident Response
+- **ISO 22301:2019** (BCMS): 5 docs (business-continuity/) - BCP, DRP, Crisis Management, RTOs/RPOs
+- **PMBOK 7th Edition**: 5 docs (project-management/) - Governance, Change/Quality Management
+- **SOC2 Type II**: 5 docs (soc2/) - Trust Services Criteria, Security/Availability Controls
+
+**Idioma**: PT-BR (conteúdo) + EN-US (termos técnicos preservados: "Risk Assessment (Avaliação de Riscos)")
+
+**Mapeamento Due Diligence**:
+- **Serasa Experian**: 8/8 requisitos cobertos (ISO 22301: 5 reqs, SOC2: 3 reqs) ✅
+- Cross-references automáticos entre frameworks (ISO 27001 ↔ SOC2: ~70% overlap)
 
 ### `/docs/build-index`
 **Propósito**: Criar índice de projetos  

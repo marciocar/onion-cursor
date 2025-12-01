@@ -1,3 +1,13 @@
+---
+name: warm-up
+description: Preparar contexto de produto. Revisa docs de negócio.
+model: sonnet
+category: product
+tags: [warmup, context, product]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # Aquecimento do Projeto
 
 Para se preparar para esta sessão, por favor:

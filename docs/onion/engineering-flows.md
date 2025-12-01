@@ -1,6 +1,15 @@
 # 🔄 Fluxos de Engenharia Detalhados
 
+> **Versão**: 3.0.0 | **Última atualização**: 2025-11-24
+
 Este guia documenta os workflows completos de desenvolvimento, desde a concepção até a entrega, com integração total ao ClickUp MCP.
+
+## 🆕 Novidades v3.0
+
+- **Sessions estruturadas** em `.cursor/sessions/<feature-slug>/`
+- **Comentários duais** no ClickUp (detalhado + resumido)
+- **Mapeamento fase→subtask** automático
+- **Prompts modulares** em `common/prompts/`
 
 ## 📋 Índice de Fluxos
 
@@ -24,14 +33,14 @@ Este guia documenta os workflows completos de desenvolvimento, desde a concepç�
 ```
 
 **O que acontece**:
-- ✅ Sistema analisa requisitos e contexto do projeto
-- ✅ Cria task estruturada no ClickUp com:
+-  Sistema analisa requisitos e contexto do projeto
+-  Cria task estruturada no ClickUp com:
   - Título descritivo
   - Descrição detalhada
   - Critérios de aceitação
   - Estimativa inicial
   - Tags relevantes (`feature`, `auth`, `oauth2`)
-- ✅ Task fica com status `to do` no ClickUp
+-  Task fica com status `to do` no ClickUp
 
 **Output esperado**:
 ```
@@ -62,12 +71,12 @@ Este guia documenta os workflows completos de desenvolvimento, desde a concepç�
 **Input necessário**: ID da task ClickUp (`AUTH-123`)
 
 **O que acontece**:
-- ✅ Verifica se está em feature branch apropriada
-- ✅ Cria pasta `.cursor/sessions/auth-oauth2/`
-- ✅ Busca detalhes da task no ClickUp
-- ✅ Analisa contexto, objetivos e dependências
-- ✅ Identifica arquivos e componentes necessários
-- ✅ Cria plan.md inicial
+-  Verifica se está em feature branch apropriada
+-  Cria pasta `.cursor/sessions/auth-oauth2/`
+-  Busca detalhes da task no ClickUp
+-  Analisa contexto, objetivos e dependências
+-  Identifica arquivos e componentes necessários
+-  Cria plan.md inicial
 
 **Estrutura criada**:
 ```
@@ -96,14 +105,14 @@ Este guia documenta os workflows completos de desenvolvimento, desde a concepç�
 ```
 
 **O que acontece em cada iteração**:
-- ✅ Lê plan.md e identifica fase atual
-- ✅ Apresenta próximos passos específicos
-- ✅ Delega trabalho para sub-agentes especializados:
+-  Lê plan.md e identifica fase atual
+-  Apresenta próximos passos específicos
+-  Delega trabalho para sub-agentes especializados:
   - `python-developer` para backend
   - `react-developer` para frontend
   - `test-engineer` para testes
-- ✅ Atualiza progresso no plan.md
-- ✅ Solicita validação antes de próxima fase
+-  Atualiza progresso no plan.md
+-  Solicita validação antes de próxima fase
 
 **Ciclo típico**:
 ```mermaid
@@ -133,12 +142,12 @@ Durante o desenvolvimento, o sistema:
 ```
 
 **Verificações realizadas**:
-- ✅ Todos os testes passando
-- ✅ Cobertura de testes adequada
-- ✅ Linting sem erros
-- ✅ Documentação atualizada
-- ✅ Commits organizados
-- ✅ Task ClickUp sincronizada
+-  Todos os testes passando
+-  Cobertura de testes adequada
+-  Linting sem erros
+-  Documentação atualizada
+-  Commits organizados
+-  Task ClickUp sincronizada
 
 #### 4.2 Criação do Pull Request
 ```bash
@@ -184,12 +193,12 @@ Quando feedback é recebido:
 - 🔍 Analisa cada comentário automaticamente
 - 💡 Sugere correções específicas
 - 🔄 Aplica mudanças aprovadas pelo usuário
-- ✅ Marca conversas como resolvidas
+-  Marca conversas como resolvidas
 
 #### 5.2 Merge e Finalização
 Após aprovação:
 - 🔄 Merge do PR
-- ✅ **Atualização ClickUp**: Task → `done`
+-  **Atualização ClickUp**: Task → `done`
 - 📝 Adição de comentário final com resumo
 - 🏷️ Adição de tags de conclusão
 - 📊 Atualização de métricas de tempo
@@ -252,10 +261,10 @@ Após aprovação:
 ```
 
 **Validações específicas para bugs**:
-- ✅ Bug original corrigido
-- ✅ Nenhuma regressão introduzida
-- ✅ Testes de edge cases
-- ✅ Validação em ambiente similar à produção
+-  Bug original corrigido
+-  Nenhuma regressão introduzida
+-  Testes de edge cases
+-  Validação em ambiente similar à produção
 
 ---
 
@@ -273,7 +282,7 @@ Após aprovação:
 - 📋 Guias de desenvolvimento
 
 **Integração ClickUp**:
-- ✅ Cria task de documentação
+-  Cria task de documentação
 - 📊 Organiza por workspace/space
 - 🏷️ Tags por tipo de documentação
 

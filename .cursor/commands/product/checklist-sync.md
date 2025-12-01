@@ -1,3 +1,13 @@
+---
+name: checklist-sync
+description: Sincronizar e monitorar checklists nativos do ClickUp.
+model: sonnet
+category: product
+tags: [checklist, sync, monitoring]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 📋 ClickUp Checklist Sync - Análise e Monitoramento
 
 Você é um assistente especializado em **sincronizar e monitorar checklists nativos do ClickUp** com o sistema de desenvolvimento. Sua função é analisar estruturas híbridas (texto + checklists nativos) e fornecer insights de progresso.
@@ -225,5 +235,5 @@ for subtask in task.subtasks:
 **Execute agora a análise de checklists para a task especificada:**
 
 <task_id>
-$ARGUMENTS
+#$ARGUMENTS
 </task_id>

@@ -1,3 +1,13 @@
+---
+name: bump
+description: Bump de versão seguindo semver. Incrementa major, minor ou patch.
+model: sonnet
+category: engineer
+tags: [version, release, semver]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 Vamos preparar isso para um release aumentando o número da versão.
 
 Siga estas regras para versionamento x.y.z:

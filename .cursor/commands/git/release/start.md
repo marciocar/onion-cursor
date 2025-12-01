@@ -1,3 +1,13 @@
+---
+name: start
+description: Iniciar release branch com versionamento e changelog.
+model: sonnet
+category: git
+tags: [release, gitflow, version]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🚀 Git Flow - Iniciar Release
 
 Iniciar processo de release criando branch de release com versionamento automático, preparação de changelog e validações pré-release. Workflow completo para gestão segura de releases seguindo padrões GitFlow.

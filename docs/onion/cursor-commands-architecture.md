@@ -99,22 +99,22 @@ User: /git/init
 ## 🎨 **Vantagens dos Cursor Commands**
 
 ### 🤖 **AI-Powered Intelligence**
-- ✅ **Context Awareness**: Cursor entende arquivos abertos, histórico, projeto
-- ✅ **Adaptive Execution**: Workflows se adaptam ao contexto atual
-- ✅ **Error Recovery**: Sugestões inteligentes para problemas
-- ✅ **Educational Feedback**: Explica o que está fazendo
+-  **Context Awareness**: Cursor entende arquivos abertos, histórico, projeto
+-  **Adaptive Execution**: Workflows se adaptam ao contexto atual
+-  **Error Recovery**: Sugestões inteligentes para problemas
+-  **Educational Feedback**: Explica o que está fazendo
 
 ### 🎯 **Developer Experience**
-- ✅ **Natural Interface**: Chat natural, sem sintaxe complexa
-- ✅ **Rich Responses**: Feedback visual rico com cores e formatação
-- ✅ **Context Preservation**: Mantém estado entre comandos
-- ✅ **Universal Access**: Funciona em qualquer pasta, qualquer projeto
+-  **Natural Interface**: Chat natural, sem sintaxe complexa
+-  **Rich Responses**: Feedback visual rico com cores e formatação
+-  **Context Preservation**: Mantém estado entre comandos
+-  **Universal Access**: Funciona em qualquer pasta, qualquer projeto
 
 ### 🔒 **Enterprise Features**
-- ✅ **Safety First**: Confirmações para operações críticas
-- ✅ **Team Integration**: ClickUp, sessions, project management
-- ✅ **Audit Trail**: Histórico completo no chat da Cursor
-- ✅ **Knowledge Sharing**: Comandos compartilháveis entre equipe
+-  **Safety First**: Confirmações para operações críticas
+-  **Team Integration**: ClickUp, sessions, project management
+-  **Audit Trail**: Histórico completo no chat da Cursor
+-  **Knowledge Sharing**: Comandos compartilháveis entre equipe
 
 ---
 
@@ -184,10 +184,10 @@ session_update $NAME                # Atualizar contexto
 - ❌ **CLI tools globais** (não são instalados via npm/pip)
 
 ### ✅ **São Cursor Commands Porque:**
-- ✅ **Executados no chat** da Cursor IDE
-- ✅ **Definidos em markdown** na pasta `.cursor/commands/`
-- ✅ **Interpretados pela Cursor AI** com context awareness
-- ✅ **Integrados ao ambiente** de desenvolvimento
+-  **Executados no chat** da Cursor IDE
+-  **Definidos em markdown** na pasta `.cursor/commands/`
+-  **Interpretados pela Cursor AI** com context awareness
+-  **Integrados ao ambiente** de desenvolvimento
 
 ---
 

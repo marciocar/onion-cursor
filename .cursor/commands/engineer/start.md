@@ -1,26 +1,156 @@
+---
+name: start
+description: |
+  Iniciar desenvolvimento de feature. Cria sessão e analisa tasks.
+  Suporta múltiplos gerenciadores via TASK_MANAGER_PROVIDER.
+model: sonnet
+category: engineer
+tags: [development, workflow, session]
+version: "3.0.0"
+updated: "2025-11-24"
+---
 
 # Engineer Start
 
 Este é o comando para iniciar o desenvolvimento de uma funcionalidade.
 
+## 🔧 Pré-requisito: Detectar Provedor
+
+```typescript
+// Consultar .cursor/utils/task-manager/detector.md
+const config = detectProvider();
+const taskManager = getTaskManager();
+
+// Se tem task-id no input, validar compatibilidade
+if (taskId) {
+  const validation = validateProviderMatch(taskId, config.provider);
+  if (!validation.valid) {
+    console.warn(validation.warning);
+    // Perguntar ao usuário como proceder
+  }
+}
+```
+
 ## Configuração
 - Se não estivermos em uma feature branch, peça permissão para criar uma
 - Se estivermos em uma feature branch que corresponde ao nome da funcionalidade, estamos prontos.
-- Certifique-se de que existe uma pasta .cursor/sessions/<feature_slug>
-- Peça ao usuário o input para esta sessão (você receberá um ou mais tasks do ClickUp para trabalhar)
+- Certifique-se de que existe uma pasta .cursor/sessions/<feature-slug>
+- Peça ao usuário o input para esta sessão (você receberá um ou mais tasks para trabalhar)
 
 ## Análise
 
 Analise as tasks, pais e filhos se necessário, e construa um entendimento inicial do que precisa ser desenvolvido. 
 
-### **📋 Análise de Estrutura Híbrida:**
-**IMPORTANTE**: O sistema agora suporta **checklists nativos** do ClickUp. Durante a análise:
+### **📋 Análise via Task Manager:**
+**IMPORTANTE**: Use a abstração para ler tasks independente do provedor:
 
-1. **Leia a task principal** usando ClickUp MCP (`get_task` com `subtasks=true`)
-2. **Verifique checklists nativos** em cada subtask para action items interativos
-3. **Combine informações** de descrição markdown + checklists nativos
-4. **Monitore progresso** baseado no status dos checklists (resolved/unresolved)
-5. **Documente estrutura híbrida** no context.md
+```typescript
+// Via abstração - funciona para qualquer provedor (ClickUp, Asana, Linear)
+const task = await taskManager.getTask(taskId);
+const subtasks = await taskManager.getSubtasks(taskId);
+
+// Documentar no context.md
+console.log(`Provider: ${task.provider}`);
+console.log(`Task: ${task.name}`);
+console.log(`URL: ${task.url}`);
+```
+
+### **🎲 Validação de Story Points (Opcional mas Recomendado):**
+
+**CRÍTICO:** Antes de iniciar desenvolvimento, validar se task tem estimativa de story points:
+
+```typescript
+// Verificar se task tem story points estimados
+const storyPoints = task.customFields?.find(f => f.name === 'Story Points')?.value;
+
+if (!storyPoints || storyPoints === 0) {
+  console.warn(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ ATENÇÃO: TASK SEM ESTIMATIVA DE STORY POINTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 Task: ${task.name}
+🎲 Story Points: Não estimado
+
+💡 RECOMENDAÇÕES:
+∟ Estimar antes de iniciar desenvolvimento
+∟ Usar: /product/estimate "${task.name}"
+∟ Ou: @story-points-framework-specialist
+
+⚠️ Continuar sem estimativa pode afetar:
+   - Planejamento de sprint
+   - Tracking de velocity
+   - Previsibilidade de entrega
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  `);
+  
+  // Perguntar ao usuário se deseja estimar agora
+  const shouldEstimate = await askUser('Deseja estimar story points agora? (s/n)');
+  
+  if (shouldEstimate) {
+    // Invocar agente de estimativa
+    await invokeStoryPointsEstimation(task);
+  }
+} else if (storyPoints > 13) {
+  console.warn(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ ALERTA: TASK IDENTIFICADA COMO ÉPICO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 Task: ${task.name}
+🎲 Story Points: ${storyPoints} pontos
+
+💡 RECOMENDAÇÕES:
+∟ Considerar quebrar em múltiplas tasks menores
+∟ Usar: /product/refine para detalhar requisitos
+∟ Verificar se realmente precisa ser uma única task
+
+⚠️ Tasks > 13 pontos têm:
+   - Maior margem de erro na estimativa
+   - Risco de não caber no sprint
+   - Dificuldade de tracking de progresso
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  `);
+  
+  // Perguntar ao usuário se deseja continuar
+  const shouldContinue = await askUser('Deseja continuar mesmo assim? (s/n)');
+  if (!shouldContinue) {
+    console.log('💡 Sugestão: Use /product/refine para detalhar e quebrar a task');
+    return;
+  }
+} else {
+  console.log(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ VALIDAÇÃO DE ESTIMATIVA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 Task: ${task.name}
+🎲 Story Points: ${storyPoints} pontos
+
+✅ Estimativa válida para desenvolvimento
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  `);
+}
+```
+
+### **🔍 Validação de ID Incompatível:**
+Se o task-id salvo for de um provedor diferente do configurado:
+
+```
+⚠️ INCOMPATIBILIDADE DETECTADA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Task ID: "86adfe9eb"
+Provedor detectado: clickup
+Provedor configurado: asana
+
+💡 Ações sugeridas:
+   1. Altere TASK_MANAGER_PROVIDER para 'clickup' no .env
+   2. Ou limpe a sessão atual e crie uma nova task
+   3. Execute /meta/setup-integration para reconfigurar
+```
 
 ### **🔍 Questões de Análise:**
 Pense cuidadosamente sobre o que é solicitado, certifique-se de entender exatamente:
@@ -31,68 +161,47 @@ Pense cuidadosamente sobre o que é solicitado, certifique-se de entender exatam
     - Como deve ser testado?
     - Quais são as dependências?
     - Quais são as restrições?
-    - **NOVO**: Qual é o status atual dos checklists nativos? (se existirem)
 
 Após refletir sobre essas questões, formule as 3-5 clarificações mais importantes necessárias para completar a tarefa. Pergunte essas questões ao humano, enquanto também fornece seu entendimento e sugestões.
 
 Depois de obter as respostas do humano, considere se precisa fazer mais perguntas. Se sim, faça mais perguntas ao humano.
 
-Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature_slug>/context.md e peça ao humano para revisar.
+Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature-slug>/context.md e peça ao humano para revisar.
 
 Se o humano concordar com seu entendimento, você pode prosseguir para o próximo passo. Caso contrário, continue iterando juntos até obter aprovação explícita para seguir em frente.
 
-Se algo que você discutiu aqui afeta o que foi escrito nos requisitos, peça permissão ao humano para editar esses requisitos e fazer ajustes seja editando (mudanças estruturais) ou adicionando comentários (clarificações).
-
-Se o requisito estiver em um card do ClickUp, edite o card do ClickUp.
-Se o requisito for de um arquivo de texto, edite o arquivo de texto.
+Se algo que você discutiu aqui afeta o que foi escrito nos requisitos, peça permissão ao humano para editar esses requisitos e fazer ajustes.
 
 ## Arquitetura
 
-Dado seu entendimento do que será construído, você agora procederá ao desenvolvimento da arquitetura da funcionalidade. O documento de arquitetura deve mapear o que está sendo construído, os componentes, as dependências, os padrões, as tecnologias, as restrições, as suposições, os trade-offs, as alternativas, as consequências.
+Dado seu entendimento do que será construído, você agora procederá ao desenvolvimento da arquitetura da funcionalidade.
 
 É aqui que você colocará seu chapéu de pensamento ultra e considerará o melhor caminho para construir a funcionalidade, considerando também os padrões e melhores práticas deste projeto.
-
-Nesta seção, espera-se que você analise o código fonte relevante, entenda sua estrutura e propósito, e então construa uma arquitetura que se alinha com os padrões e melhores práticas do projeto.
-
-Dicas:
-   - Use mcp__RepoPrompt__search (se disponível) para encontrar arquivos específicos baseados nas respostas de descoberta
-   - Use mcp__RepoPrompt__set_selection e read_selected_files (se disponível) para ler código relevante em batch
-   - Mergulhe fundo em funcionalidades e padrões similares
-   - Analise detalhes específicos de implementação
-   - Use WebSearch e ou context7 para melhores práticas ou documentação de bibliotecas (se necessário)
 
 Seu documento de arquitetura deve incluir:
     - Uma visão geral de alto nível do sistema (antes e depois da mudança)
     - Componentes afetados e suas relações, dependências
     - Padrões e melhores práticas que serão mantidos ou introduzidos
-    - Dependências externas que serão usadas ou que precisam ser adicionadas ao projeto
+    - Dependências externas
     - Restrições e suposições
     - Trade-offs e alternativas
-    - Consequências negativas (se houver) da implementação deste design
     - Lista dos principais arquivos a serem editados/criados
 
-Se ajudar a construir um diagrama MERMAID, sinta-se livre para fazê-lo.
+Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature-slug>/architecture.md e peça ao humano para revisar.
 
-Se, a qualquer momento, você tiver dúvidas ou encontrar algo que contradiga o que entendeu anteriormente, peça esclarecimentos ao humano.
+## 🔄 **Auto-Update Task Manager**
 
-Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature_slug>/architecture.md e peça ao humano para revisar.
-
-Se o humano concordar com seu entendimento, você pode prosseguir para o próximo passo. Caso contrário, continue iterando juntos até obter aprovação explícita para seguir em frente.
-
-Uma vez que o architecture.md esteja finalizado, informe ao humano que você está pronto para prosseguir para o próximo passo.
-
-## 🔄 **Auto-Update ClickUp**
-
-Este comando **automaticamente atualiza** a task ClickUp quando inicia:
+Este comando **automaticamente atualiza** a task quando inicia:
 
 ### **✅ Updates Automáticos SEMPRE:**
-- **Status → "In Progress"** quando sessão tem task-id válido
-- **Comentário de início** com detalhes da arquitetura e plano
-- **Tag 'in-development'** para tracking de progresso
-- **Atualização do context.md** com informações arquiteturais
-
-### **💬 Formato do Comentário Automático:**
-```
+```typescript
+// Via abstração - funciona para qualquer provedor
+if (taskManager.isConfigured && taskId) {
+  // Atualizar status
+  await taskManager.updateStatus(taskId, 'in_progress');
+  
+  // Adicionar comentário de início
+  await taskManager.addComment(taskId, `
 🚀 DESENVOLVIMENTO INICIADO
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
@@ -100,46 +209,43 @@ Este comando **automaticamente atualiza** a task ClickUp quando inicia:
 🏗️ SESSÃO ATIVADA:
    ▶ Branch: feature/[slug]
    ▶ Sessão: .cursor/sessions/[slug]/
-   ▶ Arquitetura: Definida e validada
+   ▶ Provider: ${taskManager.provider}
 
 📋 PLANO DE IMPLEMENTAÇÃO:
    ∟ Fase 1: [Descrição]
-   ∟ Fase 2: [Descrição]
    ∟ Fase N: [Descrição]
-
-🎯 STACK TECNOLÓGICO:
-   ∟ [Tecnologias definidas na arquitetura]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
-⏰ Iniciado: [TIMESTAMP] | 🎯 Próximo: Implementar Fase 1
+⏰ Iniciado: ${new Date().toISOString()}
+  `);
+}
 ```
 
 ### **📋 Identificação da Task:**
 1. **Context.md**: Lê task-id do arquivo `.cursor/sessions/[slug]/context.md`
-2. **ClickUp MCP**: Usa `get_task` com `subtasks=true` para estrutura completa
+2. **Task Manager**: Usa `taskManager.getTask(taskId)` para estrutura completa
 3. **🆕 PHASE-SUBTASK MAPPING**: Cria mapeamento automático fase→subtask no context.md
-4. **Checklists Nativos**: Lê e incorpora checklists nativos na análise
-5. **Status Híbrido**: Combina informações de texto + checklists interativos
-6. **Não encontrada**: Pergunta ao usuário se deve vincular a uma task específica
+4. **Validação de ID**: Verifica compatibilidade do ID com provedor configurado
+5. **Não encontrada**: Pergunta ao usuário se deve vincular a uma task específica
 
 ### **🗺️ OBRIGATÓRIO: Criar Phase-Subtask Mapping**
 Quando subtasks existem, o sistema deve **automaticamente**:
-1. **Detectar subtasks** da task principal via ClickUp MCP
+1. **Detectar subtasks** via `taskManager.getSubtasks(taskId)`
 2. **Correlacionar com fases** do plan.md (por ordem ou nome)
 3. **Salvar mapeamento** no context.md para uso pelo `/engineer/work`
 4. **Validar correlação** e alertar se houver mismatch
-
-### **🔄 Monitoramento de Checklists:**
-- **Leitura automática** de todos os checklists nativos das subtasks
-- **Status tracking** de action items (resolved: true/false, unresolved count)
-- **Progress reporting** baseado em completion de checklists
-- **Documentação** da estrutura híbrida no context.md
 
 ## Pesquisa
 
 Se você não tem certeza de como uma biblioteca específica funciona, você pode usar Context7 e Perplexity para buscar informações sobre ela. Então, não tente adivinhar.
 
-<feature_slug>
+## 🔗 Referências
+
+- Abstração: `.cursor/utils/task-manager/`
+- Detector: `.cursor/utils/task-manager/detector.md`
+- Factory: `.cursor/utils/task-manager/factory.md`
+
+<feature-slug>
 #$ARGUMENTS
-</feature_slug>
+</feature-slug>

@@ -1,3 +1,13 @@
+---
+name: warm-up
+description: Preparar contexto geral do projeto. Revisa README e docs.
+model: sonnet
+category: general
+tags: [warmup, context, preparation]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # Preparação do Projeto
 
 Para se preparar para esta sessão, por favor:

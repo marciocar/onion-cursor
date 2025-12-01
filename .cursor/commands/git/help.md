@@ -1,3 +1,13 @@
+---
+name: help
+description: Ajuda contextual para comandos GitFlow do Sistema Onion.
+model: sonnet
+category: git
+tags: [help, gitflow, documentation]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🆘 Git Flow - Sistema de Ajuda
 
 Fornecer ajuda contextual e interativa para todos os comandos GitFlow do Sistema Onion. Detectar automaticamente o estado atual do repositório e sugerir próximos passos apropriados.

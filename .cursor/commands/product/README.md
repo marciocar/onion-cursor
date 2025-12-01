@@ -60,7 +60,18 @@ flowchart TD
 
 **Quando usar**: Análise de requisitos, tasks problemáticas
 
-### 4. **Outros comandos complementares**:
+### 4. **`/product/presentation <description>`** 🎨
+**Objetivo**: Criar apresentações profissionais via Gamma.app
+
+**O que faz**:
+- ✅ Analisa tipo de apresentação (tema, task, doc, métricas)
+- ✅ Coleta dados relevantes automaticamente
+- ✅ Orquestra pipeline completo de geração
+- ✅ Entrega apresentação pronta com links
+
+**Quando usar**: Criar pitch decks, case studies, relatórios, apresentações técnicas
+
+### 5. **Outros comandos complementares**:
 - **`/product/check`**: Verificação contra meta-specs
 - **`/product/spec`**: Criação de especificações
 - **`/product/collect`**: Coleta de informações
@@ -147,12 +158,31 @@ Todos os comandos seguem uma **estratégia consistente de atualização automát
 # ↳ AUTO: Comment validação + decisões estratégicas
 ```
 
+### **Cenário 4: Criar Apresentação**
+```bash
+# 1. Apresentação a partir de tema
+/product/presentation Crie apresentação sobre nova feature de IA para investidores
+# ↳ AUTO: Coleta dados + gera narrativa + diagramas + apresentação Gamma
+
+# 2. Apresentação a partir de task
+/product/presentation Transforme task #86abzwx0w em case study para stakeholders
+# ↳ AUTO: Busca task ClickUp + gera apresentação + comenta na task
+
+# 3. Apresentação técnica
+/product/presentation Converta docs/architecture.md em apresentação para time técnico
+# ↳ AUTO: Lê doc + adapta conteúdo + gera diagramas + apresentação
+
+# 4. Relatório de métricas
+/product/presentation Crie relatório com métricas do Q4 2024
+# ↳ AUTO: Busca dados + cria gráficos + apresentação data-driven
+```
+
 ## 📁 **Estrutura da Sessão**
 
 Quando você usa `/product/task`, é criada esta estrutura:
 
 ```
-.cursor/sessions/<task-slug>/
+.cursor/sessions/<feature-slug>/
 ├── context.md          # Contexto e objetivos
 ├── architecture.md     # Arquitetura técnica (criado por /engineer/start)
 ├── plan.md            # Plano de implementação por fases
@@ -177,6 +207,7 @@ Depois de criar uma task com `/product/task`:
 
 ### **✅ Updates Automáticos**
 - **`/product/task`**: Comment setup + tags automáticas
+- **`/product/presentation`**: Comment com links da apresentação (se baseada em task)
 - **`/engineer/start`**: Status → "In Progress" + comment início  
 - **`/engineer/work`**: Comments de progresso por fase
 - **`/engineer/pre-pr`**: Comment checklist + tags qualidade

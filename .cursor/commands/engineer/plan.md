@@ -1,3 +1,12 @@
+---
+name: plan
+description: Planejamento de feature. Analisa e cria plano estruturado.
+model: sonnet
+category: engineer
+tags: [planning, architecture, design]
+version: "3.0.0"
+updated: "2025-11-24"
+---
 
 # Engineer Reason
 
@@ -9,7 +18,7 @@ Este é o comando para iniciar o planejamento de uma funcionalidade.
 
 ## Análise
 
-Leia os arquivos context.md e architecture.md na pasta .cursor/sessions/<feature_slug> se ainda não tiver feito.
+Leia os arquivos context.md e architecture.md na pasta .cursor/sessions/<feature-slug> se ainda não tiver feito.
 
 Sua tarefa agora é criar um plano de implementação detalhado (plan.md) para esta funcionalidade. O objetivo desta documentação é criar uma abordagem de implementação faseada que nos permita construir a funcionalidade incrementalmente, testando cada fase conforme avançamos. E também deve tornar possível retomar o trabalho caso nossa sessão seja interrompida.
 

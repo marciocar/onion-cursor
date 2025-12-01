@@ -1,3 +1,13 @@
+---
+name: pr-update
+description: Atualizar PR existente com mudanças adicionais.
+model: sonnet
+category: engineer
+tags: [pr, update, git]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🔄 Engineer PR Update
 
 Atualizar um Pull Request existente com mudanças adicionais. Este comando automatiza o processo completo de commit, push e documentação quando você já executou `/engineer/pr` mas fez mudanças subsequentes.
@@ -44,30 +54,24 @@ Atualizar um Pull Request existente com mudanças adicionais. Este comando autom
 - Valida se task está em status "in progress" com tag "under-review"
 
 ### Comentário Automático Padronizado
-Adiciona comentário formatado na task ClickUp:
+
+**Chamar abstração MCP para documentação de atualização:**
+
+```typescript
+// Ao atualizar PR com novos commits, chamar:
+await commentPRUpdated(taskId, {
+  commitType: "fix|feat|refactor|docs|chore",
+  commitHash: "[hash do commit]",
+  filesModified: N,
+  linesAdded: N,
+  linesRemoved: N,
+  description: "[descrição das mudanças]"
+});
 ```
-📝 PR ATUALIZADO - [COMMIT_TYPE]
 
-━━━━━━━━━━━━━━━━━━━━━━━━
-
-🔄 COMMIT ADICIONAL REALIZADO:
-   ▶ Commit: [HASH]
-   ▶ Tipo: [TYPE]
-   ▶ Arquivos: [N] modificados ([+X/-Y] lines)
-
-🛠️ MUDANÇAS IMPLEMENTADAS:
-   ∟ [Lista automática baseada nos arquivos]
-
-✅ STATUS DO PR:
-   ∟ Branch: [BRANCH_NAME]
-   ∟ Commit anterior: [PREVIOUS_HASH]
-   ∟ Commit atual: [CURRENT_HASH]
-   ∟ Status: ✅ Ready for review
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-
-⏰ Updated: [TIMESTAMP] | 🚀 Next: Review & merge
-```
+**Referências:**
+- **Padrão 4 (PR Atualizada)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
+- **Abstração MCP**: `commentPRUpdated()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 632-661)
 
 ## ⚙️ Processo Automático
 

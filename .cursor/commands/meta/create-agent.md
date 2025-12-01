@@ -1,157 +1,210 @@
-# Comando Criar Agente
-
-Você tem a tarefa de criar um novo sub-agente do Cursor baseado nos requisitos do usuário. Siga esta abordagem sistemática para construir um agente bem estruturado.
-
-## Requisitos do Usuário
-<requirements>
-#$ARGUMENTS
-</requirements>
-
-## Processo
-
-### 1. Entender o Propósito do Agente
-Primeiro, analise o que o usuário quer que este agente faça:
-- Qual é a responsabilidade principal do agente?
-- Que tarefas ele executará?
-- O que torna este agente especializado?
-
-### 2. Definir Configuração do Agente
-Com base nos requisitos, determine:
-- **Nome**: Crie um identificador em minúsculas, separado por hífens
-- **Descrição**: Escreva uma descrição especializada clara e concisa do propósito do agente
-- **Categoria**: Identifique a categoria funcional (Development, Testing, Review, Research, Architecture, Documentation, Product)
-- **Modelo**: Selecione `sonnet` (eficiência) ou `opus` (análise complexa)
-- **Cor**: Atribua cor baseada na categoria funcional
-- **Priority**: Defina prioridade (alta, media, baixa)
-- **Ferramentas**: Selecione ferramentas especializadas por categoria
-- **Expertise**: Defina tags de especialidade técnica
-
-### 3. Seleção de Ferramentas Especializadas por Categoria
-
-**🔵 DEVELOPMENT AGENTS (blue):**
-```yaml
-tools: read_file, write, search_replace, MultiEdit, run_terminal_cmd, read_lints, todo_write, codebase_search
-```
-*Para*: python-developer, react-developer, etc.
-
-**🔷 TESTING AGENTS (cyan):**
-```yaml
-tools: read_file, write, MultiEdit, run_terminal_cmd, grep, codebase_search, read_lints, list_dir
-```
-*Para*: test-engineer, test-planner, branch-test-planner
-
-**🟢 REVIEW AGENTS (green):**
-```yaml
-tools: read_file, codebase_search, grep, read_lints, MultiEdit, todo_write, run_terminal_cmd
-```
-*Para*: code-reviewer, branch-code-reviewer
-
-**🟣 RESEARCH AGENTS (purple):**
-```yaml
-tools: read_file, codebase_search, web_search, grep, list_dir, mcp_context7-mcp_resolve-library-id, mcp_context7-mcp_get-library-docs, MultiEdit, todo_write
-```
-*Para*: research-agent
-
-**🔴 ARCHITECTURE AGENTS (red):**
-```yaml
-tools: read_file, codebase_search, grep, MultiEdit, todo_write, web_search, list_dir
-```
-*Para*: metaspec-gate-keeper, branch-metaspec-checker
-
-**🟠 DOCUMENTATION AGENTS (orange):**
-```yaml
-tools: read_file, write, search_replace, MultiEdit, codebase_search, web_search, grep, list_dir
-```
-*Para*: documentation-writer
-
-**🟡 PRODUCT AGENTS (yellow):**
-```yaml
-tools: read_file, write, codebase_search, web_search, todo_write, mcp_clickup-mcp-server_create_task, mcp_clickup-mcp-server_update_task, mcp_clickup-mcp-server_get_task, mcp_clickup-mcp-server_create_task_comment
-```
-*Para*: product-agent
-
-**Outras ferramentas disponíveis:**
-- **Notebooks**: edit_notebook, read_file (para .ipynb)
-- **Terminal**: run_terminal_cmd
-- **Web**: web_search
-- **File operations**: delete_file, glob_file_search
-- **MCP Tools**: Várias ferramentas mcp_* para integrações específicas
-
-Selecione o conjunto de ferramentas baseado na categoria funcional do agente. Use acesso mínimo às ferramentas por segurança.
-
-### 4. Projetar o Prompt do Sistema
-Crie um prompt do sistema detalhado que:
-- Define claramente o papel e expertise do agente
-- Fornece instruções passo a passo para completar suas tarefas
-- Inclui qualquer restrição ou diretriz
-- Especifica requisitos de formato de saída
-- Contém exemplos se úteis
-
-### 5. Criar o Arquivo do Agente
-Gere o arquivo .md com header YAML padronizado:
-```markdown
 ---
-name: [nome-do-agente]
-description: [descrição especializada clara e específica do propósito do agente]
-model: [sonnet|opus - baseado na complexidade da tarefa]
-tools: [ferramentas especializadas por categoria, separadas por vírgulas]
-color: [cor baseada na categoria funcional]
-priority: [alta|media|baixa - baseado na criticidade]
-expertise: ["tag1", "tag2", "tag3"] # Array de especialidades técnicas
+name: create-agent
+description: |
+  Criação inteligente de agentes Cursor com análise de contexto.
+  Use para criar novos agentes que se integram ao ecossistema Onion.
+model: sonnet
+
+parameters:
+  - name: agent_name
+    description: Nome do agente em kebab-case
+    required: true
+  - name: category
+    description: Categoria (development/product/meta/compliance/etc)
+    required: false
+  - name: expertise
+    description: Áreas de especialização
+    required: false
+
+category: meta
+tags:
+  - agent-creation
+  - meta
+  - automation
+
+version: "3.0.0"
+updated: "2025-11-24"
+
+related_commands:
+  - /meta/create-command
+  - /meta/create-agent-express
+
+related_agents:
+  - agent-creator-specialist
+  - onion
 ---
 
-[Prompt do sistema detalhado com instruções claras]
+# 🤖 Criar Agente Inteligente
+
+Arquiteto de agentes para criar agentes contextualizados no Sistema Onion.
+
+## 🎯 Objetivo
+
+Criar agentes que se integram ao ecossistema existente seguindo padrões v3.0.
+
+## ⚡ Fluxo de Execução
+
+### Passo 1: Análise de Contexto
+
+```bash
+# Listar agentes existentes
+ls .cursor/agents/*/*.md | wc -l
+
+# Verificar categoria existe
+ls .cursor/agents/{{category}}/ 2>/dev/null || echo "Nova categoria"
+
+# Verificar duplicação
+grep -l "name: {{agent_name}}" .cursor/agents/**/*.md
 ```
 
-**Template de Header Otimizado:**
+### Passo 2: Determinar Categoria
+
+SE `{{category}}` fornecido → usar diretamente
+SENÃO → inferir da expertise:
+
+| Expertise | Categoria |
+|-----------|-----------|
+| react, node, typescript | `development` |
+| tasks, specs, features | `product` |
+| git, branch, pr | `git` |
+| iso, compliance, security | `compliance` |
+| docs, writing | `review` |
+| test, coverage | `testing` |
+| commands, agents | `meta` |
+
+### Passo 3: Gerar Estrutura
+
+Usar template padrão de `common/templates/agent-template.md`:
+
 ```yaml
 ---
-name: example-agent
-description: Especialista em [área] que [ação principal]. Use para [casos de uso específicos].
-model: sonnet  # ou opus para análise complexa
-tools: read_file, write, codebase_search, todo_write  # ferramentas especializadas
-color: blue    # baseado na categoria (blue|cyan|green|purple|red|orange|yellow)
-priority: alta  # alta|media|baixa
-expertise: ["specialty1", "specialty2", "specialty3"]
+name: {{agent_name}}
+description: |
+  [Descrição em 2 linhas]
+  Use para [caso de uso principal].
+model: sonnet
+tools:
+  - read_file
+  - write
+  - search_replace
+  - codebase_search
+  - grep
+  - list_dir
+  - web_search
+  - todo_write
+
+color: [cor apropriada]
+priority: [alta/média/baixa]
+category: {{category}}
+
+expertise:
+  - [area-1]
+  - [area-2]
+  - [area-3]
+
+related_agents:
+  - [agente-relacionado-1]
+
+related_commands:
+  - [/comando-relacionado]
+
+version: "3.0.0"
+updated: "[data atual]"
 ---
+
+# Você é o [Nome do Agente]
+
+## 🎯 Filosofia Core
+
+[Descrição da filosofia e propósito]
+
+## 🔧 Áreas de Especialização
+
+### 1. [Área 1]
+[Detalhes]
+
+### 2. [Área 2]
+[Detalhes]
+
+## 📋 Processo de Trabalho
+
+[Workflow do agente]
+
+## ⚠️ Regras
+
+- [Regra 1]
+- [Regra 2]
 ```
 
-IMPORTANTE: a extensão do arquivo deve ser .md, não .yaml
+### Passo 4: Validações Obrigatórias
 
-### 6. Implementação
-- Crie o arquivo em `.cursor/agents/[nome-do-agente].md`
-- Torne o prompt do sistema abrangente mas focado
+**CRÍTICO**: Executar TODAS as validações antes de criar:
 
-### 7. Confirmar Criação
-Após criar o agente, confirme que o arquivo foi criado com sucesso
+```bash
+# 1. DUPLICAÇÃO - Verificar nome único
+if grep -r "^name: {{agent_name}}$" .cursor/agents/ 2>/dev/null; then
+  echo "❌ ERRO: Agente '{{agent_name}}' já existe!"
+  exit 1
+fi
 
-## Melhores Práticas Otimizadas
+# 2. CATEGORIA - Verificar categoria válida
+VALID_CATEGORIES="development product compliance meta review testing research git"
+if [[ ! " $VALID_CATEGORIES " =~ " {{category}} " ]]; then
+  echo "❌ ERRO: Categoria '{{category}}' inválida!"
+  echo "Válidas: $VALID_CATEGORIES"
+  exit 1
+fi
 
-### **📋 Header YAML:**
-- **Headers padronizados**: Sempre incluir todos os campos (name, description, model, tools, color, priority, expertise)
-- **Descriptions específicas**: Seja claro sobre quando usar o agente
-- **Model selection**: `sonnet` para eficiência, `opus` para análise complexa
+# 3. EXPERTISE - Verificar 3-5 áreas
+EXPERTISE_COUNT=$(echo "{{expertise}}" | tr ',' '\n' | wc -l)
+if [ "$EXPERTISE_COUNT" -lt 3 ] || [ "$EXPERTISE_COUNT" -gt 5 ]; then
+  echo "⚠️ AVISO: Expertise deve ter 3-5 áreas (atual: $EXPERTISE_COUNT)"
+fi
+```
 
-### **🎨 Categorização:**
-- **Sistema de cores lógico**: Use cores baseadas na função (Development=blue, Testing=cyan, etc.)
-- **Priority apropriada**: `alta` para agentes críticos, `media`/`baixa` para suporte
-- **Expertise tags**: Array de especialidades técnicas para descoberta
+**Checklist de Validação:**
+- [ ] Nome único (não existe em `.cursor/agents/`)
+- [ ] Categoria válida (development|product|compliance|meta|review|testing|research|git)
+- [ ] Expertise definida (3-5 áreas)
+- [ ] YAML header completo
+- [ ] < 300 linhas
 
-### **🛠️ Ferramentas:**
-- **Especializadas por categoria**: Use ferramentas apropriadas para o tipo de agente
-- **Acesso mínimo**: Apenas ferramentas necessárias por segurança
-- **MCP integration**: Inclua ferramentas MCP quando relevante (ClickUp, Context7, etc.)
+### Passo 5: Criar Arquivo
 
-### **✍️ Prompt do Sistema:**
-- **Agentes focados**: Uma responsabilidade principal clara
-- **Prompts acionáveis**: Instruções passo-a-passo específicas
-- **Exemplos práticos**: Inclua para tarefas complexas
-- **Tratamento de erro**: Considere casos extremos
-- **Formatos explícitos**: Especifique outputs esperados
+```bash
+write .cursor/agents/{{category}}/{{agent_name}}.md
+```
 
-### **🔍 Validação:**
-- **Teste funcionalidade**: Verifique que o agente funciona como esperado
-- **Linting**: Garanta que não há erros no arquivo markdown
-- **Consistency**: Mantenha padrão com outros agentes da categoria
+## 📤 Output Esperado
 
-Agora, analise os requisitos e comece a criar o agente seguindo este processo.
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ AGENTE CRIADO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 Arquivo: .cursor/agents/{{category}}/{{agent_name}}.md
+
+📋 Detalhes:
+∟ Nome: {{agent_name}}
+∟ Categoria: {{category}}
+∟ Expertise: [áreas]
+
+🔗 Relacionamentos:
+∟ Agentes: [lista]
+∟ Comandos: [lista]
+
+🚀 Para usar: @{{agent_name}}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+## 🔗 Referências
+
+- Template: `common/templates/agent-template.md`
+- Padrões: `docs/knowbase/concepts/ai-agent-design-patterns.md`
+- Agente: @agent-creator-specialist
+
+## ⚠️ Notas
+
+- Sempre validar duplicação antes de criar
+- Usar modelo `sonnet` como padrão
+- Não adicionar MCPs em agentes genéricos

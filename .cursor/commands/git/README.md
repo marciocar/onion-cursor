@@ -501,7 +501,7 @@ Next time: /git/sync will use existing develop branch
 
 ### **Nomenclatura de Branches:**
 ```
-feature/task-slug        # Features normais
+feature/<feature-slug>   # Features normais
 hotfix/critical-fix      # Correções urgentes  
 release/v1.2.0          # Preparação de releases
 bugfix/issue-123        # Correções de bugs

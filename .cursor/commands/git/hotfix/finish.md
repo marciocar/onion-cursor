@@ -1,3 +1,13 @@
+---
+name: finish
+description: Finalizar hotfix com merge para main e develop, tag e deploy.
+model: sonnet
+category: git
+tags: [hotfix, gitflow, deploy]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # ✅ Git Flow - Finalizar Hotfix
 
 Finalizar correção emergencial realizando deploy para produção com merge em main/master e develop, criação de tags emergenciais e cleanup. Workflow crítico para release de emergency fixes.
