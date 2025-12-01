@@ -4,7 +4,7 @@ description: Regras de validação para agentes, comandos e estruturas do Sistem
 tags: [validation, quality, standards, checklist]
 priority: high
 version: 3.0.0
-globs: [".cursor/**/*"]
+globs: [".cursor/**"]
 alwaysApply: false
 ---
 

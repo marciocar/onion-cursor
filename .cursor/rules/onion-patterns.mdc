@@ -1,13 +1,8 @@
 ---
-title: Onion System Patterns
 description: Padrões de nomenclatura, estrutura e convenções do Sistema Onion
-tags: [onion, patterns, conventions, standards]
-priority: high
-version: 3.0.0
-globs: [".cursor/**/*"]
+globs: .cursor/**
 alwaysApply: false
 ---
-
 # 🧅 Padrões do Sistema Onion
 
 ## 🎯 Objetivo

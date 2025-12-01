@@ -78,22 +78,22 @@ SENÃO → usar detecção automática
 
 2. **Gerar Template**
    Criar `.github/workflows/code-review.yml`:
-   ```yaml
+```yaml
    name: ChatGPT Code Review
-   
-   on:
-     pull_request:
+
+on:
+  pull_request:
        types: [opened, synchronize]
-   
-   jobs:
+
+jobs:
      review:
-       runs-on: ubuntu-latest
-       steps:
+    runs-on: ubuntu-latest
+    steps:
          - uses: actions/checkout@v4
          - uses: anc95/ChatGPT-CodeReview@main
-           env:
-             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-             OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
    ```
 
 3. **Aplicar Configurações por Stack**

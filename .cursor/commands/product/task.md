@@ -145,7 +145,7 @@ Via abstração (consultar adapter do provedor configurado):
      `📊 Complexidade: ${complexity}\n` +
      `📈 Estimativa: ${estimate}`
    );
-   ```
+```
 
 ### Passo 6: Apresentar Resultado
 
