@@ -1,3 +1,13 @@
+---
+name: all-tools
+description: Documentação de todas as ferramentas disponíveis no Cursor.
+model: sonnet
+category: meta
+tags: [tools, documentation, reference]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # Listagem de Todas as Ferramentas
 
 ## 🎯 Objetivo

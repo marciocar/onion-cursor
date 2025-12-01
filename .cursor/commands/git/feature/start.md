@@ -1,3 +1,13 @@
+---
+name: start
+description: Iniciar feature branch GitFlow com ambiente configurado.
+model: sonnet
+category: git
+tags: [feature, gitflow, branch]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🌿 Git Flow - Iniciar Feature
 
 Iniciar desenvolvimento de uma nova funcionalidade criando uma branch GitFlow apropriada e configurando ambiente de desenvolvimento. Integração obrigatória com @gitflow-specialist para guidance especializada.

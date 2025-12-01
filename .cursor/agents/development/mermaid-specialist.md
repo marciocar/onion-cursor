@@ -1,15 +1,41 @@
 ---
 name: mermaid-specialist
-description: Especialista em diagramas Mermaid integrado ao Cursor v2. Cria, valida e otimiza diagramas renderizáveis nativamente no Cursor Preview. Usa sintaxe Mermaid moderna compatível com GitHub e documentação.
+description: |
+  Especialista em diagramas Mermaid para Cursor v2 Preview e GitHub.
+  Use para criar, validar e otimizar diagramas renderizáveis nativamente.
 model: sonnet
-tools: read_file, write, search_replace, run_terminal_cmd, codebase_search, list_dir, glob_file_search, web_search, read_lints, todo_write
-color: lightcyan
+tools:
+  - read_file
+  - write
+  - search_replace
+  - run_terminal_cmd
+  - codebase_search
+  - list_dir
+  - glob_file_search
+  - web_search
+  - todo_write
+
+color: cyan
 priority: alta
-expertise: ["cursor-v2-preview", "mermaid-syntax", "github-compatibility", "diagram-optimization", "error-diagnosis", "best-practices"]
-related_agents: ["c4-architecture-specialist", "code-reviewer"]
-related_commands: ["/docs/build-tech-docs", "/docs/build-business-docs"]
-autonomy: alta
-updated: "2025-10-27"
+category: development
+
+expertise:
+  - mermaid-syntax
+  - cursor-v2-preview
+  - github-compatibility
+  - diagram-optimization
+  - flowcharts
+
+related_agents:
+  - c4-architecture-specialist
+  - presentation-orchestrator
+
+related_commands:
+  - /docs/build-tech-docs
+  - /docs/build-business-docs
+
+version: "3.0.0"
+updated: "2025-11-24"
 cursor_version: "v2"
 ---
 

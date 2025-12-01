@@ -1,20 +1,39 @@
-# 🎯 Criar Feature - Task ClickUp para Planejamento
+---
+name: feature
+description: Criar task de feature no gerenciador configurado para planejamento e backlog.
+model: sonnet
+category: product
+tags: [feature, task-manager, backlog]
+version: "3.0.0"
+updated: "2025-11-24"
 
-Você é um assistente de IA especializado em **criar tasks de feature no ClickUp para planejamento e backlog** seguindo o padrão do Sistema Onion. Seu papel é criar tasks de backlog para organização e priorização sem iniciar desenvolvimento.
+related_commands:
+  - /product/estimate
+  - /product/task
+
+related_agents:
+  - story-points-framework-specialist
+  - product-agent
+---
+
+# 🎯 Criar Feature - Task para Planejamento
+
+Você é um assistente de IA especializado em **criar tasks de feature no gerenciador configurado (via Task Manager abstraction) para planejamento e backlog** seguindo o padrão do Sistema Onion. Seu papel é criar tasks de backlog para organização e priorização sem iniciar desenvolvimento.
 
 ## 🎯 **Funcionalidades**
 
 ### **📋 Criar Task Backlog:**
-- Criar task ClickUp com tag "backlog" 
+- Criar task no gerenciador configurado com tag "backlog" 
 - Status: "Backlog" (aguardando planejamento e priorização)
-- Lista: Mesma lista da sessão atual ou lista padrão
-- Auto-detecção de contexto e projeto
+- Projeto/Lista: Mesmo projeto da sessão atual ou projeto padrão
+- Auto-detecção de contexto e projeto via Task Manager
 
 ### **🔗 Integração Inteligente:**
-- Auto-detecção da lista ClickUp atual
+- Auto-detecção do projeto/lista atual via Task Manager
 - Herda contexto da sessão ativa (se houver)
 - Links com tasks relacionadas
 - Tags apropriadas para categorização
+- Suporta múltiplos provedores (ClickUp, Asana, Linear)
 
 ---
 
@@ -57,37 +76,36 @@ echo "🎯 Creating feature planning task: $FEATURE_NAME"
 echo "📝 Feature slug: $FEATURE_SLUG"
 ```
 
-### **2. Detecção de Contexto ClickUp**
-```bash
-# Detectar lista ClickUp da sessão atual
-function get_current_list_id() {
-    # Tentar obter de sessão ativa
-    if find .cursor/sessions -name "context.md" -type f 2>/dev/null | head -1 | xargs grep "ID ClickUp" 2>/dev/null; then
-        CURRENT_TASK_ID=$(find .cursor/sessions -name "context.md" -type f 2>/dev/null | head -1 | xargs grep "ID ClickUp" | cut -d: -f2 | xargs)
-        
-        # Obter lista da task atual via ClickUp API
-        if [ "$CURRENT_TASK_ID" != "" ]; then
-            echo "🔍 Detecting list from current task: $CURRENT_TASK_ID"
-            LIST_ID=$(curl -s -H "Authorization: Bearer $CLICKUP_TOKEN" \
-                "https://api.clickup.com/api/v2/task/$CURRENT_TASK_ID" | \
-                jq -r '.list.id' 2>/dev/null)
-            
-            if [ "$LIST_ID" != "" ] && [ "$LIST_ID" != "null" ]; then
-                echo "$LIST_ID"
-                return 0
-            fi
-        fi
-    fi
-    
-    # Fallback: usar lista padrão "Desenvolvimento" se não conseguir detectar
-    echo "901314121395"  # ID da lista Desenvolvimento
+### **2. Detecção de Contexto via Task Manager**
+
+**IMPORTANTE:** Use Task Manager abstraction para detectar contexto independente do provedor:
+
+```typescript
+// Via abstração - funciona para qualquer provedor (ClickUp, Asana, Linear)
+const taskManager = getTaskManager();
+
+// Detectar projeto/lista da sessão atual
+function getCurrentProjectId() {
+  // Tentar obter de sessão ativa
+  const sessionContext = readSessionContext();
+  if (sessionContext?.taskId) {
+    const currentTask = await taskManager.getTask(sessionContext.taskId);
+    if (currentTask?.projectId) {
+      return currentTask.projectId;
+    }
+  }
+  
+  // Fallback: usar projeto padrão configurado
+  return taskManager.defaultProjectId;
 }
 
-LIST_ID=$(get_current_list_id)
-echo "📋 Target list ID: $LIST_ID"
+const projectId = getCurrentProjectId();
+console.log(`📋 Target project/list ID: ${projectId}`);
 ```
 
-### **3. Criação da Task ClickUp**
+**Nota:** Se o comando ainda usar código bash direto, atualizar para usar Task Manager abstraction quando possível.
+
+### **3. Criação da Task via Task Manager**
 ```bash
 # Preparar dados da task
 TASK_TITLE="🚀 $FEATURE_NAME"
@@ -151,28 +169,78 @@ $FEATURE_NAME
 
 **Criada automaticamente pelo Sistema Onion** 🧅"
 
-# Criar task via ClickUp API
-echo "🚀 Creating ClickUp planning task..."
+# Criar task via Task Manager abstraction
+console.log("🚀 Creating feature planning task via Task Manager...");
 
-RESPONSE=$(curl -s -X POST "https://api.clickup.com/api/v2/list/$LIST_ID/task" \
-    -H "Authorization: Bearer $CLICKUP_TOKEN" \
-    -H "Content-Type: application/json" \
-    -d "{
-        \"name\": \"$TASK_TITLE\",
-        \"markdown_description\": \"$TASK_DESCRIPTION\",
-        \"status\": \"backlog\",
-        \"priority\": 3,
-        \"tags\": [\"feature\", \"backlog\", \"planning\"]
-    }")
+const taskManager = getTaskManager();
+const task = await taskManager.createTask({
+  name: TASK_TITLE,
+  projectId: projectId,
+  markdownDescription: TASK_DESCRIPTION,
+  status: 'backlog',
+  priority: 'medium',
+  tags: ['feature', 'backlog', 'planning']
+});
 
-# Extrair ID da task criada
-TASK_ID=$(echo "$RESPONSE" | jq -r '.id' 2>/dev/null)
+const TASK_ID = task.id;
+console.log(`✅ Task created: ${TASK_ID}`);
 ```
 
-### **4. Resultado e Links**
+### **4. Estimar Story Points (Automático)**
+
+**CRÍTICO:** Após criar task, SEMPRE estimar story points automaticamente.
+
+```markdown
+@story-points-framework-specialist
+
+Por favor, analise e estime a seguinte feature de backlog:
+
+**Feature:** $FEATURE_NAME
+**Descrição:** [descrição da feature]
+**Status:** Backlog (planejamento inicial)
+
+Forneça estimativa inicial de story points para planejamento.
+```
+
+**Atualizar Task com Estimativa:**
+
+```bash
+# Obter estimativa via agente
+ESTIMATE_RESPONSE=$(invoke_agent_story_points "$FEATURE_NAME")
+
+# Extrair story points
+STORY_POINTS=$(echo "$ESTIMATE_RESPONSE" | extract_story_points)
+
+# Atualizar task com custom field Story Points
+if [ "$STORY_POINTS" != "" ]; then
+    echo "📊 Updating task with story points: $STORY_POINTS"
+    
+    // Atualizar custom field via Task Manager
+    await taskManager.updateTask(TASK_ID, {
+      customFields: {
+        'Story Points': STORY_POINTS
+      }
+    });
+    
+    // Adicionar comentário com análise via Task Manager
+    const ESTIMATE_ANALYSIS = extractAnalysis(ESTIMATE_RESPONSE);
+    
+    await taskManager.addComment(TASK_ID, 
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+      '📊 ESTIMATIVA INICIAL DE STORY POINTS\n' +
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n' +
+      `🎲 Story Points: ${STORY_POINTS} pontos\n\n` +
+      `⚡ ANÁLISE:\n${ESTIMATE_ANALYSIS}\n\n` +
+      '💡 NOTA: Esta é uma estimativa inicial para planejamento. Pode ser refinada durante o refinement.\n' +
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+    );
+fi
+```
+
+### **5. Resultado e Links**
 ```bash
 if [ "$TASK_ID" != "" ] && [ "$TASK_ID" != "null" ]; then
-    TASK_URL="https://app.clickup.com/t/$TASK_ID"
+    TASK_URL = task.url; // Via Task Manager abstraction
     
     echo ""
     echo "✅ FEATURE PLANNING TASK CREATED SUCCESSFULLY!"
@@ -187,6 +255,11 @@ if [ "$TASK_ID" != "" ] && [ "$TASK_ID" != "null" ]; then
     echo ""
     echo "🏷️  TAGS: feature, backlog, planning"
     echo "📝 DESCRIPTION: Auto-generated with development workflow"
+    echo ""
+    if [ "$STORY_POINTS" != "" ]; then
+        echo "🎲 STORY POINTS: $STORY_POINTS pontos (estimativa inicial)"
+        echo ""
+    fi
     echo ""
     echo "🎯 NEXT STEPS:"
     echo "   ∟ Add details: Open $TASK_URL"
@@ -228,25 +301,25 @@ if [ "$TASK_ID" != "" ] && [ "$TASK_ID" != "null" ]; then
 
 ⏰ Criada: $(date +'%Y-%m-%d %H:%M:%S') | 🧅 Sistema Onion"
 
-    # Adicionar comentário (graceful degradation)
-    curl -s -X POST "https://api.clickup.com/api/v2/task/$TASK_ID/comment" \
-        -H "Authorization: Bearer $CLICKUP_TOKEN" \
-        -H "Content-Type: application/json" \
-        -d "{\"comment_text\":\"$INITIAL_COMMENT\"}" > /dev/null || \
-        echo "⚠️  Comment creation failed - task created successfully anyway"
+    # Adicionar comentário via Task Manager (graceful degradation)
+    // Via Task Manager abstraction
+    await taskManager.addComment(TASK_ID, INITIAL_COMMENT).catch(() => {
+      console.warn("⚠️  Comment creation failed - task created successfully anyway");
+    });
         
 else
-    echo "❌ FAILED TO CREATE CLICKUP TASK"
-    echo ""
-    echo "💡 POSSIBLE CAUSES:"
-    echo "   ∟ ClickUp API token not configured"
-    echo "   ∟ Invalid list ID or permissions"  
-    echo "   ∟ Network connectivity issues"
-    echo ""
-    echo "🔧 TROUBLESHOOTING:"
-    echo "   ∟ Check CLICKUP_TOKEN environment variable"
-    echo "   ∟ Verify list permissions and ID"
-    echo "   ∟ Try manual task creation as fallback"
+    console.error("❌ FAILED TO CREATE TASK");
+    console.error("");
+    console.error("💡 POSSIBLE CAUSES:");
+    console.error("   ∟ Task Manager provider not configured");
+    console.error("   ∟ Invalid project/list ID or permissions");  
+    console.error("   ∟ Network connectivity issues");
+    console.error("");
+    console.error("🔧 TROUBLESHOOTING:");
+    console.error("   ∟ Check TASK_MANAGER_PROVIDER environment variable");
+    console.error("   ∟ Verify project/list permissions and ID");
+    console.error("   ∟ Execute /meta/setup-integration to configure");
+    console.error("   ∟ Try manual task creation as fallback");
     echo ""
     echo "📖 MANUAL FALLBACK:"
     echo "   ∟ Create task manually: '$TASK_TITLE'"
@@ -297,16 +370,16 @@ fi
 📖 USAGE: /product/feature "feature-name-or-description"
 ```
 
-### **Erro: ClickUp API falhou**
+### **Erro: Task Manager falhou**
 ```
-❌ FAILED TO CREATE CLICKUP TASK
-🔧 Check CLICKUP_TOKEN and permissions
+❌ FAILED TO CREATE TASK
+🔧 Check TASK_MANAGER_PROVIDER configuration and permissions
 📖 Create task manually as fallback
 ```
 
 ### **Erro: Lista não encontrada**
 ```
-❌ ERROR: Unable to detect ClickUp list
+❌ ERROR: Unable to detect project/list via Task Manager
 💡 Run from active session or configure default list
 ```
 

@@ -1,7 +1,39 @@
 ---
 name: linux-security-specialist
-description: Especialista em segurança Linux para hardening, auditoria, firewall, SELinux/AppArmor e resposta a incidentes
-tools: read_file, write, search_replace, grep, codebase_search, list_dir, glob_file_search, run_terminal_cmd, todo_write, update_memory, web_search
+description: |
+  Especialista em segurança Linux para hardening, auditoria e resposta a incidentes.
+  Use para firewall, SELinux/AppArmor, análise forense e conformidade de sistemas.
+model: sonnet
+tools:
+  - read_file
+  - write
+  - search_replace
+  - grep
+  - codebase_search
+  - list_dir
+  - glob_file_search
+  - run_terminal_cmd
+  - web_search
+  - todo_write
+
+color: red
+priority: alta
+category: development
+
+expertise:
+  - linux-hardening
+  - security-audit
+  - firewall-management
+  - selinux-apparmor
+  - incident-response
+
+related_agents:
+  - iso-27001-specialist
+
+related_commands: []
+
+version: "3.0.0"
+updated: "2025-11-24"
 ---
 
 # Role

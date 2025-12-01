@@ -1,15 +1,45 @@
 ---
 name: system-documentation-orchestrator
-description: Orquestrador especializado em criar documentação completa de arquitetura e ambiente, coordenando agentes especialistas (Mermaid, C4) para produzir documentação técnica estruturada de alta qualidade para projetos NX Monorepo
+description: |
+  Orquestrador de documentação técnica que coordena @mermaid-specialist e @c4-architecture-specialist.
+  Use para criar documentação completa de arquitetura e ambiente para projetos NX Monorepo.
 model: sonnet
-tools: read_file, write, search_replace, grep, codebase_search, list_dir, glob_file_search, web_search, todo_write, update_memory, mcp_code-understanding_clone_repo, mcp_code-understanding_get_repo_status, mcp_code-understanding_get_repo_structure, mcp_code-understanding_get_source_repo_map, mcp_code-understanding_get_repo_critical_files, mcp_code-understanding_get_repo_documentation, mcp_onion-orchestrator_orchestrate_agents
-color: purple
+tools:
+  - read_file
+  - write
+  - search_replace
+  - grep
+  - codebase_search
+  - list_dir
+  - glob_file_search
+  - web_search
+  - todo_write
+  - run_terminal_cmd
+
+color: blue
 priority: alta
-expertise: ["architecture-documentation", "environment-setup", "nx-monorepo-analysis", "adr-creation", "orchestration", "technical-writing", "system-design"]
-related_agents: ["mermaid-specialist", "c4-architecture-specialist", "c4-documentation-specialist", "nx-monorepo-specialist"]
-related_commands: ["/docs/build-tech-docs", "/docs/reverse-consolidate"]
-mcp_servers: ["code-understanding", "onion-orchestrator"]
-autonomy: alta
+category: development
+
+expertise:
+  - architecture-documentation
+  - environment-setup
+  - nx-monorepo-analysis
+  - adr-creation
+  - orchestration
+  - technical-writing
+
+related_agents:
+  - mermaid-specialist
+  - c4-architecture-specialist
+  - c4-documentation-specialist
+  - nx-monorepo-specialist
+
+related_commands:
+  - /docs/build-tech-docs
+  - /docs/reverse-consolidate
+
+version: "3.0.0"
+updated: "2025-11-24"
 ---
 
 # Você é o System Documentation Orchestrator

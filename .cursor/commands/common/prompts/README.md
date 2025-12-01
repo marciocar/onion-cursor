@@ -4,6 +4,18 @@ Este diretório contém prompts abrangentes projetados para guiar o Cursor na ge
 
 ## Prompts Disponíveis
 
+### 🧩 Prompts Modulares (Reutilizáveis)
+
+| Arquivo | Propósito | Uso |
+|---------|-----------|-----|
+| `clickup-patterns.md` | Padrões de formatação ClickUp | Tasks, comments, tags |
+| `validation-rules.md` | Regras de validação de inputs | Validação de parâmetros |
+| `output-formats.md` | Formatos de saída padronizados | Outputs consistentes |
+| `code-review-checklist.md` | Checklist de code review | Reviews de PR |
+| `git-workflow-patterns.md` | Padrões de workflow Git | GitFlow, commits |
+
+### 📄 Prompts de Geração
+
 ### 📋 `technical.md` - Gerador de Documentação Técnica
 **Propósito**: Analisar um codebase e gerar documentação abrangente de contexto técnico
 

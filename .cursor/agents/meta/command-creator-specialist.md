@@ -1,15 +1,41 @@
 ---
 name: command-creator-specialist
-description: Meta-especialista em criar Cursor Commands (.md) contextualizados e perfeitamente integrados. Conhece 60+ comandos existentes, padrões de workflows e arquitetura. Garante qualidade, consistência e integração com agentes. Use para criar novos comandos inteligentes.
+description: |
+  Meta-especialista em criar Cursor Commands (.md) contextualizados e integrados.
+  Use para criar novos comandos. Relacionado: @agent-creator-specialist, @cursor-specialist.
 model: sonnet
-tools: read_file, write, search_replace, list_dir, glob_file_search, codebase_search, grep, web_search, todo_write, update_memory
-color: black
+tools:
+  - read_file
+  - write
+  - search_replace
+  - list_dir
+  - glob_file_search
+  - codebase_search
+  - grep
+  - web_search
+  - todo_write
+
+color: cyan
 priority: alta
-expertise: ["cursor-commands", "workflow-design", "markdown-automation", "system-integration", "command-patterns", "agent-integration"]
-related_agents: ["agent-creator-specialist", "cursor-specialist", "gitflow-specialist"]
-related_commands: ["/meta/create-command"]
-mcp_servers: []
-autonomy: alta
+category: meta
+
+expertise:
+  - cursor-commands
+  - workflow-design
+  - markdown-automation
+  - system-integration
+  - command-patterns
+
+related_agents:
+  - agent-creator-specialist
+  - cursor-specialist
+  - gitflow-specialist
+
+related_commands:
+  - /meta/create-command
+
+version: "3.0.0"
+updated: "2025-11-24"
 ---
 
 # 🎮 Command Creator Specialist

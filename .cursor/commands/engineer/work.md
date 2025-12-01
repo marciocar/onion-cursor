@@ -1,3 +1,14 @@
+---
+name: work
+description: |
+  Continuar trabalho em feature ativa. Lê sessão e identifica próxima fase.
+  Atualiza progresso via Task Manager abstraction.
+model: sonnet
+category: engineer
+tags: [development, workflow, session]
+version: "3.0.0"
+updated: "2025-11-24"
+---
 
 # Engineer Work
 
@@ -13,9 +24,19 @@ Para trabalhar nisso, você deve:
 - Revisar o arquivo plan.md e identificar qual Fase está atualmente em progresso
 - Apresentar ao usuário um plano para abordar a próxima fase
 
-## 🔄 **Auto-Update ClickUp**
+## 🔄 **Auto-Update Task Manager**
 
-Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento:
+Este comando **automaticamente atualiza** a task durante desenvolvimento usando a abstração:
+
+```typescript
+// Detectar provedor e obter adapter
+const config = detectProvider();
+const taskManager = getTaskManager();
+
+if (!taskManager.isConfigured) {
+  console.warn('⚠️ Modo offline - progresso não será sincronizado');
+}
+```
 
 ### **✅ Updates Automáticos A CADA FASE:**
 - **Comentário de progresso** quando fase é completada
@@ -32,21 +53,10 @@ Este comando **automaticamente atualiza** a task ClickUp durante desenvolvimento
 
 ### **💬 Estratégia DUAL de Comentários:**
 
-**IMPORTANTE**: Padrões de comentários centralizados em `.cursor/docs/strategies/clickup-comment-patterns.md`
-
 Ao completar uma fase, o sistema automaticamente:
 
-1. **Cria comentário DETALHADO na SUBTASK** (Padrão 1: Fase Completada)
-   - Referência: Padrão 1 em clickup-comment-patterns.md
-   - Use abstração: `commentPhaseCompletion()` de clickup-mcp-wrappers.md
-
-2. **Cria comentário RESUMIDO na TASK PRINCIPAL** (Padrão 2: Progress Update)
-   - Referência: Padrão 2 em clickup-comment-patterns.md
-   - Use abstração: `commentProgressUpdate()` de clickup-mcp-wrappers.md
-
-Para templates exatos, consulte:
-- `.cursor/docs/strategies/clickup-comment-patterns.md` (padrões + exemplos)
-- `.cursor/utils/clickup-mcp-wrappers.md` (abstrações MCP)
+1. **Cria comentário DETALHADO na SUBTASK**
+2. **Cria comentário RESUMIDO na TASK PRINCIPAL**
 
 ### **📋 Identificação da Task:**
 1. **Context.md**: Lê task-id do arquivo de contexto da sessão
@@ -56,70 +66,76 @@ Para templates exatos, consulte:
 ### **🗺️ SUBTASK MAPPING STRUCTURE (context.md):**
 ```markdown
 ## 📋 Phase-Subtask Mapping
-- **Phase 1**: "Template Consolidation" → Subtask ID: [subtask-id-1]
-- **Phase 2**: "Feature Commands" → Subtask ID: [subtask-id-2] 
-- **Phase 3**: "Release Commands" → Subtask ID: [subtask-id-3]
-- **Phase 4**: "Hotfix Commands" → Subtask ID: [subtask-id-4]
+- **Phase 1**: "Nome da Fase" → Subtask ID: [subtask-id-1]
+- **Phase 2**: "Nome da Fase" → Subtask ID: [subtask-id-2]
 ```
 
-### **⚡ AUTOMATIC EXECUTION (Estratégia Dual):**
+### **⚡ AUTOMATIC EXECUTION (Via Abstração):**
 Quando uma fase é marcada como "Completada ✅" no plan.md, o sistema deve **EXECUTAR NESTA ORDEM**:
 
-1. **Ler mapeamento** do context.md (Phase→Subtask)
-2. **Identificar subtask** correspondente àquela fase
-3. **Comentário DETALHADO na SUBTASK**:
-   ```typescript
-   await mcp_clickup_create_task_comment({
-     task_id: subtaskId,  // ← ID da SUBTASK
-     workspace_id: workspaceId,
-     comment_text: generateDetailedComment({
-       phaseName,
-       filesModified,
-       implementations,
-       tests,
-       decisions,
-       nextSteps
-     })
-   });
-   ```
-4. **Atualizar STATUS da SUBTASK**:
-   ```typescript
-   await mcp_clickup_update_task({
-     task_id: subtaskId,  // ← ID da SUBTASK
-     workspace_id: workspaceId,
-     status: 'Done'
-   });
-   ```
-5. **Comentário RESUMIDO na TASK PRINCIPAL**:
-   ```typescript
-   await mcp_clickup_create_task_comment({
-     task_id: mainTaskId,  // ← ID da TASK PRINCIPAL
-     workspace_id: workspaceId,
-     comment_text: generateSummaryComment({
-       phaseNum,
-       totalPhases,
-       phaseName,
-       subtaskId,
-       nextPhaseName
-     })
-   });
-   ```
+```typescript
+// 1. Obter task manager
+const taskManager = getTaskManager();
 
-**📚 Documentação completa**: `.cursor/docs/clickup/clickup-dual-comment-strategy.md`
+if (taskManager.isConfigured) {
+  // 2. Comentário DETALHADO na SUBTASK
+  await taskManager.addComment(subtaskId, `
+🔧 FASE COMPLETADA: ${phaseName}
+
+━━━━━━━━━━━━━━
+
+📁 ARQUIVOS MODIFICADOS:
+${filesModified.map(f => `   ∟ ${f}`).join('\n')}
+
+🔧 IMPLEMENTAÇÕES:
+${implementations.map(impl => `   ▶ ${impl}`).join('\n')}
+
+💡 DECISÕES TÉCNICAS:
+${decisions.map(d => `   ∟ ${d}`).join('\n')}
+
+🚀 PRÓXIMOS PASSOS:
+   ∟ ${nextPhase}
+
+━━━━━━━━━━━━━━
+
+⏰ Completado: ${timestamp} | 🎯 Status: Done
+  `);
+
+  // 3. Atualizar STATUS da SUBTASK
+  await taskManager.updateStatus(subtaskId, 'done');
+
+  // 4. Comentário RESUMIDO na TASK PRINCIPAL
+  await taskManager.addComment(mainTaskId, `
+📝 PROGRESSO: Fase ${phaseNum}/${totalPhases} Completada
+
+✅ ${phaseName} - Concluída
+   ∟ Subtask: #${subtaskId}
+   ∟ Detalhes: Ver comentário na subtask
+
+🎯 Próximo: Fase ${phaseNum + 1}/${totalPhases} - ${nextPhaseName}
+
+⏰ ${timestamp}
+  `);
+}
+```
 
 ## Importante:
 
 Quando você desenvolver o código para a fase atual, use os sub-agentes de desenvolvimento, code-review e teste quando apropriado para preservar o máximo possível do seu contexto.
+
 Toda vez que completar uma fase do plano:
-- **AUTO-UPDATE**: Adicione comentário de progresso no ClickUp automaticamente
+- **AUTO-UPDATE**: Adicione comentário de progresso via abstração
 - **RASTREAMENTO**: Marque checkboxes na description correspondentes aos critérios completados
-  * Os checkboxes são **interativos** - clique para marcar `[x]`
-  * Atualiza description com progresso visual
-  * Facilita visão geral da completude
 - Pause e peça ao usuário para validar seu código.
 - Faça as mudanças necessárias até ser aprovado
 - Atualize a fase correspondente no arquivo plan.md marcando o que foi feito e adicionando comentários úteis para o desenvolvedor que abordará as próximas fases, especialmente sobre questões, decisões, etc.
-- Apenas inicie a próxima fase após o usuário concordar que você deve começar. Quando iniciar a próxima fase, atualize o arquivo plan.md marcando a nova fase como em progresso.
+- Apenas inicie a próxima fase após o usuário concordar que você deve começar.
 
-Agora, veja a fase atual de desenvolvimento e forneça um plano ao usuário sobre como abordá-la. 
+## 🔗 Referências
 
+- Abstração: `.cursor/utils/task-manager/`
+- Detector: `.cursor/utils/task-manager/detector.md`
+- Factory: `.cursor/utils/task-manager/factory.md`
+- Padrões de comentários: `common/prompts/clickup-patterns.md`
+
+Agora, veja a fase atual de desenvolvimento e forneça um plano ao usuário sobre como abordá-la.

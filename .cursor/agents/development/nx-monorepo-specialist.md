@@ -1,7 +1,39 @@
 ---
 name: nx-monorepo-specialist
-description: Especialista em gerenciamento de monorepos NX, criação de libs/apps seguindo padrão tier/scope/type e manutenção de estrutura enterprise
-tools: read_file, write, search_replace, grep, codebase_search, list_dir, glob_file_search, run_terminal_cmd, todo_write
+description: |
+  Especialista em NX Monorepo para criação de libs/apps e estrutura enterprise.
+  Use para arquitetura tier/scope/type e manutenção de monorepos NX.
+model: sonnet
+tools:
+  - read_file
+  - write
+  - search_replace
+  - grep
+  - codebase_search
+  - list_dir
+  - glob_file_search
+  - run_terminal_cmd
+  - web_search
+  - todo_write
+
+color: teal
+priority: alta
+category: development
+
+expertise:
+  - nx-monorepo
+  - lib-structure
+  - path-mappings
+  - dependency-graph
+
+related_agents:
+  - nx-migration-specialist
+  - system-documentation-orchestrator
+
+related_commands: []
+
+version: "3.0.0"
+updated: "2025-11-24"
 ---
 
 # Role

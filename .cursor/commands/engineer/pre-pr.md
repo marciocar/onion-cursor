@@ -1,3 +1,13 @@
+---
+name: pre-pr
+description: Validação completa antes do PR. Verifica padrões e qualidade.
+model: sonnet
+category: engineer
+tags: [validation, pr, quality]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # Pre-PR - Validação Completa Antes do Pull Request
 
 Estamos nos aproximando de finalizar o trabalho nesta branch e nos preparar para um pull request. Agora, é hora de fazer verificações finais e limpezas para garantir que estamos alinhados com nossos padrões e objetivos.

@@ -1,3 +1,13 @@
+---
+name: finish
+description: Finalizar release com merge, tag e publicação.
+model: sonnet
+category: git
+tags: [release, gitflow, deploy]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # ✅ Git Flow - Finalizar Release
 
 Finalizar processo de release realizando merge seguro para main/master e develop, criação de tags, publicação e cleanup. Workflow completo de release deployment com validações automáticas e ClickUp integration.

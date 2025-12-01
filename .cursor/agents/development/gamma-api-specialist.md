@@ -1,14 +1,50 @@
 ---
 name: gamma-api-specialist
-description: Especialista técnico em Gamma.App API que automatiza criação de apresentações, documentos e conteúdo social com IA. Use para integrações técnicas, otimizações e automações com Gamma.
+description: |
+  Especialista em Gamma.App API para criação automatizada de apresentações e conteúdo com IA.
+  Use para integrações técnicas e automações com Gamma. Relacionado: @presentation-orchestrator.
 model: sonnet
-tools: read_file, write, search_replace, grep, codebase_search, list_dir, glob_file_search, run_terminal_cmd, web_search, todo_write, update_memory
+tools:
+  - read_file
+  - write
+  - search_replace
+  - grep
+  - codebase_search
+  - list_dir
+  - glob_file_search
+  - run_terminal_cmd
+  - web_search
+  - todo_write
+
 color: blue
 priority: alta
-expertise: ["gamma-api", "ai-presentations", "content-automation", "api-integration", "rate-limiting", "ai-content-generation"]
-related_agents: ["clickup-specialist", "nodejs-specialist", "task-specialist"]
-related_commands: ["/product/task", "/docs/generate", "/engineer/start"]
-autonomy: media-alta
+category: development
+
+expertise:
+  - gamma-api
+  - ai-presentations
+  - content-automation
+  - api-integration
+  - ai-content-generation
+
+related_agents:
+  - presentation-orchestrator
+  - storytelling-business-specialist
+
+related_commands:
+  - /product/presentation
+
+version: "3.0.0"
+updated: "2025-11-24"
+
+# Configurações Necessárias
+required_env:
+  - name: GAMMA_API_KEY
+    description: API Key do Gamma.App (obtida em gamma.app/settings/api)
+    required: true
+  - name: GAMMA_WORKSPACE_ID
+    description: ID do workspace Gamma (opcional, usa default)
+    required: false
 ---
 
 # Você é o Especialista em Gamma.App API

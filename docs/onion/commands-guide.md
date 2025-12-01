@@ -1,6 +1,21 @@
 # 🎯 Guia Completo de Comandos
 
+> **Versão**: 3.0.0 | **Última atualização**: 2025-11-25 | **Total**: 57 comandos
+
 Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organizados por categoria e função.
+
+## 📊 Resumo v3.0
+
+| Categoria | Comandos | Descrição |
+|-----------|----------|-----------|
+| `engineer/` | 11 | Fluxos de desenvolvimento |
+| `product/` | 12 | Gestão de produto |
+| `git/` | 11 | Operações Git (GitFlow) |
+| `docs/` | 10 | Documentação |
+| `meta/` | 8 | Meta-comandos (criadores) |
+| `validate/` | 1 | Validações |
+| `quick/` | 1 | Ações rápidas |
+| **Total** | **56** | |
 
 ## 📋 Índice por Categoria
 
@@ -8,6 +23,7 @@ Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organi
 - [📋 Comandos de Produto](#-comandos-de-produto)
 - [📚 Comandos de Documentação](#-comandos-de-documentacao)
 - [⚙️ Meta Comandos](#️-meta-comandos)
+- [🌲 Comandos Git](#-comandos-git)
 - [🌟 Comandos Globais](#-comandos-globais)
 
 ---
@@ -30,8 +46,12 @@ $ /git/init                    # Comando não encontrado
 $ ./engineer/start             # Não é executável
 ```
 
-### 🚀 **Recentemente Refatorado (Janeiro 2025)**
-**Comandos Git**: Simplificação radical com 87.3% redução de código. Scripts bash complexos foram transformados em comandos Cursor Commands inteligentes com @gitflow-specialist integration nativa.
+### 🚀 **Padronização v3.0 (Novembro 2025)**
+**Todos os comandos foram padronizados** com:
+- Headers YAML obrigatórios (`name`, `description`, `version: "3.0.0"`)
+- Limite de 400 linhas (otimização de tokens)
+- Prompts modulares em `common/prompts/`
+- Validações automatizadas nos geradores
 
 📚 **[Leia mais sobre a arquitetura](cursor-commands-architecture.md)**
 

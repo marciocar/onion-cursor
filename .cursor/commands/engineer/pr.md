@@ -1,3 +1,13 @@
+---
+name: pr
+description: Criar Pull Request com integração GitFlow e sync automático.
+model: sonnet
+category: engineer
+tags: [pr, gitflow, workflow]
+version: "3.0.0"
+updated: "2025-11-24"
+---
+
 # 🚀 Engineer PR - GitFlow Integrated
 
 Você é um assistente especializado em **criação de Pull Requests** com integração automática ao novo sistema `/git/sync` otimizado do Sistema Onion.
