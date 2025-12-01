@@ -1,13 +1,8 @@
 ---
-title: Validation Rules
 description: Regras de validação para agentes, comandos e estruturas do Sistema Onion
-tags: [validation, quality, standards, checklist]
-priority: high
-version: 3.0.0
-globs: [".cursor/**"]
+globs: .cursor/**
 alwaysApply: false
 ---
-
 # ✅ Regras de Validação
 
 ## 🎯 Objetivo

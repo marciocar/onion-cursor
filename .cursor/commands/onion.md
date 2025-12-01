@@ -145,3 +145,23 @@ Para: "criar task no ClickUp"
 - Sempre começa com contexto do workspace
 - Detecta sessões ativas automaticamente
 - Para ajuda específica de agente: @nome-do-agente
+
+## 🔴 REGRA CRÍTICA: Criação de Tasks
+
+**SEMPRE criar tasks no Task Manager configurado:**
+
+Quando usar comandos que criam tasks (`/product/task`, `/product/feature`):
+1. ✅ **SEMPRE** detectar provedor via `.cursor/utils/task-manager/detector.md`
+2. ✅ **SEMPRE** usar abstração `getTaskManager()` para criar tasks
+3. ✅ **SEMPRE** criar task principal + subtasks no provedor configurado
+4. ✅ **SEMPRE** adicionar comentários e atualizar status
+5. ❌ **NUNCA** criar apenas documentos locais sem sincronizar
+6. ❌ **NUNCA** ignorar o provedor configurado no `.env`
+
+**Provedores suportados:**
+- ClickUp (via MCP) - `TASK_MANAGER_PROVIDER=clickup`
+- Asana (via MCP) - `TASK_MANAGER_PROVIDER=asana`
+- Linear (via API) - `TASK_MANAGER_PROVIDER=linear`
+- None (modo offline) - `TASK_MANAGER_PROVIDER=none`
+
+**Esta regra é OBRIGATÓRIA e será sempre executada.**

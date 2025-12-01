@@ -45,7 +45,7 @@ Analise as tasks, pais e filhos se necessário, e construa um entendimento inici
 **IMPORTANTE**: Use a abstração para ler tasks independente do provedor:
 
 ```typescript
-// Via abstração - funciona para ClickUp, Asana, Linear
+// Via abstração - funciona para qualquer provedor (ClickUp, Asana, Linear)
 const task = await taskManager.getTask(taskId);
 const subtasks = await taskManager.getSubtasks(taskId);
 
@@ -53,6 +53,87 @@ const subtasks = await taskManager.getSubtasks(taskId);
 console.log(`Provider: ${task.provider}`);
 console.log(`Task: ${task.name}`);
 console.log(`URL: ${task.url}`);
+```
+
+### **🎲 Validação de Story Points (Opcional mas Recomendado):**
+
+**CRÍTICO:** Antes de iniciar desenvolvimento, validar se task tem estimativa de story points:
+
+```typescript
+// Verificar se task tem story points estimados
+const storyPoints = task.customFields?.find(f => f.name === 'Story Points')?.value;
+
+if (!storyPoints || storyPoints === 0) {
+  console.warn(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ ATENÇÃO: TASK SEM ESTIMATIVA DE STORY POINTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 Task: ${task.name}
+🎲 Story Points: Não estimado
+
+💡 RECOMENDAÇÕES:
+∟ Estimar antes de iniciar desenvolvimento
+∟ Usar: /product/estimate "${task.name}"
+∟ Ou: @story-points-framework-specialist
+
+⚠️ Continuar sem estimativa pode afetar:
+   - Planejamento de sprint
+   - Tracking de velocity
+   - Previsibilidade de entrega
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  `);
+  
+  // Perguntar ao usuário se deseja estimar agora
+  const shouldEstimate = await askUser('Deseja estimar story points agora? (s/n)');
+  
+  if (shouldEstimate) {
+    // Invocar agente de estimativa
+    await invokeStoryPointsEstimation(task);
+  }
+} else if (storyPoints > 13) {
+  console.warn(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ ALERTA: TASK IDENTIFICADA COMO ÉPICO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 Task: ${task.name}
+🎲 Story Points: ${storyPoints} pontos
+
+💡 RECOMENDAÇÕES:
+∟ Considerar quebrar em múltiplas tasks menores
+∟ Usar: /product/refine para detalhar requisitos
+∟ Verificar se realmente precisa ser uma única task
+
+⚠️ Tasks > 13 pontos têm:
+   - Maior margem de erro na estimativa
+   - Risco de não caber no sprint
+   - Dificuldade de tracking de progresso
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  `);
+  
+  // Perguntar ao usuário se deseja continuar
+  const shouldContinue = await askUser('Deseja continuar mesmo assim? (s/n)');
+  if (!shouldContinue) {
+    console.log('💡 Sugestão: Use /product/refine para detalhar e quebrar a task');
+    return;
+  }
+} else {
+  console.log(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ VALIDAÇÃO DE ESTIMATIVA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 Task: ${task.name}
+🎲 Story Points: ${storyPoints} pontos
+
+✅ Estimativa válida para desenvolvimento
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  `);
+}
 ```
 
 ### **🔍 Validação de ID Incompatível:**
