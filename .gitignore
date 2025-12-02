@@ -1,6 +1,6 @@
 # Histórico do Cursor
 .history/
-
+.cursor/sessions/*
 # Arquivos temporários
 *.tmp
 *.temp

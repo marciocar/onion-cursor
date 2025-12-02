@@ -179,6 +179,32 @@ Documentação **específica do seu projeto**:
 - **`/product/estimate`** - Estima story points para tarefas
 - **`/engineer/*`** - Workflows de desenvolvimento com validação de estimativas
 
+### ⚙️ Configuração de Integrações
+
+**Antes de usar comandos que criam tasks**, configure seu gerenciador de tarefas:
+
+```bash
+# Configurar integrações (Task Manager, Gamma, etc)
+/meta/setup-integration
+
+# Ou especificar integração diretamente
+/meta/setup-integration task-manager
+/meta/setup-integration clickup
+```
+
+**O que o comando faz:**
+- ✅ Guia configuração de `TASK_MANAGER_PROVIDER` (ClickUp, Asana, Linear ou None)
+- ✅ Configura variáveis de ambiente necessárias no `.env`
+- ✅ Valida segurança (`.gitignore`, proteção de credenciais)
+- ✅ Testa conectividade (quando aplicável)
+
+**Integrações suportadas:**
+- **Task Managers**: ClickUp, Asana, Linear (via Task Manager Abstraction)
+- **Gamma.App**: API para apresentações
+- **PostgreSQL**: Banco de dados
+
+> **💡 Dica:** Execute `/meta/setup-integration` logo após clonar o projeto para configurar seu ambiente rapidamente.
+
 ## 🔗 Integração com Gerenciadores de Tarefas
 
 O Sistema Onion oferece **integração nativa e bidirecional** com múltiplos gerenciadores através do **Task Manager Abstraction**:

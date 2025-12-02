@@ -21,15 +21,39 @@ Bem-vindo ao sistema Onion v3.0! Este guia vai te ajudar a começar rapidamente 
 - [ ] Git inicializado no projeto
 - [ ] Pasta `.cursor/` presente no projeto
 
-### **✅ Configuração de Integrações (Opcional)**
+### **✅ Configuração de Integrações**
 
-Use o comando `/meta/setup-integration` para configurar:
+#### **⚙️ Método Recomendado: Comando `/meta/setup-integration`**
+
+O Sistema Onion oferece um comando interativo para configurar todas as integrações de forma segura:
 
 ```bash
+# Configuração interativa (recomendado)
 /meta/setup-integration
+
+# Ou especificar integração diretamente
+/meta/setup-integration task-manager  # Configurar gerenciador de tarefas
+/meta/setup-integration clickup       # Configurar ClickUp especificamente
+/meta/setup-integration asana        # Configurar Asana especificamente
+/meta/setup-integration gamma        # Configurar Gamma.App
 ```
 
-Ou configure manualmente no `.env`:
+**O que o comando faz:**
+- ✅ **Guia passo a passo** na configuração de cada integração
+- ✅ **Cria/atualiza `.env`** automaticamente
+- ✅ **Valida segurança** (verifica `.gitignore`, protege credenciais)
+- ✅ **Testa conectividade** quando aplicável
+- ✅ **Fornece instruções** específicas para cada provedor
+
+**Integrações suportadas:**
+- **Task Managers**: ClickUp, Asana, Linear (via Task Manager Abstraction)
+- **Gamma.App**: API para apresentações
+- **PostgreSQL**: Banco de dados
+
+#### **📝 Método Alternativo: Configuração Manual**
+
+Se preferir configurar manualmente, edite o arquivo `.env`:
+
 ```bash
 # ═══════════════════════════════════════
 # GERENCIADOR DE TAREFAS (escolha um)
@@ -49,8 +73,10 @@ CLICKUP_DEFAULT_LIST=901314121395
 # OUTRAS INTEGRAÇÕES
 # ═══════════════════════════════════════
 GITHUB_TOKEN=ghp_xxxxx
-GAMMA_TOKEN=xxxxx
+GAMMA_API_KEY=gm_xxxxx
 ```
+
+> **💡 Dica:** Use `/meta/setup-integration` para garantir que todas as variáveis estão corretas e o `.env` está protegido no `.gitignore`.
 
 > **Referência**: Veja `.env.example` para todas as variáveis disponíveis.
 
@@ -68,10 +94,25 @@ O Sistema Onion v3.0 suporta múltiplos gerenciadores de tarefas via abstração
 > **Documentação**: `docs/knowbase/concepts/task-manager-abstraction.md`
 
 ### **✅ Validação**
+
+Após configurar as integrações, valide a configuração:
+
 ```bash
-/all-tools  # Deve mostrar comandos disponíveis
-/warm-up    # Validar conectividade ClickUp
+# Verificar comandos disponíveis
+/meta/all-tools  # Deve mostrar comandos disponíveis
+
+# Testar integração de Task Manager (se configurado)
+/product/task "Task de teste do sistema"
+# → Deve criar task no gerenciador configurado
+
+# Validar conectividade ClickUp (se usando ClickUp)
+/warm-up  # Valida conectividade ClickUp
 ```
+
+**Se algo não funcionar:**
+- Execute `/meta/setup-integration` novamente para revisar configuração
+- Verifique se `.env` está no `.gitignore` (o comando faz isso automaticamente)
+- Consulte `@clickup-specialist` para problemas específicos do ClickUp
 
 ---
 
