@@ -1,8 +1,8 @@
 # 🚀 Guia de Início Rápido
 
-> **Versão**: 3.0.0 | **Última atualização**: 2025-11-24
+> **Versão**: 3.0.0 | **Última atualização**: 2025-12-02
 
-Bem-vindo ao sistema Onion v3.0! Este guia vai te ajudar a começar rapidamente com os comandos `.cursor/` e integração ClickUp.
+Bem-vindo ao sistema Onion v3.0! Este guia vai te ajudar a começar rapidamente com os comandos `.cursor/` e integração com gerenciadores de tarefas através do **Task Manager Abstraction**.
 
 ## 📊 Visão Geral v3.0
 
@@ -80,22 +80,35 @@ GAMMA_API_KEY=gm_xxxxx
 
 > **Referência**: Veja `.env.example` para todas as variáveis disponíveis.
 
-### **🔄 Abstração de Task Manager**
+### **🔄 Task Manager Abstraction - Conceito Central**
 
-O Sistema Onion v3.0 suporta múltiplos gerenciadores de tarefas via abstração:
+O Sistema Onion v3.0 usa uma **camada de abstração** que permite trabalhar com múltiplos gerenciadores de tarefas sem modificar comandos ou workflows. Você escolhe o provedor e todos os comandos funcionam automaticamente.
 
-| Provedor | Status | Configuração |
-|----------|--------|--------------|
-| **ClickUp** | ✅ Completo | `TASK_MANAGER_PROVIDER=clickup` |
-| **Asana** | ✅ Completo | `TASK_MANAGER_PROVIDER=asana` |
-| **Linear** | 📝 Stub | `TASK_MANAGER_PROVIDER=linear` |
-| **None** | ✅ Offline | `TASK_MANAGER_PROVIDER=none` |
+**Como funciona:**
+- ✅ **Interface unificada**: Comandos como `/product/task` funcionam com qualquer provedor
+- ✅ **Troca fácil**: Mude `TASK_MANAGER_PROVIDER` no `.env` e tudo continua funcionando
+- ✅ **Fallback gracioso**: Sistema funciona mesmo sem gerenciador configurado (modo offline)
 
-> **Documentação**: `docs/knowbase/concepts/task-manager-abstraction.md`
+**Provedores suportados:**
+
+| Provedor | Status | Configuração | Notas |
+|----------|--------|--------------|-------|
+| **ClickUp** | ✅ Completo | `TASK_MANAGER_PROVIDER=clickup` | Via ClickUp MCP |
+| **Asana** | ✅ Completo | `TASK_MANAGER_PROVIDER=asana` | Via Asana MCP |
+| **Linear** | 📝 Stub | `TASK_MANAGER_PROVIDER=linear` | Em desenvolvimento |
+| **None** | ✅ Offline | `TASK_MANAGER_PROVIDER=none` | Modo local sem sincronização |
+
+**Vantagens da abstração:**
+- 🎯 **Flexibilidade**: Escolha o gerenciador que sua equipe já usa
+- 🔄 **Portabilidade**: Troque de provedor sem refatorar código
+- 🛡️ **Resiliência**: Funciona mesmo se o gerenciador estiver offline
+- 🚀 **Consistência**: Mesmos comandos, mesma experiência, qualquer provedor
+
+> **📚 Documentação completa**: `docs/knowbase/concepts/task-manager-abstraction.md`
 
 ### **✅ Validação**
 
-Após configurar as integrações, valide a configuração:
+Após configurar o Task Manager, valide a configuração:
 
 ```bash
 # Verificar comandos disponíveis
@@ -103,16 +116,19 @@ Após configurar as integrações, valide a configuração:
 
 # Testar integração de Task Manager (se configurado)
 /product/task "Task de teste do sistema"
-# → Deve criar task no gerenciador configurado
+# → Deve criar task no gerenciador configurado (ClickUp, Asana, etc)
 
-# Validar conectividade ClickUp (se usando ClickUp)
-/warm-up  # Valida conectividade ClickUp
+# Validar conectividade (depende do provedor configurado)
+/warm-up  # Valida conectividade do Task Manager configurado
 ```
 
 **Se algo não funcionar:**
 - Execute `/meta/setup-integration` novamente para revisar configuração
 - Verifique se `.env` está no `.gitignore` (o comando faz isso automaticamente)
-- Consulte `@clickup-specialist` para problemas específicos do ClickUp
+- Consulte especialistas específicos:
+  - `@clickup-specialist` para problemas com ClickUp
+  - Para Asana, verifique variáveis `ASANA_*` no `.env`
+  - Para modo offline, certifique-se que `TASK_MANAGER_PROVIDER=none`
 
 ---
 
@@ -149,7 +165,7 @@ Após configurar as integrações, valide a configuração:
 **Resultado**: PR criado, Task Manager atualizado com status "in_review"
 
 ### **✨ Parabéns!** 
-Você completou seu primeiro ciclo completo de desenvolvimento com integração ClickUp! 🎉
+Você completou seu primeiro ciclo completo de desenvolvimento com integração ao Task Manager! 🎉
 
 ---
 
@@ -157,10 +173,10 @@ Você completou seu primeiro ciclo completo de desenvolvimento com integração 
 
 ### **🆕 Nova Funcionalidade**
 ```bash
-/product/task "Nova funcionalidade X"      # → Task criada
+/product/task "Nova funcionalidade X"      # → Task criada no Task Manager
 /engineer/start                           # → Input: TASK-ID  
 /engineer/work .cursor/sessions/feature-x/ # → Desenvolvimento
-/engineer/pr                              # → PR + ClickUp update
+/engineer/pr                              # → PR + Task Manager atualizado
 ```
 
 ### **🐛 Correção de Bug**
@@ -232,7 +248,9 @@ Você completou seu primeiro ciclo completo de desenvolvimento com integração 
 
 ---
 
-## 📊 Integração ClickUp - Visão Rápida
+## 📊 Integração com Task Manager - Visão Rápida
+
+O Sistema Onion sincroniza automaticamente com seu Task Manager configurado (ClickUp, Asana, etc), atualizando status, comentários e tags conforme você desenvolve.
 
 ### **Estados Automáticos**
 ```mermaid
@@ -243,6 +261,10 @@ graph LR
     F --> G[Merge] --> H[done]
 ```
 
+**Status normalizados** (funcionam em qualquer provedor):
+- `backlog` → `todo` → `in_progress` → `in_review` → `done`
+- `blocked` e `cancelled` também suportados
+
 ### **Tags Automáticas**
 - **Por tipo**: `feature`, `bug`, `refactor`, `docs`
 - **Por status**: `development`, `under-review`, `blocked`
@@ -252,7 +274,9 @@ graph LR
 - 🚀 Desenvolvimento iniciado
 - 📊 Progresso por fase
 - 🔍 PR criado com detalhes
--  Conclusão com métricas
+- ✅ Conclusão com métricas
+
+**Nota:** Todos esses recursos funcionam igualmente com ClickUp, Asana ou qualquer outro provedor suportado através da abstração.
 
 ---
 
@@ -267,14 +291,23 @@ pwd  # Deve estar na raiz do projeto com .cursor/
 /all-tools
 ```
 
-### **❌ Problema: ClickUp não conecta**
+### **❌ Problema: Task Manager não conecta**
 ```bash
 # Validar configuração
 /warm-up
 
-# Se falhar, verificar variáveis:
+# Se falhar, verificar variáveis conforme o provedor:
+
+# Para ClickUp:
+echo $CLICKUP_API_TOKEN
 echo $CLICKUP_WORKSPACE_ID
-echo $CLICKUP_SPACE_ID
+
+# Para Asana:
+echo $ASANA_ACCESS_TOKEN
+echo $ASANA_DEFAULT_WORKSPACE
+
+# Verificar provedor configurado:
+echo $TASK_MANAGER_PROVIDER
 ```
 
 ### **❌ Problema: Task não encontrada**
@@ -312,7 +345,7 @@ npm test  # ou comando apropriado do projeto
    pt "Bug: Problema Y em ambiente Z com logs detalhados"
    ```
 
-3. **Monitore métricas** no ClickUp:
+3. **Monitore métricas** no seu Task Manager:
    - Cycle time por feature
    - Bug rate pós-deploy
    - Review time médio
@@ -323,9 +356,9 @@ npm test  # ou comando apropriado do projeto
 3. **Documente decisões** importantes com `/docs/build-*`
 
 ### **🔄 Para Colaboração**
-1. **Tags consistentes** facilitam filtros ClickUp
+1. **Tags consistentes** facilitam filtros no Task Manager
 2. **Comentários descritivos** em PRs
-3. **Sincronização regular** de workspace
+3. **Sincronização regular** com workspace/projeto configurado
 
 ---
 
@@ -335,34 +368,36 @@ npm test  # ou comando apropriado do projeto
 1. **[Guia de Comandos](commands-guide.md)** - Documentação completa
 2. **[Referência de Ferramentas](tools-reference.md)** - Todas as ferramentas disponíveis em TypeScript
 3. **[Fluxos de Engenharia](engineering-flows.md)** - Workflows detalhados  
-4. **[Integração ClickUp](clickup-integration.md)** - Configuração avançada
+4. **[Task Manager Abstraction](../knowbase/concepts/task-manager-abstraction.md)** - Entenda como funciona a abstração
+5. **[Integração ClickUp](clickup-integration.md)** - Configuração avançada do ClickUp (se usar)
 
 ### **🎯 Cenários Avançados**
 1. **[Exemplos Práticos](practical-examples.md)** - Casos reais de uso
 2. **[Referência de Agentes](agents-reference.md)** - Especialistas disponíveis
 
 ### **🔧 Personalização**
-1. Configurar webhooks ClickUp
+1. Configurar webhooks do Task Manager (ClickUp, Asana, etc)
 2. Customizar templates de PR
-3. Criar dashboards específicos
-4. Ajustar notificações
+3. Criar dashboards específicos no seu gerenciador
+4. Ajustar notificações e workflows
 
 ---
 
 ## 🆘 Suporte e Ajuda
 
 ### **📞 Onde Buscar Ajuda**
-1. **Comandos**: `/all-tools` lista tudo disponível
-2. **Status**: `/warm-up` valida configuração
+1. **Comandos**: `/meta/all-tools` lista tudo disponível
+2. **Status**: `/warm-up` valida configuração do Task Manager
 3. **Documentação**: Arquivos nesta pasta `docs/`
-4. **ClickUp**: Interface web para validar dados
+4. **Task Manager**: Interface web do seu gerenciador (ClickUp, Asana, etc) para validar dados
 
 ### **🐛 Reportar Problemas**
 Se algo não funciona:
 1. Execute `/warm-up` e cole o resultado
 2. Descreva o comando executado
 3. Inclua mensagem de erro completa
-4. Mencione ID da task ClickUp se aplicável
+4. Mencione ID da task e provedor configurado (ClickUp, Asana, etc)
+5. Verifique se `TASK_MANAGER_PROVIDER` está configurado corretamente
 
 ### **💬 Comunidade**
 - Compartilhe workflows que funcionam
@@ -378,7 +413,7 @@ Agora você tem tudo para ser produtivo com o sistema Onion:
 -  **Setup validado** e funcionando
 -  **Primeiros comandos** executados com sucesso  
 -  **Fluxos principais** compreendidos
--  **Integração ClickUp** ativa
+-  **Task Manager configurado** e sincronizando (ClickUp, Asana ou modo offline)
 -  **Troubleshooting** na ponta da língua
 
 **Comece pequeno, pratique os fluxos básicos, e gradualmente explore funcionalidades mais avançadas!**
@@ -438,21 +473,31 @@ pwd  # Deve estar na raiz com .cursor/
 @cursor-specialist "comandos não funcionam"
 ```
 
-### **Problema**: Integração ClickUp falha
+### **Problema**: Integração Task Manager falha
 **Sintomas**: Tasks não são criadas/atualizadas
 
 #### **Soluções**:
 ```bash
-# 1. Verificar variáveis de ambiente
-echo $CLICKUP_WORKSPACE_ID
-echo $CLICKUP_SPACE_ID  
-echo $CLICKUP_LIST_ID
+# 1. Verificar provedor configurado
+echo $TASK_MANAGER_PROVIDER
 
-# 2. Testar conectividade
+# 2. Verificar variáveis de ambiente conforme provedor:
+
+# Se usando ClickUp:
+echo $CLICKUP_API_TOKEN
+echo $CLICKUP_WORKSPACE_ID
+echo $CLICKUP_DEFAULT_LIST_ID
+
+# Se usando Asana:
+echo $ASANA_ACCESS_TOKEN
+echo $ASANA_DEFAULT_WORKSPACE
+
+# 3. Testar conectividade
 /warm-up
 
-# 3. Invocar especialista
-@clickup-specialist "integração não funciona"
+# 4. Invocar especialista conforme provedor:
+@clickup-specialist "integração não funciona"  # Para ClickUp
+# Para Asana, verifique documentação ou execute /meta/setup-integration asana
 ```
 
 ---

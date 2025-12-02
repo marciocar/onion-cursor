@@ -1,6 +1,6 @@
 # 🧅 Sistema Onion
 
-[![Versão](https://img.shields.io/badge/Versão-3.0.0-purple)](CHANGELOG-ONION-V3.md) [![Comandos](https://img.shields.io/badge/Comandos-56-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-38-green)](docs/onion/agents-reference.md) [![ClickUp](https://img.shields.io/badge/ClickUp-Integrado-orange)](docs/onion/clickup-integration.md)
+[![Versão](https://img.shields.io/badge/Versão-3.0.0-purple)](CHANGELOG-ONION-V3.md) [![Comandos](https://img.shields.io/badge/Comandos-56-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-38-green)](docs/onion/agents-reference.md) [![Task Manager](https://img.shields.io/badge/Task%20Manager-Abstraction-orange)](docs/knowbase/concepts/task-manager-abstraction.md)
 
 ## 🎯 Visão Geral
 
@@ -87,7 +87,8 @@ $ /engineer/work               # Não é comando shell
 ### 🎯 Guias Principais
 - **[Guia de Comandos](docs/onion/commands-guide.md)** - Documentação completa de todos os comandos disponíveis
 - **[Fluxos de Engenharia](docs/onion/engineering-flows.md)** - Workflows detalhados para desenvolvimento
-- **[Integração ClickUp](docs/onion/clickup-integration.md)** - Como integrar comandos com ClickUp MCP
+- **[Task Manager Abstraction](docs/knowbase/concepts/task-manager-abstraction.md)** - Como funciona a abstração de gerenciadores
+- **[Integração ClickUp](docs/onion/clickup-integration.md)** - Configuração avançada do ClickUp (se usar)
 
 ### 🛠️ Referências Técnicas
 - **[Agentes Disponíveis](docs/onion/agents-reference.md)** - Lista e descrição de todos os agentes especializados
@@ -207,13 +208,22 @@ Documentação **específica do seu projeto**:
 
 ## 🔗 Integração com Gerenciadores de Tarefas
 
-O Sistema Onion oferece **integração nativa e bidirecional** com múltiplos gerenciadores através do **Task Manager Abstraction**:
+O Sistema Onion oferece **integração nativa e bidirecional** com múltiplos gerenciadores através do **Task Manager Abstraction** - uma camada de abstração que permite trocar de provedor sem modificar comandos ou workflows.
 
 ### 🎯 Gerenciadores Suportados
-- **ClickUp** - Via ClickUp MCP
-- **Asana** - Via Asana MCP
-- **Linear** - Via Linear API
-- **Modo Local** - Funciona sem gerenciador configurado
+
+| Provedor | Status | Tecnologia | Configuração |
+|----------|--------|------------|--------------|
+| **ClickUp** | ✅ Completo | ClickUp MCP | `TASK_MANAGER_PROVIDER=clickup` |
+| **Asana** | ✅ Completo | Asana MCP | `TASK_MANAGER_PROVIDER=asana` |
+| **Linear** | 📝 Stub | Linear API | `TASK_MANAGER_PROVIDER=linear` |
+| **Modo Local** | ✅ Offline | Sem sincronização | `TASK_MANAGER_PROVIDER=none` |
+
+**Vantagens da abstração:**
+- 🎯 **Flexibilidade**: Escolha o gerenciador que sua equipe já usa
+- 🔄 **Portabilidade**: Troque de provedor sem refatorar código
+- 🛡️ **Resiliência**: Funciona mesmo se o gerenciador estiver offline
+- 🚀 **Consistência**: Mesmos comandos, mesma experiência, qualquer provedor
 
 ### ⚡ Automações Principais
 - **🎯 Gestão Inteligente de Tasks**: Criação, atualização e sincronização automática
@@ -256,13 +266,15 @@ O Sistema Onion inclui **38 agentes de IA especializados** que podem ser invocad
 ### 🆘 Resolução de Problemas
 1. **Comandos**: Consulte [`.cursor/docs/onion/commands-guide.md`](.cursor/docs/onion/commands-guide.md)
 2. **Exemplos**: Veja casos práticos em [`.cursor/docs/onion/practical-examples.md`](.cursor/docs/onion/practical-examples.md)
-3. **ClickUp**: Verifique [`.cursor/docs/onion/clickup-integration.md`](.cursor/docs/onion/clickup-integration.md)
+3. **Task Manager**: Verifique [Task Manager Abstraction](docs/knowbase/concepts/task-manager-abstraction.md) ou [`.cursor/docs/onion/clickup-integration.md`](.cursor/docs/onion/clickup-integration.md) para ClickUp
 4. **Configuração**: Siga [`.cursor/docs/onion/getting-started.md`](.cursor/docs/onion/getting-started.md)
 
 ### 🔧 Comandos de Debug
 ```bash
 /meta/all-tools                           # Lista todos os comandos
+/meta/setup-integration                   # Configurar Task Manager (ClickUp, Asana, etc)
 @cursor-specialist "ajuda"                # Troubleshooting do IDE  
+@clickup-specialist "ajuda"               # Problemas específicos do ClickUp
 /product/task-check [ID]                  # Verifica status de task
 /product/estimate "descrição da tarefa"   # Estimar story points
 @story-points-framework-specialist        # Especialista em estimativas
