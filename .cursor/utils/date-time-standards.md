@@ -120,7 +120,7 @@ sed -i 's/\$(date +'\''%Y-%m-%d %H:%M'\'')/\$(date +'\''%d\/%m\/%Y %H:%M'\'')/g'
 - ✅ `.cursor/commands/engineer/hotfix.md`
 - ✅ `.cursor/commands/git/hotfix/start.md`
 - ✅ `.cursor/utils/clickup-comment-formatter.md`
-- ✅ `.cursor/utils/clickup-formatting.md`
+- ✅ `.cursor/docs/clickup/clickup-formatting.md`
 
 ### **Documentos Já Corretos:**
 - ✅ `.cursor/commands/git/README.md` (linha 464)

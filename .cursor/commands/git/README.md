@@ -356,7 +356,7 @@ ls .cursor/sessions/
 ### **🎯 Para Desenvolvimento:**
 - **Architecture**: `.cursor/sessions/gitflow-commands/architecture.md`
 - **Implementation**: Source code em cada comando
-- **ClickUp Integration**: `.cursor/utils/clickup-formatting.md`
+- **ClickUp Integration**: `.cursor/docs/clickup/clickup-formatting.md`
 
 ### **🔗 Comandos Relacionados:**
 - **Product Management**: `/product/task`, `/product/task-check`

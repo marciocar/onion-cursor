@@ -38,17 +38,38 @@ related_agents:
 
 Criar tasks estruturadas no gerenciador de tarefas configurado.
 
+## 🚨 AÇÃO OBRIGATÓRIA PRIMEIRO: Detectar Provedor
+
+**⚠️ CRÍTICO - EXECUTAR ANTES DE QUALQUER OUTRA AÇÃO:**
+
+**PASSO 0 (OBRIGATÓRIO):** Ler arquivo `.env` para detectar `TASK_MANAGER_PROVIDER`
+
+```bash
+# EXECUTAR PRIMEIRO: Ler .env usando read_file
+read_file .env
+```
+
+**APÓS LER .env, EXTRAIR:**
+- Valor de `TASK_MANAGER_PROVIDER` (pode ser: `clickup`, `asana`, `linear`, ou `none`)
+- Se `TASK_MANAGER_PROVIDER=clickup`: verificar se `CLICKUP_API_TOKEN` existe
+- Se `TASK_MANAGER_PROVIDER=asana`: verificar se `ASANA_ACCESS_TOKEN` existe
+- Se `TASK_MANAGER_PROVIDER=linear`: verificar se `LINEAR_API_KEY` existe
+- Se `TASK_MANAGER_PROVIDER=none` ou não existe: modo offline
+
+**⚠️ NUNCA ASSUMIR O PROVEDOR - SEMPRE LER .env PRIMEIRO**
+
 ## 🔧 Pré-requisito: Verificar Provedor
 
-```markdown
 Antes de criar tasks, verificar configuração:
-1. Ler `.env` para TASK_MANAGER_PROVIDER
-2. Se não configurado ou "none":
+1. ✅ **LER `.env` usando `read_file .env`** (OBRIGATÓRIO)
+2. Extrair `TASK_MANAGER_PROVIDER` do conteúdo lido
+3. Se não configurado ou "none":
    - Avisar: "⚠️ Nenhum gerenciador configurado. Execute /meta/setup-integration"
    - Continuar com estrutura local (sem sincronização)
-3. Se configurado:
+4. Se configurado:
    - Usar adapter correspondente de `.cursor/utils/task-manager/adapters/`
-```
+   - **SE `TASK_MANAGER_PROVIDER=asana`: usar ferramentas `mcp_asana_*`**
+   - **SE `TASK_MANAGER_PROVIDER=clickup`: usar ferramentas `mcp_ClickUp_*`**
 
 ## 🎯 Objetivo
 
@@ -58,31 +79,38 @@ Estabelecer base sólida para desenvolvimento com decomposição Task → Subtas
 
 ### Passo 1: Detectar Provedor e Configuração
 
-**CRÍTICO:** Executar estas ações na ordem:
+**CRÍTICO:** Executar estas ações na ordem EXATA:
 
-1. **Ler `.env` para detectar provedor:**
+1. **OBRIGATÓRIO - Ler `.env` para detectar provedor:**
    ```bash
-   # Usar read_file para ler .env
+   # EXECUTAR PRIMEIRO: Ler arquivo .env
    read_file .env
    
-   # Extrair TASK_MANAGER_PROVIDER (padrão: 'none')
-   # Verificar variáveis obrigatórias:
-   # - ClickUp: CLICKUP_API_TOKEN
-   # - Asana: ASANA_ACCESS_TOKEN
-   # - Linear: LINEAR_API_KEY
+   # EXTRAIR do conteúdo lido:
+   # - TASK_MANAGER_PROVIDER=??? (clickup, asana, linear, ou none)
+   # - Verificar variáveis obrigatórias correspondentes:
+   #   * Se clickup: CLICKUP_API_TOKEN
+   #   * Se asana: ASANA_ACCESS_TOKEN  
+   #   * Se linear: LINEAR_API_KEY
    ```
 
-2. **Validar configuração:**
+2. **Validar configuração baseado no valor EXTRAÍDO:**
    ```markdown
-   SE TASK_MANAGER_PROVIDER = 'clickup':
-     ✅ Verificar CLICKUP_API_TOKEN existe
+   SE TASK_MANAGER_PROVIDER extraído = 'clickup':
+     ✅ Verificar CLICKUP_API_TOKEN existe no .env lido
+     ✅ Se não existe: avisar e continuar em modo offline
+     ✅ Usar ferramentas mcp_ClickUp_* para criar tasks
+     
+   SE TASK_MANAGER_PROVIDER extraído = 'asana':
+     ✅ Verificar ASANA_ACCESS_TOKEN existe no .env lido
+     ✅ Se não existe: avisar e continuar em modo offline
+     ✅ Usar ferramentas mcp_asana_* para criar tasks
+     
+   SE TASK_MANAGER_PROVIDER extraído = 'linear':
+     ✅ Verificar LINEAR_API_KEY existe no .env lido
      ✅ Se não existe: avisar e continuar em modo offline
      
-   SE TASK_MANAGER_PROVIDER = 'asana':
-     ✅ Verificar ASANA_ACCESS_TOKEN existe
-     ✅ Se não existe: avisar e continuar em modo offline
-     
-   SE TASK_MANAGER_PROVIDER = 'none' ou não configurado:
+   SE TASK_MANAGER_PROVIDER extraído = 'none' ou não encontrado:
      ⚠️ Modo offline - tasks não serão sincronizadas
      💡 Avisar: Execute /meta/setup-integration para configurar
    ```
@@ -111,18 +139,75 @@ ls docs/*.md
 list_dir src/
 ```
 
-### Passo 3: Compreender Tarefa
+### Passo 3: Análise Profunda e Compreensão
 
-1. **Ler descrição**: `{{description}}`
-2. **Identificar complexidade**:
+**SEMPRE siga esta sequência obrigatória:**
+
+#### 📚 Revisão de Documentação (OBRIGATÓRIO)
+1. **Revise PRIMEIRO a documentação atual do projeto**: README.md e arquivos .md na pasta `docs/`
+2. **Analise estrutura existente** baseado na documentação revisada
+3. **Identifique padrões e tecnologias** já estabelecidos no projeto
+
+#### 🤔 Compreensão da Tarefa
+1. **Leia cuidadosamente** a descrição da tarefa fornecida: `{{description}}`
+2. **Formule perguntas internas** para esclarecer ambiguidades ou informações faltantes
+3. **Analise como a tarefa se encaixa** na estrutura existente do projeto
+4. **Identifique complexidade, dependências e padrões aplicáveis**:
    - Simples (1-3 dias): 2-3 subtasks
    - Média (4-7 dias): 3-4 subtasks
    - Complexa (1-2 sem): 4-6 subtasks
    - Épico (>2 sem): Quebrar em múltiplas tasks
 
-3. **Confirmar com usuário** antes de criar
+#### ✅ Confirmação e Esclarecimento (OBRIGATÓRIO)
+1. **Antes de proceder**, confirme seu entendimento da tarefa
+2. **Se precisar de mais informações**, declare quais detalhes adicionais seriam úteis
+3. **SEMPRE apresente seu plano** ao usuário antes de criar a task
+4. **Peça confirmação explícita** antes de executar criação no Task Manager
 
-### Passo 4: Decompor Hierarquicamente
+### Passo 4: Apresentação do Plano Final (OBRIGATÓRIO ANTES DE CRIAR)
+
+**⚠️ CRÍTICO: NUNCA criar task sem apresentar plano e obter confirmação**
+
+**OBRIGATÓRIO: Apresente seu plano ao usuário e peça confirmação antes de criar:**
+
+```markdown
+## 🎯 PLANO DE TASK PROPOSTO
+
+### **📋 Task Principal**
+**Nome**: [NOME_DA_TASK]
+**Tipo**: [Feature/Bug/Improvement/Research]
+**Complexidade**: [Simples/Média/Alta]
+**Estimativa**: [TEMPO_ESTIMADO]
+
+### **📝 Descrição Funcional**
+[DESCRIÇÃO_CLARA_DO_OBJETIVO]
+
+### **🏗️ Arquitetura Técnica** 
+[DETALHAMENTO_TÉCNICO_E_IMPLEMENTAÇÃO]
+
+### **📚 Bibliotecas/Dependências Sugeridas**
+[LISTA_DE_DEPENDÊNCIAS_PRIORIZANDO_CONHECIDAS]
+
+### **🔧 Componentes Afetados**
+[COMPONENTES_QUE_SERÃO_MODIFICADOS]
+
+### **✅ Critérios de Aceitação**
+- [ ] [CRITÉRIO_1]
+- [ ] [CRITÉRIO_2]  
+- [ ] [CRITÉRIO_3]
+
+### **🧪 Pontos de Atenção para Teste**
+[ESTRATÉGIA_DE_TESTES_E_VALIDAÇÃO]
+
+❓ **Este plano está correto? Posso proceder com a criação da task no Task Manager?** [Y/n]
+```
+
+**⚠️ IMPORTANTE:** 
+- **AGUARDAR confirmação explícita do usuário** antes de prosseguir
+- **NÃO criar task** até receber confirmação
+- **Se usuário pedir ajustes**, revisar plano e apresentar novamente
+
+### Passo 5: Decompor Hierarquicamente (APÓS CONFIRMAÇÃO)
 
 Consultar @task-specialist para estrutura:
 
@@ -137,11 +222,11 @@ Consultar @task-specialist para estrutura:
     └── ✅ Action Item 2.2 (1-4h)
 ```
 
-### Passo 5: Estimar Story Points (Automático)
+### Passo 6: Estimar Story Points (Automático)
 
 **CRÍTICO:** Após decomposição, SEMPRE estimar story points para task principal e cada subtask.
 
-#### 5.1. Estimar Task Principal
+#### 6.1. Estimar Task Principal
 
 ```markdown
 @story-points-framework-specialist
@@ -163,7 +248,7 @@ Forneça:
 - Análise completa de fatores
 - Recomendações
 
-#### 5.2. Estimar Cada Subtask
+#### 6.2. Estimar Cada Subtask
 
 ```markdown
 Para cada subtask identificada:
@@ -181,7 +266,7 @@ Estime story points para esta subtask.
 - Story points por subtask
 - Total de pontos (soma das subtasks)
 
-#### 5.3. Validar Consistência
+#### 6.3. Validar Consistência
 
 ```markdown
 SE soma(subtasks) > task_principal:
@@ -193,7 +278,24 @@ SE task_principal > 13 pontos:
   Propor quebra em múltiplas tasks menores
 ```
 
-### Passo 6: Criar no Gerenciador
+### Passo 7: Criar no Gerenciador (APÓS CONFIRMAÇÃO DO USUÁRIO)
+
+**🚨 ORDEM CRÍTICA DE EXECUÇÃO:**
+
+**⚠️ SEMPRE SEGUIR ESTA ORDEM:**
+1. **PRIMEIRO**: Criar task no Task Manager (registrar o que VAI ser feito)
+2. **DEPOIS**: Se a task envolve trabalho imediato (ex: deletar arquivos, fazer mudanças), executar o trabalho
+3. **POR ÚLTIMO**: Atualizar task com resultado (comentários, status, evidências)
+
+**❌ NUNCA FAZER:**
+- Executar trabalho antes de criar a task
+- Criar task depois que o trabalho já foi feito
+- Assumir que o trabalho já foi feito antes de criar a task
+
+**✅ SEMPRE:**
+- Criar task primeiro para registrar intenção
+- Executar trabalho após task criada (se aplicável)
+- Atualizar task com progresso e resultado
 
 **CRÍTICO:** 
 - ✅ Usar ferramentas MCP diretamente (`mcp_ClickUp_*`, `mcp_asana_*`)
@@ -348,7 +450,36 @@ Após criar, normalizar resposta para formato padrão:
 - subtasks: [array de subtasks normalizadas]
 ```
 
-### Passo 7: Apresentar Resultado
+### Passo 8: Executar Trabalho (Se Aplicável)
+
+**⚠️ APENAS se a task envolve trabalho imediato:**
+
+Se a descrição da task indica trabalho que deve ser executado imediatamente (ex: "Remover arquivos X", "Criar estrutura Y", "Atualizar configuração Z"):
+
+1. **APÓS criar a task no Task Manager**, executar o trabalho descrito
+2. **Documentar o que foi feito** durante a execução
+3. **Atualizar a task** com comentário detalhado do resultado
+
+**Se a task é apenas para planejamento/desenvolvimento futuro:**
+- Pular este passo
+- Task fica como "To Do" para execução posterior
+
+### Passo 9: Atualizar Task com Resultado
+
+**Se trabalho foi executado no Passo 8:**
+
+1. **Adicionar comentário detalhado** na task com:
+   - O que foi feito
+   - Arquivos modificados/criados/deletados
+   - Resultado da execução
+   - Próximos passos (se houver)
+
+2. **Atualizar status** se apropriado:
+   - Se trabalho completo: status → "Done"
+   - Se parcial: status → "In Progress"
+   - Se apenas planejamento: manter "To Do"
+
+### Passo 10: Apresentar Resultado
 
 ## 📤 Output Esperado
 
@@ -411,11 +542,12 @@ ${recommendations}
 
 ### Padrões de Formatação
 - **ClickUp:** `.cursor/commands/common/prompts/clickup-patterns.md`
-- **Formatação:** `.cursor/utils/clickup-formatting.md`
+- **Formatação:** `.cursor/docs/clickup/clickup-formatting.md`
 
 ## ⚠️ Notas
 
-- SEMPRE confirmar com usuário antes de criar
+- **OBRIGATÓRIO:** SEMPRE apresentar plano e pedir confirmação antes de criar task
+- **OBRIGATÓRIO:** Criar task PRIMEIRO, depois executar trabalho (se aplicável)
 - Action items: máximo 4h cada
 - Se épico: sugerir quebrar em múltiplas tasks
 - Se provedor não configurado: funciona em modo local
