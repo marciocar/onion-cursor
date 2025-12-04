@@ -38,6 +38,8 @@ version: "3.0.0"
 updated: "2025-11-24"
 
 related_commands:
+  - /test/integration
+  - /test/e2e
   - /validate/test-strategy/create
   - /engineer/work
   - /git/code-review
@@ -291,6 +293,8 @@ describe('nomeFuncao', () => {
 
 ## 🔗 Comandos Relacionados
 
+- `/test/integration` - Testes de integração (Grey-box)
+- `/test/e2e` - Testes end-to-end (Black-box)
 - `/validate/test-strategy/create` - Criar estratégia completa de testes
 - `/engineer/work` - Continuar desenvolvimento com testes
 - `/git/code-review` - Revisar código incluindo testes

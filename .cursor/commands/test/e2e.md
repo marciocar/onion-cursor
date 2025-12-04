@@ -40,6 +40,7 @@ updated: "2025-11-24"
 
 related_commands:
   - /test/unit
+  - /test/integration
   - /validate/test-strategy/create
   - /engineer/work
 
@@ -305,7 +306,8 @@ run_terminal_cmd [comando construído]
 
 ## 🔗 Comandos Relacionados
 
-- `/test/unit` - Testes unitários
+- `/test/unit` - Testes unitários (White-box)
+- `/test/integration` - Testes de integração (Grey-box)
 - `/validate/test-strategy/create` - Criar estratégia completa de testes
 - `/engineer/work` - Continuar desenvolvimento
 
