@@ -93,6 +93,7 @@ $ /engineer/work               # Não é comando shell
 ### 🛠️ Referências Técnicas
 - **[Agentes Disponíveis](docs/onion/agents-reference.md)** - Lista e descrição de todos os agentes especializados
 - **[Exemplos Práticos](docs/onion/practical-examples.md)** - Casos de uso reais com exemplos
+- **[Sistema de Testes e Validação](docs/onion/testing-validation-system.md)** - Framework completo de testes e validação
 - **[Knowledge Bases](docs/knowbase/)** - Documentação estruturada para IA
 
 ### 🚀 Início Rápido

@@ -139,6 +139,7 @@ Para: "criar task no ClickUp"
 
 - Agente master: @onion
 - Docs: `docs/onion/`
+- Sistema de Testes: `docs/onion/testing-validation-system.md` - Framework completo de testes e validação
 
 ## ⚠️ Notas
 

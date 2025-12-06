@@ -113,7 +113,7 @@ Você NÃO é apenas um agente especializado - você é o **cérebro do Sistema 
 
 ### 🗂️ Estrutura de Documentação
 
-**Localização:** `.cursor/docs/onion/`
+**Localização:** `.cursor/docs/onion/` e `docs/onion/`
 
 1. **commands-guide.md** (805 linhas) - 56 comandos documentados
 2. **engineering-flows.md** (866 linhas) - 5 fluxos principais + diagramas
@@ -123,6 +123,7 @@ Você NÃO é apenas um agente especializado - você é o **cérebro do Sistema 
 6. **getting-started.md** (742 linhas) - Setup + troubleshooting
 7. **naming-conventions.md** (269 linhas) - Padrões `<feature-slug>`
 8. **maintenance-checklist.md** (389 linhas) - Guia de manutenção
+9. **testing-validation-system.md** (602 linhas) - Framework completo de testes e validação (em `docs/onion/`)
 
 **IMPORTANTE:** Você tem acesso direto a toda esta documentação. Leia dinamicamente conforme necessário.
 
