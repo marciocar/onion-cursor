@@ -1,19 +1,20 @@
 # 🧅 Sistema Onion
 
-[![Versão](https://img.shields.io/badge/Versão-3.0.0-purple)](CHANGELOG-ONION-V3.md) [![Comandos](https://img.shields.io/badge/Comandos-56-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-38-green)](docs/onion/agents-reference.md) [![Task Manager](https://img.shields.io/badge/Task%20Manager-Abstraction-orange)](docs/knowbase/concepts/task-manager-abstraction.md)
+[![Versão](https://img.shields.io/badge/Versão-3.0.0-purple)](CHANGELOG-ONION-V3.md) [![Comandos](https://img.shields.io/badge/Comandos-73-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-45-green)](docs/onion/agents-reference.md) [![Task Manager](https://img.shields.io/badge/Task%20Manager-Abstraction-orange)](docs/knowbase/concepts/task-manager-abstraction.md)
 
 ## 🎯 Visão Geral
 
 Bem-vindo ao **Sistema Onion v3.0**! Framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **57 comandos especializados** organizados em 8 categorias
-- 🎯 **38 agentes de IA especializados** em 9 categorias
-- 📚 **5 Knowledge Bases** estruturadas para IA
+- 🤖 **73 comandos especializados** organizados em 8 categorias
+- 🎯 **45 agentes de IA especializados** em 9 categorias
+- 📚 **Knowledge Bases** estruturadas para IA
 - 📋 **4 regras** de padronização e validação
 - 🧅 **Comando `/onion`** - ponto de entrada inteligente para o sistema
 - 🧅 **Agente `@onion`** - orquestrador master que conhece todo o sistema
 - 🔗 **Task Manager Abstraction** para ClickUp, Asana e Linear (via adapter pattern)
 - ⚡ **Workflows automatizados** do planejamento ao deploy
+- 📋 **Extração e Consolidação de Reuniões** - Framework EXTRACT para transformar transcrições em conhecimento estruturado
 
 ### 🆕 Novidades v3.0
 
@@ -26,6 +27,7 @@ Bem-vindo ao **Sistema Onion v3.0**! Framework avançado de comandos `.cursor/` 
 - **🎲 Integração Automática de Story Points** - estimativas automáticas em todas as tasks criadas
 - **📊 Framework de Story Points** - agente especializado e comando dedicado para estimativas
 - **✅ Validação de Estimativas** - validação automática antes de iniciar desenvolvimento
+- **📋 Extração e Consolidação de Reuniões** - Framework EXTRACT para transformar transcrições em conhecimento estruturado ✨ NOVO
 
 📋 **[Ver CHANGELOG completo](CHANGELOG-ONION-V3.md)**
 
@@ -97,11 +99,11 @@ $ /engineer/work               # Não é comando shell
 - **[Knowledge Bases](docs/knowbase/)** - Documentação estruturada para IA
 
 ### 🚀 Início Rápido
-- **[Configuração Inicial](.cursor/docs/onion/getting-started.md)** - Como configurar e começar a usar o sistema
+- **[Configuração Inicial](docs/onion/getting-started.md)** - Como configurar e começar a usar o sistema
 
 ## 📁 Estrutura de Documentação
 
-### 🧅 Sistema Onion (`.cursor/docs/onion/`)
+### 🧅 Sistema Onion (`docs/onion/`)
 Documentação do **framework de comandos e agentes**:
 - 📖 Guias de uso de comandos
 - 🔄 Workflows de desenvolvimento
@@ -109,7 +111,7 @@ Documentação do **framework de comandos e agentes**:
 - 💡 Exemplos práticos
 - ⚙️ Configuração e troubleshooting
 
-**Localização:** `.cursor/docs/onion/`  
+**Localização:** `docs/onion/`  
 **Propósito:** Documentar o Sistema Onion em si
 
 ### 📚 Projeto (`docs/`)
@@ -133,7 +135,7 @@ Documentação **específica do seu projeto**:
 
 ### 📂 Por Categoria de Comando
 - **🔧 Engenharia**: `engineer/start`, `engineer/work`, `engineer/pr`, `engineer/pre-pr`, `engineer/plan`, `engineer/docs`
-- **📋 Produto**: `product/task`, `product/spec`, `product/collect`, `product/refine`, `product/estimate`, `product/light-arch`, `product/task-check`  
+- **📋 Produto**: `product/task`, `product/spec`, `product/collect`, `product/refine`, `product/estimate`, `product/light-arch`, `product/task-check`, `product/extract-meeting`, `product/consolidate-meetings` ✨ NOVO
 - **📚 Documentação**: `docs/build-tech-docs`, `docs/build-business-docs`, `docs/build-index`
 - **🌿 Git**: `git/sync`
 - **⚙️ Meta**: `meta/all-tools`, `meta/create-agent`
@@ -245,7 +247,7 @@ O Sistema Onion oferece **integração nativa e bidirecional** com múltiplos ge
 
 ## 🤖 Agentes Especializados
 
-O Sistema Onion inclui **38 agentes de IA especializados** que podem ser invocados diretamente:
+O Sistema Onion inclui **45 agentes de IA especializados** que podem ser invocados diretamente:
 
 ### 🎯 Agentes Principais
 - **`@product-agent`** - Gestão estratégica de produto e coordenação de projetos
@@ -253,6 +255,8 @@ O Sistema Onion inclui **38 agentes de IA especializados** que podem ser invocad
 - **`@clickup-specialist`** - Otimizações técnicas do ClickUp MCP
 - **`@cursor-specialist`** - Configuração e troubleshooting do Cursor IDE
 - **`@story-points-framework-specialist`** - Especialista em estimativas ágeis e story points
+- **`@extract-meeting-specialist`** - Extração estruturada de conhecimento de reuniões usando Framework EXTRACT ✨ NOVO
+- **`@meeting-consolidator`** - Consolidação de múltiplas reuniões com análise de divergências e convergências ✨ NOVO
 
 ### 🔧 Agentes de Desenvolvimento
 - **`@python-developer`** - Especialista em desenvolvimento Python
@@ -260,15 +264,15 @@ O Sistema Onion inclui **38 agentes de IA especializados** que podem ser invocad
 - **`@test-engineer`** - Automação e estratégias de teste
 - **`@code-reviewer`** - Análise e review de código
 
-**[Ver lista completa →](.cursor/docs/onion/agents-reference.md)**
+**[Ver lista completa →](docs/onion/agents-reference.md)**
 
 ## 📞 Suporte e Recursos
 
 ### 🆘 Resolução de Problemas
-1. **Comandos**: Consulte [`.cursor/docs/onion/commands-guide.md`](.cursor/docs/onion/commands-guide.md)
-2. **Exemplos**: Veja casos práticos em [`.cursor/docs/onion/practical-examples.md`](.cursor/docs/onion/practical-examples.md)
-3. **Task Manager**: Verifique [Task Manager Abstraction](docs/knowbase/concepts/task-manager-abstraction.md) ou [`.cursor/docs/onion/clickup-integration.md`](.cursor/docs/onion/clickup-integration.md) para ClickUp
-4. **Configuração**: Siga [`.cursor/docs/onion/getting-started.md`](.cursor/docs/onion/getting-started.md)
+1. **Comandos**: Consulte [docs/onion/commands-guide.md](docs/onion/commands-guide.md)
+2. **Exemplos**: Veja casos práticos em [docs/onion/practical-examples.md](docs/onion/practical-examples.md)
+3. **Task Manager**: Verifique [Task Manager Abstraction](docs/knowbase/concepts/task-manager-abstraction.md)
+4. **Configuração**: Siga [docs/onion/getting-started.md](docs/onion/getting-started.md)
 
 ### 🔧 Comandos de Debug
 ```bash
@@ -302,6 +306,152 @@ O Sistema Onion inclui **integração completa de Story Points** para melhorar p
 - **[Framework de Story Points](docs/knowbase/frameworks/framework_story_points.md)** - Guia completo
 - **[Integração de Story Points](.cursor/docs/product/story-points-integration.md)** - Como funciona
 - **[Validação de Estimativas](.cursor/docs/product/story-points-validation.md)** - Validação no start
+
+## 📋 Extração e Consolidação de Reuniões
+
+O Sistema Onion inclui **estratégias avançadas** para transformar transcrições de reuniões em conhecimento estruturado e acionável:
+
+### 🎯 Framework EXTRACT
+
+Metodologia em **7 dimensões** para máxima extração de valor de reuniões:
+
+```
+E - Essência      → Resumo executivo (3 linhas máximo)
+X - eXpectativas  → Objetivos da reunião + Status (atingido/parcial/não)
+T - Tarefas       → Ações com Owner + Deadline + Prioridade
+R - Resoluções    → Decisões tomadas + Rationale + Confiança
+A - Ambiguidades  → Gaps, contradições, pontos não resolvidos
+C - Conexões      → Dependências, stakeholders, documentos relacionados
+T - Timeline      → Datas, marcos, deadlines mencionados
+```
+
+### ⚡ Comandos Disponíveis
+
+#### `/product/extract-meeting`
+Extrai conhecimento estruturado de transcrições de reuniões usando o Framework EXTRACT.
+
+**Uso:**
+```bash
+# Extrair reunião específica (nível executivo default)
+/product/extract-meeting source=reuniao-28-nov.txt
+
+# Nível completo com YAML estruturado
+/product/extract-meeting source=reuniao.txt level=complete
+
+# Foco apenas em decisões
+/product/extract-meeting source=reuniao.txt focus=decisions
+
+# Processar pasta de contexto
+/product/extract-meeting source=contextos/projeto-x/
+
+# Gerar grafo para sistemas
+/product/extract-meeting source=reuniao.txt level=graph
+```
+
+**Níveis de Output:**
+- `compact` - Resumo ultra-compacto (30 segundos de leitura)
+- `executive` - Nível executivo (2 minutos de leitura) - **padrão**
+- `complete` - YAML completo estruturado
+- `graph` - JSON com entidades e relacionamentos para sistemas
+
+**Focos Disponíveis:**
+- `all` - Todas as dimensões (padrão)
+- `decisions` - Apenas decisões
+- `tasks` - Apenas tarefas
+- `gaps` - Apenas ambiguidades e gaps
+
+#### `/product/consolidate-meetings`
+Consolida múltiplas reuniões identificando divergências, convergências e insights estratégicos.
+
+**Uso:**
+```bash
+# Consolidar todas as reuniões de uma pasta
+/product/consolidate-meetings source=docs/meet/gamification-meetings/
+
+# Consolidar arquivos específicos
+/product/consolidate-meetings source=docs/meet/meeting-1.md docs/meet/meeting-2.md
+
+# Foco em divergências
+/product/consolidate-meetings source=docs/meet/meetings/ --focus=divergences
+
+# Foco em insights estratégicos
+/product/consolidate-meetings source=docs/meet/strategic-planning/ --focus=insights
+
+# Foco em pontos não ditos/compreendidos
+/product/consolidate-meetings source=docs/meet/meetings/ --focus=gaps
+```
+
+**Focos Disponíveis:**
+- `all` - Consolidação completa (padrão)
+- `divergences` - Apenas divergências e conflitos
+- `convergences` - Apenas convergências e alinhamentos
+- `insights` - Apenas insights estratégicos
+- `gaps` - Apenas pontos não ditos/compreendidos
+
+### 🤖 Agentes Especializados
+
+#### `@extract-meeting-specialist`
+Especialista em aplicar o Framework EXTRACT para transformar transcrições em conhecimento estruturado.
+
+**Capacidades:**
+- Extração sistemática das 7 dimensões EXTRACT
+- Validação de consistência interna
+- Indicação de níveis de confiança
+- Geração de outputs em múltiplos formatos
+- Detecção de sobreposições e contradições
+
+**Uso:**
+```bash
+@extract-meeting-specialist "Processar transcrição: [ARQUIVO]"
+@extract-meeting-specialist "Extrair nível executivo: [ARQUIVO]"
+@extract-meeting-specialist "Identificar gaps e ambiguidades: [ARQUIVO]"
+```
+
+#### `@meeting-consolidator`
+Especialista em consolidar múltiplas reuniões com análise profunda.
+
+**Capacidades:**
+- Classificação e categorização por tema
+- Identificação de divergências entre participantes/reuniões
+- Identificação de convergências e pontos de alinhamento
+- Geração de insights estratégicos não explícitos
+- Identificação de pontos não ditos ou não compreendidos
+- Recomendações estratégicas acionáveis
+
+**Uso:**
+```bash
+@meeting-consolidator "Consolidar reuniões: [ARQUIVO1] [ARQUIVO2] [ARQUIVO3]"
+@meeting-consolidator "Identificar divergências entre: [ARQUIVO1] [ARQUIVO2]"
+@meeting-consolidator "Gerar insights estratégicos de: [ARQUIVO]"
+```
+
+### 📚 Knowledge Base
+
+- **[Meeting Transcription to Knowledge Base](docs/knowbase/concepts/meeting-transcription-to-knowledge-base.md)** - Metodologia completa e templates estruturados
+
+### 🎯 Casos de Uso
+
+**Workflow Completo:**
+```bash
+# 1. Extrair conhecimento de reunião individual
+/product/extract-meeting source=reuniao-01-dez.txt level=executive
+
+# 2. Consolidar múltiplas reuniões relacionadas
+/product/consolidate-meetings source=docs/meet/sprint-planning/
+
+# 3. Identificar divergências críticas
+/product/consolidate-meetings source=docs/meet/ --focus=divergences
+
+# 4. Gerar insights estratégicos
+/product/consolidate-meetings source=docs/meet/ --focus=insights
+```
+
+**Benefícios:**
+- ✅ **Conhecimento Estruturado**: Transforma diálogos em artefatos acionáveis
+- ✅ **Rastreabilidade**: Decisões e tarefas com owners e deadlines claros
+- ✅ **Gap Detection**: Identifica o que não foi decidido (tão importante quanto o que foi)
+- ✅ **Análise Estratégica**: Revela padrões e insights não explícitos
+- ✅ **Interoperabilidade**: Outputs em formatos consumíveis por sistemas
 
 ---
 

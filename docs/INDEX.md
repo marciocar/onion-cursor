@@ -10,8 +10,8 @@ Bem-vindo ao índice central de documentação do projeto. Este documento serve 
 
 Este projeto utiliza o **Sistema Onion v3.0** - um framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **84 comandos especializados** organizados em categorias funcionais
-- 🎯 **44 agentes de IA especializados** em múltiplos domínios
+- 🤖 **73 comandos especializados** organizados em categorias funcionais
+- 🎯 **45 agentes de IA especializados** em múltiplos domínios
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
 - 🧅 **Comando `/onion`** - ponto de entrada inteligente
 - 🔗 **Task Manager Abstraction** para ClickUp, Asana e Linear
@@ -21,22 +21,44 @@ Este projeto utiliza o **Sistema Onion v3.0** - um framework avançado de comand
 ## 📊 Estatísticas da Documentação
 
 ### Documentação Principal
-- **31 arquivos markdown** em `docs/`
+- **32 arquivos markdown** em `docs/` (incluindo este índice)
 - **12 arquivos** em `docs/onion/` (Sistema Onion)
 - **16 arquivos** em `docs/knowbase/` (Knowledge Bases)
+  - 12 arquivos em `concepts/` (Conceitos fundamentais)
+  - 2 arquivos em `frameworks/` (Frameworks e metodologias)
+  - 1 arquivo em `platforms/` (Plataformas)
+  - 1 arquivo em `tools/` (Ferramentas)
 - **1 arquivo** em `docs/meta-specs/` (Meta Especificações)
 - **1 arquivo** em `docs/analysis/` (Análises)
 - **1 arquivo** em `docs/plans/` (Planos de execução)
 
 ### Sistema Onion
-- **84 comandos Cursor** em `.cursor/commands/`
-- **44 agentes IA** em `.cursor/agents/`
+- **73 comandos Cursor** em `.cursor/commands/`
+  - 18 comandos em `product/` (Gestão de produto)
+  - 13 comandos em `git/` (GitFlow e operações Git)
+  - 11 comandos em `engineer/` (Fluxos de desenvolvimento)
+  - 10 comandos em `docs/` (Documentação)
+  - 9 comandos em `meta/` (Meta-comandos e criadores)
+  - 6 comandos em `validate/` (Validações e testes)
+  - 3 comandos em `test/` (Testes unitários, integração, E2E)
+  - 1 comando em `quick/` (Ações rápidas)
+  - 2 comandos globais (`onion.md`, `warm-up.md`)
+- **45 agentes IA** em `.cursor/agents/`
+  - 17 agentes em `development/` (Desenvolvimento especializado)
+  - 8 agentes em `product/` (Produto e negócio)
+  - 5 agentes em `compliance/` (Compliance e regulatório)
+  - 4 agentes em `git/` (Git e branches)
+  - 4 agentes em `meta/` (Meta e orquestração)
+  - 3 agentes em `testing/` (Testes e QA)
+  - 2 agentes em `review/` (Code review)
+  - 1 agente em `research/` (Pesquisa)
+  - 1 agente em `deployment/` (Deployment)
 - **12 documentos** de referência em `docs/onion/`
 
 ### Total
-- **31 arquivos** de documentação markdown
-- **84 comandos** disponíveis
-- **44 agentes** especializados
+- **32 arquivos** de documentação markdown
+- **73 comandos** disponíveis
+- **45 agentes** especializados
 
 ---
 
@@ -49,8 +71,8 @@ docs/
 ├── onion/                      # Sistema Onion (12 arquivos)
 │   ├── commands-guide.md       # Guia completo de comandos
 │   ├── agents-reference.md     # Referência de agentes
-│   ├── engineering-flows.md    # Fluxos de engenharia
-│   ├── clickup-integration.md   # Integração ClickUp MCP
+│   ├── engineering-flows.md   # Fluxos de engenharia
+│   ├── clickup-integration.md  # Integração ClickUp MCP
 │   ├── practical-examples.md   # Exemplos práticos
 │   ├── getting-started.md      # Configuração inicial
 │   ├── testing-validation-system.md  # Sistema de testes e validação ✨ NOVO
@@ -58,13 +80,30 @@ docs/
 │   ├── cursor-commands-architecture.md  # Arquitetura de comandos
 │   ├── consolidated-project-documentation.md  # Documentação consolidada
 │   ├── end-to-end-validation-tests.md  # Testes de validação E2E
-│   └── sistema-engenharia-reversa-guia-uso.md  # Engenharia reversa
+│   ├── sistema-engenharia-reversa-guia-uso.md  # Engenharia reversa
+│   └── phase-subtask-sync-fix.md  # Documentação técnica
 │
 ├── knowbase/                   # Knowledge Bases (16 arquivos)
-│   ├── concepts/               # Conceitos fundamentais
-│   ├── frameworks/             # Frameworks e metodologias
-│   ├── platforms/              # Plataformas e tecnologias
-│   └── tools/                  # Ferramentas e recursos
+│   ├── concepts/               # Conceitos fundamentais (12 arquivos)
+│   │   ├── abstraction-patterns-catalog.md
+│   │   ├── ai-agent-design-patterns.md
+│   │   ├── branding-posicionamento-marca.md
+│   │   ├── configuration-management.md
+│   │   ├── context-window-optimization.md
+│   │   ├── framework_story_points.md
+│   │   ├── framework_testes.md
+│   │   ├── identificar-precificar-dor-cliente.md
+│   │   ├── meeting-transcription-to-knowledge-base.md
+│   │   ├── spec-as-code-strategy.md
+│   │   ├── specification-driven-ai-abstraction-layer.md
+│   │   └── task-manager-abstraction.md
+│   ├── frameworks/             # Frameworks e metodologias (2 arquivos)
+│   │   ├── framework_story_points.md
+│   │   └── framework_testes.md
+│   ├── platforms/              # Plataformas e tecnologias (1 arquivo)
+│   │   └── runflow.md
+│   └── tools/                  # Ferramentas e recursos (1 arquivo)
+│       └── cursor-commands-best-practices-2025.md
 │
 ├── meta-specs/                 # Meta Especificações (1 arquivo)
 │   └── index.md                # Índice de meta specs
@@ -83,8 +122,8 @@ docs/
 ### 📖 Documentação Principal
 
 #### Guias Essenciais
-- **[Guia de Comandos](onion/commands-guide.md)** - Documentação completa de todos os 84 comandos disponíveis
-- **[Referência de Agentes](onion/agents-reference.md)** - Lista e descrição de todos os 44 agentes especializados
+- **[Guia de Comandos](onion/commands-guide.md)** - Documentação completa de todos os 73 comandos disponíveis
+- **[Referência de Agentes](onion/agents-reference.md)** - Lista e descrição de todos os 45 agentes especializados
 - **[Fluxos de Engenharia](onion/engineering-flows.md)** - Workflows detalhados para desenvolvimento
 - **[Sistema de Testes e Validação](onion/testing-validation-system.md)** - Framework completo de testes e validação ✨ NOVO
 
@@ -121,21 +160,29 @@ docs/
 
 Knowledge Bases estruturadas para consumo por IA e referência técnica:
 
-### Conceitos Fundamentais
+### Conceitos Fundamentais (12 arquivos)
 - **Task Manager Abstraction** - Abstração de gerenciadores de tarefas
 - **Framework de Story Points** - Sistema de estimativas ágeis
 - **Framework de Testes** - Metodologias de teste completas
+- **Spec-as-Code Strategy** - Estratégia de especificações como código
+- **AI Agent Design Patterns** - Padrões de design para agentes IA
+- **Abstraction Patterns Catalog** - Catálogo de padrões de abstração
+- **Context Window Optimization** - Otimização de contexto para IA
+- **Configuration Management** - Gestão de configurações
+- **Branding e Posicionamento** - Estratégias de marca
+- **Identificar e Precificar Dor do Cliente** - Metodologias de produto
+- **Meeting Transcription to Knowledge Base** - Processamento de reuniões
+- **Specification-Driven AI Abstraction Layer** - Camada de abstração orientada a especificações
 
-### Frameworks e Metodologias
-- **Framework de Testes** - White-box, Grey-box, Black-box
+### Frameworks e Metodologias (2 arquivos)
 - **Framework de Story Points** - Estimativas ágeis
-- **Padrões de Desenvolvimento** - Boas práticas
+- **Framework de Testes** - White-box, Grey-box, Black-box
 
-### Plataformas e Tecnologias
-- Documentação de tecnologias utilizadas no projeto
+### Plataformas e Tecnologias (1 arquivo)
+- **Runflow** - Documentação da plataforma
 
-### Ferramentas
-- Referências de ferramentas e recursos disponíveis
+### Ferramentas (1 arquivo)
+- **Cursor Commands Best Practices 2025** - Boas práticas de comandos Cursor
 
 **Localização:** `docs/knowbase/`
 
@@ -184,6 +231,12 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - `/test/unit` - Testes unitários
 - `/test/integration` - Testes de integração
 
+**Agentes especializados:**
+- `@react-developer` - Desenvolvimento React
+- `@nodejs-specialist` - Backend Node.js
+- `@nx-monorepo-specialist` - Monorepos NX
+- `@c4-architecture-specialist` - Arquitetura C4
+
 ### 📋 Para Product Owners
 
 **Comece com:**
@@ -195,7 +248,15 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - `/product/task` - Criar tasks estruturadas
 - `/product/spec` - Especificações técnicas
 - `/product/estimate` - Estimar story points
+- `/product/extract-meeting` - Extrair insights de reuniões
+- `/product/consolidate-meetings` - Consolidar múltiplas reuniões
 - `/validate/collab/three-amigos` - Sessões colaborativas
+
+**Agentes especializados:**
+- `@product-agent` - Orquestração de produto
+- `@story-points-framework-specialist` - Estimativas ágeis
+- `@storytelling-business-specialist` - Narrativas de negócio
+- `@branding-positioning-specialist` - Branding e posicionamento
 
 ### 🧪 Para QA/Test Engineers
 
@@ -240,6 +301,19 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - `/meta/all-tools` - Listar todas as ferramentas
 - `/docs/build-index` - Reconstruir índices
 
+### 🛡️ Para Compliance/Security
+
+**Comece com:**
+1. [Agentes de Compliance](onion/agents-reference.md#️-agentes-de-compliance)
+2. [Comandos de Validação](onion/commands-guide.md#-comandos-de-validação)
+
+**Agentes especializados:**
+- `@iso-27001-specialist` - ISO 27001:2022
+- `@iso-22301-specialist` - ISO 22301:2019
+- `@soc2-specialist` - SOC2 Type II
+- `@security-information-master` - Segurança da informação
+- `@corporate-compliance-specialist` - Compliance corporativo
+
 ---
 
 ## 🗺️ Mapa de Navegação Rápida
@@ -258,13 +332,28 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 
 | Categoria | Comandos | Documentação |
 |-----------|---------|--------------|
-| 🔧 **Engenharia** | `/engineer/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-de-engenharia) |
-| 📋 **Produto** | `/product/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-de-produto) |
-| 🧪 **Testes** | `/test/*` | [Sistema de Testes](onion/testing-validation-system.md) |
-| ✅ **Validação** | `/validate/*` | [Sistema de Testes](onion/testing-validation-system.md) |
-| 📚 **Documentação** | `/docs/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-de-documentação) |
-| 🌿 **Git** | `/git/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-git) |
-| ⚙️ **Meta** | `/meta/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-meta) |
+| 🔧 **Engenharia** | `/engineer/*` (11) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-engenharia) |
+| 📋 **Produto** | `/product/*` (18) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-produto) |
+| 🧪 **Testes** | `/test/*` (3) | [Sistema de Testes](onion/testing-validation-system.md) |
+| ✅ **Validação** | `/validate/*` (6) | [Sistema de Testes](onion/testing-validation-system.md) |
+| 📚 **Documentação** | `/docs/*` (10) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-documentação) |
+| 🌿 **Git** | `/git/*` (13) | [Guia de Comandos](onion/commands-guide.md#-comandos-git) |
+| ⚙️ **Meta** | `/meta/*` (9) | [Guia de Comandos](onion/commands-guide.md#-comandos-meta) |
+| ⚡ **Quick** | `/quick/*` (1) | [Guia de Comandos](onion/commands-guide.md) |
+
+### Por Categoria de Agente
+
+| Categoria | Agentes | Documentação |
+|-----------|---------|--------------|
+| 🔵 **Desenvolvimento** | `development/` (17) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-desenvolvimento) |
+| 🟡 **Produto** | `product/` (8) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-produto) |
+| 🛡️ **Compliance** | `compliance/` (5) | [Referência de Agentes](onion/agents-reference.md#️-agentes-de-compliance) |
+| 🌲 **Git** | `git/` (4) | [Referência de Agentes](onion/agents-reference.md#-agentes-git) |
+| 🔴 **Meta** | `meta/` (4) | [Referência de Agentes](onion/agents-reference.md#-agentes-meta) |
+| 🧪 **Testes** | `testing/` (3) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-testes) |
+| 🟢 **Review** | `review/` (2) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-review) |
+| 🟣 **Pesquisa** | `research/` (1) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-pesquisa) |
+| ⚙️ **Deployment** | `deployment/` (1) | [Referência de Agentes](onion/agents-reference.md) |
 
 ---
 
@@ -280,6 +369,8 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - [Task Manager Abstraction](knowbase/concepts/task-manager-abstraction.md)
 - [Framework de Story Points](knowbase/frameworks/framework_story_points.md)
 - [Framework de Testes](knowbase/frameworks/framework_testes.md)
+- [AI Agent Design Patterns](knowbase/concepts/ai-agent-design-patterns.md)
+- [Spec-as-Code Strategy](knowbase/concepts/spec-as-code-strategy.md)
 
 ### Configuração
 - [Configuração Inicial](onion/getting-started.md)
@@ -295,6 +386,11 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
   - Framework completo de testes e validação
   - 4 camadas integradas (Knowledge Base, Agentes, Comandos de Teste, Comandos de Validação)
   - Guia completo para desenvolvedores, QA e times cross-funcionais
+
+- **Comandos de Produto Expandidos** (2025-12-02)
+  - `/product/extract-meeting` - Extração inteligente de insights de reuniões
+  - `/product/consolidate-meetings` - Consolidação de múltiplas reuniões
+  - Agente `@meeting-consolidator` - Consolidação avançada de reuniões
 
 ---
 
@@ -335,4 +431,3 @@ Este índice é gerado automaticamente pelo comando `/docs/build-index`.
 ---
 
 **Sistema Onion v3.0** - Framework avançado de comandos e agentes para desenvolvimento ágil com IA 🧅
-
