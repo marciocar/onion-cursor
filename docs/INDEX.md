@@ -10,8 +10,8 @@ Bem-vindo ao índice central de documentação do projeto. Este documento serve 
 
 Este projeto utiliza o **Sistema Onion v3.0** - um framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **73 comandos especializados** organizados em categorias funcionais
-- 🎯 **45 agentes de IA especializados** em múltiplos domínios
+- 🤖 **90 comandos especializados** organizados em categorias funcionais
+- 🎯 **46 agentes de IA especializados** em múltiplos domínios
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
 - 🧅 **Comando `/onion`** - ponto de entrada inteligente
 - 🔗 **Task Manager Abstraction** para ClickUp, Asana e Linear
@@ -21,30 +21,30 @@ Este projeto utiliza o **Sistema Onion v3.0** - um framework avançado de comand
 ## 📊 Estatísticas da Documentação
 
 ### Documentação Principal
-- **32 arquivos markdown** em `docs/` (incluindo este índice)
+- **33 arquivos markdown** em `docs/` (incluindo este índice)
 - **12 arquivos** em `docs/onion/` (Sistema Onion)
-- **16 arquivos** em `docs/knowbase/` (Knowledge Bases)
+- **17 arquivos** em `docs/knowbase/` (Knowledge Bases)
   - 12 arquivos em `concepts/` (Conceitos fundamentais)
   - 2 arquivos em `frameworks/` (Frameworks e metodologias)
   - 1 arquivo em `platforms/` (Plataformas)
-  - 1 arquivo em `tools/` (Ferramentas)
+  - 2 arquivos em `tools/` (Ferramentas) ✨ NOVO
 - **1 arquivo** em `docs/meta-specs/` (Meta Especificações)
 - **1 arquivo** em `docs/analysis/` (Análises)
 - **1 arquivo** em `docs/plans/` (Planos de execução)
 
 ### Sistema Onion
-- **73 comandos Cursor** em `.cursor/commands/`
-  - 18 comandos em `product/` (Gestão de produto)
+- **90 comandos Cursor** em `.cursor/commands/`
+  - 21 comandos em `product/` (Gestão de produto) ✨ NOVO
   - 13 comandos em `git/` (GitFlow e operações Git)
   - 11 comandos em `engineer/` (Fluxos de desenvolvimento)
-  - 10 comandos em `docs/` (Documentação)
+  - 11 comandos em `docs/` (Documentação) ✨ NOVO
   - 9 comandos em `meta/` (Meta-comandos e criadores)
   - 6 comandos em `validate/` (Validações e testes)
   - 3 comandos em `test/` (Testes unitários, integração, E2E)
   - 1 comando em `quick/` (Ações rápidas)
   - 2 comandos globais (`onion.md`, `warm-up.md`)
-- **45 agentes IA** em `.cursor/agents/`
-  - 17 agentes em `development/` (Desenvolvimento especializado)
+- **46 agentes IA** em `.cursor/agents/`
+  - 18 agentes em `development/` (Desenvolvimento especializado) ✨ NOVO
   - 8 agentes em `product/` (Produto e negócio)
   - 5 agentes em `compliance/` (Compliance e regulatório)
   - 4 agentes em `git/` (Git e branches)
@@ -56,9 +56,9 @@ Este projeto utiliza o **Sistema Onion v3.0** - um framework avançado de comand
 - **12 documentos** de referência em `docs/onion/`
 
 ### Total
-- **32 arquivos** de documentação markdown
-- **73 comandos** disponíveis
-- **45 agentes** especializados
+- **33 arquivos** de documentação markdown
+- **90 comandos** disponíveis
+- **46 agentes** especializados
 
 ---
 
@@ -83,7 +83,7 @@ docs/
 │   ├── sistema-engenharia-reversa-guia-uso.md  # Engenharia reversa
 │   └── phase-subtask-sync-fix.md  # Documentação técnica
 │
-├── knowbase/                   # Knowledge Bases (16 arquivos)
+├── knowbase/                   # Knowledge Bases (17 arquivos) ✨ NOVO
 │   ├── concepts/               # Conceitos fundamentais (12 arquivos)
 │   │   ├── abstraction-patterns-catalog.md
 │   │   ├── ai-agent-design-patterns.md
@@ -102,8 +102,9 @@ docs/
 │   │   └── framework_testes.md
 │   ├── platforms/              # Plataformas e tecnologias (1 arquivo)
 │   │   └── runflow.md
-│   └── tools/                  # Ferramentas e recursos (1 arquivo)
-│       └── cursor-commands-best-practices-2025.md
+│   └── tools/                  # Ferramentas e recursos (2 arquivos) ✨ NOVO
+│       ├── cursor-commands-best-practices-2025.md
+│       └── whisper.md          # Knowledge base do Whisper ✨ NOVO
 │
 ├── meta-specs/                 # Meta Especificações (1 arquivo)
 │   └── index.md                # Índice de meta specs
@@ -122,8 +123,8 @@ docs/
 ### 📖 Documentação Principal
 
 #### Guias Essenciais
-- **[Guia de Comandos](onion/commands-guide.md)** - Documentação completa de todos os 73 comandos disponíveis
-- **[Referência de Agentes](onion/agents-reference.md)** - Lista e descrição de todos os 45 agentes especializados
+- **[Guia de Comandos](onion/commands-guide.md)** - Documentação completa de todos os 90 comandos disponíveis
+- **[Referência de Agentes](onion/agents-reference.md)** - Lista e descrição de todos os 46 agentes especializados
 - **[Fluxos de Engenharia](onion/engineering-flows.md)** - Workflows detalhados para desenvolvimento
 - **[Sistema de Testes e Validação](onion/testing-validation-system.md)** - Framework completo de testes e validação ✨ NOVO
 
@@ -181,8 +182,9 @@ Knowledge Bases estruturadas para consumo por IA e referência técnica:
 ### Plataformas e Tecnologias (1 arquivo)
 - **Runflow** - Documentação da plataforma
 
-### Ferramentas (1 arquivo)
+### Ferramentas (2 arquivos) ✨ NOVO
 - **Cursor Commands Best Practices 2025** - Boas práticas de comandos Cursor
+- **Whisper** - Sistema de transcrição de áudio (OpenAI) ✨ NOVO
 
 **Localização:** `docs/knowbase/`
 
@@ -236,6 +238,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - `@nodejs-specialist` - Backend Node.js
 - `@nx-monorepo-specialist` - Monorepos NX
 - `@c4-architecture-specialist` - Arquitetura C4
+- `@whisper-specialist` - Transcrição de áudio com Whisper ✨ NOVO
 
 ### 📋 Para Product Owners
 
@@ -249,7 +252,10 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - `/product/spec` - Especificações técnicas
 - `/product/estimate` - Estimar story points
 - `/product/extract-meeting` - Extrair insights de reuniões
-- `/product/consolidate-meetings` - Consolidar múltiplas reuniões
+- `/product/consolidate-meetings` - Consolidação de múltiplas reuniões
+- `/product/convert-to-tasks` - Converter documentos consolidados em tasks ✨ NOVO
+- `/product/whisper` - Facilitador para uso do Whisper ✨ NOVO
+- `/docs/consolidate-documents` - Consolidar múltiplos documentos ✨ NOVO
 - `/validate/collab/three-amigos` - Sessões colaborativas
 
 **Agentes especializados:**
@@ -257,6 +263,8 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - `@story-points-framework-specialist` - Estimativas ágeis
 - `@storytelling-business-specialist` - Narrativas de negócio
 - `@branding-positioning-specialist` - Branding e posicionamento
+- `@extract-meeting-specialist` - Extração de reuniões
+- `@meeting-consolidator` - Consolidação de reuniões
 
 ### 🧪 Para QA/Test Engineers
 
@@ -333,10 +341,10 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 | Categoria | Comandos | Documentação |
 |-----------|---------|--------------|
 | 🔧 **Engenharia** | `/engineer/*` (11) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-engenharia) |
-| 📋 **Produto** | `/product/*` (18) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-produto) |
+| 📋 **Produto** | `/product/*` (21) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-produto) |
 | 🧪 **Testes** | `/test/*` (3) | [Sistema de Testes](onion/testing-validation-system.md) |
 | ✅ **Validação** | `/validate/*` (6) | [Sistema de Testes](onion/testing-validation-system.md) |
-| 📚 **Documentação** | `/docs/*` (10) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-documentação) |
+| 📚 **Documentação** | `/docs/*` (11) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-documentação) |
 | 🌿 **Git** | `/git/*` (13) | [Guia de Comandos](onion/commands-guide.md#-comandos-git) |
 | ⚙️ **Meta** | `/meta/*` (9) | [Guia de Comandos](onion/commands-guide.md#-comandos-meta) |
 | ⚡ **Quick** | `/quick/*` (1) | [Guia de Comandos](onion/commands-guide.md) |
@@ -345,7 +353,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 
 | Categoria | Agentes | Documentação |
 |-----------|---------|--------------|
-| 🔵 **Desenvolvimento** | `development/` (17) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-desenvolvimento) |
+| 🔵 **Desenvolvimento** | `development/` (18) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-desenvolvimento) |
 | 🟡 **Produto** | `product/` (8) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-produto) |
 | 🛡️ **Compliance** | `compliance/` (5) | [Referência de Agentes](onion/agents-reference.md#️-agentes-de-compliance) |
 | 🌲 **Git** | `git/` (4) | [Referência de Agentes](onion/agents-reference.md#-agentes-git) |
@@ -371,6 +379,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - [Framework de Testes](knowbase/frameworks/framework_testes.md)
 - [AI Agent Design Patterns](knowbase/concepts/ai-agent-design-patterns.md)
 - [Spec-as-Code Strategy](knowbase/concepts/spec-as-code-strategy.md)
+- [Whisper](knowbase/tools/whisper.md) - Transcrição de áudio ✨ NOVO
 
 ### Configuração
 - [Configuração Inicial](onion/getting-started.md)
@@ -390,7 +399,12 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - **Comandos de Produto Expandidos** (2025-12-02)
   - `/product/extract-meeting` - Extração inteligente de insights de reuniões
   - `/product/consolidate-meetings` - Consolidação de múltiplas reuniões
+  - `/product/convert-to-tasks` - Converter documentos consolidados em tasks ✨ NOVO
+  - `/product/whisper` - Facilitador para uso do Whisper ✨ NOVO
+  - `/docs/consolidate-documents` - Consolidar múltiplos documentos ✨ NOVO
   - Agente `@meeting-consolidator` - Consolidação avançada de reuniões
+  - Agente `@whisper-specialist` - Especialista em transcrição de áudio ✨ NOVO
+  - Knowledge Base Whisper - Documentação completa do Whisper ✨ NOVO
 
 ---
 

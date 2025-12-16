@@ -1,13 +1,13 @@
 # 🧅 Sistema Onion
 
-[![Versão](https://img.shields.io/badge/Versão-3.0.0-purple)](CHANGELOG-ONION-V3.md) [![Comandos](https://img.shields.io/badge/Comandos-73-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-45-green)](docs/onion/agents-reference.md) [![Task Manager](https://img.shields.io/badge/Task%20Manager-Abstraction-orange)](docs/knowbase/concepts/task-manager-abstraction.md)
+[![Versão](https://img.shields.io/badge/Versão-3.0.0-purple)](CHANGELOG-ONION-V3.md) [![Comandos](https://img.shields.io/badge/Comandos-90-blue)](docs/onion/commands-guide.md) [![Agentes](https://img.shields.io/badge/Agentes-46-green)](docs/onion/agents-reference.md) [![Task Manager](https://img.shields.io/badge/Task%20Manager-Abstraction-orange)](docs/knowbase/concepts/task-manager-abstraction.md)
 
 ## 🎯 Visão Geral
 
 Bem-vindo ao **Sistema Onion v3.0**! Framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **73 comandos especializados** organizados em 8 categorias
-- 🎯 **45 agentes de IA especializados** em 9 categorias
+- 🤖 **90 comandos especializados** organizados em 8 categorias
+- 🎯 **46 agentes de IA especializados** em 9 categorias
 - 📚 **Knowledge Bases** estruturadas para IA
 - 📋 **4 regras** de padronização e validação
 - 🧅 **Comando `/onion`** - ponto de entrada inteligente para o sistema
@@ -27,7 +27,8 @@ Bem-vindo ao **Sistema Onion v3.0**! Framework avançado de comandos `.cursor/` 
 - **🎲 Integração Automática de Story Points** - estimativas automáticas em todas as tasks criadas
 - **📊 Framework de Story Points** - agente especializado e comando dedicado para estimativas
 - **✅ Validação de Estimativas** - validação automática antes de iniciar desenvolvimento
-- **📋 Extração e Consolidação de Reuniões** - Framework EXTRACT para transformar transcrições em conhecimento estruturado ✨ NOVO
+- **📋 Extração e Consolidação de Reuniões** - Framework EXTRACT para transformar transcrições em conhecimento estruturado
+- **🎤 Whisper Integration** - Transcrição de áudio com OpenAI Whisper e conversão em tasks ✨ NOVO
 
 📋 **[Ver CHANGELOG completo](CHANGELOG-ONION-V3.md)**
 
@@ -135,8 +136,8 @@ Documentação **específica do seu projeto**:
 
 ### 📂 Por Categoria de Comando
 - **🔧 Engenharia**: `engineer/start`, `engineer/work`, `engineer/pr`, `engineer/pre-pr`, `engineer/plan`, `engineer/docs`
-- **📋 Produto**: `product/task`, `product/spec`, `product/collect`, `product/refine`, `product/estimate`, `product/light-arch`, `product/task-check`, `product/extract-meeting`, `product/consolidate-meetings` ✨ NOVO
-- **📚 Documentação**: `docs/build-tech-docs`, `docs/build-business-docs`, `docs/build-index`
+- **📋 Produto**: `product/task`, `product/spec`, `product/collect`, `product/refine`, `product/estimate`, `product/light-arch`, `product/task-check`, `product/extract-meeting`, `product/consolidate-meetings`, `product/convert-to-tasks`, `product/whisper` ✨ NOVO
+- **📚 Documentação**: `docs/build-tech-docs`, `docs/build-business-docs`, `docs/build-index`, `docs/consolidate-documents` ✨ NOVO
 - **🌿 Git**: `git/sync`
 - **⚙️ Meta**: `meta/all-tools`, `meta/create-agent`
 - **🚀 Utilitários**: `warm-up`, `engineer/warm-up`, `product/warm-up`
@@ -247,7 +248,7 @@ O Sistema Onion oferece **integração nativa e bidirecional** com múltiplos ge
 
 ## 🤖 Agentes Especializados
 
-O Sistema Onion inclui **45 agentes de IA especializados** que podem ser invocados diretamente:
+O Sistema Onion inclui **46 agentes de IA especializados** que podem ser invocados diretamente:
 
 ### 🎯 Agentes Principais
 - **`@product-agent`** - Gestão estratégica de produto e coordenação de projetos
@@ -255,8 +256,9 @@ O Sistema Onion inclui **45 agentes de IA especializados** que podem ser invocad
 - **`@clickup-specialist`** - Otimizações técnicas do ClickUp MCP
 - **`@cursor-specialist`** - Configuração e troubleshooting do Cursor IDE
 - **`@story-points-framework-specialist`** - Especialista em estimativas ágeis e story points
-- **`@extract-meeting-specialist`** - Extração estruturada de conhecimento de reuniões usando Framework EXTRACT ✨ NOVO
-- **`@meeting-consolidator`** - Consolidação de múltiplas reuniões com análise de divergências e convergências ✨ NOVO
+- **`@extract-meeting-specialist`** - Extração estruturada de conhecimento de reuniões usando Framework EXTRACT
+- **`@meeting-consolidator`** - Consolidação de múltiplas reuniões com análise de divergências e convergências
+- **`@whisper-specialist`** - Especialista em transcrição de áudio com Whisper (OpenAI) ✨ NOVO
 
 ### 🔧 Agentes de Desenvolvimento
 - **`@python-developer`** - Especialista em desenvolvimento Python
@@ -307,11 +309,42 @@ O Sistema Onion inclui **integração completa de Story Points** para melhorar p
 - **[Integração de Story Points](.cursor/docs/product/story-points-integration.md)** - Como funciona
 - **[Validação de Estimativas](.cursor/docs/product/story-points-validation.md)** - Validação no start
 
-## 📋 Extração e Consolidação de Reuniões
+## 📋 Extração, Consolidação e Conversão em Tasks
 
-O Sistema Onion inclui **estratégias avançadas** para transformar transcrições de reuniões em conhecimento estruturado e acionável:
+O Sistema Onion inclui **workflow completo** para transformar áudio de reuniões em tasks acionáveis, desde a transcrição até a criação de tasks no Task Manager:
 
-### 🎯 Framework EXTRACT
+### 🎤 Whisper - Transcrição de Áudio
+
+**Whisper** (OpenAI) é integrado ao Sistema Onion para transcrição de alta qualidade em português.
+
+#### `/product/whisper`
+Facilita o uso do Whisper com detecção automática de necessidade e integração com workflows.
+
+**Uso:**
+```bash
+# Instalação (detecta plataforma automaticamente)
+/product/whisper "Como instalar Whisper?" platform=linux
+
+# Transcrição simples
+/product/whisper audio_file=reuniao.mp3
+
+# Troubleshooting
+/product/whisper "FFmpeg não encontrado" platform=windows
+```
+
+**Recursos:**
+- Instalação multi-plataforma (Windows, Linux Ubuntu, macOS)
+- Detecção automática de GPU (CUDA/MPS)
+- Otimização para português
+- Integração automática com workflow do Sistema Onion
+
+**Agente Especializado:**
+- `@whisper-specialist` - Especialista completo em Whisper com knowledge base integrada
+
+**Knowledge Base:**
+- `docs/knowbase/tools/whisper.md` - Documentação completa do Whisper
+
+### 🎯 Framework EXTRACT - Extração de Conhecimento
 
 Metodologia em **7 dimensões** para máxima extração de valor de reuniões:
 
@@ -388,6 +421,54 @@ Consolida múltiplas reuniões identificando divergências, convergências e ins
 - `insights` - Apenas insights estratégicos
 - `gaps` - Apenas pontos não ditos/compreendidos
 
+#### `/docs/consolidate-documents`
+Consolida múltiplos documentos relacionados identificando padrões, divergências e insights estratégicos. ✨ NOVO
+
+**Uso:**
+```bash
+# Consolidar documentos de uma pasta
+/docs/consolidate-documents source=docs/business-context/
+
+# Consolidar arquivos específicos
+/docs/consolidate-documents source=doc1.md doc2.md doc3.md
+
+# Foco em divergências
+/docs/consolidate-documents source=docs/ --focus=divergences
+
+# Foco em insights estratégicos
+/docs/consolidate-documents source=docs/ --focus=insights
+```
+
+**Focos Disponíveis:**
+- `all` - Consolidação completa (padrão)
+- `divergences` - Conflitos e desalinhamentos
+- `convergences` - Pontos de alinhamento
+- `insights` - Insights estratégicos
+- `gaps` - Informações faltantes
+- `structure` - Estrutura otimizada
+
+#### `/product/convert-to-tasks`
+Converte documentos consolidados (reuniões ou documentos) em tasks e subtasks organizadas hierarquicamente. ✨ NOVO
+
+**Uso:**
+```bash
+# Converter consolidação de reuniões em tasks
+/product/convert-to-tasks source=docs/meet/consolidation-*.md
+
+# Converter consolidação de documentos em tasks
+/product/convert-to-tasks source=docs/consolidated/business-context/
+
+# Com detecção inteligente de arquivos relevantes
+/product/convert-to-tasks source=docs/meet/sprint-planning/
+```
+
+**Recursos:**
+- Detecção inteligente de arquivos consolidados (não depende de padrões de nome)
+- Evita duplicatas automaticamente
+- Inclui arquivos relacionados (análises, evoluções, contexto)
+- Delega para comandos existentes (`/product/task`, `/product/collect`)
+- Preserva contexto e rastreabilidade
+
 ### 🤖 Agentes Especializados
 
 #### `@extract-meeting-specialist`
@@ -431,19 +512,52 @@ Especialista em consolidar múltiplas reuniões com análise profunda.
 
 ### 🎯 Casos de Uso
 
-**Workflow Completo:**
+**Workflow Completo: Áudio → Tasks**
+
 ```bash
-# 1. Extrair conhecimento de reunião individual
-/product/extract-meeting source=reuniao-01-dez.txt level=executive
+# 1. Transcrever reunião com Whisper
+/product/whisper audio_file=reuniao-28-nov.m4a
+# → Gera: reuniao-28-nov.txt
 
-# 2. Consolidar múltiplas reuniões relacionadas
+# 2. Extrair conhecimento estruturado (Framework EXTRACT)
+/product/extract-meeting source=reuniao-28-nov.txt level=executive
+# → Gera: conhecimento estruturado em 7 dimensões
+
+# 3. Consolidar múltiplas reuniões relacionadas
 /product/consolidate-meetings source=docs/meet/sprint-planning/
+# → Gera: documento consolidado com divergências, convergências e insights
 
-# 3. Identificar divergências críticas
+# 4. Converter conhecimento consolidado em tasks
+/product/convert-to-tasks source=docs/meet/consolidation-*.md
+# → Cria: tasks e subtasks no Task Manager configurado
+
+# 5. (Opcional) Consolidar documentos relacionados
+/docs/consolidate-documents source=docs/business-context/
+# → Gera: conhecimento consolidado de documentos
+```
+
+**Workflow Alternativo: Documentos → Tasks**
+
+```bash
+# 1. Consolidar múltiplos documentos
+/docs/consolidate-documents source=docs/business-context/
+
+# 2. Converter em tasks
+/product/convert-to-tasks source=docs/consolidated/business-context/
+# → Cria: tasks baseadas em conhecimento consolidado
+```
+
+**Análise Focada:**
+
+```bash
+# Identificar divergências críticas
 /product/consolidate-meetings source=docs/meet/ --focus=divergences
 
-# 4. Gerar insights estratégicos
+# Gerar insights estratégicos
 /product/consolidate-meetings source=docs/meet/ --focus=insights
+
+# Extrair apenas decisões
+/product/extract-meeting source=reuniao.txt focus=decisions
 ```
 
 **Benefícios:**
@@ -452,6 +566,9 @@ Especialista em consolidar múltiplas reuniões com análise profunda.
 - ✅ **Gap Detection**: Identifica o que não foi decidido (tão importante quanto o que foi)
 - ✅ **Análise Estratégica**: Revela padrões e insights não explícitos
 - ✅ **Interoperabilidade**: Outputs em formatos consumíveis por sistemas
+- ✅ **Workflow Completo**: Do áudio até tasks no Task Manager em poucos comandos
+- ✅ **Multi-Plataforma**: Whisper funciona em Windows, Linux e macOS
+- ✅ **Detecção Inteligente**: Identifica arquivos relevantes automaticamente sem padrões fixos
 
 ---
 
