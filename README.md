@@ -246,6 +246,80 @@ O Sistema Onion oferece **integração nativa e bidirecional** com múltiplos ge
 - **Fallback Gracioso**: Funcionamento garantido mesmo com falhas de rede
 - **Validação de Estimativas**: Verificação automática antes de iniciar desenvolvimento
 
+## 🏗️ SDAAL - Specification-Driven AI Abstraction Layer
+
+O Sistema Onion utiliza o padrão **SDAAL** (Specification-Driven AI Abstraction Layer) - uma metodologia inovadora onde **documentação Markdown substitui código executável**, permitindo que LLMs "executem" abstrações complexas baseadas em especificações estruturadas.
+
+### 🎯 Princípio Central
+
+**LLMs não executam código diretamente, mas podem simular comportamentos complexos quando as especificações são precisas, tipadas e bem estruturadas.**
+
+### ⚡ Como Funciona
+
+O SDAAL combina três elementos fundamentais:
+
+1. **📝 Markdown Estruturado** - Especificações detalhadas e tipadas
+2. **🔷 Interfaces TypeScript** - Contratos claros e validáveis
+3. **📚 Documentação Executável** - Comportamentos documentados que LLMs seguem
+
+```
+SDAAL = Markdown Estruturado + Interfaces TypeScript + Documentação Executável
+```
+
+### 🔄 Aplicação Prática
+
+O **Task Manager Abstraction** é uma implementação de referência do padrão SDAAL:
+
+- ✅ **Abstração Completa**: ClickUp, Asana, Linear com mesma interface
+- ✅ **Sem Código Executável**: Toda lógica em Markdown estruturado
+- ✅ **LLM-Driven**: Agentes IA interpretam e executam as especificações
+- ✅ **Type-Safe**: Interfaces TypeScript garantem consistência
+- ✅ **Portabilidade Total**: Troque provedores sem modificar código
+
+### 📚 Documentação Completa
+
+- **[Documentação SDAAL](docs/sdaal/index.html)** - Guia completo do padrão (HTML interativo)
+- **[Knowledge Base SDAAL](docs/knowbase/concepts/specification-driven-ai-abstraction-layer.md)** - Referência técnica
+- **[Task Manager Abstraction](docs/knowbase/concepts/task-manager-abstraction.md)** - Implementação de referência
+- **[Comando /meta/create-abstraction](.cursor/commands/meta/create-abstraction.md)** - Gerador automático de abstrações SDAAL
+- **[Template de Abstração](.cursor/commands/common/templates/abstraction-template.md)** - Template base para novas abstrações
+
+### 🛠️ Recursos Relacionados
+
+**Comandos:**
+- `/meta/create-abstraction` - Gera abstrações SDAAL automaticamente
+
+**Implementações:**
+- `.cursor/utils/task-manager/` - Task Manager Abstraction (exemplo completo)
+
+**Padrões de Design:**
+- [Adapter Pattern](https://refactoring.guru/design-patterns/adapter) - GoF
+- [Factory Method](https://refactoring.guru/design-patterns/factory-method) - GoF
+- [Null Object Pattern](https://refactoring.guru/design-patterns/null-object)
+- [Strategy Pattern](https://refactoring.guru/design-patterns/strategy)
+
+**Metodologias Relacionadas:**
+- [Behavior Driven Development (BDD)](https://cucumber.io/docs/bdd/)
+- [Specification by Example](https://specificationbyexample.com)
+- [Living Documentation](https://leanpub.com/livingdocumentation)
+- [Docs as Code](https://www.writethedocs.org/guide/docs-as-code/)
+
+**Frameworks de Agentes IA:**
+- [LangChain Agents](https://python.langchain.com/docs/modules/agents/) - Framework para construção de agentes
+- [CrewAI](https://www.crewai.com/) - Framework multi-agente colaborativo
+- [AutoGen](https://microsoft.github.io/autogen/) - Framework multi-agente da Microsoft
+- [Anthropic Claude Agent Patterns](https://docs.anthropic.com/) - Padrões de agentes Claude
+- [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/claude/docs/prompt-engineering) - Guia de prompt engineering
+- [OpenAI Best Practices](https://platform.openai.com/docs/guides/prompt-engineering) - Boas práticas de prompt engineering
+
+### 💡 Benefícios
+
+- ✅ **Flexibilidade**: Troque implementações sem refatorar código
+- ✅ **Manutenibilidade**: Documentação sempre sincronizada com comportamento
+- ✅ **Testabilidade**: Especificações servem como testes de comportamento
+- ✅ **Portabilidade**: Mesma abstração funciona em múltiplos contextos
+- ✅ **IA-Friendly**: LLMs interpretam e executam naturalmente
+
 ## 🤖 Agentes Especializados
 
 O Sistema Onion inclui **46 agentes de IA especializados** que podem ser invocados diretamente:

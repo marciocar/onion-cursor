@@ -1,6 +1,6 @@
 # 📚 Índice Central de Documentação
 
-> **Última atualização**: 2025-12-02 | **Gerado por**: `/docs/build-index`
+> **Última atualização**: 2025-12-16 | **Gerado por**: `/docs/build-index`
 
 Bem-vindo ao índice central de documentação do projeto. Este documento serve como hub de navegação para toda a documentação disponível.
 
@@ -438,7 +438,7 @@ Este índice é gerado automaticamente pelo comando `/docs/build-index`.
 /docs/build-index onion        # Reconstruir índice da seção onion
 ```
 
-**Última atualização:** 2025-12-02  
+**Última atualização:** 2025-12-16  
 **Versão:** 3.0.0  
 **Mantido por:** Sistema Onion
 
