@@ -25,8 +25,9 @@ program
   .command('init')
   .description('Initialize new Onion project')
   .option('-d, --debug', 'Enable debug mode')
-  .action(() => {
-    console.log(chalk.yellow('⚠️  Command implementation in progress - use v3 commands for now'));
+  .action(async (options) => {
+    const initSimple = require('../src/commands/init-simple');
+    await initSimple(options);
   });
 
 program
