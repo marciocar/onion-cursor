@@ -7,6 +7,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [Unreleased]
+
+## [4.1.0-beta.1] - 2025-12-20
+
+### ✨ Added
+
+#### Knowledge Bases
+- **[Spec-Driven Development](docs/knowbase/concepts/spec-driven-development.md)** - Knowledge base completa sobre metodologia emergente
+  - Análise de ferramentas (Kiro, Spec-Kit, Tessl)
+  - Níveis de implementação (Spec-First, Spec-Anchored, Spec-as-Source)
+  - Comparação com TDD, BDD, MDD
+  - Benefícios e desafios
+
+#### Documentação
+- **Índices de documentação** - Reconstrução completa de índices
+  - `docs/onion/index.md` - Índice da seção Onion (28 arquivos)
+  - `docs/knowbase/index.md` - Índice de Knowledge Bases (24 arquivos)
+  - `docs/INDEX.md` - Índice central atualizado (69 arquivos)
+
+### 🔄 Changed
+- Versão bumpada de `4.0.0-beta.1` para `4.1.0-beta.1` (minor release)
+- Melhorias na organização de documentação
+
+### 📚 Documentation
+- Índices de navegação reorganizados e atualizados
+- Knowledge bases expandidas com novos conceitos
+
+## [Unreleased]
+
+### Added
+
+#### Comando Cursor `/onion/setup` (2026-01-01)
+- **Wizard inteligente de configuração Cursor** (`.cursor/commands/onion/setup.md`)
+  - Guia o assistente através de configuração pós-inicialização
+  - Análise automática de ambiente (Node.js, package manager, Git, IDEs)
+  - Análise automática de projeto (tipo, framework, stack, características)
+  - Sugestões contextuais inteligentes baseadas em detecção
+  - Validação completa em 3 camadas (ambiente, projeto, IDEs)
+  - 4 modos de operação: wizard, validate, reconfigure, force
+  - Instruções detalhadas para cada passo do processo
+  - ~600 linhas de instruções completas
+
 ## [4.0.0-beta.1] - 2025-12-20
 
 ### 🎉 Major Release: Multi-Context Development Orchestrator

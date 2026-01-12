@@ -1,6 +1,6 @@
 # 🧅 Onion System v4.0 Beta
 
-> **Status**: Beta Release | **Version**: 4.0.0-beta.1 | **Progress**: 71% Complete
+> **Status**: Beta Release | **Version**: 4.1.0-beta.1 | **Progress**: 71% Complete
 
 **Multi-Context Development Orchestrator** - Transform your development workflow with intelligent context separation and progressive command discovery.
 

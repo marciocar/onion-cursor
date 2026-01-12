@@ -1,6 +1,6 @@
 {
   "name": "@onion/cli",
-  "version": "4.0.0-beta.1",
+  "version": "4.1.0-beta.1",
   "description": "CLI para Sistema Onion - Multi-Context Development Orchestrator",
   "main": "src/index.js",
   "bin": {
@@ -40,7 +40,7 @@
     "fs-extra": "^11.2.0",
     "glob": "^10.3.10",
     "handlebars": "^4.7.8",
-    "inquirer": "^9.2.12",
+    "inquirer": "^8.2.5",
     "ora": "^5.4.1",
     "yaml": "^2.3.4"
   },

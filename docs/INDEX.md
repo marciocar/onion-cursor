@@ -1,6 +1,6 @@
 # 📚 Índice Central de Documentação
 
-> **Última atualização**: 2025-12-16 | **Gerado por**: `/docs/build-index`
+> **Última atualização**: 2025-12-20 | **Gerado por**: `/docs/build-index`
 
 Bem-vindo ao índice central de documentação do projeto. Este documento serve como hub de navegação para toda a documentação disponível.
 
@@ -8,57 +8,55 @@ Bem-vindo ao índice central de documentação do projeto. Este documento serve 
 
 ## 🎯 Visão Geral
 
-Este projeto utiliza o **Sistema Onion v3.0** - um framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
+Este projeto utiliza o **Sistema Onion v4.0 Beta** - um framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
 
-- 🤖 **90 comandos especializados** organizados em categorias funcionais
-- 🎯 **46 agentes de IA especializados** em múltiplos domínios
+- 🤖 **Comandos especializados** organizados em categorias funcionais
+- 🎯 **Agentes de IA especializados** em múltiplos domínios
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
 - 🧅 **Comando `/onion`** - ponto de entrada inteligente
 - 🔗 **Task Manager Abstraction** para ClickUp, Asana e Linear
+- 🏗️ **Arquitetura Multi-Context** - Separação clara entre business e technical
 
 ---
 
 ## 📊 Estatísticas da Documentação
 
 ### Documentação Principal
-- **33 arquivos markdown** em `docs/` (incluindo este índice)
-- **12 arquivos** em `docs/onion/` (Sistema Onion)
-- **17 arquivos** em `docs/knowbase/` (Knowledge Bases)
-  - 12 arquivos em `concepts/` (Conceitos fundamentais)
-  - 2 arquivos em `frameworks/` (Frameworks e metodologias)
+- **69 arquivos markdown** em `docs/` (incluindo este índice, excluindo draft/)
+- **28 arquivos** em `docs/onion/` (Sistema Onion)
+- **24 arquivos** em `docs/knowbase/` (Knowledge Bases)
+  - 13 arquivos em `concepts/` (Conceitos fundamentais)
+  - 7 arquivos em `frameworks/` (Frameworks e metodologias)
+  - 2 arquivos em `tools/` (Ferramentas)
   - 1 arquivo em `platforms/` (Plataformas)
-  - 2 arquivos em `tools/` (Ferramentas) ✨ NOVO
+  - 1 arquivo em `providers/` (Provedores de serviços)
 - **1 arquivo** em `docs/meta-specs/` (Meta Especificações)
-- **1 arquivo** em `docs/analysis/` (Análises)
-- **1 arquivo** em `docs/plans/` (Planos de execução)
+- **Arquivos adicionais** em `docs/analysis/`, `docs/plans/`, `docs/sdaal/`, `docs/tools/`
 
 ### Sistema Onion
-- **90 comandos Cursor** em `.cursor/commands/`
-  - 21 comandos em `product/` (Gestão de produto) ✨ NOVO
-  - 13 comandos em `git/` (GitFlow e operações Git)
-  - 11 comandos em `engineer/` (Fluxos de desenvolvimento)
-  - 11 comandos em `docs/` (Documentação) ✨ NOVO
+- **35 comandos Cursor** em `.cursor/commands/`
+  - 12 arquivos em `common/` (Templates e prompts compartilhados)
   - 9 comandos em `meta/` (Meta-comandos e criadores)
   - 6 comandos em `validate/` (Validações e testes)
-  - 3 comandos em `test/` (Testes unitários, integração, E2E)
-  - 1 comando em `quick/` (Ações rápidas)
   - 2 comandos globais (`onion.md`, `warm-up.md`)
-- **46 agentes IA** em `.cursor/agents/`
-  - 18 agentes em `development/` (Desenvolvimento especializado) ✨ NOVO
-  - 8 agentes em `product/` (Produto e negócio)
+  - 1 comando em `product/` (Gestão de produto)
+  - 1 comando em `docs/` (Documentação)
+  - 1 comando em `git/` (GitFlow)
+  - 1 comando em `development/` (Desenvolvimento)
+  - 1 comando em `onion/` (Sistema Onion)
+  - 1 comando em `quick/` (Ações rápidas)
+- **12 agentes IA** em `.cursor/agents/`
   - 5 agentes em `compliance/` (Compliance e regulatório)
-  - 4 agentes em `git/` (Git e branches)
   - 4 agentes em `meta/` (Meta e orquestração)
-  - 3 agentes em `testing/` (Testes e QA)
-  - 2 agentes em `review/` (Code review)
-  - 1 agente em `research/` (Pesquisa)
   - 1 agente em `deployment/` (Deployment)
-- **12 documentos** de referência em `docs/onion/`
+  - 1 agente em `research/` (Pesquisa)
+  - 1 agente em `review/` (Code review)
+- **28 documentos** de referência em `docs/onion/`
 
 ### Total
-- **33 arquivos** de documentação markdown
-- **90 comandos** disponíveis
-- **46 agentes** especializados
+- **69 arquivos** de documentação markdown
+- **35 comandos** disponíveis em múltiplas categorias
+- **12 agentes** especializados em múltiplos domínios
 
 ---
 
@@ -68,23 +66,26 @@ Este projeto utiliza o **Sistema Onion v3.0** - um framework avançado de comand
 docs/
 ├── INDEX.md                    # Este arquivo (hub central)
 │
-├── onion/                      # Sistema Onion (12 arquivos)
+├── onion/                      # Sistema Onion (28 arquivos)
 │   ├── commands-guide.md       # Guia completo de comandos
 │   ├── agents-reference.md     # Referência de agentes
 │   ├── engineering-flows.md   # Fluxos de engenharia
 │   ├── clickup-integration.md  # Integração ClickUp MCP
 │   ├── practical-examples.md   # Exemplos práticos
 │   ├── getting-started.md      # Configuração inicial
-│   ├── testing-validation-system.md  # Sistema de testes e validação ✨ NOVO
+│   ├── testing-validation-system.md  # Sistema de testes e validação
 │   ├── tools-reference.md      # Referência de ferramentas
 │   ├── cursor-commands-architecture.md  # Arquitetura de comandos
 │   ├── consolidated-project-documentation.md  # Documentação consolidada
 │   ├── end-to-end-validation-tests.md  # Testes de validação E2E
 │   ├── sistema-engenharia-reversa-guia-uso.md  # Engenharia reversa
-│   └── phase-subtask-sync-fix.md  # Documentação técnica
+│   ├── levels-system.md        # Sistema de níveis progressivos
+│   ├── INSTALLATION.md         # Guia de instalação
+│   ├── RELEASE-NOTES-v4.0-beta.md  # Notas de release v4.0
+│   └── [outros arquivos de release e implementação]
 │
-├── knowbase/                   # Knowledge Bases (17 arquivos) ✨ NOVO
-│   ├── concepts/               # Conceitos fundamentais (12 arquivos)
+├── knowbase/                   # Knowledge Bases (24 arquivos)
+│   ├── concepts/               # Conceitos fundamentais (13 arquivos)
 │   │   ├── abstraction-patterns-catalog.md
 │   │   ├── ai-agent-design-patterns.md
 │   │   ├── branding-posicionamento-marca.md
@@ -95,25 +96,39 @@ docs/
 │   │   ├── identificar-precificar-dor-cliente.md
 │   │   ├── meeting-transcription-to-knowledge-base.md
 │   │   ├── spec-as-code-strategy.md
+│   │   ├── spec-driven-development.md  # ✨ NOVO
 │   │   ├── specification-driven-ai-abstraction-layer.md
 │   │   └── task-manager-abstraction.md
-│   ├── frameworks/             # Frameworks e metodologias (2 arquivos)
+│   ├── frameworks/             # Frameworks e metodologias (7 arquivos)
 │   │   ├── framework_story_points.md
-│   │   └── framework_testes.md
+│   │   ├── framework_testes.md
+│   │   ├── onion-complete-cycle-understanding.md
+│   │   ├── onion-ide-integration-strategy.md
+│   │   ├── onion-multi-context-orchestrator-vision.md
+│   │   ├── onion-system-critical-analysis-2025.md
+│   │   └── spec-driven-development-tools-2025.md
 │   ├── platforms/              # Plataformas e tecnologias (1 arquivo)
 │   │   └── runflow.md
-│   └── tools/                  # Ferramentas e recursos (2 arquivos) ✨ NOVO
+│   ├── providers/              # Provedores de serviços (1 arquivo)
+│   │   └── microsoft-graph-teams-api-guia-completo.md
+│   └── tools/                  # Ferramentas e recursos (2 arquivos)
 │       ├── cursor-commands-best-practices-2025.md
-│       └── whisper.md          # Knowledge base do Whisper ✨ NOVO
+│       └── whisper.md          # Knowledge base do Whisper
 │
 ├── meta-specs/                 # Meta Especificações (1 arquivo)
 │   └── index.md                # Índice de meta specs
 │
-├── analysis/                   # Análises (1 arquivo)
+├── analysis/                   # Análises
 │   └── unleash-alternatives-analysis.md
 │
-└── plans/                      # Planos de execução (1 arquivo)
-    └── flagsmith-poc-execution-plan.md
+├── plans/                      # Planos de execução
+│   └── [arquivos de planejamento]
+│
+├── sdaal/                      # Specification-Driven AI Abstraction Layer
+│   └── [documentação SDAAL]
+│
+└── tools/                      # Ferramentas e recursos
+    └── [documentação de ferramentas]
 ```
 
 ---
@@ -123,14 +138,16 @@ docs/
 ### 📖 Documentação Principal
 
 #### Guias Essenciais
-- **[Guia de Comandos](onion/commands-guide.md)** - Documentação completa de todos os 90 comandos disponíveis
-- **[Referência de Agentes](onion/agents-reference.md)** - Lista e descrição de todos os 46 agentes especializados
+- **[Guia de Comandos](onion/commands-guide.md)** - Documentação completa de todos os comandos disponíveis
+- **[Referência de Agentes](onion/agents-reference.md)** - Lista e descrição de todos os agentes especializados
 - **[Fluxos de Engenharia](onion/engineering-flows.md)** - Workflows detalhados para desenvolvimento
-- **[Sistema de Testes e Validação](onion/testing-validation-system.md)** - Framework completo de testes e validação ✨ NOVO
+- **[Sistema de Testes e Validação](onion/testing-validation-system.md)** - Framework completo de testes e validação
+- **[Sistema de Níveis](onion/levels-system.md)** - Descoberta progressiva de comandos (v4.0) ✨ NOVO
 
 #### Integrações e Configuração
 - **[Integração ClickUp](onion/clickup-integration.md)** - Configuração avançada do ClickUp MCP
 - **[Configuração Inicial](onion/getting-started.md)** - Setup completo do sistema
+- **[Instalação](onion/INSTALLATION.md)** - Guia de instalação do Sistema Onion
 
 #### Referências Técnicas
 - **[Exemplos Práticos](onion/practical-examples.md)** - Casos de uso reais com exemplos
@@ -142,6 +159,10 @@ docs/
 - **[Testes de Validação E2E](onion/end-to-end-validation-tests.md)** - Testes end-to-end do sistema
 - **[Guia de Engenharia Reversa](onion/sistema-engenharia-reversa-guia-uso.md)** - Engenharia reversa de projetos
 
+#### Release Notes e Anúncios
+- **[Release Notes v4.0 Beta](onion/RELEASE-NOTES-v4.0-beta.md)** - Novidades da versão 4.0 ✨ NOVO
+- **[Anúncio v4.0 Beta.1](onion/ANNOUNCEMENT-v4.0-beta.1-docs.md)** - Anúncio da versão beta
+
 ### 🚀 Início Rápido
 
 **Novo no sistema?** Comece aqui:
@@ -149,6 +170,7 @@ docs/
 1. **[Configuração Inicial](onion/getting-started.md)** - Setup do ambiente
 2. **[Guia de Comandos](onion/commands-guide.md)** - Aprenda os comandos principais
 3. **[Exemplos Práticos](onion/practical-examples.md)** - Veja casos de uso reais
+4. **[Sistema de Níveis](onion/levels-system.md)** - Entenda a descoberta progressiva (v4.0) ✨ NOVO
 
 **Comando de entrada:**
 ```bash
@@ -161,11 +183,12 @@ docs/
 
 Knowledge Bases estruturadas para consumo por IA e referência técnica:
 
-### Conceitos Fundamentais (12 arquivos)
+### Conceitos Fundamentais (13 arquivos)
 - **Task Manager Abstraction** - Abstração de gerenciadores de tarefas
 - **Framework de Story Points** - Sistema de estimativas ágeis
 - **Framework de Testes** - Metodologias de teste completas
 - **Spec-as-Code Strategy** - Estratégia de especificações como código
+- **Spec-Driven Development** - Metodologia emergente de desenvolvimento com IA ✨ NOVO
 - **AI Agent Design Patterns** - Padrões de design para agentes IA
 - **Abstraction Patterns Catalog** - Catálogo de padrões de abstração
 - **Context Window Optimization** - Otimização de contexto para IA
@@ -175,16 +198,24 @@ Knowledge Bases estruturadas para consumo por IA e referência técnica:
 - **Meeting Transcription to Knowledge Base** - Processamento de reuniões
 - **Specification-Driven AI Abstraction Layer** - Camada de abstração orientada a especificações
 
-### Frameworks e Metodologias (2 arquivos)
+### Frameworks e Metodologias (7 arquivos)
 - **Framework de Story Points** - Estimativas ágeis
 - **Framework de Testes** - White-box, Grey-box, Black-box
+- **Onion Complete Cycle Understanding** - Sistema completo de 5 camadas
+- **Onion IDE Integration Strategy** - Estratégia multi-IDE
+- **Onion Multi-Context Orchestrator Vision** - Visão arquitetural
+- **Onion System Critical Analysis 2025** - Análise crítica do sistema
+- **Spec-Driven Development Tools 2025** - Ferramentas e análise
 
 ### Plataformas e Tecnologias (1 arquivo)
 - **Runflow** - Documentação da plataforma
 
-### Ferramentas (2 arquivos) ✨ NOVO
+### Provedores de Serviços (1 arquivo)
+- **Microsoft Graph Teams API** - Guia completo de integração
+
+### Ferramentas (2 arquivos)
 - **Cursor Commands Best Practices 2025** - Boas práticas de comandos Cursor
-- **Whisper** - Sistema de transcrição de áudio (OpenAI) ✨ NOVO
+- **Whisper** - Sistema de transcrição de áudio (OpenAI)
 
 **Localização:** `docs/knowbase/`
 
@@ -212,7 +243,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - **[Análise de Alternativas Unleash](analysis/unleash-alternatives-analysis.md)** - Análise comparativa
 
 ### Planos de Execução
-- **[Plano de Execução Flagsmith POC](plans/flagsmith-poc-execution-plan.md)** - Plano de prova de conceito
+- Arquivos de planejamento em `docs/plans/`
 
 ---
 
@@ -225,6 +256,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 2. [Guia de Comandos](onion/commands-guide.md) - Seção "Comandos de Engenharia"
 3. [Fluxos de Engenharia](onion/engineering-flows.md)
 4. [Sistema de Testes e Validação](onion/testing-validation-system.md)
+5. [Sistema de Níveis](onion/levels-system.md) - Descoberta progressiva ✨ NOVO
 
 **Comandos essenciais:**
 - `/engineer/start` - Iniciar desenvolvimento
@@ -238,7 +270,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - `@nodejs-specialist` - Backend Node.js
 - `@nx-monorepo-specialist` - Monorepos NX
 - `@c4-architecture-specialist` - Arquitetura C4
-- `@whisper-specialist` - Transcrição de áudio com Whisper ✨ NOVO
+- `@whisper-specialist` - Transcrição de áudio com Whisper
 
 ### 📋 Para Product Owners
 
@@ -246,6 +278,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 1. [Guia de Comandos](onion/commands-guide.md) - Seção "Comandos de Produto"
 2. [Exemplos Práticos](onion/practical-examples.md)
 3. [Knowledge Base - Story Points](knowbase/frameworks/framework_story_points.md)
+4. [Knowledge Base - Spec-Driven Development](knowbase/concepts/spec-driven-development.md) ✨ NOVO
 
 **Comandos essenciais:**
 - `/product/task` - Criar tasks estruturadas
@@ -253,9 +286,9 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - `/product/estimate` - Estimar story points
 - `/product/extract-meeting` - Extrair insights de reuniões
 - `/product/consolidate-meetings` - Consolidação de múltiplas reuniões
-- `/product/convert-to-tasks` - Converter documentos consolidados em tasks ✨ NOVO
-- `/product/whisper` - Facilitador para uso do Whisper ✨ NOVO
-- `/docs/consolidate-documents` - Consolidar múltiplos documentos ✨ NOVO
+- `/product/convert-to-tasks` - Converter documentos consolidados em tasks
+- `/product/whisper` - Facilitador para uso do Whisper
+- `/docs/consolidate-documents` - Consolidar múltiplos documentos
 - `/validate/collab/three-amigos` - Sessões colaborativas
 
 **Agentes especializados:**
@@ -269,7 +302,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 ### 🧪 Para QA/Test Engineers
 
 **Comece com:**
-1. [Sistema de Testes e Validação](onion/testing-validation-system.md) ✨ NOVO
+1. [Sistema de Testes e Validação](onion/testing-validation-system.md)
 2. [Framework de Testes](knowbase/frameworks/framework_testes.md)
 3. [Guia de Comandos](onion/commands-guide.md) - Seção "Comandos de Validação"
 
@@ -292,22 +325,26 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 1. [Arquitetura de Comandos](onion/cursor-commands-architecture.md)
 2. [Documentação Consolidada](onion/consolidated-project-documentation.md)
 3. [Meta Especificações](meta-specs/index.md)
+4. [Release Notes v4.0](onion/RELEASE-NOTES-v4.0-beta.md) - Arquitetura Multi-Context ✨ NOVO
 
 **Recursos:**
 - Agentes de arquitetura: `@c4-architecture-specialist`, `@mermaid-specialist`
 - Comandos de documentação: `/docs/build-tech-docs`, `/docs/reverse-consolidate`
+- Knowledge Bases: [SDAAL](knowbase/concepts/specification-driven-ai-abstraction-layer.md), [Spec-Driven Development](knowbase/concepts/spec-driven-development.md) ✨ NOVO
 
 ### 🔧 Para Administradores do Sistema
 
 **Comece com:**
 1. [Configuração Inicial](onion/getting-started.md)
-2. [Integração ClickUp](onion/clickup-integration.md)
-3. [Referência de Ferramentas](onion/tools-reference.md)
+2. [Instalação](onion/INSTALLATION.md) ✨ NOVO
+3. [Integração ClickUp](onion/clickup-integration.md)
+4. [Referência de Ferramentas](onion/tools-reference.md)
 
 **Comandos essenciais:**
 - `/meta/setup-integration` - Configurar integrações
 - `/meta/all-tools` - Listar todas as ferramentas
 - `/docs/build-index` - Reconstruir índices
+- `/onion/setup` - Setup do Sistema Onion ✨ NOVO
 
 ### 🛡️ Para Compliance/Security
 
@@ -335,43 +372,43 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 | 🏗️ **Meta Specs** | `docs/meta-specs/` | Especificações de alto nível |
 | 📊 **Análises** | `docs/analysis/` | Análises e estudos |
 | 📋 **Planos** | `docs/plans/` | Planos de execução |
+| 🔧 **SDAAL** | `docs/sdaal/` | Specification-Driven AI Abstraction Layer |
 
 ### Por Categoria de Comando
 
 | Categoria | Comandos | Documentação |
 |-----------|---------|--------------|
-| 🔧 **Engenharia** | `/engineer/*` (11) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-engenharia) |
-| 📋 **Produto** | `/product/*` (21) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-produto) |
-| 🧪 **Testes** | `/test/*` (3) | [Sistema de Testes](onion/testing-validation-system.md) |
-| ✅ **Validação** | `/validate/*` (6) | [Sistema de Testes](onion/testing-validation-system.md) |
-| 📚 **Documentação** | `/docs/*` (11) | [Guia de Comandos](onion/commands-guide.md#-comandos-de-documentação) |
-| 🌿 **Git** | `/git/*` (13) | [Guia de Comandos](onion/commands-guide.md#-comandos-git) |
-| ⚙️ **Meta** | `/meta/*` (9) | [Guia de Comandos](onion/commands-guide.md#-comandos-meta) |
-| ⚡ **Quick** | `/quick/*` (1) | [Guia de Comandos](onion/commands-guide.md) |
+| 🔧 **Engenharia** | `/engineer/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-de-engenharia) |
+| 📋 **Produto** | `/product/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-de-produto) |
+| 🧪 **Testes** | `/test/*` | [Sistema de Testes](onion/testing-validation-system.md) |
+| ✅ **Validação** | `/validate/*` | [Sistema de Testes](onion/testing-validation-system.md) |
+| 📚 **Documentação** | `/docs/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-de-documentação) |
+| 🌿 **Git** | `/git/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-git) |
+| ⚙️ **Meta** | `/meta/*` | [Guia de Comandos](onion/commands-guide.md#-comandos-meta) |
+| 🧅 **Onion** | `/onion/*` | [Sistema Onion](onion/) |
+| ⚡ **Quick** | `/quick/*` | [Guia de Comandos](onion/commands-guide.md) |
 
 ### Por Categoria de Agente
 
 | Categoria | Agentes | Documentação |
 |-----------|---------|--------------|
-| 🔵 **Desenvolvimento** | `development/` (18) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-desenvolvimento) |
-| 🟡 **Produto** | `product/` (8) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-produto) |
 | 🛡️ **Compliance** | `compliance/` (5) | [Referência de Agentes](onion/agents-reference.md#️-agentes-de-compliance) |
-| 🌲 **Git** | `git/` (4) | [Referência de Agentes](onion/agents-reference.md#-agentes-git) |
 | 🔴 **Meta** | `meta/` (4) | [Referência de Agentes](onion/agents-reference.md#-agentes-meta) |
-| 🧪 **Testes** | `testing/` (3) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-testes) |
-| 🟢 **Review** | `review/` (2) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-review) |
-| 🟣 **Pesquisa** | `research/` (1) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-pesquisa) |
 | ⚙️ **Deployment** | `deployment/` (1) | [Referência de Agentes](onion/agents-reference.md) |
+| 🟣 **Pesquisa** | `research/` (1) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-pesquisa) |
+| 🟢 **Review** | `review/` (1) | [Referência de Agentes](onion/agents-reference.md#-agentes-de-review) |
 
 ---
 
 ## 🔗 Links Rápidos
 
 ### Documentação Essencial
-- [README Principal](../../README.md) - Visão geral do Sistema Onion
+- [README Principal](../../README.md) - Visão geral do Sistema Onion v4.0 Beta
 - [Guia de Comandos](onion/commands-guide.md) - Todos os comandos
 - [Referência de Agentes](onion/agents-reference.md) - Todos os agentes
-- [Sistema de Testes e Validação](onion/testing-validation-system.md) - Framework completo ✨ NOVO
+- [Sistema de Testes e Validação](onion/testing-validation-system.md) - Framework completo
+- [Sistema de Níveis](onion/levels-system.md) - Descoberta progressiva ✨ NOVO
+- [Release Notes v4.0](onion/RELEASE-NOTES-v4.0-beta.md) - Novidades da versão ✨ NOVO
 
 ### Knowledge Bases
 - [Task Manager Abstraction](knowbase/concepts/task-manager-abstraction.md)
@@ -379,10 +416,12 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - [Framework de Testes](knowbase/frameworks/framework_testes.md)
 - [AI Agent Design Patterns](knowbase/concepts/ai-agent-design-patterns.md)
 - [Spec-as-Code Strategy](knowbase/concepts/spec-as-code-strategy.md)
-- [Whisper](knowbase/tools/whisper.md) - Transcrição de áudio ✨ NOVO
+- [Spec-Driven Development](knowbase/concepts/spec-driven-development.md) ✨ NOVO
+- [Whisper](knowbase/tools/whisper.md) - Transcrição de áudio
 
 ### Configuração
 - [Configuração Inicial](onion/getting-started.md)
+- [Instalação](onion/INSTALLATION.md) ✨ NOVO
 - [Integração ClickUp](onion/clickup-integration.md)
 
 ---
@@ -391,20 +430,37 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 
 ### ✨ Documentação Adicionada Recentemente
 
+- **[Spec-Driven Development](knowbase/concepts/spec-driven-development.md)** (2025-12-02)
+  - Knowledge base completa sobre metodologia emergente
+  - Análise de ferramentas (Kiro, Spec-Kit, Tessl)
+  - Níveis de implementação (Spec-First, Spec-Anchored, Spec-as-Source)
+  - Comparação com TDD, BDD, MDD
+  - Benefícios e desafios
+
 - **[Sistema de Testes e Validação](onion/testing-validation-system.md)** (2025-12-02)
   - Framework completo de testes e validação
   - 4 camadas integradas (Knowledge Base, Agentes, Comandos de Teste, Comandos de Validação)
   - Guia completo para desenvolvedores, QA e times cross-funcionais
 
-- **Comandos de Produto Expandidos** (2025-12-02)
+- **[Sistema de Níveis](onion/levels-system.md)** (v4.0)
+  - Descoberta progressiva de comandos
+  - Organização por níveis (starter, intermediate, advanced)
+  - Redução de 90% no tempo de onboarding
+
+- **[Release Notes v4.0 Beta](onion/RELEASE-NOTES-v4.0-beta.md)**
+  - Arquitetura Multi-Context
+  - Melhorias significativas em onboarding e organização
+  - Suporte multi-IDE
+
+- **Comandos de Produto Expandidos**
   - `/product/extract-meeting` - Extração inteligente de insights de reuniões
   - `/product/consolidate-meetings` - Consolidação de múltiplas reuniões
-  - `/product/convert-to-tasks` - Converter documentos consolidados em tasks ✨ NOVO
-  - `/product/whisper` - Facilitador para uso do Whisper ✨ NOVO
-  - `/docs/consolidate-documents` - Consolidar múltiplos documentos ✨ NOVO
+  - `/product/convert-to-tasks` - Converter documentos consolidados em tasks
+  - `/product/whisper` - Facilitador para uso do Whisper
+  - `/docs/consolidate-documents` - Consolidar múltiplos documentos
   - Agente `@meeting-consolidator` - Consolidação avançada de reuniões
-  - Agente `@whisper-specialist` - Especialista em transcrição de áudio ✨ NOVO
-  - Knowledge Base Whisper - Documentação completa do Whisper ✨ NOVO
+  - Agente `@whisper-specialist` - Especialista em transcrição de áudio
+  - Knowledge Base Whisper - Documentação completa do Whisper
 
 ---
 
@@ -415,7 +471,8 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 1. **Comandos**: Consulte [Guia de Comandos](onion/commands-guide.md)
 2. **Exemplos**: Veja casos práticos em [Exemplos Práticos](onion/practical-examples.md)
 3. **Configuração**: Siga [Configuração Inicial](onion/getting-started.md)
-4. **Testes**: Consulte [Sistema de Testes e Validação](onion/testing-validation-system.md)
+4. **Instalação**: Consulte [Instalação](onion/INSTALLATION.md) ✨ NOVO
+5. **Testes**: Consulte [Sistema de Testes e Validação](onion/testing-validation-system.md)
 
 ### 🔧 Comandos de Debug
 
@@ -438,10 +495,10 @@ Este índice é gerado automaticamente pelo comando `/docs/build-index`.
 /docs/build-index onion        # Reconstruir índice da seção onion
 ```
 
-**Última atualização:** 2025-12-16  
-**Versão:** 3.0.0  
+**Última atualização:** 2025-12-20  
+**Versão:** 4.1.0-beta.1  
 **Mantido por:** Sistema Onion
 
 ---
 
-**Sistema Onion v3.0** - Framework avançado de comandos e agentes para desenvolvimento ágil com IA 🧅
+**Sistema Onion v4.0 Beta** - Multi-Context Development Orchestrator 🧅
