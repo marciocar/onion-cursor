@@ -307,7 +307,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-granaai}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-granaai_secret}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me_in_production}
       POSTGRES_DB: ${POSTGRES_DB:-granaai_db}
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
@@ -337,7 +337,7 @@ services:
         condition: service_healthy
     environment:
       NODE_ENV: production
-      DATABASE_URL: postgresql://${POSTGRES_USER:-granaai}:${POSTGRES_PASSWORD:-granaai_secret}@postgres:5432/${POSTGRES_DB:-granaai_db}?schema=public
+      DATABASE_URL: postgresql://${POSTGRES_USER:-granaai}:${POSTGRES_PASSWORD:-change_me_in_production}@postgres:5432/${POSTGRES_DB:-granaai_db}?schema=public
       PORT: 3000
     ports:
       - "${API_PORT:-3000}:3000"
@@ -387,8 +387,8 @@ services:
     container_name: granaai-postgres-dev
     environment:
       POSTGRES_USER: granaai
-      POSTGRES_PASSWORD: granaai_dev
-      POSTGRES_DB: granaai_dev
+      POSTGRES_PASSWORD: change_me_for_local_dev
+      POSTGRES_DB: app_dev
     ports:
       - "5432:5432"
     volumes:
@@ -402,7 +402,7 @@ services:
     image: dpage/pgadmin4:latest
     container_name: granaai-pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@granaai.com
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     ports:
@@ -968,8 +968,8 @@ services:
     image: postgres:17-alpine
     environment:
       POSTGRES_USER: granaai
-      POSTGRES_PASSWORD: dev_password
-      POSTGRES_DB: granaai_dev
+      POSTGRES_PASSWORD: change_me_for_local_dev
+      POSTGRES_DB: app_dev
     ports:
       - "5432:5432"
     volumes:
@@ -984,7 +984,7 @@ services:
       - .:/app
       - /app/node_modules
     environment:
-      DATABASE_URL: postgresql://granaai:dev_password@postgres:5432/granaai_dev
+      DATABASE_URL: postgresql://granaai:change_me_for_local_dev@postgres:5432/app_dev
       NODE_ENV: development
     ports:
       - "3000:3000"

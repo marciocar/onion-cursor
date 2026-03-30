@@ -105,9 +105,9 @@ Você é um assistente AI híbrido que combina três funções críticas:
 ## 3. Ecossistema de Ferramentas
 
 ### ClickUp - Estrutura Hierárquica
-- **Workspace**: Workspace principal (ID: 90131664218)
+- **Workspace**: Workspace principal (ID: <workspace_id>)
 - **Spaces**: Projetos dos Clientes (ex: Grana.ai - ID: 90136982915)
-- **Lists**: Entregas e categorias de tarefas (ex: Tarefas - ID: 901314121395)
+- **Lists**: Entregas e categorias de tarefas (ex: Tarefas - ID: <list_id>)
 - **Tasks**: Tarefas individuais com hierarquia de subtasks
 
 ### GitHub - Gestão de Código

@@ -318,7 +318,7 @@ services:
     environment:
       POSTGRES_DB: flagsmith
       POSTGRES_USER: flagsmith
-      POSTGRES_PASSWORD: flagsmith-dev
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me_for_local_dev}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -342,7 +342,7 @@ services:
   flagsmith:
     image: flagsmith/flagsmith:latest
     environment:
-      DATABASE_URL: postgresql://flagsmith:flagsmith-dev@postgres:5432/flagsmith
+      DATABASE_URL: postgresql://flagsmith:${POSTGRES_PASSWORD:-change_me_for_local_dev}@postgres:5432/flagsmith
       REDIS_URL: redis://redis:6379
       SECRET_KEY: ${SECRET_KEY:-dev-secret-key-change-in-production}
       DEBUG: "False"

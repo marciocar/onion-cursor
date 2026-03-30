@@ -310,21 +310,21 @@ const subtasks = await create_bulk_tasks({
 // 1. Criar task principal
 const mainTask = await create_task({
   name: "🎯 Feature Principal",
-  listId: "901314121395",
+  listId: "<list_id>",
   description: "Descrição completa..."
 });
 
 // 2. Criar subtasks com parent
 const subtask1 = await create_task({
   name: "🔧 Subtask 1",
-  listId: "901314121395",
+  listId: "<list_id>",
   parent: mainTask.id,  // ✅ Hierarquia correta
   description: "..."
 });
 
 const subtask2 = await create_task({
   name: "🔧 Subtask 2",
-  listId: "901314121395",
+  listId: "<list_id>",
   parent: mainTask.id,  // ✅ Hierarquia correta
   description: "..."
 });
@@ -357,7 +357,7 @@ const subtask2 = await create_task({
 // PASSO 1: Criar Task Principal
 const mainTask = await mcp_clickup_create_task({
   name: "🎯 Implementar Autenticação JWT",
-  listId: "901314121395",
+  listId: "<list_id>",
   markdown_description: `
 ## 🎯 Objetivo
 Implementar autenticação JWT completa...
@@ -374,7 +374,7 @@ Implementar autenticação JWT completa...
 // PASSO 2: Criar Subtasks com Parent
 const subtask1 = await mcp_clickup_create_task({
   name: "🔧 Backend JWT Service",
-  listId: "901314121395",
+  listId: "<list_id>",
   parent: mainTask.id,  // ← CRITICAL
   markdown_description: `
 ## Objetivos
@@ -387,7 +387,7 @@ const subtask1 = await mcp_clickup_create_task({
 
 const subtask2 = await mcp_clickup_create_task({
   name: "🔧 Frontend Integration",
-  listId: "901314121395",
+  listId: "<list_id>",
   parent: mainTask.id,  // ← CRITICAL
   markdown_description: `
 ## Objetivos

@@ -84,8 +84,8 @@ TASK_MANAGER_PROVIDER=clickup  # clickup | asana | linear | none
 ```env
 # ClickUp MCP
 CLICKUP_API_TOKEN=pk_xxxxxxx_xxxxxxxxxxxxxxx
-CLICKUP_WORKSPACE_ID=90131664218  # Opcional, detectado automaticamente
-CLICKUP_DEFAULT_LIST_ID=901314121395  # Opcional, lista padrão
+CLICKUP_WORKSPACE_ID=your_workspace_id  # Opcional, detectado automaticamente
+CLICKUP_DEFAULT_LIST_ID=your_list_id  # Opcional, lista padrão
 ```
 
 **Como obter:**
@@ -141,7 +141,7 @@ POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
 POSTGRES_DB=mydb
 POSTGRES_USER=myuser
-POSTGRES_PASSWORD=mypassword  # Use senhas seguras!
+POSTGRES_PASSWORD=change_me_in_production  # Use senhas seguras!
 ```
 
 ### Passo 4: Criar/Atualizar .env

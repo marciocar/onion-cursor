@@ -123,7 +123,7 @@ O ClickUp MCP suporta dois parâmetros diferentes:
 ```typescript
 await mcp_clickup_create_task({
   name: "Implementar autenticação JWT",
-  listId: "901314121395",
+  listId: "<list_id>",
   description: `## 🎯 Objetivo
 Implementar sistema de autenticação
 
@@ -137,7 +137,7 @@ Implementar sistema de autenticação
 ```typescript
 await mcp_clickup_create_task({
   name: "Implementar autenticação JWT",
-  listId: "901314121395",
+  listId: "<list_id>",
   markdown_description: `## 🎯 Objetivo da Task
 
 Implementar sistema completo de autenticação usando JWT (JSON Web Tokens) com suporte a refresh tokens para renovação automática de sessões.

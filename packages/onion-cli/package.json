@@ -12,7 +12,8 @@
     "format": "prettier --write src/",
     "dev": "node bin/onion.js",
     "build": "echo 'No build needed for now'",
-    "prepublishOnly": "npm test && npm run lint"
+    "security:scan": "bash ./scripts/scan-secrets.sh",
+    "prepublishOnly": "npm run security:scan && npm test && npm run lint"
   },
   "keywords": [
     "onion",

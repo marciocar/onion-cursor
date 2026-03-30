@@ -238,7 +238,7 @@ Criar/editar `.cursorrules`:
 
 ## Integração ClickUp
 - Workspace ID: 90131412
-- List ID (Tarefas): 901314121395
+- List ID (Tarefas): <list_id>
 - Auto-update: Habilitado
 - Formatação: Dual (Markdown + Unicode)
 ```

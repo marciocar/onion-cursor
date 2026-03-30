@@ -15,8 +15,8 @@ Implementação do `ITaskManager` para ClickUp usando o MCP (Model Context Proto
 CLICKUP_API_TOKEN=pk_xxxxx
 
 # Opcionais
-CLICKUP_WORKSPACE_ID=90131664218    # Auto-detectado se não informado
-CLICKUP_DEFAULT_LIST_ID=901314121395  # Lista padrão para novas tasks
+CLICKUP_WORKSPACE_ID=your_workspace_id    # Auto-detectado se não informado
+CLICKUP_DEFAULT_LIST_ID=your_list_id  # Lista padrão para novas tasks
 ```
 
 ### Obter Token

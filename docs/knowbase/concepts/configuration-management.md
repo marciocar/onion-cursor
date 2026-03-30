@@ -300,7 +300,7 @@ async function validateToken(service: string, token: string): Promise<Validation
 1. Acesse https://app.clickup.com/settings/apps
 2. Clique em "Generate" ou "Regenerate"
 3. Copie o token
-4. Para Workspace ID: URL do ClickUp contém (ex: `app.clickup.com/90131664218/...`)
+4. Para Workspace ID: URL do ClickUp contém (ex: `app.clickup.com/<workspace_id>/...`)
 
 **Validação:**
 ```bash
@@ -427,7 +427,7 @@ Sem integrações configuradas, o agente:
 
 **❌ Problema:**
 ```typescript
-const token = "xoxb-123456-abcdef";
+const token = process.env.SLACK_TOKEN;
 ```
 
 **✅ Solução:**

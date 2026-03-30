@@ -136,7 +136,7 @@ updated: "YYYY-MM-DD"
 ### Identificação de Workspace
 ```typescript
 // Sempre usar workspace_id explícito
-workspace_id: "90131664218"  // Workspace padrão
+workspace_id: "<workspace_id>"  // Workspace padrão
 ```
 
 ### Padrões de Comentários
