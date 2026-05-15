@@ -1,29 +1,28 @@
 # 📚 Índice - Sistema Onion
 
-> **Última atualização**: 2025-12-20 | **Gerado por**: `/docs/build-index onion`
+> **Última atualização**: 2026-05-15 | **Gerado por**: `/docs:build-index onion`
 
-Bem-vindo ao índice da documentação do **Sistema Onion v4.0 Beta**. Este documento organiza todos os 28 arquivos de documentação do sistema.
+Bem-vindo ao índice da documentação do **Sistema Onion**. Este documento organiza os 26 arquivos de documentação operacional do sistema em `docs/onion/`.
 
 ---
 
 ## 🎯 Visão Geral
 
-O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluciona o desenvolvimento com:
-- 🤖 **35 comandos especializados** organizados em categorias funcionais
-- 🎯 **12 agentes de IA especializados** em múltiplos domínios
+O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
+- 🤖 **91 comandos especializados** organizados em 10 categorias funcionais
+- 🎯 **49 agentes de IA especializados** em 9 categorias
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
 - 🧅 **Comando `/onion`** - ponto de entrada inteligente
-- 🔗 **Task Manager Abstraction** para ClickUp, Asana e Linear
-- 🏗️ **Arquitetura Multi-Context** - Separação clara entre business e technical
+- 🔗 **Task Manager Abstraction** plugável (Jira, ClickUp, Asana, Linear)
+- 🏗️ **Spec as Code Multi-Context** — business, technical e meta-specs
 
 ---
 
 ## 📊 Estatísticas
 
-- **28 arquivos** de documentação markdown
-- **35 comandos** Claude Code disponíveis
-- **12 agentes** IA especializados
-- **Versão atual**: 4.1.0-beta.1
+- **26 arquivos** em `docs/onion/`
+- **91 comandos** Claude Code em `.claude/commands/`
+- **49 agentes** IA em `.claude/agents/`
 
 ---
 
@@ -33,13 +32,13 @@ O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluc
 
 **Comece aqui se você é novo no Sistema Onion:**
 
-1. **[Guia de Comandos](commands-guide.md)** - Documentação completa de todos os comandos disponíveis
-   - 35 comandos organizados por categoria
+1. **[Guia de Comandos](commands-guide.md)** - Documentação dos comandos disponíveis
+   - 91 comandos organizados em 10 categorias
    - Exemplos de uso e workflows
    - Integrações com Task Managers
 
-2. **[Referência de Agentes](agents-reference.md)** - Lista e descrição de todos os agentes especializados
-   - 12 agentes em múltiplas categorias
+2. **[Referência de Agentes](agents-reference.md)** - Lista e descrição dos agentes especializados
+   - 49 agentes em 9 categorias
    - Quando usar cada agente
    - Capacidades e especializações
 
@@ -68,25 +67,12 @@ O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluc
    - Configuração de integrações
    - Workflows básicos
 
-2. **[Instalação](INSTALLATION.md)** - Guia de instalação do Sistema Onion ✨ NOVO
+2. **[Instalação](INSTALLATION.md)** - Guia de instalação do Sistema Onion
    - Requisitos do sistema
    - Instalação passo a passo
    - Verificação de instalação
 
-3. **[Integração ClickUp](clickup-integration.md)** - Configuração avançada do ClickUp MCP
-   - Setup do ClickUp MCP
-   - Sincronização automática
-   - Formatação de comentários
-
-4. **[Comando Onion Setup](comando-onion-setup.md)** - Setup via comando `/onion/setup`
-   - Wizard interativo
-   - Configuração automática
-   - Validação de ambiente
-
-5. **[Quick Start Init](QUICK-START-INIT.md)** - Início rápido com CLI
-   - Comandos essenciais
-   - Setup rápido
-   - Primeiros passos
+3. **Task Manager Abstraction** — configure provider (Jira/ClickUp/Asana/Linear) via `.env` e `/meta:setup-integration`. Adapters técnicos em [`.claude/utils/task-manager/adapters/`](../../.claude/utils/task-manager/adapters/).
 
 ### 🔧 Referências Técnicas
 
@@ -194,13 +180,6 @@ O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluc
    - Implementação passo a passo
    - Validação
 
-### IDE Integration
-
-1. **[IDE Integration Complete](ide-integration-complete.md)** - Integração IDE completa
-   - Suporte multi-IDE
-   - Configuração
-   - Funcionalidades
-
 ### Milestones e Fixes
 
 1. **[Milestone First Successful Init](MILESTONE-first-successful-init.md)** - Primeiro init bem-sucedido
@@ -222,11 +201,11 @@ O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluc
 | Tipo | Arquivos | Descrição |
 |------|----------|-----------|
 | **Guias** | 5 | Guias essenciais de uso |
-| **Configuração** | 5 | Setup e instalação |
+| **Configuração** | 3 | Setup e instalação |
 | **Referências** | 4 | Documentação técnica |
 | **Avançado** | 3 | Para usuários avançados |
 | **Release Notes** | 6 | Histórico de versões |
-| **Implementação** | 5 | Documentação técnica |
+| **Implementação** | 4 | Documentação técnica |
 
 ### Por Perfil de Usuário
 
@@ -254,7 +233,7 @@ O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluc
 #### 🔧 Administradores
 - Comece com: [Installation](INSTALLATION.md)
 - Aprenda: [Getting Started](getting-started.md)
-- Configure: [ClickUp Integration](clickup-integration.md)
+- Configure Task Manager: `/meta:setup-integration` (adapters em `.claude/utils/task-manager/adapters/`)
 
 ---
 
@@ -275,17 +254,17 @@ O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluc
 ### Configuração
 - [Installation](INSTALLATION.md)
 - [Getting Started](getting-started.md)
-- [ClickUp Integration](clickup-integration.md)
+- [Adapters de Task Manager](../../.claude/utils/task-manager/adapters/)
 
 ---
 
 ## 📅 Histórico de Atualizações
 
-| Data | Versão | Mudança |
-|------|--------|---------|
-| 2025-12-20 | 4.0.0-beta | Índice reconstruído com 28 arquivos |
-| 2025-12-02 | 4.0.0-beta | Adicionado Spec-Driven Development |
-| 2025-11-25 | 3.0.0 | Versão estável v3.0 |
+| Data | Mudança |
+|------|---------|
+| 2026-05-15 | Índice revisado: estatísticas reais (91 comandos / 49 agentes / 26 arquivos), refs quebradas removidas |
+| 2025-12-20 | Índice reconstruído |
+| 2025-12-02 | Adicionado Spec-Driven Development |
 
 ---
 
@@ -312,20 +291,19 @@ O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluc
 
 ## 🔄 Manutenção
 
-Este índice é gerado automaticamente pelo comando `/docs/build-index onion`.
+Este índice é gerado automaticamente pelo comando `/docs:build-index onion`.
 
 **Para atualizar:**
 ```bash
-/docs/build-index onion        # Reconstruir este índice
-/docs/build-index              # Reconstruir índice principal
+/docs:build-index onion        # Reconstruir este índice
+/docs:build-index              # Reconstruir índice principal
 ```
 
 ---
 
-**Última atualização:** 2025-12-20  
-**Versão:** 4.0.0-beta  
+**Última atualização:** 2026-05-15
 **Mantido por:** Sistema Onion
 
 ---
 
-**Sistema Onion v4.0 Beta** - Multi-Context Development Orchestrator 🧅
+**Sistema Onion** - Multi-Context Development Orchestrator 🧅

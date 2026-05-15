@@ -1,11 +1,11 @@
 # 🧅 Sistema Onion - Claude Code Rules
 
 ## 🎯 Contexto do Projeto
-Este é o Sistema Onion - um framework avançado de comandos `.claude/` com:
-- 75+ comandos organizados por categoria (`engineer`, `product`, `git`, `docs`, `test`, `validate`, `meta`, `onion`, `common`)
-- 49 agentes especializados de IA em 9 categorias (compliance, deployment, development, git, meta, product, research, review, testing)
-- **Task Manager Abstraction** plugável (Jira, ClickUp, Asana, Linear)
-- Workflows automatizados de desenvolvimento (GitFlow + sprints + sessions)
+Este é o Sistema Onion — um framework de comandos `.claude/` para uso interno com:
+- ~90 comandos organizados por categoria (`product`, `git`, `common`, `engineer`, `docs`, `meta`, `validate`, `test`, `development`, `quick`) + `onion.md` e `warm-up.md` no root
+- 49 agentes especializados de IA em 9 categorias (`compliance`, `deployment`, `development`, `git`, `meta`, `product`, `research`, `review`, `testing`)
+- **Task Manager Abstraction** plugável (Jira, ClickUp, Asana, Linear) via `.claude/utils/task-manager/`
+- Workflows automatizados de desenvolvimento (GitFlow + sessions)
 
 ---
 

@@ -46,8 +46,8 @@ This project adheres to a Code of Conduct. By participating, you are expected to
 
 ```bash
 # 1. Fork and clone the repository
-git clone https://github.com/your-username/onion-v4.git
-cd onion-v4
+git clone https://github.com/your-username/onion-claude.git
+cd onion-claude
 
 # 2. Open in Claude Code (or another supported IDE)
 #    O Sistema Onion vive em .claude/ — comandos e agentes carregam automaticamente.
@@ -320,9 +320,8 @@ describe('Module Name', () => {
 
 ### Documentation Locations
 
-- `docs/` - User-facing documentation
+- `docs/` - User-facing documentation (incluindo `meta-specs/`, `business-context/`, `technical-context/`, `knowledge-base/`, `onion/`)
 - `README.md` - Project overview
-- `CHANGELOG.md` - Version history
 - `.claude/sessions/` - Development sessions
 - Inline JSDoc - Code documentation
 
@@ -385,7 +384,6 @@ Before submitting a PR, ensure:
 - [ ] Commit messages follow conventional commits
 - [ ] PR description is clear and complete
 - [ ] No breaking changes (or documented if yes)
-- [ ] Changelog updated (for significant changes)
 
 ---
 
@@ -394,7 +392,7 @@ Before submitting a PR, ensure:
 - [Onion v4 Epic](docs/plans/onion-v4-epic.md)
 - [Release Notes](docs/onion/RELEASE-NOTES-v4.0-beta.md)
 - [Level System Guide](docs/onion/levels-system.md)
-- [CLI Implementation](docs/onion/cli-implementation-complete.md)
+- [Índice da Documentação](docs/INDEX.md)
 
 ---
 

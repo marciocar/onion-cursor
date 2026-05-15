@@ -1,6 +1,6 @@
 # 📚 Índice Central de Documentação
 
-> **Última atualização**: 2026-05-15 | **Gerado por**: `/docs/build-index`
+> **Última atualização**: 2026-05-15 | **Gerado por**: `/docs:build-index`
 
 Bem-vindo ao índice central de documentação do projeto. Este documento serve como hub de navegação para toda a documentação disponível.
 
@@ -8,55 +8,56 @@ Bem-vindo ao índice central de documentação do projeto. Este documento serve 
 
 ## 🎯 Visão Geral
 
-Este projeto utiliza o **Sistema Onion v4.1.0-beta.1** - um framework avançado de comandos `.claude/` que revoluciona o desenvolvimento com:
+Este projeto é o **Sistema Onion** — um framework de comandos `.claude/` para uso interno com:
 
-- 🤖 **Comandos especializados** organizados em categorias funcionais
-- 🎯 **Agentes de IA especializados** em múltiplos domínios
+- 🤖 **91 comandos especializados** organizados em 10 categorias funcionais
+- 🎯 **49 agentes de IA especializados** em 9 categorias
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
 - 🧅 **Comando `/onion`** - ponto de entrada inteligente
-- 🔗 **Task Manager Abstraction** para ClickUp, Asana e Linear
-- 🏗️ **Arquitetura Multi-Context** - Separação clara entre business e technical
+- 🔗 **Task Manager Abstraction** plugável (Jira, ClickUp, Asana, Linear)
+- 🏗️ **Spec as Code Multi-Context** — separação entre business, technical e meta-specs
 
 ---
 
 ## 📊 Estatísticas da Documentação
 
 ### Documentação Principal
-- **69 arquivos markdown** em `docs/` (incluindo este índice, excluindo draft/)
-- **28 arquivos** em `docs/onion/` (Sistema Onion)
-- **24 arquivos** em `docs/knowledge-base/` (Knowledge Bases)
+- **64 arquivos markdown** em `docs/`
+- **26 arquivos** em `docs/onion/` (Sistema Onion)
+- **25 arquivos** em `docs/knowledge-base/` (Knowledge Bases)
   - 13 arquivos em `concepts/` (Conceitos fundamentais)
   - 7 arquivos em `frameworks/` (Frameworks e metodologias)
-  - 2 arquivos em `tools/` (Ferramentas)
+  - 3 arquivos em `tools/` (Ferramentas, incl. Agent Skills)
   - 1 arquivo em `platforms/` (Plataformas)
-  - 1 arquivo em `providers/` (Provedores de serviços)
+  - 1 `index.md`
 - **1 arquivo** em `docs/meta-specs/` (Meta Especificações)
-- **Arquivos adicionais** em `docs/analysis/`, `docs/plans/`, `docs/sdaal/`, `docs/tools/`
+- Arquivos adicionais em `docs/analysis/`, `docs/plans/`, `docs/business-context/`, `docs/technical-context/`
 
-### Sistema Onion
-- **35 comandos Claude Code** em `.claude/commands/`
-  - 12 arquivos em `common/` (Templates e prompts compartilhados)
-  - 9 comandos em `meta/` (Meta-comandos e criadores)
-  - 6 comandos em `validate/` (Validações e testes)
-  - 2 comandos globais (`onion.md`, `warm-up.md`)
-  - 1 comando em `product/` (Gestão de produto)
-  - 1 comando em `docs/` (Documentação)
-  - 1 comando em `git/` (GitFlow)
-  - 1 comando em `development/` (Desenvolvimento)
-  - 1 comando em `onion/` (Sistema Onion)
-  - 1 comando em `quick/` (Ações rápidas)
-- **12 agentes IA** em `.claude/agents/`
-  - 5 agentes em `compliance/` (Compliance e regulatório)
-  - 4 agentes em `meta/` (Meta e orquestração)
-  - 1 agente em `deployment/` (Deployment)
-  - 1 agente em `research/` (Pesquisa)
-  - 1 agente em `review/` (Code review)
-- **28 documentos** de referência em `docs/onion/`
+### Sistema Onion (`.claude/`)
+- **91 comandos** Claude Code distribuídos em:
+  - 21 em `product/` (gestão de produto e descoberta)
+  - 13 em `git/` (GitFlow e versionamento)
+  - 12 em `common/` (templates e prompts compartilhados)
+  - 11 em `engineer/` (engenharia e desenvolvimento)
+  - 11 em `docs/` (geração e validação de documentação)
+  - 10 em `meta/` (meta-comandos e criadores)
+  - 6 em `validate/` (validação e testes)
+  - 3 em `test/` (unit, integration, e2e)
+  - 1 em `development/`, 1 em `quick/`
+  - 2 no root: `onion.md`, `warm-up.md`
+- **49 agentes** IA distribuídos em:
+  - 20 em `development/` (frontend, backend, infra, integrações)
+  - 8 em `product/` (gestão e narrativa)
+  - 5 em `compliance/` (ISO 27001, ISO 22301, SOC2, PMBOK)
+  - 5 em `meta/` (orquestração, criação, validação)
+  - 4 em `git/` (review pré-PR)
+  - 3 em `testing/`, 2 em `review/`
+  - 1 em `research/`, 1 em `deployment/`
 
 ### Total
-- **69 arquivos** de documentação markdown
-- **35 comandos** disponíveis em múltiplas categorias
-- **12 agentes** especializados em múltiplos domínios
+- **64 arquivos** de documentação markdown
+- **91 comandos** organizados em 10 categorias
+- **49 agentes** especializados em 9 categorias
 
 ---
 
@@ -66,11 +67,10 @@ Este projeto utiliza o **Sistema Onion v4.1.0-beta.1** - um framework avançado 
 docs/
 ├── INDEX.md                    # Este arquivo (hub central)
 │
-├── onion/                      # Sistema Onion (28 arquivos)
+├── onion/                      # Sistema Onion (26 arquivos)
 │   ├── commands-guide.md       # Guia completo de comandos
 │   ├── agents-reference.md     # Referência de agentes
-│   ├── engineering-flows.md   # Fluxos de engenharia
-│   ├── clickup-integration.md  # Integração ClickUp MCP
+│   ├── engineering-flows.md    # Fluxos de engenharia
 │   ├── practical-examples.md   # Exemplos práticos
 │   ├── getting-started.md      # Configuração inicial
 │   ├── testing-validation-system.md  # Sistema de testes e validação
@@ -84,7 +84,7 @@ docs/
 │   ├── RELEASE-NOTES-v4.0-beta.md  # Notas de release v4.0
 │   └── [outros arquivos de release e implementação]
 │
-├── knowledge-base/                   # Knowledge Bases (24 arquivos)
+├── knowledge-base/             # Knowledge Bases (25 arquivos)
 │   ├── concepts/               # Conceitos fundamentais (13 arquivos)
 │   │   ├── abstraction-patterns-catalog.md
 │   │   ├── ai-agent-design-patterns.md
@@ -145,9 +145,9 @@ docs/
 - **[Sistema de Níveis](onion/levels-system.md)** - Descoberta progressiva de comandos (v4.0) ✨ NOVO
 
 #### Integrações e Configuração
-- **[Integração ClickUp](onion/clickup-integration.md)** - Configuração avançada do ClickUp MCP
 - **[Configuração Inicial](onion/getting-started.md)** - Setup completo do sistema
 - **[Instalação](onion/INSTALLATION.md)** - Guia de instalação do Sistema Onion
+- Integração com Task Manager (Jira/ClickUp/Asana/Linear): use `/meta:setup-integration` — adapters em `.claude/utils/task-manager/adapters/`
 
 #### Referências Técnicas
 - **[Exemplos Práticos](onion/practical-examples.md)** - Casos de uso reais com exemplos
@@ -336,15 +336,13 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 
 **Comece com:**
 1. [Configuração Inicial](onion/getting-started.md)
-2. [Instalação](onion/INSTALLATION.md) ✨ NOVO
-3. [Integração ClickUp](onion/clickup-integration.md)
-4. [Referência de Ferramentas](onion/tools-reference.md)
+2. [Instalação](onion/INSTALLATION.md)
+3. [Referência de Ferramentas](onion/tools-reference.md)
 
 **Comandos essenciais:**
-- `/meta/setup-integration` - Configurar integrações
-- `/meta/all-tools` - Listar todas as ferramentas
-- `/docs/build-index` - Reconstruir índices
-- `/onion/setup` - Setup do Sistema Onion ✨ NOVO
+- `/meta:setup-integration` - Configurar Task Manager (Jira/ClickUp/Asana/Linear) e demais integrações
+- `/meta:all-tools` - Listar todas as ferramentas
+- `/docs:build-index` - Reconstruir índices
 
 ### 🛡️ Para Compliance/Security
 
@@ -421,8 +419,8 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 
 ### Configuração
 - [Configuração Inicial](onion/getting-started.md)
-- [Instalação](onion/INSTALLATION.md) ✨ NOVO
-- [Integração ClickUp](onion/clickup-integration.md)
+- [Instalação](onion/INSTALLATION.md)
+- [Adapters de Task Manager](../.claude/utils/task-manager/adapters/) (Jira, ClickUp, Asana, Linear)
 
 ---
 
@@ -495,10 +493,9 @@ Este índice é gerado automaticamente pelo comando `/docs/build-index`.
 /docs/build-index onion        # Reconstruir índice da seção onion
 ```
 
-**Última atualização:** 2025-12-20  
-**Versão:** 4.1.0-beta.1  
+**Última atualização:** 2026-05-15
 **Mantido por:** Sistema Onion
 
 ---
 
-**Sistema Onion v4.0 Beta** - Multi-Context Development Orchestrator 🧅
+**Sistema Onion** - Multi-Context Development Orchestrator 🧅
