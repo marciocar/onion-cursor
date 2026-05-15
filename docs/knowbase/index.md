@@ -180,7 +180,7 @@ Documentação completa de ferramentas utilizadas:
    - Otimizações para português
    - Integração com Sistema Onion
 
-2. **[Cursor Commands Best Practices 2025](tools/cursor-commands-best-practices-2025.md)** - Boas práticas de comandos Cursor
+2. **[Claude Code Commands Best Practices 2025](tools/claude-code-commands-best-practices-2025.md)** - Boas práticas de comandos Claude Code
    - Padrões de design
    - Estrutura recomendada
    - Melhores práticas
@@ -243,7 +243,7 @@ Documentação de provedores de serviços integrados:
 ### Ferramentas e Integrações
 
 - [Whisper](tools/whisper.md)
-- [Cursor Commands Best Practices](tools/cursor-commands-best-practices-2025.md)
+- [Claude Code Commands Best Practices](tools/claude-code-commands-best-practices-2025.md)
 - [Microsoft Graph Teams API](providers/microsoft-graph-teams-api-guia-completo.md)
 - [Runflow](platforms/runflow.md)
 
@@ -265,7 +265,7 @@ Documentação de provedores de serviços integrados:
 
 **Ferramentas:**
 - [Whisper](tools/whisper.md)
-- [Cursor Commands Best Practices](tools/cursor-commands-best-practices-2025.md)
+- [Claude Code Commands Best Practices](tools/claude-code-commands-best-practices-2025.md)
 
 ### 📋 Product Owners
 

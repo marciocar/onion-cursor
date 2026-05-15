@@ -11,11 +11,11 @@
 | **Última Atualização** | 2025-11-25 |
 | **Categoria** | Concepts |
 | **Aplicação** | Sistema Onion - Padrões de Desenvolvimento de IA |
-| **Tags** | `ai-patterns`, `abstraction-layer`, `spec-as-code`, `cursor-development` |
+| **Tags** | `ai-patterns`, `abstraction-layer`, `spec-as-code`, `claude-code-development` |
 
 ### Fontes
 
-- Task Manager Abstraction (`.cursor/utils/task-manager/`)
+- Task Manager Abstraction (`.claude/utils/task-manager/`)
 - [Adapter Pattern - GoF](https://refactoring.guru/design-patterns/adapter)
 - [Factory Pattern - GoF](https://refactoring.guru/design-patterns/factory-method)
 - Práticas do Sistema Onion
@@ -149,7 +149,7 @@ Executado: VM/Runtime       Executado: Cognição do LLM
 ### Template de Abstraction Layer
 
 ```
-.cursor/utils/<abstraction>/
+.claude/utils/<abstraction>/
 ├── README.md           # Visão geral e uso rápido
 ├── interface.md        # Interface/Contrato principal
 ├── types.md            # Tipos de entrada e saída
@@ -411,7 +411,7 @@ function validateProviderMatch(taskId, currentProvider): ValidationResult {
 - Sistema opera principalmente via LLM
 - Precisa de flexibilidade para trocar provedores
 - Deseja documentação e implementação unificadas
-- Trabalha com assistentes de código (Cursor, Copilot)
+- Trabalha com assistentes de código (Claude Code, Copilot)
 
 ❌ **Não use quando:**
 - Precisa de performance crítica
@@ -426,7 +426,7 @@ function validateProviderMatch(taskId, currentProvider): ValidationResult {
 ### Estrutura Implementada
 
 ```
-.cursor/utils/task-manager/
+.claude/utils/task-manager/
 ├── README.md           # Introdução + uso rápido
 ├── interface.md        # ITaskManager completo
 ├── types.md            # CreateTaskInput, TaskOutput, etc
@@ -576,8 +576,8 @@ O [Task Manager Abstraction](task-manager-abstraction.md) é a implementação d
 ## 📚 Recursos Adicionais
 
 ### Internos (Sistema Onion)
-- [Comando /meta/create-abstraction](../../../.cursor/commands/meta/create-abstraction.md) - Gerador automático de SDAAL
-- [Template de Abstração](../../../.cursor/commands/common/templates/abstraction-template.md) - Template base
+- [Comando /meta/create-abstraction](../../../.claude/commands/meta/create-abstraction.md) - Gerador automático de SDAAL
+- [Template de Abstração](../../../.claude/commands/common/templates/abstraction-template.md) - Template base
 
 ### Externos
 - [Adapter Pattern - Refactoring Guru](https://refactoring.guru/design-patterns/adapter)

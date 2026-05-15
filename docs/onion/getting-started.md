@@ -2,7 +2,7 @@
 
 > **Versão**: 3.0.0 | **Última atualização**: 2025-12-02
 
-Bem-vindo ao sistema Onion v3.0! Este guia vai te ajudar a começar rapidamente com os comandos `.cursor/` e integração com gerenciadores de tarefas através do **Task Manager Abstraction**.
+Bem-vindo ao sistema Onion v3.0! Este guia vai te ajudar a começar rapidamente com os comandos `.claude/` e integração com gerenciadores de tarefas através do **Task Manager Abstraction**.
 
 ## 📊 Visão Geral v3.0
 
@@ -17,9 +17,9 @@ Bem-vindo ao sistema Onion v3.0! Este guia vai te ajudar a começar rapidamente 
 
 ### **✅ Pré-requisitos**
 - [ ] **Node.js v22.14.0+** instalado
-- [ ] Cursor IDE instalado e configurado
+- [ ] Claude Code instalado e configurado
 - [ ] Git inicializado no projeto
-- [ ] Pasta `.cursor/` presente no projeto
+- [ ] Pasta `.claude/` presente no projeto
 
 ### **✅ Configuração de Integrações**
 
@@ -152,7 +152,7 @@ Após configurar o Task Manager, valide a configuração:
 
 ### **3. Desenvolver Funcionalidade (2 min)**
 ```bash
-/engineer/work .cursor/sessions/about-page/
+/engineer/work .claude/sessions/about-page/
 ```
 
 **Resultado**: Implementação guiada passo-a-passo
@@ -175,7 +175,7 @@ Você completou seu primeiro ciclo completo de desenvolvimento com integração 
 ```bash
 /product/task "Nova funcionalidade X"      # → Task criada no Task Manager
 /engineer/start                           # → Input: TASK-ID  
-/engineer/work .cursor/sessions/feature-x/ # → Desenvolvimento
+/engineer/work .claude/sessions/feature-x/ # → Desenvolvimento
 /engineer/pr                              # → PR + Task Manager atualizado
 ```
 
@@ -285,7 +285,7 @@ graph LR
 ### **❌ Problema: Comando não encontrado**
 ```bash
 # Verificar se está na pasta correta
-pwd  # Deve estar na raiz do projeto com .cursor/
+pwd  # Deve estar na raiz do projeto com .claude/
 
 # Listar comandos disponíveis
 /all-tools
@@ -458,19 +458,19 @@ sudo apt update
 sudo apt install google-chrome-stable
 ```
 
-### **Problema**: Comandos `.cursor/` não funcionam
+### **Problema**: Comandos `.claude/` não funcionam
 **Sintomas**: Comandos não são reconhecidos
 
 #### **Solução**:
 ```bash
-# 1. Verificar estrutura .cursor/
-ls -la .cursor/commands/
+# 1. Verificar estrutura .claude/
+ls -la .claude/commands/
 
 # 2. Verificar se está no diretório do projeto
-pwd  # Deve estar na raiz com .cursor/
+pwd  # Deve estar na raiz com .claude/
 
-# 3. Invocar agente cursor-specialist
-@cursor-specialist "comandos não funcionam"
+# 3. Invocar agente claude-code-specialist
+@claude-code-specialist "comandos não funcionam"
 ```
 
 ### **Problema**: Integração Task Manager falha

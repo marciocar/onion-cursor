@@ -1,6 +1,6 @@
-# Histórico do Cursor
+# Histórico do Claude Code
 .history/
-.cursor/sessions/*
+.claude/sessions/*
 # Arquivos temporários
 *.tmp
 *.temp
@@ -30,6 +30,6 @@ node_modules/
 *~
 .vscode/
 .idea/
-.cursor/sessions/
+.claude/sessions/
 .history/
 .tmp/

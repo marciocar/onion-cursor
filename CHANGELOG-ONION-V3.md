@@ -24,7 +24,7 @@ Criadas em `docs/knowbase/`:
 
 | KB | Descrição |
 |----|-----------|
-| `cursor-commands-best-practices-2025.md` | Padrões atualizados de comandos Cursor |
+| `claude-code-commands-best-practices-2025.md` | Padrões atualizados de comandos Claude Code |
 | `spec-as-code-strategy.md` | Estratégia de especificações como código |
 | `ai-agent-design-patterns.md` | Padrões de design para agentes IA |
 | `context-window-optimization.md` | Otimização de contexto e tokens |
@@ -45,7 +45,7 @@ Criadas em `docs/knowbase/`:
 
 ### Prompts Modulares
 
-Criados em `.cursor/commands/common/prompts/`:
+Criados em `.claude/commands/common/prompts/`:
 
 - `clickup-patterns.md` - Padrões de formatação ClickUp
 - `validation-rules.md` - Regras de validação reutilizáveis
@@ -63,17 +63,17 @@ Criados em `.cursor/commands/common/prompts/`:
 
 | Agente | De | Para |
 |--------|----|----|
-| `product-agent.md` | `.cursor/agents/` | `product/` |
-| `code-reviewer.md` | `.cursor/agents/` | `review/` |
-| `test-engineer.md` | `.cursor/agents/` | `testing/` (nova) |
-| `test-planner.md` | `.cursor/agents/` | `testing/` (nova) |
-| `research-agent.md` | `.cursor/agents/` | `research/` (nova) |
-| `branch-code-reviewer.md` | `.cursor/agents/` | `git/` (nova) |
-| `branch-documentation-writer.md` | `.cursor/agents/` | `git/` |
-| `branch-metaspec-checker.md` | `.cursor/agents/` | `git/` |
-| `branch-test-planner.md` | `.cursor/agents/` | `git/` |
-| `react-developer.md` | `.cursor/agents/` | `development/` |
-| `metaspec-gate-keeper.md` | `.cursor/agents/` | `meta/` |
+| `product-agent.md` | `.claude/agents/` | `product/` |
+| `code-reviewer.md` | `.claude/agents/` | `review/` |
+| `test-engineer.md` | `.claude/agents/` | `testing/` (nova) |
+| `test-planner.md` | `.claude/agents/` | `testing/` (nova) |
+| `research-agent.md` | `.claude/agents/` | `research/` (nova) |
+| `branch-code-reviewer.md` | `.claude/agents/` | `git/` (nova) |
+| `branch-documentation-writer.md` | `.claude/agents/` | `git/` |
+| `branch-metaspec-checker.md` | `.claude/agents/` | `git/` |
+| `branch-test-planner.md` | `.claude/agents/` | `git/` |
+| `react-developer.md` | `.claude/agents/` | `development/` |
+| `metaspec-gate-keeper.md` | `.claude/agents/` | `meta/` |
 
 **1 agente movido entre pastas:**
 
@@ -81,19 +81,19 @@ Criados em `.cursor/commands/common/prompts/`:
 |--------|----|----|
 | `postgres-specialist.md` | `data/` | `development/` |
 
-**Pasta removida:** `.cursor/agents/data/` (vazia após movimentação)
+**Pasta removida:** `.claude/agents/data/` (vazia após movimentação)
 
 ### Novas Pastas de Agentes
 
-- `.cursor/agents/testing/` - Agentes de testes
-- `.cursor/agents/research/` - Agentes de pesquisa
-- `.cursor/agents/git/` - Agentes de Git/branch
+- `.claude/agents/testing/` - Agentes de testes
+- `.claude/agents/research/` - Agentes de pesquisa
+- `.claude/agents/git/` - Agentes de Git/branch
 
 ### Estrutura de Sessions
 
-Padronizada em `.cursor/sessions/<feature-slug>/`:
+Padronizada em `.claude/sessions/<feature-slug>/`:
 ```
-.cursor/sessions/<feature-slug>/
+.claude/sessions/<feature-slug>/
 ├── context.md        # Contexto e IDs ClickUp
 ├── architecture.md   # Decisões arquiteturais
 ├── plan.md           # Plano de fases
@@ -184,7 +184,7 @@ updated: "2025-11-24"
 
 | Arquivo | Razão |
 |---------|-------|
-| `.cursor/commands/all-tools.md` (raiz) | Duplicado de `meta/all-tools.md` |
+| `.claude/commands/all-tools.md` (raiz) | Duplicado de `meta/all-tools.md` |
 
 ---
 
@@ -196,7 +196,7 @@ As seguintes mudanças podem requerer atenção:
 
 1. **Referências a agentes na raiz**: Agentes movidos da raiz para subpastas. Atualize referências de `@agent-name` se necessário (o sistema resolve automaticamente).
 
-2. **Estrutura de sessions**: Novo padrão em `.cursor/sessions/<slug>/` com 4 arquivos obrigatórios.
+2. **Estrutura de sessions**: Novo padrão em `.claude/sessions/<slug>/` com 4 arquivos obrigatórios.
 
 ---
 

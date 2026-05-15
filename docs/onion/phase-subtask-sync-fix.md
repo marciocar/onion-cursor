@@ -2,7 +2,7 @@
 
 ## 🚨 **Problem Identified**
 
-Durante o desenvolvimento do projeto "Refatorar Comandos Git para Padrão Cursor Commands Oficial", foi identificada uma **falha arquitetural crítica** no Sistema Onion:
+Durante o desenvolvimento do projeto "Refatorar Comandos Git para Padrão Claude Code Commands Oficial", foi identificada uma **falha arquitetural crítica** no Sistema Onion:
 
 ### **Issue Summary:**
 - **Problem**: Status das subtasks do ClickUp não eram atualizados automaticamente quando fases eram completadas no development

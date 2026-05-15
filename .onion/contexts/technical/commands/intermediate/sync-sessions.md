@@ -16,7 +16,7 @@ Sincroniza e organiza todas as sessões de trabalho do Sistema Onion, garantindo
 
 ## 🎯 Objetivo
 
-Este comando analisa o trabalho realizado na sessão atual, organiza a documentação gerada e sincroniza com a estrutura `.cursor/sessions/`, mantendo um histórico organizado de todas as atividades de desenvolvimento.
+Este comando analisa o trabalho realizado na sessão atual, organiza a documentação gerada e sincroniza com a estrutura `.claude/sessions/`, mantendo um histórico organizado de todas as atividades de desenvolvimento.
 
 ## 🎯 Funcionalidades
 
@@ -64,7 +64,7 @@ Este comando analisa o trabalho realizado na sessão atual, organiza a documenta
 
 ### 2. **Estruturação**
 ```
-.cursor/sessions/
+.claude/sessions/
 └── YYYY-MM-DD_HHMM_topic-name/
     ├── README.md              # Resumo da sessão
     ├── context.md             # Contexto inicial
@@ -243,7 +243,7 @@ O comando valida:
   • Agentes Convocados: 3
 
 📁 Estrutura Criada:
-  ✅ .cursor/sessions/2025-10-03_1030_dashboard-operacoes/
+  ✅ .claude/sessions/2025-10-03_1030_dashboard-operacoes/
      ✅ README.md
      ✅ context.md
      ✅ decisions.md
@@ -253,12 +253,12 @@ O comando valida:
      ✅ commands-executed.txt
 
 🔗 Índice Atualizado:
-  ✅ .cursor/sessions/INDEX.md
+  ✅ .claude/sessions/INDEX.md
 
 ✅ Sessão sincronizada com sucesso!
 
 📚 Para revisar: 
-   cat .cursor/sessions/2025-10-03_1030_dashboard-operacoes/README.md
+   cat .claude/sessions/2025-10-03_1030_dashboard-operacoes/README.md
 ```
 
 ## 🎯 Casos de Uso

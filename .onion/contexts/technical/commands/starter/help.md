@@ -39,7 +39,7 @@ O Sistema Onion oferece **4 comandos especializados** para documentação:
 **Objetivo**: Gerar documentação técnica abrangente para projetos
 **Quando usar**: Projetos que precisam de contexto técnico para desenvolvedores
 **Workflow**: Análise codebase → Q&A interativo → Múltiplos arquivos técnicos
-**Output**: project_charter.md, CURSOR.meta.md, CODEBASE_GUIDE.md, etc.
+**Output**: project_charter.md, CLAUDE.meta.md, CODEBASE_GUIDE.md, etc.
 
 ### **📊 `/docs/build-business-docs`** - Contexto de Negócio
 **Objetivo**: Criar inteligência de negócios otimizada para IA
@@ -117,7 +117,7 @@ if [ "$COMANDO_ESPECIFICO" = "build-tech-docs" ]; then
     echo ""
     echo "   ▶ **Fase 3**: Geração de Contexto Multi-Arquivo"
     echo "     ∟ project_charter.md (visão e objetivos)"
-    echo "     ∟ CURSOR.meta.md (guia de desenvolvimento IA)"
+    echo "     ∟ CLAUDE.meta.md (guia de desenvolvimento IA)"
     echo "     ∟ CODEBASE_GUIDE.md (navegação do código)"
     echo "     ∟ BUSINESS_LOGIC.md (regras de negócio)"
     echo "     ∟ API_SPECIFICATION.md (APIs e interfaces)"
@@ -245,7 +245,7 @@ else
     echo "**🔧 Documentação Técnica:**"
     echo "   ▶ **/docs/build-tech-docs** - Contexto técnico completo"
     echo "     ∟ Para: Desenvolvedores, sistemas IA, decisões técnicas"
-    echo "     ∟ Output: project_charter.md, CURSOR.meta.md, CODEBASE_GUIDE.md"
+    echo "     ∟ Output: project_charter.md, CLAUDE.meta.md, CODEBASE_GUIDE.md"
     echo "     ∟ Uso: /docs/help build-tech-docs (detalhes)"
     echo ""
     echo "**📊 Contexto de Negócio:**" 

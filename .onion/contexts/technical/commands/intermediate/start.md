@@ -19,7 +19,7 @@ Este é o comando para iniciar o desenvolvimento de uma funcionalidade.
 ## 🔧 Pré-requisito: Detectar Provedor
 
 ```typescript
-// Consultar .cursor/utils/task-manager/detector.md
+// Consultar .claude/utils/task-manager/detector.md
 const config = detectProvider();
 const taskManager = getTaskManager();
 
@@ -36,7 +36,7 @@ if (taskId) {
 ## Configuração
 - Se não estivermos em uma feature branch, peça permissão para criar uma
 - Se estivermos em uma feature branch que corresponde ao nome da funcionalidade, estamos prontos.
-- Certifique-se de que existe uma pasta .cursor/sessions/<feature-slug>
+- Certifique-se de que existe uma pasta .claude/sessions/<feature-slug>
 - Peça ao usuário o input para esta sessão (você receberá um ou mais tasks para trabalhar)
 
 ## Análise
@@ -168,7 +168,7 @@ Após refletir sobre essas questões, formule as 3-5 clarificações mais import
 
 Depois de obter as respostas do humano, considere se precisa fazer mais perguntas. Se sim, faça mais perguntas ao humano.
 
-Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature-slug>/context.md e peça ao humano para revisar.
+Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .claude/sessions/<feature-slug>/context.md e peça ao humano para revisar.
 
 Se o humano concordar com seu entendimento, você pode prosseguir para o próximo passo. Caso contrário, continue iterando juntos até obter aprovação explícita para seguir em frente.
 
@@ -189,7 +189,7 @@ Seu documento de arquitetura deve incluir:
     - Trade-offs e alternativas
     - Lista dos principais arquivos a serem editados/criados
 
-Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .cursor/sessions/<feature-slug>/architecture.md e peça ao humano para revisar.
+Uma vez que tenha um bom entendimento do que está sendo construído, salve-o no arquivo .claude/sessions/<feature-slug>/architecture.md e peça ao humano para revisar.
 
 ## 🔄 **Auto-Update Task Manager**
 
@@ -210,7 +210,7 @@ if (taskManager.isConfigured && taskId) {
 
 🏗️ SESSÃO ATIVADA:
    ▶ Branch: feature/[slug]
-   ▶ Sessão: .cursor/sessions/[slug]/
+   ▶ Sessão: .claude/sessions/[slug]/
    ▶ Provider: ${taskManager.provider}
 
 📋 PLANO DE IMPLEMENTAÇÃO:
@@ -225,7 +225,7 @@ if (taskManager.isConfigured && taskId) {
 ```
 
 ### **📋 Identificação da Task:**
-1. **Context.md**: Lê task-id do arquivo `.cursor/sessions/[slug]/context.md`
+1. **Context.md**: Lê task-id do arquivo `.claude/sessions/[slug]/context.md`
 2. **Task Manager**: Usa `taskManager.getTask(taskId)` para estrutura completa
 3. **🆕 PHASE-SUBTASK MAPPING**: Cria mapeamento automático fase→subtask no context.md
 4. **Validação de ID**: Verifica compatibilidade do ID com provedor configurado
@@ -244,9 +244,9 @@ Se você não tem certeza de como uma biblioteca específica funciona, você pod
 
 ## 🔗 Referências
 
-- Abstração: `.cursor/utils/task-manager/`
-- Detector: `.cursor/utils/task-manager/detector.md`
-- Factory: `.cursor/utils/task-manager/factory.md`
+- Abstração: `.claude/utils/task-manager/`
+- Detector: `.claude/utils/task-manager/detector.md`
+- Factory: `.claude/utils/task-manager/factory.md`
 
 <feature-slug>
 #$ARGUMENTS

@@ -59,7 +59,7 @@ Esta é uma **release focada em documentação** do Sistema Onion v4.0. Represen
 - ❌ Windsurf loader
 - ❌ Claude Code loader
 - ❌ VS Code loader
-- ✅ Cursor - Funcional via estrutura legada
+- ✅ Claude Code - Funcional via estrutura legada
 
 **Previsão**: v4.0.0-beta.3 (3-4 semanas)
 
@@ -131,11 +131,11 @@ cat docs/plans/onion-v4-epic.md
 tree .onion/ -L 3
 ```
 
-### Para Usar no Cursor (Estrutura Atual)
+### Para Usar no Claude Code (Estrutura Atual)
 
 ```bash
-# A estrutura .cursor/ ainda funciona
-cursor .
+# A estrutura .claude/ ainda funciona
+claude .
 
 # Comandos disponíveis:
 /business/help

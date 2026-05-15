@@ -63,7 +63,7 @@ A **FASE 2** da migração Onion v4 foi **concluída com 100% de sucesso** em me
 - `nx-monorepo-specialist`
 - `nx-migration-specialist`
 - `gitflow-specialist`
-- `cursor-specialist`
+- `claude-code-specialist`
 - `c4-architecture-specialist`
 - `c4-documentation-specialist`
 - `mermaid-specialist`
@@ -88,7 +88,7 @@ A **FASE 2** da migração Onion v4 foi **concluída com 100% de sucesso** em me
 
 **Antes** (Onion v3):
 ```
-.cursor/
+.claude/
 ├── commands/product/      # Misturado
 ├── commands/engineer/     # Misturado
 ├── agents/product/        # Misturado
@@ -137,7 +137,7 @@ Todos os comandos e agentes antigos continuam funcionando via symlinks:
 
 **Exemplo de symlink**:
 ```bash
-.cursor/commands/product/spec.md
+.claude/commands/product/spec.md
   → ../../../.onion/contexts/business/commands/starter/spec.md
 ```
 
@@ -225,7 +225,7 @@ Script de validação criado (`scripts/validate-migration.js`) que testa:
 - Adicionar guias de onboarding
 
 **FASE 4: IDE Loaders**
-- Implementar loaders para Cursor
+- Implementar loaders para Claude Code
 - Implementar loaders para Windsurf
 - Implementar loaders para Claude Code
 
@@ -238,7 +238,7 @@ Script de validação criado (`scripts/validate-migration.js`) que testa:
 ### Novos Documentos
 - `.onion/contexts/business/README.md` - Guia do contexto business
 - `.onion/contexts/technical/README.md` - Guia do contexto technical
-- `.cursor/sessions/fase-02-migration-commands/` - Documentação completa da sessão
+- `.claude/sessions/fase-02-migration-commands/` - Documentação completa da sessão
 
 ### Scripts Criados
 - `scripts/migrate-all.js` - Script master de migração
@@ -303,7 +303,7 @@ Script de validação criado (`scripts/validate-migration.js`) que testa:
 
 - **Plano de Migração**: `docs/plans/onion-v4-migration-plan.md`
 - **Epic**: `docs/plans/onion-v4-epic.md`
-- **Sessão FASE 2**: `.cursor/sessions/fase-02-migration-commands/`
+- **Sessão FASE 2**: `.claude/sessions/fase-02-migration-commands/`
 - **Arquitetura**: `docs/knowbase/frameworks/onion-multi-context-orchestrator-vision.md`
 
 ---

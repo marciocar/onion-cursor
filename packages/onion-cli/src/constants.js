@@ -51,10 +51,10 @@ export const AVAILABLE_CONTEXTS = [
 // IDEs suportados
 export const SUPPORTED_IDES = [
   {
-    id: 'cursor',
-    name: 'Cursor',
-    detector: '.cursor',
-    loader: 'cursor.js',
+    id: 'claude-code',
+    name: 'Claude Code',
+    detector: '.claude',
+    loader: 'claude.js',
     configFile: 'settings.json'
   },
   {
@@ -63,13 +63,6 @@ export const SUPPORTED_IDES = [
     detector: '.windsurf',
     loader: 'windsurf.ts',
     configFile: 'settings.yml'
-  },
-  {
-    id: 'claude-code',
-    name: 'Claude Code',
-    detector: '.claude',
-    loader: 'claude.py',
-    configFile: 'config.json'
   },
   {
     id: 'vscode',

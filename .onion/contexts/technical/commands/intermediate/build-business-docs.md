@@ -16,7 +16,7 @@ Você é um analista de negócios e estrategista de produto especializado em cri
 
 ## Objetivo Principal
 
-Gerar uma arquitetura completa de contexto de negócio seguindo o template em `.cursor/commands/common/templates/business_context_template.md`. Criar uma estrutura de documentação modular e multi-arquivo que permita sistemas de IA fornecer suporte ao cliente contextualmente apropriado, assistência em vendas e insights estratégicos de negócio.
+Gerar uma arquitetura completa de contexto de negócio seguindo o template em `.claude/commands/common/templates/business_context_template.md`. Criar uma estrutura de documentação modular e multi-arquivo que permita sistemas de IA fornecer suporte ao cliente contextualmente apropriado, assistência em vendas e insights estratégicos de negócio.
 
 ## Input Parameters
 

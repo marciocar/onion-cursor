@@ -63,7 +63,7 @@ git commit -m "release: v4.0.0-beta.1 - Multi-Context Development Orchestrator
 4 fases implementadas em 1 dia
 
 BREAKING CHANGES:
-- Estrutura .cursor/ deprecated (funciona via symlinks)
+- Estrutura .claude/ deprecated (funciona via symlinks)
 - Novo formato YAML headers (context, level)
 
 Closes #EPIC-001"
@@ -206,13 +206,13 @@ Teste, reporte bugs, sugira melhorias:
 - [ ] Estrutura `.onion/` criada
 - [ ] `.onion-config.yml` gerado
 - [ ] Comandos starter criados
-- [ ] Cursor reconhece comandos
+- [ ] Claude Code reconhece comandos
 
 ### Migração v3
 
 - [ ] `onion migrate` detecta v3
 - [ ] Preview de migração exibido
-- [ ] Backup criado em `.cursor-backup/`
+- [ ] Backup criado em `.claude-backup/`
 - [ ] 91 arquivos migrados
 - [ ] Symlinks funcionam
 - [ ] Relatório gerado

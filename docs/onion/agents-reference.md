@@ -2,7 +2,7 @@
 
 > **Versão**: 3.0.0 | **Última atualização**: 2025-11-24 | **Total**: 38 agentes
 
-Este guia documenta todos os agentes especializados disponíveis no sistema `.cursor/`, suas capacidades e quando utilizá-los.
+Este guia documenta todos os agentes especializados disponíveis no sistema `.claude/`, suas capacidades e quando utilizá-los.
 
 ## 📊 Resumo v3.0
 
@@ -567,17 +567,17 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 - 📊 **15+ ferramentas ClickUp MCP**: Cobertura completa da API ClickUp
 - 🎯 **7 especialidades técnicas**: workflow-automation, performance-optimization, webhooks
 
-### **cursor-specialist**
+### **claude-code-specialist**
 **Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Light Blue
 
-**Especialidades**: Otimização Cursor IDE, configuração workspace, troubleshooting, produtividade
+**Especialidades**: Otimização Claude Code, configuração workspace, troubleshooting, produtividade
 
 **Quando usar**:
--  Resolver problemas de performance do Cursor IDE
+-  Resolver problemas de performance do Claude Code
 -  Configurar ambiente para novos projetos
 -  Otimizar settings para workflows específicos
 -  Troubleshoot extension conflicts ou API connectivity
--  Criar `.cursorrules` e `.cursorignore` templates
+-  Criar `CLAUDE.md` e `.claudeignore` templates
 -  Setup automation para comandos `/engineer/*`
 
 **Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `list_dir`, `glob_file_search`, `web_search`, `read_lints`, `todo_write`
@@ -585,19 +585,19 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 **Exemplo de uso**:
 ```bash
 # Configuração de projeto novo
-@cursor-specialist "Setup otimizado para projeto React TypeScript com foco em AI development"
+@claude-code-specialist "Setup otimizado para projeto React TypeScript com foco em AI development"
 
 # Troubleshooting
-@cursor-specialist "Resolver erro 'HTTP/2 blocked by proxy' e otimizar connectivity"
+@claude-code-specialist "Resolver erro 'HTTP/2 blocked by proxy' e otimizar connectivity"
 
 # Performance Issues
-@cursor-specialist "Cursor está lento, analisar memory usage e otimizar configurations"
+@claude-code-specialist "Claude Code está lento, analisar memory usage e otimizar configurations"
 ```
 
 **Características únicas**:
 - 🎯 **7 especialidades técnicas**: configuration, workspace, extensions, API, performance, productivity, troubleshooting
 - 🚀 **Integração automática**: Chamado automaticamente por outros agentes quando há problemas de IDE
-- 🔧 **Criação de artefatos**: `.cursorrules`, `.cursorignore`, workspace settings otimizados
+- 🔧 **Criação de artefatos**: `CLAUDE.md`, `.claudeignore`, workspace settings otimizados
 - ⚡ **Performance focus**: Memory optimization, startup time, context caching
 - 🔗 **Delegation automática**: Integração com comandos `/engineer/*` para setup de ambiente
 

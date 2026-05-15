@@ -2,7 +2,7 @@
 
 > **Versão**: 3.0.0 | **Última atualização**: 2025-11-25 | **Total**: 57 comandos
 
-Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organizados por categoria e função.
+Este guia documenta todos os comandos disponíveis no sistema `.claude/`, organizados por categoria e função.
 
 ## 📊 Resumo v3.0
 
@@ -30,12 +30,12 @@ Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organi
 
 ## 🎯 Como Usar os Comandos
 
-### ⚡ **CRÍTICO: Cursor Commands vs Terminal**
+### ⚡ **CRÍTICO: Claude Code Commands vs Terminal**
 
-**TODOS** os comandos deste guia são **[Cursor Commands](https://cursor.com/pt-BR/docs/agent/chat/commands)** executados no **chat da Cursor**:
+**TODOS** os comandos deste guia são **[Claude Code Commands](https://docs.claude.com/en/docs/claude-code/slash-commands)** executados no **chat da Claude Code**:
 
 ```markdown
-# ✅ CORRETO - No chat da Cursor IDE:
+# ✅ CORRETO - No chat da Claude Code:
 /git/init                       # GitFlow setup inteligente
 /git/feature/start "login"      # Iniciar feature branch
 /engineer/start                 # Ambiente de desenvolvimento
@@ -53,7 +53,7 @@ $ ./engineer/start             # Não é executável
 - Prompts modulares em `common/prompts/`
 - Validações automatizadas nos geradores
 
-📚 **[Leia mais sobre a arquitetura](cursor-commands-architecture.md)**
+📚 **[Leia mais sobre a arquitetura](claude-code-commands-architecture.md)**
 
 ### 📋 Sintaxe Geral
 ```bash
@@ -79,7 +79,7 @@ $ ./engineer/start             # Não é executável
 
 **Fluxo detalhado**:
 1. Verifica se está em feature branch (ou cria uma)
-2. Cria pasta `.cursor/sessions/<feature_slug>`
+2. Cria pasta `.claude/sessions/<feature_slug>`
 3. Solicita input de tasks ClickUp
 4. Analisa contexto, objetivos e abordagem
 5. Identifica dependências e requisitos de teste

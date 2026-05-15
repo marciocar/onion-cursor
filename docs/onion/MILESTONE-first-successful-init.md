@@ -20,7 +20,7 @@ $ onion init
 ✅ Selecionado: business, technical
 
 # Step 3/4: IDEs
-✅ Detectado: Cursor
+✅ Detectado: Claude Code
 ✅ Selecionado: Universal AGENTS.md
 
 # Step 4/4: Integrations
@@ -39,7 +39,7 @@ $ onion init
 ✔ Created .onion/ide/
 ✔ Created docs/ structure
 ✔ Created .onion-config.yml
-✔ Created cursor loader
+✔ Created claude-code loader
 ✔ Created universal AGENTS.md
 ✔ Created .onion/README.md
 ✔ Created core agents
@@ -72,7 +72,7 @@ $ onion init
 │   │   └── technical/
 │   │       └── ...
 │   └── ide/
-│       ├── cursor/
+│       ├── claude/
 │       │   ├── onion-loader.js
 │       │   └── settings.json
 │       └── universal/
@@ -112,7 +112,7 @@ contexts:
   - technical
 
 ides:
-  - cursor
+  - claude-code
   - universal
 
 integrations:
@@ -134,7 +134,7 @@ integrations:
 2. **Wizard Interativo**: 4 steps executados com sucesso
 3. **Geração Automática**: Estrutura completa criada
 4. **Multi-Context**: Business e Technical configurados
-5. **IDE Integration**: Loader do Cursor gerado
+5. **IDE Integration**: Loader do Claude Code gerado
 6. **Universal Fallback**: AGENTS.md criado
 
 ### 🎯 Pronto Para Uso
@@ -169,21 +169,21 @@ ls -la .onion/contexts/business/commands/starter/
 ls -la .onion/contexts/technical/commands/starter/
 ```
 
-### 2. Testar Loader do Cursor
+### 2. Testar Loader do Claude Code
 
-O loader foi criado em `.onion/ide/cursor/onion-loader.js`. Para integrá-lo:
+O loader foi criado em `.onion/ide/claude-code/onion-loader.js`. Para integrá-lo:
 
 ```bash
 # Ver loader
-cat .onion/ide/cursor/onion-loader.js
+cat .onion/ide/claude-code/onion-loader.js
 
 # Ver settings
-cat .onion/ide/cursor/settings.json
+cat .onion/ide/claude-code/settings.json
 ```
 
-**Para integrar com Cursor**:
-- O loader precisa ser referenciado no `.cursor/settings.json`
-- Ou criar symlink: `.cursor/` → `.onion/ide/cursor/`
+**Para integrar com Claude Code**:
+- O loader precisa ser referenciado no `.claude/settings.json`
+- Ou criar symlink: `.claude/` → `.onion/ide/claude-code/`
 
 ### 3. Criar Primeiro Comando Onion
 
@@ -213,7 +213,7 @@ onion add context sales
 - ✅ Wizard interativo completo (4 steps)
 - ✅ Geração automática de estrutura
 - ✅ Multi-context orchestration configurado
-- ✅ IDE integration (Cursor loader)
+- ✅ IDE integration (Claude Code loader)
 - ✅ Universal fallback (AGENTS.md)
 - ✅ Task Manager integration (Asana)
 - ✅ Transcription service (Whisper local)
@@ -228,7 +228,7 @@ onion add context sales
 | **Diretórios criados** | ~20+ |
 | **Arquivos gerados** | ~10+ |
 | **Contextos configurados** | 2 (business, technical) |
-| **IDEs suportados** | 2 (cursor, universal) |
+| **IDEs suportados** | 2 (claude-code, universal) |
 | **Integrations** | 2 (asana, whisper) |
 | **Tempo de execução** | ~5 segundos |
 
@@ -239,14 +239,14 @@ onion add context sales
 ### O Que Funcionou Perfeitamente
 
 1. **Wizard UX**: Prompts claros, navegação intuitiva
-2. **Detecção Automática**: Cursor foi detectado corretamente
+2. **Detecção Automática**: Claude Code foi detectado corretamente
 3. **Geração**: Todos os geradores funcionaram sem erros
 4. **Logging**: Output colorido e informativo
 5. **Estrutura**: Organização lógica e completa
 
 ### Melhorias Identificadas
 
-1. **Loader Integration**: Ainda precisa integração manual com Cursor
+1. **Loader Integration**: Ainda precisa integração manual com Claude Code
 2. **Comandos Starter**: São placeholders, precisam implementação real
 3. **Comandos TODO**: `add`, `migrate`, `validate` precisam ser implementados
 
@@ -256,9 +256,9 @@ onion add context sales
 
 ### Alta Prioridade 🔴
 
-1. **Integrar Loader com Cursor**
+1. **Integrar Loader com Claude Code**
    - Criar script de integração
-   - Ou usar symlink `.cursor/` → `.onion/ide/cursor/`
+   - Ou usar symlink `.claude/` → `.onion/ide/claude-code/`
 
 2. **Implementar Comandos Starter Reais**
    - `/business/spec` funcional
@@ -273,7 +273,7 @@ onion add context sales
 ### Média Prioridade 🟡
 
 4. **Implementar `onion migrate`**
-   - Migrar `.cursor/` existente → `.onion/`
+   - Migrar `.claude/` existente → `.onion/`
    - Preservar estrutura atual
    - Criar backup
 
@@ -282,7 +282,7 @@ onion add context sales
    - Adicionar novos IDEs
 
 6. **Melhorar Loaders**
-   - Cursor loader completo (carregar comandos reais)
+   - Claude Code loader completo (carregar comandos reais)
    - Windsurf loader TypeScript
    - Claude loader Python
 

@@ -35,7 +35,7 @@ export async function init(options = {}) {
     const v3Structure = await detectOnionV3Structure(projectRoot);
     
     if (v3Structure) {
-      logger.warn('⚠️  Detected Onion v3 (.cursor/) structure');
+      logger.warn('⚠️  Detected Onion v3 (.claude/) structure');
       logger.break();
       
       const { shouldMigrate } = await inquirer.prompt([

@@ -120,7 +120,7 @@ Estabelecer contexto focado em:
 6. **Sync**: `/git/sync` → Sincronizar após merge
 
 ### Estrutura de Sessões
-- ✅ Entender `.cursor/sessions/<feature>/` para contexto de trabalho
+- ✅ Entender `.claude/sessions/<feature>/` para contexto de trabalho
 - ✅ Conhecer formato de arquivos de sessão
 
 ## 💡 Quando Usar Este Warm-up

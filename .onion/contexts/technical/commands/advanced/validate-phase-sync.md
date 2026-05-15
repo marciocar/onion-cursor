@@ -56,7 +56,7 @@ Validar e corrigir sincronização automática entre fases do plan.md e status d
 - **Validação de Integridade**: Verifica se mapeamento está correto e completo
 
 ### Mapeamento Phase-Subtask
-Lê o mapeamento do arquivo `.cursor/sessions/[slug]/context.md`:
+Lê o mapeamento do arquivo `.claude/sessions/[slug]/context.md`:
 ```markdown
 ## 📋 Phase-Subtask Mapping
 - **Phase 1**: "Template Consolidation" → Subtask ID: [id-1]
@@ -71,7 +71,7 @@ Lê o mapeamento do arquivo `.cursor/sessions/[slug]/context.md`:
 
 ## ⚙️ Processo de Validação
 
-1. **Detecta Sessão Ativa**: Identifica sessão em `.cursor/sessions/`
+1. **Detecta Sessão Ativa**: Identifica sessão em `.claude/sessions/`
 2. **Lê Context.md**: Carrega mapeamento Phase-Subtask e task ID principal
 3. **Analisa Plan.md**: Extrai status atual de todas as fases
 4. **Consulta ClickUp**: Obtém status atual das subtasks via ClickUp MCP

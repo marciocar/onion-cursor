@@ -22,7 +22,7 @@ agents:
   - nx-monorepo-specialist
   - nx-migration-specialist
   - gitflow-specialist
-  - cursor-specialist
+  - claude-code-specialist
   - c4-architecture-specialist
   - c4-documentation-specialist
   - mermaid-specialist

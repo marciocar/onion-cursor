@@ -52,7 +52,7 @@ Esta knowledge base oferece uma **reflexão crítica, honesta e sem viés** sobr
 | **Nível SDD** | Híbrido confuso (Spec-First + Spec-Anchored + ferramentas não-SDD) |
 | **Foco Principal** | Automação de workflows de desenvolvimento |
 | **Integração** | ClickUp, Asana, Linear (Task Manager Abstraction) |
-| **Diferencial Declarado** | Comandos Cursor + Agentes IA + SDAAL |
+| **Diferencial Declarado** | Comandos Claude Code + Agentes IA + SDAAL |
 | **Complexidade** | **Muito alta** (possivelmente excessiva) |
 | **Curva de Aprendizado** | **Muito íngreme** |
 
@@ -98,7 +98,7 @@ Esta knowledge base oferece uma **reflexão crítica, honesta e sem viés** sobr
 🔥 **DECISÃO CRÍTICA NECESSÁRIA**: O Onion precisa escolher UMA proposta de valor central e orbitar tudo ao redor dela.
 
 **Opções**:
-1. **Opção A**: "Framework SDD + Cursor IDE" (focar em specs e desenvolvimento guiado)
+1. **Opção A**: "Framework SDD + Claude Code" (focar em specs e desenvolvimento guiado)
 2. **Opção B**: "Task Manager Abstraction + Development Automation" (focar em integração de gerenciadores)
 3. **Opção C**: "AI-Powered Development Orchestrator" (focar em orquestração de agentes)
 
@@ -146,7 +146,7 @@ openspec create feature-auth
 **Sistema Onion Quick Start**:
 ```bash
 # 1. Install Node.js 22.14.0+
-# 2. Setup .cursor/
+# 2. Setup .claude/
 # 3. Configure Task Manager (.env)
 # 4. Learn 90 commands
 # 5. Learn 46 agents
@@ -346,7 +346,7 @@ openspec create feature-auth
 🔥 **ADOTAR DELTA FORMAT**:
 
 ```markdown
-# .cursor/sessions/auth-feature/changes/
+# .claude/sessions/auth-feature/changes/
 ├── proposal.md       # Por que e o que muda
 ├── tasks.md          # Checklist
 └── specs/
@@ -365,11 +365,11 @@ openspec create feature-auth
 - Spec-Kit: `npm install -g spec-kit` → CLI global
 
 **O que o Onion tem**:
-- ❌ Comandos **apenas dentro do Cursor IDE**
+- ❌ Comandos **apenas dentro do Claude Code**
 - ❌ Não funciona no terminal
-- ❌ Dependência total do Cursor
+- ❌ Dependência total do Claude Code
 
-**Impacto**: Onion **não é portável** - Se Cursor mudar pricing ou descontinuar, Onion morre.
+**Impacto**: Onion **não é portável** - Se Claude Code mudar pricing ou descontinuar, Onion morre.
 
 #### Recomendação:
 
@@ -384,8 +384,8 @@ onion spec create feature-auth
 onion task create "Implement login"
 onion estimate "Add OAuth2"
 
-# Works in Cursor (enhanced experience)
-/product/spec "feature-auth"  # Usa CLI + Cursor context
+# Works in Claude Code (enhanced experience)
+/product/spec "feature-auth"  # Usa CLI + Claude Code context
 ```
 
 **Benefício**: Portabilidade, independência, maior adoção.
@@ -474,7 +474,7 @@ onion estimate "Add OAuth2"
 | **Meeting Transcription** | ❌ Não | ❌ Não | ❌ Não | ❌ Não | ✅ Sim (feature creep) |
 | **Story Points** | ❌ Não | ❌ Não | ❌ Não | ❌ Não | ✅ Sim (mal posicionado) |
 | **AI Agents** | ❌ Não | ❌ Não | ❌ Não | ❌ Não | ✅ 46 (excesso) |
-| **Portabilidade** | ✅ Alta | ✅ Alta | ✅ Alta | ✅ Alta | ❌ Baixa (Cursor-only) |
+| **Portabilidade** | ✅ Alta | ✅ Alta | ✅ Alta | ✅ Alta | ❌ Baixa (Claude Code-only) |
 | **Adoção** | 13.2k stars | GitHub official | Growing | 30k+ stars | **Desconhecida** |
 
 ### Análise por Coluna:
@@ -547,7 +547,7 @@ onion estimate "Add OAuth2"
 
 **Opções**:
 
-#### Opção A: "Onion - Spec-Driven Development for Cursor"
+#### Opção A: "Onion - Spec-Driven Development for Claude Code"
 - ✅ Foco 100% em SDD
 - ✅ Remover: TMA, Whisper, EXTRACT, Git automation, Testing tools
 - ✅ Adicionar: Delta format (como OpenSpec)
@@ -571,7 +571,7 @@ onion estimate "Add OAuth2"
 
 ### 🎯 **Recomendação 3: CRIAR CLI STANDALONE**
 
-**Objetivo**: Independência do Cursor IDE.
+**Objetivo**: Independência do Claude Code.
 
 **Ação**:
 
@@ -579,14 +579,14 @@ onion estimate "Add OAuth2"
 # Package structure
 @onion/
 ├── cli/              # Standalone CLI (works anywhere)
-├── cursor-plugin/    # Cursor IDE integration (enhanced)
+├── claude-code-plugin/    # Claude Code integration (enhanced)
 └── core/             # Shared core logic
 ```
 
 **Benefícios**:
 - ✅ Portabilidade
 - ✅ Maior adoção
-- ✅ Resiliência (não depende de Cursor)
+- ✅ Resiliência (não depende de Claude Code)
 - ✅ Testabilidade (fácil testar CLI)
 
 ---
@@ -618,7 +618,7 @@ onion estimate "Add OAuth2"
 **Ação**: Implementar Delta Format nativo:
 
 ```markdown
-# .cursor/sessions/auth-feature/spec-delta.md
+# .claude/sessions/auth-feature/spec-delta.md
 
 ## Changes to Authentication System
 
@@ -647,7 +647,7 @@ onion estimate "Add OAuth2"
 
 1. **Integração Task Manager** - Nenhuma outra ferramenta SDD faz isso (mas precisa simplificar)
 2. **Story Points Framework** - Bem pensado e útil (mas deve ser pluggável)
-3. **Cursor IDE Integration** - Experiência rica no chat (mas deve ter fallback CLI)
+3. **Claude Code Integration** - Experiência rica no chat (mas deve ter fallback CLI)
 4. **Documentação Extensa** - Muito conteúdo (mas precisa simplificar)
 5. **Ambição** - Tenta resolver problemas reais de desenvolvimento
 
@@ -733,14 +733,14 @@ Ferramentas que tentam fazer tudo **não fazem nada bem**.
 
 ---
 
-### 🔴 **Warning 3: Dependência de Cursor é Risco**
+### 🔴 **Warning 3: Dependência de Claude Code é Risco**
 
-Sistema que só funciona no Cursor IDE **não é portável**.
+Sistema que só funciona no Claude Code **não é portável**.
 
 **Evidência**:
-- Se Cursor aumentar preço → Usuários migram
-- Se Cursor descontinuar → Sistema Onion morre
-- Cursor tem 100% do poder de negociação
+- Se Claude Code aumentar preço → Usuários migram
+- Se Claude Code descontinuar → Sistema Onion morre
+- Claude Code tem 100% do poder de negociação
 
 **Ação**: Criar CLI standalone urgentemente.
 
@@ -758,7 +758,7 @@ Sistema que só funciona no Cursor IDE **não é portável**.
 
 1. **Complexidade** - 90 comandos + 46 agentes = Sobrecarga cognitiva
 2. **Foco** - Tenta ser tudo para todos
-3. **Portabilidade** - Cursor-only é risco
+3. **Portabilidade** - Claude Code-only é risco
 4. **Feature Creep** - Whisper, EXTRACT, etc não são core
 5. **Onboarding** - 4-8 horas é inaceitável
 
@@ -766,7 +766,7 @@ Sistema que só funciona no Cursor IDE **não é portável**.
 
 1. **DECIDIR IDENTIDADE** - SDD? AI Orchestrator? Task Bridge?
 2. **REDUZIR 70%** - Criar Onion Lite com 10 comandos
-3. **CLI STANDALONE** - Independência do Cursor
+3. **CLI STANDALONE** - Independência do Claude Code
 4. **REMOVER FEATURE CREEP** - Whisper, EXTRACT, etc
 5. **DELTA FORMAT** - Competir com OpenSpec
 
@@ -795,13 +795,13 @@ O Sistema Onion tem **potencial enorme**, mas está **sufocado pela própria com
 
 1. **Complexidade Extrema** - 90 comandos + 46 agentes = Onboarding de 4-8 horas (vs 15 min do Kiro)
 2. **Crise de Identidade** - Tenta ser SDD + Task Manager + Git + Docs + Meeting tool + Tudo
-3. **Dependência de Cursor** - Não funciona fora do Cursor IDE (risco de vendor lock-in)
+3. **Dependência de Claude Code** - Não funciona fora do Claude Code (risco de vendor lock-in)
 
 ### Top 3 Ações Urgentes
 
 1. **Criar "Onion Lite"** - 10 comandos essenciais, onboarding de 15-30 minutos
 2. **Decidir Identidade** - Escolher UMA proposta de valor (SDD, AI Orchestrator, ou Task Bridge)
-3. **CLI Standalone** - Independência do Cursor IDE
+3. **CLI Standalone** - Independência do Claude Code
 
 ### Tendência Principal
 

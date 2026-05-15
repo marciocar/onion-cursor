@@ -6,7 +6,7 @@
 
 ## 📋 Contexto
 
-Com 71% do epic Onion v4 completo (39.5 SP de 55.5 SP), a próxima fase crítica é **IDE Loaders**, permitindo que o sistema funcione nativamente em múltiplos IDEs além do Cursor.
+Com 71% do epic Onion v4 completo (39.5 SP de 55.5 SP), a próxima fase crítica é **IDE Loaders**, permitindo que o sistema funcione nativamente em múltiplos IDEs além do Claude Code.
 
 ### Estado Atual (Pós-FASE 4)
 
@@ -18,7 +18,7 @@ Com 71% do epic Onion v4 completo (39.5 SP de 55.5 SP), a próxima fase crítica
 - Sistema de níveis com descoberta progressiva
 
 ⚠️ **Limitação Atual**:
-- **Apenas Cursor IDE suportado**
+- **Apenas Claude Code suportado**
 - Loaders de outros IDEs ainda não implementados
 - `.onion/ide/` directory estruturado mas vazio
 
@@ -32,9 +32,9 @@ Implementar **loaders específicos** para 3 IDEs principais, permitindo que cada
 
 ```
 .onion/ide/
-├── cursor/
+├── claude/
 │   ├── onion-loader.js       # ✅ A implementar
-│   ├── .cursorrules          # ✅ A gerar
+│   ├── CLAUDE.md          # ✅ A gerar
 │   └── README.md             # ✅ Documentação
 │
 ├── windsurf/
@@ -56,18 +56,18 @@ Implementar **loaders específicos** para 3 IDEs principais, permitindo que cada
 
 ## 📊 Decomposição em Subfases
 
-### SUBFASE 1: Cursor Loader (2.5 SP)
+### SUBFASE 1: Claude Code Loader (2.5 SP)
 **Duração**: 2 dias  
 **Prioridade**: Alta (IDE atual)
 
 **Entregáveis**:
 - [ ] `onion-loader.js` - Script que descobre recursos
-- [ ] Geração automática de `.cursorrules` atualizado
-- [ ] Symlinks dinâmicos de `.onion/` → `.cursor/`
+- [ ] Geração automática de `CLAUDE.md` atualizado
+- [ ] Symlinks dinâmicos de `.onion/` → `.claude/`
 - [ ] Detecção de comandos e agentes em tempo real
-- [ ] Testes de integração no Cursor
+- [ ] Testes de integração no Claude Code
 
-**Resultado Esperado**: Cursor descobre comandos/agentes automaticamente da estrutura `.onion/`
+**Resultado Esperado**: Claude Code descobre comandos/agentes automaticamente da estrutura `.onion/`
 
 ---
 
@@ -161,19 +161,19 @@ interface OnionResources {
 }
 ```
 
-### Cursor Loader (JavaScript)
+### Claude Code Loader (JavaScript)
 
 ```javascript
-// .onion/ide/cursor/onion-loader.js
+// .onion/ide/claude-code/onion-loader.js
 const fs = require('fs');
 const path = require('path');
 const yaml = require('yaml');
 
-class CursorOnionLoader {
+class ClaudeCodeOnionLoader {
   constructor(projectRoot) {
     this.projectRoot = projectRoot;
     this.onionRoot = path.join(projectRoot, '.onion');
-    this.cursorRoot = path.join(projectRoot, '.cursor');
+    this.claudeRoot = path.join(projectRoot, '.claude');
   }
   
   async discover() {
@@ -185,21 +185,21 @@ class CursorOnionLoader {
     return { config, contexts, commands, agents };
   }
   
-  async syncToCursor() {
-    // Criar/atualizar symlinks de .onion/ → .cursor/
-    // Atualizar .cursorrules com contextos disponíveis
+  async syncToClaudeCode() {
+    // Criar/atualizar symlinks de .onion/ → .claude/
+    // Atualizar CLAUDE.md com contextos disponíveis
     // Gerar index de comandos
   }
   
   watch() {
     // Watch .onion/ for changes
     fs.watch(this.onionRoot, { recursive: true }, () => {
-      this.syncToCursor();
+      this.syncToClaudeCode();
     });
   }
 }
 
-module.exports = CursorOnionLoader;
+module.exports = ClaudeCodeOnionLoader;
 ```
 
 ### Windsurf Bridge (TypeScript)
@@ -268,7 +268,7 @@ class ClaudeOnionAdapter:
 
 ```javascript
 // Ao inicializar, gerar loaders para IDEs selecionados
-const selectedIDEs = answers.ides; // ['cursor', 'windsurf']
+const selectedIDEs = answers.ides; // ['claude-code', 'windsurf']
 
 for (const ide of selectedIDEs) {
   await generateIDELoader(projectRoot, ide, {
@@ -292,22 +292,22 @@ if (type === 'ide') {
 
 ## 🧪 Testes Necessários
 
-### Teste de Integração: Cursor
+### Teste de Integração: Claude Code
 
 ```javascript
-describe('Cursor Loader Integration', () => {
+describe('Claude Code Loader Integration', () => {
   it('should discover all commands', async () => {
-    const loader = new CursorOnionLoader(projectRoot);
+    const loader = new ClaudeCodeOnionLoader(projectRoot);
     const resources = await loader.discover();
     
     expect(resources.commands.length).toBeGreaterThan(0);
   });
   
-  it('should sync to .cursor/', async () => {
-    await loader.syncToCursor();
+  it('should sync to .claude/', async () => {
+    await loader.syncToClaudeCode();
     
     // Verificar symlinks criados
-    expect(fs.existsSync('.cursor/commands/business')).toBe(true);
+    expect(fs.existsSync('.claude/commands/business')).toBe(true);
   });
 });
 ```
@@ -331,16 +331,16 @@ Estrutura:
 # IDE Integration Guide
 
 ## Supported IDEs
-- Cursor
+- Claude Code
 - Windsurf
 - Claude Code
 
 ## Installation
 
-### Cursor
+### Claude Code
 ```bash
 onion init
-# Escolher "Cursor"
+# Escolher "Claude Code"
 ```
 
 ### Windsurf
@@ -355,7 +355,7 @@ onion init
 
 ### 2. READMEs por IDE
 
-- `.onion/ide/cursor/README.md`
+- `.onion/ide/claude-code/README.md`
 - `.onion/ide/windsurf/README.md`
 - `.onion/ide/claude/README.md`
 
@@ -363,11 +363,11 @@ onion init
 
 ## 🎯 Critérios de Aceitação
 
-### SUBFASE 1: Cursor Loader
+### SUBFASE 1: Claude Code Loader
 - [ ] Loader descobre comandos automaticamente
 - [ ] Loader descobre agentes automaticamente
 - [ ] Symlinks criados corretamente
-- [ ] `.cursorrules` atualizado
+- [ ] `CLAUDE.md` atualizado
 - [ ] Testes de integração passando
 - [ ] Documentação completa
 
@@ -408,7 +408,7 @@ onion init
 **Impacto**: Médio  
 **Mitigação**:
 - Gerar configs estáticos
-- Usar symlinks para Cursor
+- Usar symlinks para Claude Code
 - Criar scripts de setup manual
 
 ### Risco 3: Manutenção de 3+ IDEs
@@ -423,7 +423,7 @@ onion init
 
 ## 🎓 Dependências Técnicas
 
-### Para Cursor Loader
+### Para Claude Code Loader
 - Node.js >= 16
 - `fs`, `path`, `yaml` (built-in)
 - Acesso ao filesystem
@@ -443,7 +443,7 @@ onion init
 ## 📅 Timeline Sugerido
 
 ```
-Dia 1-2: SUBFASE 1 - Cursor Loader
+Dia 1-2: SUBFASE 1 - Claude Code Loader
   - Implementar loader
   - Criar testes
   - Integrar com CLI
@@ -471,9 +471,9 @@ Dia 7: SUBFASE 4 - Docs e Testes
 ## 🚀 Próximos Passos
 
 1. ✅ **Validar este plano** com stakeholders
-2. 📋 **Criar sessão de desenvolvimento**: `.cursor/sessions/fase-05-ide-loaders/`
+2. 📋 **Criar sessão de desenvolvimento**: `.claude/sessions/fase-05-ide-loaders/`
 3. 📋 **Pesquisar APIs**: Windsurf e Claude Code
-4. 📋 **Iniciar SUBFASE 1**: Cursor Loader
+4. 📋 **Iniciar SUBFASE 1**: Claude Code Loader
 5. 📋 **Testes contínuos** durante implementação
 
 ---

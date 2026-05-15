@@ -40,7 +40,7 @@ This project adheres to a Code of Conduct. By participating, you are expected to
 - Node.js >= 16.0.0
 - pnpm (recommended) or npm
 - Git
-- Cursor IDE (recommended for testing)
+- Claude Code (recommended for testing)
 
 ### Quick Start
 
@@ -362,7 +362,7 @@ describe('Module Name', () => {
 - `docs/` - User-facing documentation
 - `README.md` - Project overview
 - `CHANGELOG.md` - Version history
-- `.cursor/sessions/` - Development sessions
+- `.claude/sessions/` - Development sessions
 - Inline JSDoc - Code documentation
 
 ### Documentation Style

@@ -287,7 +287,7 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa:
 - **Reatribuição** se detectar que precisa de skills diferentes
 
 ### **📋 Identificação da Task:**
-1. **Sessão ativa**: Usa task-id do arquivo `.cursor/sessions/*/context.md`
+1. **Sessão ativa**: Usa task-id do arquivo `.claude/sessions/*/context.md`
 2. **Argumento fornecido**: Usa task-id passado pelo usuário  
 3. **Não identificada**: Pergunta ao usuário qual task verificar
 
@@ -322,10 +322,10 @@ Este comando se integra perfeitamente com:
 - **`/product/task <description>`**: Para criar tasks com workflow completo
 - **`/engineer/start <slug>`**: Para iniciar desenvolvimento
 - **`/product/validate-task <task-id>`**: Para análise estratégica
-- **Sessions em `.cursor/sessions/`**: Utiliza contexto das sessões ativas
+- **Sessions em `.claude/sessions/`**: Utiliza contexto das sessões ativas
 
 ### **📁 Uso da Sessão Ativa**
-Se existir uma sessão ativa em `.cursor/sessions/` relacionada à task:
+Se existir uma sessão ativa em `.claude/sessions/` relacionada à task:
 - Analise o arquivo `context.md` para entender o escopo original
 - Examine `architecture.md` para validar implementação vs design
 - Consulte `plan.md` para verificar progresso das fases

@@ -69,7 +69,7 @@ Antes de criar tasks, verificar configuração:
    - Avisar: "⚠️ Nenhum gerenciador configurado. Execute /meta/setup-integration"
    - Continuar com estrutura local (sem sincronização)
 4. Se configurado:
-   - Usar adapter correspondente de `.cursor/utils/task-manager/adapters/`
+   - Usar adapter correspondente de `.claude/utils/task-manager/adapters/`
    - **SE `TASK_MANAGER_PROVIDER=asana`: usar ferramentas `mcp_asana_*`**
    - **SE `TASK_MANAGER_PROVIDER=clickup`: usar ferramentas `mcp_ClickUp_*`**
 
@@ -302,8 +302,8 @@ SE task_principal > 13 pontos:
 **CRÍTICO:** 
 - ✅ Usar ferramentas MCP diretamente (`mcp_ClickUp_*`, `mcp_asana_*`)
 - ✅ Seguir padrão de abstração do Task Manager para normalizar entrada/saída
-- ✅ Consultar `.cursor/utils/task-manager/interface.md` para formato de dados
-- ✅ Consultar `.cursor/utils/task-manager/adapters/{provedor}.md` para mapeamentos específicos
+- ✅ Consultar `.claude/utils/task-manager/interface.md` para formato de dados
+- ✅ Consultar `.claude/utils/task-manager/adapters/{provedor}.md` para mapeamentos específicos
 
 **IMPORTANTE:** Mesmo usando MCP diretamente, os dados devem seguir o padrão da abstração:
 - Entrada normalizada (priority: urgent/high/normal/low)
@@ -361,7 +361,7 @@ Preparar estrutura normalizada seguindo interface ITaskManager:
 ```markdown
 ⚠️ Modo offline - criar apenas estrutura local
 - Gerar ID local: local-{timestamp}
-- Criar documento em .cursor/sessions/tasks/{id}.md
+- Criar documento em .claude/sessions/tasks/{id}.md
 - Avisar que não será sincronizado
 ```
 
@@ -391,7 +391,7 @@ Chamar mcp_asana_asana_create_task com:
 
 **SE provedor = 'none':**
 ```markdown
-Criar documento local: .cursor/sessions/tasks/{parent-id}/subtasks/{subtask-id}.md
+Criar documento local: .claude/sessions/tasks/{parent-id}/subtasks/{subtask-id}.md
 ```
 
 #### 6.4. Adicionar Comentário Inicial (Executar MCP)
@@ -530,12 +530,12 @@ ${recommendations}
 ## 🔗 Referências
 
 ### Task Manager Abstraction
-- **Interface:** `.cursor/utils/task-manager/interface.md` - Formato de entrada/saída normalizado
-- **Detector:** `.cursor/utils/task-manager/detector.md` - Como detectar provedor do .env
+- **Interface:** `.claude/utils/task-manager/interface.md` - Formato de entrada/saída normalizado
+- **Detector:** `.claude/utils/task-manager/detector.md` - Como detectar provedor do .env
 - **Adapters (Guias de Mapeamento):**
-  - `.cursor/utils/task-manager/adapters/clickup.md` - Mapeamento ClickUp MCP
-  - `.cursor/utils/task-manager/adapters/asana.md` - Mapeamento Asana MCP
-  - `.cursor/utils/task-manager/types.md` - Tipos compartilhados
+  - `.claude/utils/task-manager/adapters/clickup.md` - Mapeamento ClickUp MCP
+  - `.claude/utils/task-manager/adapters/asana.md` - Mapeamento Asana MCP
+  - `.claude/utils/task-manager/types.md` - Tipos compartilhados
 
 ### Decomposição e Estimativas
 - **Decomposição:** @task-specialist
@@ -543,8 +543,8 @@ ${recommendations}
 - **Framework:** `docs/knowbase/frameworks/framework_story_points.md`
 
 ### Padrões de Formatação
-- **ClickUp:** `.cursor/commands/common/prompts/clickup-patterns.md`
-- **Formatação:** `.cursor/docs/clickup/clickup-formatting.md`
+- **ClickUp:** `.claude/commands/common/prompts/clickup-patterns.md`
+- **Formatação:** `.claude/docs/clickup/clickup-formatting.md`
 
 ## ⚠️ Notas
 

@@ -24,13 +24,14 @@ agents:
   - pain-price-specialist
   - storytelling-specialist
   - clickup-specialist
+  - jira-specialist
   - whisper-specialist
   - task-specialist
   - gamma-specialist
 
 integrations:
   task_manager:
-    provider: clickup  # ou asana, linear, none
+    provider: clickup  # ou asana, jira, linear, none
     config_key: CLICKUP_API_TOKEN
   transcription:
     provider: whisper-local

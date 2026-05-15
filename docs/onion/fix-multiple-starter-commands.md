@@ -2,23 +2,23 @@
 
 ## ❌ Problema Identificado
 
-O wizard estava criando **apenas o comando `help.md`** para cada contexto, fazendo com que o Cursor reconhecesse poucos comandos.
+O wizard estava criando **apenas o comando `help.md`** para cada contexto, fazendo com que o Claude Code reconhecesse poucos comandos.
 
 ## ✅ Solução Implementada
 
 ### Comandos Criados Por Contexto
 
-#### **Business Context** (`/.cursor/commands/business/`)
+#### **Business Context** (`/.claude/commands/business/`)
 1. **`help.md`** - Ajuda do contexto
 2. **`spec.md`** - Criar especificação de feature
 3. **`task.md`** - Criar task no task manager
 
-#### **Technical Context** (`/.cursor/commands/technical/`)
+#### **Technical Context** (`/.claude/commands/technical/`)
 1. **`help.md`** - Ajuda do contexto
 2. **`plan.md`** - Planejar implementação técnica
 3. **`work.md`** - Iniciar desenvolvimento
 
-#### **Customer Success Context** (`/.cursor/commands/customer-success/`)
+#### **Customer Success Context** (`/.claude/commands/customer-success/`)
 1. **`help.md`** - Ajuda do contexto
 2. **`guide.md`** - Criar guia para cliente
 
@@ -52,7 +52,7 @@ async createStarterCommands(context, commandsPath) {
 
 ## 📊 Resultado Esperado
 
-Após executar `onion init`, o Cursor vai reconhecer:
+Após executar `onion init`, o Claude Code vai reconhecer:
 
 ### Business Context
 - ✅ `/business/help`
@@ -68,15 +68,15 @@ Após executar `onion init`, o Cursor vai reconhecer:
 
 ```bash
 cd ~/openspec
-rm -rf .cursor .onion .onion-config.yml docs/
+rm -rf .claude .onion .onion-config.yml docs/
 onion init
-# Seguir wizard: Monorepo → business,technical → Cursor → None,None
+# Seguir wizard: Monorepo → business,technical → Claude Code → None,None
 
 # Verificar comandos criados
-ls -la .cursor/commands/business/
-ls -la .cursor/commands/technical/
+ls -la .claude/commands/business/
+ls -la .claude/commands/technical/
 
-# Testar no Cursor
+# Testar no Claude Code
 /business/help
 /business/spec "minha-feature"
 /technical/plan "minha-feature"
@@ -85,5 +85,5 @@ ls -la .cursor/commands/technical/
 ---
 
 **Status**: ✅ CORRIGIDO  
-**Próximo**: Testar no Cursor IDE 🎉
+**Próximo**: Testar no Claude Code 🎉
 

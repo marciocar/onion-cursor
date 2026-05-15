@@ -20,7 +20,7 @@ Esta pasta contém todas as subtasks do épico de migração Onion v3 → v4, or
 **Entregáveis**:
 - ✅ CLI `onion init` funcional com wizard
 - ✅ Estrutura `.onion/` gerada automaticamente
-- ✅ Compatibilidade com Cursor IDE
+- ✅ Compatibilidade com Claude Code
 - ✅ Documentação completa
 
 ---
@@ -30,7 +30,7 @@ Esta pasta contém todas as subtasks do épico de migração Onion v3 → v4, or
 **Story Points**: 21 SP  
 **Status**: 📋 Planejada (início imediato)
 
-**Objetivo**: Migrar 90 comandos e 46 agentes de `.cursor/` para `.onion/contexts/`
+**Objetivo**: Migrar 90 comandos e 46 agentes de `.claude/` para `.onion/contexts/`
 
 **Entregáveis**:
 - [ ] Migrar business context (15-20 comandos)
@@ -55,7 +55,7 @@ Esta pasta contém todas as subtasks do épico de migração Onion v3 → v4, or
 **Story Points**: 8 SP  
 **Status**: 📋 Planejada
 
-**Objetivo**: Implementar loaders para Cursor, Windsurf, Claude
+**Objetivo**: Implementar loaders para Claude Code, Windsurf, Claude
 
 ---
 

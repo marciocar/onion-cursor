@@ -62,7 +62,7 @@ Ao completar uma fase, o sistema automaticamente:
 
 ### **📋 Identificação da Task:**
 1. **Context.md**: Lê task-id do arquivo de contexto da sessão
-2. **Sessão ativa**: Detecta automaticamente a sessão em `.cursor/sessions/`
+2. **Sessão ativa**: Detecta automaticamente a sessão em `.claude/sessions/`
 3. **🆕 PHASE-SUBTASK MAPPING**: Lê mapeamento de context.md para correlacionar fases→subtasks
 
 ### **🗺️ SUBTASK MAPPING STRUCTURE (context.md):**
@@ -135,9 +135,9 @@ Toda vez que completar uma fase do plano:
 
 ## 🔗 Referências
 
-- Abstração: `.cursor/utils/task-manager/`
-- Detector: `.cursor/utils/task-manager/detector.md`
-- Factory: `.cursor/utils/task-manager/factory.md`
+- Abstração: `.claude/utils/task-manager/`
+- Detector: `.claude/utils/task-manager/detector.md`
+- Factory: `.claude/utils/task-manager/factory.md`
 - Padrões de comentários: `common/prompts/clickup-patterns.md`
 
 Agora, veja a fase atual de desenvolvimento e forneça um plano ao usuário sobre como abordá-la.

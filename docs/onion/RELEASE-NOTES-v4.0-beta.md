@@ -14,9 +14,9 @@ O **Onion v4.0** representa uma transformação completa do sistema, evoluindo d
 |---------|------|-----------|----------|
 | **Onboarding Time** | 4-8 horas | 15-30 min/contexto | **90% redução** ⬇️ |
 | **Comandos Primários** | 90 (confuso) | 5 starter + descoberta | **80% simplificação** ⬇️ |
-| **IDE Support** | Cursor only | Cursor + preparado para 3+ | **Multi-IDE** ✅ |
+| **IDE Support** | Claude Code only | Claude Code + preparado para 3+ | **Multi-IDE** ✅ |
 | **Separação Contextos** | ❌ Misturado | ✅ Business + Technical | **Organizado** ✅ |
-| **Portabilidade** | `.cursor/` apenas | `.onion/` universal | **Agnóstico** ✅ |
+| **Portabilidade** | `.claude/` apenas | `.onion/` universal | **Agnóstico** ✅ |
 | **CLI** | ❌ Nenhum | ✅ 3 comandos robustos | **Automação** ✅ |
 
 ---
@@ -31,7 +31,7 @@ O **Onion v4.0** representa uma transformação completa do sistema, evoluindo d
 - ✅ Geração automática de estrutura `.onion/`
 - ✅ Criação de `.onion-config.yml`
 - ✅ Comandos starter por contexto
-- ✅ Compatibilidade `.cursor/` para Cursor IDE
+- ✅ Compatibilidade `.claude/` para Claude Code
 
 **Impacto**: Setup de projeto v4 em **< 2 minutos** 🚀
 
@@ -109,7 +109,7 @@ O **Onion v4.0** representa uma transformação completa do sistema, evoluindo d
 │       └── sessions/
 │
 └── ide/                # Loaders por IDE (futuro)
-    └── cursor/         # Cursor IDE (atual)
+    └── claude/         # Claude Code (atual)
 ```
 
 ---
@@ -274,7 +274,7 @@ packages/onion-cli/src/
 ## 🚧 Próximas Fases (29% restante)
 
 ### FASE 5: IDE Loaders (8 SP)
-- Cursor Loader
+- Claude Code Loader
 - Windsurf Loader
 - Claude Code Loader
 
@@ -351,9 +351,9 @@ onion add
 - ✅ `docs/plans/onion-v4-migration-plan.md` - Plano detalhado
 - ✅ `docs/onion/levels-system.md` - Sistema de níveis (400+ linhas)
 - ✅ `docs/onion/cli-implementation-complete.md` - CLI técnico
-- ✅ `.cursor/sessions/fase-02-migration-commands/SUMMARY.md` - FASE 2
-- ✅ `.cursor/sessions/fase-03-level-system/SUMMARY.md` - FASE 3
-- ✅ `.cursor/sessions/fase-04-cli-enhancements/SUMMARY.md` - FASE 4
+- ✅ `.claude/sessions/fase-02-migration-commands/SUMMARY.md` - FASE 2
+- ✅ `.claude/sessions/fase-03-level-system/SUMMARY.md` - FASE 3
+- ✅ `.claude/sessions/fase-04-cli-enhancements/SUMMARY.md` - FASE 4
 
 ### Em Desenvolvimento
 
@@ -368,7 +368,7 @@ onion add
 
 ### Beta Limitations
 
-1. **IDEs**: Apenas Cursor suportado no momento (FASE 5 em desenvolvimento)
+1. **IDEs**: Apenas Claude Code suportado no momento (FASE 5 em desenvolvimento)
 2. **Contextos**: Apenas Business e Technical migrados (outros em FASE 6+)
 3. **Testes**: Faltam testes de integração end-to-end
 4. **Docs**: Documentação ainda em progresso
@@ -377,7 +377,7 @@ onion add
 
 - ✅ **Comandos v3**: Funcionam via symlinks
 - ✅ **Agentes v3**: Funcionam via symlinks
-- ✅ **Estrutura `.cursor/`**: Preservada e funcional
+- ✅ **Estrutura `.claude/`**: Preservada e funcional
 - ⚠️ **Nota**: v3 será deprecated em v4.1 (Q1 2025)
 
 ---

@@ -1399,7 +1399,7 @@ COMANDOS A EXECUTAR QUANDO APLICÁVEL:
 ## 🔗 REFERÊNCIAS & LINKS
 
 - 📊 **Análise Técnica:** `docs/analysis/unleash-alternatives-analysis.md`
-- 🏗️ **Template Usado:** `.cursor/docs/templates/execution-plan-template.md`
+- 🏗️ **Template Usado:** `.claude/docs/templates/execution-plan-template.md`
 - 📋 **ADR Template:** `docs/architecture/adr-000-template.md`
 - 🚀 **Flagsmith Docs:** https://docs.flagsmith.com
 - 🐳 **Docker Compose:** https://docs.docker.com/compose/

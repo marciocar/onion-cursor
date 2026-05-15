@@ -107,10 +107,10 @@ git checkout -b $BRANCH
 
 ```bash
 # Criar sessão de desenvolvimento
-mkdir -p .cursor/sessions/hotfix-$(date +%Y%m%d)/
+mkdir -p .claude/sessions/hotfix-$(date +%Y%m%d)/
 
 # Criar context.md
-cat > .cursor/sessions/hotfix-$(date +%Y%m%d)/context.md << EOF
+cat > .claude/sessions/hotfix-$(date +%Y%m%d)/context.md << EOF
 # Hotfix Context
 
 ## Task
@@ -165,7 +165,7 @@ EOF
 ∟ Remote: origin
 
 📁 Session:
-∟ Path: .cursor/sessions/hotfix-20251124/
+∟ Path: .claude/sessions/hotfix-20251124/
 
 🚀 Comandos:
 ∟ Desenvolver: /engineer/work

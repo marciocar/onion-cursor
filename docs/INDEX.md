@@ -8,7 +8,7 @@ Bem-vindo ao índice central de documentação do projeto. Este documento serve 
 
 ## 🎯 Visão Geral
 
-Este projeto utiliza o **Sistema Onion v4.0 Beta** - um framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
+Este projeto utiliza o **Sistema Onion v4.0 Beta** - um framework avançado de comandos `.claude/` que revoluciona o desenvolvimento com:
 
 - 🤖 **Comandos especializados** organizados em categorias funcionais
 - 🎯 **Agentes de IA especializados** em múltiplos domínios
@@ -34,7 +34,7 @@ Este projeto utiliza o **Sistema Onion v4.0 Beta** - um framework avançado de c
 - **Arquivos adicionais** em `docs/analysis/`, `docs/plans/`, `docs/sdaal/`, `docs/tools/`
 
 ### Sistema Onion
-- **35 comandos Cursor** em `.cursor/commands/`
+- **35 comandos Claude Code** em `.claude/commands/`
   - 12 arquivos em `common/` (Templates e prompts compartilhados)
   - 9 comandos em `meta/` (Meta-comandos e criadores)
   - 6 comandos em `validate/` (Validações e testes)
@@ -45,7 +45,7 @@ Este projeto utiliza o **Sistema Onion v4.0 Beta** - um framework avançado de c
   - 1 comando em `development/` (Desenvolvimento)
   - 1 comando em `onion/` (Sistema Onion)
   - 1 comando em `quick/` (Ações rápidas)
-- **12 agentes IA** em `.cursor/agents/`
+- **12 agentes IA** em `.claude/agents/`
   - 5 agentes em `compliance/` (Compliance e regulatório)
   - 4 agentes em `meta/` (Meta e orquestração)
   - 1 agente em `deployment/` (Deployment)
@@ -75,7 +75,7 @@ docs/
 │   ├── getting-started.md      # Configuração inicial
 │   ├── testing-validation-system.md  # Sistema de testes e validação
 │   ├── tools-reference.md      # Referência de ferramentas
-│   ├── cursor-commands-architecture.md  # Arquitetura de comandos
+│   ├── claude-code-commands-architecture.md  # Arquitetura de comandos
 │   ├── consolidated-project-documentation.md  # Documentação consolidada
 │   ├── end-to-end-validation-tests.md  # Testes de validação E2E
 │   ├── sistema-engenharia-reversa-guia-uso.md  # Engenharia reversa
@@ -112,7 +112,7 @@ docs/
 │   ├── providers/              # Provedores de serviços (1 arquivo)
 │   │   └── microsoft-graph-teams-api-guia-completo.md
 │   └── tools/                  # Ferramentas e recursos (2 arquivos)
-│       ├── cursor-commands-best-practices-2025.md
+│       ├── claude-code-commands-best-practices-2025.md
 │       └── whisper.md          # Knowledge base do Whisper
 │
 ├── meta-specs/                 # Meta Especificações (1 arquivo)
@@ -152,7 +152,7 @@ docs/
 #### Referências Técnicas
 - **[Exemplos Práticos](onion/practical-examples.md)** - Casos de uso reais com exemplos
 - **[Referência de Ferramentas](onion/tools-reference.md)** - Todas as ferramentas disponíveis
-- **[Arquitetura de Comandos](onion/cursor-commands-architecture.md)** - Estrutura interna dos comandos
+- **[Arquitetura de Comandos](onion/claude-code-commands-architecture.md)** - Estrutura interna dos comandos
 
 #### Documentação Avançada
 - **[Documentação Consolidada](onion/consolidated-project-documentation.md)** - Visão consolidada do projeto
@@ -214,7 +214,7 @@ Knowledge Bases estruturadas para consumo por IA e referência técnica:
 - **Microsoft Graph Teams API** - Guia completo de integração
 
 ### Ferramentas (2 arquivos)
-- **Cursor Commands Best Practices 2025** - Boas práticas de comandos Cursor
+- **Claude Code Commands Best Practices 2025** - Boas práticas de comandos Claude Code
 - **Whisper** - Sistema de transcrição de áudio (OpenAI)
 
 **Localização:** `docs/knowbase/`
@@ -322,7 +322,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 ### 🏗️ Para Arquitetos
 
 **Comece com:**
-1. [Arquitetura de Comandos](onion/cursor-commands-architecture.md)
+1. [Arquitetura de Comandos](onion/claude-code-commands-architecture.md)
 2. [Documentação Consolidada](onion/consolidated-project-documentation.md)
 3. [Meta Especificações](meta-specs/index.md)
 4. [Release Notes v4.0](onion/RELEASE-NOTES-v4.0-beta.md) - Arquitetura Multi-Context ✨ NOVO

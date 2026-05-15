@@ -68,6 +68,7 @@ Invoque agentes especializados com `@nome-agente`:
 | @extract-meeting-specialist | Extração de reuniões | Processar transcrições |
 | @meeting-consolidator | Consolidação de reuniões | Unificar múltiplas reuniões |
 | @clickup-specialist | Integração ClickUp | Gerenciar tasks no ClickUp |
+| @jira-specialist | Integração Jira (Cloud/Server) | JQL, transitions, bulk ops, ADF |
 | @whisper-specialist | Transcrição de áudio | Processar áudio com Whisper |
 | @presentation-orchestrator | Apresentações | Criar slides e storytelling |
 
@@ -207,7 +208,7 @@ integrations:
 ### Integrações Não Funcionam?
 1. Verifique `.env` no projeto
 2. Consulte `.context-config.yml`
-3. Use `@clickup-specialist` ou `@whisper-specialist`
+3. Use `@clickup-specialist`, `@jira-specialist` ou `@whisper-specialist`
 
 ### Dúvidas?
 - 📖 Leia: `docs/onion/`

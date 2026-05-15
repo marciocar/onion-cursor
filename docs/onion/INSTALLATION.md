@@ -13,7 +13,7 @@ Antes de instalar o Onion v4.0, certifique-se de ter:
 | **Node.js** | >= 16.0.0 | `node --version` |
 | **pnpm** | >= 8.0.0 | `pnpm --version` |
 | **Git** | >= 2.20.0 | `git --version` |
-| **IDE** | Cursor (recomendado) | - |
+| **IDE** | Claude Code (recomendado) | - |
 
 ---
 
@@ -101,7 +101,7 @@ onion init
 # Escolher opções no wizard:
 # - Project type: Single App
 # - Contexts: Business, Technical
-# - IDEs: Cursor
+# - IDEs: Claude Code
 # - Task Manager: ClickUp (ou None)
 
 # Verificar estrutura criada
@@ -114,22 +114,22 @@ ls -la .onion/
 
 ## 🔧 Configuração de IDEs
 
-### Cursor IDE (Recomendado)
+### Claude Code (Recomendado)
 
 **Automaticamente configurado após `onion init`**
 
-1. Abra o projeto no Cursor
+1. Abra o projeto no Claude Code
 2. Comandos disponíveis via chat (e.g., `/business/help`)
 3. Agentes disponíveis via `@` (e.g., `@product-agent`)
 
 **Verificar**:
 ```bash
 # Comandos devem estar em:
-ls .cursor/commands/business/
-ls .cursor/commands/technical/
+ls .claude/commands/business/
+ls .claude/commands/technical/
 
 # Agentes devem estar em:
-ls .cursor/agents/
+ls .claude/agents/
 ```
 
 ### Windsurf / Claude Code (Futuro - FASE 5)
@@ -159,7 +159,7 @@ onion migrate
 # (Digite 'y' quando solicitado)
 
 # 6. Aguarde conclusão
-# (Backup automático criado em .cursor-backup/)
+# (Backup automático criado em .claude-backup/)
 
 # 7. Verifique a migração
 ls .onion/contexts/
@@ -217,8 +217,8 @@ Para habilitar transcrição de reuniões:
 mkdir meu-projeto && cd meu-projeto
 onion init
 
-# 2. Abrir no Cursor
-cursor .
+# 2. Abrir no Claude Code
+claude .
 
 # 3. Explorar comandos
 /business/help
@@ -235,8 +235,8 @@ cursor .
 
 ```bash
 # 1. Após migração bem-sucedida
-# 2. Abrir no Cursor
-cursor .
+# 2. Abrir no Claude Code
+claude .
 
 # 3. Testar comandos antigos (via symlinks)
 /engineer/work
@@ -290,28 +290,28 @@ npm config set prefix ~/.npm-global
 export PATH=~/.npm-global/bin:$PATH
 ```
 
-### Problema: Comandos não aparecem no Cursor
+### Problema: Comandos não aparecem no Claude Code
 
-**Solução**: `.cursor/` não foi criado
+**Solução**: `.claude/` não foi criado
 ```bash
 # Verificar se existe
-ls -la .cursor/
+ls -la .claude/
 
 # Se não existe, reexecutar init
 onion init
 
 # Ou criar manualmente
-mkdir -p .cursor/commands
-mkdir -p .cursor/agents
+mkdir -p .claude/commands
+mkdir -p .claude/agents
 ```
 
 ### Problema: Migração falhou no meio
 
 **Solução**: Restaurar backup
 ```bash
-# Backup automático está em .cursor-backup/
-rm -rf .cursor/
-mv .cursor-backup/ .cursor/
+# Backup automático está em .claude-backup/
+rm -rf .claude/
+mv .claude-backup/ .claude/
 
 # Tentar novamente com --debug
 onion migrate --debug

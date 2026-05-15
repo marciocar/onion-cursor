@@ -101,7 +101,7 @@ para cada ator mas compartilhando base comum."
 **Proposta de Reestruturação**:
 
 ```
-.cursor/
+.claude/
 ├── core/                          # Base comum (5-10 comandos universais)
 │   ├── warm-up.md
 │   ├── sync.md
@@ -189,21 +189,21 @@ para cada ator mas compartilhando base comum."
 **Proposta Melhorada**:
 
 ```yaml
-# .cursor/contexts/business/.context-config.yml
+# .claude/contexts/business/.context-config.yml
 context: business
 task_manager:
   provider: clickup
   workspace_id: xxx
   default_list: yyy
 
-# .cursor/contexts/technical/.context-config.yml
+# .claude/contexts/technical/.context-config.yml
 context: technical
 task_manager:
   provider: linear
   team_id: xxx
   default_project: yyy
 
-# .cursor/contexts/customer-success/.context-config.yml
+# .claude/contexts/customer-success/.context-config.yml
 context: customer-success
 task_manager:
   provider: asana
@@ -238,13 +238,13 @@ task_manager:
 
 ```
 # ❌ Errado (atual)
-.cursor/commands/product/whisper.md  # No core
+.claude/commands/product/whisper.md  # No core
 
 # ✅ Correto (proposta)
-.cursor/contexts/business/whisper.md
-.cursor/contexts/customer-success/whisper.md
-.cursor/contexts/sales/whisper.md
-.cursor/contexts/compliance/whisper.md
+.claude/contexts/business/whisper.md
+.claude/contexts/customer-success/whisper.md
+.claude/contexts/sales/whisper.md
+.claude/contexts/compliance/whisper.md
 ```
 
 **Veredito**: ⚠️ **Feature válida**, mas deve ser **plugin opcional por contexto**, não core universal.
@@ -261,7 +261,7 @@ task_manager:
 **Story Points fazem sentido total no `business-context`**:
 
 ```
-.cursor/contexts/business/
+.claude/contexts/business/
 ├── product/
 │   ├── spec.md
 │   ├── refine.md
@@ -313,7 +313,7 @@ compartilhando base comum de ferramentas e agentes."
 
 ```
 onion-v4/
-├── .cursor/
+├── .claude/
 │   ├── core/                      # 5-10 comandos universais
 │   │   ├── commands/
 │   │   │   ├── warm-up.md
@@ -391,7 +391,7 @@ onion-v4/
 
 ### Configuração por Contexto
 
-**`.cursor/contexts/business/.context-config.yml`**:
+**`.claude/contexts/business/.context-config.yml`**:
 ```yaml
 context:
   name: business
@@ -420,7 +420,7 @@ onboarding:
     - docs/business-context/getting-started.md
 ```
 
-**`.cursor/contexts/technical/.context-config.yml`**:
+**`.claude/contexts/technical/.context-config.yml`**:
 ```yaml
 context:
   name: technical
@@ -530,7 +530,7 @@ onboarding:
 
 **Situação Atual**:
 ```
-.cursor/commands/
+.claude/commands/
 ├── product/         # Mistura business + technical
 ├── engineer/        # Technical
 ├── git/             # Technical
@@ -540,7 +540,7 @@ onboarding:
 
 **Problema**: Não há separação clara de contextos → Usuários não sabem o que é pra eles.
 
-**Ação**: Reestruturar para `.cursor/contexts/` como proposto acima.
+**Ação**: Reestruturar para `.claude/contexts/` como proposto acima.
 
 ---
 
@@ -581,7 +581,7 @@ onboarding:
 
 ### Problema 3: ⚠️ **CLI Standalone Ainda Ausente**
 
-**Problema**: Mesmo na visão multi-context, dependência total do Cursor é arriscada.
+**Problema**: Mesmo na visão multi-context, dependência total do Claude Code é arriscada.
 
 **Proposta**: CLI standalone com suporte a contextos:
 
@@ -601,8 +601,8 @@ onion cs onboard feature-auth
 onion business --help
 onion tech --help
 
-# Works in Cursor (enhanced)
-/business/spec "feature-auth"  # Usa CLI + Cursor context
+# Works in Claude Code (enhanced)
+/business/spec "feature-auth"  # Usa CLI + Claude Code context
 ```
 
 ---
@@ -654,7 +654,7 @@ onion tech --help
 
 ### ✅ **Mantém da Análise Anterior**
 
-1. **CLI Standalone** - Ainda crítico (não depender 100% do Cursor)
+1. **CLI Standalone** - Ainda crítico (não depender 100% do Claude Code)
 2. **Simplificação de Onboarding** - Starter kits por contexto
 3. **Documentação Clara** - Reescrever com visão multi-context
 
@@ -667,7 +667,7 @@ onion tech --help
 
 ### 🔥 **Adiciona Novas Recomendações**
 
-1. **REESTRUTURAR para `.cursor/contexts/`** - Separação clara de contextos
+1. **REESTRUTURAR para `.claude/contexts/`** - Separação clara de contextos
 2. **CRIAR `.context-config.yml`** - Configuração por contexto (task manager, integrations, etc)
 3. **DOCUMENTAR VISÃO MULTI-CONTEXT** - Nenhum concorrente faz isso
 4. **CRIAR STARTER KITS** - 5 comandos essenciais por contexto
@@ -717,15 +717,15 @@ onion tech --help
 
 ### ⚠️ O Que Ainda É Problema
 
-1. **Estrutura atual não reflete a visão** - Precisa reestruturar para `.cursor/contexts/`
+1. **Estrutura atual não reflete a visão** - Precisa reestruturar para `.claude/contexts/`
 2. **Onboarding complexo mesmo por contexto** - Precisa starter kits
-3. **CLI standalone ausente** - Dependência total do Cursor é risco
+3. **CLI standalone ausente** - Dependência total do Claude Code é risco
 4. **Documentação não reflete visão multi-context** - Precisa reescrita completa
 5. **Extensibilidade não documentada** - Como criar novos contextos?
 
 ### 🎯 Próximas Ações Críticas
 
-1. **REESTRUTURAR** arquitetura para `.cursor/contexts/`
+1. **REESTRUTURAR** arquitetura para `.claude/contexts/`
 2. **DOCUMENTAR** visão multi-context completamente
 3. **CRIAR** starter kits por contexto (5 comandos essenciais)
 4. **DESENVOLVER** CLI standalone com suporte a contextos

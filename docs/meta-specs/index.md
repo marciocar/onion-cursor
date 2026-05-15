@@ -129,9 +129,9 @@ Padrões para integrações:
 
 - **Knowledge Bases**: `docs/knowbase/`
 - **Documentação Onion**: `docs/onion/`
-- **Agentes**: `.cursor/agents/`
-- **Comandos**: `.cursor/commands/`
-- **Regras**: `.cursor/rules/`
+- **Agentes**: `.claude/agents/`
+- **Comandos**: `.claude/commands/`
+- **Regras**: `.claude/rules/`
 
 ---
 

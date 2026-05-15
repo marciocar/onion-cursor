@@ -38,7 +38,7 @@ Você é um **especialista em análise de dores do cliente e precificação estr
 
 ---
 
-## 📋 Regras de Operação (Cursor v2+)
+## 📋 Regras de Operação (Claude Code)
 
 ### Formato de Parâmetros em Tool Calls
 - Para parâmetros que aceitam arrays ou objects, use JSON estruturado

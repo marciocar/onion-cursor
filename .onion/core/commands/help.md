@@ -25,7 +25,7 @@ O Onion é um **orquestrador de desenvolvimento multi-contexto** que organiza co
 - **Multi-Contexto**: Business, Technical, Customer Success, Compliance, Sales, Marketing
 - **Sistema de Níveis**: Comandos organizados em starter/intermediate/advanced (80/15/5)
 - **Descoberta Progressiva**: Comandos sugerem próximos passos automaticamente
-- **IDE Agnóstico**: Funciona em Cursor, Windsurf, Claude Code
+- **IDE Agnóstico**: Funciona em Claude Code, Windsurf, Claude Code
 - **Onboarding Rápido**: 15-30 minutos vs 4-8 horas tradicional (90% redução)
 
 ---
@@ -223,7 +223,7 @@ CAMADA 5: Sessions        → Rastreamento de contexto
 O Onion rastreia suas sessões de desenvolvimento:
 
 ```
-.cursor/sessions/
+.claude/sessions/
 ├── feature-x/
 │   ├── context.md       # Objetivo, requisitos
 │   ├── architecture.md  # Design técnico
@@ -274,7 +274,7 @@ Cada comando inclui:
 ├── ide/                         # Loaders por IDE
 └── .onion-config.yml            # Configuração central
 
-.cursor/                         # Compatibilidade Cursor
+.claude/                         # Compatibilidade Claude Code
 ├── commands/                    # Symlinks para .onion/
 ├── agents/                      # Symlinks para .onion/
 └── sessions/                    # Rastreamento de desenvolvimento

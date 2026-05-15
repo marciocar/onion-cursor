@@ -67,7 +67,7 @@ Uma camada de abstração baseada no **Adapter Pattern** que:
 ## 📁 Estrutura de Arquivos
 
 ```
-.cursor/utils/task-manager/
+.claude/utils/task-manager/
 ├── README.md           # Visão geral da abstração
 ├── interface.md        # Interface ITaskManager
 ├── types.md            # Tipos compartilhados
@@ -76,6 +76,7 @@ Uma camada de abstração baseada no **Adapter Pattern** que:
 └── adapters/
     ├── clickup.md      # Adapter ClickUp (completo)
     ├── asana.md        # Adapter Asana (completo)
+    ├── jira.md         # Adapter Jira (completo, REST API)
     └── linear.md       # Adapter Linear (stub)
 ```
 
@@ -86,7 +87,7 @@ Uma camada de abstração baseada no **Adapter Pattern** que:
 ```typescript
 interface ITaskManager {
   // Identificação
-  readonly provider: 'clickup' | 'asana' | 'linear' | 'none';
+  readonly provider: 'clickup' | 'asana' | 'jira' | 'linear' | 'none';
   readonly isConfigured: boolean;
 
   // CRUD de Tasks
@@ -127,7 +128,7 @@ interface ITaskManager {
 
 ```bash
 # .env
-TASK_MANAGER_PROVIDER=clickup  # clickup | asana | linear | none
+TASK_MANAGER_PROVIDER=clickup  # clickup | asana | jira | linear | none
 
 # ClickUp
 CLICKUP_API_TOKEN=pk_xxxxx
@@ -138,6 +139,12 @@ CLICKUP_DEFAULT_LIST=your_list_id
 ASANA_ACCESS_TOKEN=1/xxxxx
 ASANA_DEFAULT_WORKSPACE=1234567890
 ASANA_DEFAULT_PROJECT=0987654321
+
+# Jira (Cloud)
+JIRA_HOST=empresa.atlassian.net
+JIRA_EMAIL=voce@empresa.com
+JIRA_API_TOKEN=ATATT3xFfGF0...
+JIRA_PROJECT_KEY=PROJ
 
 # Linear (futuro)
 LINEAR_API_KEY=lin_api_xxxxx
@@ -221,7 +228,7 @@ await taskManager.addComment(taskId, `
 
 ### 1. Criar Adapter
 
-Crie um novo arquivo em `.cursor/utils/task-manager/adapters/`:
+Crie um novo arquivo em `.claude/utils/task-manager/adapters/`:
 
 ```markdown
 # Nome do Provedor Adapter
@@ -286,11 +293,12 @@ NOVO_PROVIDER_WORKSPACE=
 
 O sistema detecta automaticamente o provedor pelo padrão do ID:
 
-| Provedor | Padrão | Exemplo |
-|----------|--------|---------|
-| ClickUp | `^[a-z0-9]{9}$` | `86adfe9eb` |
-| Asana | `^[0-9]{16}$` | `1234567890123456` |
-| Linear | `^[A-Z]+-[0-9]+$` | `ENG-123` |
+| Provedor | Padrão | Exemplo | Notas |
+|----------|--------|---------|-------|
+| ClickUp | `^[a-z0-9]{9}$` | `86adfe9eb` | Único |
+| Asana | `^[0-9]{15,}$` | `1234567890123456` | Único |
+| Jira | `^[A-Z][A-Z0-9_]*-[0-9]+$` | `PROJ-123` | Colide com Linear — desambigua via `TASK_MANAGER_PROVIDER` |
+| Linear | `^[A-Z]+-[0-9]+$` | `ENG-123` | Default no formato `PREFIX-NUM` |
 
 ### Detecção de Incompatibilidade
 
@@ -329,9 +337,9 @@ Provedor configurado: clickup
 
 ## 🔗 Referências
 
-- Interface: `.cursor/utils/task-manager/interface.md`
-- Factory: `.cursor/utils/task-manager/factory.md`
-- Adapters: `.cursor/utils/task-manager/adapters/`
+- Interface: `.claude/utils/task-manager/interface.md`
+- Factory: `.claude/utils/task-manager/factory.md`
+- Adapters: `.claude/utils/task-manager/adapters/`
 - Comando de setup: `/meta/setup-integration`
 
 ---
@@ -342,5 +350,5 @@ Provedor configurado: clickup
 - [AI Agent Design Patterns](ai-agent-design-patterns.md)
 - [Spec-as-Code Strategy](spec-as-code-strategy.md)
 - [Configuration Management](configuration-management.md)
-- [Cursor Commands Best Practices](../tools/cursor-commands-best-practices-2025.md)
+- [Claude Code Commands Best Practices](../tools/claude-code-commands-best-practices-2025.md)
 

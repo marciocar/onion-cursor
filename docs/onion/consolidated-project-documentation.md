@@ -82,7 +82,7 @@ granaai/
 │   │   └── [app-specific]/ # App-specific UI libs
 │   ├── common/             # Cross-platform utilities
 │   └── workspace/          # Workspace tooling
-├── .cursor/                # Sistema Esperanto
+├── .claude/                # Sistema Esperanto
 │   ├── agents/             # 22 agentes especializados
 │   │   ├── development/    # 10 agentes desenvolvimento
 │   │   └── [general]/      # 12 agentes gerais
@@ -135,9 +135,9 @@ granaai/
 ### Visão Geral do Sistema Esperanto
 O **Sistema Esperanto** é um framework avançado de comandos e agentes especializados que automatiza workflows complexos, gera código, valida conformidade e mantém qualidade em todo o ciclo de desenvolvimento.
 
-### 📁 Estrutura Completa `.cursor/`
+### 📁 Estrutura Completa `.claude/`
 ```
-.cursor/
+.claude/
 ├── agents/                 # 22 agentes especializados
 │   ├── metaspec-gate-keeper.md          # Validador meta-specs
 │   ├── research-agent.md                 # Pesquisa e coleta
@@ -156,7 +156,7 @@ O **Sistema Esperanto** é um framework avançado de comandos e agentes especial
 │       ├── c4-architecture-specialist.md # Diagramas C4
 │       ├── c4-documentation-specialist.md # Docs C4
 │       ├── clickup-specialist.md         # ClickUp integration
-│       ├── cursor-specialist.md          # Otimização Cursor
+│       ├── claude-code-specialist.md          # Otimização Claude Code
 │       ├── docs-reverse-engineer.md      # Engenharia reversa
 │       ├── gitflow-specialist.md         # GitFlow workflows
 │       ├── mermaid-specialist.md         # Diagramas Mermaid
@@ -248,7 +248,7 @@ O **Sistema Esperanto** é um framework avançado de comandos e agentes especial
 2. **@c4-architecture-specialist**: Diagramas arquiteturais C4
 3. **@c4-documentation-specialist**: Documentação C4 completa
 4. **@clickup-specialist**: Integração e automação ClickUp
-5. **@cursor-specialist**: Otimização de desenvolvimento Cursor
+5. **@claude-code-specialist**: Otimização de desenvolvimento Claude Code
 6. **@docs-reverse-engineer**: Engenharia reversa e documentação
 7. **@gitflow-specialist**: Workflows GitFlow complexos
 8. **@mermaid-specialist**: Diagramas Mermaid avançados
@@ -866,7 +866,7 @@ docs/
 ├── technical-context/          # 9 arquivos contexto técnico
 │   ├── index.md               # Índice technical context
 │   ├── project-charter.md     # Visão e objetivos
-│   ├── CURSOR.meta.md         # Guia IA development
+│   ├── CLAUDE.meta.md         # Guia IA development
 │   ├── CODEBASE_GUIDE.md      # Navegação codebase
 │   ├── BUSINESS_LOGIC.md      # Lógica negócio core
 │   ├── API_SPECIFICATION.md   # Specs das 19 APIs
@@ -893,7 +893,7 @@ docs/
 
 ### Para Novos Desenvolvedores
 1. **Comece com**: Este arquivo (visão geral completa)
-2. **Depois leia**: `docs/technical-context/CURSOR.meta.md` (guia IA development)
+2. **Depois leia**: `docs/technical-context/CLAUDE.meta.md` (guia IA development)
 3. **Explore**: `docs/technical-context/CODEBASE_GUIDE.md` (navegação código)
 4. **Entenda negócio**: `docs/business-context/index.md`
 5. **Workflows**: `docs/ESPERANTO.md` (comandos e automação)

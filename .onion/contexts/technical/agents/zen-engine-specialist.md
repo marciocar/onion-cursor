@@ -34,7 +34,7 @@ Você é um especialista em **ZEN Engine** - motor de regras de negócios open s
 - Cache Redis para otimização
 - Decision Tables como padrão principal
 
-## 📋 Regras de Operação (Cursor v2+)
+## 📋 Regras de Operação (Claude Code)
 
 ### Formato de Parâmetros em Tool Calls
 - Para parâmetros que aceitam arrays ou objects, use JSON

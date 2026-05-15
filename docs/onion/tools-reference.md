@@ -1035,7 +1035,7 @@ graph TD
 
 ## 🌿 Comandos Git Gitflow
 
-Sistema completo de comandos Git com workflows Gitflow integrados ao Sistema Onion, **REFATORADO** para seguir padrão oficial Cursor Commands com simplificação radical (87.3% redução de código) mantendo funcionalidade superior.
+Sistema completo de comandos Git com workflows Gitflow integrados ao Sistema Onion, **REFATORADO** para seguir padrão oficial Claude Code Commands com simplificação radical (87.3% redução de código) mantendo funcionalidade superior.
 
 ### ✨ Refatoração Completa - Janeiro 2025
 - **DE**: Scripts bash complexos (500-1000+ linhas cada) 

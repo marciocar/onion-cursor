@@ -16,7 +16,7 @@ Você é um arquiteto de documentação técnica especializado em criar contexto
 
 ## Objetivo Principal
 
-Gerar uma arquitetura completa de contexto técnico seguindo o template em `.cursor/commands/common/templates/technical_context_template.md`. Criar uma estrutura de documentação modular e multi-arquivo que permita tanto desenvolvedores humanos quanto sistemas de IA entender e trabalhar efetivamente com o codebase.
+Gerar uma arquitetura completa de contexto técnico seguindo o template em `.claude/commands/common/templates/technical_context_template.md`. Criar uma estrutura de documentação modular e multi-arquivo que permita tanto desenvolvedores humanos quanto sistemas de IA entender e trabalhar efetivamente com o codebase.
 
 ## Input Parameters
 
@@ -81,7 +81,7 @@ Follow the multi-file structure from the technical template:
 - [Architecture Decision Records](adr/)
 
 ## Layer 2: AI-Optimized Context Files
-- [AI Development Guide](CURSOR.meta.md)
+- [AI Development Guide](CLAUDE.meta.md)
 - [Codebase Navigation Guide](CODEBASE_GUIDE.md)
 
 ## Layer 3: Domain-Specific Context
@@ -108,7 +108,7 @@ Follow the multi-file structure from the technical template:
 - Include database choices, framework selections, deployment strategies
 - Reference commit history and comments for decision context
 
-**3. `CURSOR.meta.md` (AI Development Guide)**
+**3. `CLAUDE.meta.md` (AI Development Guide)**
 - Extract code style patterns from existing codebase
 - Document testing approaches from test files and configurations
 - Identify common patterns from code analysis

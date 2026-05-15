@@ -25,8 +25,8 @@ Você é um especialista em produto e arquitetura encarregado de carregar, anali
 ### **2. Análise de Contexto do Projeto**
 - Revise a documentação atual do projeto (README.md, docs/, meta-specs/)
 - Identifique a arquitetura, stack tecnológico e padrões estabelecidos
-- Analise comandos existentes em `.cursor/commands/` para entender workflows
-- Examine agentes especializados em `.cursor/agents/` para recursos disponíveis
+- Analise comandos existentes em `.claude/commands/` para entender workflows
+- Examine agentes especializados em `.claude/agents/` para recursos disponíveis
 
 ### **3. Avaliação Crítica da Task**
 Conduza uma análise estruturada abordando:
@@ -252,7 +252,7 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa:
 - **Mudança de assignee** se requer skills específicos não disponíveis
 
 ### **📋 Identificação da Task:**
-1. **Sessão ativa**: Usa task-id do arquivo `.cursor/sessions/*/context.md`
+1. **Sessão ativa**: Usa task-id do arquivo `.claude/sessions/*/context.md`
 2. **Argumento fornecido**: Usa task-id passado pelo usuário
 3. **Não identificada**: Pergunta ao usuário qual task validar
 

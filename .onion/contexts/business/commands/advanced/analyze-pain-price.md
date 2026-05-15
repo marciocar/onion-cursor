@@ -2,7 +2,7 @@
 
 Comando facilitador para executar análises profundas de dores do cliente e precificação estratégica usando o agente especializado `@pain-price-specialist`.
 
-## 📢 Regras de Comunicação (Cursor v2+)
+## 📢 Regras de Comunicação (Claude Code)
 
 ### Comunicação com o Usuário
 1. Use markdown com backticks para formatar nomes de arquivos, diretórios, funções e classes

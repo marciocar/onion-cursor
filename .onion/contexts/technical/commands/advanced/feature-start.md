@@ -29,7 +29,7 @@ Iniciar desenvolvimento de uma nova funcionalidade criando uma branch GitFlow ap
 - Guidance contextual para desenvolvimento
 
 ### Session Management Automático
-- Criar diretório `.cursor/sessions/<feature-slug>/` automaticamente
+- Criar diretório `.claude/sessions/<feature-slug>/` automaticamente
 - Gerar `context.md` com metadados da feature
 - Criar `plan.md` com template de desenvolvimento
 - Integração opcional com ClickUp tasks existentes
@@ -73,7 +73,7 @@ Para cada nova feature:
 - **Checkout**: Trocar para a nova branch automaticamente
 
 ### Setup do Ambiente
-- **Session creation**: Criar estrutura `.cursor/sessions/`
+- **Session creation**: Criar estrutura `.claude/sessions/`
 - **Context setup**: Gerar arquivos de contexto e planejamento
 - **ClickUp integration**: Conectar com tasks existentes se detectadas
 - **Development ready**: Ambiente pronto para desenvolvimento
@@ -90,7 +90,7 @@ feature/nome-da-funcionalidade ← nova branch
 
 ### Session Directory
 ```
-.cursor/sessions/nome-da-funcionalidade/
+.claude/sessions/nome-da-funcionalidade/
 ├── context.md          # Metadados e objetivos da feature
 ├── plan.md            # Plano de desenvolvimento estruturado  
 ├── notes.md           # Notas de desenvolvimento

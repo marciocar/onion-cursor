@@ -519,7 +519,7 @@ Total Time: ~18 minutes (vs 120+ minutes manual)
 
 ### **✅ Integration Requirements Met**
 - [x] **Compatible** com build-tech-docs (100% integration success)
-- [x] **Funciona via Cursor Commands** (standard command pattern)
+- [x] **Funciona via Claude Code Commands** (standard command pattern)
 - [x] **Auto-updates ClickUp** (integrated with session management)
 - [x] **Session management** integrado (standard Onion patterns)
 

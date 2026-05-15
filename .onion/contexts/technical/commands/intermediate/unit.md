@@ -347,7 +347,7 @@ describe('nomeFuncao', () => {
 
 - **Agente de Testes:** @test-engineer
 - **Framework de Testes:** `docs/knowbase/frameworks/framework_testes.md`
-- **Padrões de Teste:** `.cursor/agents/testing/test-engineer.md`
+- **Padrões de Teste:** `.claude/agents/testing/test-engineer.md`
 
 ## ⚠️ Notas Importantes
 

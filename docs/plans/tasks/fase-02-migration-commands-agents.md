@@ -21,7 +21,7 @@
 
 ## 🎯 Objetivo
 
-Migrar todos os 90 comandos e 46 agentes de `.cursor/` para `.onion/contexts/`, classificando cada um por nível (starter/intermediate/advanced) e contexto apropriado.
+Migrar todos os 90 comandos e 46 agentes de `.claude/` para `.onion/contexts/`, classificando cada um por nível (starter/intermediate/advanced) e contexto apropriado.
 
 ---
 
@@ -151,7 +151,7 @@ Migrar todos os 90 comandos e 46 agentes de `.cursor/` para `.onion/contexts/`, 
 
 ### Testes
 
-- [ ] Todos os comandos testados no Cursor IDE
+- [ ] Todos os comandos testados no Claude Code
 - [ ] Todos os agentes testados e funcionais
 - [ ] Nenhum comando quebrado na migração
 - [ ] Links internos atualizados (ex: `related_commands`)
@@ -170,10 +170,10 @@ Migrar todos os 90 comandos e 46 agentes de `.cursor/` para `.onion/contexts/`, 
 ### Passo 1: Análise Completa
 ```bash
 # Listar todos os comandos atuais
-ls -R .cursor/commands/
+ls -R .claude/commands/
 
 # Listar todos os agentes atuais
-ls -R .cursor/agents/
+ls -R .claude/agents/
 
 # Analisar estrutura e dependências
 ```
@@ -195,8 +195,8 @@ ls -R .cursor/agents/
 ### Passo 3: Migrar Comandos por Contexto
 ```bash
 # Business context
-mv .cursor/commands/product/spec.md .onion/contexts/business/commands/starter/
-mv .cursor/commands/product/refine.md .onion/contexts/business/commands/starter/
+mv .claude/commands/product/spec.md .onion/contexts/business/commands/starter/
+mv .claude/commands/product/refine.md .onion/contexts/business/commands/starter/
 # ... e assim por diante
 ```
 
@@ -246,13 +246,13 @@ onboarding:
 ### Passo 6: Atualizar Links
 ```bash
 # Atualizar todos os links internos
-# Ex: .cursor/commands/ → .onion/contexts/
+# Ex: .claude/commands/ → .onion/contexts/
 # Ex: @agent-name → caminho correto
 ```
 
 ### Passo 7: Testar Tudo
 ```bash
-# No Cursor IDE
+# No Claude Code
 /business/spec "test"
 /technical/plan "test"
 @product-agent "test"
@@ -336,7 +336,7 @@ FASE 2: Migração (21 SP total)
 ### Risco 1: Comandos Quebram na Migração
 **Mitigação**: 
 - Testar cada comando imediatamente após migração
-- Manter backup de `.cursor/` durante transição
+- Manter backup de `.claude/` durante transição
 - Script de rollback se necessário
 
 ### Risco 2: Links Internos Quebrados
@@ -367,8 +367,8 @@ FASE 2: Migração (21 SP total)
 - [Plano de Migração](../onion-v4-migration-plan.md)
 
 ### Comandos Atuais
-- `.cursor/commands/` - Estrutura atual de comandos
-- `.cursor/agents/` - Estrutura atual de agentes
+- `.claude/commands/` - Estrutura atual de comandos
+- `.claude/agents/` - Estrutura atual de agentes
 
 ---
 

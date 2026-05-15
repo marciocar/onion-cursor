@@ -64,7 +64,7 @@ onion init
 # Seguir os 4 steps:
 # 1. Project Type → Selecionar Monorepo
 # 2. Contexts → Selecionar business, technical
-# 3. IDEs → Confirmar Cursor detectado
+# 3. IDEs → Confirmar Claude Code detectado
 # 4. Integrations → Selecionar None para ambos
 
 # Verificar estrutura gerada

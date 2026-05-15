@@ -55,7 +55,7 @@ packages/onion-cli/
 │   │   ├── config.yml.hbs       # .onion-config.yml template
 │   │   ├── context-config.yml.hbs
 │   │   ├── loaders/
-│   │   │   ├── cursor.js.hbs    # Cursor loader template
+│   │   │   ├── claude.js.hbs    # Claude Code loader template
 │   │   │   ├── windsurf.ts.hbs  # Windsurf loader template
 │   │   │   ├── claude.py.hbs    # Claude adapter template
 │   │   │   └── universal.md.hbs # Universal AGENTS.md
@@ -140,7 +140,7 @@ npm install --save-dev \
     "onion",
     "cli",
     "ai-assistant",
-    "cursor",
+    "claude-code",
     "windsurf",
     "claude",
     "spec-driven-development",
@@ -232,7 +232,7 @@ program
 
 program
   .command('migrate')
-  .description('Migrar de .cursor/ para .onion/')
+  .description('Migrar de .claude/ para .onion/')
   .option('--dry-run', 'Mostrar o que seria feito sem executar')
   .option('--backup', 'Criar backup antes de migrar')
   .action(migrateCommand);
@@ -321,10 +321,10 @@ module.exports = {
   // IDEs suportados
   SUPPORTED_IDES: [
     {
-      id: 'cursor',
-      name: 'Cursor',
-      detector: '.cursor',
-      loader: 'cursor.js',
+      id: 'claude-code',
+      name: 'Claude Code',
+      detector: '.claude',
+      loader: 'claude.js',
       configFile: 'settings.json'
     },
     {
@@ -522,12 +522,12 @@ class Detector {
     return fs.existsSync(path.join(this.projectRoot, '.onion'));
   }
   
-  // Verificar se existe estrutura legacy (.cursor/)
+  // Verificar se existe estrutura legacy (.claude/)
   hasLegacyStructure() {
     const legacyPaths = [
-      '.cursor/commands',
-      '.cursor/agents',
-      '.cursor/rules'
+      '.claude/commands',
+      '.claude/agents',
+      '.claude/rules'
     ];
     
     return legacyPaths.some(p => 
@@ -909,7 +909,7 @@ async function initCommand(options) {
     
     // Verificar estrutura legacy
     if (detector.hasLegacyStructure()) {
-      logger.warn('Detected legacy .cursor/ structure');
+      logger.warn('Detected legacy .claude/ structure');
       logger.info('Consider running "onion migrate" instead');
       logger.break();
       
@@ -964,7 +964,7 @@ async function initCommand(options) {
     
     logger.section('Next steps:');
     logger.list([
-      'Restart your IDE (Cursor/Windsurf)',
+      'Restart your IDE (Claude Code/Windsurf)',
       'Try a starter command:',
       `  - Business: ${require('chalk').cyan('/business/spec "my-feature"')}`,
       `  - Technical: ${require('chalk').cyan('/technical/plan "my-feature"')}`,

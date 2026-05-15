@@ -139,4 +139,4 @@ Score = (Estrutura × 0.25) + (Qualidade × 0.25) +
 ## ⚠️ Notas
 
 - Executar mensalmente para tracking
-- Score histórico salvo em `.cursor/metrics/`
+- Score histórico salvo em `.claude/metrics/`

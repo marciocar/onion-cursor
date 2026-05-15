@@ -60,7 +60,7 @@ $ onion --help
 Commands:
   init [options]               Inicializar Sistema Onion no projeto atual
   add [options] <type> <name>  Adicionar contexto ou IDE
-  migrate [options]            Migrar de .cursor/ para .onion/
+  migrate [options]            Migrar de .claude/ para .onion/
   validate [options]           Validar estrutura .onion/
   help [command]               Mostrar ajuda
 ```
@@ -87,7 +87,7 @@ O comando `onion init` executa wizard interativo:
 - Marketing (campaigns, content, analytics)
 
 #### **Step 3/4: Detect AI Tools**
-- **Detecção automática**: Cursor, Windsurf, Claude Code, VS Code
+- **Detecção automática**: Claude Code, Windsurf, Claude Code, VS Code
 - **Seleção manual**: IDEs adicionais
 - **Universal fallback**: AGENTS.md para IDEs não suportados
 
@@ -133,9 +133,9 @@ O comando `onion init` executa wizard interativo:
 │       └── ...
 │
 └── ide/                         # Loaders por IDE
-    ├── cursor/
+    ├── claude/
     │   ├── onion-loader.js      # Loader JavaScript
-    │   └── settings.json         # Config Cursor
+    │   └── settings.json         # Config Claude Code
     ├── windsurf/
     │   └── onion-bridge.ts      # Loader TypeScript (placeholder)
     ├── claude-code/
@@ -187,7 +187,7 @@ cat .onion/README.md
    ```
 
 2. **Implementar comando `migrate`**
-   - Migrar `.cursor/` → `.onion/`
+   - Migrar `.claude/` → `.onion/`
    - Backup automático
    - Mover comandos, agentes, regras
    - Criar loaders
@@ -205,7 +205,7 @@ cat .onion/README.md
    - `onion add ide claude`
 
 5. **Melhorar loaders**
-   - Cursor loader completo (carregar comandos/agentes)
+   - Claude Code loader completo (carregar comandos/agentes)
    - Windsurf loader TypeScript
    - Claude loader Python
 

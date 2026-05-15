@@ -35,7 +35,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 2. 🚧 **Arquitetura `.onion/`** agnóstica de IDE
 3. 🚧 **6 Contextos** independentes (business, technical, CS, compliance, sales, marketing)
 4. 🚧 **Sistema de Níveis** (starter → intermediate → advanced)
-5. 🚧 **IDE Loaders** (Cursor, Windsurf, Claude Code)
+5. 🚧 **IDE Loaders** (Claude Code, Windsurf, Claude Code)
 6. 🚧 **Ciclo Completo** de 5 camadas (KB → Agentes → Comandos → Regras → Sessions)
 7. 🚧 **Descoberta Progressiva** com help inteligente
 
@@ -43,7 +43,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 
 - **Onboarding**: 4-8 horas → 15-30 minutos (90% redução)
 - **Foco**: 90 comandos → 5 starter (80% dos casos)
-- **Portabilidade**: Cursor-only → 3+ IDEs
+- **Portabilidade**: Claude Code-only → 3+ IDEs
 - **Organização**: Contextos misturados → Separação clara
 - **Categoria**: Única no mercado (Multi-Context Orchestrator)
 
@@ -77,7 +77,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 │   └── marketing/
 │
 ├── ide/                             # Loaders por IDE
-│   ├── cursor/onion-loader.js
+│   ├── claude/onion-loader.js
 │   ├── windsurf/onion-bridge.ts
 │   └── claude/onion-adapter.py
 │
@@ -97,7 +97,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 - [x] Criação de `.onion-config.yml`
 - [x] Geração de comandos starter por contexto
 - [x] Agente `@onion` core
-- [x] `.cursor/` para compatibilidade
+- [x] `.claude/` para compatibilidade
 - [x] Documentação em `docs/onion/MILESTONE-first-successful-init.md`
 
 **Arquivo da Task**: [`tasks/fase-01-cli-structure.md`](tasks/fase-01-cli-structure.md) ✅
@@ -107,7 +107,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 ### ✅ FASE 2: Migração de Comandos e Agentes - **CONCLUÍDO** ✅
 **Story Points**: 21 SP | **Status**: ✅ Concluído | **Duração**: 2 horas (scripts automatizados)
 
-**Objetivo**: Migrar 90 comandos e 46 agentes de `.cursor/` para `.onion/contexts/`
+**Objetivo**: Migrar 90 comandos e 46 agentes de `.claude/` para `.onion/contexts/`
 
 **Entregáveis**:
 - [x] Migrar comandos business context (20 comandos)
@@ -117,7 +117,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 - [x] Criar `.context-config.yml` para cada contexto
 - [x] Atualizar headers YAML com novos campos (context, level)
 - [x] Criar 91 symlinks para backward compatibility
-- [x] Testar comandos migrados no Cursor
+- [x] Testar comandos migrados no Claude Code
 
 **Arquivo da Task**: [`tasks/fase-02-migration-commands-agents.md`](tasks/fase-02-migration-commands-agents.md) ✅
 
@@ -126,7 +126,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 - ✅ Scripts Node.js automatizados para migração
 - ✅ 100% backward compatibility via symlinks
 - ✅ Validação automatizada com script dedicado
-- ✅ Documentação: `.cursor/sessions/fase-02-migration-commands/SUMMARY.md`
+- ✅ Documentação: `.claude/sessions/fase-02-migration-commands/SUMMARY.md`
 
 ---
 
@@ -151,7 +151,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 - ✅ 28 comandos com navegação progressiva
 - ✅ Scripts automatizados para adicionar seções
 - ✅ 91 symlinks para backward compatibility
-- ✅ Documentação: `.cursor/sessions/fase-03-level-system/SUMMARY.md`
+- ✅ Documentação: `.claude/sessions/fase-03-level-system/SUMMARY.md`
 
 ---
 
@@ -168,7 +168,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 - [x] Comando `onion migrate` (migração v3→v4 completa)
 - [x] Arquitetura de baixo acoplamento validada
 
-**Arquivo da Task**: `.cursor/sessions/fase-04-cli-enhancements/` ✅
+**Arquivo da Task**: `.claude/sessions/fase-04-cli-enhancements/` ✅
 
 **Destaques**:
 - ✅ 16 arquivos criados (~3700 LOC)
@@ -176,7 +176,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 - ✅ 45+ testes unitários
 - ✅ ZERO acoplamento desnecessário
 - ✅ Máxima reutilização alcançada
-- ✅ Documentação: `.cursor/sessions/fase-04-cli-enhancements/SUMMARY.md`
+- ✅ Documentação: `.claude/sessions/fase-04-cli-enhancements/SUMMARY.md`
 
 **Nota**: Esta fase foi adicionada durante desenvolvimento para melhorar qualidade do CLI.
 
@@ -185,11 +185,11 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 ### 🚧 FASE 5: IDE Loaders e Compatibilidade
 **Story Points**: 8 SP | **Status**: 📋 Próxima | **Duração**: 1 semana
 
-**Objetivo**: Implementar loaders para Cursor, Windsurf, Claude
+**Objetivo**: Implementar loaders para Claude Code, Windsurf, Claude
 
 **Entregáveis**:
-- [ ] Cursor Loader funcional (`.onion/ide/cursor/onion-loader.js`)
-- [ ] Testar descoberta de comandos no Cursor
+- [ ] Claude Code Loader funcional (`.onion/ide/claude-code/onion-loader.js`)
+- [ ] Testar descoberta de comandos no Claude Code
 - [ ] Windsurf Loader (`.onion/ide/windsurf/onion-bridge.ts`)
 - [ ] Claude Code Loader (`.onion/ide/claude/onion-adapter.py`)
 - [ ] Testes de integração em todos os IDEs
@@ -271,9 +271,9 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 |---------|----------|---------|--------|
 | **Onboarding Time** | 4-8 horas | 15-30 min/contexto | 🎯 |
 | **Comandos Conhecidos** | 90 (confuso) | 5 starter + descoberta | 🎯 |
-| **IDE Support** | Cursor only | Cursor + Windsurf + Claude | 🎯 |
+| **IDE Support** | Claude Code only | Claude Code + Windsurf + Claude | 🎯 |
 | **Separação Contextos** | ❌ Misturado | ✅ Clara | 🎯 |
-| **Portabilidade** | `.cursor/` apenas | `.onion/` universal | 🎯 |
+| **Portabilidade** | `.claude/` apenas | `.onion/` universal | 🎯 |
 | **Categoria** | SDD tool | Multi-Context Orchestrator | 🎯 |
 
 ---
@@ -287,7 +287,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 **Mitigação**: Fallback `AGENTS.md` universal + RFC Onion Format
 
 ### Risco 3: Breaking Changes v3 → v4
-**Mitigação**: Symlinks `.cursor/` → `.onion/` + script `onion migrate`
+**Mitigação**: Symlinks `.claude/` → `.onion/` + script `onion migrate`
 
 ### Risco 4: Manutenção de 6 Contextos
 **Mitigação**: Meta-comandos + validações automáticas + CI/CD
@@ -387,7 +387,7 @@ Total Story Points: 55.5 SP
 - ✅ CLI wizard funcional em 100%
 - ✅ Estrutura `.onion/` gerada automaticamente
 - ✅ Comandos starter criados para cada contexto
-- ✅ Compatibilidade com Cursor IDE garantida
+- ✅ Compatibilidade com Claude Code garantida
 - ✅ Documentação completa do milestone
 
 **Recursos gerados**:
@@ -397,7 +397,7 @@ Total Story Points: 55.5 SP
 
 **Aprendizados**:
 - Wizard interativo funciona perfeitamente com `inquirer` v9+
-- Necessário criar `.cursor/` na raiz para Cursor reconhecer comandos
+- Necessário criar `.claude/` na raiz para Claude Code reconhecer comandos
 - Template system com `handlebars` facilita geração de arquivos
 
 ---

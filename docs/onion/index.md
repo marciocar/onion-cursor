@@ -8,7 +8,7 @@ Bem-vindo ao índice da documentação do **Sistema Onion v4.0 Beta**. Este docu
 
 ## 🎯 Visão Geral
 
-O **Sistema Onion** é um framework avançado de comandos `.cursor/` que revoluciona o desenvolvimento com:
+O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluciona o desenvolvimento com:
 - 🤖 **35 comandos especializados** organizados em categorias funcionais
 - 🎯 **12 agentes de IA especializados** em múltiplos domínios
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
@@ -21,7 +21,7 @@ O **Sistema Onion** é um framework avançado de comandos `.cursor/` que revoluc
 ## 📊 Estatísticas
 
 - **28 arquivos** de documentação markdown
-- **35 comandos** Cursor disponíveis
+- **35 comandos** Claude Code disponíveis
 - **12 agentes** IA especializados
 - **Versão atual**: 4.1.0-beta.1
 
@@ -102,7 +102,7 @@ O **Sistema Onion** é um framework avançado de comandos `.cursor/` que revoluc
    - Configuração
    - Uso e exemplos
 
-3. **[Arquitetura de Comandos](cursor-commands-architecture.md)** - Estrutura interna dos comandos
+3. **[Arquitetura de Comandos](claude-code-commands-architecture.md)** - Estrutura interna dos comandos
    - Padrões de design
    - Estrutura de arquivos
    - Best practices
@@ -247,7 +247,7 @@ O **Sistema Onion** é um framework avançado de comandos `.cursor/` que revoluc
 - Explore: [Agents Reference](agents-reference.md) - Seção Testing
 
 #### 🏗️ Arquitetos
-- Comece com: [Cursor Commands Architecture](cursor-commands-architecture.md)
+- Comece com: [Claude Code Commands Architecture](claude-code-commands-architecture.md)
 - Aprenda: [Consolidated Project Documentation](consolidated-project-documentation.md)
 - Explore: [Engineering Flows](engineering-flows.md)
 

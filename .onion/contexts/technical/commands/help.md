@@ -209,7 +209,7 @@ Para especificações e planejamento de produto:
 - **READMEs**: `.onion/contexts/technical/README.md`
 - **Agentes**: `.onion/contexts/technical/agents/`
 - **Configuração**: `.onion/contexts/technical/.context-config.yml`
-- **Sessions**: `.cursor/sessions/` (rastreamento de desenvolvimento)
+- **Sessions**: `.claude/sessions/` (rastreamento de desenvolvimento)
 
 ---
 
@@ -225,7 +225,7 @@ Cada comando inclui seção "🚀 Próximos Passos" sugerindo o que fazer em seg
 
 ### Sessions & Context Management
 O Onion v4 rastreia suas sessões de desenvolvimento:
-- `.cursor/sessions/[feature]/` contém context.md, plan.md, architecture.md
+- `.claude/sessions/[feature]/` contém context.md, plan.md, architecture.md
 - Comandos `/work` e `/start` gerenciam automaticamente
 - Sessions são **CAMADA 5** do ciclo completo Onion
 
@@ -295,7 +295,7 @@ O Technical Context trabalha em conjunto com Business:
 ## 🏗️ Arquitetura de Sessions
 
 ```
-.cursor/sessions/
+.claude/sessions/
 ├── feature-x/
 │   ├── context.md       # Objetivo, requisitos, decisões
 │   ├── architecture.md  # Design técnico, trade-offs
@@ -319,7 +319,7 @@ Comandos que gerenciam sessions automaticamente:
 - **Agente de ajuda**: `@onion` (orquestrador principal)
 - **Documentação**: `docs/onion/`
 - **Agentes especializados**: 
-  - `@cursor-specialist` - Problemas com IDE
+  - `@claude-code-specialist` - Problemas com IDE
   - `@gitflow-specialist` - Workflows git
   - `@nx-monorepo-specialist` - Monorepo NX
 

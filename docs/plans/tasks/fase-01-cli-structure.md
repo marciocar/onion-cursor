@@ -36,14 +36,14 @@ Criar CLI standalone (`@onion/cli`) com wizard interativo para inicialização a
 ### 2. Comandos Implementados
 - [x] `onion init` - Wizard interativo completo
 - [x] `onion add` - Stub (adicionar contextos/IDEs)
-- [x] `onion migrate` - Stub (migrar `.cursor/` → `.onion/`)
+- [x] `onion migrate` - Stub (migrar `.claude/` → `.onion/`)
 - [x] `onion validate` - Stub (validar estrutura)
 - [x] `onion help` - Ajuda do CLI
 
 ### 3. Wizard Interativo
 - [x] Passo 1/4: Tipo de projeto (monorepo/single-app/library)
 - [x] Passo 2/4: Seleção de contextos (business, technical, CS, etc)
-- [x] Passo 3/4: Seleção de IDEs (Cursor, Windsurf, Claude)
+- [x] Passo 3/4: Seleção de IDEs (Claude Code, Windsurf, Claude)
 - [x] Passo 4/4: Integrações (task manager, transcription)
 
 ### 4. Geradores
@@ -53,18 +53,18 @@ Criar CLI standalone (`@onion/cli`) com wizard interativo para inicialização a
 - [x] Template system com Handlebars
 
 ### 5. Templates
-- [x] `cursor-loader.js` - Loader para Cursor
-- [x] `cursor-settings.json` - Configurações Cursor
-- [x] `cursor-rules` - `.cursorrules` base
+- [x] `claude-loader.js` - Loader para Claude Code
+- [x] `claude-settings.json` - Configurações Claude Code
+- [x] `claude-rules` - `CLAUDE.md` base
 - [x] `onion-agent-md` - Agente @onion
 - [x] `context-starter-command` - Comandos starter
 - [x] `onion-readme` - README.md da estrutura
 
-### 6. Compatibilidade Cursor
-- [x] Criação de `.cursor/` na raiz do projeto
-- [x] Criação de `.cursor/commands/{context}/`
-- [x] Criação de `.cursor/agents/onion.md`
-- [x] Criação de `.cursor/.cursorrules`
+### 6. Compatibilidade Claude Code
+- [x] Criação de `.claude/` na raiz do projeto
+- [x] Criação de `.claude/commands/{context}/`
+- [x] Criação de `.claude/agents/onion.md`
+- [x] Criação de `.claude/CLAUDE.md`
 - [x] Comandos starter gerados automaticamente
 
 ### 7. Documentação
@@ -129,28 +129,28 @@ packages/onion-cli/
 ```bash
 cd ~/openspec
 onion init
-# Seleções: Monorepo → business,technical → Cursor → None,None
+# Seleções: Monorepo → business,technical → Claude Code → None,None
 # ✅ Estrutura .onion/ criada
-# ✅ Estrutura .cursor/ criada
-# ✅ Comandos reconhecidos pelo Cursor
+# ✅ Estrutura .claude/ criada
+# ✅ Comandos reconhecidos pelo Claude Code
 ```
 
 ### Teste 2: Comandos Gerados
 ```bash
-ls -la .cursor/commands/business/
+ls -la .claude/commands/business/
 # ✅ help.md
 # ✅ spec.md
 # ✅ task.md
 
-ls -la .cursor/commands/technical/
+ls -la .claude/commands/technical/
 # ✅ help.md
 # ✅ plan.md
 # ✅ work.md
 ```
 
-### Teste 3: Reconhecimento Cursor
+### Teste 3: Reconhecimento Claude Code
 ```bash
-# No Cursor IDE:
+# No Claude Code:
 /business/help  # ✅ Funciona
 /technical/help # ✅ Funciona
 @onion          # ✅ Reconhecido
@@ -168,16 +168,16 @@ ls -la .cursor/commands/technical/
 **Causa**: API do `inquirer` v9+ mudou  
 **Solução**: `require('inquirer').default`
 
-### Bug 3: Comandos não reconhecidos pelo Cursor
-**Causa**: CLI não estava criando `.cursor/` na raiz  
-**Solução**: Método `createCursorRootFiles()` no `LoadersGenerator`
+### Bug 3: Comandos não reconhecidos pelo Claude Code
+**Causa**: CLI não estava criando `.claude/` na raiz  
+**Solução**: Método `createClaudeRootFiles()` no `LoadersGenerator`
 
 ---
 
 ## 💡 Aprendizados
 
 1. **Wizard Interativo**: `inquirer` v9+ funciona perfeitamente após ajuste do import
-2. **Cursor IDE**: Necessário criar `.cursor/` na raiz para reconhecimento
+2. **Claude Code**: Necessário criar `.claude/` na raiz para reconhecimento
 3. **Templates**: Handlebars facilita geração de múltiplos arquivos
 4. **Chalk**: Versão 4.x é mais compatível com CommonJS
 5. **Estrutura**: Separar generators facilita manutenção
@@ -191,7 +191,7 @@ ls -la .cursor/commands/technical/
 | **CLI funcional** | 100% | 100% | ✅ |
 | **Wizard interativo** | 4 steps | 4 steps | ✅ |
 | **Comandos gerados** | 3+/contexto | 3/contexto | ✅ |
-| **IDEs suportados** | 1+ | 1 (Cursor) | ✅ |
+| **IDEs suportados** | 1+ | 1 (Claude Code) | ✅ |
 | **Documentação** | Completa | 5 docs | ✅ |
 | **Tempo de setup** | < 1 min | ~30 seg | ✅ |
 
@@ -210,7 +210,7 @@ ls -la .cursor/commands/technical/
 
 ➡️ **[FASE 2: Migração de Comandos e Agentes](fase-02-migration-commands-agents.md)**
 
-**Objetivo**: Migrar 90 comandos e 46 agentes de `.cursor/` para `.onion/contexts/`
+**Objetivo**: Migrar 90 comandos e 46 agentes de `.claude/` para `.onion/contexts/`
 
 ---
 

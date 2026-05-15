@@ -73,7 +73,7 @@ Invoque agentes especializados com `@nome-agente`:
 | @gitflow-specialist | Git workflows | Branching strategies |
 | @test-engineer | Testes | Estratégia de testes |
 | @code-reviewer | Code review | Revisão de código |
-| @cursor-specialist | Cursor IDE | Problemas de IDE |
+| @claude-code-specialist | Claude Code | Problemas de IDE |
 
 ---
 

@@ -88,7 +88,7 @@ Com base na análise de ferramentas existentes, identificam-se **três níveis p
 
 **Exemplo**:
 ```
-.cursor/sessions/auth-oauth2/
+.claude/sessions/auth-oauth2/
 ├── context.md      # Spec inicial
 ├── plan.md         # Plano de fases
 └── decisions.md    # Decisões arquiteturais
@@ -190,7 +190,7 @@ feature-name/
 
 **Características**:
 - CLI que cria estrutura de workspace
-- Integração com múltiplos assistentes (Copilot, Cursor, etc.)
+- Integração com múltiplos assistentes (Copilot, Claude Code, etc.)
 - Workflow extenso: Research → Planning → Design → Implementation
 - Nível: **Spec-First** (com potencial para Spec-Anchored)
 

@@ -65,7 +65,7 @@ Agente especialista em documentação textual completa do C4 Model, complementan
 
 ### **Sistema de Integração Cache**
 ```typescript
-// Implementação conceitual - executada via ferramentas Cursor
+// Implementação conceitual - executada via ferramentas Claude Code
 interface CacheIntegrationEngine {
   // Passo 1: Carrega Análise Cached do Agente de Arquitetura
   async loadCachedAnalysis(projectPath: string): Promise<ArchitectureAnalysis> {
@@ -77,7 +77,7 @@ interface CacheIntegrationEngine {
   
   // Passo 2: Seleção de Templates Baseada no Tipo de Projeto
   async selectDocumentationTemplates(projectType: ProjectType): Promise<C4Templates> {
-    // Carrega templates apropriados de .cursor/utils/c4-documentation-templates.md
+    // Carrega templates apropriados de .claude/utils/c4-documentation-templates.md
     // Adapta templates baseado nas características detectadas do projeto
     // Customiza para padrões arquiteturais específicos (SPA, API, Monorepo, etc.)
     return adaptedTemplates;
@@ -468,13 +468,13 @@ interface OutputManager {
 
 ## 🔧 **Template System Integration**
 
-### **Template Loading from .cursor/utils/**
+### **Template Loading from .claude/utils/**
 ```typescript
 class C4TemplateEngine {
   private templates = this.loadOfficialTemplates();
   
   private loadOfficialTemplates(): C4TemplateMap {
-    // Load from .cursor/utils/c4-documentation-templates.md
+    // Load from .claude/utils/c4-documentation-templates.md
     // Parse official C4 templates by documentation type
     // Cache for performance
     
@@ -654,5 +654,5 @@ Agent Process:
 - `grep` - Search for architectural patterns and decisions
 - `codebase_search` - Semantic understanding for documentation context
 - `@c4-architecture-specialist integration` - Master-slave coordination
-- Template access via `.cursor/utils/c4-documentation-templates.md`
+- Template access via `.claude/utils/c4-documentation-templates.md`
 - Cache integration for analysis consistency

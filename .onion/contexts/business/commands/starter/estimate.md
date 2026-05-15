@@ -240,7 +240,7 @@ SE critérios de aceite não claros:
    ```
 
 3. **Criar via Adapter:**
-   - Usar adapter apropriado de `.cursor/utils/task-manager/adapters/`
+   - Usar adapter apropriado de `.claude/utils/task-manager/adapters/`
    - Adicionar custom field "Story Points" se disponível
    - Adicionar tags apropriadas (complexity, risk, etc)
 

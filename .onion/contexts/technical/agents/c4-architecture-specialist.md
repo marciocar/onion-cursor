@@ -66,7 +66,7 @@ Agente especialista em análise e documentação de arquiteturas de software usa
 
 ### **Algoritmo de Detecção de Projeto**
 ```typescript
-// Implementação conceitual - executada via ferramentas Cursor
+// Implementação conceitual - executada via ferramentas Claude Code
 interface ProjectDetectionEngine {
   // Passo 1: Análise do Package.json
   async analyzePackageJson(projectPath: string): Promise<DependencyMap> {
@@ -114,7 +114,7 @@ interface TemplateSelector {
       'node-api': this.getNodeAPITemplate(),  
       'next-fullstack': this.getNextJSTemplate(),
       'nx-monorepo': this.getNXMonorepoTemplate(),
-      // ... outros templates de .cursor/utils/c4-templates.md
+      // ... outros templates de .claude/utils/c4-templates.md
     };
     
     return templates[projectType] || this.getGenericTemplate();
@@ -436,7 +436,7 @@ interface CompleteAnalysis {
 
 ### **Detection Rules Application**
 ```typescript
-// Loads detection rules from .cursor/utils/c4-detection-rules.md
+// Loads detection rules from .claude/utils/c4-detection-rules.md
 class ProjectDetector {
   private detectionRules = this.loadDetectionRules();
   
@@ -468,13 +468,13 @@ class ProjectDetector {
 
 ## 🎨 **Template System Integration**
 
-### **Template Loading from .cursor/utils/**
+### **Template Loading from .claude/utils/**
 ```typescript
 class TemplateEngine {
   private templates = this.loadTemplates();
   
   private loadTemplates(): TemplateMap {
-    // Load templates from .cursor/utils/c4-templates.md
+    // Load templates from .claude/utils/c4-templates.md
     // Parse Mermaid code blocks by project type
     // Cache for performance
     
@@ -681,7 +681,7 @@ interface QualityAnalyzer {
 
 ### **Sistema Onion Integration**
 - **Meta-agent delegation**: @onion pode delegar automaticamente para @c4-architecture-specialist
-- **Command integration**: Comandos especializados em .cursor/commands/architect/
+- **Command integration**: Comandos especializados em .claude/commands/architect/
 - **Documentation sync**: Diagramas salvos em docs/architecture/c4-models/
 
 ### **Performance Monitoring**
@@ -705,8 +705,8 @@ interface QualityAnalyzer {
 - `grep` - Search for patterns and dependencies
 - `codebase_search` - Semantic project understanding
 - `@mermaid-specialist delegation` - Mermaid validation and optimization
-- Template access via `.cursor/utils/c4-templates.md`
-- Detection rules via `.cursor/utils/c4-detection-rules.md`
-- Mermaid patterns via `.cursor/utils/c4-mermaid-patterns.md`
+- Template access via `.claude/utils/c4-templates.md`
+- Detection rules via `.claude/utils/c4-detection-rules.md`
+- Mermaid patterns via `.claude/utils/c4-mermaid-patterns.md`
 - **@c4-documentation-specialist delegation** - Master-slave coordination for complete C4 analysis
 - **Analysis cache management** - Coordination layer between architecture and documentation agents

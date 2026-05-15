@@ -32,7 +32,7 @@ docs/
 ├── guidelines/                 # Guidelines de desenvolvimento (4 arquivos)
 └── files/                      # Recursos diversos
 
-.cursor/
+.claude/
 ├── commands/                   # 59 comandos organizados por categoria
 │   ├── docs/                   # Comandos de documentação
 │   ├── engineer/               # Workflows de desenvolvimento
@@ -57,18 +57,18 @@ Este índice central fornece:
 - Estatísticas da documentação (80 arquivos, 59 comandos, 27 agentes)
 - Guias de navegação por perfil (dev, PM, vendas, arquitetos, CISO/Compliance)
 - Mapa de navegação rápida
-- Referência completa aos 27 agentes especializados em `.cursor/agents/`
+- Referência completa aos 27 agentes especializados em `.claude/agents/`
 - Métricas de maturidade de compliance (ISO 27001, ISO 22301, SOC2, LGPD)
 
 **Comportamento**:
 1. Escaneia todas as pastas em `@/docs/`
 2. Lê os arquivos `index.md` de cada seção
-3. Escaneia `.cursor/commands/` e `.cursor/agents/` para contar recursos
+3. Escaneia `.claude/commands/` e `.claude/agents/` para contar recursos
 4. Extrai informações relevantes (título, descrição, arquivos principais)
 5. Gera/atualiza `docs/INDEX.md` com estrutura completa
 6. Mantém estatísticas atualizadas:
    - 80 arquivos markdown (+2 README.md landing pages)
-   - 59 comandos Cursor
+   - 59 comandos Claude Code
    - 27 agentes IA (12 gerais + 10 development + 5 compliance)
    - 15 arquivos business-context
    - 16 arquivos technical-context

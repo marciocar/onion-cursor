@@ -38,8 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-#### Comando Cursor `/onion/setup` (2026-01-01)
-- **Wizard inteligente de configuração Cursor** (`.cursor/commands/onion/setup.md`)
+#### Comando Claude Code `/onion/setup` (2026-01-01)
+- **Wizard inteligente de configuração Claude Code** (`.claude/commands/onion/setup.md`)
   - Guia o assistente através de configuração pós-inicialização
   - Análise automática de ambiente (Node.js, package manager, Git, IDEs)
   - Análise automática de projeto (tipo, framework, stack, características)
@@ -61,7 +61,7 @@ This is the first beta release of Onion v4.0, representing a complete transforma
 - **`onion init`**: Interactive wizard to initialize new Onion projects
   - Choose project type (monorepo, single-app, library)
   - Select contexts (business, technical, customer-success, etc.)
-  - Configure IDEs (Cursor, Windsurf, Claude Code)
+  - Configure IDEs (Claude Code, Windsurf, Claude Code)
   - Optional integrations (ClickUp, Whisper, Gamma)
   - Generates complete `.onion/` structure in < 2 minutes
 
@@ -71,7 +71,7 @@ This is the first beta release of Onion v4.0, representing a complete transforma
   - Updates loaders automatically
 
 - **`onion migrate`**: Automated migration from v3 to v4
-  - Analyzes v3 structure (`.cursor/`)
+  - Analyzes v3 structure (`.claude/`)
   - Generates migration plan with preview
   - Creates automatic backup
   - Migrates 90+ commands and 46+ agents
@@ -82,7 +82,7 @@ This is the first beta release of Onion v4.0, representing a complete transforma
 - **`.onion/` structure**: Universal, IDE-agnostic architecture
 - **Core layer**: Universal commands, agents, knowledge bases, rules
 - **Contexts layer**: Specialized contexts (business, technical)
-- **IDE layer**: IDE-specific loaders (Cursor implemented, others planned)
+- **IDE layer**: IDE-specific loaders (Claude Code implemented, others planned)
 
 #### Level System (Starter/Intermediate/Advanced)
 - **Starter commands** (80% use cases): 13 commands across contexts
@@ -127,7 +127,7 @@ This is the first beta release of Onion v4.0, representing a complete transforma
 
 #### Before (v3)
 ```
-.cursor/
+.claude/
 ├── commands/     # 90 commands mixed
 ├── agents/       # 46 agents mixed
 └── rules/        # Validation rules
@@ -157,7 +157,7 @@ This is the first beta release of Onion v4.0, representing a complete transforma
 │       ├── agents/           # 23 agents
 │       └── sessions/
 └── ide/
-    └── cursor/               # Cursor IDE support
+    └── claude/               # Claude Code support
 ```
 
 ### 🎯 Improvements
@@ -173,8 +173,8 @@ This is the first beta release of Onion v4.0, representing a complete transforma
 - **Simplification**: 80% ⬇️
 
 #### IDE Support
-- **Before**: Cursor only
-- **After**: Cursor + prepared for Windsurf/Claude
+- **Before**: Claude Code only
+- **After**: Claude Code + prepared for Windsurf/Claude
 - **Portability**: Multi-IDE ✅
 
 #### Project Setup
@@ -191,9 +191,9 @@ onion migrate
 ```
 
 **What happens**:
-1. Analyzes `.cursor/` structure
+1. Analyzes `.claude/` structure
 2. Shows migration plan (preview)
-3. Creates `.cursor-backup/` automatically
+3. Creates `.claude-backup/` automatically
 4. Generates `.onion/` structure
 5. Migrates all commands and agents
 6. Creates symlinks (backward compatibility)
@@ -210,9 +210,9 @@ onion migrate
 - `docs/onion/levels-system.md` - Level system guide (400+ lines)
 - `docs/onion/RELEASE-NOTES-v4.0-beta.md` - Release notes (700+ lines)
 - `docs/plans/tasks/fase-05-ide-loaders.md` - Next phase planning
-- `.cursor/sessions/fase-02-migration-commands/SUMMARY.md` - FASE 2 summary
-- `.cursor/sessions/fase-03-level-system/SUMMARY.md` - FASE 3 summary
-- `.cursor/sessions/fase-04-cli-enhancements/SUMMARY.md` - FASE 4 summary
+- `.claude/sessions/fase-02-migration-commands/SUMMARY.md` - FASE 2 summary
+- `.claude/sessions/fase-03-level-system/SUMMARY.md` - FASE 3 summary
+- `.claude/sessions/fase-04-cli-enhancements/SUMMARY.md` - FASE 4 summary
 
 #### Updated Documentation
 - `docs/plans/onion-v4-epic.md` - Progress updated to 71%
@@ -220,7 +220,7 @@ onion migrate
 ### ⚠️ Breaking Changes
 
 #### Deprecated (still works via symlinks)
-- `.cursor/` structure (use `.onion/` instead)
+- `.claude/` structure (use `.onion/` instead)
 - Direct command paths (use context-based paths)
 - Old YAML headers (new fields: `context`, `level`)
 
@@ -230,13 +230,13 @@ onion migrate
 ### 🐛 Known Issues
 
 #### Beta Limitations
-1. **IDEs**: Only Cursor supported (Windsurf/Claude in FASE 5)
+1. **IDEs**: Only Claude Code supported (Windsurf/Claude in FASE 5)
 2. **Contexts**: Only Business and Technical migrated
 3. **Tests**: Missing E2E integration tests
 4. **Docs**: Some documentation still in progress
 
 #### Workarounds
-- Use Cursor IDE for full functionality
+- Use Claude Code for full functionality
 - Use `onion migrate` for v3 projects
 - Report issues on GitHub
 
@@ -322,7 +322,7 @@ This release represents ~23 hours of intensive development in 1 day:
 First formalized release with 90 commands and 46 agents.
 
 #### Features
-- Cursor IDE integration
+- Claude Code integration
 - ClickUp MCP integration
 - Task Manager abstraction
 - EXTRACT framework

@@ -191,7 +191,7 @@ O Sistema Onion não apenas **usa** abstrações - ele tem **geradores de abstra
 
 #### Análise do Comando
 
-**Arquivo**: `.cursor/commands/meta/create-abstraction.md`
+**Arquivo**: `.claude/commands/meta/create-abstraction.md`
 
 **O que faz**:
 1. Cria estrutura completa de abstração SDAAL
@@ -204,7 +204,7 @@ O Sistema Onion não apenas **usa** abstrações - ele tem **geradores de abstra
 
 **Estrutura gerada**:
 ```
-.cursor/utils/<abstraction-name>/
+.claude/utils/<abstraction-name>/
 ├── README.md           # Visão geral e quick start
 ├── interface.md        # Contrato TypeScript
 ├── types.md            # Tipos compartilhados
@@ -384,9 +384,9 @@ O Onion tem **geradores para tudo**:
 
 ### Problema Identificado
 
-> ".cursor poderia ser .claude, .windsurf e outros e mesmo assim iria funcionar"
+> ".claude poderia ser .claude, .windsurf e outros e mesmo assim iria funcionar"
 
-**Crítico**: A estrutura atual depende de `.cursor/` - específico do Cursor IDE.
+**Crítico**: A estrutura atual depende de `.claude/` - específico do Claude Code.
 
 ### Proposta: `.onion/` (Universal)
 
@@ -533,7 +533,7 @@ O Onion tem **geradores para tudo**:
 │   └── [outros contextos]/
 │
 └── .ide/                            # 🆕 IDE-specific configs
-    ├── cursor/                      # Configs Cursor IDE
+    ├── claude/                      # Configs Claude Code
     │   └── settings.json
     ├── claude/                      # Configs Claude Desktop
     │   └── settings.json
@@ -543,9 +543,9 @@ O Onion tem **geradores para tudo**:
 
 ### Benefícios da Nova Estrutura
 
-| Aspecto | Antes (`.cursor/`) | Depois (`.onion/`) |
+| Aspecto | Antes (`.claude/`) | Depois (`.onion/`) |
 |---------|-------------------|-------------------|
-| **Portabilidade** | ❌ Cursor-only | ✅ Qualquer IDE |
+| **Portabilidade** | ❌ Claude Code-only | ✅ Qualquer IDE |
 | **Separação Contextos** | ⚠️ Misturado | ✅ Clara (.onion/contexts/) |
 | **Gestão de Contexto** | ⚠️ Implícita | ✅ Explícita (sessions/) |
 | **Meta-comandos** | ⚠️ Dispersos | ✅ Organizados (core/commands/meta/) |
@@ -829,15 +829,15 @@ integrations:
 
 ### FASE 2: Reestruturar Arquitetura (CRÍTICO)
 
-**Por quê**: `.cursor/` é vendor lock-in. Estrutura atual não reflete contextos.
+**Por quê**: `.claude/` é vendor lock-in. Estrutura atual não reflete contextos.
 
 **Ações**:
-1. [ ] Migrar `.cursor/` → `.onion/`
+1. [ ] Migrar `.claude/` → `.onion/`
    ```bash
    /meta/migrate-to-onion
    # → Cria estrutura .onion/
    # → Migra comandos, agentes, KBs, rules
-   # → Mantém .cursor/ como symlink (compatibilidade)
+   # → Mantém .claude/ como symlink (compatibilidade)
    ```
 
 2. [ ] Criar estrutura de contextos
@@ -855,7 +855,7 @@ integrations:
    - Comandos starter/intermediate/advanced
 
 4. [ ] Criar `.ide/` para configs IDE-specific
-   - Cursor, Claude, Windsurf configs separados
+   - Claude Code, Claude, Windsurf configs separados
    - Agnóstico de IDE
 
 **Output esperado**: Estrutura reflete visão multi-context. Portável entre IDEs.
@@ -1027,8 +1027,8 @@ onion technical plan feature-auth
    - Único sistema que faz isso
 
 5. **Estrutura deve ser agnóstica de IDE**
-   - `.onion/` ao invés de `.cursor/`
-   - Suporte a Cursor, Claude, Windsurf
+   - `.onion/` ao invés de `.claude/`
+   - Suporte a Claude Code, Claude, Windsurf
    - Portabilidade total
 
 ### O Potencial Real
@@ -1074,7 +1074,7 @@ Se sim, ordem recomendada:
 
 ## 💬 Questões para Discussão
 
-1. **Arquitetura**: Concordas com `.onion/` ao invés de `.cursor/`?
+1. **Arquitetura**: Concordas com `.onion/` ao invés de `.claude/`?
 2. **Sistema de Níveis**: Faz sentido starter/intermediate/advanced?
 3. **Prioridades**: Ordem das fases está correta?
 4. **Story Points**: Ciclo cross-context é viável?

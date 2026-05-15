@@ -144,7 +144,7 @@ Estruture a resposta em formato YAML estruturado para facilitar validação post
 **Salvar resultado da análise:**
 
 ```bash
-ANALYSIS_OUTPUT=".cursor/sessions/consolidated-transform/analysis-$(date +%Y%m%d-%H%M%S).yaml"
+ANALYSIS_OUTPUT=".claude/sessions/consolidated-transform/analysis-$(date +%Y%m%d-%H%M%S).yaml"
 # Salvar análise completa em arquivo estruturado
 ```
 
@@ -396,7 +396,7 @@ tasks_to_create:
 **Salvar todos os outputs gerados:**
 
 ```bash
-OUTPUT_DIR=".cursor/sessions/consolidated-transform/"
+OUTPUT_DIR=".claude/sessions/consolidated-transform/"
 mkdir -p "$OUTPUT_DIR"
 
 TIMESTAMP=$(date +%Y%m%d-%H%M%S)

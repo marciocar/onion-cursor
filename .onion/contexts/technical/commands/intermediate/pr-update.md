@@ -51,7 +51,7 @@ Atualizar um Pull Request existente com mudanças adicionais. Este comando autom
 ## 🤝 Integração ClickUp MCP
 
 ### Detecção de Task Ativa
-- Lê task ID do arquivo `.cursor/sessions/[slug]/context.md`
+- Lê task ID do arquivo `.claude/sessions/[slug]/context.md`
 - Identifica PR existente através da task ou branch
 - Valida se task está em status "in progress" com tag "under-review"
 
@@ -72,8 +72,8 @@ await commentPRUpdated(taskId, {
 ```
 
 **Referências:**
-- **Padrão 4 (PR Atualizada)**: `.cursor/docs/strategies/clickup-comment-patterns.md`
-- **Abstração MCP**: `commentPRUpdated()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 632-661)
+- **Padrão 4 (PR Atualizada)**: `.claude/docs/strategies/clickup-comment-patterns.md`
+- **Abstração MCP**: `commentPRUpdated()` em `.claude/utils/clickup-mcp-wrappers.md` (linhas 632-661)
 
 ## ⚙️ Processo Automático
 
@@ -99,7 +99,7 @@ await commentPRUpdated(taskId, {
 ### Análise de Arquivos Modificados
 ```markdown
 ## Categorização Automática:
-- `.cursor/commands/` → "feat/fix: Comando updates"
+- `.claude/commands/` → "feat/fix: Comando updates"
 - `docs/` → "docs: Documentation updates"
 - `tests/` → "test: Test updates"
 - `*.md` (session files) → "chore: Session documentation"
@@ -130,7 +130,7 @@ git pull origin [branch-name]  # Sincronizar primeiro
 
 ### Problema: "Task ClickUp não encontrada"
 **Solução**: Verificar context.md da sessão ativa
-- Confirmar task ID no arquivo `.cursor/sessions/[slug]/context.md`
+- Confirmar task ID no arquivo `.claude/sessions/[slug]/context.md`
 - Validar se task existe e está acessível
 
 ## 💡 Casos de Uso Comuns

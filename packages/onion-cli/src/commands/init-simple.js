@@ -41,43 +41,43 @@ async function initSimple() {
     
     console.log(chalk.green('✓ Created .onion/'));
     
-    // 4. Criar .cursor/ para Cursor IDE
-    console.log(chalk.cyan('🎯 Setting up Cursor IDE integration...'));
-    
-    const cursorDir = path.join(projectRoot, '.cursor');
-    fs.ensureDirSync(cursorDir);
-    
+    // 4. Criar .claude/ para Claude Code
+    console.log(chalk.cyan('🎯 Setting up Claude Code integration...'));
+
+    const claudeDir = path.join(projectRoot, '.claude');
+    fs.ensureDirSync(claudeDir);
+
     // Copiar estrutura de comandos
-    const sourceCursorCommands = path.join(onionRoot, '.cursor/commands');
-    if (fs.existsSync(sourceCursorCommands)) {
+    const sourceClaudeCommands = path.join(onionRoot, '.claude/commands');
+    if (fs.existsSync(sourceClaudeCommands)) {
       fs.copySync(
-        sourceCursorCommands,
-        path.join(cursorDir, 'commands'),
+        sourceClaudeCommands,
+        path.join(claudeDir, 'commands'),
         { dereference: true }
       );
     }
-    
+
     // Copiar agentes
-    const sourceCursorAgents = path.join(onionRoot, '.cursor/agents');
-    if (fs.existsSync(sourceCursorAgents)) {
+    const sourceClaudeAgents = path.join(onionRoot, '.claude/agents');
+    if (fs.existsSync(sourceClaudeAgents)) {
       fs.copySync(
-        sourceCursorAgents,
-        path.join(cursorDir, 'agents'),
+        sourceClaudeAgents,
+        path.join(claudeDir, 'agents'),
         { dereference: true }
       );
     }
-    
+
     // Copiar regras
-    const sourceCursorRules = path.join(onionRoot, '.cursor/rules');
-    if (fs.existsSync(sourceCursorRules)) {
+    const sourceClaudeRules = path.join(onionRoot, '.claude/rules');
+    if (fs.existsSync(sourceClaudeRules)) {
       fs.copySync(
-        sourceCursorRules,
-        path.join(cursorDir, 'rules'),
+        sourceClaudeRules,
+        path.join(claudeDir, 'rules'),
         { dereference: true }
       );
     }
     
-    console.log(chalk.green('✓ Created .cursor/'));
+    console.log(chalk.green('✓ Created .claude/'));
     
     // 5. Criar .onion-config.yml
     console.log(chalk.cyan('⚙️  Creating configuration...'));
@@ -96,9 +96,9 @@ contexts:
     description: Development, architecture, PRs
 
 ides:
-  - name: cursor
+  - name: claude-code
     enabled: true
-    path: .cursor/
+    path: .claude/
 
 integrations:
   task_manager:
@@ -169,7 +169,7 @@ This project uses Onion System v4 for development.
     console.log('');
     console.log(chalk.cyan('📚 Next steps:'));
     console.log('');
-    console.log('  1. Restart Cursor IDE');
+    console.log('  1. Restart Claude Code');
     console.log('  2. Try a command:');
     console.log(chalk.yellow('     /business/help'));
     console.log(chalk.yellow('     /technical/help'));

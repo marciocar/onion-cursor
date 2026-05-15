@@ -140,7 +140,7 @@ O CLI está **funcional para --version e --help**, mas os comandos `init`, `add`
 **Decisão tomada**: Release focada em **documentação** permite validar arquitetura antes de finalizar implementação.
 
 ### Backward Compatibility
-A estrutura `.cursor/` continua funcional via symlinks, garantindo que usuários v3 possam testar v4 sem breaking changes.
+A estrutura `.claude/` continua funcional via symlinks, garantindo que usuários v3 possam testar v4 sem breaking changes.
 
 ### Community Feedback
 Esta release é **explicitamente** para coletar feedback sobre:
