@@ -86,7 +86,7 @@ O **Onion v4.0** representa uma transformação completa do sistema, evoluindo d
 ```
 .onion/
 ├── core/               # Núcleo universal (5-10 comandos)
-│   ├── knowbase/       # CAMADA 1: Knowledge Base
+│   ├── knowledge-base/       # CAMADA 1: Knowledge Base
 │   ├── agents/         # CAMADA 2: Agentes IA
 │   ├── commands/       # CAMADA 3: Comandos
 │   └── rules/          # CAMADA 4: Regras

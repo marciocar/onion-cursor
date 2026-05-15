@@ -90,7 +90,7 @@ Este agente é invocado automaticamente pelos comandos para:
 - Detecção de épicos
 
 **Base de Conhecimento:**
-- `docs/knowbase/frameworks/framework_story_points.md`
+- `docs/knowledge-base/frameworks/framework_story_points.md`
 
 ## 📋 Fluxo de Estimativa
 
@@ -235,9 +235,8 @@ updateEstimate(taskId, newEstimate);
 ## 📚 Referências
 
 - **Agente:** @story-points-framework-specialist
-- **Framework:** `docs/knowbase/frameworks/framework_story_points.md`
+- **Framework:** `docs/knowledge-base/frameworks/framework_story_points.md`
 - **Comando de Estimativa:** `/product/estimate`
-- **Padrões ClickUp:** `.claude/docs/clickup/clickup-auto-update-strategy.md`
 
 ## 🚀 Próximos Passos
 

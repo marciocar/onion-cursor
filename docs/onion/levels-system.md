@@ -339,8 +339,8 @@ Tecnicamente sim, mas não recomendado. Pré-requisitos existem por uma razão -
 ## 📚 Recursos Relacionados
 
 ### Documentação
-- **Visão Geral**: `docs/knowbase/frameworks/onion-multi-context-orchestrator-vision.md`
-- **Ciclo Completo**: `docs/knowbase/frameworks/onion-complete-cycle-understanding.md`
+- **Visão Geral**: `docs/knowledge-base/frameworks/onion-multi-context-orchestrator-vision.md`
+- **Ciclo Completo**: `docs/knowledge-base/frameworks/onion-complete-cycle-understanding.md`
 - **READMEs**: `.onion/contexts/{business,technical}/README.md`
 
 ### Comandos Help

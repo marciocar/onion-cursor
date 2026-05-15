@@ -45,7 +45,7 @@ O Sistema de Testes e Validação é composto por **4 camadas integradas** que t
 
 ## 📚 Camada 1: Knowledge Base - Framework de Testes
 
-### 📄 `docs/knowbase/frameworks/framework_testes.md`
+### 📄 `docs/knowledge-base/frameworks/framework_testes.md`
 
 **Propósito**: Fonte de verdade única para todas as práticas de teste.
 
@@ -539,8 +539,8 @@ Comandos de teste geram:
 ## 📚 Referências
 
 ### Knowledge Bases
-- [`framework_testes.md`](../knowbase/frameworks/framework_testes.md) - Framework completo
-- [`framework_story_points.md`](../knowbase/frameworks/framework_story_points.md) - Sistema de estimativas
+- [`framework_testes.md`](../knowledge-base/frameworks/framework_testes.md) - Framework completo
+- [`framework_story_points.md`](../knowledge-base/frameworks/framework_story_points.md) - Sistema de estimativas
 
 ### Comandos Relacionados
 - `/product/task` - Criar tasks
@@ -563,7 +563,7 @@ Comandos de teste geram:
 1. **Entender o Framework**:
    ```bash
    # Ler framework completo
-   cat docs/knowbase/frameworks/framework_testes.md
+   cat docs/knowledge-base/frameworks/framework_testes.md
    ```
 
 2. **Criar Primeira Estratégia**:

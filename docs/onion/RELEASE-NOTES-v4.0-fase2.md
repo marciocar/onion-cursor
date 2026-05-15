@@ -304,7 +304,7 @@ Script de validação criado (`scripts/validate-migration.js`) que testa:
 - **Plano de Migração**: `docs/plans/onion-v4-migration-plan.md`
 - **Epic**: `docs/plans/onion-v4-epic.md`
 - **Sessão FASE 2**: `.claude/sessions/fase-02-migration-commands/`
-- **Arquitetura**: `docs/knowbase/frameworks/onion-multi-context-orchestrator-vision.md`
+- **Arquitetura**: `docs/knowledge-base/frameworks/onion-multi-context-orchestrator-vision.md`
 
 ---
 

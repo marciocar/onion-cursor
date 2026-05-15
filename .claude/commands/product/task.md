@@ -538,11 +538,10 @@ ${recommendations}
 ### Decomposição e Estimativas
 - **Decomposição:** @task-specialist
 - **Estimativas:** @story-points-framework-specialist, /product/estimate
-- **Framework:** `docs/knowbase/frameworks/framework_story_points.md`
+- **Framework:** `docs/knowledge-base/frameworks/framework_story_points.md`
 
 ### Padrões de Formatação
 - **ClickUp:** `.claude/commands/common/prompts/clickup-patterns.md`
-- **Formatação:** `.claude/docs/clickup/clickup-formatting.md`
 
 ## ⚠️ Notas
 

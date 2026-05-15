@@ -58,14 +58,14 @@ $ onion init
 ├── .onion/                      ✅ CRIADO
 │   ├── README.md
 │   ├── core/
-│   │   ├── knowbase/
+│   │   ├── knowledge-base/
 │   │   ├── agents/
 │   │   ├── commands/
 │   │   ├── rules/
 │   │   └── utils/
 │   ├── contexts/
 │   │   ├── business/
-│   │   │   ├── knowbase/
+│   │   │   ├── knowledge-base/
 │   │   │   ├── agents/
 │   │   │   ├── commands/starter/
 │   │   │   └── sessions/

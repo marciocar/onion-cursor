@@ -127,7 +127,7 @@ Padrões para integrações:
 
 ## 📚 Referências
 
-- **Knowledge Bases**: `docs/knowbase/`
+- **Knowledge Bases**: `docs/knowledge-base/`
 - **Documentação Onion**: `docs/onion/`
 - **Agentes**: `.claude/agents/`
 - **Comandos**: `.claude/commands/`

@@ -357,7 +357,7 @@ run_terminal_cmd [comando construído]
 ## 📚 Referências
 
 - **Agente de Testes:** @test-engineer
-- **Framework de Testes:** `docs/knowbase/frameworks/framework_testes.md`
+- **Framework de Testes:** `docs/knowledge-base/frameworks/framework_testes.md`
 - **Cypress Docs:** https://docs.cypress.io
 - **Playwright Docs:** https://playwright.dev
 

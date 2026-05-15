@@ -356,7 +356,6 @@ ls .claude/sessions/
 ### **🎯 Para Desenvolvimento:**
 - **Architecture**: `.claude/sessions/gitflow-commands/architecture.md`
 - **Implementation**: Source code em cada comando
-- **ClickUp Integration**: `.claude/docs/clickup/clickup-formatting.md`
 
 ### **🔗 Comandos Relacionados:**
 - **Product Management**: `/product/task`, `/product/task-check`

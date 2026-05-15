@@ -65,11 +65,11 @@ Estabelecer contexto focado em:
 - ✅ Verificar arquivos de configuração (.eslintrc, .prettierrc, etc)
 
 ### 6. Knowledge Bases Técnicas
-- ✅ Revisar `docs/knowbase/concepts/spec-as-code-strategy.md`
-- ✅ Revisar `docs/knowbase/concepts/ai-agent-design-patterns.md`
-- ✅ Revisar `docs/knowbase/concepts/abstraction-patterns-catalog.md`
-- ✅ Revisar `docs/knowbase/frameworks/framework_testes.md`
-- ✅ Revisar `docs/knowbase/concepts/context-window-optimization.md`
+- ✅ Revisar `docs/knowledge-base/concepts/spec-as-code-strategy.md`
+- ✅ Revisar `docs/knowledge-base/concepts/ai-agent-design-patterns.md`
+- ✅ Revisar `docs/knowledge-base/concepts/abstraction-patterns-catalog.md`
+- ✅ Revisar `docs/knowledge-base/frameworks/framework_testes.md`
+- ✅ Revisar `docs/knowledge-base/concepts/context-window-optimization.md`
 
 ### 7. Agentes de Desenvolvimento
 - ✅ Conhecer agentes especializados:
@@ -107,7 +107,7 @@ Estabelecer contexto focado em:
 - `docs/onion/engineering-flows.md` - Fluxos de desenvolvimento
 - `docs/onion/testing-validation-system.md` - Sistema de testes
 - `docs/onion/commands-guide.md` - Comandos de engenharia
-- `docs/knowbase/frameworks/framework_testes.md` - Framework de testes
+- `docs/knowledge-base/frameworks/framework_testes.md` - Framework de testes
 
 ### Workflows de Desenvolvimento
 1. **Iniciar**: `/engineer/start` → Valida story points, cria branch, sessão

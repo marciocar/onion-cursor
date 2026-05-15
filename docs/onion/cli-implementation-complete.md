@@ -105,7 +105,7 @@ O comando `onion init` executa wizard interativo:
 .onion/
 ├── README.md                    # Getting started
 ├── core/
-│   ├── knowbase/                # Knowledge bases universais
+│   ├── knowledge-base/                # Knowledge bases universais
 │   │   ├── concepts/
 │   │   ├── frameworks/
 │   │   ├── tools/
@@ -120,7 +120,7 @@ O comando `onion init` executa wizard interativo:
 ├── contexts/
 │   ├── business/                # Para cada contexto selecionado:
 │   │   ├── .context-config.yml  # Config do contexto
-│   │   ├── knowbase/
+│   │   ├── knowledge-base/
 │   │   ├── agents/
 │   │   ├── commands/
 │   │   │   ├── starter/         # 5 comandos essenciais

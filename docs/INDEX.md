@@ -24,7 +24,7 @@ Este projeto utiliza o **Sistema Onion v4.0 Beta** - um framework avançado de c
 ### Documentação Principal
 - **69 arquivos markdown** em `docs/` (incluindo este índice, excluindo draft/)
 - **28 arquivos** em `docs/onion/` (Sistema Onion)
-- **24 arquivos** em `docs/knowbase/` (Knowledge Bases)
+- **24 arquivos** em `docs/knowledge-base/` (Knowledge Bases)
   - 13 arquivos em `concepts/` (Conceitos fundamentais)
   - 7 arquivos em `frameworks/` (Frameworks e metodologias)
   - 2 arquivos em `tools/` (Ferramentas)
@@ -84,7 +84,7 @@ docs/
 │   ├── RELEASE-NOTES-v4.0-beta.md  # Notas de release v4.0
 │   └── [outros arquivos de release e implementação]
 │
-├── knowbase/                   # Knowledge Bases (24 arquivos)
+├── knowledge-base/                   # Knowledge Bases (24 arquivos)
 │   ├── concepts/               # Conceitos fundamentais (13 arquivos)
 │   │   ├── abstraction-patterns-catalog.md
 │   │   ├── ai-agent-design-patterns.md
@@ -217,7 +217,7 @@ Knowledge Bases estruturadas para consumo por IA e referência técnica:
 - **Claude Code Commands Best Practices 2025** - Boas práticas de comandos Claude Code
 - **Whisper** - Sistema de transcrição de áudio (OpenAI)
 
-**Localização:** `docs/knowbase/`
+**Localização:** `docs/knowledge-base/`
 
 ---
 
@@ -277,8 +277,8 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 **Comece com:**
 1. [Guia de Comandos](onion/commands-guide.md) - Seção "Comandos de Produto"
 2. [Exemplos Práticos](onion/practical-examples.md)
-3. [Knowledge Base - Story Points](knowbase/frameworks/framework_story_points.md)
-4. [Knowledge Base - Spec-Driven Development](knowbase/concepts/spec-driven-development.md) ✨ NOVO
+3. [Knowledge Base - Story Points](knowledge-base/frameworks/framework_story_points.md)
+4. [Knowledge Base - Spec-Driven Development](knowledge-base/concepts/spec-driven-development.md) ✨ NOVO
 
 **Comandos essenciais:**
 - `/product/task` - Criar tasks estruturadas
@@ -303,7 +303,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 
 **Comece com:**
 1. [Sistema de Testes e Validação](onion/testing-validation-system.md)
-2. [Framework de Testes](knowbase/frameworks/framework_testes.md)
+2. [Framework de Testes](knowledge-base/frameworks/framework_testes.md)
 3. [Guia de Comandos](onion/commands-guide.md) - Seção "Comandos de Validação"
 
 **Comandos essenciais:**
@@ -330,7 +330,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 **Recursos:**
 - Agentes de arquitetura: `@c4-architecture-specialist`, `@mermaid-specialist`
 - Comandos de documentação: `/docs/build-tech-docs`, `/docs/reverse-consolidate`
-- Knowledge Bases: [SDAAL](knowbase/concepts/specification-driven-ai-abstraction-layer.md), [Spec-Driven Development](knowbase/concepts/spec-driven-development.md) ✨ NOVO
+- Knowledge Bases: [SDAAL](knowledge-base/concepts/specification-driven-ai-abstraction-layer.md), [Spec-Driven Development](knowledge-base/concepts/spec-driven-development.md) ✨ NOVO
 
 ### 🔧 Para Administradores do Sistema
 
@@ -368,7 +368,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 | Tipo | Localização | Descrição |
 |------|-------------|-----------|
 | 📖 **Guias** | `docs/onion/` | Guias de uso e referência |
-| 📚 **Knowledge Bases** | `docs/knowbase/` | Conhecimento estruturado para IA |
+| 📚 **Knowledge Bases** | `docs/knowledge-base/` | Conhecimento estruturado para IA |
 | 🏗️ **Meta Specs** | `docs/meta-specs/` | Especificações de alto nível |
 | 📊 **Análises** | `docs/analysis/` | Análises e estudos |
 | 📋 **Planos** | `docs/plans/` | Planos de execução |
@@ -411,13 +411,13 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 - [Release Notes v4.0](onion/RELEASE-NOTES-v4.0-beta.md) - Novidades da versão ✨ NOVO
 
 ### Knowledge Bases
-- [Task Manager Abstraction](knowbase/concepts/task-manager-abstraction.md)
-- [Framework de Story Points](knowbase/frameworks/framework_story_points.md)
-- [Framework de Testes](knowbase/frameworks/framework_testes.md)
-- [AI Agent Design Patterns](knowbase/concepts/ai-agent-design-patterns.md)
-- [Spec-as-Code Strategy](knowbase/concepts/spec-as-code-strategy.md)
-- [Spec-Driven Development](knowbase/concepts/spec-driven-development.md) ✨ NOVO
-- [Whisper](knowbase/tools/whisper.md) - Transcrição de áudio
+- [Task Manager Abstraction](knowledge-base/concepts/task-manager-abstraction.md)
+- [Framework de Story Points](knowledge-base/frameworks/framework_story_points.md)
+- [Framework de Testes](knowledge-base/frameworks/framework_testes.md)
+- [AI Agent Design Patterns](knowledge-base/concepts/ai-agent-design-patterns.md)
+- [Spec-as-Code Strategy](knowledge-base/concepts/spec-as-code-strategy.md)
+- [Spec-Driven Development](knowledge-base/concepts/spec-driven-development.md) ✨ NOVO
+- [Whisper](knowledge-base/tools/whisper.md) - Transcrição de áudio
 
 ### Configuração
 - [Configuração Inicial](onion/getting-started.md)
@@ -430,7 +430,7 @@ Especificações de nível mais alto que servem como "constituição" do Sistema
 
 ### ✨ Documentação Adicionada Recentemente
 
-- **[Spec-Driven Development](knowbase/concepts/spec-driven-development.md)** (2025-12-02)
+- **[Spec-Driven Development](knowledge-base/concepts/spec-driven-development.md)** (2025-12-02)
   - Knowledge base completa sobre metodologia emergente
   - Análise de ferramentas (Kiro, Spec-Kit, Tessl)
   - Níveis de implementação (Spec-First, Spec-Anchored, Spec-as-Source)

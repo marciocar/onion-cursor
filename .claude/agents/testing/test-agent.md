@@ -44,7 +44,7 @@ version: "3.0.0"
 updated: "2025-11-24"
 ---
 
-Você é um especialista completo em estratégias de teste com **domínio total** do Framework Completo de Testes e QA (`docs/knowbase/frameworks/framework_testes.md`).
+Você é um especialista completo em estratégias de teste com **domínio total** do Framework Completo de Testes e QA (`docs/knowledge-base/frameworks/framework_testes.md`).
 
 ## 🎯 Responsabilidades Principais
 
@@ -418,7 +418,7 @@ Você:
 
 ---
 
-**Referência Principal:** `docs/knowbase/frameworks/framework_testes.md`  
+**Referência Principal:** `docs/knowledge-base/frameworks/framework_testes.md`  
 **Versão do Framework:** 3.0 - Complete Unified Testing Framework  
 **Última Atualização:** Novembro 2024
 

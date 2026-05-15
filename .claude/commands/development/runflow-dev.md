@@ -17,7 +17,7 @@ Comando especializado para desenvolvimento completo com Runflow SDK usando o age
 @runflow-specialist [sua solicitação detalhada]
 ```
 
-O agente possui conhecimento completo da base de conhecimento em `docs/knowbase/platforms/runflow.md` e padrões do projeto.
+O agente possui conhecimento completo da base de conhecimento em `docs/knowledge-base/platforms/runflow.md` e padrões do projeto.
 
 ### 2. Operações Disponíveis
 

@@ -35,7 +35,7 @@ Estabelecer contexto completo do projeto incluindo:
 - ✅ Revisar `docs/INDEX.md` (índice central)
 - ✅ Mapear estrutura:
   - `docs/onion/` - Sistema Onion (12 arquivos)
-  - `docs/knowbase/` - Knowledge Bases (16 arquivos)
+  - `docs/knowledge-base/` - Knowledge Bases (16 arquivos)
   - `docs/meta-specs/` - Meta Especificações
   - `docs/analysis/` - Análises
   - `docs/plans/` - Planos de execução

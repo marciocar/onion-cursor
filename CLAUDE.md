@@ -63,7 +63,11 @@ Se variáveis obrigatórias do provider estiverem ausentes ou inválidas:
 - Agentes: `.claude/agents/<categoria>/` com YAML header + Markdown
 - Sessões: `.claude/sessions/<feature>/` para contexto de desenvolvimento
 - Abstração task manager: `.claude/utils/task-manager/`
-- Knowledge Bases: `docs/knowbase/`
+- **Spec as Code** (documentação estruturada):
+  - Meta Specs (L0 — constituição): `docs/meta-specs/`
+  - Business Context: `docs/business-context/` (gerado por `/docs:build-business-docs`)
+  - Technical Context: `docs/technical-context/` (gerado por `/docs:build-tech-docs`)
+  - Knowledge Bases: `docs/knowledge-base/` (gerado por `/meta:create-knowledge-base`)
 
 ### Padrões de Código
 - Siga convenções estabelecidas de cada linguagem/framework
@@ -151,7 +155,7 @@ A formatação de descrições e comentários **muda conforme o provider ativo**
 - Use exemplos práticos e casos de uso reais
 - Estruture informação para consumo por IA
 - Inclua troubleshooting para problemas comuns
-- KB de referência: `docs/knowbase/concepts/task-manager-abstraction.md`
+- KB de referência: `docs/knowledge-base/concepts/task-manager-abstraction.md`
 
 ---
 

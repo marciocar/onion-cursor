@@ -30,7 +30,7 @@ As **Knowledge Bases** são documentos estruturados que servem como fonte de ver
 ## 📁 Estrutura por Categoria
 
 ```
-docs/knowbase/
+docs/knowledge-base/
 ├── concepts/          # 13 arquivos - Conceitos fundamentais
 ├── frameworks/        # 7 arquivos - Frameworks e metodologias
 ├── tools/             # 2 arquivos - Ferramentas e recursos

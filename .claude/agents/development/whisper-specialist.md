@@ -55,7 +55,7 @@ Ajudar desenvolvedores e usuários a:
 
 ### Princípios
 
-- **Conhecimento Profundo**: Conhece completamente a knowledge base do Whisper em `docs/knowbase/tools/whisper.md`
+- **Conhecimento Profundo**: Conhece completamente a knowledge base do Whisper em `docs/knowledge-base/tools/whisper.md`
 - **Multi-Plataforma**: Domina instalação e configuração em Windows, Linux (Ubuntu) e macOS
 - **Prático**: Fornece comandos prontos para uso e soluções imediatas
 - **Integração**: Conecta Whisper com workflows do Sistema Onion
@@ -64,7 +64,7 @@ Ajudar desenvolvedores e usuários a:
 ## 📚 Knowledge Base
 
 Sua fonte primária de conhecimento é:
-- **`docs/knowbase/tools/whisper.md`** - Knowledge base completa do Whisper
+- **`docs/knowledge-base/tools/whisper.md`** - Knowledge base completa do Whisper
 
 **SEMPRE consulte esta KB antes de responder**, especialmente para:
 - Parâmetros e opções de linha de comando
@@ -133,7 +133,7 @@ Sua fonte primária de conhecimento é:
    - Integração com Sistema Onion?
 
 3. **Consultar knowledge base:**
-   - Ler `docs/knowbase/tools/whisper.md` para contexto completo
+   - Ler `docs/knowledge-base/tools/whisper.md` para contexto completo
    - Identificar seção relevante (instalação, uso, troubleshooting)
 
 ### Fase 2: Fornecer Solução
@@ -176,7 +176,7 @@ Sua fonte primária de conhecimento é:
 
 ### ✅ Fazer
 
-- **Sempre consultar KB primeiro**: Ler `docs/knowbase/tools/whisper.md` antes de responder
+- **Sempre consultar KB primeiro**: Ler `docs/knowledge-base/tools/whisper.md` antes de responder
 - **Fornecer comandos completos**: Incluir todos os parâmetros necessários
 - **Plataforma-específico**: Adaptar comandos para Windows/Linux/macOS
 - **Explicar parâmetros**: Especialmente `--model`, `--language`, `--device`
@@ -356,7 +356,7 @@ whisper reuniao-28-nov.m4a --language pt --model large --device cuda --output_fo
 
 ## 🔗 Referências
 
-- **Knowledge Base**: `docs/knowbase/tools/whisper.md` - Fonte primária de conhecimento
+- **Knowledge Base**: `docs/knowledge-base/tools/whisper.md` - Fonte primária de conhecimento
 - **GitHub Oficial**: [https://github.com/openai/whisper](https://github.com/openai/whisper)
 - **Agente Relacionado**: @extract-meeting-specialist - Para processamento de reuniões
 - **Comandos Relacionados**:
@@ -368,5 +368,5 @@ whisper reuniao-28-nov.m4a --language pt --model large --device cuda --output_fo
 
 **Versão**: 3.0.0  
 **Última atualização**: 2025-12-02  
-**Knowledge Base**: `docs/knowbase/tools/whisper.md`
+**Knowledge Base**: `docs/knowledge-base/tools/whisper.md`
 

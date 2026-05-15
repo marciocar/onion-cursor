@@ -35,7 +35,7 @@ related_commands:
   - /docs/build-tech-docs
 
 knowledge_bases:
-  - docs/knowbase/concepts/meeting-transcription-to-knowledge-base.md
+  - docs/knowledge-base/concepts/meeting-transcription-to-knowledge-base.md
 
 version: "3.0.0"
 updated: "2025-12-01"
@@ -370,7 +370,7 @@ Pendente definição de push notification vs in-app.
 
 ## 🔗 Referências
 
-- **Knowledge Base**: `docs/knowbase/concepts/meeting-transcription-to-knowledge-base.md`
+- **Knowledge Base**: `docs/knowledge-base/concepts/meeting-transcription-to-knowledge-base.md`
 - **Framework EXTRACT**: 7 dimensões de extração estruturada
 - **Padrões SMART**: Para validação de tasks
 - **Framework DACI**: Para decisões complexas

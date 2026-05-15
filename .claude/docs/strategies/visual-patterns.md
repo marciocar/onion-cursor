@@ -298,7 +298,6 @@ Use checkboxes para rastreamento:
 
 - **Padrões de Comentários**: `.claude/docs/strategies/clickup-comment-patterns.md`
 - **Abstrações MCP**: `.claude/utils/clickup-mcp-wrappers.md`
-- **Dual Comment Strategy**: `.claude/docs/clickup/clickup-dual-comment-strategy.md`
 
 ---
 

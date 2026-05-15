@@ -53,7 +53,7 @@ related_agents:
 
 # 🤝 Pair Testing - Sessão de Teste em Par
 
-Organiza sessões de pair testing multi-perspectiva para validação colaborativa de features, seguindo padrões do Framework de Testes (`docs/knowbase/frameworks/framework_testes.md`).
+Organiza sessões de pair testing multi-perspectiva para validação colaborativa de features, seguindo padrões do Framework de Testes (`docs/knowledge-base/frameworks/framework_testes.md`).
 
 ## 🎯 Objetivo
 
@@ -73,7 +73,7 @@ Estruturar e facilitar sessões de pair testing que resultem em:
 
 ```bash
 # Ler framework completo
-read_file docs/knowbase/frameworks/framework_testes.md
+read_file docs/knowledge-base/frameworks/framework_testes.md
 ```
 
 **Extrair e armazenar em memória:**
@@ -85,7 +85,7 @@ read_file docs/knowbase/frameworks/framework_testes.md
 **Validar leitura:**
 ```markdown
 SE arquivo não encontrado:
-  ❌ ERRO: Framework de testes não encontrado em docs/knowbase/frameworks/framework_testes.md
+  ❌ ERRO: Framework de testes não encontrado em docs/knowledge-base/frameworks/framework_testes.md
   💡 Verifique se o arquivo existe e tente novamente
 ```
 
@@ -571,12 +571,11 @@ Gerar checklist para guiar a sessão:
 
 ## 🔗 Referências
 
-- **Framework de Testes:** `docs/knowbase/frameworks/framework_testes.md`
+- **Framework de Testes:** `docs/knowledge-base/frameworks/framework_testes.md`
   - Seção "Padrões de Colaboração - Sessões de Teste em Par Multi-perspectiva" (linhas ~879-904)
   - Seção "Diferenças entre White-box vs Black-box vs Grey-box" (linhas ~111-165)
 - **Three Amigos:** `/validate/collab/three-amigos`
 - **Test Strategy:** `/validate/test-strategy/create`
-- **ClickUp Integration:** `.claude/docs/clickup/clickup-integration.md` (se disponível)
 
 ## ⚠️ Notas
 

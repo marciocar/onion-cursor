@@ -104,7 +104,7 @@ O Sistema Onion v3.0 usa uma **camada de abstração** que permite trabalhar com
 - 🛡️ **Resiliência**: Funciona mesmo se o gerenciador estiver offline
 - 🚀 **Consistência**: Mesmos comandos, mesma experiência, qualquer provedor
 
-> **📚 Documentação completa**: `docs/knowbase/concepts/task-manager-abstraction.md`
+> **📚 Documentação completa**: `docs/knowledge-base/concepts/task-manager-abstraction.md`
 
 ### **✅ Validação**
 
@@ -368,7 +368,7 @@ npm test  # ou comando apropriado do projeto
 1. **[Guia de Comandos](commands-guide.md)** - Documentação completa
 2. **[Referência de Ferramentas](tools-reference.md)** - Todas as ferramentas disponíveis em TypeScript
 3. **[Fluxos de Engenharia](engineering-flows.md)** - Workflows detalhados  
-4. **[Task Manager Abstraction](../knowbase/concepts/task-manager-abstraction.md)** - Entenda como funciona a abstração
+4. **[Task Manager Abstraction](../knowledge-base/concepts/task-manager-abstraction.md)** - Entenda como funciona a abstração
 5. **[Integração ClickUp](clickup-integration.md)** - Configuração avançada do ClickUp (se usar)
 
 ### **🎯 Cenários Avançados**

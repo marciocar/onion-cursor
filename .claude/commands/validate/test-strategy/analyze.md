@@ -47,7 +47,7 @@ related_agents:
 
 # 🔍 Análise de Estratégia de Teste
 
-Analisa estratégias de teste existentes e sugere melhorias baseadas no Framework de Testes (`docs/knowbase/frameworks/framework_testes.md`), identificando gaps de conformidade e oportunidades de otimização.
+Analisa estratégias de teste existentes e sugere melhorias baseadas no Framework de Testes (`docs/knowledge-base/frameworks/framework_testes.md`), identificando gaps de conformidade e oportunidades de otimização.
 
 ## 🎯 Objetivo
 
@@ -66,7 +66,7 @@ Auditar e melhorar estratégias de teste existentes através de:
 
 ```bash
 # Ler framework completo
-read_file docs/knowbase/frameworks/framework_testes.md
+read_file docs/knowledge-base/frameworks/framework_testes.md
 ```
 
 **Extrair e armazenar em memória:**
@@ -80,7 +80,7 @@ read_file docs/knowbase/frameworks/framework_testes.md
 **Validar leitura:**
 ```markdown
 SE arquivo não encontrado:
-  ❌ ERRO: Framework de testes não encontrado em docs/knowbase/frameworks/framework_testes.md
+  ❌ ERRO: Framework de testes não encontrado em docs/knowledge-base/frameworks/framework_testes.md
   💡 Verifique se o arquivo existe e tente novamente
 ```
 
@@ -847,7 +847,7 @@ Prioridade = (Impacto × Severidade) / Esforço
 
 ## 🔗 Referências
 
-- Framework: `docs/knowbase/frameworks/framework_testes.md`
+- Framework: `docs/knowledge-base/frameworks/framework_testes.md`
 - Tasks Analisadas: [links para tasks]
 - Relatórios Relacionados: [se houver]
 
@@ -1074,7 +1074,7 @@ Current vs Target:
    ```markdown
    SE framework_testes.md não encontrado:
      ❌ ERRO: Framework não encontrado
-     💡 Verifique: docs/knowbase/frameworks/framework_testes.md
+     💡 Verifique: docs/knowledge-base/frameworks/framework_testes.md
    ```
 
 2. **Feature ID não vazio:**
@@ -1111,7 +1111,7 @@ Current vs Target:
 
 ## 🔗 Referências
 
-- **Framework:** `docs/knowbase/frameworks/framework_testes.md`
+- **Framework:** `docs/knowledge-base/frameworks/framework_testes.md`
 - **Comando relacionado:** `/validate/test-strategy/create`
 - **Task Manager:** `.claude/utils/task-manager/`
 - **Agentes relacionados:** @test-engineer, @test-planner

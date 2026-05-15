@@ -85,7 +85,7 @@ Comando Onion
 
 ## 📚 Documentação Relacionada
 
-- `docs/knowbase/task-manager-abstraction.md` - Knowledge Base completa
+- `docs/knowledge-base/task-manager-abstraction.md` - Knowledge Base completa
 - `docs/onion/getting-started.md` - Setup inicial
 - `.env.example` - Variáveis de ambiente
 

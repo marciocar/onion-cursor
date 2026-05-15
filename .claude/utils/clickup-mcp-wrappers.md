@@ -377,9 +377,7 @@ test("Todas as informações de fase são incluídas", () => {
 
 ## 📚 Relacionado
 
-- [Acoplamento ClickUp - Análise](./acoplamento-clickup-problema-analise.md)
 - [Estratégias de Comentários](../docs/strategies/clickup-comment-patterns.md)
-- [Dual Comment Strategy](../docs/clickup/clickup-dual-comment-strategy.md)
 
 ---
 

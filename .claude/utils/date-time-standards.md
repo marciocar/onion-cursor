@@ -119,8 +119,6 @@ sed -i 's/\$(date +'\''%Y-%m-%d %H:%M'\'')/\$(date +'\''%d\/%m\/%Y %H:%M'\'')/g'
 - ✅ `.claude/commands/git/feature/start.md`
 - ✅ `.claude/commands/engineer/hotfix.md`
 - ✅ `.claude/commands/git/hotfix/start.md`
-- ✅ `.claude/utils/clickup-comment-formatter.md`
-- ✅ `.claude/docs/clickup/clickup-formatting.md`
 
 ### **Documentos Já Corretos:**
 - ✅ `.claude/commands/git/README.md` (linha 464)

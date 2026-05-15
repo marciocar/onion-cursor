@@ -453,10 +453,9 @@ Gerar checklist para validar completude da sessão:
 
 ## 🔗 Referências
 
-- **Padrão Three Amigos:** `docs/knowbase/frameworks/framework_testes.md` (seção "Padrões de Colaboração")
-- **QA Story Points:** `docs/knowbase/frameworks/framework_testes.md` (seção "QA Story Points")
+- **Padrão Three Amigos:** `docs/knowledge-base/frameworks/framework_testes.md` (seção "Padrões de Colaboração")
+- **QA Story Points:** `docs/knowledge-base/frameworks/framework_testes.md` (seção "QA Story Points")
 - **Test Strategy:** `/validate/test-strategy/create`
-- **ClickUp Integration:** `.claude/docs/clickup/clickup-integration.md`
 
 ## ⚠️ Notas
 

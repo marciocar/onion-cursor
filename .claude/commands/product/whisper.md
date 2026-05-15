@@ -298,7 +298,7 @@ Este comando facilita o workflow completo:
 ## ⚠️ Notas Importantes
 
 - **Delegação**: Este comando delega para @whisper-specialist
-- **Knowledge Base**: @whisper-specialist consulta `docs/knowbase/tools/whisper.md`
+- **Knowledge Base**: @whisper-specialist consulta `docs/knowledge-base/tools/whisper.md`
 - **Workflow**: Sempre sugere próximos passos no Sistema Onion
 - **Plataforma**: Detecta automaticamente ou permite especificar
 - **Otimização**: Comandos gerados são otimizados para português e Sistema Onion
@@ -314,7 +314,7 @@ Este comando facilita o workflow completo:
 - `/product/convert-to-tasks` - Converter em tasks acionáveis
 
 **Knowledge Base:**
-- `docs/knowbase/tools/whisper.md` - Conhecimento completo sobre Whisper
+- `docs/knowledge-base/tools/whisper.md` - Conhecimento completo sobre Whisper
 
 ---
 

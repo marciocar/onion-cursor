@@ -104,7 +104,7 @@ Ação:
 ### 2. Preparação de Contexto
 
 **2.1. Carregar Conhecimento Base**
-- Ler `docs/knowbase/concepts/identificar-precificar-dor-cliente.md` para referência
+- Ler `docs/knowledge-base/concepts/identificar-precificar-dor-cliente.md` para referência
 - Identificar métodos mais apropriados para o caso
 - Preparar resumo de frameworks disponíveis
 
@@ -546,7 +546,7 @@ Pergunte ao usuário:
 ## 📚 Referências
 
 **Knowbase:**
-- `docs/knowbase/concepts/identificar-precificar-dor-cliente.md`
+- `docs/knowledge-base/concepts/identificar-precificar-dor-cliente.md`
 
 **Contexto de Negócio:**
 - `docs/business-context/CUSTOMER_PERSONAS.md`

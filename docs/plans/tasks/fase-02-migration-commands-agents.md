@@ -188,7 +188,7 @@ ls -R .claude/agents/
 │   ├── intermediate/
 │   └── advanced/
 ├── agents/
-├── knowbase/
+├── knowledge-base/
 └── sessions/
 ```
 
@@ -362,8 +362,8 @@ FASE 2: Migração (21 SP total)
 ## 📚 Referências
 
 ### Documentos de Referência
-- [Visão Multi-Context](../../knowbase/frameworks/onion-multi-context-orchestrator-vision.md)
-- [Entendimento do Ciclo](../../knowbase/frameworks/onion-complete-cycle-understanding.md)
+- [Visão Multi-Context](../../knowledge-base/frameworks/onion-multi-context-orchestrator-vision.md)
+- [Entendimento do Ciclo](../../knowledge-base/frameworks/onion-complete-cycle-understanding.md)
 - [Plano de Migração](../onion-v4-migration-plan.md)
 
 ### Comandos Atuais

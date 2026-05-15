@@ -38,7 +38,7 @@ related_commands:
   - /docs/build-tech-docs
 
 knowledge_bases:
-  - docs/knowbase/concepts/meeting-transcription-to-knowledge-base.md
+  - docs/knowledge-base/concepts/meeting-transcription-to-knowledge-base.md
 
 version: "3.0.0"
 updated: "2025-12-01"
@@ -459,7 +459,7 @@ Você identifica e apresenta pontos que:
 ## 🔗 Referências
 
 - **Agente Relacionado**: @extract-meeting-specialist (extração estruturada)
-- **Knowledge Base**: `docs/knowbase/concepts/meeting-transcription-to-knowledge-base.md`
+- **Knowledge Base**: `docs/knowledge-base/concepts/meeting-transcription-to-knowledge-base.md`
 - **Framework EXTRACT**: Base para extração inicial (usado pelo extract-meeting-specialist)
 
 ## 📈 Métricas de Qualidade

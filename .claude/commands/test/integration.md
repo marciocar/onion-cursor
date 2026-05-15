@@ -482,7 +482,7 @@ describe('Pact Contract: UserService', () => {
 ## 📚 Referências
 
 - **Agente de Testes:** @test-engineer, @test-agent
-- **Framework de Testes:** `docs/knowbase/frameworks/framework_testes.md`
+- **Framework de Testes:** `docs/knowledge-base/frameworks/framework_testes.md`
 - **Grey-box Testing:** Seção "Padrões Grey-box" do framework
 - **API Contract Testing:** Seção "Teste de Contrato de API"
 - **Supertest Docs:** https://github.com/visionmedia/supertest

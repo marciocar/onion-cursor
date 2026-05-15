@@ -110,7 +110,7 @@ O Sistema Onion é:
 # ═══════════════════════════════════════════════════════════════
 # 1️⃣ KNOWLEDGE BASE (ponto de partida)
 # ═══════════════════════════════════════════════════════════════
-docs/knowbase/concepts/authentication-patterns.md
+docs/knowledge-base/concepts/authentication-patterns.md
 # → Documenta OAuth2, JWT, sessions, best practices
 
 # ═══════════════════════════════════════════════════════════════
@@ -175,7 +175,7 @@ Sistema valida automaticamente:
 # ═══════════════════════════════════════════════════════════════
 /meta/create-knowledge-base "OAuth2 Learnings 2025"
 # → Extrai de notes.md
-# → Cria: docs/knowbase/learnings/oauth2-implementation-2025.md
+# → Cria: docs/knowledge-base/learnings/oauth2-implementation-2025.md
 # → Próxima feature OAuth2 usa este learning
 ```
 
@@ -278,7 +278,7 @@ O Onion tem **geradores para tudo**:
 ```bash
 # Criar Knowledge Base
 /meta/create-knowledge-base "OAuth2 Best Practices"
-# → Gera: docs/knowbase/concepts/oauth2-best-practices.md
+# → Gera: docs/knowledge-base/concepts/oauth2-best-practices.md
 
 # Criar Agente especializado
 /meta/create-agent oauth2-specialist \
@@ -809,7 +809,7 @@ integrations:
 **Por quê**: Ninguém entende o sistema sem entender o ciclo.
 
 **Ações**:
-1. [ ] Criar `docs/knowbase/concepts/onion-development-cycle.md`
+1. [ ] Criar `docs/knowledge-base/concepts/onion-development-cycle.md`
    - Documentar 5 camadas
    - Exemplos completos de ciclo
    - Fluxos cross-context

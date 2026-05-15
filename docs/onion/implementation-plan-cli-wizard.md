@@ -67,7 +67,7 @@ packages/onion-cli/
 │   │   │       ├── business-spec.md.hbs
 │   │   │       ├── technical-plan.md.hbs
 │   │   │       └── cs-guide.md.hbs
-│   │   └── knowbase/
+│   │   └── knowledge-base/
 │   │       └── getting-started.md.hbs
 │   ├── utils/
 │   │   ├── filesystem.js        # File operations
@@ -795,10 +795,10 @@ class StructureGenerator {
   // Core structure
   async createCoreStructure() {
     const corePaths = [
-      'core/knowbase/concepts',
-      'core/knowbase/frameworks',
-      'core/knowbase/tools',
-      'core/knowbase/learnings',
+      'core/knowledge-base/concepts',
+      'core/knowledge-base/frameworks',
+      'core/knowledge-base/tools',
+      'core/knowledge-base/learnings',
       'core/agents',
       'core/commands/meta',
       'core/rules',

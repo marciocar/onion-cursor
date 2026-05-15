@@ -177,7 +177,7 @@ Este agente pode ser potencializado com MCPs quando disponíveis:
 |-----|-------------|-----|
 | ClickUp | `mcp_ClickUp_*` | Gestão de tasks |
 
-Consulte `docs/knowbase/concepts/configuration-management.md` para setup.
+Consulte `docs/knowledge-base/concepts/configuration-management.md` para setup.
 
 ## 📋 Protocolo de Operação
 
@@ -207,7 +207,7 @@ Consulte `docs/knowbase/concepts/configuration-management.md` para setup.
 
 - Agente relacionado: @outro-agente
 - Comando relacionado: /categoria/comando
-- KB: docs/knowbase/concepts/relevant-kb.md
+- KB: docs/knowledge-base/concepts/relevant-kb.md
 ```
 
 ---

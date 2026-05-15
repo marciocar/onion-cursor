@@ -37,8 +37,8 @@ related_agents:
   - onion
 
 knowledge_base:
-  - docs/knowbase/concepts/specification-driven-ai-abstraction-layer.md
-  - docs/knowbase/concepts/task-manager-abstraction.md
+  - docs/knowledge-base/concepts/specification-driven-ai-abstraction-layer.md
+  - docs/knowledge-base/concepts/task-manager-abstraction.md
 ---
 
 # 🏗️ Criar Abstraction Layer (SDAAL)
@@ -179,7 +179,7 @@ await manager.send({ ... });
 
 ## 📚 Documentação Relacionada
 
-- [SDAAL Pattern](../../docs/knowbase/concepts/specification-driven-ai-abstraction-layer.md)
+- [SDAAL Pattern](../../docs/knowledge-base/concepts/specification-driven-ai-abstraction-layer.md)
 - [Interface](./interface.md)
 - [Factory](./factory.md)
 
@@ -837,7 +837,7 @@ Adicionar ao `.env.example`:
 4. Configurar .env com {{env_prefix}}_PROVIDER
 
 📚 Documentação:
-∟ Pattern: docs/knowbase/concepts/specification-driven-ai-abstraction-layer.md
+∟ Pattern: docs/knowledge-base/concepts/specification-driven-ai-abstraction-layer.md
 ∟ Exemplo: .claude/utils/task-manager/
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -845,7 +845,7 @@ Adicionar ao `.env.example`:
 
 ## 🔗 Referências
 
-- [SDAAL Pattern](../../docs/knowbase/concepts/specification-driven-ai-abstraction-layer.md)
+- [SDAAL Pattern](../../docs/knowledge-base/concepts/specification-driven-ai-abstraction-layer.md)
 - [Task Manager (Referência)](../../.claude/utils/task-manager/)
 - Agente: @onion
 

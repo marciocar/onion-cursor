@@ -384,7 +384,7 @@ Este agente pode ser potencializado com MCPs quando disponíveis:
 | ClickUp | `CLICKUP_*` | Criar/atualizar tasks |
 | GitHub | `GITHUB_*` | Criar PRs, issues |
 
-Consulte `docs/knowbase/concepts/configuration-management.md` para setup.
+Consulte `docs/knowledge-base/concepts/configuration-management.md` para setup.
 
 ### Fallback
 Sem integrações configuradas, o agente:

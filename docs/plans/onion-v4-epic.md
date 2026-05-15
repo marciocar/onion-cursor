@@ -56,7 +56,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 ```
 .onion/                              # ✅ Universal (agnóstica de IDE)
 ├── core/                            # Núcleo universal (5-10 comandos)
-│   ├── knowbase/                    # CAMADA 1: Knowledge Base
+│   ├── knowledge-base/                    # CAMADA 1: Knowledge Base
 │   ├── agents/                      # CAMADA 2: Agentes IA
 │   ├── commands/                    # CAMADA 3: Comandos
 │   ├── rules/                       # CAMADA 4: Regras
@@ -68,7 +68,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 │   │   ├── commands/intermediate/   # 10 comandos (15% casos)
 │   │   ├── commands/advanced/       # Todos (5% casos)
 │   │   ├── agents/                  # Agentes especializados
-│   │   ├── knowbase/                # KBs específicas
+│   │   ├── knowledge-base/                # KBs específicas
 │   │   └── sessions/                # CAMADA 5: Rastreabilidade
 │   ├── technical/
 │   ├── customer-success/
@@ -223,7 +223,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 
 **Entregáveis**:
 - [ ] `.onion/contexts/{context}/sessions/` para rastreabilidade
-- [ ] `.onion/core/knowbase/learnings/` para aprendizado contínuo
+- [ ] `.onion/core/knowledge-base/learnings/` para aprendizado contínuo
 - [ ] `/meta/extract-learning` para criar KBs automáticas
 - [ ] Ciclo fechado (sessions → learnings → KBs)
 - [ ] Documentação em `docs/onion/complete-cycle.md`
@@ -314,14 +314,14 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 
 ### Visão e Estratégia
 - [Plano de Migração Completo](onion-v4-migration-plan.md)
-- [Visão Multi-Context Orchestrator](../knowbase/frameworks/onion-multi-context-orchestrator-vision.md)
-- [Entendimento do Ciclo Completo](../knowbase/frameworks/onion-complete-cycle-understanding.md)
-- [Estratégia de Integração IDE](../knowbase/frameworks/onion-ide-integration-strategy.md)
+- [Visão Multi-Context Orchestrator](../knowledge-base/frameworks/onion-multi-context-orchestrator-vision.md)
+- [Entendimento do Ciclo Completo](../knowledge-base/frameworks/onion-complete-cycle-understanding.md)
+- [Estratégia de Integração IDE](../knowledge-base/frameworks/onion-ide-integration-strategy.md)
 
 ### Implementação
 - [CLI Implementation Complete](../onion/cli-implementation-complete.md)
 - [Milestone First Init](../onion/MILESTONE-first-successful-init.md)
-- [Spec-Driven Development](../knowbase/concepts/spec-driven-development.md)
+- [Spec-Driven Development](../knowledge-base/concepts/spec-driven-development.md)
 
 ---
 

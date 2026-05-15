@@ -68,7 +68,7 @@ onion-claude/
 │   └── utils/              # Utilitários (incl. task-manager abstraction)
 ├── docs/                   # Documentação
 │   ├── meta-specs/         # Spec as Code (L0 — constituição)
-│   ├── knowbase/           # Knowledge bases estruturadas
+│   ├── knowledge-base/           # Knowledge bases estruturadas
 │   └── onion/              # Guias e referências
 └── CLAUDE.md               # Project rules carregados pelo Claude Code
 ```

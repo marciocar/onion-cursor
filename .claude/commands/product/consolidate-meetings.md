@@ -216,7 +216,7 @@ O comando deve produzir:
 
 - **Agente**: @meeting-consolidator
 - **Comando Relacionado**: /product/extract-meeting (extração estruturada)
-- **Knowledge Base**: `docs/knowbase/concepts/meeting-transcription-to-knowledge-base.md`
+- **Knowledge Base**: `docs/knowledge-base/concepts/meeting-transcription-to-knowledge-base.md`
 
 ## ⚠️ Notas Importantes
 

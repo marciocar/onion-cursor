@@ -125,8 +125,8 @@ Total: 53 Story Points
 
 - [Épico Principal](../onion-v4-epic.md)
 - [Plano de Migração Completo](../onion-v4-migration-plan.md)
-- [Visão Multi-Context Orchestrator](../../knowbase/frameworks/onion-multi-context-orchestrator-vision.md)
-- [Entendimento do Ciclo Completo](../../knowbase/frameworks/onion-complete-cycle-understanding.md)
+- [Visão Multi-Context Orchestrator](../../knowledge-base/frameworks/onion-multi-context-orchestrator-vision.md)
+- [Entendimento do Ciclo Completo](../../knowledge-base/frameworks/onion-complete-cycle-understanding.md)
 
 ---
 

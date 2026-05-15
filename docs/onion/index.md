@@ -267,10 +267,10 @@ O **Sistema Onion** é um framework avançado de comandos `.claude/` que revoluc
 - [Referência de Agentes](agents-reference.md) - Todos os agentes
 
 ### Knowledge Bases Relacionadas
-- [Task Manager Abstraction](../../knowbase/concepts/task-manager-abstraction.md)
-- [Spec-Driven Development](../../knowbase/concepts/spec-driven-development.md)
-- [AI Agent Design Patterns](../../knowbase/concepts/ai-agent-design-patterns.md)
-- [Framework de Story Points](../../knowbase/frameworks/framework_story_points.md)
+- [Task Manager Abstraction](../../knowledge-base/concepts/task-manager-abstraction.md)
+- [Spec-Driven Development](../../knowledge-base/concepts/spec-driven-development.md)
+- [AI Agent Design Patterns](../../knowledge-base/concepts/ai-agent-design-patterns.md)
+- [Framework de Story Points](../../knowledge-base/frameworks/framework_story_points.md)
 
 ### Configuração
 - [Installation](INSTALLATION.md)

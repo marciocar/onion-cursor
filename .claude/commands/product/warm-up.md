@@ -68,11 +68,11 @@ Estabelecer contexto focado em:
 - `/docs/consolidate-documents` - Consolidar documentos de produto/negócio
 
 ### 4. Knowledge Bases de Produto
-- ✅ Revisar `docs/knowbase/frameworks/framework_story_points.md`
-- ✅ Revisar `docs/knowbase/concepts/task-manager-abstraction.md`
-- ✅ Revisar `docs/knowbase/concepts/meeting-transcription-to-knowledge-base.md`
-- ✅ Revisar `docs/knowbase/concepts/identificar-precificar-dor-cliente.md`
-- ✅ Revisar `docs/knowbase/concepts/branding-posicionamento-marca.md`
+- ✅ Revisar `docs/knowledge-base/frameworks/framework_story_points.md`
+- ✅ Revisar `docs/knowledge-base/concepts/task-manager-abstraction.md`
+- ✅ Revisar `docs/knowledge-base/concepts/meeting-transcription-to-knowledge-base.md`
+- ✅ Revisar `docs/knowledge-base/concepts/identificar-precificar-dor-cliente.md`
+- ✅ Revisar `docs/knowledge-base/concepts/branding-posicionamento-marca.md`
 
 ### 5. Agentes de Produto
 - ✅ Conhecer agentes especializados:
@@ -86,7 +86,7 @@ Estabelecer contexto focado em:
 ### 6. Task Manager Integration
 - ✅ Verificar `TASK_MANAGER_PROVIDER` no `.env`
 - ✅ Entender abstração de Task Manager (ClickUp, Asana, Linear)
-- ✅ Revisar `docs/knowbase/concepts/task-manager-abstraction.md`
+- ✅ Revisar `docs/knowledge-base/concepts/task-manager-abstraction.md`
 
 ### 7. Especificações de Features
 - ✅ Mapear estrutura de especificações:
@@ -99,8 +99,8 @@ Estabelecer contexto focado em:
 ### Documentação Essencial
 - `docs/onion/commands-guide.md` - Comandos de produto
 - `docs/onion/practical-examples.md` - Exemplos práticos
-- `docs/knowbase/frameworks/framework_story_points.md` - Framework de estimativas
-- `docs/knowbase/concepts/meeting-transcription-to-knowledge-base.md` - Processamento de reuniões
+- `docs/knowledge-base/frameworks/framework_story_points.md` - Framework de estimativas
+- `docs/knowledge-base/concepts/meeting-transcription-to-knowledge-base.md` - Processamento de reuniões
 
 ### Workflows de Produto
 

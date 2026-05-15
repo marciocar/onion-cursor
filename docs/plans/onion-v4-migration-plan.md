@@ -35,7 +35,7 @@ Transformar o Sistema Onion de uma "ferramenta SDD com muitos comandos" em uma *
 ```
 .onion/                              # ✅ Agnóstico de IDE
 ├── core/                            # Núcleo universal
-│   ├── knowbase/                    # 📚 CAMADA 1: Knowledge Base
+│   ├── knowledge-base/                    # 📚 CAMADA 1: Knowledge Base
 │   │   ├── concepts/                # Conceitos fundamentais
 │   │   ├── frameworks/              # Análises de frameworks
 │   │   ├── tools/                   # Documentação de tools
@@ -71,7 +71,7 @@ Transformar o Sistema Onion de uma "ferramenta SDD com muitos comandos" em uma *
 ├── contexts/                        # Contextos específicos
 │   ├── business/
 │   │   ├── .context-config.yml      # Configuração do contexto
-│   │   ├── knowbase/                # KBs específicas business
+│   │   ├── knowledge-base/                # KBs específicas business
 │   │   ├── agents/                  # Agentes business
 │   │   ├── commands/
 │   │   │   ├── starter/             # 5 comandos essenciais
@@ -81,7 +81,7 @@ Transformar o Sistema Onion de uma "ferramenta SDD com muitos comandos" em uma *
 │   │
 │   ├── technical/
 │   │   ├── .context-config.yml
-│   │   ├── knowbase/
+│   │   ├── knowledge-base/
 │   │   ├── agents/
 │   │   ├── commands/
 │   │   │   ├── starter/
@@ -254,7 +254,7 @@ Technical Context (20-25 comandos):
 
 ### 🎯 FASE 6: Gestão de Contexto e Learnings 📋 **PLANEJADA**
 - [ ] Implementar `.onion/contexts/{context}/sessions/` para rastreabilidade
-- [ ] Criar `.onion/core/knowbase/learnings/` para aprendizado contínuo
+- [ ] Criar `.onion/core/knowledge-base/learnings/` para aprendizado contínuo
 - [ ] Implementar `/meta/extract-learning` para criar KBs automáticas
 - [ ] Implementar ciclo fechado (sessions → learnings → KBs)
 - [ ] Documentar ciclo completo em `docs/onion/complete-cycle.md`
@@ -430,7 +430,7 @@ Technical Context (20-25 comandos):
 
 ### ❓ Decisão 1: Nomenclatura de Pasta
 **Opções**:
-- A) `knowbase` (atual, consistente com `docs/knowbase/`)
+- A) `knowbase` (atual, consistente com `docs/knowledge-base/`)
 - B) `kb` (mais curto)
 - C) `knowledge-base` (mais explícito)
 
@@ -457,16 +457,16 @@ Technical Context (20-25 comandos):
 ## 📚 Referências
 
 ### Documentos de Visão
-- `docs/knowbase/frameworks/onion-multi-context-orchestrator-vision.md`
-- `docs/knowbase/frameworks/onion-complete-cycle-understanding.md`
-- `docs/knowbase/frameworks/onion-ide-integration-strategy.md`
-- `docs/knowbase/frameworks/onion-system-critical-analysis-2025.md`
+- `docs/knowledge-base/frameworks/onion-multi-context-orchestrator-vision.md`
+- `docs/knowledge-base/frameworks/onion-complete-cycle-understanding.md`
+- `docs/knowledge-base/frameworks/onion-ide-integration-strategy.md`
+- `docs/knowledge-base/frameworks/onion-system-critical-analysis-2025.md`
 
 ### Documentação Técnica
 - `docs/onion/cli-implementation-complete.md`
 - `docs/onion/MILESTONE-first-successful-init.md`
-- `docs/knowbase/concepts/spec-driven-development.md`
-- `docs/knowbase/concepts/spec-as-code-strategy.md`
+- `docs/knowledge-base/concepts/spec-driven-development.md`
+- `docs/knowledge-base/concepts/spec-as-code-strategy.md`
 
 ### Ferramentas Similares
 - OpenSpec: https://github.com/Fission-AI/OpenSpec

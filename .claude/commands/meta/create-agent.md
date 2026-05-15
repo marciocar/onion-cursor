@@ -200,7 +200,7 @@ write .claude/agents/{{category}}/{{agent_name}}.md
 ## 🔗 Referências
 
 - Template: `common/templates/agent-template.md`
-- Padrões: `docs/knowbase/concepts/ai-agent-design-patterns.md`
+- Padrões: `docs/knowledge-base/concepts/ai-agent-design-patterns.md`
 - Agente: @agent-creator-specialist
 
 ## ⚠️ Notas

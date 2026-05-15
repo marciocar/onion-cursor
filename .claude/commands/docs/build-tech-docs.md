@@ -1,202 +1,215 @@
 ---
 name: build-tech-docs
-description: Gerar documentação técnica completa do codebase.
+description: Gerar arquitetura de contexto técnico em `docs/technical-context/`.
 model: sonnet
+
+parameters:
+  - name: sources
+    description: Paths do codebase, repositórios, configs e referências técnicas
+    required: true
+
 category: docs
-tags: [technical, architecture, documentation]
-version: "3.0.0"
-updated: "2025-11-24"
+tags:
+  - technical
+  - architecture
+  - documentation
+  - spec-as-code
+
+version: "4.0.0"
+updated: "2026-05-15"
+
+output_path: docs/technical-context/
+
+related_commands:
+  - /docs:build-business-docs
+  - /meta:create-knowledge-base
+  - /docs:build-index
+
+related_agents:
+  - c4-architecture-specialist
+  - c4-documentation-specialist
+  - docs-reverse-engineer
+  - system-documentation-orchestrator
+  - mermaid-specialist
 ---
 
-# Gerador de Documentação Técnica
+# 💻 Gerador de Contexto Técnico
 
-Você é um arquiteto de documentação técnica especializado em criar contexto de projeto abrangente e otimizado para IA. Sua missão é analisar o codebase do projeto, repositório e outras fontes de materiais para gerar uma estrutura completa de documentação técnica usando a abordagem de arquitetura multi-arquivo.
+Você é um arquiteto de documentação técnica que produz **contexto otimizado para IA e humanos**. Sua missão é analisar codebase, repositório e materiais relacionados para gerar uma arquitetura de contexto técnico multi-arquivo em `docs/technical-context/`.
 
-## Objetivo Principal
+---
 
-Gerar uma arquitetura completa de contexto técnico seguindo o template em `.claude/commands/common/templates/technical_context_template.md`. Criar uma estrutura de documentação modular e multi-arquivo que permita tanto desenvolvedores humanos quanto sistemas de IA entender e trabalhar efetivamente com o codebase.
+## 🎯 Objetivo
 
-## Input Parameters
+Gerar a arquitetura de contexto técnico seguindo o template `.claude/commands/common/templates/technical_context_template.md`, na pasta canônica `docs/technical-context/`, organizada em 4 camadas (Núcleo / AI-Context / Domínio / Workflow).
 
-**Argumentos Obrigatórios:**
-Você deve receber links para arquivos, repositórios e outras fontes de materiais para gerar a documentação técnica. Estes serão colocados em seus argumentos. Se não tiver recebido argumentos, deve solicitá-los antes de prosseguir.
+Resultado esperado: documentação modular que permite que novos devs entendam o projeto em horas e que IA forneça assistência contextual precisa.
+
+---
+
+## 📥 Input
 
 <arguments>
 #$ARGUMENTS
 </arguments>
 
+**Fontes esperadas (uma ou mais):**
+- Path do codebase (raiz do projeto ou módulos específicos)
+- Repositório Git e histórico de commits
+- Arquivos de dependência (package.json, requirements.txt, Cargo.toml, go.mod)
+- Configs de CI/CD (`.github/workflows`, `.gitlab-ci.yml`, etc.)
+- Documentação existente (README, docs internas)
+- ADRs ou decisões já registradas
 
-## Framework de Análise
+> Se `$ARGUMENTS` estiver vazio, solicite as fontes ao usuário antes de prosseguir.
 
-### Fase 1: Descoberta do Codebase
-1. **Análise da Estrutura do Projeto**
-   - Escanear estrutura de diretórios e identificar padrões arquiteturais chave
-   - Analisar package.json, requirements.txt, Cargo.toml ou arquivos de dependência equivalentes
-   - Identificar sistemas de build, frameworks de teste e configurações de deploy
-   - Detectar stack tecnológico, frameworks e dependências chave
+---
 
-2. **Reconhecimento de Padrões Arquiteturais**
-   - Identificar padrões de design (MVC, microserviços, orientado a eventos, etc.)
-   - Analisar fluxo de dados e pontos de integração
-   - Entender arquitetura de deploy e scaling
-   - Documentar abstrações e interfaces chave
+## ⚡ Fluxo de Execução
 
-3. **Descoberta do Workflow de Desenvolvimento**
-   - Analisar configurações de CI/CD (.github/workflows, .gitlab-ci.yml, etc.)
-   - Identificar estratégias de teste e requisitos de cobertura
-   - Revisar diretrizes de contribuição e setup de desenvolvimento
-   - Documentar processos de build, lint e deployment
+### Fase 1 — Descoberta
 
-### Fase 2: Discussão com o Usuário
+**1.1 Estrutura do projeto**
+- Escanear diretórios e identificar padrões arquiteturais
+- Analisar arquivos de dependência e versão
+- Identificar sistemas de build, frameworks de teste e configs de deploy
+- Detectar stack tecnológica chave
 
-Após construir um bom entendimento do projeto, você fará uma série de perguntas ao humano para esclarecer dúvidas ou informações faltantes. Planeje fazer pelo menos 10 perguntas que cubram a maioria das áreas estratégicas na documentação. Seja seletivo sobre as perguntas que faz, e tente evitar perguntas que não sejam relevantes para o projeto.
+**1.2 Padrões arquiteturais**
+- Identificar padrões de design (MVC, microserviços, event-driven, monolito modular)
+- Mapear fluxo de dados e pontos de integração
+- Entender arquitetura de deploy e scaling
+- Documentar abstrações e interfaces críticas
 
-- Se o stack é claro do codebase, não precisa perguntar sobre ele.
-- Identifique as principais decisões arquiteturais e pergunte sobre por que foram feitas -- isso deve ajudar a guiar seu desenvolvimento de ADR
-- Pergunte sobre o processo e workflow de desenvolvimento do produto, se não estiver claro
-- Pergunte sobre o processo e workflow de teste do produto, se não estiver claro
-- Pergunte sobre o processo e workflow de deploy do produto, se não estiver claro
-- Pergunte sobre o processo e workflow de manutenção do produto, se não estiver claro
-- Pergunte sobre desafios arquiteturais atuais e coisas que o time gostaria de melhorar
-- Make sure you understand what is in scope and out of scope
+**1.3 Workflow de desenvolvimento**
+- Analisar configs de CI/CD e gates de qualidade
+- Identificar estratégias de teste e cobertura
+- Revisar `CONTRIBUTING.md` e setup de dev
+- Documentar processos de build, lint e deploy
 
-Do multiple rounds of Q&A if you feel you still need to get more information.
-When you are ready, give the human a summary of the most important points you detected and ask for approval to proceed to phase 3.
+### Fase 2 — Discussão com o usuário
 
-### Phase 3: Context Generation
+Faça **pelo menos 10 perguntas** cobrindo áreas estratégicas — mas apenas as não inferíveis do código. Cubra:
 
-This repository root contains on folder for each project. You will identify the right folder and add your files to the $project_name/specs/technical folder.
+- Decisões arquiteturais chave e seus motivadores (para ADRs)
+- Workflow de desenvolvimento se não estiver claro
+- Processo de teste e cobertura desejada
+- Processo de deploy e ambientes
+- Processo de manutenção e operação
+- Desafios arquiteturais atuais e melhorias desejadas
+- Escopo dentro e fora do projeto
+- Restrições não óbvias (compliance, performance, legacy)
 
-Follow the multi-file structure from the technical template:
+Faça múltiplas rodadas se necessário. Ao final, apresente um **resumo dos pontos detectados** e peça aprovação para gerar a documentação.
 
-#### Create Index File (`index.md`)
-```markdown
-## Project Context Profile
-[Basic project information, technology stack, team structure, development constraints]
+### Fase 3 — Geração
 
-## Layer 1: Core Project Context
-- [Project Charter](project_charter.md)
-- [Architecture Decision Records](adr/)
+Gere os arquivos em `docs/technical-context/` seguindo a estrutura abaixo. Crie apenas os arquivos relevantes ao projeto.
 
-## Layer 2: AI-Optimized Context Files
-- [AI Development Guide](CLAUDE.meta.md)
-- [Codebase Navigation Guide](CODEBASE_GUIDE.md)
-
-## Layer 3: Domain-Specific Context
-- [Business Logic Documentation](BUSINESS_LOGIC.md)
-- [API Specifications](API_SPECIFICATION.md)
-
-## Layer 4: Development Workflow Context
-- [Development Workflow Guide](CONTRIBUTING.md)
-- [Troubleshooting Guide](TROUBLESHOOTING.md)
+```
+docs/technical-context/
+├── index.md
+├── 01-core/
+│   ├── project-charter.md
+│   └── adr/
+│       └── <NNN-decisao>.md
+├── 02-ai-context/
+│   ├── ai-development-guide.md
+│   └── codebase-guide.md
+├── 03-domain/
+│   ├── business-logic.md
+│   └── api-specification.md
+└── 04-workflow/
+    ├── contributing.md
+    ├── troubleshooting.md
+    └── architecture-challenges.md
 ```
 
-#### Gerar Arquivos Individuais
+#### Conteúdo dos arquivos
 
-**1. `project_charter.md`**
-- Sintetizar visão do projeto a partir de README, documentação e análise de código
-- Define success criteria based on project goals and metrics
-- Establish scope boundaries from codebase analysis
-- Identify key stakeholders from contributor data
-- Document technical constraints from architecture analysis
+| Arquivo | Conteúdo |
+|---------|----------|
+| `index.md` | Perfil técnico + links para todas as camadas |
+| `01-core/project-charter.md` | Visão, objetivos, escopo, stakeholders, restrições técnicas |
+| `01-core/adr/<NNN>-<decisao>.md` | ADRs para decisões arquiteturais: tecnologia, padrão, trade-off |
+| `02-ai-context/ai-development-guide.md` | Style guide, padrões, gotchas, considerações de performance/segurança |
+| `02-ai-context/codebase-guide.md` | Mapa de diretórios, arquivos-chave, fluxo de dados, integrações |
+| `03-domain/business-logic.md` | Conceitos de domínio, regras, edge cases, workflows (se aplicável) |
+| `03-domain/api-specification.md` | Endpoints, autenticação, modelos de dados, error handling (se houver API) |
+| `04-workflow/contributing.md` | Branch strategy, code review, testes, deploy, setup de ambiente |
+| `04-workflow/troubleshooting.md` | Issues comuns, debugging, performance, integrações |
+| `04-workflow/architecture-challenges.md` | Desafios atuais e melhorias desejadas pelo time |
 
-**2. `adr/` Directory**
-- Create ADRs for major architectural decisions discovered in codebase
-- Document technology choices, patterns, and trade-offs
-- Include database choices, framework selections, deployment strategies
-- Reference commit history and comments for decision context
+---
 
-**3. `CLAUDE.meta.md` (AI Development Guide)**
-- Extract code style patterns from existing codebase
-- Document testing approaches from test files and configurations
-- Identify common patterns from code analysis
-- List gotchas from comments, issues, and documentation
-- Include performance considerations and security patterns
+## 📤 Output Esperado
 
-**4. `CODEBASE_GUIDE.md`**
-- Generate directory structure with purpose annotations
-- List key files and their roles in the system
-- Document data flow patterns from code analysis
-- Identify integration points and external dependencies
-- Describe deployment architecture from configurations
+```
+✅ TECHNICAL CONTEXT GERADO
 
-**5. `BUSINESS_LOGIC.md`** (if complex domain logic exists)
-- Extract domain concepts from models, schemas, and business logic
-- Document business rules from validation logic and workflows
-- Identify edge cases from tests and error handling
-- Map workflow processes from state machines and business logic
+━━━━━━━━━━━━━━
 
-**6. `API_SPECIFICATION.md`** (if APIs exist)
-- Generate API documentation from routes, controllers, and schemas
-- Document authentication from middleware and security implementations
-- Extract data models from schemas and type definitions
-- Document error handling from exception handling code
-- Include rate limiting and performance characteristics
+📁 Localização: docs/technical-context/
 
-**7. `CONTRIBUTING.md`**
-- Extract branch strategy from git history and configurations
-- Document code review process from PR templates and workflows
-- List testing requirements from test configurations
-- Document deployment process from CI/CD configurations
-- Include environment setup from README and development configurations
+📊 ESTRUTURA:
+   ∟ index.md
+   ∟ 01-core/        (project-charter + N ADRs)
+   ∟ 02-ai-context/  (N arquivos)
+   ∟ 03-domain/      (N arquivos)
+   ∟ 04-workflow/    (N arquivos)
 
-**8. `TROUBLESHOOTING.md`**
-- Extract common issues from GitHub issues, comments, and documentation
-- Document debugging approaches from logging and monitoring setup
-- Include performance troubleshooting from profiling and optimization code
-- List integration issues from error handling and documentation
+📚 FONTES CONSULTADAS:
+   ∟ <fontes>
 
-**9. `ARCHITECTURE_CHALLENGES.md`**
-- Document architecture challenges and things the team would like to improve
+🚀 PRÓXIMOS PASSOS:
+   ∟ Revisar com time técnico
+   ∟ /docs:build-business-docs (contexto de negócio)
+   ∟ /docs:build-index (atualizar índice mestre)
 
+━━━━━━━━━━━━━━
 
-## Quality Assurance
+⏰ Gerado: YYYY-MM-DD | 🎯 Status: Done
+```
 
-### Content Quality Checks
-- [ ] All generated content is accurate to the actual codebase
-- [ ] Examples are working and tested against the actual project
-- [ ] Architecture documentation matches implementation
-- [ ] Performance claims are backed by actual benchmarks or code analysis
-- [ ] All links between files work correctly
+---
 
-### Completeness Validation
-- [ ] All layers of technical context are addressed
-- [ ] Files follow the established template structure
-- [ ] Content is specific to the project, not generic
-- [ ] AI optimization guidelines are practical and actionable
-- [ ] Development workflow matches actual project practices
+## ✅ Quality Assurance
 
-### AI Optimization
-- [ ] Content enables AI to understand project architecture
-- [ ] Code examples are copy-pasteable and functional
-- [ ] Technical constraints and trade-offs are clearly documented
-- [ ] Cross-references between files create comprehensive context
-- [ ] File naming follows established conventions
+### Conteúdo
+- [ ] Toda afirmação está ancorada em código, config ou git history
+- [ ] Exemplos de código são copy-paste e funcionam
+- [ ] Arquitetura documentada bate com implementação real
+- [ ] Claims de performance têm benchmarks ou referência ao código
+- [ ] Links cruzados entre arquivos funcionam
 
-## Execution Strategy
+### Otimização para IA
+- [ ] Padrões e gotchas explícitos
+- [ ] Exemplos prontos para uso
+- [ ] Trade-offs e restrições documentados
+- [ ] `index.md` é o único ponto de entrada
+- [ ] Naming consistente entre arquivos
 
-1. **Deep Analysis First**: Spend significant time understanding the codebase before writing
-2. **Evidence-Based Documentation**: Every claim should be backed by code, configurations, or project artifacts
-3. **Multi-File Structure**: Always create separate files linked through the index
-4. **AI-Optimized Content**: Write for both human and AI consumption
-5. **Project-Specific Details**: Avoid generic advice; focus on actual project specifics
-6. **Cross-Reference Integration**: Ensure files reference each other appropriately
+### Completude
+- [ ] Camadas relevantes ao projeto preenchidas
+- [ ] ADRs cobrem decisões grandes (não cada commit)
+- [ ] Workflow reflete prática real (não wishlist)
+- [ ] Troubleshooting baseado em issues reais
 
-## Critérios de Sucesso da Saída
+---
 
-A documentação técnica gerada deve permitir:
-- **Novos desenvolvedores** entender e contribuir com o projeto em horas
-- **AI systems** to provide accurate, contextual assistance with development tasks
-- **Technical decisions** to be made with full context of existing architecture
-- **Code reviews** to focus on logic rather than style or architectural questions
-- **Debugging and troubleshooting** to be systematic and efficient
+## 🔗 Referências
 
-## Error Handling
+- **Template-base**: `.claude/commands/common/templates/technical_context_template.md`
+- **Pasta-alvo**: `docs/technical-context/`
+- **Comando complementar**: `/docs:build-business-docs`
+- **Knowledge base**: `docs/knowledge-base/`
 
-If certain information cannot be determined from the codebase:
-- Clearly mark sections as "TO BE COMPLETED" with specific instructions
-- Provide templates for missing information
-- Reference where the information should come from
-- Create issues or TODOs for follow-up documentation work
+---
 
-Remember: The goal is to create living documentation that grows with the project and serves as the definitive technical context for both humans and AI systems.
+## ⚠️ Notas
+
+- Não criar um único arquivo grande — sempre multi-arquivo linkado pelo `index.md`
+- ADRs devem usar formato MADR ou similar (contexto, decisão, consequências)
+- Marcar gaps como `[TO BE COMPLETED]` com instruções específicas
+- Regenerar quando arquitetura muda (novo serviço, refator grande, troca de stack)
+- Cross-link com `docs/business-context/` quando decisão técnica tem impacto de negócio

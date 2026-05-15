@@ -19,11 +19,11 @@
 ### Fontes Principais
 
 - Sistema Onion v3.0 Documentation (`docs/onion/`)
-- [OpenSpec](docs/knowbase/frameworks/spec-driven-development-tools-2025.md#1-openspec-fission-ai)
-- [GitHub Spec-Kit](docs/knowbase/frameworks/spec-driven-development-tools-2025.md#2-github-spec-kit)
-- [Kiro](docs/knowbase/frameworks/spec-driven-development-tools-2025.md#6-kiro-mencionado-na-kb)
-- [go-zero](docs/knowbase/frameworks/spec-driven-development-tools-2025.md#5-go-zero-zeromicro)
-- [Spec-Driven Development Concepts](docs/knowbase/concepts/spec-driven-development.md)
+- [OpenSpec](docs/knowledge-base/frameworks/spec-driven-development-tools-2025.md#1-openspec-fission-ai)
+- [GitHub Spec-Kit](docs/knowledge-base/frameworks/spec-driven-development-tools-2025.md#2-github-spec-kit)
+- [Kiro](docs/knowledge-base/frameworks/spec-driven-development-tools-2025.md#6-kiro-mencionado-na-kb)
+- [go-zero](docs/knowledge-base/frameworks/spec-driven-development-tools-2025.md#5-go-zero-zeromicro)
+- [Spec-Driven Development Concepts](docs/knowledge-base/concepts/spec-driven-development.md)
 
 ---
 

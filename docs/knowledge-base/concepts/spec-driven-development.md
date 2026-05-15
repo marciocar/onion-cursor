@@ -573,9 +573,9 @@ SDD é **complementar** à estratégia Spec-as-Code do Sistema Onion:
 
 ### Conceitos Relacionados
 
-- **Spec-as-Code Strategy** (`docs/knowbase/concepts/spec-as-code-strategy.md`)
-- **Specification-Driven AI Abstraction Layer** (`docs/knowbase/concepts/specification-driven-ai-abstraction-layer.md`)
-- **AI Agent Design Patterns** (`docs/knowbase/concepts/ai-agent-design-patterns.md`)
+- **Spec-as-Code Strategy** (`docs/knowledge-base/concepts/spec-as-code-strategy.md`)
+- **Specification-Driven AI Abstraction Layer** (`docs/knowledge-base/concepts/specification-driven-ai-abstraction-layer.md`)
+- **AI Agent Design Patterns** (`docs/knowledge-base/concepts/ai-agent-design-patterns.md`)
 
 ---
 

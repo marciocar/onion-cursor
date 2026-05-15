@@ -60,7 +60,7 @@ related_agents:
 
 # 🧮 Estimativa de QA Story Points
 
-Calcula QA Story Points usando a fórmula exata do Framework de Testes (`docs/knowbase/frameworks/framework_testes.md`), incluindo análise contextual inteligente, breakdown por perspectiva e sugestões de técnicas.
+Calcula QA Story Points usando a fórmula exata do Framework de Testes (`docs/knowledge-base/frameworks/framework_testes.md`), incluindo análise contextual inteligente, breakdown por perspectiva e sugestões de técnicas.
 
 ## 🎯 Objetivo
 
@@ -79,7 +79,7 @@ Fornecer estimativas precisas de esforço de teste através de:
 
 ```bash
 # Ler framework completo
-read_file docs/knowbase/frameworks/framework_testes.md
+read_file docs/knowledge-base/frameworks/framework_testes.md
 ```
 
 **Extrair e armazenar em memória:**
@@ -92,7 +92,7 @@ read_file docs/knowbase/frameworks/framework_testes.md
 **Validar leitura:**
 ```markdown
 SE arquivo não encontrado:
-  ❌ ERRO: Framework de testes não encontrado em docs/knowbase/frameworks/framework_testes.md
+  ❌ ERRO: Framework de testes não encontrado em docs/knowledge-base/frameworks/framework_testes.md
   💡 Verifique se o arquivo existe e tente novamente
 ```
 
@@ -634,7 +634,7 @@ Comparar estimativa dev vs QA:
 ## 📚 Base de Conhecimento
 
 O comando utiliza o framework completo de testes disponível em:
-- `docs/knowbase/frameworks/framework_testes.md`
+- `docs/knowledge-base/frameworks/framework_testes.md`
 
 **Conteúdo incluído:**
 - Fórmula exata de QA Story Points (linhas ~217-330)

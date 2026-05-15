@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### ✨ Added
 
 #### Knowledge Bases
-- **[Spec-Driven Development](docs/knowbase/concepts/spec-driven-development.md)** - Knowledge base completa sobre metodologia emergente
+- **[Spec-Driven Development](docs/knowledge-base/concepts/spec-driven-development.md)** - Knowledge base completa sobre metodologia emergente
   - Análise de ferramentas (Kiro, Spec-Kit, Tessl)
   - Níveis de implementação (Spec-First, Spec-Anchored, Spec-as-Source)
   - Comparação com TDD, BDD, MDD
@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Documentação
 - **Índices de documentação** - Reconstrução completa de índices
   - `docs/onion/index.md` - Índice da seção Onion (28 arquivos)
-  - `docs/knowbase/index.md` - Índice de Knowledge Bases (24 arquivos)
+  - `docs/knowledge-base/index.md` - Índice de Knowledge Bases (24 arquivos)
   - `docs/INDEX.md` - Índice central atualizado (69 arquivos)
 
 ### 🔄 Changed
@@ -137,7 +137,7 @@ This is the first beta release of Onion v4.0, representing a complete transforma
 ```
 .onion/
 ├── core/
-│   ├── knowbase/     # Universal knowledge
+│   ├── knowledge-base/     # Universal knowledge
 │   ├── agents/       # Meta agents
 │   ├── commands/     # Global commands
 │   └── rules/        # Validation rules

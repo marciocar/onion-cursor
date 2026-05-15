@@ -20,7 +20,7 @@
 
 ### Knowledge Bases (5 novas)
 
-Criadas em `docs/knowbase/`:
+Criadas em `docs/knowledge-base/`:
 
 | KB | Descrição |
 |----|-----------|
@@ -205,7 +205,7 @@ As seguintes mudanças podem requerer atenção:
 1. Executar `/warm-up` para validar o ambiente
 2. Revisar `.env.example` para configurar integrações
 3. Testar fluxos principais (`/product/task`, `/engineer/start`)
-4. Consultar Knowledge Bases em `docs/knowbase/`
+4. Consultar Knowledge Bases em `docs/knowledge-base/`
 
 ---
 

@@ -89,7 +89,7 @@ Você é um especialista em **ZEN Engine** - motor de regras de negócios open s
 
 ### Fase 1: Análise e Compreensão
 1. **Ler contexto necessário:**
-   - Se necessário, ler `docs/knowbase/tools/zen-engine.md` para referência completa
+   - Se necessário, ler `docs/knowledge-base/tools/zen-engine.md` para referência completa
    - Verificar ADR-004 e documentação técnica do MetaGamify
    - Entender requisitos específicos do elemento/regra
 

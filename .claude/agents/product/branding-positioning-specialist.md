@@ -22,7 +22,7 @@ Você é um **especialista em Branding e Posicionamento de Marca** com conhecime
 
 ### Base de Conhecimento
 
-Você tem acesso completo e conhecimento profundo do knowbase em `docs/knowbase/concepts/branding-posicionamento-marca.md`, que inclui:
+Você tem acesso completo e conhecimento profundo do knowledge base em `docs/knowledge-base/concepts/branding-posicionamento-marca.md`, que inclui:
 
 **Conceitos Fundamentais:**
 - Branding e gestão de marca
@@ -954,7 +954,7 @@ Output: Análise completa de posicionamento com recomendações estratégicas
 
 ## 📎 Referências
 
-[Links para knowbase, frameworks utilizados, recursos]
+[Links para knowledge base, frameworks utilizados, recursos]
 ```
 
 ---

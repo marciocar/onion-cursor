@@ -49,7 +49,7 @@ Cada IDE tem seu próprio mecanismo de descoberta:
 # Estrutura no disco
 .onion/                          # 📁 Real - fonte única da verdade
 ├── core/
-│   ├── knowbase/
+│   ├── knowledge-base/
 │   ├── agents/
 │   ├── commands/
 │   ├── rules/
@@ -286,7 +286,7 @@ const agents = loader.loadAgents();
 # Estrutura padrão universal
 .onion/                          # 🌐 Convenção universal
 ├── core/
-│   ├── knowbase/
+│   ├── knowledge-base/
 │   ├── agents/
 │   ├── commands/
 │   ├── rules/
@@ -325,7 +325,7 @@ Padronizar estrutura de comandos, agentes, e conhecimento para IDEs com IA.
 
 .onion/
 ├── core/                        # OBRIGATÓRIO
-│   ├── knowbase/                # OBRIGATÓRIO
+│   ├── knowledge-base/                # OBRIGATÓRIO
 │   ├── agents/                  # OBRIGATÓRIO
 │   ├── commands/                # OBRIGATÓRIO
 │   └── rules/                   # OPCIONAL
@@ -343,7 +343,7 @@ Padronizar estrutura de comandos, agentes, e conhecimento para IDEs com IA.
 - Header: YAML frontmatter
 - Corpo: Markdown
 
-### Knowledge Base (.onion/core/knowbase/)
+### Knowledge Base (.onion/core/knowledge-base/)
 - Extensão: `.md`
 - Estrutura livre
 
@@ -353,7 +353,7 @@ IDEs compatíveis DEVEM:
 1. Verificar existência de `.onion/` na raiz do projeto
 2. Carregar comandos de `.onion/core/commands/` recursivamente
 3. Carregar agentes de `.onion/core/agents/` recursivamente
-4. Indexar knowledge base de `.onion/core/knowbase/` recursivamente
+4. Indexar knowledge base de `.onion/core/knowledge-base/` recursivamente
 
 ## Retrocompatibilidade
 
@@ -375,7 +375,7 @@ IDEs PODEM manter suporte a estruturas legadas (.claude/, .claude/) mas DEVEM pr
 # Estrutura no disco
 .onion/                          # 📁 Fonte única da verdade
 ├── core/
-│   ├── knowbase/
+│   ├── knowledge-base/
 │   ├── agents/
 │   ├── commands/
 │   ├── rules/
@@ -754,7 +754,7 @@ onion_adapter = ClaudeOnionAdapter()
 ```bash
 .onion/                    # ✅ Fonte única da verdade
 ├── core/
-│   ├── knowbase/         # 📚 Corrigido (não "kb")
+│   ├── knowledge-base/         # 📚 Corrigido (não "kb")
 │   ├── agents/
 │   ├── commands/
 │   ├── rules/
@@ -845,7 +845,7 @@ Todos os paths devem usar `knowbase`:
 .onion/
 ├── core/
 -│   ├── kb/                  # ❌ INCORRETO
-+│   ├── knowbase/            # ✅ CORRETO
++│   ├── knowledge-base/            # ✅ CORRETO
 │   ├── agents/
 │   ├── commands/
 │   ├── rules/
@@ -853,18 +853,18 @@ Todos os paths devem usar `knowbase`:
 └── contexts/
     ├── business/
 -    │   ├── kb/             # ❌ INCORRETO
-+    │   ├── knowbase/       # ✅ CORRETO
++    │   ├── knowledge-base/       # ✅ CORRETO
     │   ├── agents/
     │   └── commands/
     └── technical/
 -        ├── kb/             # ❌ INCORRETO
-+        ├── knowbase/       # ✅ CORRETO
++        ├── knowledge-base/       # ✅ CORRETO
         ├── agents/
         └── commands/
 ```
 
 **Justificativa**: 
-- ✅ Consistente com `docs/knowbase/` existente
+- ✅ Consistente com `docs/knowledge-base/` existente
 - ✅ Mais claro que "kb" (abreviação ambígua)
 - ✅ Self-documenting
 

@@ -140,7 +140,7 @@ format: 'markdown_description'
 syntax: 'Markdown nativo'
 // USE: ## Headers, | Tabelas |, **Bold**, - Listas
 // QUANDO: create_task, update_task descriptions
-// TEMPLATE: '.claude/docs/clickup/clickup-formatting.md' - seção DESCRIPTIONS
+// TEMPLATE: '.claude/commands/common/prompts/clickup-patterns.md' - seção DESCRIPTIONS
 ```
 
 **Exemplo:**
@@ -165,7 +165,7 @@ format: 'commentText'
 syntax: 'Unicode visual'
 // USE: ━━━, ∟, ▶, ◆, ✅
 // QUANDO: create_task_comment, progress updates, PR comments
-// TEMPLATE: '.claude/docs/clickup/clickup-formatting.md' - seção COMMENTS
+// TEMPLATE: '.claude/commands/common/prompts/clickup-patterns.md' - seção COMMENTS
 // OBRIGATÓRIO: Timestamp + status em todos os comments
 ```
 
