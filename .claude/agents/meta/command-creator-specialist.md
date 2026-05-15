@@ -1100,7 +1100,7 @@ Execute [operação Git Flow]:
 - Invocam agentes de compliance específicos
 - Geram documentação estruturada
 - Seguem frameworks (ISO, SOC2, etc.)
-- Output em docs/compliance/
+- Output em docs/compliance-context/
 
 **Exemplos:**
 - `/compliance/audit/iso27001` - Gerar docs ISO 27001
@@ -1122,7 +1122,7 @@ Comando de conformidade para [framework/padrão].
 Gere documentação de [framework]:
 - Standard: [ISO/SOC2/etc]
 - Escopo: [descrição]
-- Output: docs/compliance/[categoria]/
+- Output: docs/compliance-context/[categoria]/
 ```
 
 ## Validações

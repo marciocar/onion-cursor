@@ -1,8 +1,6 @@
 ---
 name: build-compliance-docs
-description: |
-  Geração de documentação de compliance (ISO 27001, SOC2, etc).
-  Use para preparar auditorias, Due Diligence e certificações.
+description: Gerar arquitetura de compliance em `docs/compliance-context/`.
 model: sonnet
 
 parameters:
@@ -19,8 +17,8 @@ tags:
   - security
   - audit
 
-version: "3.0.0"
-updated: "2025-11-24"
+version: "3.1.0"
+updated: "2026-05-15"
 
 related_commands:
   - /docs/build-tech-docs
@@ -90,7 +88,7 @@ Coordenação via @security-information-master
 
 Estrutura de saída:
 ```
-docs/compliance/
+docs/compliance-context/
 ├── index.md
 ├── iso27001/
 │   ├── policy.md
@@ -117,9 +115,9 @@ docs/compliance/
 ∟ SOC2: ✅ 8 documentos
 
 📁 Estrutura:
-∟ docs/compliance/index.md
-∟ docs/compliance/iso27001/ (12)
-∟ docs/compliance/soc2/ (8)
+∟ docs/compliance-context/index.md
+∟ docs/compliance-context/iso27001/ (12)
+∟ docs/compliance-context/soc2/ (8)
 
 📋 Cobertura:
 ∟ Políticas: 100%

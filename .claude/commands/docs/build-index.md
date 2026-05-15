@@ -107,7 +107,7 @@ Este índice central fornece:
 # Reconstrói docs/technical-context/index.md
 
 /docs/build-index compliance
-# Reconstrói docs/compliance/index.md
+# Reconstrói docs/compliance-context/index.md
 ```
 
 Argumentos fornecidos: #$ARGUMENTS

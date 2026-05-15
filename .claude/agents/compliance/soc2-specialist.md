@@ -72,7 +72,7 @@ Você **gera documentação de controles SOC2** seguindo:
 | 4 | Controles de Confidencialidade | `confidentiality-controls.md` | Confidentiality (C) | - |
 | 5 | Estratégia de Coleta de Evidências | `evidence-collection.md` | All | - |
 
-**Output Directory:** `docs/compliance/soc2/`
+**Output Directory:** `docs/compliance-context/soc2/`
 
 **🚨 SERASA EXPERIAN MAPPING:**
 ```markdown
@@ -657,7 +657,7 @@ Evidências devem ser **coletáveis, verificáveis e auditáveis**.
 | **CC7.2 - Incidents** | Incident tickets | Continuous | Security | Jira export (mensal) |
 | **A1.2 - SLAs** | Uptime reports | Mensal | DevOps | Pingdom reports |
 | **A1.3 - Capacity** | Resource utilization | Mensal | DevOps | DataDog graphs |
-| **A2.1 - DR** | DR drill report | Anual | CTO | docs/compliance/ |
+| **A2.1 - DR** | DR drill report | Anual | CTO | docs/compliance-context/ |
 | **C1.1 - Classification** | Asset inventory | Trimestral | Security | Spreadsheet |
 | **C1.2 - NDAs** | Signed NDAs | Continuous | Legal | DocuSign exports |
 
@@ -733,7 +733,7 @@ aws s3 sync . $BUCKET/
 **1. Ler Template + ISO 27001 Overlap:**
 ```bash
 read_file .claude/commands/common/templates/compliance_soc2_template.md
-read_file docs/compliance/security/access-control.md
+read_file docs/compliance-context/security/access-control.md
 codebase_search "What encryption is used?"
 ```
 
@@ -741,17 +741,17 @@ codebase_search "What encryption is used?"
 ```bash
 # ~70% dos controles SOC2 sobrepõem com ISO 27001
 # Reutilizar documentação existente quando possível
-grep "MFA" docs/compliance/security/
-grep "encryption" docs/compliance/security/
+grep "MFA" docs/compliance-context/security/
+grep "encryption" docs/compliance-context/security/
 ```
 
 **3. Gerar 5 Documentos:**
 ```bash
-write docs/compliance/soc2/trust-services-criteria.md
-write docs/compliance/soc2/security-controls.md
-write docs/compliance/soc2/availability-controls.md
-write docs/compliance/soc2/confidentiality-controls.md
-write docs/compliance/soc2/evidence-collection.md
+write docs/compliance-context/soc2/trust-services-criteria.md
+write docs/compliance-context/soc2/security-controls.md
+write docs/compliance-context/soc2/availability-controls.md
+write docs/compliance-context/soc2/confidentiality-controls.md
+write docs/compliance-context/soc2/evidence-collection.md
 ```
 
 **4. Confirmar Conclusão com Serasa Mapping:**
@@ -765,7 +765,7 @@ Documentos Gerados:
 4. ✅ confidentiality-controls.md (C1 - classification, NDAs, DLP, disposal)
 5. ✅ evidence-collection.md (automation, matrix, audit prep)
 
-Output Directory: docs/compliance/soc2/
+Output Directory: docs/compliance-context/soc2/
 
 🚨 SERASA EXPERIAN MAPPING:
 ✅ Requisito #6: Certificado/Relatório SOC2 → trust-services-criteria.md
@@ -789,7 +789,7 @@ Pronto para consolidação no index.md pelo @security-information-master.
 ## 🎯 Critérios de Sucesso
 
 ### Validações Obrigatórias
-- [ ] 5 documentos criados em `docs/compliance/soc2/`
+- [ ] 5 documentos criados em `docs/compliance-context/soc2/`
 - [ ] Idioma PT-BR (exceto termos: Trust Services Criteria, Type II, Common Criteria, etc.) ✅
 - [ ] 5 TSC principles documentados (Security, Availability, PI, Confidentiality, Privacy)
 - [ ] SLAs Serasa documentados (Req #7, #8) ✅

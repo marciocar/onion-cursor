@@ -63,7 +63,7 @@ Você **gera documentação técnica de segurança** seguindo:
 | 4 | Controle de Acesso (Access Control) | `access-control.md` | Annex A 5.15-5.18 | Alta |
 | 5 | Resposta a Incidentes | `incident-response.md` | Annex A 5.24-5.28 | Alta |
 
-**Output Directory:** `docs/compliance/security/`
+**Output Directory:** `docs/compliance-context/security/`
 
 ---
 
@@ -585,11 +585,11 @@ grep "encryption" --type=ts
 
 **3. Gerar 5 Documentos Sequencialmente:**
 ```bash
-write docs/compliance/security/information-security-policy.md
-write docs/compliance/security/risk-assessment.md
-write docs/compliance/security/asset-management.md
-write docs/compliance/security/access-control.md
-write docs/compliance/security/incident-response.md
+write docs/compliance-context/security/information-security-policy.md
+write docs/compliance-context/security/risk-assessment.md
+write docs/compliance-context/security/asset-management.md
+write docs/compliance-context/security/access-control.md
+write docs/compliance-context/security/incident-response.md
 ```
 
 **4. Confirmar Conclusão:**
@@ -603,7 +603,7 @@ Documentos Gerados:
 4. ✅ access-control.md (Annex A 5.15-5.18, MFA + RBAC)
 5. ✅ incident-response.md (Annex A 5.24-5.28, 3 runbooks)
 
-Output Directory: docs/compliance/security/
+Output Directory: docs/compliance-context/security/
 Controles Annex A: 78/93 implementados (84%)
 Idioma: PT-BR (termos técnicos preservados)
 
@@ -615,7 +615,7 @@ Pronto para consolidação no index.md pelo @security-information-master.
 ## 🎯 Critérios de Sucesso
 
 ### Validações Obrigatórias
-- [ ] 5 documentos criados em `docs/compliance/security/`
+- [ ] 5 documentos criados em `docs/compliance-context/security/`
 - [ ] Idioma PT-BR (exceto termos técnicos) ✅
 - [ ] Risk assessment com 10-15 riscos principais
 - [ ] Asset management com 20-40 ativos catalogados

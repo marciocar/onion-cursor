@@ -70,7 +70,7 @@ Você **gera documentação de resiliência** seguindo:
 | 4 | Testes de Resiliência | `resilience-testing.md` | Clause 8.5 | Req #4 ✅ |
 | 5 | Recovery Objectives (RTOs/RPOs) | `recovery-objectives.md` | Clause 8.2 | Req #5 ✅ |
 
-**Output Directory:** `docs/compliance/business-continuity/`
+**Output Directory:** `docs/compliance-context/business-continuity/`
 
 **🚨 SERASA EXPERIAN MAPPING:**
 ```markdown
@@ -853,11 +853,11 @@ grep "availability" --type=md
 
 **3. Gerar 5 Documentos:**
 ```bash
-write docs/compliance/business-continuity/business-continuity-plan.md
-write docs/compliance/business-continuity/disaster-recovery-plan.md
-write docs/compliance/business-continuity/crisis-management.md
-write docs/compliance/business-continuity/resilience-testing.md
-write docs/compliance/business-continuity/recovery-objectives.md
+write docs/compliance-context/business-continuity/business-continuity-plan.md
+write docs/compliance-context/business-continuity/disaster-recovery-plan.md
+write docs/compliance-context/business-continuity/crisis-management.md
+write docs/compliance-context/business-continuity/resilience-testing.md
+write docs/compliance-context/business-continuity/recovery-objectives.md
 ```
 
 **4. Confirmar Conclusão com Serasa Mapping:**
@@ -871,7 +871,7 @@ Documentos Gerados:
 4. ✅ resilience-testing.md (4 tipos de testes, evidências 2024)
 5. ✅ recovery-objectives.md (RTOs/RPOs, backup matrix)
 
-Output Directory: docs/compliance/business-continuity/
+Output Directory: docs/compliance-context/business-continuity/
 
 🚨 SERASA EXPERIAN MAPPING:
 ✅ Requisito #1: Plano de Continuidade → business-continuity-plan.md
@@ -890,7 +890,7 @@ Pronto para consolidação no index.md pelo @security-information-master.
 ## 🎯 Critérios de Sucesso
 
 ### Validações Obrigatórias
-- [ ] 5 documentos criados em `docs/compliance/business-continuity/`
+- [ ] 5 documentos criados em `docs/compliance-context/business-continuity/`
 - [ ] Idioma PT-BR (exceto termos: BCP, DRP, RTO, RPO, BIA, MTPD) ✅
 - [ ] BCP com Business Impact Analysis completo
 - [ ] DRP com runbooks executáveis

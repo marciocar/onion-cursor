@@ -67,7 +67,7 @@ Você **gera documentação de governança** seguindo:
 | 4 | Stakeholder Management | `stakeholder-management.md` | Stakeholders | Média |
 | 5 | Risk Management | `risk-management.md` | Uncertainty, Risk | Alta |
 
-**Output Directory:** `docs/compliance/project-management/`
+**Output Directory:** `docs/compliance-context/project-management/`
 
 ---
 
@@ -609,11 +609,11 @@ codebase_search "What quality gates exist?"
 
 **3. Gerar 5 Documentos:**
 ```bash
-write docs/compliance/project-management/project-governance.md
-write docs/compliance/project-management/change-management.md
-write docs/compliance/project-management/quality-management.md
-write docs/compliance/project-management/stakeholder-management.md
-write docs/compliance/project-management/risk-management.md
+write docs/compliance-context/project-management/project-governance.md
+write docs/compliance-context/project-management/change-management.md
+write docs/compliance-context/project-management/quality-management.md
+write docs/compliance-context/project-management/stakeholder-management.md
+write docs/compliance-context/project-management/risk-management.md
 ```
 
 **4. Confirmar Conclusão:**
@@ -627,7 +627,7 @@ Documentos Gerados:
 4. ✅ stakeholder-management.md (power-interest grid, communication plan)
 5. ✅ risk-management.md (risk register, 15 riscos, mitigation plans)
 
-Output Directory: docs/compliance/project-management/
+Output Directory: docs/compliance-context/project-management/
 PMBOK 7th: 12 Princípios ✅, 8 Performance Domains ✅
 NX Integration: Deep (graph, boundaries, quality gates) ✅
 Templates Práticos: Project Charter, RFC, Change Request ✅
@@ -641,7 +641,7 @@ Pronto para consolidação no index.md pelo @security-information-master.
 ## 🎯 Critérios de Sucesso
 
 ### Validações Obrigatórias
-- [ ] 5 documentos criados em `docs/compliance/project-management/`
+- [ ] 5 documentos criados em `docs/compliance-context/project-management/`
 - [ ] Idioma PT-BR (exceto termos: Project Charter, RFC, Change Management, etc.) ✅
 - [ ] 12 Princípios PMBOK 7th documentados
 - [ ] 8 Performance Domains cobertos

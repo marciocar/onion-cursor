@@ -1,6 +1,6 @@
 # 🎯 Guia Completo de Comandos
 
-> **Versão**: 3.0.0 | **Última atualização**: 2025-11-25 | **Total**: 57 comandos
+> **Versão**: 4.1.0-beta.1 | **Última atualização**: 2026-05-15 | **Total**: 75 comandos (94 arquivos .md incl. templates/helpers)
 
 Este guia documenta todos os comandos disponíveis no sistema `.claude/`, organizados por categoria e função.
 
@@ -349,13 +349,13 @@ $ ./engineer/start             # Não é executável
 # Exemplo de uso - Modo Seletivo
 /docs/build-compliance frameworks="iso27001,soc2"
 # → Gera apenas ISO 27001 (SGSI) + SOC2 (Trust Services)
-# → Output: docs/compliance/security/ + docs/compliance/soc2/
+# → Output: docs/compliance-context/security/ + docs/compliance-context/soc2/
 
 # Exemplo de uso - Modo Due Diligence
 /docs/build-compliance due-diligence="docs/serasa-requirements.md"
 # → Analisa checklist automaticamente
 # → Detecta frameworks necessários (ISO 22301 + SOC2)
-# → Gera docs/compliance/ com 8/8 requisitos cobertos
+# → Gera docs/compliance-context/ com 8/8 requisitos cobertos
 
 # Exemplo de uso - Modo Interativo
 /docs/build-compliance

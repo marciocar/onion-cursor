@@ -52,7 +52,7 @@ await commentPRCreated(taskId, {
 ```
 
 **Referências:**
-- **Padrão 3 (PR Criada)**: `.claude/docs/strategies/clickup-comment-patterns.md`
+- **Padrões de formatação**: `.claude/commands/common/prompts/clickup-patterns.md`
 - **Abstração MCP**: `commentPRCreated()` em `.claude/utils/clickup-mcp-wrappers.md` (linhas 632-661) 
 
 5. Abra um Pull Request (PR) com os detalhes da implementação:

@@ -296,7 +296,7 @@ Use checkboxes para rastreamento:
 
 ## 📚 Relacionado
 
-- **Padrões de Comentários**: `.claude/docs/strategies/clickup-comment-patterns.md`
+- **Padrões de Formatação ClickUp**: `.claude/commands/common/prompts/clickup-patterns.md`
 - **Abstrações MCP**: `.claude/utils/clickup-mcp-wrappers.md`
 
 ---

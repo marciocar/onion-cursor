@@ -41,7 +41,7 @@ await commentPrePRValidation(taskId, {
 ```
 
 **Referências:**
-- **Padrão 5 (Validação Pre-PR)**: `.claude/docs/strategies/clickup-comment-patterns.md`
+- **Padrões de formatação**: `.claude/commands/common/prompts/clickup-patterns.md`
 - **Abstrações MCP**: 
   - `validateAcceptanceCriteria()` em `.claude/utils/clickup-mcp-wrappers.md` (linhas 534-600)
   - `commentPrePRValidation()` em `.claude/utils/clickup-mcp-wrappers.md` (linhas 603-629)

@@ -393,7 +393,7 @@ flowchart TD
     
     C --> F["docs/business-context/"]
     D --> G["docs/technical-context/"]
-    E --> H["docs/compliance/"]
+    E --> H["docs/compliance-context/"]
     
     F --> I["/docs/build-index"]
     G --> I

@@ -1,6 +1,6 @@
 # 🤖 Referência de Agentes
 
-> **Versão**: 3.0.0 | **Última atualização**: 2025-11-24 | **Total**: 38 agentes
+> **Versão**: 4.1.0-beta.1 | **Última atualização**: 2026-05-15 | **Total**: 49 agentes em 9 categorias
 
 Este guia documenta todos os agentes especializados disponíveis no sistema `.claude/`, suas capacidades e quando utilizá-los.
 
@@ -354,7 +354,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cl
 @iso-27001-specialist "Documentar Annex A 5.15-5.18 (Access Control) com MFA + RBAC"
 ```
 
-**5 Documentos Gerados** (`docs/compliance/security/`):
+**5 Documentos Gerados** (`docs/compliance-context/security/`):
 1. `information-security-policy.md` - Política de Segurança (Clause 5.2)
 2. `risk-assessment.md` - 10-15 riscos principais (Clause 6.1.2)
 3. `asset-management.md` - Inventário e classificação (Annex A 5.9)
@@ -396,7 +396,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cl
 @iso-22301-specialist "Documentar DR Drill 2024 com RTO 30min alcançado"
 ```
 
-**5 Documentos Gerados** (`docs/compliance/business-continuity/`):
+**5 Documentos Gerados** (`docs/compliance-context/business-continuity/`):
 1. `business-continuity-plan.md` - BCP com BIA (Serasa Req #1) ✅
 2. `disaster-recovery-plan.md` - DRP com runbooks (Serasa Req #2) ✅
 3. `crisis-management.md` - CMT + Serasa contacts (Serasa Req #3) ✅
@@ -438,7 +438,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cl
 @pmbok-specialist "Criar Quality Management com DoD, Code Review e métricas DORA"
 ```
 
-**5 Documentos Gerados** (`docs/compliance/project-management/`):
+**5 Documentos Gerados** (`docs/compliance-context/project-management/`):
 1. `project-governance.md` - PMO, RACI, lifecycle, 12 princípios PMBOK
 2. `change-management.md` - Change Request process, CI/CD, Feature Flags
 3. `quality-management.md` - DoD, Code Review, Quality Gates, DORA metrics
@@ -480,7 +480,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cl
 @soc2-specialist "Criar estratégia de evidências para 12 meses de audit period"
 ```
 
-**5 Documentos Gerados** (`docs/compliance/soc2/`):
+**5 Documentos Gerados** (`docs/compliance-context/soc2/`):
 1. `trust-services-criteria.md` - 5 TSC principles, Type II overview (Serasa Req #6) ✅
 2. `security-controls.md` - CC6/CC7 (auth, encryption, monitoring, incidents)
 3. `availability-controls.md` - A1 (HA, SLAs, DR) (Serasa Req #7, #8) ✅

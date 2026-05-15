@@ -377,7 +377,7 @@ test("Todas as informações de fase são incluídas", () => {
 
 ## 📚 Relacionado
 
-- [Estratégias de Comentários](../docs/strategies/clickup-comment-patterns.md)
+- [Padrões de Formatação ClickUp](../commands/common/prompts/clickup-patterns.md)
 
 ---
 

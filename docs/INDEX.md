@@ -1,6 +1,6 @@
 # 📚 Índice Central de Documentação
 
-> **Última atualização**: 2025-12-20 | **Gerado por**: `/docs/build-index`
+> **Última atualização**: 2026-05-15 | **Gerado por**: `/docs/build-index`
 
 Bem-vindo ao índice central de documentação do projeto. Este documento serve como hub de navegação para toda a documentação disponível.
 
@@ -8,7 +8,7 @@ Bem-vindo ao índice central de documentação do projeto. Este documento serve 
 
 ## 🎯 Visão Geral
 
-Este projeto utiliza o **Sistema Onion v4.0 Beta** - um framework avançado de comandos `.claude/` que revoluciona o desenvolvimento com:
+Este projeto utiliza o **Sistema Onion v4.1.0-beta.1** - um framework avançado de comandos `.claude/` que revoluciona o desenvolvimento com:
 
 - 🤖 **Comandos especializados** organizados em categorias funcionais
 - 🎯 **Agentes de IA especializados** em múltiplos domínios

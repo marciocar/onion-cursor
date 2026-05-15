@@ -70,7 +70,7 @@ await commentPRUpdated(taskId, {
 ```
 
 **Referências:**
-- **Padrão 4 (PR Atualizada)**: `.claude/docs/strategies/clickup-comment-patterns.md`
+- **Padrões de formatação**: `.claude/commands/common/prompts/clickup-patterns.md`
 - **Abstração MCP**: `commentPRUpdated()` em `.claude/utils/clickup-mcp-wrappers.md` (linhas 632-661)
 
 ## ⚙️ Processo Automático

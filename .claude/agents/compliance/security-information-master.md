@@ -331,7 +331,7 @@ Antes de delegar, consolidar contexto do projeto:
 4. access-control.md (MFA, RBAC, policies)
 5. incident-response.md (playbooks, contact matrix)
 
-**Output Directory:** `docs/compliance/security/`
+**Output Directory:** `docs/compliance-context/security/`
 
 **Idioma:** PT-BR (preservando termos: Risk Assessment, Access Control, ISMS, BIA, SoA)
 
@@ -360,7 +360,7 @@ Confirme quando concluir para eu consolidar no index.md.
 4. resilience-testing.md (evidências de testes anuais)
 5. recovery-objectives.md (RTOs/RPOs documentados)
 
-**Output Directory:** `docs/compliance/business-continuity/`
+**Output Directory:** `docs/compliance-context/business-continuity/`
 
 **Idioma:** PT-BR (preservando: BCP, DRP, RTO, RPO, BIA, MTPD)
 
@@ -396,7 +396,7 @@ Confirme quando concluir para eu consolidar no index.md.
 4. stakeholder-management.md (identification, communication plan)
 5. risk-management.md (risk register, mitigation plans)
 
-**Output Directory:** `docs/compliance/project-management/`
+**Output Directory:** `docs/compliance-context/project-management/`
 
 **Idioma:** PT-BR (preservando: Project Charter, RFC, Change Management, Quality Management, etc.)
 
@@ -429,7 +429,7 @@ Confirme quando concluir para eu consolidar no index.md.
 4. confidentiality-controls.md (encryption, DLP, NDAs)
 5. evidence-collection.md (estratégia de evidências para audit)
 
-**Output Directory:** `docs/compliance/soc2/`
+**Output Directory:** `docs/compliance-context/soc2/`
 
 **Idioma:** PT-BR (preservando: Trust Services Criteria, Type II, Control Environment, TSC, etc.)
 
@@ -451,7 +451,7 @@ Confirme quando concluir para eu consolidar no index.md.
 
 Após todos specialists concluírem, consolidar em 2 arquivos principais:
 
-#### 3.1 Criar docs/compliance/index.md
+#### 3.1 Criar docs/compliance-context/index.md
 ```markdown
 # Documentação de Compliance - [Nome da Empresa]
 
@@ -517,7 +517,7 @@ Após todos specialists concluírem, consolidar em 2 arquivos principais:
 **Próxima Revisão:** [Data]
 ```
 
-#### 3.2 Criar docs/compliance/COMPLIANCE_OVERVIEW.md
+#### 3.2 Criar docs/compliance-context/COMPLIANCE_OVERVIEW.md
 ```markdown
 # COMPLIANCE OVERVIEW - [Nome da Empresa]
 
@@ -713,7 +713,7 @@ Exemplo correto: docs/due-diligence/serasa-requirements.md
 Usuário: /docs/build-compliance frameworks="iso27001"
 
 Output esperado:
-docs/compliance/
+docs/compliance-context/
 ├── index.md
 ├── COMPLIANCE_OVERVIEW.md
 └── security/
@@ -735,7 +735,7 @@ Keywords: continuidade (3x), disaster recovery (2x), rto (2x), rpo (2x), testes 
 Resultado: ISO 22301 + SOC2
 
 Output esperado:
-docs/compliance/
+docs/compliance-context/
 ├── index.md
 ├── COMPLIANCE_OVERVIEW.md
 ├── business-continuity/ (5 docs)
@@ -765,7 +765,7 @@ PMBOK: Média prioridade (governança NX monorepo)
 Usuário confirma: Y (3 primeiros)
 
 Output esperado:
-docs/compliance/
+docs/compliance-context/
 ├── index.md
 ├── COMPLIANCE_OVERVIEW.md
 ├── security/ (5 docs ISO 27001)
@@ -780,7 +780,7 @@ Tempo: ~4 minutos
 Usuário: /docs/build-compliance frameworks="all"
 
 Output esperado:
-docs/compliance/
+docs/compliance-context/
 ├── index.md
 ├── COMPLIANCE_OVERVIEW.md
 ├── security/ (5 docs ISO 27001)

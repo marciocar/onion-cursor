@@ -2,8 +2,8 @@
 
 ## 🎯 Contexto do Projeto
 Este é o Sistema Onion - um framework avançado de comandos `.claude/` com:
-- 93+ comandos organizados por categoria (`engineer`, `product`, `git`, `docs`, `test`, `validate`, `meta`, `onion`)
-- 48+ agentes especializados de IA em 9 categorias (compliance, development, deployment, git, meta, product, research, review, testing)
+- 75+ comandos organizados por categoria (`engineer`, `product`, `git`, `docs`, `test`, `validate`, `meta`, `onion`, `common`)
+- 49 agentes especializados de IA em 9 categorias (compliance, deployment, development, git, meta, product, research, review, testing)
 - **Task Manager Abstraction** plugável (Jira, ClickUp, Asana, Linear)
 - Workflows automatizados de desenvolvimento (GitFlow + sprints + sessions)
 
