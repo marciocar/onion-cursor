@@ -49,15 +49,8 @@ This project adheres to a Code of Conduct. By participating, you are expected to
 git clone https://github.com/your-username/onion-v4.git
 cd onion-v4
 
-# 2. Install dependencies
-pnpm install
-
-# 3. Link CLI for local development
-cd packages/onion-cli
-pnpm link
-
-# 4. Test the CLI
-onion --version
+# 2. Open in Claude Code (or another supported IDE)
+#    O Sistema Onion vive em .claude/ — comandos e agentes carregam automaticamente.
 ```
 
 ---
@@ -67,49 +60,17 @@ onion --version
 ### Project Structure
 
 ```
-onion-v4/
-├── packages/
-│   └── onion-cli/          # CLI package
-│       ├── src/
-│       │   ├── commands/   # CLI commands
-│       │   ├── core/       # Core modules
-│       │   ├── generator/  # Structure generators
-│       │   ├── migrator/   # Migration modules
-│       │   └── utils/      # Utilities
-│       ├── tests/          # Unit tests
-│       └── bin/            # CLI entry point
-├── .onion/                 # Onion system structure
-├── docs/                   # Documentation
-└── scripts/                # Automation scripts
-```
-
-### Running Tests
-
-```bash
-# Run all tests
-pnpm test
-
-# Run specific test file
-pnpm test core/validator.test.js
-
-# Run with coverage
-pnpm test --coverage
-
-# Watch mode
-pnpm test --watch
-```
-
-### Linting and Formatting
-
-```bash
-# Lint
-pnpm lint
-
-# Format
-pnpm format
-
-# Fix lint issues
-pnpm lint --fix
+onion-claude/
+├── .claude/                # Sistema Onion operacional (comandos, agentes, regras)
+│   ├── commands/           # Comandos organizados por categoria
+│   ├── agents/             # Agentes especializados por domínio
+│   ├── rules/              # Regras e convenções
+│   └── utils/              # Utilitários (incl. task-manager abstraction)
+├── docs/                   # Documentação
+│   ├── meta-specs/         # Spec as Code (L0 — constituição)
+│   ├── knowbase/           # Knowledge bases estruturadas
+│   └── onion/              # Guias e referências
+└── CLAUDE.md               # Project rules carregados pelo Claude Code
 ```
 
 ---
