@@ -81,9 +81,9 @@ Delegar para o agente com contexto coletado.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 📊 Estrutura:
-∟ 57 comandos em 7 categorias
-∟ 38 agentes especializados
-∟ Integração ClickUp MCP
+∟ 94 comandos em 11 categorias
+∟ 49 agentes especializados
+∟ Task Manager Abstraction (Jira/ClickUp/Asana/Linear)
 
 🚀 Comandos Principais:
 ∟ /product/task - Criar tasks

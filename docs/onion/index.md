@@ -1,6 +1,6 @@
 # 📚 Índice - Sistema Onion
 
-> **Última atualização**: 2026-05-15 | **Gerado por**: `/docs:build-index onion`
+> **Última atualização**: 2026-05-15 | **Gerado por**: `/docs:build-index onion` | **Revisado**: auditoria manual
 
 Bem-vindo ao índice da documentação do **Sistema Onion**. Este documento organiza os 26 arquivos de documentação operacional do sistema em `docs/onion/`.
 
@@ -9,10 +9,11 @@ Bem-vindo ao índice da documentação do **Sistema Onion**. Este documento orga
 ## 🎯 Visão Geral
 
 O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
-- 🤖 **91 comandos especializados** organizados em 10 categorias funcionais
+- 🤖 **94 comandos** Claude Code em 11 categorias
 - 🎯 **49 agentes de IA especializados** em 9 categorias
+- 🧩 **1 skill** em `.claude/skills/` (`onion` — ativação automática)
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
-- 🧅 **Comando `/onion`** - ponto de entrada inteligente
+- 🧅 **Skill + Comando `/onion`** — ponto de entrada inteligente
 - 🔗 **Task Manager Abstraction** plugável (Jira, ClickUp, Asana, Linear)
 - 🏗️ **Spec as Code Multi-Context** — business, technical e meta-specs
 
@@ -21,8 +22,9 @@ O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
 ## 📊 Estatísticas
 
 - **26 arquivos** em `docs/onion/`
-- **91 comandos** Claude Code em `.claude/commands/`
+- **94 comandos** Claude Code em `.claude/commands/`
 - **49 agentes** IA em `.claude/agents/`
+- **1 skill** em `.claude/skills/`
 
 ---
 
@@ -33,7 +35,7 @@ O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
 **Comece aqui se você é novo no Sistema Onion:**
 
 1. **[Guia de Comandos](commands-guide.md)** - Documentação dos comandos disponíveis
-   - 91 comandos organizados em 10 categorias
+   - 94 comandos em 11 categorias
    - Exemplos de uso e workflows
    - Integrações com Task Managers
 
@@ -262,7 +264,8 @@ O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
 
 | Data | Mudança |
 |------|---------|
-| 2026-05-15 | Índice revisado: estatísticas reais (91 comandos / 49 agentes / 26 arquivos), refs quebradas removidas |
+| 2026-05-15 | Auditoria manual: 94 comandos / 49 agentes / 1 skill `onion`; agente @onion corrigido (agentes fantasmas removidos, 18 novos adicionados) |
+| 2026-05-15 | Índice revisado: estatísticas reais (91→94 comandos / 49 agentes / 26 arquivos), refs quebradas removidas |
 | 2025-12-20 | Índice reconstruído |
 | 2025-12-02 | Adicionado Spec-Driven Development |
 

@@ -74,10 +74,12 @@ Estabelecer contexto focado em:
 ### 7. Agentes de Desenvolvimento
 - ✅ Conhecer agentes especializados:
   - `@react-developer` - Desenvolvimento React
-  - `@python-developer` - Desenvolvimento Python
-  - `@nodejs-specialist` - Backend Node.js
+  - `@nodejs-specialist` - Backend Node.js/TypeScript
+  - `@postgres-specialist` - PostgreSQL
   - `@nx-monorepo-specialist` - Monorepos NX
+  - `@docker-specialist` - Docker e containers
   - `@c4-architecture-specialist` - Arquitetura C4
+  - `@mermaid-specialist` - Diagramas Mermaid
   - `@test-engineer` - Testes e QA
   - `@code-reviewer` - Code review
 

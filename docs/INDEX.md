@@ -1,6 +1,6 @@
 # 📚 Índice Central de Documentação
 
-> **Última atualização**: 2026-05-15 | **Gerado por**: `/docs:build-index`
+> **Última atualização**: 2026-05-15 | **Gerado por**: `/docs:build-index` | **Revisado**: auditoria manual
 
 Bem-vindo ao índice central de documentação do projeto. Este documento serve como hub de navegação para toda a documentação disponível.
 
@@ -10,10 +10,11 @@ Bem-vindo ao índice central de documentação do projeto. Este documento serve 
 
 Este projeto é o **Sistema Onion** — um framework de comandos `.claude/` para uso interno com:
 
-- 🤖 **91 comandos especializados** organizados em 10 categorias funcionais
+- 🤖 **94 comandos** Claude Code em 11 categorias
 - 🎯 **49 agentes de IA especializados** em 9 categorias
+- 🧩 **1 skill** em `.claude/skills/` (`onion` — cérebro do sistema)
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
-- 🧅 **Comando `/onion`** - ponto de entrada inteligente
+- 🧅 **Skill + Comando `/onion`** — ponto de entrada inteligente com ativação automática
 - 🔗 **Task Manager Abstraction** plugável (Jira, ClickUp, Asana, Linear)
 - 🏗️ **Spec as Code Multi-Context** — separação entre business, technical e meta-specs
 
@@ -34,30 +35,32 @@ Este projeto é o **Sistema Onion** — um framework de comandos `.claude/` para
 - Arquivos adicionais em `docs/analysis/`, `docs/plans/`, `docs/business-context/`, `docs/technical-context/`
 
 ### Sistema Onion (`.claude/`)
-- **91 comandos** Claude Code distribuídos em:
-  - 21 em `product/` (gestão de produto e descoberta)
+- **94 comandos** Claude Code distribuídos em:
+  - 22 em `product/` (gestão de produto e descoberta)
   - 13 em `git/` (GitFlow e versionamento)
   - 12 em `common/` (templates e prompts compartilhados)
-  - 11 em `engineer/` (engenharia e desenvolvimento)
+  - 12 em `engineer/` (engenharia e desenvolvimento)
   - 11 em `docs/` (geração e validação de documentação)
   - 10 em `meta/` (meta-comandos e criadores)
   - 6 em `validate/` (validação e testes)
   - 3 em `test/` (unit, integration, e2e)
-  - 1 em `development/`, 1 em `quick/`
+  - 1 em `development/`, 1 em `quick/`, 1 em `global/`
   - 2 no root: `onion.md`, `warm-up.md`
+- **1 skill** em `.claude/skills/onion/` (ativação automática)
 - **49 agentes** IA distribuídos em:
   - 20 em `development/` (frontend, backend, infra, integrações)
   - 8 em `product/` (gestão e narrativa)
-  - 5 em `compliance/` (ISO 27001, ISO 22301, SOC2, PMBOK)
-  - 5 em `meta/` (orquestração, criação, validação)
+  - 5 em `compliance/` (ISO 27001, ISO 22301, SOC2, PMBOK, governance)
+  - 5 em `meta/` (orquestração, criação, validação, skills)
   - 4 em `git/` (review pré-PR)
   - 3 em `testing/`, 2 em `review/`
   - 1 em `research/`, 1 em `deployment/`
 
 ### Total
 - **64 arquivos** de documentação markdown
-- **91 comandos** organizados em 10 categorias
+- **94 comandos** em 11 categorias + root
 - **49 agentes** especializados em 9 categorias
+- **1 skill** (`.claude/skills/`)
 
 ---
 
