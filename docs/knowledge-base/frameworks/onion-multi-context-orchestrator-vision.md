@@ -1,4 +1,12 @@
+---
+status: historical
+replaced-by: docs/analysis/onion-review-2026-05.md
+abandoned-on: 2026-05-18
+---
+
 # Sistema Onion - Visão Multi-Context Orchestrator
+
+> **AVISO**: Este documento descreve visões estratégicas abandonadas em 2026-05-18 (`.onion/`, CLI standalone, multi-IDE, plano v4.0 FASES 5-9). Mantido como registro histórico do pensamento de 2025-12-20. Para o estado atual do Onion, consultar a [Revisão Analítica de Maio/2026](../../analysis/onion-review-2026-05.md).
 
 > **Versão**: 1.0.0 | **Última atualização**: 2025-12-20 | **Categoria**: Frameworks  
 > Reavaliação do Sistema Onion como orquestrador multi-contexto para ambientes monorepo colaborativos
@@ -101,7 +109,7 @@ para cada ator mas compartilhando base comum."
 **Proposta de Reestruturação**:
 
 ```
-.claude/
+.cursor/
 ├── core/                          # Base comum (5-10 comandos universais)
 │   ├── warm-up.md
 │   ├── sync.md
@@ -189,21 +197,21 @@ para cada ator mas compartilhando base comum."
 **Proposta Melhorada**:
 
 ```yaml
-# .claude/contexts/business/.context-config.yml
+# .cursor/contexts/business/.context-config.yml
 context: business
 task_manager:
   provider: clickup
   workspace_id: xxx
   default_list: yyy
 
-# .claude/contexts/technical/.context-config.yml
+# .cursor/contexts/technical/.context-config.yml
 context: technical
 task_manager:
   provider: linear
   team_id: xxx
   default_project: yyy
 
-# .claude/contexts/customer-success/.context-config.yml
+# .cursor/contexts/customer-success/.context-config.yml
 context: customer-success
 task_manager:
   provider: asana
@@ -238,13 +246,13 @@ task_manager:
 
 ```
 # ❌ Errado (atual)
-.claude/commands/product/whisper.md  # No core
+.cursor/commands/product/whisper.md  # No core
 
 # ✅ Correto (proposta)
-.claude/contexts/business/whisper.md
-.claude/contexts/customer-success/whisper.md
-.claude/contexts/sales/whisper.md
-.claude/contexts/compliance/whisper.md
+.cursor/contexts/business/whisper.md
+.cursor/contexts/customer-success/whisper.md
+.cursor/contexts/sales/whisper.md
+.cursor/contexts/compliance/whisper.md
 ```
 
 **Veredito**: ⚠️ **Feature válida**, mas deve ser **plugin opcional por contexto**, não core universal.
@@ -261,7 +269,7 @@ task_manager:
 **Story Points fazem sentido total no `business-context`**:
 
 ```
-.claude/contexts/business/
+.cursor/contexts/business/
 ├── product/
 │   ├── spec.md
 │   ├── refine.md
@@ -313,7 +321,7 @@ compartilhando base comum de ferramentas e agentes."
 
 ```
 onion-v4/
-├── .claude/
+├── .cursor/
 │   ├── core/                      # 5-10 comandos universais
 │   │   ├── commands/
 │   │   │   ├── warm-up.md
@@ -391,7 +399,7 @@ onion-v4/
 
 ### Configuração por Contexto
 
-**`.claude/contexts/business/.context-config.yml`**:
+**`.cursor/contexts/business/.context-config.yml`**:
 ```yaml
 context:
   name: business
@@ -420,7 +428,7 @@ onboarding:
     - docs/business-context/getting-started.md
 ```
 
-**`.claude/contexts/technical/.context-config.yml`**:
+**`.cursor/contexts/technical/.context-config.yml`**:
 ```yaml
 context:
   name: technical
@@ -530,7 +538,7 @@ onboarding:
 
 **Situação Atual**:
 ```
-.claude/commands/
+.cursor/commands/
 ├── product/         # Mistura business + technical
 ├── engineer/        # Technical
 ├── git/             # Technical
@@ -540,7 +548,7 @@ onboarding:
 
 **Problema**: Não há separação clara de contextos → Usuários não sabem o que é pra eles.
 
-**Ação**: Reestruturar para `.claude/contexts/` como proposto acima.
+**Ação**: Reestruturar para `.cursor/contexts/` como proposto acima.
 
 ---
 
@@ -667,7 +675,7 @@ onion tech --help
 
 ### 🔥 **Adiciona Novas Recomendações**
 
-1. **REESTRUTURAR para `.claude/contexts/`** - Separação clara de contextos
+1. **REESTRUTURAR para `.cursor/contexts/`** - Separação clara de contextos
 2. **CRIAR `.context-config.yml`** - Configuração por contexto (task manager, integrations, etc)
 3. **DOCUMENTAR VISÃO MULTI-CONTEXT** - Nenhum concorrente faz isso
 4. **CRIAR STARTER KITS** - 5 comandos essenciais por contexto
@@ -717,7 +725,7 @@ onion tech --help
 
 ### ⚠️ O Que Ainda É Problema
 
-1. **Estrutura atual não reflete a visão** - Precisa reestruturar para `.claude/contexts/`
+1. **Estrutura atual não reflete a visão** - Precisa reestruturar para `.cursor/contexts/`
 2. **Onboarding complexo mesmo por contexto** - Precisa starter kits
 3. **CLI standalone ausente** - Dependência total do Claude Code é risco
 4. **Documentação não reflete visão multi-context** - Precisa reescrita completa
@@ -725,7 +733,7 @@ onion tech --help
 
 ### 🎯 Próximas Ações Críticas
 
-1. **REESTRUTURAR** arquitetura para `.claude/contexts/`
+1. **REESTRUTURAR** arquitetura para `.cursor/contexts/`
 2. **DOCUMENTAR** visão multi-context completamente
 3. **CRIAR** starter kits por contexto (5 comandos essenciais)
 4. **DESENVOLVER** CLI standalone com suporte a contextos

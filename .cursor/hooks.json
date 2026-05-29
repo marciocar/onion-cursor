@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/protect-env.sh",
+        "matcher": "^git\\s+(add|commit)\\b",
+        "failClosed": true,
+        "timeout": 10
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/enforce-language.sh",
+        "matcher": "Write|TabWrite",
+        "timeout": 10
+      }
+    ],
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/onion-context.sh",
+        "timeout": 10
+      }
+    ]
+  }
+}

@@ -8,10 +8,10 @@ Bem-vindo ao índice da documentação do **Sistema Onion**. Este documento orga
 
 ## 🎯 Visão Geral
 
-O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
+O **Sistema Onion** é um framework de comandos `.cursor/` para uso interno com:
 - 🤖 **94 comandos** Claude Code em 11 categorias
 - 🎯 **49 agentes de IA especializados** em 9 categorias
-- 🧩 **1 skill** em `.claude/skills/` (`onion` — ativação automática)
+- 🧩 **1 skill** em `.cursor/skills/` (`onion` — ativação automática)
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
 - 🧅 **Skill + Comando `/onion`** — ponto de entrada inteligente
 - 🔗 **Task Manager Abstraction** plugável (Jira, ClickUp, Asana, Linear)
@@ -22,9 +22,9 @@ O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
 ## 📊 Estatísticas
 
 - **26 arquivos** em `docs/onion/`
-- **94 comandos** Claude Code em `.claude/commands/`
-- **49 agentes** IA em `.claude/agents/`
-- **1 skill** em `.claude/skills/`
+- **94 comandos** Claude Code em `.cursor/commands/`
+- **49 agentes** IA em `.cursor/agents/`
+- **1 skill** em `.cursor/skills/`
 
 ---
 
@@ -74,7 +74,7 @@ O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
    - Instalação passo a passo
    - Verificação de instalação
 
-3. **Task Manager Abstraction** — configure provider (Jira/ClickUp/Asana/Linear) via `.env` e `/meta:setup-integration`. Adapters técnicos em [`.claude/utils/task-manager/adapters/`](../../.claude/utils/task-manager/adapters/).
+3. **Task Manager Abstraction** — configure provider (Jira/ClickUp/Asana/Linear) via `.env` e `/meta:setup-integration`. Adapters técnicos em [`.cursor/utils/task-manager/adapters/`](../../.cursor/utils/task-manager/adapters/).
 
 ### 🔧 Referências Técnicas
 
@@ -235,7 +235,7 @@ O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
 #### 🔧 Administradores
 - Comece com: [Installation](INSTALLATION.md)
 - Aprenda: [Getting Started](getting-started.md)
-- Configure Task Manager: `/meta:setup-integration` (adapters em `.claude/utils/task-manager/adapters/`)
+- Configure Task Manager: `/meta:setup-integration` (adapters em `.cursor/utils/task-manager/adapters/`)
 
 ---
 
@@ -251,12 +251,12 @@ O **Sistema Onion** é um framework de comandos `.claude/` para uso interno com:
 - [Task Manager Abstraction](../../knowledge-base/concepts/task-manager-abstraction.md)
 - [Spec-Driven Development](../../knowledge-base/concepts/spec-driven-development.md)
 - [AI Agent Design Patterns](../../knowledge-base/concepts/ai-agent-design-patterns.md)
-- [Framework de Story Points](../../knowledge-base/frameworks/framework_story_points.md)
+- [Framework de Story Points](../../knowledge-base/frameworks/framework-story-points.md)
 
 ### Configuração
 - [Installation](INSTALLATION.md)
 - [Getting Started](getting-started.md)
-- [Adapters de Task Manager](../../.claude/utils/task-manager/adapters/)
+- [Adapters de Task Manager](../../.cursor/utils/task-manager/adapters/)
 
 ---
 

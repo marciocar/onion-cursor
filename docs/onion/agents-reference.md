@@ -2,7 +2,7 @@
 
 > **Versão**: 4.1.0-beta.1 | **Última atualização**: 2026-05-15 | **Total**: 49 agentes em 9 categorias
 
-Este guia documenta todos os agentes especializados disponíveis no sistema `.claude/`, suas capacidades e quando utilizá-los.
+Este guia documenta todos os agentes especializados disponíveis no sistema `.cursor/`, suas capacidades e quando utilizá-los.
 
 ## 📊 Resumo v3.0
 
@@ -323,7 +323,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cl
 - 🧠 **Detecção Híbrida**: Keywords (rápido) + LLM validation (preciso)
 - 🎯 **Orquestração Dinâmica**: Ativa apenas specialists necessários
 - 🌐 **PT-BR + EN-US**: Conteúdo em português, termos técnicos preservados
-- 📊 **Consolidação**: Cria index.md e COMPLIANCE_OVERVIEW.md automaticamente
+- 📊 **Consolidação**: Cria index.md e compliance-overview.md automaticamente
 - ⚡ **Cross-References**: Detecta overlaps entre frameworks (ISO 27001 ↔ SOC2: ~70%)
 
 ---
@@ -577,7 +577,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cl
 -  Configurar ambiente para novos projetos
 -  Otimizar settings para workflows específicos
 -  Troubleshoot extension conflicts ou API connectivity
--  Criar `CLAUDE.md` e `.claudeignore` templates
+-  Criar `CLAUDE.md` e `.cursorignore` templates
 -  Setup automation para comandos `/engineer/*`
 
 **Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `list_dir`, `glob_file_search`, `web_search`, `read_lints`, `todo_write`
@@ -597,7 +597,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cl
 **Características únicas**:
 - 🎯 **7 especialidades técnicas**: configuration, workspace, extensions, API, performance, productivity, troubleshooting
 - 🚀 **Integração automática**: Chamado automaticamente por outros agentes quando há problemas de IDE
-- 🔧 **Criação de artefatos**: `CLAUDE.md`, `.claudeignore`, workspace settings otimizados
+- 🔧 **Criação de artefatos**: `CLAUDE.md`, `.cursorignore`, workspace settings otimizados
 - ⚡ **Performance focus**: Memory optimization, startup time, context caching
 - 🔗 **Delegation automática**: Integração com comandos `/engineer/*` para setup de ambiente
 

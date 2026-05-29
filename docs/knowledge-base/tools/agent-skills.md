@@ -10,7 +10,7 @@
 | **Data de Criação** | 2026-05-15 |
 | **Última Atualização** | 2026-05-15 |
 | **Categoria** | tools |
-| **Fontes Principais** | https://agentskills.io, https://agentskills.io/specification, https://code.claude.com/docs/en/skills |
+| **Fontes Principais** | https://agentskills.io, https://agentskills.io/specification, https://cursor.com/docs/skills |
 
 ---
 
@@ -21,9 +21,9 @@
 **Conceito central**: um skill é uma pasta com um arquivo `SKILL.md` contendo metadados YAML + instruções Markdown. O agente carrega apenas o nome e descrição no startup; as instruções completas só são lidas quando o task bate com o skill (*progressive disclosure*).
 
 **No Claude Code especificamente**:
-- Skills e Commands foram **mesclados**: `.claude/commands/deploy.md` e `.claude/skills/deploy/SKILL.md` ambos criam `/deploy` e funcionam de forma equivalente
+- Skills e Commands foram **mesclados**: `.cursor/commands/deploy.md` e `.cursor/skills/deploy/SKILL.md` ambos criam `/deploy` e funcionam de forma equivalente
 - Skills é a forma **recomendada** agora — suporta supporting files, frontmatter rico, ativação automática
-- `.claude/commands/` continua funcionando (compatibilidade)
+- `.cursor/commands/` continua funcionando (compatibilidade)
 
 ---
 
@@ -49,12 +49,12 @@
 ### Claude Code (nativo)
 | Scope | Path |
 |-------|------|
-| Pessoal | `~/.claude/skills/<name>/SKILL.md` |
-| Projeto | `.claude/skills/<name>/SKILL.md` |
+| Pessoal | `~/.cursor/skills/<name>/SKILL.md` |
+| Projeto | `.cursor/skills/<name>/SKILL.md` |
 | Plugin | `<plugin>/skills/<name>/SKILL.md` |
-| Enterprise | via [managed settings](https://code.claude.com/docs/en/settings) |
+| Enterprise | via [managed settings](https://cursor.com/docs/context/rules) |
 
-Claude Code também varre `.claude/skills/` em **diretórios pai** até a raiz do repo, e em **diretórios filhos** sob demanda (suporte a monorepo).
+Claude Code também varre `.cursor/skills/` em **diretórios pai** até a raiz do repo, e em **diretórios filhos** sob demanda (suporte a monorepo).
 
 ### Convenção cross-client (spec aberta)
 | Scope | Path |
@@ -62,16 +62,16 @@ Claude Code também varre `.claude/skills/` em **diretórios pai** até a raiz d
 | Pessoal | `~/.agents/skills/<name>/SKILL.md` |
 | Projeto | `.agents/skills/<name>/SKILL.md` |
 
-Adotado por VS Code Copilot e outros. Alguns clientes varrem ambos `.claude/` e `.agents/` por compatibilidade.
+Adotado por VS Code Copilot e outros. Alguns clientes varrem ambos `.cursor/` e `.agents/` por compatibilidade.
 
-**Regra de ouro no Sistema Onion**: usar `.claude/skills/` (é Claude Code-first). Para distribuir cross-client, manter cópia em `.agents/skills/` também.
+**Regra de ouro no Sistema Onion**: usar `.cursor/skills/` (é Claude Code-first). Para distribuir cross-client, manter cópia em `.agents/skills/` também.
 
 ---
 
 ## ⚡ Quick Start (Claude Code)
 
 ```
-.claude/skills/
+.cursor/skills/
 └── meu-skill/
     └── SKILL.md
 ```
@@ -94,7 +94,7 @@ Passo 2: ...
 What skills are available?   # perguntar ao agente
 ```
 
-Claude Code detecta mudanças **ao vivo** — adicionar/editar/remover skill em `.claude/skills/` reflete na sessão atual (sem restart, exceto se for o primeiro skill em uma pasta nova).
+Claude Code detecta mudanças **ao vivo** — adicionar/editar/remover skill em `.cursor/skills/` reflete na sessão atual (sem restart, exceto se for o primeiro skill em uma pasta nova).
 
 ---
 
@@ -113,7 +113,7 @@ Claude Code detecta mudanças **ao vivo** — adicionar/editar/remover skill em 
 
 ### Frontmatter — Extensões do Claude Code
 
-Campos adicionais suportados em `.claude/skills/`:
+Campos adicionais suportados em `.cursor/skills/`:
 
 | Campo | Descrição |
 |-------|-----------|
@@ -151,7 +151,7 @@ meu-skill/
 
 ## 🔥 Features Exclusivas do Claude Code
 
-### 1. Dynamic Context Injection (`!`command`)
+### 1. Dynamic Context Injection (``command`)
 
 Roda comando shell **antes** do Claude ver o skill. Output substitui o placeholder:
 
@@ -162,7 +162,7 @@ description: Resume mudanças não-commitadas e sinaliza riscos.
 
 ## Mudanças atuais
 
-!`git diff HEAD`
+`git diff HEAD`
 
 ## Instruções
 
@@ -185,8 +185,8 @@ Pode ser desabilitado via `"disableSkillShellExecution": true` em settings.
 
 | Variável | Descrição |
 |----------|-----------|
-| `$ARGUMENTS` | Todos argumentos passados |
-| `$ARGUMENTS[N]` / `$N` | Argumento posicional 0-indexed |
+| `argumento-do-usuario` | Todos argumentos passados |
+| `argumento-do-usuario[N]` / `$N` | Argumento posicional 0-indexed |
 | `$name` | Argumento nomeado declarado em `arguments:` |
 | `${CLAUDE_SKILL_DIR}` | Diretório do SKILL.md (use para referenciar scripts bundled) |
 | `${CLAUDE_SESSION_ID}` | ID da sessão atual |
@@ -215,7 +215,7 @@ context: fork
 agent: Explore
 ---
 
-Pesquise $ARGUMENTS profundamente:
+Pesquise argumento-do-usuario profundamente:
 1. Encontre arquivos relevantes (Glob, Grep)
 2. Leia e analise o código
 3. Sumarize com referências de arquivo
@@ -354,7 +354,7 @@ python3 ${CLAUDE_SKILL_DIR}/scripts/visualize.py .
 
 | Limitação | Detalhe |
 |-----------|---------|
-| Confiança em repos externos | Skills em `.claude/skills/` de repos clonados exigem trust do workspace para `allowed-tools` aplicar |
+| Confiança em repos externos | Skills em `.cursor/skills/` de repos clonados exigem trust do workspace para `allowed-tools` aplicar |
 | Non-determinismo | Mesmo query pode ou não ativar — testar com 3 runs |
 | Tasks simples ignoram skills | Se o agente já resolve sozinho, skill não ativa |
 | Description budget overflow | Com muitos skills, descriptions são cortadas para caber em ~1% do context window. `/doctor` mostra status |
@@ -370,7 +370,7 @@ python3 ${CLAUDE_SKILL_DIR}/scripts/visualize.py .
 
 **Importante**: no Claude Code, custom commands foram **mesclados** com skills.
 
-| | `.claude/commands/deploy.md` | `.claude/skills/deploy/SKILL.md` |
+| | `.cursor/commands/deploy.md` | `.cursor/skills/deploy/SKILL.md` |
 |--|------------------------------|----------------------------------|
 | Cria `/deploy` | ✅ | ✅ |
 | Frontmatter rico | ❌ básico | ✅ completo |
@@ -379,21 +379,21 @@ python3 ${CLAUDE_SKILL_DIR}/scripts/visualize.py .
 | Cross-client | ❌ Claude Code only | ✅ via `.agents/skills/` |
 
 **Recomendação no Onion**:
-- **Workflows novos** → criar como skill em `.claude/skills/`
-- **Comandos existentes em `.claude/commands/`** → continuam funcionando, migrar quando precisar de supporting files ou ativação automática
+- **Workflows novos** → criar como skill em `.cursor/skills/`
+- **Comandos existentes em `.cursor/commands/`** → continuam funcionando, migrar quando precisar de supporting files ou ativação automática
 - **Para distribuir cross-IDE** → cópia em `.agents/skills/`
 
 ### Localização recomendada no projeto
 
 ```
-.claude/skills/          # ✅ Padrão Onion (Claude Code-first)
-.claude/commands/        # ✅ Legacy / comandos puramente explícitos
+.cursor/skills/          # ✅ Padrão Onion (Claude Code-first)
+.cursor/commands/        # ✅ Legacy / comandos puramente explícitos
 .agents/skills/          # Opcional — cross-client distribution
 ```
 
 ### Agentes relacionados
 - `@agent-skills-specialist` — criar, validar e otimizar skills
-- `@command-creator-specialist` — comandos `.claude/commands/` (legacy)
+- `@command-creator-specialist` — comandos `.cursor/commands/` (legacy)
 - `@agent-creator-specialist` — subagents customizados
 - `@claude-code-specialist` — config e troubleshooting Claude Code
 
@@ -401,7 +401,7 @@ python3 ${CLAUDE_SKILL_DIR}/scripts/visualize.py .
 
 ## 🔗 Referências
 
-- [Claude Code Skills (oficial)](https://code.claude.com/docs/en/skills)
+- [Claude Code Skills (oficial)](https://cursor.com/docs/skills)
 - [Agent Skills — Spec aberta](https://agentskills.io/specification)
 - [Quickstart](https://agentskills.io/skill-creation/quickstart)
 - [Best Practices](https://agentskills.io/skill-creation/best-practices)
@@ -416,4 +416,4 @@ python3 ${CLAUDE_SKILL_DIR}/scripts/visualize.py .
 ---
 
 **Última atualização**: 2026-05-15
-**Fonte primária**: https://code.claude.com/docs/en/skills (Claude Code) + https://agentskills.io/specification (spec aberta)
+**Fonte primária**: https://cursor.com/docs/skills (Claude Code) + https://agentskills.io/specification (spec aberta)

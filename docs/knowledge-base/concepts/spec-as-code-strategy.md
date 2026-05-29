@@ -334,7 +334,7 @@ docs/
 ### Meta-Specs como Constituição
 
 ```
-.claude/
+.cursor/
 ├── docs/
 │   └── meta-specs/         # Regras imutáveis do sistema
 │       ├── index.md        # Índice
@@ -345,7 +345,7 @@ docs/
 ### Sessions como Task Specs
 
 ```
-.claude/sessions/<feature>/
+.cursor/sessions/<feature>/
 ├── context.md    # Spec da feature atual
 ├── plan.md       # Decomposição em subtasks
 ├── notes.md      # Decisões e observações

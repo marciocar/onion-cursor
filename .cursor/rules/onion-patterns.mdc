@@ -1,0 +1,10 @@
+---
+globs: .cursor/**,docs/onion/**
+alwaysApply: false
+---
+# Padrões estruturais do Onion
+
+- Slugs sempre em kebab-case (`user-authentication`).
+- Skills em `.cursor/skills/<name>/SKILL.md` com frontmatter mínimo válido.
+- Subagents em `.cursor/agents/*.md` na raiz (sem subpastas).
+- Evitar sintaxe legada Claude em artefatos Cursor.

@@ -15,7 +15,7 @@
 
 ### Fontes
 
-- Task Manager Abstraction (`.claude/utils/task-manager/`)
+- Task Manager Abstraction (`.cursor/utils/task-manager/`)
 - [Adapter Pattern - GoF](https://refactoring.guru/design-patterns/adapter)
 - [Factory Pattern - GoF](https://refactoring.guru/design-patterns/factory-method)
 - Práticas do Sistema Onion
@@ -149,7 +149,7 @@ Executado: VM/Runtime       Executado: Cognição do LLM
 ### Template de Abstraction Layer
 
 ```
-.claude/utils/<abstraction>/
+.cursor/utils/<abstraction>/
 ├── README.md           # Visão geral e uso rápido
 ├── interface.md        # Interface/Contrato principal
 ├── types.md            # Tipos de entrada e saída
@@ -426,7 +426,7 @@ function validateProviderMatch(taskId, currentProvider): ValidationResult {
 ### Estrutura Implementada
 
 ```
-.claude/utils/task-manager/
+.cursor/utils/task-manager/
 ├── README.md           # Introdução + uso rápido
 ├── interface.md        # ITaskManager completo
 ├── types.md            # CreateTaskInput, TaskOutput, etc
@@ -576,8 +576,8 @@ O [Task Manager Abstraction](task-manager-abstraction.md) é a implementação d
 ## 📚 Recursos Adicionais
 
 ### Internos (Sistema Onion)
-- [Comando /meta/create-abstraction](../../../.claude/commands/meta/create-abstraction.md) - Gerador automático de SDAAL
-- [Template de Abstração](../../../.claude/commands/common/templates/abstraction-template.md) - Template base
+- [Comando /meta/create-abstraction](../../../.cursor/commands/meta/create-abstraction.md) - Gerador automático de SDAAL
+- [Template de Abstração](../../../.cursor/commands/common/templates/abstraction-template.md) - Template base
 
 ### Externos
 - [Adapter Pattern - Refactoring Guru](https://refactoring.guru/design-patterns/adapter)

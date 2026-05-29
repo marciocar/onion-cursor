@@ -16,7 +16,7 @@
 
 - [Anthropic Claude Documentation](https://docs.anthropic.com/)
 - [OpenAI Token Best Practices](https://platform.openai.com/docs/)
-- [Claude Code Optimization](https://docs.claude.com/en/docs/claude-code/overview)
+- [Claude Code Optimization](https://cursor.com/docs)
 - Práticas do Sistema Onion
 - Experiência prática com LLMs
 
@@ -266,7 +266,7 @@ class UserService {
 
 ## 🔧 Configuração no Sistema Onion
 
-### .claudeignore
+### .cursorignore
 
 ```gitignore
 # Arquivos grandes/binários
@@ -328,7 +328,7 @@ logs/
 ### Modularização de Prompts
 
 ```
-.claude/commands/
+.cursor/commands/
 └── common/
     └── prompts/
         ├── validation-rules.md    # Regras reutilizáveis
@@ -464,7 +464,7 @@ Estamos trabalhando com React.
 
 ### Contexto de Sessão
 
-- [ ] `.claudeignore` configurado
+- [ ] `.cursorignore` configurado
 - [ ] Apenas arquivos relevantes carregados
 - [ ] Referências em vez de cópias
 - [ ] Progressive loading implementado
@@ -482,7 +482,7 @@ Estamos trabalhando com React.
 
 - [Anthropic Context Guide](https://docs.anthropic.com/)
 - [OpenAI Token Counter](https://platform.openai.com/tokenizer)
-- [Claude Code Performance Tips](https://docs.claude.com/en/docs/claude-code/overview)
+- [Claude Code Performance Tips](https://cursor.com/docs)
 - [Tiktoken Library](https://github.com/openai/tiktoken)
 
 ---

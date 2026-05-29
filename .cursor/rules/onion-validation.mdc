@@ -1,0 +1,10 @@
+---
+description: Regras de validação para artefatos Onion no Cursor. Use ao criar, revisar ou auditar skills, subagents e rules.
+alwaysApply: false
+---
+# Checklist de validação
+
+- Frontmatter obrigatório presente e compatível com Cursor.
+- Descrição com propósito claro e quando usar.
+- Sem sintaxe Claude residual (`allowed-tools`, `` `cmd` ``, `argumento-do-usuario`, `tools:` em subagent).
+- Paths operacionais apontando para `.cursor/`.

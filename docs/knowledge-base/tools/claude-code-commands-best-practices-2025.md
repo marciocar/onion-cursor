@@ -14,7 +14,7 @@
 
 ### Fontes
 
-- [Claude Code Official Documentation](https://docs.claude.com/en/docs/claude-code/overview)
+- [Claude Code Official Documentation](https://cursor.com/docs)
 - [Claude Code 1.7 Update - Skywork.ai](https://skywork.ai/blog/cursor-1-7-vibe-coding-workflow-2025/)
 - [Claude Code Best Practices - GitHub](https://github.com/digitalchild/cursor-best-practices)
 - [Maximizing Claude Code Use - Medium](https://extremelysunnyyk.medium.com/)
@@ -34,7 +34,7 @@ Este documento consolida as melhores práticas para criação e uso de comandos 
 
 ```
 projeto/
-├── .claude/
+├── .cursor/
 │   ├── commands/           # Comandos personalizados
 │   │   ├── categoria/      # Organização por categoria
 │   │   │   └── comando.md  # Arquivo do comando
@@ -111,7 +111,7 @@ Permitem observar, controlar e estender o loop do Agente.
 
 **Exemplo de Hook:**
 ```yaml
-# .claude/hooks/audit-hook.yaml
+# .cursor/hooks/audit-hook.yaml
 name: audit-shell-commands
 trigger: before_shell_command
 action:
@@ -277,7 +277,7 @@ Sem integrações, gere output em formato compatível.
 # Comando com Contexto de Sessão
 
 ## Verificar Sessão
-1. Buscar `.claude/sessions/<feature>/context.md`
+1. Buscar `.cursor/sessions/<feature>/context.md`
 2. Carregar contexto existente
 3. Atualizar com novas informações
 
@@ -416,7 +416,7 @@ Se Z e X mas não Y, faça C.
 
 ## 📚 Recursos Adicionais
 
-- [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code/overview)
+- [Claude Code Documentation](https://cursor.com/docs)
 - [Claude Code Changelog](https://docs.claude.com/en/release-notes/claude-code)
 - [Community Best Practices](https://github.com/digitalchild/cursor-best-practices)
 - [Prompt Engineering Guide](https://www.promptingguide.ai)

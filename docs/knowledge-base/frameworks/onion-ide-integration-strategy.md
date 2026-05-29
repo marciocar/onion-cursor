@@ -30,8 +30,8 @@ Cada IDE tem seu próprio mecanismo de descoberta:
 
 | IDE | Estrutura Esperada |
 |-----|-------------------|
-| **Claude Code** | `.claude/commands/`, `.claude/agents/`, `.claude/rules/` |
-| **Claude Code** | Desconhecido (provavelmente `.claude/` ou similar) |
+| **Claude Code** | `.cursor/commands/`, `.cursor/agents/`, `.cursor/rules/` |
+| **Claude Code** | Desconhecido (provavelmente `.cursor/` ou similar) |
 | **Windsurf** | Desconhecido (provavelmente `.windsurf/` ou similar) |
 | **Outros** | Cada um com sua convenção |
 
@@ -43,7 +43,7 @@ Cada IDE tem seu próprio mecanismo de descoberta:
 
 ### Opção 1: Symlinks (Links Simbólicos)
 
-**Conceito**: `.claude/`, `.claude/`, `.windsurf/` são symlinks para `.onion/`
+**Conceito**: `.cursor/`, `.cursor/`, `.windsurf/` são symlinks para `.onion/`
 
 ```bash
 # Estrutura no disco
@@ -56,8 +56,8 @@ Cada IDE tem seu próprio mecanismo de descoberta:
 │   └── utils/
 └── contexts/
 
-.claude/                         # 🔗 Symlink → .onion/
-.claude/                         # 🔗 Symlink → .onion/
+.cursor/                         # 🔗 Symlink → .onion/
+.cursor/                         # 🔗 Symlink → .onion/
 .windsurf/                       # 🔗 Symlink → .onion/
 ```
 
@@ -72,7 +72,7 @@ Cada IDE tem seu próprio mecanismo de descoberta:
 
 - ❌ **Windows**: Symlinks requerem permissões admin ou Developer Mode
 - ❌ **Git**: Pode causar confusão (committar symlinks ou não?)
-- ❌ **Descoberta**: Não é óbvio que `.claude/` é symlink
+- ❌ **Descoberta**: Não é óbvio que `.cursor/` é symlink
 - ❌ **Flexibilidade**: Não permite customização por IDE
 
 #### 🔧 Implementação
@@ -131,12 +131,12 @@ onion:
   # Configuração por IDE (opcional)
   ide_configs:
     claude-code:
-      config_file: ".claude/settings.json"
-      cache_dir: ".claude/.cache"
+      config_file: ".cursor/settings.json"
+      cache_dir: ".cursor/.cache"
     
     claude:
-      config_file: ".claude/config.json"
-      cache_dir: ".claude/.cache"
+      config_file: ".cursor/config.json"
+      cache_dir: ".cursor/.cache"
     
     windsurf:
       config_file: ".windsurf/settings.json"
@@ -205,18 +205,18 @@ export class OnionLoader {
   }
 
   private getLegacyConfig(): OnionConfig {
-    // Se não existe .onion-config.yml, usa estrutura legacy (.claude/)
+    // Se não existe .onion-config.yml, usa estrutura legacy (.cursor/)
     return {
       onion: {
         version: "legacy",
         root: ".claude",
         resources: {
-          knowbase: ".claude/knowbase",
-          agents: ".claude/agents",
-          commands: ".claude/commands",
-          rules: ".claude/rules",
-          utils: ".claude/utils",
-          contexts: ".claude/contexts",
+          knowbase: ".cursor/knowbase",
+          agents: ".cursor/agents",
+          commands: ".cursor/commands",
+          rules: ".cursor/rules",
+          utils: ".cursor/utils",
+          contexts: ".cursor/contexts",
         }
       }
     };
@@ -272,7 +272,7 @@ const agents = loader.loadAgents();
 ```
 
 **Retrocompatibilidade**:
-- Se `.onion-config.yml` não existe → usa `.claude/` (legacy)
+- Se `.onion-config.yml` não existe → usa `.cursor/` (legacy)
 - Se existe → usa paths configurados
 - **Migração gradual sem breaking changes**
 
@@ -293,7 +293,7 @@ const agents = loader.loadAgents();
 │   └── utils/
 └── contexts/
 
-# IDEs NÃO usam .claude/, .claude/, etc
+# IDEs NÃO usam .cursor/, .cursor/, etc
 # TODOS usam .onion/ diretamente
 ```
 
@@ -357,7 +357,7 @@ IDEs compatíveis DEVEM:
 
 ## Retrocompatibilidade
 
-IDEs PODEM manter suporte a estruturas legadas (.claude/, .claude/) mas DEVEM priorizar .onion/ se existir.
+IDEs PODEM manter suporte a estruturas legadas (.cursor/, .cursor/) mas DEVEM priorizar .onion/ se existir.
 ```
 
 **Proposta para IDEs**:
@@ -382,11 +382,11 @@ IDEs PODEM manter suporte a estruturas legadas (.claude/, .claude/) mas DEVEM pr
 │   └── utils/
 └── contexts/
 
-.claude/                         # 🔌 Loader Claude Code
+.cursor/                         # 🔌 Loader Claude Code
 ├── onion-loader.js              # Script que lê .onion/
 └── settings.json                # Config: { "onion_root": ".onion" }
 
-.claude/                         # 🔌 Loader Claude
+.cursor/                         # 🔌 Loader Claude
 ├── onion-adapter.py             # Script que lê .onion/
 └── config.json                  # Config: { "onion_root": ".onion" }
 
@@ -413,7 +413,7 @@ IDEs PODEM manter suporte a estruturas legadas (.claude/, .claude/) mas DEVEM pr
 **Loader para Claude Code**:
 
 ```javascript
-// .claude/onion-loader.js
+// .cursor/onion-loader.js
 const fs = require('fs');
 const path = require('path');
 const yaml = require('yaml');
@@ -576,7 +576,7 @@ module.exports = new ClaudeCodeOnionLoader();
 
 ```javascript
 // No código do Claude Code
-const onionLoader = require('./.claude/onion-loader.js');
+const onionLoader = require('./.cursor/onion-loader.js');
 
 // Quando Claude Code inicia
 const commands = onionLoader.loadCommands();
@@ -604,7 +604,7 @@ registerContexts(contexts);
 **Adapter para Claude Code**:
 
 ```python
-# .claude/onion_adapter.py
+# .cursor/onion_adapter.py
 import os
 import yaml
 from pathlib import Path
@@ -761,11 +761,11 @@ onion_adapter = ClaudeOnionAdapter()
 │   └── utils/
 └── contexts/
 
-.claude/                  # 🔌 Loader para Claude Code
+.cursor/                  # 🔌 Loader para Claude Code
 ├── onion-loader.js
 └── settings.json
 
-.claude/                  # 🔌 Loader para Claude (futuro)
+.cursor/                  # 🔌 Loader para Claude (futuro)
 └── onion-adapter.py
 
 .windsurf/                # 🔌 Loader para Windsurf (futuro)
@@ -778,15 +778,15 @@ onion_adapter = ClaudeOnionAdapter()
 - ✅ Sem breaking changes
 
 **Implementação**:
-1. Migrar `.claude/` → `.onion/`
-2. Criar `.claude/onion-loader.js`
-3. Atualizar `.claude/settings.json`:
+1. Migrar `.cursor/` → `.onion/`
+2. Criar `.cursor/onion-loader.js`
+3. Atualizar `.cursor/settings.json`:
    ```json
    {
      "onion": {
        "enabled": true,
        "root": ".onion",
-       "loader": ".claude/onion-loader.js"
+       "loader": ".cursor/onion-loader.js"
      }
    }
    ```
@@ -876,14 +876,14 @@ Adicionar seção explícita no documento anterior:
 ## 🔍 Como IDEs Descobrem Recursos
 
 ### Claude Code
-1. Verificar `.claude/settings.json` → ler `onion.loader`
-2. Executar `.claude/onion-loader.js`
+1. Verificar `.cursor/settings.json` → ler `onion.loader`
+2. Executar `.cursor/onion-loader.js`
 3. Loader lê `.onion/` e carrega recursos
 4. Registra comandos, agentes, knowledge base
 
 ### Claude Code (futuro)
-1. Verificar `.claude/config.json` → ler `onion.adapter`
-2. Executar `.claude/onion-adapter.py`
+1. Verificar `.cursor/config.json` → ler `onion.adapter`
+2. Executar `.cursor/onion-adapter.py`
 3. Adapter lê `.onion/` e carrega recursos
 
 ### Windsurf (futuro)
@@ -900,11 +900,11 @@ Adicionar seção explícita no documento anterior:
 
 ```bash
 # Criar loader
-touch .claude/onion-loader.js
+touch .cursor/onion-loader.js
 
 # Implementar (código fornecido acima)
 # Testar:
-node .claude/onion-loader.js
+node .cursor/onion-loader.js
 ```
 
 ### Passo 2: Migrar para `.onion/` (CRÍTICO)
@@ -915,9 +915,9 @@ node .claude/onion-loader.js
 
 # O que faz:
 # 1. Criar estrutura .onion/
-# 2. Mover .claude/ → .onion/ (preservar histórico git)
-# 3. Criar .claude/onion-loader.js
-# 4. Atualizar .claude/settings.json
+# 2. Mover .cursor/ → .onion/ (preservar histórico git)
+# 3. Criar .cursor/onion-loader.js
+# 4. Atualizar .cursor/settings.json
 # 5. Testar tudo funciona
 # 6. Commitar
 ```
@@ -955,7 +955,7 @@ README.md                         # Atualizar estrutura
    - Ou prefere `knowledge-base`, `kb`, outro?
 
 5. **Retrocompatibilidade?**
-   - Manter `.claude/` como symlink temporariamente?
+   - Manter `.cursor/` como symlink temporariamente?
 
 ---
 

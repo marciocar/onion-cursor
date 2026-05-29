@@ -82,7 +82,7 @@ granaai/
 │   │   └── [app-specific]/ # App-specific UI libs
 │   ├── common/             # Cross-platform utilities
 │   └── workspace/          # Workspace tooling
-├── .claude/                # Sistema Esperanto
+├── .cursor/                # Sistema Esperanto
 │   ├── agents/             # 22 agentes especializados
 │   │   ├── development/    # 10 agentes desenvolvimento
 │   │   └── [general]/      # 12 agentes gerais
@@ -135,9 +135,9 @@ granaai/
 ### Visão Geral do Sistema Esperanto
 O **Sistema Esperanto** é um framework avançado de comandos e agentes especializados que automatiza workflows complexos, gera código, valida conformidade e mantém qualidade em todo o ciclo de desenvolvimento.
 
-### 📁 Estrutura Completa `.claude/`
+### 📁 Estrutura Completa `.cursor/`
 ```
-.claude/
+.cursor/
 ├── agents/                 # 22 agentes especializados
 │   ├── metaspec-gate-keeper.md          # Validador meta-specs
 │   ├── research-agent.md                 # Pesquisa e coleta
@@ -855,24 +855,24 @@ export default function UsersPage() {
 docs/
 ├── business-context/           # 9 arquivos contexto negócio
 │   ├── index.md               # Índice business context
-│   ├── CUSTOMER_PERSONAS.md   # Personas detalhadas
-│   ├── CUSTOMER_JOURNEY.md    # Jornada do cliente
-│   ├── VOICE_OF_CUSTOMER.md   # Linguagem e feedback
-│   ├── PRODUCT_STRATEGY.md    # Estratégia de produto
-│   ├── PRODUCT_METRICS.md     # KPIs e métricas
-│   ├── COMPETITIVE_LANDSCAPE.md # Análise competitiva
-│   ├── INDUSTRY_TRENDS.md     # Tendências mercado
-│   └── CUSTOMER_COMMUNICATION.md # Guidelines comunicação
+│   ├── 01-customer/personas.md   # Personas detalhadas
+│   ├── 01-customer/journey.md    # Jornada do cliente
+│   ├── 01-customer/voice-of-customer.md   # Linguagem e feedback
+│   ├── 02-product/strategy.md    # Estratégia de produto
+│   ├── 02-product/metrics.md     # KPIs e métricas
+│   ├── 03-market/competitive-landscape.md # Análise competitiva
+│   ├── 03-market/industry-trends.md     # Tendências mercado
+│   └── 04-operations/customer-communication.md # Guidelines comunicação
 ├── technical-context/          # 9 arquivos contexto técnico
 │   ├── index.md               # Índice technical context
 │   ├── project-charter.md     # Visão e objetivos
-│   ├── CLAUDE.meta.md         # Guia IA development
-│   ├── CODEBASE_GUIDE.md      # Navegação codebase
-│   ├── BUSINESS_LOGIC.md      # Lógica negócio core
-│   ├── API_SPECIFICATION.md   # Specs das 19 APIs
-│   ├── CONTRIBUTING.md        # Workflows desenvolvimento
-│   ├── TROUBLESHOOTING.md     # Resolução problemas
-│   ├── ARCHITECTURE_CHALLENGES.md # Desafios arquitetura
+│   ├── 02-ai-context/ai-development-guide.md  # Guia IA development
+│   ├── 02-ai-context/codebase-guide.md      # Navegação codebase
+│   ├── 03-domain/business-logic.md      # Lógica negócio core
+│   ├── 03-domain/api-specification.md   # Specs das 19 APIs
+│   ├── 04-workflow/contributing.md        # Workflows desenvolvimento
+│   ├── 04-workflow/troubleshooting.md     # Resolução problemas
+│   ├── 04-workflow/architecture-challenges.md # Desafios arquitetura
 │   └── adr/                   # Architecture Decision Records
 │       ├── 001-nx-monorepo-architecture.md
 │       ├── 005-bullmq-job-processing.md
@@ -893,8 +893,8 @@ docs/
 
 ### Para Novos Desenvolvedores
 1. **Comece com**: Este arquivo (visão geral completa)
-2. **Depois leia**: `docs/technical-context/CLAUDE.meta.md` (guia IA development)
-3. **Explore**: `docs/technical-context/CODEBASE_GUIDE.md` (navegação código)
+2. **Depois leia**: `docs/technical-context/02-ai-context/ai-development-guide.md` (guia IA development)
+3. **Explore**: `docs/technical-context/02-ai-context/codebase-guide.md` (navegação código)
 4. **Entenda negócio**: `docs/business-context/index.md`
 5. **Workflows**: `docs/ESPERANTO.md` (comandos e automação)
 
@@ -902,7 +902,7 @@ docs/
 1. **Contexto Rápido**: Leia seção "Project Overview" + "Technology Stack"
 2. **Padrões de Código**: Seção "Architectural Patterns & Conventions"
 3. **Sistema Esperanto**: Seção "Sistema Esperanto" + `docs/ESPERANTO.md`
-4. **Business Logic**: Seção "Business Logic Core" + `docs/technical-context/BUSINESS_LOGIC.md`
+4. **Business Logic**: Seção "Business Logic Core" + `docs/technical-context/03-domain/business-logic.md`
 
 ### Para Arquitetos e Tech Leads
 1. **Arquitetura Completa**: Seções "Architecture Analysis" + "Integration Points"

@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+# Padrões de idioma
+
+- Código (variáveis, funções, classes, arquivos, branches): inglês
+- Comentários, documentação, README e respostas ao usuário: português brasileiro
+- Commits em português brasileiro com escopo claro e objetivo
+- Nomes de arquivo e slugs em kebab-case

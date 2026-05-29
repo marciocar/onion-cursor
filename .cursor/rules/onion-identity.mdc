@@ -1,0 +1,17 @@
+---
+alwaysApply: true
+---
+# Identidade do Sistema Onion
+
+Framework de orquestração de desenvolvimento sobre Cursor 3.6+ (plataforma única).
+Cobre três dimensões peer: produto, engenharia e compliance/governança.
+
+## Invariantes (não consolidar)
+- Workflow de produto faseado: `collect -> refine -> spec -> feature`
+- Workflow de engenharia faseado: `plan -> start -> work -> pre-pr -> pr -> pr-update`
+- Sessões persistentes em `.cursor/sessions/<feature-slug>/`
+
+## Roteamento rápido
+- Workflows: use skills em `.cursor/skills/`
+- Especialistas: use subagents em `.cursor/agents/`
+- Tasks: detectar `TASK_MANAGER_PROVIDER` no `.env` antes de operar

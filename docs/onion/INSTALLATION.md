@@ -125,11 +125,11 @@ ls -la .onion/
 **Verificar**:
 ```bash
 # Comandos devem estar em:
-ls .claude/commands/business/
-ls .claude/commands/technical/
+ls .cursor/commands/business/
+ls .cursor/commands/technical/
 
 # Agentes devem estar em:
-ls .claude/agents/
+ls .cursor/agents/
 ```
 
 ### Windsurf / Claude Code (Futuro - FASE 5)
@@ -159,7 +159,7 @@ onion migrate
 # (Digite 'y' quando solicitado)
 
 # 6. Aguarde conclusão
-# (Backup automático criado em .claude-backup/)
+# (Backup automático criado em .cursor-backup/)
 
 # 7. Verifique a migração
 ls .onion/contexts/
@@ -292,26 +292,26 @@ export PATH=~/.npm-global/bin:$PATH
 
 ### Problema: Comandos não aparecem no Claude Code
 
-**Solução**: `.claude/` não foi criado
+**Solução**: `.cursor/` não foi criado
 ```bash
 # Verificar se existe
-ls -la .claude/
+ls -la .cursor/
 
 # Se não existe, reexecutar init
 onion init
 
 # Ou criar manualmente
-mkdir -p .claude/commands
-mkdir -p .claude/agents
+mkdir -p .cursor/commands
+mkdir -p .cursor/agents
 ```
 
 ### Problema: Migração falhou no meio
 
 **Solução**: Restaurar backup
 ```bash
-# Backup automático está em .claude-backup/
-rm -rf .claude/
-mv .claude-backup/ .claude/
+# Backup automático está em .cursor-backup/
+rm -rf .cursor/
+mv .cursor-backup/ .cursor/
 
 # Tentar novamente com --debug
 onion migrate --debug

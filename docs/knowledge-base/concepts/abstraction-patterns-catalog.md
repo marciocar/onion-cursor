@@ -728,7 +728,7 @@ interface IStorageProvider {
 ### Estrutura de Arquivos
 
 ```
-.claude/utils/{nome}-provider/
+.cursor/utils/{nome}-provider/
 ├── README.md           # Visão geral
 ├── interface.md        # Interface do provedor
 ├── types.md            # Tipos compartilhados

@@ -67,7 +67,7 @@ Uma camada de abstração baseada no **Adapter Pattern** que:
 ## 📁 Estrutura de Arquivos
 
 ```
-.claude/utils/task-manager/
+.cursor/utils/task-manager/
 ├── README.md           # Visão geral da abstração
 ├── interface.md        # Interface ITaskManager
 ├── types.md            # Tipos compartilhados
@@ -228,7 +228,7 @@ await taskManager.addComment(taskId, `
 
 ### 1. Criar Adapter
 
-Crie um novo arquivo em `.claude/utils/task-manager/adapters/`:
+Crie um novo arquivo em `.cursor/utils/task-manager/adapters/`:
 
 ```markdown
 # Nome do Provedor Adapter
@@ -337,9 +337,9 @@ Provedor configurado: clickup
 
 ## 🔗 Referências
 
-- Interface: `.claude/utils/task-manager/interface.md`
-- Factory: `.claude/utils/task-manager/factory.md`
-- Adapters: `.claude/utils/task-manager/adapters/`
+- Interface: `.cursor/utils/task-manager/interface.md`
+- Factory: `.cursor/utils/task-manager/factory.md`
+- Adapters: `.cursor/utils/task-manager/adapters/`
 - Comando de setup: `/meta/setup-integration`
 
 ---

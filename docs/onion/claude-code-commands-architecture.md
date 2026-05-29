@@ -5,7 +5,7 @@ Este documento explica como funcionam os comandos do Sistema Onion e a diferenç
 ## ⚡ **CONCEITO FUNDAMENTAL: Claude Code Commands**
 
 ### 🎯 **O que são Claude Code Commands**
-Claude Code Commands são comandos personalizados executados diretamente no **chat da Claude Code**, conforme a [documentação oficial da Claude Code](https://docs.claude.com/en/docs/claude-code/slash-commands).
+Claude Code Commands são comandos personalizados executados diretamente no **chat da Claude Code**, conforme a [documentação oficial da Claude Code](https://cursor.com/docs/agent/chat/commands).
 
 ### ✅ **Como Usar (CORRETO)**
 ```markdown
@@ -30,7 +30,7 @@ $ bash /git/init               # Não é script bash direto
 
 ### 📁 **Estrutura de Arquivos**
 ```
-.claude/commands/
+.cursor/commands/
 ├── git/
 │   ├── init.md               # Define /git/init command
 │   ├── help.md               # Define /git/help command
@@ -52,10 +52,10 @@ $ bash /git/init               # Não é script bash direto
 |-------|--------|------------|--------|
 | 1 | **Interface** | Claude Code Chat | Usuário digita `/git/init` |
 | 2 | **Detecção** | Claude Code AI | Reconhece comando personalizado |
-| 3 | **Carregamento** | File System | Lê `.claude/commands/git/init.md` |
+| 3 | **Carregamento** | File System | Lê `.cursor/commands/git/init.md` |
 | 4 | **Interpretação** | Claude Code AI | Analisa workflow definido |
 | 5 | **Execução** | Scripts | Executa bash/python dentro do workflow |
-| 6 | **UX** | Modern CLI | `.claude/utils/modern-cli-ux.sh` |
+| 6 | **UX** | Modern CLI | `.cursor/utils/modern-cli-ux.sh` |
 | 7 | **Feedback** | Claude Code Chat | Resposta rica e educativa |
 
 ---
@@ -70,7 +70,7 @@ User: /git/init
 
 ### 📄 **2. Claude Code Carrega Definição**
 ```markdown
-# Arquivo: .claude/commands/git/init.md
+# Arquivo: .cursor/commands/git/init.md
 # Define workflow completo de inicialização Git Flow
 ```
 
@@ -123,7 +123,7 @@ User: /git/init
 ### 📝 **Criando Novos Comandos**
 ```markdown
 # 1. Criar arquivo markdown:
-.claude/commands/category/command.md
+.cursor/commands/category/command.md
 
 # 2. Definir cabeçalho com metadados
 # 3. Escrever workflow em bash/python
@@ -134,7 +134,7 @@ User: /git/init
 ### 🎨 **Padrões UX**
 ```bash
 # Usar funções da biblioteca UX:
-source "$HOME/.claude/utils/modern-cli-ux.sh"
+source "$HOME/.cursor/utils/modern-cli-ux.sh"
 
 cli_header "TITLE" "color"          # Headers consistentes
 cli_success_box "TITLE" "message"   # Success feedback  
@@ -159,7 +159,7 @@ session_update $NAME                # Atualizar contexto
 ## 📚 **Recursos Adicionais**
 
 ### 🔗 **Documentação Oficial**
-- [Claude Code Commands Documentation](https://docs.claude.com/en/docs/claude-code/slash-commands)
+- [Claude Code Commands Documentation](https://cursor.com/docs/agent/chat/commands)
 - [Sistema Onion Commands Guide](commands-guide.md)
 - [Engineering Flows](engineering-flows.md)
 
@@ -185,7 +185,7 @@ session_update $NAME                # Atualizar contexto
 
 ### ✅ **São Claude Code Commands Porque:**
 -  **Executados no chat** da Claude Code
--  **Definidos em markdown** na pasta `.claude/commands/`
+-  **Definidos em markdown** na pasta `.cursor/commands/`
 -  **Interpretados pela Claude Code AI** com context awareness
 -  **Integrados ao ambiente** de desenvolvimento
 

@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "atlassian": {
+      "url": "${env:ATLASSIAN_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${env:JIRA_API_TOKEN}"
+      }
+    },
+    "clickup": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@clickup/mcp-server"
+      ],
+      "env": {
+        "CLICKUP_API_TOKEN": "${env:CLICKUP_API_TOKEN}",
+        "CLICKUP_WORKSPACE_ID": "${env:CLICKUP_WORKSPACE_ID}"
+      }
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_TOKEN}"
+      }
+    }
+  }
+}

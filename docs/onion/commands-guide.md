@@ -2,7 +2,7 @@
 
 > **Versão**: 4.1.0-beta.1 | **Última atualização**: 2026-05-15 | **Total**: 75 comandos (94 arquivos .md incl. templates/helpers)
 
-Este guia documenta todos os comandos disponíveis no sistema `.claude/`, organizados por categoria e função.
+Este guia documenta todos os comandos disponíveis no sistema `.cursor/`, organizados por categoria e função.
 
 ## 📊 Resumo v3.0
 
@@ -32,7 +32,7 @@ Este guia documenta todos os comandos disponíveis no sistema `.claude/`, organi
 
 ### ⚡ **CRÍTICO: Claude Code Commands vs Terminal**
 
-**TODOS** os comandos deste guia são **[Claude Code Commands](https://docs.claude.com/en/docs/claude-code/slash-commands)** executados no **chat da Claude Code**:
+**TODOS** os comandos deste guia são **[Claude Code Commands](https://cursor.com/docs/agent/chat/commands)** executados no **chat da Claude Code**:
 
 ```markdown
 # ✅ CORRETO - No chat da Claude Code:
@@ -79,7 +79,7 @@ $ ./engineer/start             # Não é executável
 
 **Fluxo detalhado**:
 1. Verifica se está em feature branch (ou cria uma)
-2. Cria pasta `.claude/sessions/<feature_slug>`
+2. Cria pasta `.cursor/sessions/<feature_slug>`
 3. Solicita input de tasks ClickUp
 4. Analisa contexto, objetivos e abordagem
 5. Identifica dependências e requisitos de teste
@@ -376,7 +376,7 @@ $ ./engineer/start             # Não é executável
    - Análise de checklist due diligence (keywords + LLM)
    - Sugestão interativa baseada no perfil do projeto
 3. **Geração**: Delega para agentes especialistas conforme frameworks selecionados
-4. **Consolidação**: `@security-information-master` cria index.md e COMPLIANCE_OVERVIEW.md
+4. **Consolidação**: `@security-information-master` cria index.md e compliance-overview.md
 
 **Frameworks Suportados**:
 - **ISO 27001:2022** (SGSI): 5 docs (security/) - Access Control, Risk Assessment, Incident Response

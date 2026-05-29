@@ -88,7 +88,7 @@ Com base na análise de ferramentas existentes, identificam-se **três níveis p
 
 **Exemplo**:
 ```
-.claude/sessions/auth-oauth2/
+.cursor/sessions/auth-oauth2/
 ├── context.md      # Spec inicial
 ├── plan.md         # Plano de fases
 └── decisions.md    # Decisões arquiteturais

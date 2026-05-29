@@ -1,4 +1,12 @@
+---
+status: historical
+replaced-by: docs/analysis/onion-review-2026-05.md
+abandoned-on: 2026-05-18
+---
+
 # Sistema Onion - Análise Crítica Profunda vs Ferramentas SDD (2025)
+
+> **AVISO**: Este documento descreve visões estratégicas abandonadas em 2026-05-18 (`.onion/`, CLI standalone, multi-IDE, plano v4.0 FASES 5-9). Mantido como registro histórico do pensamento de 2025-12-20. Para o estado atual do Onion, consultar a [Revisão Analítica de Maio/2026](../../analysis/onion-review-2026-05.md).
 
 > **Versão**: 1.0.0 | **Última atualização**: 2025-12-20 | **Categoria**: Frameworks  
 > Análise crítica e comparativa do Sistema Onion com principais ferramentas Spec-Driven Development em dezembro de 2025
@@ -146,7 +154,7 @@ openspec create feature-auth
 **Sistema Onion Quick Start**:
 ```bash
 # 1. Install Node.js 22.14.0+
-# 2. Setup .claude/
+# 2. Setup .cursor/
 # 3. Configure Task Manager (.env)
 # 4. Learn 90 commands
 # 5. Learn 46 agents
@@ -346,7 +354,7 @@ openspec create feature-auth
 🔥 **ADOTAR DELTA FORMAT**:
 
 ```markdown
-# .claude/sessions/auth-feature/changes/
+# .cursor/sessions/auth-feature/changes/
 ├── proposal.md       # Por que e o que muda
 ├── tasks.md          # Checklist
 └── specs/
@@ -618,7 +626,7 @@ onion estimate "Add OAuth2"
 **Ação**: Implementar Delta Format nativo:
 
 ```markdown
-# .claude/sessions/auth-feature/spec-delta.md
+# .cursor/sessions/auth-feature/spec-delta.md
 
 ## Changes to Authentication System
 

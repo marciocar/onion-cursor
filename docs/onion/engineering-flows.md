@@ -6,7 +6,7 @@ Este guia documenta os workflows completos de desenvolvimento, desde a concepç�
 
 ## 🆕 Novidades v3.0
 
-- **Sessions estruturadas** em `.claude/sessions/<feature-slug>/`
+- **Sessions estruturadas** em `.cursor/sessions/<feature-slug>/`
 - **Comentários duais** no ClickUp (detalhado + resumido)
 - **Mapeamento fase→subtask** automático
 - **Prompts modulares** em `common/prompts/`
@@ -72,7 +72,7 @@ Este guia documenta os workflows completos de desenvolvimento, desde a concepç�
 
 **O que acontece**:
 -  Verifica se está em feature branch apropriada
--  Cria pasta `.claude/sessions/auth-oauth2/`
+-  Cria pasta `.cursor/sessions/auth-oauth2/`
 -  Busca detalhes da task no ClickUp
 -  Analisa contexto, objetivos e dependências
 -  Identifica arquivos e componentes necessários
@@ -80,7 +80,7 @@ Este guia documenta os workflows completos de desenvolvimento, desde a concepç�
 
 **Estrutura criada**:
 ```
-.claude/sessions/auth-oauth2/
+.cursor/sessions/auth-oauth2/
 ├── plan.md          # Plano de desenvolvimento em fases
 ├── context.md       # Contexto e requisitos
 ├── decisions.md     # Decisões arquiteturais
@@ -101,7 +101,7 @@ Este guia documenta os workflows completos de desenvolvimento, desde a concepç�
 
 #### 3.1 Trabalho na Funcionalidade
 ```bash
-/engineer/work .claude/sessions/auth-oauth2/
+/engineer/work .cursor/sessions/auth-oauth2/
 ```
 
 **O que acontece em cada iteração**:
@@ -177,7 +177,7 @@ Durante o desenvolvimento, o sistema:
 
 ### 🔗 Relacionado
 - ClickUp Task: AUTH-123
-- Sessão: .claude/sessions/auth-oauth2/
+- Sessão: .cursor/sessions/auth-oauth2/
 
 ### ✅ Checklist
 - [x] Testes passando
@@ -246,7 +246,7 @@ Após aprovação:
 
 #### 3. Implementação da Correção
 ```bash
-/engineer/work .claude/sessions/bug-dashboard-login/
+/engineer/work .cursor/sessions/bug-dashboard-login/
 ```
 
 **Foco em**:

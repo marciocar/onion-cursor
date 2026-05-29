@@ -1,6 +1,6 @@
 # 💡 Exemplos Práticos
 
-Este guia apresenta cenários reais de uso dos comandos `.claude/` com exemplos detalhados e outputs esperados.
+Este guia apresenta cenários reais de uso dos comandos `.cursor/` com exemplos detalhados e outputs esperados.
 
 ## 📋 Índice de Exemplos
 
@@ -98,7 +98,7 @@ Qual task ClickUp deseja trabalhar? (ex: AUTH-789, PROJ-123)
 ```
 ✅ Task AUTH-789 recuperada do ClickUp
 🔄 Status atualizado: "to do" → "in progress"
-📁 Pasta criada: .claude/sessions/auth-oauth2/
+📁 Pasta criada: .cursor/sessions/auth-oauth2/
 
 📋 **Análise da Task**:
 
@@ -125,12 +125,12 @@ Qual task ClickUp deseja trabalhar? (ex: AUTH-789, PROJ-123)
 - Logout e limpeza
 - Error handling
 
-📄 Plano detalhado salvo em: .claude/sessions/auth-oauth2/plan.md
+📄 Plano detalhado salvo em: .cursor/sessions/auth-oauth2/plan.md
 ```
 
 #### **Passo 3: Desenvolvimento Iterativo**
 ```bash
-/engineer/work .claude/sessions/auth-oauth2/
+/engineer/work .cursor/sessions/auth-oauth2/
 ```
 
 **Primeira Iteração**:
@@ -308,7 +308,7 @@ Por favor, forneça essas informações.
 
 ✅ Task recuperada do ClickUp
 🔄 Status: "to do" → "in progress"
-📁 Sessão: .claude/sessions/bug-dashboard-data/
+📁 Sessão: .cursor/sessions/bug-dashboard-data/
 
 🔍 **Root Cause Analysis**:
 
@@ -333,7 +333,7 @@ Por favor, forneça essas informações.
 
 #### **Passo 3: Fix Rápido**
 ```bash
-/engineer/work .claude/sessions/bug-dashboard-data/
+/engineer/work .cursor/sessions/bug-dashboard-data/
 ```
 
 **Investigação**:
@@ -422,11 +422,11 @@ Um novo microserviço de notificações foi desenvolvido e precisa de documenta�
 
 📊 **Documentação Gerada**:
 
-1. **project_charter.md** - Visão geral e objetivos
-2. **CLAUDE.meta.md** - Guia para desenvolvimento com IA
-3. **CODEBASE_GUIDE.md** - Navegação e estrutura
-4. **API_SPECIFICATION.md** - Endpoints e schemas
-5. **TROUBLESHOOTING.md** - Problemas comuns
+1. **01-core/project-charter.md** - Visão geral e objetivos
+2. **02-ai-context/ai-development-guide.md** - Guia para desenvolvimento com IA
+3. **02-ai-context/codebase-guide.md** - Navegação e estrutura
+4. **03-domain/api-specification.md** - Endpoints e schemas
+5. **04-workflow/troubleshooting.md** - Problemas comuns
 6. **adr/001-notification-strategy.md** - Decisões arquiteturais
 
 📝 **ClickUp Integration**:
@@ -516,7 +516,7 @@ Sistema de pagamento está rejeitando todos os cartões válidos em produção.
 ```
 🚨 **HOTFIX EMERGENCY MODE**
 
-📁 Sessão: .claude/sessions/hotfix-payment-outage/
+📁 Sessão: .cursor/sessions/hotfix-payment-outage/
 ⚡ Branch: hotfix/payment-validation-fix
 
 🔍 **Diagnóstico Rápido**:
