@@ -2,6 +2,8 @@
 
 **Framework Cursor-first para orquestrar produto, engenharia e compliance com workflows faseados e retomáveis.**
 
+Repositório canônico: [github.com/marciocar/onion-cursor](https://github.com/marciocar/onion-cursor)
+
 ---
 
 ## O que é
@@ -23,7 +25,6 @@ Snapshot validado em 2026-05-28:
 - **83 skills** em `.cursor/skills/`
 - **49 subagentes** em `.cursor/agents/` (achatado, raiz)
 - **4 rules** em `.cursor/rules/`
-- **94 comandos legados** em `.cursor/skills/` (compatibilidade e transição)
 - **Task Manager Abstraction** em `.cursor/utils/task-manager/` (Jira, ClickUp, Asana, Linear)
 
 Invariantes do framework:

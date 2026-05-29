@@ -45,12 +45,12 @@ This project adheres to a Code of Conduct. By participating, you are expected to
 ### Quick Start
 
 ```bash
-# 1. Fork and clone the repository
-git clone https://github.com/your-username/onion-claude.git
-cd onion-claude
+# 1. Fork e clone o repositório canônico
+git clone git@github.com:marciocar/onion-cursor.git
+cd onion-cursor
 
-# 2. Open in Claude Code (or another supported IDE)
-#    O Sistema Onion vive em .claude/ — comandos e agentes carregam automaticamente.
+# 2. Abrir no Cursor 3.6+
+#    Skills e agentes em .cursor/ carregam automaticamente.
 ```
 
 ---
