@@ -1,6 +1,7 @@
 ---
-name: code-review
+name: git-code-review
 description: Modo de operação (auto/setup/validate/status)
+disable-model-invocation: true
 ---
 # 🤖 ChatGPT Code Review Manager
 
@@ -13,10 +14,10 @@ Automatizar setup, validação e otimização do code review automático.
 ## ⚡ Modos de Operação
 
 ```bash
-/git/code-review           # AUTO: detecta e executa ação apropriada
-/git/code-review setup     # Criar/reconfigurar arquivo
-/git/code-review validate  # Validar configuração existente  
-/git/code-review status    # Mostrar status atual
+/git-code-review           # AUTO: detecta e executa ação apropriada
+/git-code-review setup     # Criar/reconfigurar arquivo
+/git-code-review validate  # Validar configuração existente  
+/git-code-review status    # Mostrar status atual
 ```
 
 ## 🔄 Fluxo de Execução
@@ -148,7 +149,7 @@ SE há task associada:
 1. Configurar OPENAI_API_KEY em Settings > Secrets
 2. Testar com um PR de teste
 
-🚀 Comando: /git/code-review validate
+🚀 Comando: /git-code-review validate
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

@@ -1,6 +1,7 @@
 ---
-name: transform-consolidated
+name: product-transform-consolidated
 description: Formato de saída (tasks|context|both)
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -13,10 +14,10 @@ Comando para transformar conhecimento consolidado (de reuniões ou documentos) e
 
 Preencher o gap entre **conhecimento consolidado** e **tasks acionáveis**:
 
-1. **Ler documentos consolidados** (output de `/product/consolidate-meetings` ou `/docs/consolidate-documents`)
+1. **Ler documentos consolidados** (output de `/product-consolidate-meetings` ou `/docs-consolidate-documents`)
 2. **Interagir com usuário** de forma padronizada para refinar e priorizar
 3. **Transformar conhecimento** em contexto estruturado
-4. **Gerar contexto** pronto para `/product/collect` ou `/product/task`
+4. **Gerar contexto** pronto para `/product-collect` ou `/product-task`
 
 ## 🔍 Problema que Resolve
 
@@ -327,7 +328,7 @@ Para cada tarefa aprovada:
 ```markdown
 @product-agent
 
-Criar task usando /product/collect ou /product/task:
+Criar task usando /product-collect ou /product-task:
 
 **Título:** {{titulo_tarefa}}
 **Descrição:** {{descricao_completa_com_contexto}}
@@ -409,9 +410,9 @@ Lista de comandos prontos para execução:
 
 ```bash
 # Tasks geradas automaticamente
-/product/collect "{{titulo_task_1}}" --priority=high --owner={{owner}}
-/product/collect "{{titulo_task_2}}" --priority=medium
-/product/task "{{titulo_task_3}}" --deadline={{deadline}}
+/product-collect "{{titulo_task_1}}" --priority=high --owner={{owner}}
+/product-collect "{{titulo_task_2}}" --priority=medium
+/product-task "{{titulo_task_3}}" --deadline={{deadline}}
 ```
 
 ## 🎯 Casos de Uso
@@ -420,10 +421,10 @@ Lista de comandos prontos para execução:
 
 ```bash
 # 1. Consolidar reuniões
-/product/consolidate-meetings "docs/meet/sprint-planning/"
+/product-consolidate-meetings "docs/meet/sprint-planning/"
 
 # 2. Transformar em tasks
-/product/transform-consolidated "docs/meet/consolidation-2025-12-02-sprint-planning.md" --mode=interactive
+/product-transform-consolidated "docs/meet/consolidation-2025-12-02-sprint-planning.md" --mode=interactive
 
 # 3. Criar tasks aprovadas
 # (comandos gerados automaticamente)
@@ -433,10 +434,10 @@ Lista de comandos prontos para execução:
 
 ```bash
 # 1. Consolidar documentos
-/docs/consolidate-documents "docs/business-context/"
+/docs-consolidate-documents "docs/business-context/"
 
 # 2. Transformar em contexto e tasks
-/product/transform-consolidated "docs/consolidated/business-context/" --mode=auto --output_format=both
+/product-transform-consolidated "docs/consolidated/business-context/" --mode=auto --output_format=both
 
 # 3. Revisar contexto gerado e criar tasks selecionadas
 ```
@@ -445,7 +446,7 @@ Lista de comandos prontos para execução:
 
 ```bash
 # Transformar automaticamente sem interação
-/product/transform-consolidated "docs/consolidated/" --mode=auto --output_format=tasks-only
+/product-transform-consolidated "docs/consolidated/" --mode=auto --output_format=tasks-only
 
 # Gerar lista de tasks para revisão posterior
 ```
@@ -454,7 +455,7 @@ Lista de comandos prontos para execução:
 
 ```bash
 # Gerar apenas contexto estruturado (sem tasks)
-/product/transform-consolidated "docs/meet/consolidation-*.md" --mode=context-only
+/product-transform-consolidated "docs/meet/consolidation-*.md" --mode=context-only
 
 # Usar contexto gerado em refinamentos futuros
 ```
@@ -465,20 +466,20 @@ Lista de comandos prontos para execução:
 
 ```bash
 # 1. Extrair reunião individual
-/product/extract-meeting "reuniao-01.txt"
+/product-extract-meeting "reuniao-01.txt"
 
 # 2. Consolidar múltiplas reuniões
-/product/consolidate-meetings "docs/meet/sprint-planning/"
+/product-consolidate-meetings "docs/meet/sprint-planning/"
 
 # 3. Transformar consolidado em contexto/tasks
-/product/transform-consolidated "docs/meet/consolidation-*.md" --mode=interactive
+/product-transform-consolidated "docs/meet/consolidation-*.md" --mode=interactive
 
 # 4. Criar tasks aprovadas
-/product/collect "{{task_aprovada_1}}"
-/product/task "{{task_aprovada_2}}"
+/product-collect "{{task_aprovada_1}}"
+/product-task "{{task_aprovada_2}}"
 
 # 5. Estimar story points (automático nos comandos acima)
-/product/estimate "{{task}}"
+/product-estimate "{{task}}"
 ```
 
 ### Integração com Task Manager
@@ -526,14 +527,14 @@ Lista de comandos prontos para execução:
 ## 🔄 Relacionamentos
 
 **Antes deste comando:**
-- `/product/consolidate-meetings` - Consolida reuniões
-- `/docs/consolidate-documents` - Consolida documentos
+- `/product-consolidate-meetings` - Consolida reuniões
+- `/docs-consolidate-documents` - Consolida documentos
 
 **Depois deste comando:**
-- `/product/collect` - Criar tasks de ideias/bugs
-- `/product/task` - Criar tasks estruturadas
-- `/product/estimate` - Estimar story points
-- `/product/refine` - Refinar tasks criadas
+- `/product-collect` - Criar tasks de ideias/bugs
+- `/product-task` - Criar tasks estruturadas
+- `/product-estimate` - Estimar story points
+- `/product-refine` - Refinar tasks criadas
 
 ---
 

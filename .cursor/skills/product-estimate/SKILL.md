@@ -1,6 +1,7 @@
 ---
-name: estimate
+name: product-estimate
 description: Se true, cria task no gerenciador configurado com a estimativa
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -306,23 +307,23 @@ Se métricas históricas disponíveis:
 
 ## 🔗 Integração com Outros Comandos
 
-### Com `/product/task`
+### Com `/product-task`
 ```markdown
 Após estimar, criar task completa:
-/product/task "{{task_description}}" --story-points={{estimated_points}}
+/product-task "{{task_description}}" --story-points={{estimated_points}}
 ```
 
-### Com `/product/feature`
+### Com `/product-feature`
 ```markdown
 Estimar feature completa antes de especificar:
-/product/estimate "{{feature_description}}" --create_task=true
-/product/feature "{{feature_description}}" --estimated_points={{points}}
+/product-estimate "{{feature_description}}" --create_task=true
+/product-feature "{{feature_description}}" --estimated_points={{points}}
 ```
 
-### Com `/product/spec`
+### Com `/product-spec`
 ```markdown
 Incluir estimativa na especificação:
-/product/spec "{{feature}}" --include-estimate=true
+/product-spec "{{feature}}" --include-estimate=true
 ```
 
 ## 📋 Exemplos de Uso
@@ -330,7 +331,7 @@ Incluir estimativa na especificação:
 ### Exemplo 1: Estimativa Simples
 
 ```bash
-/product/estimate "Criar API REST para gerenciamento de usuários com autenticação JWT"
+/product-estimate "Criar API REST para gerenciamento de usuários com autenticação JWT"
 ```
 
 **Output esperado:**
@@ -341,7 +342,7 @@ Incluir estimativa na especificação:
 ### Exemplo 2: Estimativa com Contexto
 
 ```bash
-/product/estimate "Implementar dashboard com múltiplas visualizações" --assignee_level=junior
+/product-estimate "Implementar dashboard com múltiplas visualizações" --assignee_level=junior
 ```
 
 **Output esperado:**
@@ -353,7 +354,7 @@ Incluir estimativa na especificação:
 ### Exemplo 3: Estimativa de Épico
 
 ```bash
-/product/estimate "Sistema completo de notificações com email, SMS e push"
+/product-estimate "Sistema completo de notificações com email, SMS e push"
 ```
 
 **Output esperado:**
@@ -370,7 +371,7 @@ Incluir estimativa na especificação:
 ### Exemplo 4: Estimativa com Criação de Task
 
 ```bash
-/product/estimate "Refatorar módulo de autenticação" --create_task=true --assignee_level=senior
+/product-estimate "Refatorar módulo de autenticação" --create_task=true --assignee_level=senior
 ```
 
 **Output esperado:**
@@ -421,7 +422,7 @@ Incluir estimativa na especificação:
 
 - **Agente:** @story-points-framework-specialist
 - **Framework:** `docs/knowledge-base/frameworks/framework-story-points.md`
-- **Comandos relacionados:** `/product/task`, `/product/feature`, `/product/spec`
+- **Comandos relacionados:** `/product-task`, `/product-feature`, `/product-spec`
 - **Agentes relacionados:** @product-agent, @task-specialist
 
 ## 📚 Base de Conhecimento

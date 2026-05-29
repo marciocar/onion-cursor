@@ -150,13 +150,13 @@ done
 whisper reuniao-28-nov.m4a --language pt --model large --output_format txt
 
 # 2. Extrair conhecimento estruturado
-/product/extract-meeting source=reuniao-28-nov.txt
+/product-extract-meeting source=reuniao-28-nov.txt
 
 # 3. Consolidar múltiplas reuniões
-/product/consolidate-meetings source=docs/meet/sprint-planning/
+/product-consolidate-meetings source=docs/meet/sprint-planning/
 
 # 4. Converter em tasks
-/product/convert-to-tasks source=docs/meet/consolidation-*.md
+/product-convert-to-tasks source=docs/meet/consolidation-*.md
 ```
 
 ### 4. Legendagem de Vídeos
@@ -215,13 +215,13 @@ whisper audio.mp3 --task translate --language pt --model medium
 whisper reuniao.m4a --language pt --model large --output_format txt
 
 # 2. Usar Framework EXTRACT
-/product/extract-meeting source=reuniao.txt level=executive
+/product-extract-meeting source=reuniao.txt level=executive
 
 # 3. Consolidar múltiplas reuniões
-/product/consolidate-meetings source=docs/meet/
+/product-consolidate-meetings source=docs/meet/
 
 # 4. Converter em tasks acionáveis
-/product/convert-to-tasks source=docs/meet/consolidation-*.md
+/product-convert-to-tasks source=docs/meet/consolidation-*.md
 ```
 
 ---
@@ -328,9 +328,9 @@ print(result["segments"])  # Com timestamps
 
 ### Integração com Sistema Onion
 
-- **Framework EXTRACT**: `/product/extract-meeting`
-- **Consolidação**: `/product/consolidate-meetings`
-- **Conversão em Tasks**: `/product/convert-to-tasks`
+- **Framework EXTRACT**: `/product-extract-meeting`
+- **Consolidação**: `/product-consolidate-meetings`
+- **Conversão em Tasks**: `/product-convert-to-tasks`
 
 ---
 
@@ -372,13 +372,13 @@ done
 whisper reuniao-28-nov.m4a --language pt --model large --output_format txt
 
 # 2. Extrair conhecimento estruturado (Framework EXTRACT)
-/product/extract-meeting source=reuniao-28-nov.txt level=executive
+/product-extract-meeting source=reuniao-28-nov.txt level=executive
 
 # 3. Consolidar múltiplas reuniões relacionadas
-/product/consolidate-meetings source=docs/meet/sprint-planning/
+/product-consolidate-meetings source=docs/meet/sprint-planning/
 
 # 4. Converter conhecimento consolidado em tasks
-/product/convert-to-tasks source=docs/meet/consolidation-*.md
+/product-convert-to-tasks source=docs/meet/consolidation-*.md
 ```
 
 ---

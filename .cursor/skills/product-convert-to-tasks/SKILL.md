@@ -1,6 +1,7 @@
 ---
-name: convert-to-tasks
+name: product-convert-to-tasks
 description: Arquivo consolidado ou pasta contendo consolidações
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -14,7 +15,7 @@ Converte documentos consolidados em tasks usando comandos existentes do Sistema 
 Transformar conhecimento consolidado em tasks acionáveis delegando para comandos especializados:
 - Analisa documento consolidado
 - Extrai elementos acionáveis
-- Cria tasks usando `/product/task` ou `/product/collect`
+- Cria tasks usando `/product-task` ou `/product-collect`
 
 ## ⚡ Fluxo de Execução
 
@@ -107,17 +108,17 @@ Para cada task identificada, usar comandos existentes:
 
 **Para tasks estruturadas (com subtasks):**
 ```markdown
-Use /product/task para criar task principal com decomposição hierárquica:
-/product/task "{{descricao_completa_da_task}}"
+Use /product-task para criar task principal com decomposição hierárquica:
+/product-task "{{descricao_completa_da_task}}"
 ```
 
 **Para tasks simples ou ideias:**
 ```markdown
-Use /product/collect para criar task de ideia/bug:
-/product/collect "{{titulo_da_task}}"
+Use /product-collect para criar task de ideia/bug:
+/product-collect "{{titulo_da_task}}"
 ```
 
-**Nota:** Os comandos `/product/task` e `/product/collect` já:
+**Nota:** Os comandos `/product-task` e `/product-collect` já:
 - Detectam Task Manager automaticamente
 - Criam tasks e subtasks hierarquicamente
 - Estimam story points automaticamente
@@ -145,28 +146,28 @@ Lista de tasks criadas com IDs e URLs, apresentada de forma clara:
 
 ```bash
 # 1. Consolidar reuniões
-/product/consolidate-meetings "docs/meet/sprint-planning/"
+/product-consolidate-meetings "docs/meet/sprint-planning/"
 
 # 2. Converter em tasks
-/product/convert-to-tasks "docs/meet/consolidation-*.md"
+/product-convert-to-tasks "docs/meet/consolidation-*.md"
 ```
 
 ### Após Consolidar Documentos
 
 ```bash
 # 1. Consolidar documentos
-/docs/consolidate-documents "docs/business-context/"
+/docs-consolidate-documents "docs/business-context/"
 
 # 2. Converter em tasks
-/product/convert-to-tasks "docs/consolidated/"
+/product-convert-to-tasks "docs/consolidated/"
 ```
 
 ## 🔗 Integração
 
 Este comando delega para:
 - **`@product-agent`** - Análise e extração
-- **`/product/task`** - Criação de tasks estruturadas
-- **`/product/collect`** - Criação de tasks simples
+- **`/product-task`** - Criação de tasks estruturadas
+- **`/product-collect`** - Criação de tasks simples
 
 Todos os comandos já lidam com:
 - Detecção automática de Task Manager

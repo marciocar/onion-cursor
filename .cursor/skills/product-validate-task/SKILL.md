@@ -1,6 +1,7 @@
 ---
-name: validate-task
+name: product-validate-task
 description: Validar e analisar task existente do ClickUp.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -194,7 +195,7 @@ Após a análise, apresente um relatório estruturado no seguinte formato:
 Execute o comando fornecendo o ID da task ClickUp:
 
 ```bash
-/product/validate-task 86abzwx0w
+/product-validate-task 86abzwx0w
 ```
 
 O sistema irá:

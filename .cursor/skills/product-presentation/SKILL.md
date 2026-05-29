@@ -1,6 +1,7 @@
 ---
-name: presentation
+name: product-presentation
 description: Tipo (pitch/product/technical/business/report)
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -143,5 +144,5 @@ data: [dados coletados]
 ## ⚠️ Notas
 
 - Requer Gamma.app configurado (GAMMA_API_KEY)
-- Para config: `/meta/setup-integration gamma`
+- Para config: `/meta-setup-integration gamma`
 - Tempo médio: 2-5 minutos por apresentação

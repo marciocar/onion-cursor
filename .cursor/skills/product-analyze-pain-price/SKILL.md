@@ -1,6 +1,7 @@
 ---
-name: analyze-pain-price
-description: Skill convertida de /product/analyze-pain-price.md.
+name: product-analyze-pain-price
+description: Skill convertida de /product-analyze-pain-price.md.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -182,7 +183,7 @@ Se informações não fornecidas, preparar perguntas padronizadas:
 
 **Comando:**
 ```bash
-/product/analyze-pain-price Analise a dor do cliente StartupXYZ que precisa de capacitação em segurança para obter certificação ISO 27001
+/product-analyze-pain-price Analise a dor do cliente StartupXYZ que precisa de capacitação em segurança para obter certificação ISO 27001
 ```
 
 **O que acontece:**
@@ -205,7 +206,7 @@ Se informações não fornecidas, preparar perguntas padronizadas:
 
 **Comando:**
 ```bash
-/product/analyze-pain-price Analise o segmento de startups que buscam certificação ISO 27001 e recomende estratégia de precificação
+/product-analyze-pain-price Analise o segmento de startups que buscam certificação ISO 27001 e recomende estratégia de precificação
 ```
 
 **O que acontece:**
@@ -227,7 +228,7 @@ Se informações não fornecidas, preparar perguntas padronizadas:
 
 **Comando:**
 ```bash
-/product/analyze-pain-price Valide se nossa proposta de valor de R$ 1.000 por pacote está alinhada com a dor dos clientes
+/product-analyze-pain-price Valide se nossa proposta de valor de R$ 1.000 por pacote está alinhada com a dor dos clientes
 ```
 
 **O que acontece:**
@@ -250,7 +251,7 @@ Se informações não fornecidas, preparar perguntas padronizadas:
 
 **Comando:**
 ```bash
-/product/analyze-pain-price Compare precificação fixa (R$ 1.000) vs outcome-based para clientes enterprise
+/product-analyze-pain-price Compare precificação fixa (R$ 1.000) vs outcome-based para clientes enterprise
 ```
 
 **O que acontece:**
@@ -333,7 +334,7 @@ Se informações não fornecidas, preparar perguntas padronizadas:
 
 **Input:**
 ```bash
-/product/analyze-pain-price Analise a dor do cliente TechStartup que precisa capacitar equipe em segurança da informação para obter certificação ISO 27001. A empresa tem 25 funcionários e está se preparando para rodada de investimento.
+/product-analyze-pain-price Analise a dor do cliente TechStartup que precisa capacitar equipe em segurança da informação para obter certificação ISO 27001. A empresa tem 25 funcionários e está se preparando para rodada de investimento.
 ```
 
 **Processo Executado:**
@@ -388,7 +389,7 @@ Se informações não fornecidas, preparar perguntas padronizadas:
 
 **Input:**
 ```bash
-/product/analyze-pain-price Valide se R$ 1.000 por pacote está alinhado com a dor dos clientes startups
+/product-analyze-pain-price Valide se R$ 1.000 por pacote está alinhado com a dor dos clientes startups
 ```
 
 **Processo Executado:**
@@ -438,13 +439,13 @@ Se informações não fornecidas, preparar perguntas padronizadas:
 ## 🔧 Integração com Outros Comandos
 
 ### Comandos que Podem Usar Este Comando:
-- `/product/task` - Pode sugerir análise antes de criar task
-- `/product/spec` - Pode usar análise para validar especificação
-- `/product/validate-task` - Pode usar análise para validar requisitos
+- `/product-task` - Pode sugerir análise antes de criar task
+- `/product-spec` - Pode usar análise para validar especificação
+- `/product-validate-task` - Pode usar análise para validar requisitos
 
 ### Comandos que Este Comando Pode Usar:
-- `/product/task` - Criar tasks relacionadas a análises
-- `/product/spec` - Especificações técnicas baseadas em análises
+- `/product-task` - Criar tasks relacionadas a análises
+- `/product-spec` - Especificações técnicas baseadas em análises
 
 ### Agentes Relacionados:
 - `@pain-price-specialist` - Agente especializado (invocado por este comando)
@@ -661,7 +662,7 @@ R: Relatórios são salvos em `docs/reports/pain-price/*-report.md` (sobrescreve
 
 **Sintaxe básica:**
 ```bash
-/product/analyze-pain-price [descrição da análise desejada]
+/product-analyze-pain-price [descrição da análise desejada]
 ```
 
 **O que acontece:**
@@ -683,16 +684,16 @@ R: Relatórios são salvos em `docs/reports/pain-price/*-report.md` (sobrescreve
 **Exemplos rápidos:**
 ```bash
 # Análise de cliente específico
-/product/analyze-pain-price Analise a dor do cliente TechStartup que precisa de certificação ISO 27001
+/product-analyze-pain-price Analise a dor do cliente TechStartup que precisa de certificação ISO 27001
 
 # Análise de segmento
-/product/analyze-pain-price Analise dores das startups que buscam capacitação em compliance
+/product-analyze-pain-price Analise dores das startups que buscam capacitação em compliance
 
 # Validação de proposta
-/product/analyze-pain-price Valide se R$ 1.000 está alinhado com a dor dos clientes
+/product-analyze-pain-price Valide se R$ 1.000 está alinhado com a dor dos clientes
 
 # Análise comparativa
-/product/analyze-pain-price Compare precificação fixa vs outcome-based para enterprise
+/product-analyze-pain-price Compare precificação fixa vs outcome-based para enterprise
 ```
 
 ---

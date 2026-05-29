@@ -1,6 +1,7 @@
 ---
-name: finish
+name: git-feature-finish
 description: Finalizar feature com merge para develop e cleanup.
+disable-model-invocation: true
 ---
 # ✅ Git Flow - Finalizar Feature
 
@@ -30,7 +31,7 @@ Finalizar desenvolvimento de feature realizando merge seguro para develop branch
 ## 🚀 Como Usar
 
 ```bash
-/git/feature/finish                    # Auto-detecta branch atual
+/git-feature-finish                    # Auto-detecta branch atual
 ```
 
 **Pré-requisitos**: Execute na branch de feature que deseja finalizar

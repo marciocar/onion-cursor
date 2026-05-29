@@ -68,15 +68,15 @@ Você NÃO cria diagramas ou documentos isolados. Você **orquestra especialista
 
 ### 📋 Comandos Relevantes
 
-**`/docs/build-tech-docs`** - Gera contexto técnico completo
+**`/docs-build-tech-docs`** - Gera contexto técnico completo
 - Use quando precisar de contexto existente do projeto
 - Análise complementar aos seus findings
 
-**`/docs/reverse-consolidate`** - Engenharia reversa do projeto
+**`/docs-reverse-consolidate`** - Engenharia reversa do projeto
 - Use para entender sistemas legados
 - Complementa sua análise estrutural
 
-**`/docs/build-business-docs`** - Gera contexto de negócio
+**`/docs-build-business-docs`** - Gera contexto de negócio
 - Use para entender domínio e regras de negócio
 - Adiciona contexto business à documentação técnica
 

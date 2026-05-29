@@ -427,13 +427,13 @@ feature-name/
 
 ```bash
 # Coletar requisitos
-/product/collect "Feature: sistema de notificações"
+/product-collect "Feature: sistema de notificações"
 
 # Refinar requisitos
-/product/refine
+/product-refine
 
 # Criar spec inicial
-/product/spec
+/product-spec
 ```
 
 **Output**: `feature-notifications.md` com requisitos funcionais claros.
@@ -442,10 +442,10 @@ feature-name/
 
 ```bash
 # Arquitetura leve
-/product/light-arch
+/product-light-arch
 
 # Planejamento detalhado
-/engineer/plan
+/engineer-plan
 ```
 
 **Output**: Design de componentes, fluxos de dados, estratégia de testes.
@@ -454,10 +454,10 @@ feature-name/
 
 ```bash
 # Iniciar desenvolvimento
-/engineer/start
+/engineer-start
 
 # Trabalhar com IA
-/engineer/work
+/engineer-work
 ```
 
 **Output**: Código gerado seguindo a spec.
@@ -466,11 +466,11 @@ feature-name/
 
 ```bash
 # Testes
-/test/unit
-/test/integration
+/test-unit
+/test-integration
 
 # Validação
-/validate/workflow
+/validate-workflow
 ```
 
 **Output**: Código validado contra critérios de aceitação.
@@ -525,11 +525,11 @@ SDD é **complementar** à estratégia Spec-as-Code do Sistema Onion:
 
 | Comando | Uso em SDD |
 |---------|------------|
-| `/product/spec` | Criar spec inicial |
-| `/product/refine` | Refinar spec |
-| `/engineer/plan` | Planejar implementação baseada em spec |
-| `/engineer/start` | Iniciar desenvolvimento com spec |
-| `/engineer/work` | Implementar seguindo spec |
+| `/product-spec` | Criar spec inicial |
+| `/product-refine` | Refinar spec |
+| `/engineer-plan` | Planejar implementação baseada em spec |
+| `/engineer-start` | Iniciar desenvolvimento com spec |
+| `/engineer-work` | Implementar seguindo spec |
 
 ### Agentes Relacionados
 

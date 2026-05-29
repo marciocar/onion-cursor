@@ -1,6 +1,7 @@
 ---
-name: create-agent-express
+name: meta-create-agent-express
 description: Criar agente de forma rápida e simplificada.
+disable-model-invocation: true
 ---
 # Comando Criar Agente
 

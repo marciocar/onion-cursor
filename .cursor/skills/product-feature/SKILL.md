@@ -1,6 +1,7 @@
 ---
-name: feature
+name: product-feature
 description: Criar task de feature no gerenciador configurado para planejamento e backlog.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -30,14 +31,14 @@ Você é um assistente de IA especializado em **criar tasks de feature no gerenc
 
 ### **Sintaxe:**
 ```bash
-/product/feature "nome-ou-descrição-da-feature"
+/product-feature "nome-ou-descrição-da-feature"
 ```
 
 ### **Examples:**
 ```bash
-/product/feature "implementar-autenticacao-oauth"
-/product/feature "adicionar-filtros-avancados-dashboard"  
-/product/feature "integrar-payment-gateway-stripe"
+/product-feature "implementar-autenticacao-oauth"
+/product-feature "adicionar-filtros-avancados-dashboard"  
+/product-feature "integrar-payment-gateway-stripe"
 ```
 
 ---
@@ -49,11 +50,11 @@ Você é um assistente de IA especializado em **criar tasks de feature no gerenc
 # Verificar se nome da feature foi fornecido
 if [ "$#" -eq 0 ]; then
     echo "❌ ERROR: Feature name required"
-    echo "📖 USAGE: /product/feature \"feature-name-or-description\""
+    echo "📖 USAGE: /product-feature \"feature-name-or-description\""
     echo ""
     echo "💡 EXAMPLES:"
-    echo "  /product/feature \"implement-oauth-authentication\""
-    echo "  /product/feature \"add-advanced-dashboard-filters\""
+    echo "  /product-feature \"implement-oauth-authentication\""
+    echo "  /product-feature \"add-advanced-dashboard-filters\""
     exit 1
 fi
 
@@ -104,7 +105,7 @@ TASK_DESCRIPTION="## 🎯 **Feature para Planejamento**
 
 **Tipo**: Feature Development  
 **Status**: Backlog - Aguardando planejamento e priorização  
-**Criada via**: /product/feature
+**Criada via**: /product-feature
 
 ---
 
@@ -118,18 +119,18 @@ $FEATURE_NAME
 ### **Para Iniciar Desenvolvimento:**
 \`\`\`bash
 # Após planejamento, iniciar desenvolvimento GitFlow:
-/git/feature/start \"$FEATURE_SLUG\"
+/git-feature-start \"$FEATURE_SLUG\"
 
 # Ou usar sessão de desenvolvimento:
-/engineer/start $FEATURE_SLUG
+/engineer-start $FEATURE_SLUG
 \`\`\`
 
 ### **Workflow Sequencial Recomendado:**
 1. **🎯 Planejamento**: Task criada (atual) + detalhamento
-2. **🌿 Desenvolvimento**: /git/feature/start $FEATURE_SLUG  
-3. **🛠️ Iteração**: /engineer/work
-4. **🔄 Finalização**: /git/sync
-5. **🚀 Deploy**: /engineer/pr
+2. **🌿 Desenvolvimento**: /git-feature-start $FEATURE_SLUG  
+3. **🛠️ Iteração**: /engineer-work
+4. **🔄 Finalização**: /git-sync
+5. **🚀 Deploy**: /engineer-pr
 
 ---
 
@@ -253,7 +254,7 @@ if [ "$TASK_ID" != "" ] && [ "$TASK_ID" != "null" ]; then
     echo "🎯 NEXT STEPS:"
     echo "   ∟ Add details: Open $TASK_URL"
     echo "   ∟ Set priority: Adjust based on roadmap"  
-    echo "   ∟ Start development: /git/feature/start \"$FEATURE_SLUG\""
+    echo "   ∟ Start development: /git-feature-start \"$FEATURE_SLUG\""
     echo ""
     echo "💡 WORKFLOW SEQUENCIAL:"
     echo "   1. 🎯 Planning (current) → 2. 🌿 GitFlow Start → 3. 🛠️ Development → 4. ✅ Done"
@@ -271,7 +272,7 @@ if [ "$TASK_ID" != "" ] && [ "$TASK_ID" != "null" ]; then
    ▶ Feature: $FEATURE_NAME
    ▶ Slug: $FEATURE_SLUG
    ▶ Status: Backlog (Planning)
-   ▶ Criada via: /product/feature
+   ▶ Criada via: /product-feature
 
 🎯 PLANEJAMENTO:
    ▶ Detalhar requisitos funcionais
@@ -280,8 +281,8 @@ if [ "$TASK_ID" != "" ] && [ "$TASK_ID" != "null" ]; then
    ▶ Priorizar no roadmap
 
 🚀 PARA DESENVOLVIMENTO:
-   ▶ Após planejamento: /git/feature/start \"$FEATURE_SLUG\"
-   ▶ Para sessão: /engineer/start $FEATURE_SLUG
+   ▶ Após planejamento: /git-feature-start \"$FEATURE_SLUG\"
+   ▶ Para sessão: /engineer-start $FEATURE_SLUG
 
 📋 WORKFLOW:
    ∟ Planning → GitFlow Start → Development → Done
@@ -307,7 +308,7 @@ else
     console.error("🔧 TROUBLESHOOTING:");
     console.error("   ∟ Check TASK_MANAGER_PROVIDER environment variable");
     console.error("   ∟ Verify project/list permissions and ID");
-    console.error("   ∟ Execute /meta/setup-integration to configure");
+    console.error("   ∟ Execute /meta-setup-integration to configure");
     console.error("   ∟ Try manual task creation as fallback");
     echo ""
     echo "📖 MANUAL FALLBACK:"
@@ -323,19 +324,19 @@ fi
 ## 🔗 **Integração com Sistema Onion**
 
 ### **Separação Clara de Responsabilidades:**
-- **`/product/feature`**: Cria task backlog para **planejamento**
-- **`/git/feature/start`**: Inicia desenvolvimento **GitFlow** (branch + session)
-- **`/git/sync`**: Finaliza desenvolvimento (pós-merge + cleanup)
+- **`/product-feature`**: Cria task backlog para **planejamento**
+- **`/git-feature-start`**: Inicia desenvolvimento **GitFlow** (branch + session)
+- **`/git-sync`**: Finaliza desenvolvimento (pós-merge + cleanup)
 
 ### **Workflow Sequencial Integrado:**
 ```bash
-1. /product/feature "nova-funcionalidade"      # ← PLANEJAMENTO
+1. /product-feature "nova-funcionalidade"      # ← PLANEJAMENTO
    # ... tempo de planejamento, detalhamento, priorização ...
    
-2. /git/feature/start "nova-funcionalidade"   # ← DESENVOLVIMENTO GitFlow
+2. /git-feature-start "nova-funcionalidade"   # ← DESENVOLVIMENTO GitFlow
    # ... desenvolvimento usando sessões ...
    
-3. /git/sync                                  # ← FINALIZAÇÃO
+3. /git-sync                                  # ← FINALIZAÇÃO
 ```
 
 ### **Quando Usar:**
@@ -345,9 +346,9 @@ fi
 - ✅ **Setup inicial** de projetos com múltiplas features
 
 ### **Quando NÃO usar:**
-- ❌ Desenvolvimento imediato (use `/git/feature/start`)
-- ❌ Hotfixes urgentes (use `/engineer/hotfix`)  
-- ❌ Tasks já existem (use `/engineer/start <feature-slug>`)
+- ❌ Desenvolvimento imediato (use `/git-feature-start`)
+- ❌ Hotfixes urgentes (use `/engineer-hotfix`)  
+- ❌ Tasks já existem (use `/engineer-start <feature-slug>`)
 
 ---
 
@@ -356,7 +357,7 @@ fi
 ### **Erro: Nome da feature não fornecido**
 ```
 ❌ ERROR: Feature name required
-📖 USAGE: /product/feature "feature-name-or-description"
+📖 USAGE: /product-feature "feature-name-or-description"
 ```
 
 ### **Erro: Task Manager falhou**
@@ -379,27 +380,27 @@ fi
 ### **✅ Boas Práticas:**
 ```bash
 # Nomes descritivos e específicos
-/product/feature "implement-oauth2-authentication-flow"
+/product-feature "implement-oauth2-authentication-flow"
 
 # Features modulares e focadas  
-/product/feature "add-user-profile-avatar-upload"
+/product-feature "add-user-profile-avatar-upload"
 
 # Include context quando útil
-/product/feature "integrate-stripe-payment-gateway-checkout"
+/product-feature "integrate-stripe-payment-gateway-checkout"
 ```
 
 ### **❌ Evitar:**
 ```bash
 # Muito genérico
-/product/feature "melhorias"
+/product-feature "melhorias"
 
 # Muito técnico/interno
-/product/feature "refactor-class-x"
+/product-feature "refactor-class-x"
 
 # Tasks que não são features
-/product/feature "fix-bug-payment"  # Use /engineer/hotfix
+/product-feature "fix-bug-payment"  # Use /engineer-hotfix
 ```
 
 ---
 
-**🎯 Criação rápida de features para backlog e planejamento! Para iniciar desenvolvimento GitFlow, use `/git/feature/start [feature-name]`.**
+**🎯 Criação rápida de features para backlog e planejamento! Para iniciar desenvolvimento GitFlow, use `/git-feature-start [feature-name]`.**

@@ -1,6 +1,7 @@
 ---
-name: task-check
+name: product-task-check
 description: Verificar se task do ClickUp foi implementada no código.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -215,7 +216,7 @@ export const NovoComponente = () => {
 Execute o comando fornecendo o ID da task ClickUp:
 
 ```bash
-/product/task-check 86abzwx0w
+/product-task-check 86abzwx0w
 ```
 
 O sistema irá:
@@ -229,9 +230,9 @@ O sistema irá:
 
 ---
 
-## 🎯 **Diferencial vs /product/validate-task**
+## 🎯 **Diferencial vs /product-validate-task**
 
-| Aspecto | `/product/validate-task` | `/product/task-check` |
+| Aspecto | `/product-validate-task` | `/product-task-check` |
 |---------|-------------------------|----------------------|
 | **Foco** | Análise estratégica | Verificação técnica |
 | **Objetivo** | Validar requisitos | Auditar implementação |
@@ -314,9 +315,9 @@ Este comando **automaticamente atualiza** a task ClickUp quando executa:
 ## 🔗 **Integração com Sistema Onion**
 
 Este comando se integra perfeitamente com:
-- **`/product/task <description>`**: Para criar tasks com workflow completo
-- **`/engineer/start <slug>`**: Para iniciar desenvolvimento
-- **`/product/validate-task <task-id>`**: Para análise estratégica
+- **`/product-task <description>`**: Para criar tasks com workflow completo
+- **`/engineer-start <slug>`**: Para iniciar desenvolvimento
+- **`/product-validate-task <task-id>`**: Para análise estratégica
 - **Sessions em `.cursor/sessions/`**: Utiliza contexto das sessões ativas
 
 ### **📁 Uso da Sessão Ativa**

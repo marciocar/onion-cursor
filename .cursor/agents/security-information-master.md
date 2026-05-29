@@ -304,7 +304,7 @@ Antes de delegar, consolidar contexto do projeto:
 
 **Idioma:** PT-BR (preservando termos: Risk Assessment, Access Control, ISMS, BIA, SoA)
 
-**Template:** Leia e siga `.cursor/commands/common/templates/compliance-iso27001-template.md`
+**Template:** Leia e siga `.cursor/skills/docs-build-compliance-docs/references/compliance-iso27001-template.md`
 
 Confirme quando concluir para eu consolidar no index.md.
 ```
@@ -333,7 +333,7 @@ Confirme quando concluir para eu consolidar no index.md.
 
 **Idioma:** PT-BR (preservando: BCP, DRP, RTO, RPO, BIA, MTPD)
 
-**Template:** Leia e siga `.cursor/commands/common/templates/compliance-iso22301-template.md`
+**Template:** Leia e siga `.cursor/skills/docs-build-compliance-docs/references/compliance-iso22301-template.md`
 
 🚨 **SERASA MAPPING**: Este framework mapeia 5 de 8 requisitos da Serasa Experian. Garanta que:
 - Req #1: Plano de Continuidade → business-continuity-plan.md ✅
@@ -369,7 +369,7 @@ Confirme quando concluir para eu consolidar no index.md.
 
 **Idioma:** PT-BR (preservando: Project Charter, RFC, Change Management, Quality Management, etc.)
 
-**Template:** Leia e siga `.cursor/commands/common/templates/compliance-pmbok-template.md`
+**Template:** Leia e siga `.cursor/skills/docs-build-compliance-docs/references/compliance-pmbok-template.md`
 
 **Integração Crítica:**
 - Referenciar NX monorepo (CODEOWNERS, dependency graph, module boundaries)
@@ -402,7 +402,7 @@ Confirme quando concluir para eu consolidar no index.md.
 
 **Idioma:** PT-BR (preservando: Trust Services Criteria, Type II, Control Environment, TSC, etc.)
 
-**Template:** Leia e siga `.cursor/commands/common/templates/compliance-soc2-template.md`
+**Template:** Leia e siga `.cursor/skills/docs-build-compliance-docs/references/compliance-soc2-template.md`
 
 🚨 **SERASA MAPPING**: Este framework mapeia 3 de 8 requisitos da Serasa Experian. Garanta que:
 - Req #6: Certificado/Relatório SOC2 → trust-services-criteria.md ✅
@@ -648,7 +648,7 @@ Documentos Gerados:
 **1. Template não encontrado**
 ```markdown
 ❌ ERRO: Template não encontrado
-Template esperado: .cursor/commands/common/templates/compliance-iso27001-template.md
+Template esperado: .cursor/skills/docs-build-compliance-docs/references/compliance-iso27001-template.md
 Ação: Verificar se Phase 1 foi concluída. Templates devem existir antes de usar este agente.
 ```
 

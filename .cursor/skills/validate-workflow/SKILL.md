@@ -1,6 +1,7 @@
 ---
-name: workflow
+name: validate-workflow
 description: Validar completude de workflows do Sistema Onion.
+disable-model-invocation: true
 ---
 # 🔍 Validação Completa de Workflow
 
@@ -18,10 +19,10 @@ Validar que workflows do Sistema Onion foram executados completamente:
 
 ### **Sintaxe:**
 ```bash
-/validate/workflow                    # Validação completa atual
-/validate/workflow pr-merge           # Validação específica de PR merge  
-/validate/workflow cleanup           # Validação de limpeza/housekeeping
-/validate/workflow development       # Validação de desenvolvimento
+/validate-workflow                    # Validação completa atual
+/validate-workflow pr-merge           # Validação específica de PR merge  
+/validate-workflow cleanup           # Validação de limpeza/housekeeping
+/validate-workflow development       # Validação de desenvolvimento
 ```
 
 ## 🔍 **Sistema de Validação**
@@ -263,8 +264,8 @@ function validateBranchCleanup() {
 function validateCompliance() {
   # Verificar se sistema de proteção está ativo
   # (Simplified check - would need more sophisticated validation)
-  [[ -f ".cursor/commands/git/sync.md" ]] && 
-  grep -q "Branch Protection" ".cursor/commands/git/sync.md"
+  [[ -f ".cursor/commands/git-sync.md" ]] && 
+  grep -q "Branch Protection" ".cursor/commands/git-sync.md"
 }
 
 function validateClickUpIntegration() {
@@ -293,8 +294,8 @@ esac
 ## 🎯 **Uso Recomendado**
 
 ### **Quando Usar:**
-- **Após /git/sync**: Validar sincronização completa
-- **Após /engineer/pr**: Validar PR workflow
+- **Após /git-sync**: Validar sincronização completa
+- **Após /engineer-pr**: Validar PR workflow
 - **Após housekeeping**: Validar limpeza
 - **Diagnóstico**: Quando algo parecer errado
 - **Antes de deploy**: Validação final de qualidade
@@ -302,13 +303,13 @@ esac
 ### **Integração Sugerida:**
 ```bash
 # Uso nos outros comandos
-/git/sync develop && /validate/workflow cleanup
+/git-sync develop && /validate-workflow cleanup
 
 # Uso independente para diagnóstico
-/validate/workflow
+/validate-workflow
 
 # Uso específico para validation de PR
-/validate/workflow pr-merge
+/validate-workflow pr-merge
 ```
 
 ## 📊 **Output de Exemplo**
@@ -351,4 +352,4 @@ esac
 
 ---
 
-*Sistema Onion - Comando `/validate/workflow` v1.0*
+*Sistema Onion - Comando `/validate-workflow` v1.0*

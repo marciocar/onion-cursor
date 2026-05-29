@@ -1,6 +1,7 @@
 ---
-name: test-strategy-analyze
+name: validate-test-strategy-analyze
 description: Gera relatório detalhado em arquivo
+disable-model-invocation: true
 ---
 # 🔍 Análise de Estratégia de Teste
 
@@ -96,7 +97,7 @@ read_file .env
 
 ### Passo 4: Coletar Dados do Task Manager
 
-**CRÍTICO:** Seguir padrão de `/product/task` para integração (`.env` já foi lido no Passo 2):
+**CRÍTICO:** Seguir padrão de `/product-task` para integração (`.env` já foi lido no Passo 2):
 
 **Buscar dados completos da feature/epic:**
 
@@ -1069,7 +1070,7 @@ Current vs Target:
 ## 🔗 Referências
 
 - **Framework:** `docs/knowledge-base/frameworks/framework-testes.md`
-- **Comando relacionado:** `/validate/test-strategy/create`
+- **Comando relacionado:** `/validate-test-strategy-create`
 - **Task Manager:** `.cursor/utils/task-manager/`
 - **Agentes relacionados:** @test-engineer, @test-planner
 

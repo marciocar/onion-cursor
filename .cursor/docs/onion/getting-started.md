@@ -447,7 +447,7 @@ Para mais detalhes:
 
 #### 4. Criar PR
 ```bash
-/engineer/pr
+/engineer-pr
 ```
 
 **Resultado:**
@@ -597,7 +597,7 @@ cat .cursor/docs/onion/clickup-integration.md
 /product/task "Sua primeira feature"
 /engineer/start sua-primeira-feature
 /engineer/work sua-primeira-feature
-/engineer/pr
+/engineer-pr
 ```
 
 ### 4. Personalizar Sistema

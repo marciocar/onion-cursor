@@ -1,6 +1,7 @@
 ---
-name: init
+name: git-init
 description: Inicializar repositório com GitFlow e convenções padrão.
+disable-model-invocation: true
 ---
 # 🔧 Git Flow - Inicialização
 
@@ -23,7 +24,7 @@ Configurar repositório Git com GitFlow seguindo as melhores práticas. Detectar
 ## 🚀 Como Usar
 
 ```bash
-/git/init                    # Inicialização completa automática
+/git-init                    # Inicialização completa automática
 ```
 
 ## 🤖 Integração com @gitflow-specialist
@@ -78,15 +79,15 @@ Após execução bem-sucedida:
 
 Após inicialização, o sistema recomendará:
 
-- **Primeira feature**: `/git/feature/start "nome-da-funcionalidade"`
-- **Sincronização**: `/git/sync` se houver repositório remoto
-- **Ajuda contextual**: `/git/help` para entender os workflows disponíveis
+- **Primeira feature**: `/git-feature-start "nome-da-funcionalidade"`
+- **Sincronização**: `/git-sync` se houver repositório remoto
+- **Ajuda contextual**: `/git-help` para entender os workflows disponíveis
 
 ## ⚠️ Tratamento de Problemas
 
 ### Repository não é Git
 **Problema**: Pasta atual não é um repositório Git  
-**Solução**: Execute `git init` primeiro, depois `/git/init`
+**Solução**: Execute `git init` primeiro, depois `/git-init`
 
 ### GitFlow já inicializado  
 **Problema**: GitFlow já está configurado

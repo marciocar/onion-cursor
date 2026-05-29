@@ -1,6 +1,7 @@
 ---
-name: work
+name: engineer-work
 description: Continuar trabalho em feature ativa. Lê sessão e identifica próxima fase. Atualiza progresso via Task Manager abstraction.
+disable-model-invocation: true
 paths:
   - .cursor/sessions/**
 ---

@@ -166,8 +166,8 @@ para cada ator mas compartilhando base comum."
 
 | Contexto | Ferramentas | Tipo |
 |----------|-------------|------|
-| **Business** | `/product/spec`, `/product/refine` | SDD-like |
-| **Technical** | `/engineer/work`, `/git/sync` | Development automation |
+| **Business** | `/product-spec`, `/product-refine` | SDD-like |
+| **Technical** | `/engineer-work`, `/git-sync` | Development automation |
 | **Customer Success** | `/support/ticket`, `/onboarding/guide` | CS workflows |
 | **Compliance** | `/audit/report`, `/security/scan` | Compliance tools |
 
@@ -246,7 +246,7 @@ task_manager:
 
 ```
 # ❌ Errado (atual)
-.cursor/commands/product/whisper.md  # No core
+.cursor/commands/product-whisper.md  # No core
 
 # ✅ Correto (proposta)
 .cursor/contexts/business/whisper.md
@@ -467,18 +467,18 @@ onboarding:
 
 ```bash
 # 1. Product Manager (business context)
-/business/product/spec "feature-checkout"
+/business/product-spec "feature-checkout"
 # → Cria spec em docs/business-context/features/checkout.md
 # → Cria task no ClickUp (business team usa ClickUp)
 
 # 2. Tech Lead (technical context)
-/tech/engineer/plan "feature-checkout"
+/tech/engineer-plan "feature-checkout"
 # → Lê spec de docs/business-context/features/checkout.md
 # → Cria plano em docs/technical-context/plans/checkout.md
 # → Cria subtasks no Linear (dev team usa Linear)
 
 # 3. Developer (technical context)
-/tech/engineer/work "feature-checkout"
+/tech/engineer-work "feature-checkout"
 # → Implementa baseado em plano técnico
 # → Atualiza Linear automaticamente
 

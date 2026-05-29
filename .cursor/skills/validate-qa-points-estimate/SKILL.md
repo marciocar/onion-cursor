@@ -1,6 +1,7 @@
 ---
-name: qa-points-estimate
+name: validate-qa-points-estimate
 description: Sugere técnicas de teste baseadas no framework
+disable-model-invocation: true
 ---
 # 🧮 Estimativa de QA Story Points
 
@@ -556,22 +557,22 @@ Base Complexity: {{complexity}} = {{base_points}} points
 
 ## 🔗 Integração com Outros Comandos
 
-### Com `/validate/test-strategy/create`
+### Com `/validate-test-strategy-create`
 ```markdown
 Após estimar, criar estratégia completa:
-/validate/test-strategy/create "{{task-description}}" --qa-points={{estimated_points}}
+/validate-test-strategy-create "{{task-description}}" --qa-points={{estimated_points}}
 ```
 
-### Com `/product/task`
+### Com `/product-task`
 ```markdown
 Criar task com estimativa QA:
-/product/task "{{task-description}}" --qa-points={{estimated_points}}
+/product-task "{{task-description}}" --qa-points={{estimated_points}}
 ```
 
-### Com `/product/estimate`
+### Com `/product-estimate`
 ```markdown
 Comparar estimativa dev vs QA:
-/product/estimate "{{task-description}}"
+/product-estimate "{{task-description}}"
 /qa-points/estimate "{{task-description}}"
 ```
 
@@ -593,7 +594,7 @@ O comando utiliza o framework completo de testes disponível em:
 - **Análise contextual:** Keywords detectadas podem ajustar valores
 - **Breakdown opcional:** Usar `--breakdown` para ver distribuição por perspectiva
 - **Técnicas sugeridas:** Baseadas no framework, não inventadas
-- **Task manager:** Requer configuração prévia via `/meta/setup-integration`
+- **Task manager:** Requer configuração prévia via `/meta-setup-integration`
 - **Atualização automática:** Usar `--update` apenas quando confiante na estimativa
 
 ---

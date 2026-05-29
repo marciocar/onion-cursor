@@ -162,32 +162,32 @@ command: '/engineer/work'
 
 **Localização:** `.cursor/commands/engineer/work.md**
 
-### `/engineer/pr`
+### `/engineer-pr`
 ```typescript
-command: '/engineer/pr'
+command: '/engineer-pr'
 // Propósito: Prepara e cria Pull Request
 // Ação: Code review, tests, documentation, PR creation
 ```
 
-**Localização:** `.cursor/commands/engineer/pr.md`
+**Localização:** `.cursor/commands/engineer-pr.md`
 
-### `/engineer/pre-pr`
+### `/engineer-pre-pr`
 ```typescript
-command: '/engineer/pre-pr'
+command: '/engineer-pre-pr'
 // Propósito: Validações antes de criar PR
 // Validação: Linter, tests, documentation
 ```
 
-**Localização:** `.cursor/commands/engineer/pre-pr.md`
+**Localização:** `.cursor/commands/engineer-pre-pr.md`
 
-### `/engineer/pr-update`
+### `/engineer-pr-update`
 ```typescript
-command: '/engineer/pr-update'
+command: '/engineer-pr-update'
 // Propósito: Atualiza PR com base em feedback
 // Ação: Apply changes, update documentation
 ```
 
-**Localização:** `.cursor/commands/engineer/pr-update.md`
+**Localização:** `.cursor/commands/engineer-pr-update.md`
 
 ### `/engineer/bump`
 ```typescript
@@ -481,7 +481,7 @@ template: 'business-context-template'
 // Uso: Base para documentação de requisitos
 ```
 
-**Localização:** `.cursor/commands/common/templates/business-context-template.md`
+**Localização:** `.cursor/skills/docs-build-business-docs/references/business-context-template.md`
 
 #### Technical Context Template
 ```typescript
@@ -490,7 +490,7 @@ template: 'technical-context-template'
 // Uso: Base para documentação técnica
 ```
 
-**Localização:** `.cursor/commands/common/templates/technical-context-template.md`
+**Localização:** `.cursor/skills/docs-build-tech-docs/references/technical-context-template.md`
 
 ### Common Prompts
 
@@ -520,12 +520,12 @@ prompts: 'technical_prompts'
 - `/git/feature/start`
 
 ### 3️⃣ Testing & Review
-- `/engineer/pre-pr`
+- `/engineer-pre-pr`
 - `/git/code-review`
 - `/product/validate-task`
 
 ### 4️⃣ Integration
-- `/engineer/pr`
+- `/engineer-pr`
 - `/git/feature/finish`
 - `/git/sync`
 
@@ -558,8 +558,8 @@ prompts: 'technical_prompts'
 2. /engineer/start           # Iniciar desenvolvimento
 3. /git/feature/start        # Criar branch
 4. /engineer/work            # Desenvolver
-5. /engineer/pre-pr          # Validar
-6. /engineer/pr              # Criar PR
+5. /engineer-pre-pr          # Validar
+6. /engineer-pr              # Criar PR
 7. /git/feature/finish       # Merge e cleanup
 ```
 
@@ -567,7 +567,7 @@ prompts: 'technical_prompts'
 ```bash
 1. /git/hotfix/start         # Criar hotfix branch
 2. /engineer/work            # Fix rápido
-3. /engineer/pr              # PR emergencial
+3. /engineer-pr              # PR emergencial
 4. /git/hotfix/finish        # Deploy urgente
 ```
 

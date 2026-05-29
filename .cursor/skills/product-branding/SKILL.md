@@ -1,6 +1,7 @@
 ---
-name: branding
-description: Skill convertida de /product/branding.md.
+name: product-branding
+description: Skill convertida de /product-branding.md.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -244,7 +245,7 @@ Comando especializado para trabalhar com Branding e Posicionamento de Marca usan
 
 **Input:**
 ```
-/product/branding criar brand positioning statement para Facilitação usando contexto de negócio
+/product-branding criar brand positioning statement para Facilitação usando contexto de negócio
 ```
 
 **Processo:**
@@ -266,7 +267,7 @@ Comando especializado para trabalhar com Branding e Posicionamento de Marca usan
 
 **Input:**
 ```
-/product/branding criar análise competitiva e matriz de posicionamento usando business context
+/product-branding criar análise competitiva e matriz de posicionamento usando business context
 ```
 
 **Processo:**
@@ -289,7 +290,7 @@ Comando especializado para trabalhar com Branding e Posicionamento de Marca usan
 
 **Input:**
 ```
-/product/branding desenvolver brand guidelines completo usando contexto de negócio e mensagens existentes
+/product-branding desenvolver brand guidelines completo usando contexto de negócio e mensagens existentes
 ```
 
 **Processo:**
@@ -313,7 +314,7 @@ Comando especializado para trabalhar com Branding e Posicionamento de Marca usan
 
 **Input:**
 ```
-/product/branding desenvolver estratégia de branding alinhada com tendências 2025 usando business context
+/product-branding desenvolver estratégia de branding alinhada com tendências 2025 usando business context
 ```
 
 **Processo:**
@@ -336,7 +337,7 @@ Comando especializado para trabalhar com Branding e Posicionamento de Marca usan
 
 **Input:**
 ```
-/product/branding analisar posicionamento atual e desenvolver estratégia de reposicionamento
+/product-branding analisar posicionamento atual e desenvolver estratégia de reposicionamento
 ```
 
 **Processo:**
@@ -387,15 +388,15 @@ Comando especializado para trabalhar com Branding e Posicionamento de Marca usan
 
 ## Comandos Relacionados
 
-- `/product/spec` - Especificar features de produto
-- `/product/task` - Criar tasks de desenvolvimento
-- `/docs/build-business-docs` - Construir contexto de negócio
+- `/product-spec` - Especificar features de produto
+- `/product-task` - Criar tasks de desenvolvimento
+- `/docs-build-business-docs` - Construir contexto de negócio
 - `/docs/generate` - Gerar documentação
 
 ## Troubleshooting
 
 ### Problema: Documentos de business context não existem
-**Solução**: Primeiro executar `/docs/build-business-docs` para criar contexto de negócio completo
+**Solução**: Primeiro executar `/docs-build-business-docs` para criar contexto de negócio completo
 
 ### Problema: Informações conflitantes no contexto
 **Solução**: Identificar conflitos, consultar stakeholders, atualizar documentos antes de desenvolver branding
@@ -431,7 +432,7 @@ R: O comando inclui checklist de validação e sugere próximos passos, incluind
 
 **Sintaxe básica:**
 ```
-/product/branding [tipo de trabalho] usando contexto de negócio
+/product-branding [tipo de trabalho] usando contexto de negócio
 ```
 
 **Tipos de trabalho disponíveis:**
@@ -460,5 +461,5 @@ R: O comando inclui checklist de validação e sugere próximos passos, incluind
 
 **Exemplo de uso:**
 ```
-/product/branding criar brand positioning statement para Facilitação usando contexto de negócio
+/product-branding criar brand positioning statement para Facilitação usando contexto de negócio
 ```

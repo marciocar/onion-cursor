@@ -1,5 +1,5 @@
 ---
-name: all-tools
+name: meta-all-tools
 description: Documentação de todas as ferramentas disponíveis no Claude Code.
 disable-model-invocation: true
 ---

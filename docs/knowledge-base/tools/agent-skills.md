@@ -6,9 +6,9 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Versão** | 1.1.0 |
+| **Versão** | 2.0.0 |
 | **Data de Criação** | 2026-05-15 |
-| **Última Atualização** | 2026-05-15 |
+| **Última Atualização** | 2026-05-29 |
 | **Categoria** | tools |
 | **Fontes Principais** | https://agentskills.io, https://agentskills.io/specification, https://cursor.com/docs/skills |
 
@@ -20,10 +20,18 @@
 
 **Conceito central**: um skill é uma pasta com um arquivo `SKILL.md` contendo metadados YAML + instruções Markdown. O agente carrega apenas o nome e descrição no startup; as instruções completas só são lidas quando o task bate com o skill (*progressive disclosure*).
 
-**No Claude Code especificamente**:
-- Skills e Commands foram **mesclados**: `.cursor/commands/deploy.md` e `.cursor/skills/deploy/SKILL.md` ambos criam `/deploy` e funcionam de forma equivalente
-- Skills é a forma **recomendada** agora — suporta supporting files, frontmatter rico, ativação automática
-- `.cursor/commands/` continua funcionando (compatibilidade)
+### Três camadas (não misturar)
+
+| Camada | Fonte | Uso no Onion |
+|--------|-------|--------------|
+| **Spec aberta** | [agentskills.io/specification](https://agentskills.io/specification) | `name`, `description`, `license`, `compatibility`, `metadata` — portabilidade cross-client |
+| **Cursor 3.6+** | [cursor.com/docs/skills](https://cursor.com/docs/skills) | `.cursor/skills/`, invocação `/skill-name`, `disable-model-invocation`, `paths` |
+| **Legado Claude Code** | Extensões Anthropic | `when_to_use`, `` `cmd` ``, `${CLAUDE_SKILL_DIR}`, `context: fork` — documentar como opcional |
+
+**No Sistema Onion (Cursor-first):**
+- **Canônico:** `.cursor/skills/<skill-name>/SKILL.md` — invocação via `/skill-name`
+- **Legado:** `.cursor/commands/` — apenas prompts compartilhados em `common/prompts/` e comandos sem skill equivalente
+- **Cross-client (opcional):** `.agents/skills/` para distribuição externa
 
 ---
 
@@ -64,11 +72,19 @@ Claude Code também varre `.cursor/skills/` em **diretórios pai** até a raiz d
 
 Adotado por VS Code Copilot e outros. Alguns clientes varrem ambos `.cursor/` e `.agents/` por compatibilidade.
 
-**Regra de ouro no Sistema Onion**: usar `.cursor/skills/` (é Claude Code-first). Para distribuir cross-client, manter cópia em `.agents/skills/` também.
+**Regra de ouro no Sistema Onion**: usar `.cursor/skills/` como mecanismo primário. Para distribuir cross-client, manter cópia em `.agents/skills/` também.
+
+### Classificação `disable-model-invocation` (Onion)
+
+| Tipo | Exemplos | Flag |
+|------|----------|------|
+| Workflow explícito (slash) | `engineer-*`, `product-*`, `git-*`, `test-*`, `validate-*`, `docs-*`, `meta-*` | `true` |
+| Contextual (auto) | `language-standards`, `onion-patterns`, `onion-validation` | omitir + `paths` |
+| Orquestrador | `onion`, `warm-up` | `true` |
 
 ---
 
-## ⚡ Quick Start (Claude Code)
+## ⚡ Quick Start (Cursor)
 
 ```
 .cursor/skills/
@@ -76,25 +92,24 @@ Adotado por VS Code Copilot e outros. Alguns clientes varrem ambos `.cursor/` e 
     └── SKILL.md
 ```
 
-**SKILL.md mínimo:**
+**SKILL.md mínimo (Onion):**
 ```markdown
 ---
-description: O que faz e quando usar. Ex: Processa CSVs — análise, gráficos, limpeza. Use quando o usuário tiver arquivo CSV, TSV ou Excel.
+name: meu-skill
+description: O que faz e quando usar.
+disable-model-invocation: true
 ---
 
 ## Instruções
 
 Passo 1: ...
-Passo 2: ...
 ```
 
 **Verificar:**
 ```
-/<skill-name>           # invocar diretamente
-What skills are available?   # perguntar ao agente
+/meu-skill              # invocar diretamente (workflows explícitos)
+What skills are available?
 ```
-
-Claude Code detecta mudanças **ao vivo** — adicionar/editar/remover skill em `.cursor/skills/` reflete na sessão atual (sem restart, exceto se for o primeiro skill em uma pasta nova).
 
 ---
 
@@ -111,27 +126,25 @@ Claude Code detecta mudanças **ao vivo** — adicionar/editar/remover skill em 
 | `metadata` | — | Map string→string |
 | `allowed-tools` | — | String separada por espaços (experimental no spec; nativo no Claude Code) |
 
-### Frontmatter — Extensões do Claude Code
+### Frontmatter — Extensões Cursor / Claude Code
 
-Campos adicionais suportados em `.cursor/skills/`:
+Campos além do spec aberto, suportados em `.cursor/skills/`:
 
-| Campo | Descrição |
-|-------|-----------|
-| `when_to_use` | Contexto extra de ativação (trigger phrases, exemplos). Soma com `description` (cap 1536 chars) |
-| `argument-hint` | Hint de autocomplete: `[issue-number]` |
-| `arguments` | Argumentos nomeados posicionais para `$name` substitution |
-| `disable-model-invocation` | `true` impede ativação automática pelo agente (só user pode `/invocar`) |
-| `user-invocable` | `false` esconde do menu `/` (apenas Claude invoca) |
-| `allowed-tools` | Tools pré-aprovadas: `Bash(git add *) Bash(git commit *) Read` |
-| `model` | Override de modelo para a duração do skill |
-| `effort` | `low` \| `medium` \| `high` \| `xhigh` \| `max` |
-| `context` | `fork` → roda em subagent isolado |
-| `agent` | Tipo de subagent quando `context: fork`: `Explore`, `Plan`, `general-purpose` ou custom |
-| `hooks` | Hooks no ciclo do skill |
-| `paths` | Glob — ativa só com arquivos matching: `"src/**/*.ts"` |
-| `shell` | `bash` (default) ou `powershell` |
+| Campo | Cliente | Descrição |
+|-------|---------|-----------|
+| `disable-model-invocation` | Cursor + Claude | `true` = só invocação explícita `/skill-name` |
+| `paths` | Cursor + Claude | Glob — ativa contextualmente em arquivos matching |
+| `when_to_use` | Claude Code | Contexto extra de ativação |
+| `allowed-tools` | Claude Code | Tools pré-aprovadas |
+| `context: fork` | Claude Code | Roda em subagent isolado |
+| `` `cmd` `` / `${CLAUDE_SKILL_DIR}` | Claude Code | Dynamic injection e scripts — **legado** |
+
+### Frontmatter — Extensões legadas Claude Code (referência)
+
+Ver seção [Features Exclusivas do Claude Code](#-features-exclusivas-do-claude-code) abaixo para `when_to_use`, `` `cmd` ``, `${CLAUDE_SKILL_DIR}`, `context: fork`, `hooks`, `model`, `effort`.
 
 ### Body (Markdown)
+
 Sem restrições de formato. **Limite recomendado**: 500 linhas / ~5000 tokens. Conteúdo maior → mover para arquivos em `references/`.
 
 ⚠️ **Lifecycle no Claude Code**: uma vez ativado, o conteúdo do SKILL.md **fica em contexto pelo resto da sessão** — cada linha é custo recorrente de tokens. Auto-compaction preserva skills (primeiros 5000 tokens cada, budget combinado de 25000).

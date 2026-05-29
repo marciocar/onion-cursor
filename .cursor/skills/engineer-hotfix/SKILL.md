@@ -1,6 +1,7 @@
 ---
-name: hotfix
+name: engineer-hotfix
 description: Tags adicionais (comma-separated)
+disable-model-invocation: true
 paths:
   - .cursor/sessions/**
 ---
@@ -106,8 +107,8 @@ EOF
 ⚡ Próximos Passos:
 1. Implementar correção
 2. Testar localmente
-3. /engineer/pre-pr
-4. /git/hotfix/finish
+3. /engineer-pre-pr
+4. /git-hotfix-finish
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -135,9 +136,9 @@ EOF
 ∟ Path: .cursor/sessions/hotfix-20251124/
 
 🚀 Comandos:
-∟ Desenvolver: /engineer/work
-∟ Pre-PR: /engineer/pre-pr
-∟ Finalizar: /git/hotfix/finish
+∟ Desenvolver: /engineer-work
+∟ Pre-PR: /engineer-pre-pr
+∟ Finalizar: /git-hotfix-finish
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

@@ -296,7 +296,7 @@ export class JWTService {
 
 #### Passo 4: Criar Pull Request
 ```bash
-/engineer/pr
+/engineer-pr
 ```
 
 **O que acontece:**
@@ -420,7 +420,7 @@ artillery quick --count 100 --num 10 http://localhost:3000/api/payments
 
 #### Passo 4: PR Urgente
 ```bash
-/engineer/pr
+/engineer-pr
 ```
 
 **Code Review Acelerado:**
@@ -482,7 +482,7 @@ npm run test:integration
 
 #### Passo 3: PR e Aprovação
 ```bash
-/engineer/pr
+/engineer-pr
 ```
 
 **Checklist de Release:**
@@ -704,12 +704,12 @@ git commit -m "feat: add auth middleware"
 ### Anti-Pattern 4: Pular Testes
 ```bash
 # ❌ ERRADO
-/engineer/pr  # Sem rodar testes!
+/engineer-pr  # Sem rodar testes!
 
 # ✅ CORRETO
 npm test
-/engineer/pre-pr  # Validações
-/engineer/pr      # Depois PR
+/engineer-pre-pr  # Validações
+/engineer-pr      # Depois PR
 ```
 
 ---

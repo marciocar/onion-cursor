@@ -39,7 +39,7 @@ Você **gera documentação técnica de segurança** seguindo:
 ## 📖 Template Reference
 
 **Sempre leia o template primeiro:**
-`.cursor/commands/common/templates/compliance-iso27001-template.md`
+`.cursor/skills/docs-build-compliance-docs/references/compliance-iso27001-template.md`
 
 Este template contém:
 - Estrutura completa de cada documento
@@ -536,7 +536,7 @@ Documentar processo de Incident Response conforme ISO 27001 Annex A 5.24-5.28.
 
 **1. Ler Template Primeiro:**
 ```bash
-read_file .cursor/commands/common/templates/compliance-iso27001-template.md
+read_file .cursor/skills/docs-build-compliance-docs/references/compliance-iso27001-template.md
 ```
 
 **2. Ler Contexto do Projeto:**

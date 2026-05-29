@@ -49,7 +49,7 @@ plano-execucao: docs/plans/onion-saneamento-plan-2026-05.md
 
 O Sistema Onion é um **framework template em `.claude/`** projetado para ser instalado e aplicado em qualquer projeto — novo, legado ou regulado — para orquestrar produto, engenharia e compliance com Claude Code. Não é produto npm, não é distribuído publicamente, não tem CLI standalone. Em maio de 2026, foram formalmente abandonadas duas direções estratégicas anteriores: a estrutura `.onion/` agnóstica e o plano de implementação v4.0 (FASES 5-9, incluindo `packages/onion-cli/`).
 
-**Volume**: 94 comandos em 11 categorias + 49 agentes em 9 categorias + 1 skill + 24 knowledge bases + Task Manager Abstraction multi-provider (Jira, ClickUp, Asana, Linear).
+**Volume**: 83 skills em 11 categorias + 49 agentes em 9 categorias + 1 skill + 24 knowledge bases + Task Manager Abstraction multi-provider (Jira, ClickUp, Asana, Linear).
 
 **Maturidade**: substancialmente completo em cobertura, **pré-aplicável** em validação formal e camada operacional para uso externo.
 
@@ -122,9 +122,9 @@ Estado em 2026-05-18 (fonte: [docs/INDEX.md](../INDEX.md) + inventário direto e
 
 **Outliers de tamanho**:
 
-- Maior comando: [.claude/commands/validate/test-strategy/analyze.md](../../.claude/commands/validate/test-strategy/analyze.md) — 1.134 linhas
+- Maior comando: [.claude/commands/validate-test-strategy-analyze.md](../../.claude/commands/validate-test-strategy-analyze.md) — 1.134 linhas
 - Maior agente: [.claude/agents/meta/command-creator-specialist.md](../../.claude/agents/meta/command-creator-specialist.md) — 1.519 linhas
-- Menor comando: [.claude/commands/engineer/docs.md](../../.claude/commands/engineer/docs.md) — 10 linhas
+- Menor comando: [.claude/commands/engineer-docs.md](../../.claude/commands/engineer-docs.md) — 10 linhas
 - 85/91 comandos (~93%) têm headers YAML documentados — 6 sem cabeçalho
 
 A leitura inicial dos números pode sugerir "inchaço". Mas isso só faz sentido se o framework fosse pensado para uso isolado. Como **biblioteca reutilizável aplicável em projetos diversos**, o critério não é "quantos comandos cabem no dia a dia do mantenedor" — é "quantas peças o framework precisa carregar para cobrir projetos novos, legados e regulados".
@@ -470,7 +470,7 @@ A partir dessa pergunta, os riscos relevantes são os a seguir.
 
 ### Risco 1 — Manutenção da biblioteca
 
-**Volume**: 49 agentes × 1.186 linhas médias + 94 comandos × 509 linhas médias = aproximadamente **53.000 linhas de prompts ativos** que precisam ser mantidos consistentes.
+**Volume**: 49 agentes × 1.186 linhas médias + 83 skills × 509 linhas médias = aproximadamente **53.000 linhas de prompts ativos** que precisam ser mantidos consistentes.
 
 **Implicação**: qualquer mudança transversal (formato de YAML header, convenção de naming, padrão de delegação) exige edit em massa. Se há um único mantenedor ativo, o custo de iterar em padrões é alto.
 
@@ -520,7 +520,7 @@ O Onion declara aplicabilidade a três cenários distintos:
 
 **Pergunta**: o framework tem caminho documentado e testado para os três? Existem comandos específicos por cenário?
 
-- Para legado: [.claude/commands/docs/reverse-consolidate.md](../../.claude/commands/docs/reverse-consolidate.md) e `@docs-reverse-engineer` cobrem extração inicial. Funciona ponta a ponta?
+- Para legado: [.claude/commands/docs-reverse-consolidate.md](../../.claude/commands/docs-reverse-consolidate.md) e `@docs-reverse-engineer` cobrem extração inicial. Funciona ponta a ponta?
 - Para greenfield: o sistema de níveis (starter kit) é o caminho previsto. Está completo?
 - Para regulado: os 5 agentes de compliance + `/docs:build-compliance-docs` + orquestração via `@security-information-master`. Coerente? Cobre decisão "qual framework escolher"?
 
@@ -546,7 +546,7 @@ O Onion declara aplicabilidade a três cenários distintos:
 
 > O framework está coerente e completo o suficiente para ser aplicado a um projeto novo sem que o operador precise consultar o mantenedor?
 
-Resposta honesta em 2026-05-18: **ainda não**. O framework tem cobertura ampla (94 comandos, 49 agentes), boa abstração em Task Manager, knowledge bases ricas. Mas tem três bloqueios para aplicação externa:
+Resposta honesta em 2026-05-18: **ainda não**. O framework tem cobertura ampla (83 skills, 49 agentes), boa abstração em Task Manager, knowledge bases ricas. Mas tem três bloqueios para aplicação externa:
 
 1. KBs e docs ainda descrevem visões abandonadas (Risco 2)
 2. Meta-specs ausentes deixam padrões implícitos (Risco 3)
@@ -767,7 +767,7 @@ Em `/home/marciocar/.claude/projects/-home-marciocar-onion-claude/memory/`, cria
 
 ### Veredito
 
-O Onion em 2026-05-18 é um framework **substancialmente completo em cobertura** (94 comandos + 49 agentes + 1 skill + Task Manager Abstraction maduro + KBs ricas) mas **incompleto em validação formal** (5 meta-specs ausentes) e em **camada operacional para aplicação externa** (guias por cenário ausentes, KBs históricas ainda apresentadas como visão atual).
+O Onion em 2026-05-18 é um framework **substancialmente completo em cobertura** (83 skills + 49 agentes + 1 skill + Task Manager Abstraction maduro + KBs ricas) mas **incompleto em validação formal** (5 meta-specs ausentes) e em **camada operacional para aplicação externa** (guias por cenário ausentes, KBs históricas ainda apresentadas como visão atual).
 
 Sob a lente "framework template instalável", o framework está em estado **pré-aplicável**: tem peças, falta marcação e instruções. Resolvendo os 19 itens priorizados na Seção 6, especialmente P0 (limpeza de visões abandonadas) e P3 (guias operacionais), o framework passa para estado **aplicável a projeto-alvo sem necessidade de mantenedor de plantão**.
 

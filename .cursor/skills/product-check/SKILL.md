@@ -1,6 +1,7 @@
 ---
-name: check
+name: product-check
 description: Verificar requisitos contra meta-specs do projeto.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**

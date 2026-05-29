@@ -1,6 +1,7 @@
 ---
-name: bump
+name: engineer-bump
 description: Bump de versão seguindo semver. Incrementa major, minor ou patch.
+disable-model-invocation: true
 paths:
   - .cursor/sessions/**
 ---

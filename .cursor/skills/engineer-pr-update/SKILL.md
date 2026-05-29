@@ -1,12 +1,13 @@
 ---
-name: pr-update
+name: engineer-pr-update
 description: Atualizar PR existente com mudanças adicionais.
+disable-model-invocation: true
 paths:
   - .cursor/sessions/**
 ---
 # 🔄 Engineer PR Update
 
-Atualizar um Pull Request existente com mudanças adicionais. Este comando automatiza o processo completo de commit, push e documentação quando você já executou `/engineer/pr` mas fez mudanças subsequentes.
+Atualizar um Pull Request existente com mudanças adicionais. Este comando automatiza o processo completo de commit, push e documentação quando você já executou `/engineer-pr` mas fez mudanças subsequentes.
 
 ## 🎯 Funcionalidades
 
@@ -31,15 +32,15 @@ Atualizar um Pull Request existente com mudanças adicionais. Este comando autom
 ## 🚀 Como Usar
 
 ```bash
-/engineer/pr-update
+/engineer-pr-update
 ```
 
 ### Exemplos com Parâmetros Opcionais
 ```bash
-/engineer/pr-update                           # Análise automática + commit inteligente
-/engineer/pr-update --type fix               # Força tipo de commit específico
-/engineer/pr-update --message "Custom msg"   # Mensagem personalizada
-/engineer/pr-update --dry-run               # Preview sem executar
+/engineer-pr-update                           # Análise automática + commit inteligente
+/engineer-pr-update --type fix               # Força tipo de commit específico
+/engineer-pr-update --message "Custom msg"   # Mensagem personalizada
+/engineer-pr-update --dry-run               # Preview sem executar
 ```
 
 ## 🤝 Integração ClickUp MCP
@@ -103,10 +104,10 @@ await commentPRUpdated(taskId, {
 ## ⚠️ Resolução de Problemas
 
 ### Problema: "Não há PR ativo para esta branch"
-**Solução**: Executar `/engineer/pr` primeiro para criar o PR inicial
+**Solução**: Executar `/engineer-pr` primeiro para criar o PR inicial
 ```bash
 # Se necessário, criar PR primeiro:
-/engineer/pr
+/engineer-pr
 ```
 
 ### Problema: "Nenhuma mudança detectada"
@@ -119,7 +120,7 @@ git status  # Confirmar mudanças pendentes
 **Solução**: Sincronizar branch antes de atualizar
 ```bash
 git pull origin [branch-name]  # Sincronizar primeiro
-/engineer/pr-update           # Depois atualizar
+/engineer-pr-update           # Depois atualizar
 ```
 
 ### Problema: "Task ClickUp não encontrada"
@@ -134,7 +135,7 @@ git pull origin [branch-name]  # Sincronizar primeiro
 # Após feedback do code review:
 # 1. Fazer correções solicitadas
 # 2. Executar:
-/engineer/pr-update --type fix
+/engineer-pr-update --type fix
 ```
 
 ### 2. Melhorias Adicionais
@@ -142,7 +143,7 @@ git pull origin [branch-name]  # Sincronizar primeiro
 # Após pensar em melhorias:
 # 1. Implementar enhancements
 # 2. Executar:
-/engineer/pr-update --type feat
+/engineer-pr-update --type feat
 ```
 
 ### 3. Documentação Esquecida
@@ -150,7 +151,7 @@ git pull origin [branch-name]  # Sincronizar primeiro
 # Após lembrar de documentar:
 # 1. Atualizar docs
 # 2. Executar:
-/engineer/pr-update --type docs
+/engineer-pr-update --type docs
 ```
 
 ### 4. Correções Arquiteturais
@@ -158,24 +159,24 @@ git pull origin [branch-name]  # Sincronizar primeiro
 # Como no exemplo atual:
 # 1. Implementar correções arquiteturais
 # 2. Executar:
-/engineer/pr-update --type fix --message "Correção arquitetural - Phase→Subtask sync"
+/engineer-pr-update --type fix --message "Correção arquitetural - Phase→Subtask sync"
 ```
 
 ## 🔗 Integração com Workflow
 
 ### Fluxo Padrão Completo
-1. `/product/task` - Criar task ClickUp
-2. `/engineer/start` - Iniciar desenvolvimento  
-3. `/engineer/work` - Desenvolver features
-4. `/engineer/pre-pr` - Validações finais
-5. `/engineer/pr` - Criar Pull Request
-6. **`/engineer/pr-update`** - Atualizar PR com mudanças adicionais (quantas vezes necessário)
-7. Merge do PR → Auto-sync `/git/sync`
+1. `/product-task` - Criar task ClickUp
+2. `/engineer-start` - Iniciar desenvolvimento  
+3. `/engineer-work` - Desenvolver features
+4. `/engineer-pre-pr` - Validações finais
+5. `/engineer-pr` - Criar Pull Request
+6. **`/engineer-pr-update`** - Atualizar PR com mudanças adicionais (quantas vezes necessário)
+7. Merge do PR → Auto-sync `/git-sync`
 
 ### Compatibilidade com Comandos Existentes
-- ✅ Funciona após `/engineer/pr`
-- ✅ Integra com `/engineer/work` progress tracking
-- ✅ Compatível com `/git/sync` automático pós-merge
+- ✅ Funciona após `/engineer-pr`
+- ✅ Integra com `/engineer-work` progress tracking
+- ✅ Compatível com `/git-sync` automático pós-merge
 - ✅ Respeita mapeamento Phase→Subtask do context.md
 
 ---

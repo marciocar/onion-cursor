@@ -494,10 +494,10 @@ feature-name/
 
 ### Comandos Relacionados
 
-- `/product/spec` - Criar spec inicial
-- `/product/refine` - Refinar spec
-- `/engineer/plan` - Planejar implementação baseada em spec
-- `/engineer/start` - Iniciar desenvolvimento com spec
+- `/product-spec` - Criar spec inicial
+- `/product-refine` - Refinar spec
+- `/engineer-plan` - Planejar implementação baseada em spec
+- `/engineer-start` - Iniciar desenvolvimento com spec
 
 ### Agentes Relacionados
 

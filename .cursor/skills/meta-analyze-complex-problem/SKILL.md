@@ -1,6 +1,7 @@
 ---
-name: analyze-complex-problem
+name: meta-analyze-complex-problem
 description: Tipo (critical/implementation/migration/architecture/performance/security)
+disable-model-invocation: true
 ---
 # 🔬 Análise de Problema Complexo
 
@@ -147,7 +148,7 @@ write docs/analysis/[slug]-analysis.md
 
 ## 🔗 Referências
 
-- Template: `common/templates/analysis-template.md`
+- Template: `references/analysis-template.md` (estrutura inline na skill se ausente)
 - Validação: @metaspec-gate-keeper
 
 ## ⚠️ Notas

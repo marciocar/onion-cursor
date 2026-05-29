@@ -219,9 +219,9 @@ O sistema deve reconhecer automaticamente quando usar clickup-specialist:
 ### Comandos de Integração
 ```bash
 # Fluxos que devem usar clickup-specialist automaticamente:
-/product/task → criar task optimizada com template
-/engineer/pr → automação de status + tags + comments
-/engineer/start → setup automático de time tracking
+/product-task → criar task optimizada com template
+/engineer-pr → automação de status + tags + comments
+/engineer-start → setup automático de time tracking
 ```
 
 ## 📋 Workflows Prioritários

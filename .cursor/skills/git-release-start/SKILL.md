@@ -1,6 +1,7 @@
 ---
-name: start
+name: git-release-start
 description: Iniciar release branch com versionamento e changelog.
+disable-model-invocation: true
 ---
 # 🚀 Git Flow - Iniciar Release
 
@@ -32,11 +33,11 @@ Iniciar processo de release criando branch de release com versionamento automát
 ## 🚀 Como Usar
 
 ```bash
-/git/release/start "v2.1.0"           # Release com versão específica  
-/git/release/start "2.1.0"            # Versão sem prefixo v
-/git/release/start "patch"            # Auto-bump patch (2.0.1 → 2.0.2)
-/git/release/start "minor"            # Auto-bump minor (2.0.1 → 2.1.0) 
-/git/release/start "major"            # Auto-bump major (2.0.1 → 3.0.0)
+/git-release-start "v2.1.0"           # Release com versão específica  
+/git-release-start "2.1.0"            # Versão sem prefixo v
+/git-release-start "patch"            # Auto-bump patch (2.0.1 → 2.0.2)
+/git-release-start "minor"            # Auto-bump minor (2.0.1 → 2.1.0) 
+/git-release-start "major"            # Auto-bump major (2.0.1 → 3.0.0)
 ```
 
 **Pré-requisitos**: Working directory limpo, develop branch disponível

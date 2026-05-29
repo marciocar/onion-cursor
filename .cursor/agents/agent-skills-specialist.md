@@ -105,7 +105,7 @@ argument-hint: "[staging|production] [v1.2.3]"
 ---
 ```
 
-**Para skills cross-client (`.agents/skills/`)**: usar apenas campos do spec aberto (`name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools`). Evitar extensões Claude Code-specific se quer portabilidade.
+**Para skills cross-client (`.agents/skills/`)**: usar campos do spec aberto (`name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools`). Evitar extensões Claude Code-specific se quer portabilidade.
 
 ### Fase 3: Aplicar Features do Claude Code Quando Apropriado
 
@@ -161,7 +161,7 @@ paths: "src/components/**/*.tsx"
 **Conteúdo:**
 - [ ] Instruções concretas (não genéricas)
 - [ ] Seção `## Gotchas` com erros sistemáticos do domínio
-- [ ] Scripts referenciados com `${CLAUDE_SKILL_DIR}` (Claude Code) ou path relativo (cross-client)
+- [ ] Scripts referenciados com path relativo (`references/`, `scripts/`) ou `${CLAUDE_SKILL_DIR}` só em Claude Code
 
 ### Fase 5: Entrega e Verificação
 
@@ -211,7 +211,7 @@ Quando um comando em `.cursor/commands/X.md` se beneficiaria de virar skill:
 1. `mkdir .cursor/skills/<name>`
 2. Mover/recriar o conteúdo em `SKILL.md` com frontmatter rico
 3. Adicionar `disable-model-invocation: true` se o comando original sempre era explícito
-4. Bundle scripts em `scripts/` referenciados via `${CLAUDE_SKILL_DIR}`
+4. Bundle scripts em `scripts/` referenciados via path relativo (Cursor) ou `${CLAUDE_SKILL_DIR}` (Claude Code)
 5. Apagar o `.cursor/commands/<name>.md` (o `/comando` continua funcionando via skill)
 
 ---
@@ -266,6 +266,6 @@ import pdfplumber
 - **Best practices**: https://agentskills.io/skill-creation/best-practices
 - **Optimizing descriptions**: https://agentskills.io/skill-creation/optimizing-descriptions
 - **Exemplos reais**: https://github.com/anthropics/skills
-- **Comando**: `/meta/create-skill` — orquestrador deste agente
+- **Comando**: `/meta-create-skill` — orquestrador deste agente
 - **Agente relacionado**: /command-creator-specialist (commands legacy `.cursor/commands/`)
 - **Agente relacionado**: /agent-creator-specialist (subagents `.cursor/agents/`)

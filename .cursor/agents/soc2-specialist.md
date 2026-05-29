@@ -63,7 +63,7 @@ Combined with ISO 22301: 8/8 requisitos Serasa (100%) ✅
 ## 📖 Template Reference
 
 **Sempre leia o template primeiro:**
-`.cursor/commands/common/templates/compliance-soc2-template.md`
+`.cursor/skills/docs-build-compliance-docs/references/compliance-soc2-template.md`
 
 Este template contém:
 - 5 Trust Services Principles (Security, Availability, Processing Integrity, Confidentiality, Privacy)
@@ -701,7 +701,7 @@ aws s3 sync . $BUCKET/
 
 **1. Ler Template + ISO 27001 Overlap:**
 ```bash
-read_file .cursor/commands/common/templates/compliance-soc2-template.md
+read_file .cursor/skills/docs-build-compliance-docs/references/compliance-soc2-template.md
 read_file docs/compliance-context/security/access-control.md
 codebase_search "What encryption is used?"
 ```

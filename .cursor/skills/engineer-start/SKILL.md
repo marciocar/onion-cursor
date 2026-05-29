@@ -1,6 +1,7 @@
 ---
-name: start
+name: engineer-start
 description: Iniciar desenvolvimento de feature. Cria sessão e analisa tasks. Suporta múltiplos gerenciadores via TASK_MANAGER_PROVIDER.
+disable-model-invocation: true
 paths:
   - .cursor/sessions/**
 ---
@@ -68,7 +69,7 @@ if (!storyPoints || storyPoints === 0) {
 
 💡 RECOMENDAÇÕES:
 ∟ Estimar antes de iniciar desenvolvimento
-∟ Usar: /product/estimate "${task.name}"
+∟ Usar: /product-estimate "${task.name}"
 ∟ Ou: @story-points-framework-specialist
 
 ⚠️ Continuar sem estimativa pode afetar:
@@ -97,7 +98,7 @@ if (!storyPoints || storyPoints === 0) {
 
 💡 RECOMENDAÇÕES:
 ∟ Considerar quebrar em múltiplas tasks menores
-∟ Usar: /product/refine para detalhar requisitos
+∟ Usar: /product-refine para detalhar requisitos
 ∟ Verificar se realmente precisa ser uma única task
 
 ⚠️ Tasks > 13 pontos têm:
@@ -111,7 +112,7 @@ if (!storyPoints || storyPoints === 0) {
   // Perguntar ao usuário se deseja continuar
   const shouldContinue = await askUser('Deseja continuar mesmo assim? (s/n)');
   if (!shouldContinue) {
-    console.log('💡 Sugestão: Use /product/refine para detalhar e quebrar a task');
+    console.log('💡 Sugestão: Use /product-refine para detalhar e quebrar a task');
     return;
   }
 } else {
@@ -143,7 +144,7 @@ Provedor configurado: asana
 💡 Ações sugeridas:
    1. Altere TASK_MANAGER_PROVIDER para 'clickup' no .env
    2. Ou limpe a sessão atual e crie uma nova task
-   3. Execute /meta/setup-integration para reconfigurar
+   3. Execute /meta-setup-integration para reconfigurar
 ```
 
 ### **🔍 Questões de Análise:**
@@ -227,7 +228,7 @@ if (taskManager.isConfigured && taskId) {
 Quando subtasks existem, o sistema deve **automaticamente**:
 1. **Detectar subtasks** via `taskManager.getSubtasks(taskId)`
 2. **Correlacionar com fases** do plan.md (por ordem ou nome)
-3. **Salvar mapeamento** no context.md para uso pelo `/engineer/work`
+3. **Salvar mapeamento** no context.md para uso pelo `/engineer-work`
 4. **Validar correlação** e alertar se houver mismatch
 
 ## Pesquisa

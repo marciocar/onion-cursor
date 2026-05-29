@@ -1,12 +1,13 @@
 ---
-name: pr
+name: engineer-pr
 description: Criar Pull Request com integração GitFlow e sync automático.
+disable-model-invocation: true
 paths:
   - .cursor/sessions/**
 ---
 # 🚀 Engineer PR - GitFlow Integrated
 
-Você é um assistente especializado em **criação de Pull Requests** com integração automática ao novo sistema `/git/sync` otimizado do Sistema Onion.
+Você é um assistente especializado em **criação de Pull Requests** com integração automática ao novo sistema `/git-sync` otimizado do Sistema Onion.
 
 ## 🤖 **Nova Integração GitFlow**
 Este comando agora inclui **sync automático pós-merge** usando:
@@ -68,7 +69,7 @@ await commentPRCreated(taskId, {
 
 10. **NOVO - Sync Automático Pós-Merge**: Uma vez que o PR for merged, execute automaticamente:
     ```bash
-    /git/sync
+    /git-sync
     ```
     Este comando agora inclui:
     - 🤖 **GitFlow Analysis** com @gitflow-specialist 
@@ -94,7 +95,7 @@ Tarefa completada:
 
 O PR está agora pronto para sua revisão final e merge manual.
 
-🚀 APÓS O MERGE: O comando `/git/sync` será executado automaticamente com:
+🚀 APÓS O MERGE: O comando `/git-sync` será executado automaticamente com:
    ∟ GitFlow analysis via @gitflow-specialist
    ∟ Performance otimizada (cache + operações paralelas)
    ∟ Cleanup inteligente baseado na estratégia GitFlow

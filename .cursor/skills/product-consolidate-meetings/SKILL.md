@@ -1,6 +1,7 @@
 ---
-name: consolidate-meetings
+name: product-consolidate-meetings
 description: Foco da consolidação (all|divergences|convergences|insights|gaps)
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -185,7 +186,7 @@ O comando deve produzir:
 ## 🔗 Referências
 
 - **Agente**: @meeting-consolidator
-- **Comando Relacionado**: /product/extract-meeting (extração estruturada)
+- **Comando Relacionado**: /product-extract-meeting (extração estruturada)
 - **Knowledge Base**: `docs/knowledge-base/concepts/meeting-transcription-to-knowledge-base.md`
 
 ## ⚠️ Notas Importantes
@@ -200,7 +201,7 @@ O comando deve produzir:
 
 ### Quando Usar Este Comando
 
-Use `/product/consolidate-meetings` quando:
+Use `/product-consolidate-meetings` quando:
 
 - Há múltiplas reuniões sobre o mesmo tema
 - Necessita identificar padrões entre reuniões
@@ -213,19 +214,19 @@ Use `/product/consolidate-meetings` quando:
 
 ```bash
 # Consolidar todas as reuniões de uma pasta
-/product/consolidate-meetings "docs/meet/gamification-meetings/"
+/product-consolidate-meetings "docs/meet/gamification-meetings/"
 
 # Consolidar arquivos específicos
-/product/consolidate-meetings "docs/meet/meeting-1.md docs/meet/meeting-2.md docs/meet/meeting-3.md"
+/product-consolidate-meetings "docs/meet/meeting-1.md docs/meet/meeting-2.md docs/meet/meeting-3.md"
 
 # Foco em divergências
-/product/consolidate-meetings "docs/meet/gamification-meetings/" --focus="divergences"
+/product-consolidate-meetings "docs/meet/gamification-meetings/" --focus="divergences"
 
 # Foco em insights estratégicos
-/product/consolidate-meetings "docs/meet/strategic-planning/" --focus="insights"
+/product-consolidate-meetings "docs/meet/strategic-planning/" --focus="insights"
 
 # Foco em pontos não ditos/compreendidos
-/product/consolidate-meetings "docs/meet/audio-recording-dec-1-9-38-extract.md" --focus="gaps"
+/product-consolidate-meetings "docs/meet/audio-recording-dec-1-9-38-extract.md" --focus="gaps"
 ```
 
 ### Focos Disponíveis

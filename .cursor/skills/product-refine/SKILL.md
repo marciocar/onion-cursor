@@ -1,6 +1,7 @@
 ---
-name: refine
+name: product-refine
 description: Refinar requisitos através de perguntas de esclarecimento.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**

@@ -1,5 +1,5 @@
 ---
-name: warm-up
+name: engineer-warm-up
 description: Preparação de contexto técnico e de engenharia. Foca em arquitetura, padrões de código, estrutura do projeto, comandos de desenvolvimento e frameworks técnicos.
 paths:
   - .cursor/sessions/**
@@ -39,13 +39,13 @@ Estabelecer contexto focado em:
 - ✅ Revisar `docs/onion/engineering-flows.md` - Fluxos de desenvolvimento
 - ✅ Revisar `docs/onion/testing-validation-system.md` - Sistema de testes
 - ✅ Mapear comandos de engenharia:
-  - `/engineer/start` - Iniciar desenvolvimento (valida story points)
-  - `/engineer/work` - Trabalhar em feature
-  - `/engineer/plan` - Planejar implementação
-  - `/engineer/pre-pr` - Preparar Pull Request
-  - `/engineer/pr` - Criar Pull Request
-  - `/engineer/docs` - Documentar código
-  - `/engineer/warm-up` - Este comando
+  - `/engineer-start` - Iniciar desenvolvimento (valida story points)
+  - `/engineer-work` - Trabalhar em feature
+  - `/engineer-plan` - Planejar implementação
+  - `/engineer-pre-pr` - Preparar Pull Request
+  - `/engineer-pr` - Criar Pull Request
+  - `/engineer-docs` - Documentar código
+  - `/engineer-warm-up` - Este comando
 
 ### 4. Estrutura do Projeto
 - ✅ Mapear estrutura de diretórios do código
@@ -81,20 +81,20 @@ Estabelecer contexto focado em:
 ### 8. Sistema de Testes
 - ✅ Revisar `docs/onion/testing-validation-system.md`
 - ✅ Entender comandos de teste:
-  - `/test/unit` - Testes unitários (White-box)
-  - `/test/integration` - Testes de integração (Grey-box)
-  - `/test/e2e` - Testes end-to-end (Black-box)
+  - `/test-unit` - Testes unitários (White-box)
+  - `/test-integration` - Testes de integração (Grey-box)
+  - `/test-e2e` - Testes end-to-end (Black-box)
 - ✅ Conhecer frameworks de teste utilizados
 
 ### 9. Git e Versionamento
 - ✅ Revisar comandos Git disponíveis:
-  - `/git/feature/start` - Criar branch de feature
-  - `/git/sync` - Sincronizar após merge
+  - `/git-feature-start` - Criar branch de feature
+  - `/git-sync` - Sincronizar após merge
 - ✅ Entender workflow Git do projeto
 - ✅ Conhecer convenções de branching
 
 ### 10. Validação de Story Points
-- ✅ Entender que `/engineer/start` valida estimativas
+- ✅ Entender que `/engineer-start` valida estimativas
 - ✅ Conhecer processo de validação antes de iniciar desenvolvimento
 - ✅ Saber como lidar com tasks sem estimativas
 
@@ -107,12 +107,12 @@ Estabelecer contexto focado em:
 - `docs/knowledge-base/frameworks/framework-testes.md` - Framework de testes
 
 ### Workflows de Desenvolvimento
-1. **Iniciar**: `/engineer/start` → Valida story points, cria branch, sessão
-2. **Trabalhar**: `/engineer/work` → Loop de desenvolvimento
-3. **Planejar**: `/engineer/plan` → Planejar implementação detalhada
-4. **Pre-PR**: `/engineer/pre-pr` → Preparar Pull Request
-5. **PR**: `/engineer/pr` → Criar Pull Request (testes, build, PR)
-6. **Sync**: `/git/sync` → Sincronizar após merge
+1. **Iniciar**: `/engineer-start` → Valida story points, cria branch, sessão
+2. **Trabalhar**: `/engineer-work` → Loop de desenvolvimento
+3. **Planejar**: `/engineer-plan` → Planejar implementação detalhada
+4. **Pre-PR**: `/engineer-pre-pr` → Preparar Pull Request
+5. **PR**: `/engineer-pr` → Criar Pull Request (testes, build, PR)
+6. **Sync**: `/git-sync` → Sincronizar após merge
 
 ### Estrutura de Sessões
 - ✅ Entender `.cursor/sessions/<feature>/` para contexto de trabalho
@@ -128,8 +128,8 @@ Estabelecer contexto focado em:
 
 ## 🔗 Integração com Produto
 
-- Tasks vêm de `/product/task` com story points
-- Especificações vêm de `/product/spec`
+- Tasks vêm de `/product-task` com story points
+- Especificações vêm de `/product-spec`
 - Validação de estimativas antes de iniciar
 - Sincronização com Task Manager durante desenvolvimento
 
@@ -138,5 +138,5 @@ Estabelecer contexto focado em:
 - Foco em contexto técnico e de código
 - Mantenha conhecimento de padrões e convenções no contexto
 - Use agentes especializados para tecnologias específicas
-- Sempre valide story points antes de iniciar (`/engineer/start`)
+- Sempre valide story points antes de iniciar (`/engineer-start`)
 - Mantenha código sincronizado com Task Manager durante desenvolvimento

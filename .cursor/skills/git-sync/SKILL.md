@@ -1,6 +1,7 @@
 ---
-name: sync
+name: git-sync
 description: Branch alvo para sincronização (default: develop)
+disable-model-invocation: true
 ---
 # 🔄 Git Sync - Sincronização com GitFlow
 
@@ -83,7 +84,7 @@ git merge origin/$TARGET --ff-only
 # Se falhar, instruir PR workflow
 if [[ $? -ne 0 ]]; then
   echo "❌ Fast-forward não possível"
-  echo "Use PR workflow: /engineer/pr"
+  echo "Use PR workflow: /engineer-pr"
 fi
 ```
 
@@ -120,7 +121,7 @@ SE sessão ativa com task_id:
 ∟ Commits atualizados: 5
 ∟ Conflitos: 0
 
-🚀 Próximo: /engineer/work
+🚀 Próximo: /engineer-work
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -136,9 +137,9 @@ SE sessão ativa com task_id:
 📋 Workflow Correto:
 1. git checkout -b feature/my-changes
 2. [fazer alterações]
-3. /engineer/pr
+3. /engineer-pr
 4. [merge via GitHub/GitLab]
-5. /git/sync develop
+5. /git-sync develop
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -157,7 +158,7 @@ SE sessão ativa com task_id:
 1. Editar arquivos manualmente
 2. git add [arquivos]
 3. git commit
-4. /git/sync (novamente)
+4. /git-sync (novamente)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

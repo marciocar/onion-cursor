@@ -187,21 +187,21 @@ O **Sistema Esperanto** é um framework avançado de comandos e agentes especial
 
 #### **📚 Documentação (9 comandos)**
 ```bash
-/docs/build-business-docs    # Gera contexto de negócio completo
-/docs/build-tech-docs        # Gera contexto técnico completo
-/docs/build-index            # Constrói índice documentação
-/docs/reverse-consolidate    # Engenharia reversa projeto
-/docs/validate-docs          # Valida completude docs
-/docs/sync-sessions          # Sincroniza sessões
-/docs/docs-health            # Health check documentação
+/docs-build-business-docs    # Gera contexto de negócio completo
+/docs-build-tech-docs        # Gera contexto técnico completo
+/docs-build-index            # Constrói índice documentação
+/docs-reverse-consolidate    # Engenharia reversa projeto
+/docs-validate-docs          # Valida completude docs
+/docs-sync-sessions          # Sincroniza sessões
+/docs-docs-health            # Health check documentação
 ```
 
 #### **🔀 Git Workflows (8 comandos)**
 ```bash
 /git/create-branch          # Criar branch com padrão
 /git/commit                 # Commit com convenções
-/git/help                   # Ajuda Git workflows
-/git/sync                   # Sincronizar branches
+/git-help                   # Ajuda Git workflows
+/git-sync                   # Sincronizar branches
 /git/review                 # Review pré-merge
 ```
 
@@ -268,10 +268,10 @@ O **Sistema Esperanto** é um framework avançado de comandos e agentes especial
 
 #### **FASE 2: Documentação Base (20-40 min)**
 ```bash
-/docs/build-business-docs "visão do projeto, stakeholders"
-/docs/build-tech-docs "stack tecnológico, decisões arquitetura"
+/docs-build-business-docs "visão do projeto, stakeholders"
+/docs-build-tech-docs "stack tecnológico, decisões arquitetura"
 /spec "PRD abrangente"
-/docs/build-index "organizar documentação"
+/docs-build-index "organizar documentação"
 ```
 **Local de Saída**: `docs/business-context/`, `docs/technical-context/`, `docs/meta-specs/`
 
@@ -284,9 +284,9 @@ O **Sistema Esperanto** é um framework avançado de comandos e agentes especial
 
 #### **FASE 4: Validação (10-15 min)**
 ```bash
-/docs/docs-health "verificação de integridade"
-/docs/validate-docs "validar completude"
-/docs/sync-sessions "sincronizar sessões"
+/docs-docs-health "verificação de integridade"
+/docs-validate-docs "validar completude"
+/docs-sync-sessions "sincronizar sessões"
 ```
 
 ---
@@ -916,20 +916,20 @@ docs/
 
 ### Como Manter Este Documento Atualizado
 
-Este documento foi gerado automaticamente via `/docs/reverse-consolidate`. Para atualizá-lo:
+Este documento foi gerado automaticamente via `/docs-reverse-consolidate`. Para atualizá-lo:
 
 ```bash
 # Regenerar completamente
-/docs/reverse-consolidate
+/docs-reverse-consolidate
 
 # Atualizar apenas business context
-/docs/build-business-docs
+/docs-build-business-docs
 
 # Atualizar apenas technical context
-/docs/build-tech-docs
+/docs-build-tech-docs
 
 # Atualizar índice
-/docs/build-index
+/docs-build-index
 ```
 
 ### Quando Atualizar
@@ -944,7 +944,7 @@ Este documento foi gerado automaticamente via `/docs/reverse-consolidate`. Para 
 ## ✅ Metadados de Geração
 
 **Generated**: 2025-10-03T00:00:00Z  
-**Generator**: `/docs/reverse-consolidate` (Sistema Esperanto)  
+**Generator**: `/docs-reverse-consolidate` (Sistema Esperanto)  
 **Agent**: @docs-reverse-engineer  
 **Confidence Score**: 98% (Very High)  
 **Analysis Completeness**: 98% (Comprehensive)  

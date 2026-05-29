@@ -400,10 +400,10 @@ except 400: # Bad request (workflow validation, missing fields, ADF malformed)
 
 ```bash
 # Fluxos que devem usar jira-specialist automaticamente:
-/product/task       → criar issue com fields corretos + template via createmeta
-/engineer/start    → transition para "In Progress" + assign + sprint check
-/engineer/pr       → adicionar PR link como comment + transition para "In Review"
-/engineer/work     → buscar issues "In Progress" do user via JQL
+/product-task       → criar issue com fields corretos + template via createmeta
+/engineer-start    → transition para "In Progress" + assign + sprint check
+/engineer-pr       → adicionar PR link como comment + transition para "In Review"
+/engineer-work     → buscar issues "In Progress" do user via JQL
 ```
 
 ## 📋 Workflows Prioritários

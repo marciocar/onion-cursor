@@ -1,6 +1,7 @@
 ---
-name: finish
+name: git-release-finish
 description: Finalizar release com merge, tag e publicação.
+disable-model-invocation: true
 ---
 # ✅ Git Flow - Finalizar Release
 
@@ -32,8 +33,8 @@ Finalizar processo de release realizando merge seguro para main/master e develop
 ## 🚀 Como Usar
 
 ```bash
-/git/release/finish                   # Auto-detecta release branch atual
-/git/release/finish v2.1.0           # Finaliza release específica
+/git-release-finish                   # Auto-detecta release branch atual
+/git-release-finish v2.1.0           # Finaliza release específica
 ```
 
 **Pré-requisitos**: Em release branch ou especificar versão da release

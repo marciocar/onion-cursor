@@ -1,16 +1,16 @@
 ---
-name: help
-description: Skill convertida de /engineer/help.md.
+name: engineer-help
+description: Skill convertida de /engineer-help.md.
 paths:
   - .cursor/sessions/**
 disable-model-invocation: true
 ---
-# /engineer/help
+# /engineer-help
 
 Guia rápido da trilha de engenharia no Sistema Onion.
 
 ## Fluxo principal
-`/engineer/plan -> /engineer/start -> /engineer/work -> /engineer/pre-pr -> /engineer/pr -> /engineer/pr-update`
+`/engineer-plan -> /engineer-start -> /engineer-work -> /engineer-pre-pr -> /engineer-pr -> /engineer-pr-update`
 
 ## Quando usar cada etapa
 - `plan`: definir abordagem técnica e riscos.

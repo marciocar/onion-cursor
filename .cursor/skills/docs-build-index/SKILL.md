@@ -1,6 +1,7 @@
 ---
-name: build-index
+name: docs-build-index
 description: Gerenciar e atualizar índices de documentação.
+disable-model-invocation: true
 paths:
   - docs/**
 ---
@@ -40,7 +41,7 @@ docs/
 
 ## Usage
 
-### /docs/build-index
+### /docs-build-index
 
 **Sem argumentos**: Reconstrói o arquivo `INDEX.md` principal na pasta `@/docs/`.
 
@@ -76,7 +77,7 @@ Este índice central fornece:
    - LGPD (95% compliant)
    - AI Governance (100% documentado)
 
-### /docs/build-index <section-name>
+### /docs-build-index <section-name>
 
 **Com argumento**: Reconstrói o índice de uma seção específica da documentação.
 
@@ -96,13 +97,13 @@ Este índice central fornece:
 
 **Exemplo**:
 ```bash
-/docs/build-index business-context
+/docs-build-index business-context
 # Reconstrói docs/business-context/index.md
 
-/docs/build-index technical-context
+/docs-build-index technical-context
 # Reconstrói docs/technical-context/index.md
 
-/docs/build-index compliance
+/docs-build-index compliance
 # Reconstrói docs/compliance-context/index.md
 ```
 

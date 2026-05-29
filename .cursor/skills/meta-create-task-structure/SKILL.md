@@ -1,6 +1,7 @@
 ---
-name: create-task-structure
+name: meta-create-task-structure
 description: Formato de saída (markdown/json/clickup)
+disable-model-invocation: true
 ---
 # 📋 Criar Estrutura de Tarefas
 
@@ -105,14 +106,14 @@ SE `{{output}}` = "clickup":
 ├── Fase 3: Testes (1d)
 └── Fase 4: Deploy (1d)
 
-🚀 Próximo: /product/task
+🚀 Próximo: /product-task
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## 🔗 Referências
 
 - Decomposição: @task-specialist
-- Criação no ClickUp: /product/task
+- Criação no ClickUp: /product-task
 
 ## ⚠️ Notas
 

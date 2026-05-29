@@ -121,7 +121,7 @@ Distribuição de agentes por categoria:
 | D5 | `allowed-tools` no frontmatter | 4 skills + docs | Não é campo de SKILL.md do Cursor → remover |
 | D6 | `@agente` para delegação | Dezenas de arquivos | Subagents do Cursor usam `/nome` ou menção natural; `@nome` é para rules |
 | D7 | `mcp__claude_ai_Atlassian__*` | `jira-specialist`, adapters | Formalizar em `.cursor/mcp.json` |
-| D8 | Sintaxe de comando inconsistente | `/product/spec` vs `/product:collect` | Normalizar para invocação Cursor (`/nome` ou skill) |
+| D8 | Sintaxe de comando inconsistente | `/product-spec` vs `/product:collect` | Normalizar para invocação Cursor (`/nome` ou skill) |
 | D9 | Sessões em `.cursor/sessions/` | `engineer/start`, skill `onion` | Repontar para `.cursor/sessions/` (e `.gitignore`) |
 | D10 | `.cursorignore`, `CLAUDE.md`, `.vscode` Claude | raiz | Migrar para `.cursorignore`, `AGENTS.md`, settings Cursor |
 | D11 | Extensões Claude (`disable-model-invocation` ok; `context: fork`, `${CLAUDE_SKILL_DIR}`) | `agent-skills-specialist`, `create-skill` | Revisar; `disable-model-invocation` é suportado, os demais não |
@@ -278,8 +278,8 @@ onion-cursor/
 │   │   └── task-manager-routing.mdc # Agent Requested — provider detection
 │   ├── skills/                     # Workflows (ex-comandos + skills atuais)
 │   │   ├── onion/SKILL.md            # Orquestrador (mantida)
-│   │   ├── engineer-start/SKILL.md   # ex-/engineer/start
-│   │   ├── product-feature/SKILL.md  # ex-/product/feature
+│   │   ├── engineer-start/SKILL.md   # ex-/engineer-start
+│   │   ├── product-feature/SKILL.md  # ex-/product-feature
 │   │   └── ... (1 pasta por workflow)
 │   ├── agents/                     # Subagents — TODOS na raiz (sem subpastas)
 │   │   ├── jira-specialist.md
@@ -437,7 +437,7 @@ Workflows faseados retomáveis; sessões em `.cursor/sessions/<feature-slug>/`.
 
 ### 6.3 Skills (conversão de comando → skill)
 
-Exemplo: `/engineer/start` → skill `engineer-start`. **Antes** (`.cursor/commands/engineer/start.md`):
+Exemplo: `/engineer-start` → skill `engineer-start`. **Antes** (`.cursor/commands/engineer-start.md`):
 
 ```yaml
 ---
@@ -450,7 +450,7 @@ tags: [development, workflow, session]
 version: "3.0.0"
 updated: "2025-11-24"
 ---
-# referencia .cursor/utils/task-manager/detector.md e sintaxe /engineer/start
+# referencia .cursor/utils/task-manager/detector.md e sintaxe /engineer-start
 ```
 
 **Depois** (`.cursor/skills/engineer-start/SKILL.md`):
@@ -756,7 +756,7 @@ Convenção de nomes: skills usam o padrão `<categoria>-<comando>` para evitar 
 
 | Origem | Destino |
 |--------|---------|
-| `common/templates/*.md` (5) | `.cursor/utils/templates/` (referência) |
+| `common/templates/*.md` (5) | `.cursor/skills/*/references/` (por skill) |
 | `common/prompts/*.md` (6) | `.cursor/utils/prompts/` ou `references/` de skills |
 | `common/prompts/README.md` | referência interna |
 
@@ -851,7 +851,7 @@ Todos perdem `tools:`, `color`, `priority`, `category`, `expertise`; ganham `mod
 
 ### Fase 3 — Comandos → Skills
 
-- [ ] Converter os 94 comandos conforme §7.1 (1 pasta por skill, `name` casa com pasta).
+- [ ] Converter os 83 skills conforme §7.1 (1 pasta por skill, `name` casa com pasta).
 - [ ] Remover `model`/`category`/`tags`/`version`/`allowed-tools`; reescrever `description`.
 - [ ] Substituir `` `cmd` `` por instrução ou hook; remover `argumento-do-usuario`.
 - [ ] Marcar `disable-model-invocation: true` nos comandos informativos (`*-help`, `all-tools`, `warm-up`).

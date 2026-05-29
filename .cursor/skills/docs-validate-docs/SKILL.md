@@ -1,6 +1,7 @@
 ---
-name: validate-docs
+name: docs-validate-docs
 description: Corrigir problemas automaticamente
+disable-model-invocation: true
 paths:
   - docs/**
 ---
@@ -113,13 +114,13 @@ grep -roh '\[.*\](.*\.md)' {{path}}/ | \
 ⚠️ Avisos:
 ∟ 8 arquivos muito curtos (<50 linhas)
 
-💡 Para corrigir: /docs/validate-docs fix="true"
+💡 Para corrigir: /docs-validate-docs fix="true"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## 🔗 Referências
 
-- Health check: /docs/docs-health
+- Health check: /docs-docs-health
 - Agente: @system-documentation-orchestrator
 
 ## ⚠️ Notas

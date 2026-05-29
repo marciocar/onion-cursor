@@ -35,7 +35,7 @@ Foi feita validação **direta de 3 artefatos representativos** contra as meta-s
 
 ### Artefato 2 — Comando de workflow faseado
 
-**Arquivo**: [.claude/commands/engineer/start.md](../../.claude/commands/engineer/start.md)
+**Arquivo**: [.claude/commands/engineer-start.md](../../.claude/commands/engineer-start.md)
 
 **Conformidade**:
 
@@ -52,7 +52,7 @@ Foi feita validação **direta de 3 artefatos representativos** contra as meta-s
 
 ### Artefato 3 — Outlier de tamanho conhecido
 
-**Arquivo**: [.claude/commands/validate/test-strategy/analyze.md](../../.claude/commands/validate/test-strategy/analyze.md)
+**Arquivo**: [.claude/commands/validate-test-strategy-analyze.md](../../.claude/commands/validate-test-strategy-analyze.md)
 
 **Conformidade**:
 
@@ -84,4 +84,4 @@ As 5 meta-specs habilitam validação real:
 
 ## Próximo passo
 
-Liberado para avançar para P1 (saneamento estrutural). O critério "T1.5 — Refatorar outliers de tamanho" tem ao menos 1 alvo confirmado: [.claude/commands/validate/test-strategy/analyze.md](../../.claude/commands/validate/test-strategy/analyze.md).
+Liberado para avançar para P1 (saneamento estrutural). O critério "T1.5 — Refatorar outliers de tamanho" tem ao menos 1 alvo confirmado: [.claude/commands/validate-test-strategy-analyze.md](../../.claude/commands/validate-test-strategy-analyze.md).

@@ -1,6 +1,7 @@
 ---
-name: extract-meeting
+name: product-extract-meeting
 description: Foco específico (decisions, tasks, gaps, all)
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -161,19 +162,19 @@ write "${OUTPUT_FILE}"
 
 ```bash
 # Extrair reunião específica (nível executivo default)
-/product/extract-meeting source=rhilo-reuniao-28-nov.txt
+/product-extract-meeting source=rhilo-reuniao-28-nov.txt
 
 # Nível completo com YAML
-/product/extract-meeting source=reuniao.txt level=complete
+/product-extract-meeting source=reuniao.txt level=complete
 
 # Foco apenas em decisões
-/product/extract-meeting source=reuniao.txt focus=decisions
+/product-extract-meeting source=reuniao.txt focus=decisions
 
 # Processar pasta de contexto
-/product/extract-meeting source=contextos/projeto-x/
+/product-extract-meeting source=contextos/projeto-x/
 
 # Gerar grafo para sistemas
-/product/extract-meeting source=reuniao.txt level=graph
+/product-extract-meeting source=reuniao.txt level=graph
 ```
 
 ## 🔗 Referências

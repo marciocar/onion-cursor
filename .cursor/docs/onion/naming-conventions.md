@@ -177,7 +177,7 @@ release/v2.1.0-beta
 /engineer/work user-authentication
 
 # Criar PR
-/engineer/pr
+/engineer-pr
 
 # Hotfix
 /engineer/hotfix fix-payment-timeout

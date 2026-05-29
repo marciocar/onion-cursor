@@ -129,7 +129,7 @@ Todos os comandos e agentes antigos continuam funcionando via symlinks:
 
 ```bash
 # Comando antigo (v3) - ainda funciona
-/product/spec "minha-feature"
+/product-spec "minha-feature"
 
 # Comando novo (v4) - também funciona
 /business/spec "minha-feature"
@@ -137,7 +137,7 @@ Todos os comandos e agentes antigos continuam funcionando via symlinks:
 
 **Exemplo de symlink**:
 ```bash
-.claude/commands/product/spec.md
+.claude/commands/product-spec.md
   → ../../../.onion/contexts/business/commands/starter/spec.md
 ```
 

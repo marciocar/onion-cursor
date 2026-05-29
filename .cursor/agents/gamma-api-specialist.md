@@ -700,14 +700,14 @@ task_planning → gamma_execution → validation → delivery
 ### **Comandos Existentes Compatíveis**
 
 ```bash
-# /product/task - Criar task e gerar apresentação
-/product/task criar "Proposal Q1 2025" → gera task + presentation
+# /product-task - Criar task e gerar apresentação
+/product-task criar "Proposal Q1 2025" → gera task + presentation
 
 # /docs/generate - Gerar documentação
 /docs/generate sprint-report → gera report + gamma presentation
 
-# /engineer/start - Iniciar feature com docs
-/engineer/start feature-x → gera branch + docs + presentation
+# /engineer-start - Iniciar feature com docs
+/engineer-start feature-x → gera branch + docs + presentation
 ```
 
 ---

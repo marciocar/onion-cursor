@@ -1,6 +1,7 @@
 ---
-name: create-command
+name: meta-create-command
 description: Descrição do que o comando faz
+disable-model-invocation: true
 ---
 # 📝 Criar Comando Claude Code
 
@@ -41,7 +42,7 @@ SENÃO → inferir do propósito:
 
 ### Passo 3: Gerar Estrutura
 
-Usar template de `common/templates/command-template.md`:
+Usar template de `references/command-template.md`:
 
 ```yaml
 ---
@@ -160,7 +161,7 @@ write .cursor/commands/{{category}}/{{command_name}}.md
 
 ## 🔗 Referências
 
-- Template: `common/templates/command-template.md`
+- Template: `references/command-template.md`
 - Agente: @command-creator-specialist
 
 ## ⚠️ Notas

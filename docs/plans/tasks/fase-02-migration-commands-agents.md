@@ -195,8 +195,8 @@ ls -R .claude/agents/
 ### Passo 3: Migrar Comandos por Contexto
 ```bash
 # Business context
-mv .claude/commands/product/spec.md .onion/contexts/business/commands/starter/
-mv .claude/commands/product/refine.md .onion/contexts/business/commands/starter/
+mv .claude/commands/product-spec.md .onion/contexts/business/commands/starter/
+mv .claude/commands/product-refine.md .onion/contexts/business/commands/starter/
 # ... e assim por diante
 ```
 

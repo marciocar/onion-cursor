@@ -66,7 +66,7 @@ Status: 5/5 requisitos ISO 22301 cobertos ✅
 ## 📖 Template Reference
 
 **Sempre leia o template primeiro:**
-`.cursor/commands/common/templates/compliance-iso22301-template.md`
+`.cursor/skills/docs-build-compliance-docs/references/compliance-iso22301-template.md`
 
 Este template contém:
 - Estrutura completa de BCP/DRP
@@ -803,7 +803,7 @@ Quantidade máxima de dados (tempo) que é aceitável perder após disrupção.
 
 **1. Ler Template + Contexto:**
 ```bash
-read_file .cursor/commands/common/templates/compliance-iso22301-template.md
+read_file .cursor/skills/docs-build-compliance-docs/references/compliance-iso22301-template.md
 read_file docs/technical-context/system-architecture.md
 codebase_search "What is the infrastructure architecture? Multi-AZ? Multi-region?"
 ```

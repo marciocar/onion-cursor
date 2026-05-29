@@ -1,6 +1,7 @@
 ---
-name: checklist-sync
+name: product-checklist-sync
 description: Sincronizar e monitorar checklists nativos do ClickUp.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -33,22 +34,22 @@ Você é um assistente especializado em **sincronizar e monitorar checklists nat
 
 ### **Análise de Task Específica:**
 ```bash
-/product/checklist-sync <task-id>    # Análise completa de uma task
+/product-checklist-sync <task-id>    # Análise completa de uma task
 ```
 
 ### **Monitoramento de Subtasks:**
 ```bash
-/product/checklist-sync <task-id> --subtasks    # Foco nas subtasks
+/product-checklist-sync <task-id> --subtasks    # Foco nas subtasks
 ```
 
 ### **Report de Progresso:**
 ```bash
-/product/checklist-sync <task-id> --progress    # Relatório detalhado
+/product-checklist-sync <task-id> --progress    # Relatório detalhado
 ```
 
 ### **Sync Automático:**
 ```bash
-/product/checklist-sync <task-id> --auto-sync   # Atualiza comentários automaticamente
+/product-checklist-sync <task-id> --auto-sync   # Atualiza comentários automaticamente
 ```
 
 ## 🔧 **Processo de Análise**
@@ -161,26 +162,26 @@ for subtask in task.subtasks:
 ## 🤝 **Integração com Sistema Onion**
 
 ### **Comandos Relacionados:**
-- **`/product/task`**: Cria estrutura inicial (texto)
-- **`/engineer/start`**: Lê e analisa checklists durante início
-- **`/engineer/work`**: Monitora progresso durante desenvolvimento
-- **`/product/checklist-sync`**: Especialista em sincronização (ESTE comando)
+- **`/product-task`**: Cria estrutura inicial (texto)
+- **`/engineer-start`**: Lê e analisa checklists durante início
+- **`/engineer-work`**: Monitora progresso durante desenvolvimento
+- **`/product-checklist-sync`**: Especialista em sincronização (ESTE comando)
 
 ### **Workflow Recomendado:**
 ```bash
 # 1. Criar task com estrutura
-/product/task "Feature description"
+/product-task "Feature description"
 
 # 2. [MANUAL] Criar checklists nativos no ClickUp
 
 # 3. Sincronizar e analisar
-/product/checklist-sync <task-id>
+/product-checklist-sync <task-id>
 
 # 4. Iniciar desenvolvimento com análise híbrida
-/engineer/start <feature-slug>
+/engineer-start <feature-slug>
 
 # 5. Monitorar progresso periodicamente
-/product/checklist-sync <task-id> --progress
+/product-checklist-sync <task-id> --progress
 ```
 
 ## ⚠️ **Limitações Atuais**
@@ -188,7 +189,7 @@ for subtask in task.subtasks:
 ### **🚫 Não Pode Fazer:**
 - **Criar checklists nativos** (limitação da API ClickUp MCP)
 - **Modificar items** de checklists existentes
-- **Automatizar criação** de checklists durante /product/task
+- **Automatizar criação** de checklists durante /product-task
 
 ### **✅ Pode Fazer:**
 - **Ler todos os checklists** nativos existentes
@@ -202,8 +203,8 @@ for subtask in task.subtasks:
 
 ### **Caso 1: Nova Task Criada**
 ```bash
-# Task criada com /product/task (apenas texto)
-/product/checklist-sync 86ac55kr8
+# Task criada com /product-task (apenas texto)
+/product-checklist-sync 86ac55kr8
 # → Detecta que faltam checklists nativos
 # → Sugere onde criar checklists
 # → Lista action items que deveriam ser nativos
@@ -212,7 +213,7 @@ for subtask in task.subtasks:
 ### **Caso 2: Desenvolvimento Em Progresso**
 ```bash
 # Durante desenvolvimento com checklists híbridos
-/product/checklist-sync 86ac55kr8 --progress
+/product-checklist-sync 86ac55kr8 --progress
 # → Mostra progresso real baseado em checklists
 # → Identifica próximos action items
 # → Calcula ETA baseado em velocity
@@ -221,7 +222,7 @@ for subtask in task.subtasks:
 ### **Caso 3: Review de Estrutura**
 ```bash
 # Para verificar consistência
-/product/checklist-sync 86ac55kr8 --auto-sync
+/product-checklist-sync 86ac55kr8 --auto-sync
 # → Identifica divergências texto vs checklists
 # → Sugere correções e melhorias
 # → Atualiza comentários na task automaticamente

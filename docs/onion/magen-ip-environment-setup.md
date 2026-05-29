@@ -39,7 +39,7 @@ Documento operacional consolidando o setup do ambiente de desenvolvimento da **M
 ### O que é
 Framework de comandos `.cursor/` para uso interno (não-pacote, não-CLI npm). Multi-Context Development Orchestrator que mescla:
 
-- **94 comandos** em 11 categorias (`engineer`, `product`, `git`, `docs`, `meta`, `validate`, `test`, `common`, `development`, `quick`, `global`)
+- **83 skills** em 11 categorias (`engineer`, `product`, `git`, `docs`, `meta`, `validate`, `test`, `common`, `development`, `quick`, `global`)
 - **49 agentes especializados** em 9 categorias (`development`, `product`, `meta`, `compliance`, `git`, `testing`, `review`, `research`, `deployment`)
 - **Skills** com ativação semântica (padrão novo, equivalente a custom commands mas com ativação por contexto)
 - **Task Manager Abstraction** plugável (Jira/ClickUp/Asana/Linear/none)
@@ -48,7 +48,7 @@ Framework de comandos `.cursor/` para uso interno (não-pacote, não-CLI npm). M
 ```
 onion-claude/
 ├── .cursor/
-│   ├── commands/          # 94 comandos (workflows)
+│   ├── commands/          # 83 skills (workflows)
 │   ├── agents/            # 49 agentes (subagents especializados)
 │   ├── skills/            # Skills (padrão novo, ativação semântica)
 │   │   ├── onion/         # Cérebro: routing + dynamic injection
@@ -147,7 +147,7 @@ cd /caminho/do/projeto-legado/
 # (configure .env com o task manager se for usar)
 ```
 
-> 💡 **Resultado:** agora o projeto-alvo tem acesso aos 94 comandos, 49 agentes e 4 skills do Onion — incluindo toda a inteligência de engenharia reversa.
+> 💡 **Resultado:** agora o projeto-alvo tem acesso aos 83 skills, 49 agentes e 4 skills do Onion — incluindo toda a inteligência de engenharia reversa.
 
 #### Passo 1 — Engenharia reversa do projeto
 ```bash
@@ -246,7 +246,7 @@ Fluxo: **coletar → refinar → especificar → estimar → criar task no Jira*
 | 2 | `/product:refine` | Estrutura inputs em hipóteses e dores | — |
 | 3 | `/product:spec` | Especificação completa do produto/feature | — |
 | 4 | `/product:estimate` | Story points via [`@story-points-framework-specialist`](../../.cursor/agents/product/story-points-framework-specialist.md) | — |
-| 5 | `/product/task` | Cria task hierárquica no Jira via `@jira-specialist` | Issue criada em `MAGEN` |
+| 5 | `/product-task` | Cria task hierárquica no Jira via `@jira-specialist` | Issue criada em `MAGEN` |
 
 **Comandos auxiliares de produto:**
 - `/product:whisper` — transcrever áudios de reuniões
@@ -256,7 +256,7 @@ Fluxo: **coletar → refinar → especificar → estimar → criar task no Jira*
 - `/product:analyze-pain-price` — analisar dor do cliente e value-pricing
 - `/product:branding` — branding e posicionamento
 
-**Warm-up de produto:** `/product/warm-up` (carrega contexto Magen IP no início da sessão).
+**Warm-up de produto:** `/product-warm-up` (carrega contexto Magen IP no início da sessão).
 
 ---
 
@@ -266,19 +266,19 @@ Fluxo: **iniciar → trabalhar → preparar PR → criar PR → sincronizar**
 
 | # | Comando | O que faz | Efeito no Jira |
 |---|---------|-----------|----------------|
-| 1 | `/engineer/start <MAGEN-XX>` | Valida story points, cria branch GitFlow, sessão `.cursor/sessions/<slug>/` | Transition para "In Progress" + comment ADF |
-| 2 | `/engineer/work` | Loop iterativo de desenvolvimento dentro da sessão | Sync de progresso (comments) |
-| 3 | `/engineer/plan` | Planejamento detalhado de implementação (subtasks) | Cria subtasks se necessário |
-| 4 | `/engineer/pre-pr` | Lint, testes, code review preventivo | Comment de readiness |
-| 5 | `/engineer/pr` | Cria Pull Request com template | Comment com URL do PR |
-| 6 | `/engineer/pr-update` | Atualiza PR existente após revisão | — |
+| 1 | `/engineer-start <MAGEN-XX>` | Valida story points, cria branch GitFlow, sessão `.cursor/sessions/<slug>/` | Transition para "In Progress" + comment ADF |
+| 2 | `/engineer-work` | Loop iterativo de desenvolvimento dentro da sessão | Sync de progresso (comments) |
+| 3 | `/engineer-plan` | Planejamento detalhado de implementação (subtasks) | Cria subtasks se necessário |
+| 4 | `/engineer-pre-pr` | Lint, testes, code review preventivo | Comment de readiness |
+| 5 | `/engineer-pr` | Cria Pull Request com template | Comment com URL do PR |
+| 6 | `/engineer-pr-update` | Atualiza PR existente após revisão | — |
 | 7 | `/git:sync` | Sincroniza branch após merge (rebase main) | Transition para "Done" |
 
 **Fluxos paralelos:**
-- **Hotfix:** `/engineer/hotfix → /engineer/work → /engineer/pr → /git:hotfix:finish`
-- **Bump de versão:** `/engineer/bump` (semver automático)
+- **Hotfix:** `/engineer-hotfix → /engineer-work → /engineer-pr → /git:hotfix:finish`
+- **Bump de versão:** `/engineer-bump` (semver automático)
 
-**Warm-up de engenharia:** `/engineer/warm-up` (carrega contexto técnico antes de codar).
+**Warm-up de engenharia:** `/engineer-warm-up` (carrega contexto técnico antes de codar).
 
 ---
 
@@ -305,23 +305,23 @@ Fluxo: **iniciar → trabalhar → preparar PR → criar PR → sincronizar**
 │                  /product:estimate                      │
 │                          │                              │
 │                          ▼                              │
-│                    /product/task   ──────► Jira MAGEN-XX
+│                    /product-task   ──────► Jira MAGEN-XX
 │                                                         │
 └─────────────────────────┼───────────────────────────────┘
                           │
                           ▼
 ┌────────────────── CICLO DE ENGENHARIA ─────────────────┐
 │                                                         │
-│  /engineer/start MAGEN-XX ──► branch + sessão Jira     │
+│  /engineer-start MAGEN-XX ──► branch + sessão Jira     │
 │                          │                              │
 │                          ▼                              │
-│                  /engineer/work (loop)                  │
+│                  /engineer-work (loop)                  │
 │                          │                              │
 │                          ▼                              │
-│                  /engineer/pre-pr                       │
+│                  /engineer-pre-pr                       │
 │                          │                              │
 │                          ▼                              │
-│                    /engineer/pr ──► PR GitHub + Jira    │
+│                    /engineer-pr ──► PR GitHub + Jira    │
 │                          │                              │
 │                          ▼                              │
 │                       /git:sync ──► Done no Jira        │
@@ -390,7 +390,7 @@ onion → mostra:
   - Sessões abertas: (nenhuma)
   - Branch: main
   - Tabela completa de comandos
-  - Recomendação: começar com /product:collect ou /engineer/start <issue>
+  - Recomendação: começar com /product:collect ou /engineer-start <issue>
 ```
 
 #### Caso 2: "Tenho uma reunião gravada e quero virar tasks"
@@ -408,10 +408,10 @@ onion → roteia para:
 você → /onion vou começar MAGEN-23
 
 onion → checa sessões abertas + sugere:
-  1. /engineer/start MAGEN-23  (cria branch + sessão)
-  2. /engineer/work             (loop de dev)
-  3. /engineer/pre-pr           (antes do PR)
-  4. /engineer/pr               (criar PR)
+  1. /engineer-start MAGEN-23  (cria branch + sessão)
+  2. /engineer-work             (loop de dev)
+  3. /engineer-pre-pr           (antes do PR)
+  4. /engineer-pr               (criar PR)
 ```
 
 #### Caso 4: "Esqueci qual agente usa pra documentação"
@@ -442,8 +442,8 @@ onion → roteia para:
 |---------|-------------|
 | `/onion` | Visão geral + routing (qualquer dúvida) |
 | `/warm-up` | Warm-up geral do projeto (início de dia) |
-| `/product/warm-up` | Foco em produto (descoberta, ICP, requisitos) |
-| `/engineer/warm-up` | Foco em engenharia (código, arquitetura, testes) |
+| `/product-warm-up` | Foco em produto (descoberta, ICP, requisitos) |
+| `/engineer-warm-up` | Foco em engenharia (código, arquitetura, testes) |
 | `/meta:all-tools` | Lista exaustiva de todas as ferramentas |
 
 ### ⚠️ Dicas para maximizar a skill

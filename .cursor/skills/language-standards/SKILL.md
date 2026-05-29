@@ -1,4 +1,5 @@
 ---
+name: language-standards
 description: >
   Aplica padrões de idioma e documentação do projeto. Use ao escrever código,
   commits, comentários, READMEs, documentação técnica, mensagens de erro ou
@@ -6,6 +7,7 @@ description: >
   classes, arquivos, commits, branches) e comentários/docs em português
   brasileiro (comments, JSDoc, READMEs, mensagens ao usuário, respostas do
   assistente). Ative mesmo sem o usuário mencionar "idioma" ou "padrão".
+paths: ["**/*"]
 ---
 
 ## Regras Fundamentais

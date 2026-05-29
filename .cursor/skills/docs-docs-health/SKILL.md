@@ -1,6 +1,7 @@
 ---
-name: docs-health
+name: docs-docs-health
 description: Caminho para analisar (default: docs/)
+disable-model-invocation: true
 paths:
   - docs/**
 ---
@@ -107,7 +108,7 @@ Score = (Estrutura × 0.25) + (Qualidade × 0.25) +
 
 ## 🔗 Referências
 
-- Validação: /docs/validate-docs
+- Validação: /docs-validate-docs
 - Agente: @system-documentation-orchestrator
 
 ## ⚠️ Notas

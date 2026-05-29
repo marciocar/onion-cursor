@@ -1,6 +1,7 @@
 ---
-name: create-abstraction
+name: meta-create-abstraction
 description: Descrição breve do propósito da abstração
+disable-model-invocation: true
 ---
 # 🏗️ Criar Abstraction Layer (SDAAL)
 

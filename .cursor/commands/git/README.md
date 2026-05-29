@@ -226,7 +226,7 @@ flowchart LR
 | `/product/task` | `/engineer/start` + `/git/feature/finish` | Feature completa |
 | `/git/feature/start` | `/engineer/start` + `/git/feature/finish` | Backlog → Production |
 | `/engineer/work` | `/git/feature/finish` | Development → Merge |
-| `/engineer/pr` | `/git/sync` | PR merge → Clean state |
+| `/engineer-pr` | `/git/sync` | PR merge → Clean state |
 | `/git/release/start` | `/git/release/finish` | Version → Production |
 | Emergency issue | `/engineer/hotfix` | Issue → Fixed in production |
 
@@ -359,7 +359,7 @@ ls .cursor/sessions/
 
 ### **🔗 Comandos Relacionados:**
 - **Product Management**: `/product/task`, `/product/task-check`
-- **Engineering**: `/engineer/start`, `/engineer/work`, `/engineer/pr`  
+- **Engineering**: `/engineer/start`, `/engineer/work`, `/engineer-pr`  
 - **Meta Operations**: `/meta/all-tools`
 - **Specialized Agents**: `@gitflow-specialist`, `@clickup-specialist`
 
@@ -375,7 +375,7 @@ Este módulo faz parte do **Sistema Onion** com:
 **🌟 Framework completo de Git workflows com automação inteligente e integração ClickUp nativa!**
 
 **Para começar**: `/git/help` ou `/git/init`
-| `/engineer/pr` | `/git/sync` | Workflow completo finalizado |
+| `/engineer-pr` | `/git/sync` | Workflow completo finalizado |
 | Manual merge | `/git/sync main` | Sincronização com main |
 | Hotfix merge | `/git/sync develop` | Volta para develop |
 

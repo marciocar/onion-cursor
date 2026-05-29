@@ -1,6 +1,7 @@
 ---
-name: validate-phase-sync
+name: engineer-validate-phase-sync
 description: Validar sincronização entre fases do plan.md e subtasks ClickUp.
+disable-model-invocation: true
 paths:
   - .cursor/sessions/**
 ---
@@ -31,14 +32,14 @@ Validar e corrigir sincronização automática entre fases do plan.md e status d
 ## 🚀 Como Usar
 
 ```bash
-/engineer/validate-phase-sync
+/engineer-validate-phase-sync
 ```
 
 ### Exemplos de Casos de Uso
 ```bash
-/engineer/validate-phase-sync                    # Validação geral da sessão ativa
-/engineer/validate-phase-sync --fix-all         # Corrige todas inconsistências encontradas
-/engineer/validate-phase-sync --report-only     # Apenas relatório, não aplica correções
+/engineer-validate-phase-sync                    # Validação geral da sessão ativa
+/engineer-validate-phase-sync --fix-all         # Corrige todas inconsistências encontradas
+/engineer-validate-phase-sync --report-only     # Apenas relatório, não aplica correções
 ```
 
 ## 🤝 Integração ClickUp MCP
@@ -97,14 +98,14 @@ Lê o mapeamento do arquivo `.cursor/sessions/[slug]/context.md`:
 
 ### Uso Recomendado
 - **Durante desenvolvimento**: Executar ao final de cada sessão de trabalho
-- **Antes de PRs**: Validar sincronização completa antes de `/engineer/pr`
+- **Antes de PRs**: Validar sincronização completa antes de `/engineer-pr`
 - **Após interrupções**: Garantir consistência após retomar trabalho
 - **Debugging**: Identificar problemas de tracking de progresso
 
 ### Prevenção Automática
-Este comando corrige o problema identificado onde `/engineer/work` não atualizava automaticamente os status das subtasks. Para projetos futuros:
-1. `/engineer/start` deve criar o mapeamento automaticamente
-2. `/engineer/work` deve usar este mapeamento para updates automáticos
+Este comando corrige o problema identificado onde `/engineer-work` não atualizava automaticamente os status das subtasks. Para projetos futuros:
+1. `/engineer-start` deve criar o mapeamento automaticamente
+2. `/engineer-work` deve usar este mapeamento para updates automáticos
 3. Este comando serve como backup/validação do processo automático
 
 ---

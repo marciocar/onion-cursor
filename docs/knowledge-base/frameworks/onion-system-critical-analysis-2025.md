@@ -84,13 +84,13 @@ Esta knowledge base oferece uma **reflexão crítica, honesta e sem viés** sobr
 
 #### Análise:
 
-- ✅ É uma ferramenta SDD? → **Parcialmente** (tem `/product/spec`, `/product/refine`)
+- ✅ É uma ferramenta SDD? → **Parcialmente** (tem `/product-spec`, `/product-refine`)
 - ✅ É um Task Manager wrapper? → **Sim** (ClickUp, Asana integração)
 - ✅ É um Git Flow automation? → **Sim** (`/git/*` commands)
 - ✅ É um framework de testes? → **Sim** (`/test/*`, `@test-engineer`)
 - ✅ É um sistema de documentação? → **Sim** (`/docs/*` commands)
 - ✅ É um meeting transcription tool? → **Sim** (Whisper + EXTRACT)
-- ✅ É um Story Points estimator? → **Sim** (`/product/estimate`)
+- ✅ É um Story Points estimator? → **Sim** (`/product-estimate`)
 - ✅ É um framework de agentes? → **Sim** (46 agentes)
 
 **Resultado**: **Confusão total**. O usuário não sabe qual é o core value proposition.
@@ -186,16 +186,16 @@ openspec create feature-auth
 #### Análise:
 
 **Ferramentas SDD no Onion** (alinhadas com OpenSpec/Kiro):
-- ✅ `/product/spec` - Criar especificações
-- ✅ `/product/refine` - Refinar especificações
-- ✅ `/product/collect` - Coletar requisitos
-- ✅ `/engineer/plan` - Planejar implementação baseada em spec
+- ✅ `/product-spec` - Criar especificações
+- ✅ `/product-refine` - Refinar especificações
+- ✅ `/product-collect` - Coletar requisitos
+- ✅ `/engineer-plan` - Planejar implementação baseada em spec
 
 **Ferramentas NÃO-SDD no Onion** (não relacionadas a specs):
-- ❌ `/git/sync` - Git automation (não é SDD)
-- ❌ `/product/task` - Task creation no ClickUp (não é SDD, é task management)
-- ❌ `/product/whisper` - Audio transcription (não é SDD)
-- ❌ `/product/estimate` - Story points (não é SDD, é agile estimation)
+- ❌ `/git-sync` - Git automation (não é SDD)
+- ❌ `/product-task` - Task creation no ClickUp (não é SDD, é task management)
+- ❌ `/product-whisper` - Audio transcription (não é SDD)
+- ❌ `/product-estimate` - Story points (não é SDD, é agile estimation)
 - ❌ `/docs/build-*` - Documentation generation (não é SDD)
 - ❌ `/test/*` - Test automation (não é SDD)
 - ❌ 46 agentes diversos - Maioria não relacionada a specs
@@ -289,7 +289,7 @@ openspec create feature-auth
 
 🔥 **REMOÇÃO COMPLETA**:
 
-- ❌ Remover `/product/whisper`
+- ❌ Remover `/product-whisper`
 - ❌ Remover `@whisper-specialist`
 - ❌ Remover Framework EXTRACT do core
 - ✅ Mover para projeto separado (`@onion/meeting-tools`) se houver demanda real
@@ -307,7 +307,7 @@ openspec create feature-auth
 **O que Story Points faz no Onion**:
 - Estimativas automáticas em tasks
 - Framework completo baseado em Fibonacci
-- Validação antes de `/engineer/start`
+- Validação antes de `/engineer-start`
 - Histórico de mudanças
 
 **Pergunta crítica**: **Isso deve estar no core ou ser plugin?**
@@ -393,7 +393,7 @@ onion task create "Implement login"
 onion estimate "Add OAuth2"
 
 # Works in Claude Code (enhanced experience)
-/product/spec "feature-auth"  # Usa CLI + Claude Code context
+/product-spec "feature-auth"  # Usa CLI + Claude Code context
 ```
 
 **Benefício**: Portabilidade, independência, maior adoção.
@@ -451,7 +451,7 @@ onion estimate "Add OAuth2"
 
 ```bash
 # Spec-as-Source (opcional)
-/product/spec "feature-auth" --generate-code
+/product-spec "feature-auth" --generate-code
 
 # Gera:
 # - Routes (Fastify/Express)

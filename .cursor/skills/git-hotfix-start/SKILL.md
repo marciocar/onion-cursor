@@ -1,6 +1,7 @@
 ---
-name: start
+name: git-hotfix-start
 description: Iniciar hotfix branch para correção emergencial em produção.
+disable-model-invocation: true
 ---
 # 🚨 Git Flow - Iniciar Hotfix
 
@@ -32,10 +33,10 @@ Iniciar correção emergencial criando hotfix branch a partir de main/master par
 ## 🚀 Como Usar
 
 ```bash
-/git/hotfix/start "fix-payment-gateway"    # Emergency payment fix
-/git/hotfix/start "security-patch-auth"    # Security hotfix
-/git/hotfix/start "critical-memory-leak"   # Performance emergency
-/git/hotfix/start "api-timeout-fix"        # API emergency
+/git-hotfix-start "fix-payment-gateway"    # Emergency payment fix
+/git-hotfix-start "security-patch-auth"    # Security hotfix
+/git-hotfix-start "critical-memory-leak"   # Performance emergency
+/git-hotfix-start "api-timeout-fix"        # API emergency
 ```
 
 **Pré-requisitos**: Nome da correção obrigatório, repositório Git válido
@@ -75,7 +76,7 @@ Durante execução emergencial:
 
 ### Not Git Repository
 - **Causa**: Executado fora de repositório Git válido
-- **Fix**: `git init && /git/init` para emergency setup
+- **Fix**: `git init && /git-init` para emergency setup
 
 ### Emergency Override Issues
 - **Sintoma**: Problemas durante emergency workflow execution

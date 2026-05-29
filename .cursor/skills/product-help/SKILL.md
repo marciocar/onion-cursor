@@ -1,17 +1,17 @@
 ---
-name: help
-description: Skill convertida de /product/help.md.
+name: product-help
+description: Skill convertida de /product-help.md.
 paths:
   - docs/**
   - .cursor/sessions/**
 disable-model-invocation: true
 ---
-# /product/help
+# /product-help
 
 Guia rápido da trilha de produto no Sistema Onion.
 
 ## Fluxo principal
-`/product/collect -> /product/refine -> /product/spec -> /product/feature`
+`/product-collect -> /product-refine -> /product-spec -> /product-feature`
 
 ## Quando usar cada etapa
 - `collect`: coletar contexto e necessidades.

@@ -1,6 +1,7 @@
 ---
-name: create-agent
+name: meta-create-agent
 description: Áreas de especialização
+disable-model-invocation: true
 ---
 # 🤖 Criar Agente Inteligente
 
@@ -42,7 +43,7 @@ SENÃO → inferir da expertise:
 
 ### Passo 3: Gerar Estrutura
 
-Usar template padrão de `common/templates/agent-template.md`:
+Usar template padrão de `references/agent-template.md`:
 
 ```yaml
 ---
@@ -167,7 +168,7 @@ write .cursor/agents/{{category}}/{{agent_name}}.md
 
 ## 🔗 Referências
 
-- Template: `common/templates/agent-template.md`
+- Template: `references/agent-template.md`
 - Padrões: `docs/knowledge-base/concepts/ai-agent-design-patterns.md`
 - Agente: @agent-creator-specialist
 

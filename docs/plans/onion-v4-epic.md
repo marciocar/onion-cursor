@@ -213,7 +213,7 @@ O Onion v4 reimagina o sistema como **Multi-Context Development Orchestrator** c
 **Objetivo**: Implementar abstractions pluggáveis
 
 **Entregáveis**:
-- [ ] `/meta/create-abstraction` completo
+- [ ] `/meta-create-abstraction` completo
 - [ ] Transcription Service abstraction
 - [ ] Notification Manager abstraction
 - [ ] Storage Manager abstraction

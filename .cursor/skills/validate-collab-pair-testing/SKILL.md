@@ -1,6 +1,7 @@
 ---
-name: pair-testing
+name: validate-collab-pair-testing
 description: Participantes da sessão (ex: "dev1,qa1" ou "dev1,dev2"). Se não fornecido, será inferido da perspectiva
+disable-model-invocation: true
 ---
 # 🤝 Pair Testing - Sessão de Teste em Par
 
@@ -525,8 +526,8 @@ Gerar checklist para guiar a sessão:
 - **Framework de Testes:** `docs/knowledge-base/frameworks/framework-testes.md`
   - Seção "Padrões de Colaboração - Sessões de Teste em Par Multi-perspectiva" (linhas ~879-904)
   - Seção "Diferenças entre White-box vs Black-box vs Grey-box" (linhas ~111-165)
-- **Three Amigos:** `/validate/collab/three-amigos`
-- **Test Strategy:** `/validate/test-strategy/create`
+- **Three Amigos:** `/validate-collab-three-amigos`
+- **Test Strategy:** `/validate-test-strategy-create`
 
 ## ⚠️ Notas
 
@@ -546,7 +547,7 @@ Gerar checklist para guiar a sessão:
 ### Exemplo 1: Pair Testing Grey-box com Agendamento
 
 ```bash
-/validate/collab/pair-testing "checkout" grey-box --schedule --feature-id CU-123
+/validate-collab-pair-testing "checkout" grey-box --schedule --feature-id CU-123
 ```
 
 **Output:**
@@ -559,7 +560,7 @@ Gerar checklist para guiar a sessão:
 ### Exemplo 2: Pair Testing Black-box Manual
 
 ```bash
-/validate/collab/pair-testing "login" black-box --participants "qa1,qa2"
+/validate-collab-pair-testing "login" black-box --participants "qa1,qa2"
 ```
 
 **Output:**
@@ -571,7 +572,7 @@ Gerar checklist para guiar a sessão:
 ### Exemplo 3: Pair Testing White-box com Contexto
 
 ```bash
-/validate/collab/pair-testing "user-profile" white-box --feature-id TASK-456 --task-manager jira
+/validate-collab-pair-testing "user-profile" white-box --feature-id TASK-456 --task-manager jira
 ```
 
 **Output:**

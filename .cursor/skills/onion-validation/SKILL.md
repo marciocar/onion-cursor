@@ -1,4 +1,5 @@
 ---
+name: onion-validation
 description: >
   Regras de validação para componentes do Sistema Onion. Use ao criar, revisar,
   auditar ou debuggar comandos, agentes e skills. Cobre campos YAML obrigatórios,

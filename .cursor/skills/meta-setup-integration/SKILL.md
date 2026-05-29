@@ -1,6 +1,7 @@
 ---
-name: setup-integration
+name: meta-setup-integration
 description: Nome da integração (task-manager, clickup, asana, linear, gamma, postgres)
+disable-model-invocation: true
 ---
 # ⚙️ Configuração de Integrações
 
@@ -135,7 +136,7 @@ else
   # Criar .env básico
   touch .env
   echo "# Sistema Onion - Variáveis de Ambiente" >> .env
-  echo "# Gerado por /meta/setup-integration" >> .env
+  echo "# Gerado por /meta-setup-integration" >> .env
   echo "" >> .env
   echo "✅ .env criado"
 fi
@@ -154,7 +155,7 @@ Após o usuário adicionar as credenciais:
 ```bash
 # Verificar se TASK_MANAGER_PROVIDER está configurado
 # Verificar se variáveis obrigatórias do provedor estão presentes
-# Sugerir teste: /product/task "Task de teste"
+# Sugerir teste: /product-task "Task de teste"
 ```
 
 **Para outras integrações:**
@@ -211,12 +212,12 @@ Apresente um resumo formatado:
 ∟ [Variáveis específicas configuradas]
 
 🚀 Próximos Passos:
-∟ Execute /product/task para criar sua primeira task
+∟ Execute /product-task para criar sua primeira task
 ∟ Use @clickup-specialist para operações ClickUp
-∟ Ou execute /engineer/start para iniciar desenvolvimento
+∟ Ou execute /engineer-start para iniciar desenvolvimento
 
 💡 Dica: Teste a integração criando uma task de teste:
-   /product/task "Task de teste do sistema"
+   /product-task "Task de teste do sistema"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -225,11 +226,11 @@ Apresente um resumo formatado:
 - **Task Manager Abstraction**: `.cursor/utils/task-manager/README.md`
 - **Detector de Provedor**: `.cursor/utils/task-manager/detector.md`
 - **Documentação ClickUp**: `.cursor/docs/onion/clickup-integration.md`
-- **Comando de Task**: `/product/task` - Criar tasks com decomposição
+- **Comando de Task**: `/product-task` - Criar tasks com decomposição
 
 ## ⚠️ Notas Importantes
 
-- **Task Manager é OBRIGATÓRIO** para comandos como `/product/task` funcionarem com sincronização
+- **Task Manager é OBRIGATÓRIO** para comandos como `/product-task` funcionarem com sincronização
 - **Modo `none`** permite funcionamento offline sem gerenciador
 - **Múltiplos provedores** podem ser configurados, mas apenas um será usado por vez via `TASK_MANAGER_PROVIDER`
 - **Variáveis opcionais** melhoram UX mas não são obrigatórias (sistema detecta automaticamente)

@@ -1,6 +1,7 @@
 ---
-name: e2e
+name: test-e2e
 description: Framework específico (sobrescreve auto-detecção: cypress|playwright|selenium)
+disable-model-invocation: true
 ---
 # 🎭 Test E2E
 
@@ -213,8 +214,8 @@ run_terminal_cmd [comando construído]
 
 🚀 Próximos Passos:
 1. Revisar testes gerados e ajustar selectors
-2. Executar novamente: /test/e2e {{feature-name}} --run
-3. Integrar no CI/CD: /validate/test-strategy/create
+2. Executar novamente: /test-e2e {{feature-name}} --run
+3. Integrar no CI/CD: /validate-test-strategy-create
 4. Adicionar mais cenários conforme necessário
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -224,25 +225,25 @@ run_terminal_cmd [comando construído]
 
 **1. Gerar e executar com gravação:**
 ```bash
-/test/e2e login --generate --run --record
+/test-e2e login --generate --run --record
 ```
 → Detecta framework, gera `login.spec.ts` com cenários de login, executa com vídeo
 
 **2. Executar em modo headed:**
 ```bash
-/test/e2e checkout --run --headless false
+/test-e2e checkout --run --headless false
 ```
 → Executa `checkout.spec.ts` com browser visível
 
 **3. Apenas gerar teste:**
 ```bash
-/test/e2e user-registration --generate
+/test-e2e user-registration --generate
 ```
 → Gera `user-registration.spec.ts` com cenários de registro, não executa
 
 **4. Executar teste existente:**
 ```bash
-/test/e2e search --run --record
+/test-e2e search --run --record
 ```
 → Executa `search.spec.ts` existente com gravação, não gera novo arquivo
 
@@ -259,10 +260,10 @@ run_terminal_cmd [comando construído]
 
 ## 🔗 Comandos Relacionados
 
-- `/test/unit` - Testes unitários (White-box)
-- `/test/integration` - Testes de integração (Grey-box)
-- `/validate/test-strategy/create` - Criar estratégia completa de testes
-- `/engineer/work` - Continuar desenvolvimento
+- `/test-unit` - Testes unitários (White-box)
+- `/test-integration` - Testes de integração (Grey-box)
+- `/validate-test-strategy-create` - Criar estratégia completa de testes
+- `/engineer-work` - Continuar desenvolvimento
 
 ## ⚠️ Validações e Regras
 

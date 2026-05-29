@@ -1,6 +1,7 @@
 ---
-name: start
+name: git-feature-start
 description: Iniciar feature branch GitFlow com ambiente configurado.
+disable-model-invocation: true
 ---
 # 🌿 Git Flow - Iniciar Feature
 
@@ -29,15 +30,15 @@ Iniciar desenvolvimento de uma nova funcionalidade criando uma branch GitFlow ap
 ## 🚀 Como Usar
 
 ```bash
-/git/feature/start "nome-da-funcionalidade"
+/git-feature-start "nome-da-funcionalidade"
 ```
 
 ### Exemplos de Nomenclatura
 ```bash
-/git/feature/start "implement-oauth-authentication"
-/git/feature/start "add-user-dashboard-filters"  
-/git/feature/start "fix-payment-validation"
-/git/feature/start "update-api-documentation"
+/git-feature-start "implement-oauth-authentication"
+/git-feature-start "add-user-dashboard-filters"  
+/git-feature-start "fix-payment-validation"
+/git-feature-start "update-api-documentation"
 ```
 
 ## 🤖 Integração com @gitflow-specialist
@@ -106,14 +107,14 @@ Após criar a feature:
 1. **Desenvolvimento**: Implementar funcionalidade na branch criada
 2. **Commits frequentes**: Usar conventional commits para histórico limpo
 3. **Push regular**: `git push` para backup e colaboração  
-4. **Compartilhamento**: `/git/feature/publish` para code review
-5. **Finalização**: `/git/feature/finish` quando completo
+4. **Compartilhamento**: `/git-feature-publish` para code review
+5. **Finalização**: `/git-feature-finish` quando completo
 
 ## ⚠️ Tratamento de Problemas
 
 ### GitFlow não inicializado
 **Problema**: Repository não tem GitFlow configurado
-**Solução**: Execute `/git/init` primeiro para configurar GitFlow
+**Solução**: Execute `/git-init` primeiro para configurar GitFlow
 
 ### Nome de feature inválido
 **Problema**: Nome não segue convenções ou contém caracteres inválidos

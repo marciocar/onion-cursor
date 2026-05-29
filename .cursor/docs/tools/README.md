@@ -80,13 +80,13 @@ search_replace()              # Editar código
 #### 3️⃣ Testing & Review
 ```bash
 @test-engineer                # Criar testes
-/engineer/pre-pr              # Validar
+/engineer-pre-pr              # Validar
 @code-reviewer                # Review
 ```
 
 #### 4️⃣ Integration & Deploy
 ```bash
-/engineer/pr                  # Criar PR
+/engineer-pr                  # Criar PR
 /git/feature/finish           # Merge
 @deployment-specialist        # Deploy
 ```
@@ -126,7 +126,7 @@ search_replace()              # Editar código
 1. `/engineer/work`
 2. `/product/feature`
 3. `/git/feature/start`
-4. `/engineer/pr`
+4. `/engineer-pr`
 5. `/docs/build-tech-docs`
 
 #### Core Tools
@@ -166,7 +166,7 @@ search_replace()              # Editar código
 
 3. **Siga workflows estabelecidos** para consistência
    ```bash
-   /product/feature → /engineer/start → /engineer/work → /engineer/pr
+   /product/feature → /engineer/start → /engineer/work → /engineer-pr
    ```
 
 4. **Paralelizar operações** independentes
@@ -185,7 +185,7 @@ search_replace()              # Editar código
    - Use `codebase_search` em vez de grep para busca semântica
 
 2. ❌ Pular etapas de validação
-   - Sempre use `/engineer/pre-pr` antes de PR
+   - Sempre use `/engineer-pre-pr` antes de PR
    - Valide com `@metaspec-gate-keeper` mudanças arquiteturais
 
 3. ❌ Criar arquivos temporários sem cleanup
@@ -260,7 +260,7 @@ search_replace()              # Editar código
 /engineer/work
 
 # 4. Finalize
-/engineer/pr
+/engineer-pr
 /git/feature/finish
 ```
 

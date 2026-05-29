@@ -23,19 +23,19 @@ Bem-vindo ao sistema Onion v3.0! Este guia vai te ajudar a começar rapidamente 
 
 ### **✅ Configuração de Integrações**
 
-#### **⚙️ Método Recomendado: Comando `/meta/setup-integration`**
+#### **⚙️ Método Recomendado: Comando `/meta-setup-integration`**
 
 O Sistema Onion oferece um comando interativo para configurar todas as integrações de forma segura:
 
 ```bash
 # Configuração interativa (recomendado)
-/meta/setup-integration
+/meta-setup-integration
 
 # Ou especificar integração diretamente
-/meta/setup-integration task-manager  # Configurar gerenciador de tarefas
-/meta/setup-integration clickup       # Configurar ClickUp especificamente
-/meta/setup-integration asana        # Configurar Asana especificamente
-/meta/setup-integration gamma        # Configurar Gamma.App
+/meta-setup-integration task-manager  # Configurar gerenciador de tarefas
+/meta-setup-integration clickup       # Configurar ClickUp especificamente
+/meta-setup-integration asana        # Configurar Asana especificamente
+/meta-setup-integration gamma        # Configurar Gamma.App
 ```
 
 **O que o comando faz:**
@@ -76,7 +76,7 @@ GITHUB_TOKEN=ghp_xxxxx
 GAMMA_API_KEY=gm_xxxxx
 ```
 
-> **💡 Dica:** Use `/meta/setup-integration` para garantir que todas as variáveis estão corretas e o `.env` está protegido no `.gitignore`.
+> **💡 Dica:** Use `/meta-setup-integration` para garantir que todas as variáveis estão corretas e o `.env` está protegido no `.gitignore`.
 
 > **Referência**: Veja `.env.example` para todas as variáveis disponíveis.
 
@@ -85,7 +85,7 @@ GAMMA_API_KEY=gm_xxxxx
 O Sistema Onion v3.0 usa uma **camada de abstração** que permite trabalhar com múltiplos gerenciadores de tarefas sem modificar comandos ou workflows. Você escolhe o provedor e todos os comandos funcionam automaticamente.
 
 **Como funciona:**
-- ✅ **Interface unificada**: Comandos como `/product/task` funcionam com qualquer provedor
+- ✅ **Interface unificada**: Comandos como `/product-task` funcionam com qualquer provedor
 - ✅ **Troca fácil**: Mude `TASK_MANAGER_PROVIDER` no `.env` e tudo continua funcionando
 - ✅ **Fallback gracioso**: Sistema funciona mesmo sem gerenciador configurado (modo offline)
 
@@ -112,10 +112,10 @@ Após configurar o Task Manager, valide a configuração:
 
 ```bash
 # Verificar comandos disponíveis
-/meta/all-tools  # Deve mostrar comandos disponíveis
+/meta-all-tools  # Deve mostrar comandos disponíveis
 
 # Testar integração de Task Manager (se configurado)
-/product/task "Task de teste do sistema"
+/product-task "Task de teste do sistema"
 # → Deve criar task no gerenciador configurado (ClickUp, Asana, etc)
 
 # Validar conectividade (depende do provedor configurado)
@@ -123,7 +123,7 @@ Após configurar o Task Manager, valide a configuração:
 ```
 
 **Se algo não funcionar:**
-- Execute `/meta/setup-integration` novamente para revisar configuração
+- Execute `/meta-setup-integration` novamente para revisar configuração
 - Verifique se `.env` está no `.gitignore` (o comando faz isso automaticamente)
 - Consulte especialistas específicos:
   - `@clickup-specialist` para problemas com ClickUp
@@ -136,14 +136,14 @@ Após configurar o Task Manager, valide a configuração:
 
 ### **1. Criar Sua Primeira Task (1 min)**
 ```bash
-/product/task "Implementar página de sobre da empresa"
+/product-task "Implementar página de sobre da empresa"
 ```
 
 **Resultado esperado**: Task criada no gerenciador configurado com ID (ex: ABOUT-123)
 
 ### **2. Iniciar Desenvolvimento (1 min)**
 ```bash
-/engineer/start
+/engineer-start
 ```
 
 **Input quando solicitado**: `ABOUT-123`
@@ -152,14 +152,14 @@ Após configurar o Task Manager, valide a configuração:
 
 ### **3. Desenvolver Funcionalidade (2 min)**
 ```bash
-/engineer/work .cursor/sessions/about-page/
+/engineer-work .cursor/sessions/about-page/
 ```
 
 **Resultado**: Implementação guiada passo-a-passo
 
 ### **4. Criar Pull Request (1 min)**
 ```bash
-/engineer/pr
+/engineer-pr
 ```
 
 **Resultado**: PR criado, Task Manager atualizado com status "in_review"
@@ -173,33 +173,33 @@ Você completou seu primeiro ciclo completo de desenvolvimento com integração 
 
 ### **🆕 Nova Funcionalidade**
 ```bash
-/product/task "Nova funcionalidade X"      # → Task criada no Task Manager
-/engineer/start                           # → Input: TASK-ID  
-/engineer/work .cursor/sessions/feature-x/ # → Desenvolvimento
-/engineer/pr                              # → PR + Task Manager atualizado
+/product-task "Nova funcionalidade X"      # → Task criada no Task Manager
+/engineer-start                           # → Input: TASK-ID  
+/engineer-work .cursor/sessions/feature-x/ # → Desenvolvimento
+/engineer-pr                              # → PR + Task Manager atualizado
 ```
 
 ### **🐛 Correção de Bug**
 ```bash
-/product/collect "Bug: X não funciona"    # → Bug task criada
-/engineer/start                           # → Fix mode ativo
-/engineer/work "corrigir bug X"           # → Implementação rápida
-/engineer/pr                              # → Hotfix PR
+/product-collect "Bug: X não funciona"    # → Bug task criada
+/engineer-start                           # → Fix mode ativo
+/engineer-work "corrigir bug X"           # → Implementação rápida
+/engineer-pr                              # → Hotfix PR
 ```
 
 ### **📚 Documentação**
 ```bash
-/docs/build-tech-docs                     # → Docs técnicos
-/docs/build-business-docs                 # → Docs de negócio
-/docs/build-index                         # → Índice de projetos
+/docs-build-tech-docs                     # → Docs técnicos
+/docs-build-business-docs                 # → Docs de negócio
+/docs-build-index                         # → Índice de projetos
 ```
 
 ### **⚡ Emergência**
 ```bash
-/product/collect "CRÍTICO: Sistema fora do ar" # → Priority 1 automático
-/engineer/start                                 # → Hotfix mode
-/engineer/work "fix crítico"                    # → Solução rápida
-/engineer/pr                                    # → Deploy imediato
+/product-collect "CRÍTICO: Sistema fora do ar" # → Priority 1 automático
+/engineer-start                                 # → Hotfix mode
+/engineer-work "fix crítico"                    # → Solução rápida
+/engineer-pr                                    # → Deploy imediato
 ```
 
 ---
@@ -209,19 +209,19 @@ Você completou seu primeiro ciclo completo de desenvolvimento com integração 
 ### **📋 Mais Usados (80% dos casos)**
 | Comando | Uso | Frequência |
 |---------|-----|------------|
-| `/product/task` | Criar nova task | 35% |
-| `/engineer/start` | Iniciar desenvolvimento | 25% |
-| `/engineer/work` | Desenvolver funcionalidade | 20% |
-| `/engineer/pr` | Criar Pull Request | 15% |
+| `/product-task` | Criar nova task | 35% |
+| `/engineer-start` | Iniciar desenvolvimento | 25% |
+| `/engineer-work` | Desenvolver funcionalidade | 20% |
+| `/engineer-pr` | Criar Pull Request | 15% |
 | `/all-tools` | Ver comandos disponíveis | 5% |
 
 ### **🔧 Para Situações Específicas**
 | Comando | Quando Usar |
 |---------|-------------|
-| `/product/collect` | Reportar bugs ou ideias rápidas |
-| `/product/refine` | Melhorar especificação existente |
-| `/product/light-arch` | Esboçar arquitetura inicial |
-| `/engineer/pre-pr` | Validações antes do PR |
+| `/product-collect` | Reportar bugs ou ideias rápidas |
+| `/product-refine` | Melhorar especificação existente |
+| `/product-light-arch` | Esboçar arquitetura inicial |
+| `/engineer-pre-pr` | Validações antes do PR |
 | `/docs/build-*` | Gerar documentação automática |
 
 ---
@@ -255,9 +255,9 @@ O Sistema Onion sincroniza automaticamente com seu Task Manager configurado (Cli
 ### **Estados Automáticos**
 ```mermaid
 graph LR
-    A[/product/task] --> B[to do]
-    B --> C[/engineer/start] --> D[in progress]  
-    D --> E[/engineer/pr] --> F[in progress + under-review]
+    A[/product-task] --> B[to do]
+    B --> C[/engineer-start] --> D[in progress]  
+    D --> E[/engineer-pr] --> F[in progress + under-review]
     F --> G[Merge] --> H[done]
 ```
 
@@ -320,7 +320,7 @@ Incorreto: 123, auth123, AUTH123
 ### **❌ Problema: PR falha**
 ```bash
 # Executar validações antes
-/engineer/pre-pr
+/engineer-pre-pr
 
 # Se testes falharem, corrigir primeiro
 npm test  # ou comando apropriado do projeto
@@ -333,10 +333,10 @@ npm test  # ou comando apropriado do projeto
 ### **🚀 Para Eficiência Máxima**
 1. **Use aliases** para comandos frequentes:
    ```bash
-   alias pt="/product/task"
-   alias es="/engineer/start" 
-   alias ew="/engineer/work"
-   alias epr="/engineer/pr"
+   alias pt="/product-task"
+   alias es="/engineer-start" 
+   alias ew="/engineer-work"
+   alias epr="/engineer-pr"
    ```
 
 2. **Prepare templates** para tasks comuns:
@@ -386,7 +386,7 @@ npm test  # ou comando apropriado do projeto
 ## 🆘 Suporte e Ajuda
 
 ### **📞 Onde Buscar Ajuda**
-1. **Comandos**: `/meta/all-tools` lista tudo disponível
+1. **Comandos**: `/meta-all-tools` lista tudo disponível
 2. **Status**: `/warm-up` valida configuração do Task Manager
 3. **Documentação**: Arquivos nesta pasta `docs/`
 4. **Task Manager**: Interface web do seu gerenciador (ClickUp, Asana, etc) para validar dados
@@ -497,7 +497,7 @@ echo $ASANA_DEFAULT_WORKSPACE
 
 # 4. Invocar especialista conforme provedor:
 @clickup-specialist "integração não funciona"  # Para ClickUp
-# Para Asana, verifique documentação ou execute /meta/setup-integration asana
+# Para Asana, verifique documentação ou execute /meta-setup-integration asana
 ```
 
 ---

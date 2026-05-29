@@ -162,7 +162,7 @@ Comando `/help` com:
 - Descoberta progressiva
 
 ### 5. **Abstractions Pluggáveis**
-Sistema `/meta/create-abstraction` para criar:
+Sistema `/meta-create-abstraction` para criar:
 - **Transcription Service** (whisper-local, assemblyai, deepgram, none)
 - **Notification Manager** (slack, discord, email, none)
 - **Storage Manager** (s3, gcs, local, none)
@@ -251,7 +251,7 @@ Technical Context (20-25 comandos):
 ---
 
 ### 🎯 FASE 5: Abstractions e Extensibilidade 🔧 **PLANEJADA**
-- [ ] Implementar `/meta/create-abstraction` completo
+- [ ] Implementar `/meta-create-abstraction` completo
 - [ ] Criar Transcription Service abstraction
 - [ ] Criar Notification Manager abstraction
 - [ ] Criar Storage Manager abstraction
@@ -296,7 +296,7 @@ Technical Context (20-25 comandos):
 3. **Sistema de Níveis**: Validar separação starter/intermediate/advanced
 4. **Help Inteligente**: Testar estatísticas e sugestões de comandos
 5. **Migração**: Testar migração de projeto Onion v3 → v4
-6. **Abstractions**: Testar criação de nova abstraction via `/meta/create-abstraction`
+6. **Abstractions**: Testar criação de nova abstraction via `/meta-create-abstraction`
 7. **Ciclo Completo**: Testar KB → Agentes → Comandos → Regras → Sessions → Learnings
 
 ### Testes de Integração
@@ -421,7 +421,7 @@ Technical Context (20-25 comandos):
 - Testar em todos os IDEs
 
 ### Semana 5: FASE 5-6 - Abstractions e Learnings
-- Implementar `/meta/create-abstraction` completo
+- Implementar `/meta-create-abstraction` completo
 - Criar abstractions essenciais
 - Implementar gestão de learnings
 - Ciclo fechado funcionando

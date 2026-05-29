@@ -1,5 +1,5 @@
 ---
-name: warm-up
+name: product-warm-up
 description: Preparação de contexto de produto e negócio. Foca em documentação de produto, especificações, knowledge bases de negócio e frameworks de produto.
 paths:
   - docs/**
@@ -35,33 +35,33 @@ Estabelecer contexto focado em:
 - ✅ Mapear comandos de produto disponíveis:
 
 **Gestão de Tasks:**
-- `/product/task` - Criar tasks com estimativas automáticas
-- `/product/feature` - Criar tasks de feature para backlog
-- `/product/collect` - Coletar ideias de features/bugs
-- `/product/task-check` - Verificar status de tasks
-- `/product/validate-task` - Validar tasks contra meta-specs
-- `/product/checklist-sync` - Sincronizar checklists
+- `/product-task` - Criar tasks com estimativas automáticas
+- `/product-feature` - Criar tasks de feature para backlog
+- `/product-collect` - Coletar ideias de features/bugs
+- `/product-task-check` - Verificar status de tasks
+- `/product-validate-task` - Validar tasks contra meta-specs
+- `/product-checklist-sync` - Sincronizar checklists
 
 **Especificação e Refinamento:**
-- `/product/spec` - Especificações técnicas
-- `/product/refine` - Refinamento de requisitos
-- `/product/estimate` - Estimar story points
-- `/product/light-arch` - Arquitetura leve
+- `/product-spec` - Especificações técnicas
+- `/product-refine` - Refinamento de requisitos
+- `/product-estimate` - Estimar story points
+- `/product-light-arch` - Arquitetura leve
 
 **Processamento de Reuniões:**
-- `/product/extract-meeting` - Extrair insights de reuniões (Framework EXTRACT)
-- `/product/consolidate-meetings` - Consolidar múltiplas reuniões
+- `/product-extract-meeting` - Extrair insights de reuniões (Framework EXTRACT)
+- `/product-consolidate-meetings` - Consolidar múltiplas reuniões
 
 **Análise e Validação:**
-- `/product/check` - Verificar requisitos contra meta-specs
-- `/product/analyze-pain-price` - Analisar dor do cliente e precificação
+- `/product-check` - Verificar requisitos contra meta-specs
+- `/product-analyze-pain-price` - Analisar dor do cliente e precificação
 
 **Comunicação:**
-- `/product/branding` - Trabalhar em branding e posicionamento
-- `/product/presentation` - Criar apresentações
+- `/product-branding` - Trabalhar em branding e posicionamento
+- `/product-presentation` - Criar apresentações
 
 **Documentação Relacionada:**
-- `/docs/consolidate-documents` - Consolidar documentos de produto/negócio
+- `/docs-consolidate-documents` - Consolidar documentos de produto/negócio
 
 ### 4. Knowledge Bases de Produto
 - ✅ Revisar `docs/knowledge-base/frameworks/framework-story-points.md`
@@ -101,47 +101,47 @@ Estabelecer contexto focado em:
 ### Workflows de Produto
 
 **Workflow Completo de Feature:**
-1. **Coletar**: `/product/collect` → Coletar ideias de features/bugs
-2. **Criar Task**: `/product/task` → Cria com story points automáticos
-3. **Criar Feature**: `/product/feature` → Criar task de feature para backlog
-4. **Validar**: `/product/check` → Verificar requisitos contra meta-specs
-5. **Especificar**: `/product/spec` → Documenta feature completa
-6. **Estimar**: `/product/estimate` → Ajusta estimativas
-7. **Refinar**: `/product/refine` → Recalcula estimativas após mudanças
-8. **Arquitetura**: `/product/light-arch` → Arquitetura leve da feature
+1. **Coletar**: `/product-collect` → Coletar ideias de features/bugs
+2. **Criar Task**: `/product-task` → Cria com story points automáticos
+3. **Criar Feature**: `/product-feature` → Criar task de feature para backlog
+4. **Validar**: `/product-check` → Verificar requisitos contra meta-specs
+5. **Especificar**: `/product-spec` → Documenta feature completa
+6. **Estimar**: `/product-estimate` → Ajusta estimativas
+7. **Refinar**: `/product-refine` → Recalcula estimativas após mudanças
+8. **Arquitetura**: `/product-light-arch` → Arquitetura leve da feature
 
 **Workflow de Reuniões:**
-1. **Extrair Reunião**: `/product/extract-meeting` → Framework EXTRACT (7 dimensões)
-2. **Consolidar**: `/product/consolidate-meetings` → Análise de múltiplas reuniões
-3. **Consolidar Docs**: `/docs/consolidate-documents` → Consolidar documentos relacionados
+1. **Extrair Reunião**: `/product-extract-meeting` → Framework EXTRACT (7 dimensões)
+2. **Consolidar**: `/product-consolidate-meetings` → Análise de múltiplas reuniões
+3. **Consolidar Docs**: `/docs-consolidate-documents` → Consolidar documentos relacionados
 
 **Workflow de Validação:**
-1. **Validar Task**: `/product/validate-task` → Validar task contra meta-specs
-2. **Verificar**: `/product/task-check` → Verificar status e completude
-3. **Sincronizar**: `/product/checklist-sync` → Sincronizar checklists com Task Manager
+1. **Validar Task**: `/product-validate-task` → Validar task contra meta-specs
+2. **Verificar**: `/product-task-check` → Verificar status e completude
+3. **Sincronizar**: `/product-checklist-sync` → Sincronizar checklists com Task Manager
 
 **Workflow de Análise:**
-1. **Analisar Dor**: `/product/analyze-pain-price` → Analisar dor do cliente e precificação
-2. **Branding**: `/product/branding` → Trabalhar em branding e posicionamento
-3. **Apresentação**: `/product/presentation` → Criar apresentações
+1. **Analisar Dor**: `/product-analyze-pain-price` → Analisar dor do cliente e precificação
+2. **Branding**: `/product-branding` → Trabalhar em branding e posicionamento
+3. **Apresentação**: `/product-presentation` → Criar apresentações
 
 ## 💡 Quando Usar Este Warm-up
 
 - ✅ Trabalho em especificações de features
-- ✅ Criação ou refinamento de tasks (`/product/task`, `/product/feature`, `/product/collect`)
-- ✅ Estimativas de story points (`/product/estimate`)
-- ✅ Processamento de reuniões (`/product/extract-meeting`, `/product/consolidate-meetings`)
-- ✅ Consolidação de documentos (`/docs/consolidate-documents`)
-- ✅ Análise de requisitos de negócio (`/product/check`, `/product/validate-task`)
-- ✅ Análise de dor do cliente (`/product/analyze-pain-price`)
+- ✅ Criação ou refinamento de tasks (`/product-task`, `/product-feature`, `/product-collect`)
+- ✅ Estimativas de story points (`/product-estimate`)
+- ✅ Processamento de reuniões (`/product-extract-meeting`, `/product-consolidate-meetings`)
+- ✅ Consolidação de documentos (`/docs-consolidate-documents`)
+- ✅ Análise de requisitos de negócio (`/product-check`, `/product-validate-task`)
+- ✅ Análise de dor do cliente (`/product-analyze-pain-price`)
 - ✅ Trabalho com Product Owners
-- ✅ Branding e posicionamento (`/product/branding`)
-- ✅ Criação de apresentações (`/product/presentation`)
+- ✅ Branding e posicionamento (`/product-branding`)
+- ✅ Criação de apresentações (`/product-presentation`)
 
 ## 🔗 Integração com Engenharia
 
 Após preparar contexto de produto:
-- Tasks criadas são validadas por `/engineer/start`
+- Tasks criadas são validadas por `/engineer-start`
 - Story points são verificados antes de iniciar desenvolvimento
 - Especificações alimentam sessões de engenharia
 

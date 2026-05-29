@@ -10,18 +10,18 @@ Claude Code Commands são comandos personalizados executados diretamente no **ch
 ### ✅ **Como Usar (CORRETO)**
 ```markdown
 # No chat da Claude Code:
-/git/init                      # Inicializar Git Flow
-/git/feature/start "login"     # Criar feature branch
-/engineer/work "implement API" # Iniciar desenvolvimento
-/product/task "add dashboard"  # Criar task no ClickUp
+/git-init                      # Inicializar Git Flow
+/git-feature-start "login"     # Criar feature branch
+/engineer-work "implement API" # Iniciar desenvolvimento
+/product-task "add dashboard"  # Criar task no ClickUp
 ```
 
 ### ❌ **Como NÃO Usar (INCORRETO)**
 ```bash
 # ❌ NO TERMINAL - NÃO FUNCIONA:
-$ /git/init                    # Comando não encontrado
-$ ./git/feature/start          # Arquivo não executável
-$ bash /git/init               # Não é script bash direto
+$ /git-init                    # Comando não encontrado
+$ ./git-feature-start          # Arquivo não executável
+$ bash /git-init               # Não é script bash direto
 ```
 
 ---
@@ -32,27 +32,27 @@ $ bash /git/init               # Não é script bash direto
 ```
 .cursor/commands/
 ├── git/
-│   ├── init.md               # Define /git/init command
-│   ├── help.md               # Define /git/help command
+│   ├── init.md               # Define /git-init command
+│   ├── help.md               # Define /git-help command
 │   └── feature/
-│       ├── start.md          # Define /git/feature/start command
-│       ├── publish.md        # Define /git/feature/publish command
-│       └── finish.md         # Define /git/feature/finish command
+│       ├── start.md          # Define /git-feature-start command
+│       ├── publish.md        # Define /git-feature-publish command
+│       └── finish.md         # Define /git-feature-finish command
 ├── engineer/
-│   ├── start.md              # Define /engineer/start command
-│   └── work.md               # Define /engineer/work command
+│   ├── start.md              # Define /engineer-start command
+│   └── work.md               # Define /engineer-work command
 └── product/
-    ├── task.md               # Define /product/task command
-    └── spec.md               # Define /product/spec command
+    ├── task.md               # Define /product-task command
+    └── spec.md               # Define /product-spec command
 ```
 
 ### 🔄 **Fluxo de Execução**
 
 | Passo | Camada | Tecnologia | Função |
 |-------|--------|------------|--------|
-| 1 | **Interface** | Claude Code Chat | Usuário digita `/git/init` |
+| 1 | **Interface** | Claude Code Chat | Usuário digita `/git-init` |
 | 2 | **Detecção** | Claude Code AI | Reconhece comando personalizado |
-| 3 | **Carregamento** | File System | Lê `.cursor/commands/git/init.md` |
+| 3 | **Carregamento** | File System | Lê `.cursor/commands/git-init.md` |
 | 4 | **Interpretação** | Claude Code AI | Analisa workflow definido |
 | 5 | **Execução** | Scripts | Executa bash/python dentro do workflow |
 | 6 | **UX** | Modern CLI | `.cursor/utils/modern-cli-ux.sh` |
@@ -60,17 +60,17 @@ $ bash /git/init               # Não é script bash direto
 
 ---
 
-## 🎯 **Exemplo Detalhado: `/git/init`**
+## 🎯 **Exemplo Detalhado: `/git-init`**
 
 ### 📝 **1. Usuário Executa Comando**
 ```markdown
 # No chat da Claude Code:
-User: /git/init
+User: /git-init
 ```
 
 ### 📄 **2. Claude Code Carrega Definição**
 ```markdown
-# Arquivo: .cursor/commands/git/init.md
+# Arquivo: .cursor/commands/git-init.md
 # Define workflow completo de inicialização Git Flow
 ```
 

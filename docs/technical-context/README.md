@@ -76,4 +76,4 @@ O comando faz três fases:
 ---
 
 **Comando responsável**: `/docs:build-tech-docs`
-**Template-base**: `.cursor/commands/common/templates/technical-context-template.md`
+**Template-base**: `.cursor/skills/docs-build-tech-docs/references/technical-context-template.md`

@@ -109,7 +109,7 @@ Ambos os prompts seguem uma abordagem sistemática:
 - Valida afirmações com código, configurações e feedback
 
 ### 🔄 **Integração com Templates**
-- Referencia os templates abrangentes em `.cursor/commands/common/templates/`
+- Referencia os templates abrangentes em `.cursor/skills/*/references/` (por skill)
 - Garante consistência entre diferentes projetos
 - Segue melhores práticas estabelecidas
 
@@ -155,8 +155,8 @@ Os prompts são projetados para serem flexíveis e podem ser adaptados para:
 ## Integração com Templates
 
 Estes prompts funcionam em conjunto com:
-- `.cursor/commands/common/templates/technical-context-template.md`
-- `.cursor/commands/common/templates/business-context-template.md`
+- `.cursor/skills/docs-build-tech-docs/references/technical-context-template.md`
+- `.cursor/skills/docs-build-business-docs/references/business-context-template.md`
 
 Os templates fornecem a estrutura e frameworks, enquanto estes prompts fornecem a metodologia de análise e estratégia de execução.
 

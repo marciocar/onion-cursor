@@ -78,4 +78,4 @@ O comando faz três fases:
 ---
 
 **Comando responsável**: `/docs:build-business-docs`
-**Template-base**: `.cursor/commands/common/templates/business-context-template.md`
+**Template-base**: `.cursor/skills/docs-build-business-docs/references/business-context-template.md`

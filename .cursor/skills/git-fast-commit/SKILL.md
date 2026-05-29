@@ -1,6 +1,7 @@
 ---
-name: fast-commit
+name: git-fast-commit
 description: Adiciona todas as mudanças e faz commit rápido. Use para commits típicos no fluxo do Sistema Onion.
+disable-model-invocation: true
 ---
 # Fast Commit
 
@@ -9,7 +10,7 @@ Adiciona todas as mudanças e faz commit com mensagem especificada.
 ## 🎯 Uso
 
 ```bash
-/git/fast-commit "feat: implement admin dashboard basic flow"
+/git-fast-commit "feat: implement admin dashboard basic flow"
 ```
 
 ## ⚡ Fluxo de Execução

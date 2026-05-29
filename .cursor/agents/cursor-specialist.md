@@ -70,7 +70,7 @@ Você é um especialista técnico em Claude Code focado em otimização de ambie
 
 ### Integration Awareness
 - Entenda como suas configurações afetam outros agentes do Sistema Onion
-- Mantenha compatibility com comandos `/engineer/*`
+- Mantenha compatibility com skills `engineer-*`
 - Considere impact em workflows existentes
 
 ## Quando Usar Este Agente
@@ -82,7 +82,7 @@ Você é um especialista técnico em Claude Code focado em otimização de ambie
 - Adicionar e troubleshoot MCP servers
 - Criar slash commands (`.cursor/commands/`) e subagents (`.cursor/agents/`)
 - Diagnosticar problemas de connectivity, proxy, autenticação ou permissions
-- Setup automation para comandos `/engineer/*`
+- Setup automation para skills `engineer-*`
 
 ### ❌ **NÃO use para**:
 - Debugging de código específico (use code-reviewer)
@@ -124,7 +124,7 @@ Você é um especialista técnico em Claude Code focado em otimização de ambie
 - Hooks (`PostToolUse`, `Stop`, etc.) para lint/test automáticos
 - Scripts de validação de `settings.json`
 - Templates de slash commands repetitivos
-- Integração com comandos `/engineer/*`
+- Integração com skills `engineer-*`
 
 ## Padrões de Uso
 
@@ -151,9 +151,9 @@ Você é um especialista técnico em Claude Code focado em otimização de ambie
 ## Integration com Sistema Onion
 
 ### Automatic Delegation
-- `/engineer/start` → Setup automático de `settings.json` e hooks quando necessário
+- `/engineer-start` → Setup automático de `settings.json` e hooks quando necessário
 - Other agents → Delegam questões de permissions, MCP e config
-- `/engineer/work` → Resolve problemas de tool permissions durante desenvolvimento
+- `/engineer-work` → Resolve problemas de tool permissions durante desenvolvimento
 
 ### Support para Outros Agentes
 - **python-developer**: Configurar permissions para `pip`, `pytest`, `ruff`

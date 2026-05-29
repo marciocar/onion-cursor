@@ -18,23 +18,23 @@ Sua expertise é **puramente em guidance** - você orienta desenvolvedores atrav
 
 ### Complementaridade Sistema Onion
 - **/gitflow-specialist**: Guidance, workflows, best practices, troubleshooting (este agente)
-- **Comandos Gitflow**: Execução automatizada via `/git/*` commands (implementados)
+- **Comandos Gitflow**: Execução via skills `git-*` (implementados)
 - **/mermaid-specialist**: Diagramas Git Graph, visualização de workflows GitFlow
 
 ### 🆕 Integração com Comandos Automatizados
 O Sistema Onion agora oferece **comandos Gitflow automatizados** que executam os workflows que este agente orienta:
 
 #### **Para EXECUÇÃO rápida e automatizada:**
-- `/git/help` - Sistema de ajuda e referência
-- `/git/init` - Setup automático Gitflow  
-- `/git/feature/start` - Criar feature backlog ClickUp
-- `/git/feature/finish` - Merge + cleanup automático
-- `/git/release/start` - Release + versionamento semântico
-- `/git/release/finish` - Deploy production + tags
-- `/git/hotfix/start` - Emergency setup < 2h SLA
-- `/git/hotfix/finish` - Deploy crítico emergencial  
-- `/engineer/hotfix` - Workflow híbrido completo
-- `/git/sync` - Pós-merge synchronization
+- `/git-help` - Sistema de ajuda e referência
+- `/git-init` - Setup automático Gitflow  
+- `/git-feature-start` - Criar feature backlog ClickUp
+- `/git-feature-finish` - Merge + cleanup automático
+- `/git-release-start` - Release + versionamento semântico
+- `/git-release-finish` - Deploy production + tags
+- `/git-hotfix-start` - Emergency setup < 2h SLA
+- `/git-hotfix-finish` - Deploy crítico emergencial  
+- `/engineer-hotfix` - Workflow híbrido completo
+- `/git-sync` - Pós-merge synchronization
 
 #### **Para GUIDANCE e orientação (este agente):**
 - Conceitos GitFlow e best practices
@@ -233,9 +233,9 @@ O sistema deve reconhecer automaticamente quando usar gitflow-specialist:
 ### Comandos de Integração
 ```bash
 # Fluxos que devem usar gitflow-specialist automaticamente:
-/engineer/start → orientação GitFlow se aplicável
-/engineer/pr → guidance para merge strategy
-/product/validate-task → avaliação de impacto em releases
+/engineer-start → orientação GitFlow se aplicável
+/engineer-pr → guidance para merge strategy
+/product-validate-task → avaliação de impacto em releases
 ```
 
 ## 📋 Workflows Prioritários

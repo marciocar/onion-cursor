@@ -1,5 +1,5 @@
 ---
-name: help
+name: docs-help
 description: Ajuda interativa para comandos de documentação Onion.
 paths:
   - docs/**
@@ -30,27 +30,27 @@ Você é um assistente de IA especializado em **fornecer ajuda interativa para c
 
 O Sistema Onion oferece **4 comandos especializados** para documentação:
 
-### **🔧 `/docs/build-tech-docs`** - Documentação Técnica Completa
+### **🔧 `/docs-build-tech-docs`** - Documentação Técnica Completa
 **Objetivo**: Gerar documentação técnica abrangente para projetos
 **Quando usar**: Projetos que precisam de contexto técnico para desenvolvedores
 **Workflow**: Análise codebase → Q&A interativo → Múltiplos arquivos técnicos
 **Output**: 01-core/project-charter.md, 02-ai-context/ai-development-guide.md, 02-ai-context/codebase-guide.md, etc.
 
-### **📊 `/docs/build-business-docs`** - Contexto de Negócio
+### **📊 `/docs-build-business-docs`** - Contexto de Negócio
 **Objetivo**: Criar inteligência de negócios otimizada para IA
 **Quando usar**: Compreender clientes, mercado e estratégia de produto
 **Workflow**: Análise produto → Q&A estratégico → Múltiplos arquivos de negócio  
 **Output**: 01-customer/personas.md, 03-market/competitive-landscape.md, etc.
 
-### **🗂️ `/docs/build-index`** - Construção de Índices
+### **🗂️ `/docs-build-index`** - Construção de Índices
 **Objetivo**: Organizar documentação através de índices estruturados
 **Quando usar**: Múltiplos projetos precisam de organização centralizada
 **Workflow**: Análise estrutura → Geração/atualização de índices
 **Sintaxe**: 
-- `/docs/build-index` (índice geral de projetos)
-- `/docs/build-index <project-name>` (índice específico)
+- `/docs-build-index` (índice geral de projetos)
+- `/docs-build-index <project-name>` (índice específico)
 
-### **🚧 `/docs/refine-vision`** - Refinamento de Visão *(Implementação Futura)*
+### **🚧 `/docs-refine-vision`** - Refinamento de Visão *(Implementação Futura)*
 **Status**: Em desenvolvimento  
 **Objetivo**: Refinar e otimizar visão estratégica de projetos
 **Disponibilidade**: Próxima versão do Sistema Onion
@@ -61,17 +61,17 @@ O Sistema Onion oferece **4 comandos especializados** para documentação:
 
 ### **Sintaxe:**
 ```bash
-/docs/help                    # Help geral - todos os comandos
-/docs/help [comando]          # Help específico detalhado
+/docs-help                    # Help geral - todos os comandos
+/docs-help [comando]          # Help específico detalhado
 ```
 
 ### **Exemplos:**
 ```bash
-/docs/help                    # Visão geral completa
-/docs/help build-tech-docs    # Documentação técnica detalhada  
-/docs/help build-business-docs # Contexto de negócio detalhado
-/docs/help build-index        # Construção de índices detalhada
-/docs/help refine-vision      # Status de implementação futura
+/docs-help                    # Visão geral completa
+/docs-help build-tech-docs    # Documentação técnica detalhada  
+/docs-help build-business-docs # Contexto de negócio detalhado
+/docs-help build-index        # Construção de índices detalhada
+/docs-help refine-vision      # Status de implementação futura
 ```
 
 ---
@@ -90,7 +90,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 if [ "$COMANDO_ESPECIFICO" = "build-tech-docs" ]; then
-    echo "🔧 **HELP ESPECÍFICO: /docs/build-tech-docs**"
+    echo "🔧 **HELP ESPECÍFICO: /docs-build-tech-docs**"
     echo ""
     echo "**📋 Objetivo Detalhado:**"
     echo "Gerador de documentação técnica especializado em criar contexto"
@@ -126,11 +126,11 @@ if [ "$COMANDO_ESPECIFICO" = "build-tech-docs" ]; then
     echo "   ▶ Code reviews precisam focar em lógica vs arquitetura"
     echo ""
     echo "**🎯 Exemplo de Uso:**"
-    echo '   /docs/build-tech-docs "https://github.com/user/projeto"'
+    echo '   /docs-build-tech-docs "https://github.com/user/projeto"'
     echo ""
 
 elif [ "$COMANDO_ESPECIFICO" = "build-business-docs" ]; then
-    echo "📊 **HELP ESPECÍFICO: /docs/build-business-docs**"
+    echo "📊 **HELP ESPECÍFICO: /docs-build-business-docs**"
     echo ""
     echo "**📋 Objetivo Detalhado:**"
     echo "Analista de negócios especializado em criar inteligência de negócios"
@@ -166,11 +166,11 @@ elif [ "$COMANDO_ESPECIFICO" = "build-business-docs" ]; then
     echo "   ▶ Planejamento estratégico requer inteligência competitiva"
     echo ""
     echo "**🎯 Exemplo de Uso:**"
-    echo '   /docs/build-business-docs "https://empresa.com" "docs/produto/"'
+    echo '   /docs-build-business-docs "https://empresa.com" "docs/produto/"'
     echo ""
 
 elif [ "$COMANDO_ESPECIFICO" = "build-index" ]; then
-    echo "🗂️ **HELP ESPECÍFICO: /docs/build-index**"
+    echo "🗂️ **HELP ESPECÍFICO: /docs-build-index**"
     echo ""
     echo "**📋 Objetivo Detalhado:**" 
     echo "Construtor especializado de índices para organização de documentação"
@@ -183,11 +183,11 @@ elif [ "$COMANDO_ESPECIFICO" = "build-index" ]; then
     echo "   ▶ **Geração**: Cria/atualiza arquivos index.md estruturados"
     echo ""
     echo "**📚 Sintaxe e Argumentos:**"
-    echo "   ▶ **Índice Geral**: /docs/build-index"
+    echo "   ▶ **Índice Geral**: /docs-build-index"
     echo "     ∟ Constrói index.md raiz com todos os projetos"
     echo "     ∟ Informações: nome, descrição, ClickUp IDs, repositório"
     echo ""
-    echo "   ▶ **Índice Específico**: /docs/build-index <project-name>"  
+    echo "   ▶ **Índice Específico**: /docs-build-index <project-name>"  
     echo "     ∟ Reconstrói índice após mudanças estruturais"
     echo "     ∟ Mapeia recursos úteis dentro do projeto específico"
     echo ""
@@ -198,12 +198,12 @@ elif [ "$COMANDO_ESPECIFICO" = "build-index" ]; then
     echo "   ▶ Navegação de documentação precisa ser atualizada"
     echo ""
     echo "**🎯 Exemplos de Uso:**"
-    echo "   /docs/build-index                    # Índice geral"
-    echo "   /docs/build-index projeto-mobile     # Índice específico"
+    echo "   /docs-build-index                    # Índice geral"
+    echo "   /docs-build-index projeto-mobile     # Índice específico"
     echo ""
 
 elif [ "$COMANDO_ESPECIFICO" = "refine-vision" ]; then
-    echo "🚧 **HELP ESPECÍFICO: /docs/refine-vision**"
+    echo "🚧 **HELP ESPECÍFICO: /docs-refine-vision**"
     echo ""
     echo "**📋 Status Atual:**"
     echo "Este comando está em **desenvolvimento ativo** e será incluído"
@@ -224,8 +224,8 @@ elif [ "$COMANDO_ESPECIFICO" = "refine-vision" ]; then
     echo "Implementação planejada para próximo release do Sistema Onion."
     echo ""
     echo "**💡 Alternativas Atuais:**"
-    echo "   ▶ Use /docs/build-business-docs para contexto estratégico"
-    echo "   ▶ Use /docs/build-tech-docs para visão técnica de produto"
+    echo "   ▶ Use /docs-build-business-docs para contexto estratégico"
+    echo "   ▶ Use /docs-build-tech-docs para visão técnica de produto"
     echo "   ▶ Combine ambos para contexto abrangente de projeto"
     echo ""
 
@@ -236,38 +236,38 @@ else
     echo "documentação inteligente otimizada para IA:"
     echo ""
     echo "**🔧 Documentação Técnica:**"
-    echo "   ▶ **/docs/build-tech-docs** - Contexto técnico completo"
+    echo "   ▶ **/docs-build-tech-docs** - Contexto técnico completo"
     echo "     ∟ Para: Desenvolvedores, sistemas IA, decisões técnicas"
     echo "     ∟ Output: 01-core/project-charter.md, 02-ai-context/ai-development-guide.md, 02-ai-context/codebase-guide.md"
-    echo "     ∟ Uso: /docs/help build-tech-docs (detalhes)"
+    echo "     ∟ Uso: /docs-help build-tech-docs (detalhes)"
     echo ""
     echo "**📊 Contexto de Negócio:**" 
-    echo "   ▶ **/docs/build-business-docs** - Inteligência de mercado"
+    echo "   ▶ **/docs-build-business-docs** - Inteligência de mercado"
     echo "     ∟ Para: Produto, vendas, suporte contextual ao cliente"
     echo "     ∟ Output: 01-customer/personas.md, 03-market/competitive-landscape.md"
-    echo "     ∟ Uso: /docs/help build-business-docs (detalhes)"
+    echo "     ∟ Uso: /docs-help build-business-docs (detalhes)"
     echo ""
     echo "**🗂️ Organização:**"
-    echo "   ▶ **/docs/build-index** - Índices de documentação" 
+    echo "   ▶ **/docs-build-index** - Índices de documentação" 
     echo "     ∟ Para: Múltiplos projetos, navegação centralizada"
     echo "     ∟ Output: index.md estruturados e organizados"
-    echo "     ∟ Uso: /docs/help build-index (detalhes)"
+    echo "     ∟ Uso: /docs-help build-index (detalhes)"
     echo ""
     echo "**🚧 Em Desenvolvimento:**"
-    echo "   ▶ **/docs/refine-vision** - Refinamento estratégico"
+    echo "   ▶ **/docs-refine-vision** - Refinamento estratégico"
     echo "     ∟ Status: Implementação futura (próximo release)"
-    echo "     ∟ Uso: /docs/help refine-vision (roadmap)"
+    echo "     ∟ Uso: /docs-help refine-vision (roadmap)"
     echo ""
     echo "**🚀 Para Help Específico:**"
-    echo "   ▶ /docs/help [comando]     # Detalhes profundos"  
-    echo "   ▶ /docs/help build-tech-docs"
-    echo "   ▶ /docs/help build-business-docs"
-    echo "   ▶ /docs/help build-index"
+    echo "   ▶ /docs-help [comando]     # Detalhes profundos"  
+    echo "   ▶ /docs-help build-tech-docs"
+    echo "   ▶ /docs-help build-business-docs"
+    echo "   ▶ /docs-help build-index"
     echo ""
 fi
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "📚 **Sistema Onion** - Comandos inteligentes para desenvolvimento ágil"
-echo "🆘 **Precisa de mais ajuda?** Use /docs/help [comando] para detalhes específicos"
+echo "🆘 **Precisa de mais ajuda?** Use /docs-help [comando] para detalhes específicos"
 echo ""

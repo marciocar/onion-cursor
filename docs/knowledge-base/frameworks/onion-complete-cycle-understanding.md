@@ -181,7 +181,7 @@ Sistema valida automaticamente:
 # ═══════════════════════════════════════════════════════════════
 # LOOP: Atualiza KB (aprendizado contínuo)
 # ═══════════════════════════════════════════════════════════════
-/meta/create-knowledge-base "OAuth2 Learnings 2025"
+/meta-create-knowledge-base "OAuth2 Learnings 2025"
 # → Extrai de notes.md
 # → Cria: docs/knowledge-base/learnings/oauth2-implementation-2025.md
 # → Próxima feature OAuth2 usa este learning
@@ -193,13 +193,13 @@ Sistema valida automaticamente:
 
 ## 🔧 META-COMANDOS: O Sistema Autogerador
 
-### Descoberta Crítica: `/meta/create-abstraction`
+### Descoberta Crítica: `/meta-create-abstraction`
 
 O Sistema Onion não apenas **usa** abstrações - ele tem **geradores de abstrações**.
 
 #### Análise do Comando
 
-**Arquivo**: `.cursor/commands/meta/create-abstraction.md`
+**Arquivo**: `.cursor/commands/meta-create-abstraction.md`
 
 **O que faz**:
 1. Cria estrutura completa de abstração SDAAL
@@ -234,22 +234,22 @@ Cada contexto pode criar suas próprias abstrações:
 
 ```bash
 # Business context: Notification abstraction
-/meta/create-abstraction notification-manager \
+/meta-create-abstraction notification-manager \
   --providers=slack,discord,email \
   --context=business
 
 # Technical context: Storage abstraction
-/meta/create-abstraction storage-manager \
+/meta-create-abstraction storage-manager \
   --providers=s3,gcs,local \
   --context=technical
 
 # Customer Success context: Transcription abstraction
-/meta/create-abstraction transcription-service \
+/meta-create-abstraction transcription-service \
   --providers=whisper-local,assemblyai,none \
   --context=customer-success
 
 # Compliance context: Audit Trail abstraction
-/meta/create-abstraction audit-logger \
+/meta-create-abstraction audit-logger \
   --providers=cloudwatch,splunk,local \
   --context=compliance
 ```
@@ -285,16 +285,16 @@ O Onion tem **geradores para tudo**:
 
 ```bash
 # Criar Knowledge Base
-/meta/create-knowledge-base "OAuth2 Best Practices"
+/meta-create-knowledge-base "OAuth2 Best Practices"
 # → Gera: docs/knowledge-base/concepts/oauth2-best-practices.md
 
 # Criar Agente especializado
-/meta/create-agent oauth2-specialist \
+/meta-create-agent oauth2-specialist \
   --expertise=oauth2,jwt,authentication
 # → Gera: .onion/contexts/technical/agents/oauth2-specialist.md
 
 # Criar Comando personalizado
-/meta/create-command oauth2-setup \
+/meta-create-command oauth2-setup \
   --category=technical
 # → Gera: .onion/contexts/technical/commands/oauth2-setup.md
 
@@ -724,7 +724,7 @@ O Onion tem **geradores para tudo**:
 
 ```bash
 # Criar abstraction
-/meta/create-abstraction transcription-service \
+/meta-create-abstraction transcription-service \
   --providers=whisper-local,whisper-api,assemblyai,deepgram,none
 ```
 
@@ -901,20 +901,20 @@ integrations:
 **Por quê**: TMA é implementação de referência. Outros contextos precisam de outras abstractions.
 
 **Ações**:
-1. [ ] Documentar `/meta/create-abstraction` como padrão
+1. [ ] Documentar `/meta-create-abstraction` como padrão
    
 2. [ ] Criar abstractions essenciais:
    ```bash
-   /meta/create-abstraction transcription-service \
+   /meta-create-abstraction transcription-service \
      --providers=whisper-local,assemblyai,none
      
-   /meta/create-abstraction notification-manager \
+   /meta-create-abstraction notification-manager \
      --providers=slack,discord,email,none
      
-   /meta/create-abstraction storage-manager \
+   /meta-create-abstraction storage-manager \
      --providers=s3,gcs,local,none
      
-   /meta/create-abstraction audit-logger \
+   /meta-create-abstraction audit-logger \
      --providers=cloudwatch,splunk,local,none
    ```
 
@@ -1026,7 +1026,7 @@ onion technical plan feature-auth
 
 3. **TMA não é over-engineering**
    - É implementação de referência de padrão replicável
-   - `/meta/create-abstraction` permite criar outras
+   - `/meta-create-abstraction` permite criar outras
    - Cada contexto escolhe seus provedores
 
 4. **Story Points é ciclo cross-context**

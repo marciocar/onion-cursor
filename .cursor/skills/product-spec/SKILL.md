@@ -1,6 +1,7 @@
 ---
-name: spec
+name: product-spec
 description: Criar especificação de produto a partir de requisitos iniciais.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**

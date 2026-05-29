@@ -115,11 +115,11 @@ Todos os comandos seguem uma **estratégia consistente de atualização automát
 # ↳ AUTO: Comments de progresso a cada fase
 
 # 4. Preparar para PR
-/engineer/pre-pr
+/engineer-pre-pr
 # ↳ AUTO: Comment checklist + tag "ready-for-pr"
 
 # 5. Criar PR
-/engineer/pr
+/engineer-pr
 # ↳ AUTO: Status ajustado + tag "under-review"
 
 # 6. Verificar implementação final
@@ -210,8 +210,8 @@ Depois de criar uma task com `/product/task`:
 - **`/product/presentation`**: Comment com links da apresentação (se baseada em task)
 - **`/engineer/start`**: Status → "In Progress" + comment início  
 - **`/engineer/work`**: Comments de progresso por fase
-- **`/engineer/pre-pr`**: Comment checklist + tags qualidade
-- **`/engineer/pr`**: Status ajuste + comment PR + tag "under-review"
+- **`/engineer-pre-pr`**: Comment checklist + tags qualidade
+- **`/engineer-pr`**: Status ajuste + comment PR + tag "under-review"
 
 ### **⚠️ Com Confirmação**
 - **`/product/task-check`**: Comment verificação + pergunta para status "Done"

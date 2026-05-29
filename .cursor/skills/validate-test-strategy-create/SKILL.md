@@ -1,6 +1,7 @@
 ---
-name: test-strategy-create
+name: validate-test-strategy-create
 description: Executa sem criar tasks reais
+disable-model-invocation: true
 ---
 # 🧪 Criação de Estratégia de Teste
 
@@ -151,7 +152,7 @@ Total verificado: 4 + 5 + 5 = 14 ✅
 
 ### Passo 6: Detectar e Configurar Task Manager
 
-**CRÍTICO:** Seguir padrão de `/product/task`:
+**CRÍTICO:** Seguir padrão de `/product-task`:
 
 ```bash
 # EXECUTAR PRIMEIRO: Ler .env
@@ -276,7 +277,7 @@ SENÃO:
 🚀 Próximos Passos:
 1. Revisar estratégia gerada
 2. Ajustar pontos se necessário
-3. Iniciar implementação: /engineer/start [feature-slug]
+3. Iniciar implementação: /engineer-start [feature-slug]
 4. Executar testes conforme estratégia
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -328,7 +329,7 @@ SENÃO:
 
 - **Framework:** `docs/knowledge-base/frameworks/framework-testes.md`
 - **Task Manager:** `.cursor/utils/task-manager/`
-- **Comandos relacionados:** `/product/task`, `/product/estimate`
+- **Comandos relacionados:** `/product-task`, `/product-estimate`
 - **Agentes relacionados:** @test-engineer, @test-planner
 
 ## ⚠️ Notas Importantes

@@ -1,6 +1,7 @@
 ---
-name: pre-pr
+name: engineer-pre-pr
 description: Validação completa antes do PR. Verifica padrões e qualidade.
+disable-model-invocation: true
 paths:
   - .cursor/sessions/**
 ---

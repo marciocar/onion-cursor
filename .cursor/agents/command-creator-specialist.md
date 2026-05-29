@@ -26,16 +26,16 @@ Comandos personalizados do Cursor são executados no chat do Cursor, conforme do
 **✅ Como Funciona:**
 ```markdown
 # No chat da Claude Code:
-/git/feature/start "login"     # ✅ CORRETO
-/engineer/work "implement API" # ✅ CORRETO
-/product/task "add dashboard"  # ✅ CORRETO
+/git-feature-start "login"     # ✅ CORRETO
+/engineer-work "implement API" # ✅ CORRETO
+/product-task "add dashboard"  # ✅ CORRETO
 ```
 
 **❌ O Que NÃO É:**
 ```bash
 # NO TERMINAL - NÃO FUNCIONA:
-$ /git/feature/start           # ❌ Comando não encontrado
-$ ./engineer/work              # ❌ Não é executável
+$ /git-feature-start           # ❌ Comando não encontrado
+$ ./engineer-work              # ❌ Não é executável
 ```
 
 ### Context-First Approach (Contexto Primeiro)
@@ -68,9 +68,9 @@ Todo comando deve ser:
 # 1. Listar TODOS os comandos por categoria
 list_dir .cursor/commands/
 list_dir .cursor/commands/meta/
-list_dir .cursor/commands/engineer/
-list_dir .cursor/commands/product/
-list_dir .cursor/commands/git/
+list_dir .cursor/skills/ | grep engineer
+list_dir .cursor/skills/ | grep product
+list_dir .cursor/skills/ | grep git
 list_dir .cursor/commands/compliance/
 list_dir .cursor/commands/docs/
 list_dir .cursor/commands/admin/
@@ -264,11 +264,11 @@ Após o diálogo, construa o comando seguindo esta estrutura:
 /categoria/sub-categoria/comando
 
 Exemplos:
-✅ /git/feature/start
-✅ /engineer/work
-✅ /product/task
+✅ /git-feature-start
+✅ /engineer-work
+✅ /product-task
 ✅ /compliance/audit/iso27001
-✅ /meta/create-command
+✅ /meta-create-command
 
 ❌ /do-stuff (muito genérico)
 ❌ /my-command (não semântico)
@@ -881,8 +881,8 @@ Após criar o comando, **SEMPRE** documente:
 - Geram artefatos (.md files)
 
 **Exemplos:**
-- `/meta/create-agent` - Criar novo agente
-- `/meta/create-command` - Criar novo comando
+- `/meta-create-agent` - Criar novo agente
+- `/meta-create-command` - Criar novo comando
 - `/meta/update-docs` - Atualizar documentação do sistema
 
 **Template:**
@@ -914,10 +914,10 @@ Comando meta que [ação] do sistema.
 - Workflows complexos e iterativos
 
 **Exemplos:**
-- `/engineer/start` - Iniciar desenvolvimento
-- `/engineer/work` - Trabalhar em feature
-- `/engineer/pr` - Criar pull request
-- `/engineer/docs` - Gerar documentação
+- `/engineer-start` - Iniciar desenvolvimento
+- `/engineer-work` - Trabalhar em feature
+- `/engineer-pr` - Criar pull request
+- `/engineer-docs` - Gerar documentação
 
 **Template:**
 ```markdown
@@ -967,10 +967,10 @@ TASK_ID=$(clickup_get_task_id_from_session)
 - Workflows de decomposição e especificação
 
 **Exemplos:**
-- `/product/task` - Criar task com decomposição
-- `/product/spec` - Especificar funcionalidade
-- `/product/feature` - Planejar feature completa
-- `/product/refine` - Refinar requisitos
+- `/product-task` - Criar task com decomposição
+- `/product-spec` - Especificar funcionalidade
+- `/product-feature` - Planejar feature completa
+- `/product-refine` - Refinar requisitos
 
 **Template:**
 ```markdown
@@ -1018,10 +1018,10 @@ TASK_ID=$(clickup_create_task "$TASK_NAME" "$LIST_ID")
 - Integram com ClickUp (opcional)
 
 **Exemplos:**
-- `/git/init` - Inicializar Git Flow
-- `/git/feature/start` - Iniciar feature branch
-- `/git/feature/finish` - Finalizar feature
-- `/git/hotfix/start` - Iniciar hotfix
+- `/git-init` - Inicializar Git Flow
+- `/git-feature-start` - Iniciar feature branch
+- `/git-feature-finish` - Finalizar feature
+- `/git-hotfix-start` - Iniciar hotfix
 
 **Template:**
 ```markdown
@@ -1153,7 +1153,7 @@ Faz várias coisas úteis.
 ### ❌ Anti-Pattern 2: Duplicação de Funcionalidades
 
 ```markdown
-# RUIM - já existe /engineer/start
+# RUIM - já existe /engineer-start
 # Start Development
 
 Inicia desenvolvimento de feature...
@@ -1170,7 +1170,7 @@ Inicia desenvolvimento de feature...
 
 No terminal:
 ```bash
-$ /engineer/work
+$ /engineer-work
 ```
 ```
 
@@ -1454,7 +1454,7 @@ graph TD
 
 **Comandos Existentes:** `.cursor/commands/` (60+ comandos)
 **Agentes Disponíveis:** `.cursor/agents/` (24+ agentes)
-**Templates:** `.cursor/commands/common/templates/`
+**Templates:** `.cursor/skills/*/references/` (por skill)
 
 **Padrão de Nome:** `/categoria/comando` ou `/categoria/sub/comando`
 **Extensão:** `.md`
@@ -1465,7 +1465,7 @@ graph TD
 
 ## 🚀 VOCÊ ESTÁ PRONTO!
 
-Quando invocado via `/meta/create-command`, siga o protocolo completo:
+Quando invocado via `/meta-create-command`, siga o protocolo completo:
 
 1. **FASE 1:** Descubra o contexto (comandos, agentes, arquitetura)
 2. **FASE 2:** Dialogue com o usuário (questões contextuais)
@@ -1480,6 +1480,6 @@ Quando invocado via `/meta/create-command`, siga o protocolo completo:
 
 **Status**: 🚀 META-AGENT READY FOR PRODUCTION
 **Propósito**: Criar Claude Code Commands de alta qualidade integrados ao ecossistema
-**Invocação**: `/meta/create-command [descrição do comando desejado]`
+**Invocação**: `/meta-create-command [descrição do comando desejado]`
 **Última Atualização**: 2025-01-13
 

@@ -157,7 +157,7 @@ async function validateAcceptanceCriteria(taskId) {
    2. Completar documentação da API
    3. Marcar checkboxes no ClickUp
    4. Fazer commit + push
-   5. Executar /engineer/pre-pr novamente
+   5. Executar /engineer-pre-pr novamente
 
 🚀 STATUS PARA PR:
    ∟ REQUER AJUSTES ⚠️ (Bloqueado até completos)
@@ -178,13 +178,13 @@ async function validateAcceptanceCriteria(taskId) {
    └── Implementar features
    └── Marcar critérios conforme completa
    
-2. /engineer/pre-pr
+2. /engineer-pre-pr
    ├── Validar critérios de aceitação ← NOVO!
    ├── Se incompleto: ❌ Bloqueia e lista pendentes
    ├── Se completo: ✅ Continua com validações técnicas
    └── Adiciona comentário no ClickUp
    
-3. /engineer/pr
+3. /engineer-pr
    └── Abrir Pull Request (se pré-PR passou)
 ```
 

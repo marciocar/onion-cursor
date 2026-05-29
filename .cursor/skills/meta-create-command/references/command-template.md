@@ -170,7 +170,7 @@ comando multiline
 
 1. **Extrair para prompts/**
    - Seções repetitivas → `common/prompts/`
-   - Templates → `common/templates/`
+   - Templates → `references/` da skill correspondente (ex.: `meta-create-command/references/`)
 
 2. **Dividir em sub-comandos**
    - Workflow grande → `/category/main.md` + `/category/sub1.md`
@@ -205,7 +205,7 @@ comando multiline
 
 ### Modularização
 - [ ] Seções repetitivas extraídas
-- [ ] Templates em common/templates/
+- [ ] Templates em `references/` da skill
 - [ ] Prompts em common/prompts/
 
 ---
@@ -234,7 +234,7 @@ version: "3.0.0"
 updated: "2025-11-24"
 
 related_commands:
-  - /meta/create-command
+  - /meta-create-command
 
 related_agents:
   - command-creator-specialist

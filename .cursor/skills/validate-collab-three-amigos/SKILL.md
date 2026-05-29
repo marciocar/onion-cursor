@@ -1,6 +1,7 @@
 ---
-name: three-amigos
+name: validate-collab-three-amigos
 description: Gerar agenda automaticamente antes da sessão
+disable-model-invocation: true
 ---
 # 🤝 Three Amigos - Sessão de Colaboração
 
@@ -418,7 +419,7 @@ Gerar checklist para validar completude da sessão:
 
 - **Padrão Three Amigos:** `docs/knowledge-base/frameworks/framework-testes.md` (seção "Padrões de Colaboração")
 - **QA Story Points:** `docs/knowledge-base/frameworks/framework-testes.md` (seção "QA Story Points")
-- **Test Strategy:** `/validate/test-strategy/create`
+- **Test Strategy:** `/validate-test-strategy-create`
 
 ## ⚠️ Notas
 
@@ -434,7 +435,7 @@ Gerar checklist para validar completude da sessão:
 ### Exemplo 1: Sessão com Agenda Automática
 
 ```bash
-/validate/collab/three-amigos STORY-123 clickup --generate-agenda
+/validate-collab-three-amigos STORY-123 clickup --generate-agenda
 ```
 
 **Output:**
@@ -446,7 +447,7 @@ Gerar checklist para validar completude da sessão:
 ### Exemplo 2: Sessão Manual (sem agenda)
 
 ```bash
-/validate/collab/three-amigos TASK-456 jira
+/validate-collab-three-amigos TASK-456 jira
 ```
 
 **Output:**
@@ -457,7 +458,7 @@ Gerar checklist para validar completude da sessão:
 ### Exemplo 3: Sessão com Calendar Integration
 
 ```bash
-/validate/collab/three-amigos FEATURE-789 clickup --generate-agenda --calendar
+/validate-collab-three-amigos FEATURE-789 clickup --generate-agenda --calendar
 ```
 
 **Output:**

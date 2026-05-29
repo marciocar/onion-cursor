@@ -1,6 +1,7 @@
 ---
-name: integration
+name: test-integration
 description: Mocka serviços externos (default: true para testes isolados)
+disable-model-invocation: true
 ---
 # 🔗 Test Integration
 
@@ -322,9 +323,9 @@ describe('Pact Contract: UserService', () => {
 
 🚀 Próximos Passos:
 1. Revisar testes gerados e adicionar casos específicos
-2. Executar novamente: /test/integration {{api-endpoint}} --run
-3. Adicionar contract tests: /test/integration {{api-endpoint}} --contract
-4. Integrar no pipeline: /validate/test-strategy/create
+2. Executar novamente: /test-integration {{api-endpoint}} --run
+3. Adicionar contract tests: /test-integration {{api-endpoint}} --contract
+4. Integrar no pipeline: /validate-test-strategy-create
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -333,31 +334,31 @@ describe('Pact Contract: UserService', () => {
 
 **1. Gerar e executar com contract testing:**
 ```bash
-/test/integration /api/users --generate --run --contract
+/test-integration /api/users --generate --run --contract
 ```
 → Detecta framework, analisa API, gera `users.integration.test.js` com contract tests, executa
 
 **2. Apenas gerar testes de boundary:**
 ```bash
-/test/integration payment-service --generate --boundary --framework supertest
+/test-integration payment-service --generate --boundary --framework supertest
 ```
 → Força Supertest, gera testes de boundary (timeouts, erros), não executa
 
 **3. Executar com fuzzing:**
 ```bash
-/test/integration /api/orders --run --fuzz
+/test-integration /api/orders --run --fuzz
 ```
 → Executa `orders.integration.test.js` existente com fuzzing habilitado
 
 **4. Gerar testes completos (contract + boundary + fuzzing):**
 ```bash
-/test/integration user-service --generate --contract --boundary --fuzz
+/test-integration user-service --generate --contract --boundary --fuzz
 ```
 → Gera suite completa de testes de integração
 
 **5. Executar teste existente sem mockar externos:**
 ```bash
-/test/integration /api/products --run --mock-external false
+/test-integration /api/products --run --mock-external false
 ```
 → Executa contra serviços reais (útil para staging)
 
@@ -376,10 +377,10 @@ describe('Pact Contract: UserService', () => {
 
 ## 🔗 Comandos Relacionados
 
-- `/test/unit` - Testes unitários (White-box)
-- `/test/e2e` - Testes end-to-end (Black-box)
-- `/validate/test-strategy/create` - Criar estratégia completa de testes
-- `/engineer/work` - Continuar desenvolvimento com testes
+- `/test-unit` - Testes unitários (White-box)
+- `/test-e2e` - Testes end-to-end (Black-box)
+- `/validate-test-strategy-create` - Criar estratégia completa de testes
+- `/engineer-work` - Continuar desenvolvimento com testes
 
 ## ⚠️ Validações e Regras
 

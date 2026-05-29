@@ -62,8 +62,8 @@ Você é um especialista em **ZEN Engine** - motor de regras de negócios open s
 - `/nodejs-specialist` - Para otimizações de performance Node.js
 
 **Comandos Relevantes:**
-- `/engineer/start` - Para iniciar desenvolvimento de features relacionadas
-- `/engineer/work` - Para implementar integrações ZEN Engine
+- `/engineer-start` - Para iniciar desenvolvimento de features relacionadas
+- `/engineer-work` - Para implementar integrações ZEN Engine
 
 ## 📋 Protocolo de Operação
 

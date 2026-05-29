@@ -72,8 +72,8 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 
 ---
 
-### `/engineer/pr`
-**Sintaxe:** `/engineer/pr`
+### `/engineer-pr`
+**Sintaxe:** `/engineer-pr`
 
 **Descrição:** Cria Pull Request com integração GitFlow e sync automático.
 
@@ -86,7 +86,7 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 
 **Exemplo:**
 ```bash
-/engineer/pr
+/engineer-pr
 ```
 
 **Integração ClickUp:**
@@ -96,26 +96,26 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 
 ---
 
-### `/engineer/pr-update`
-**Sintaxe:** `/engineer/pr-update`
+### `/engineer-pr-update`
+**Sintaxe:** `/engineer-pr-update`
 
 **Descrição:** Atualiza PR existente com novas mudanças.
 
 **Exemplo:**
 ```bash
-/engineer/pr-update
+/engineer-pr-update
 ```
 
 ---
 
-### `/engineer/pre-pr`
-**Sintaxe:** `/engineer/pre-pr`
+### `/engineer-pre-pr`
+**Sintaxe:** `/engineer-pre-pr`
 
 **Descrição:** Validações pré-PR (testes, linting, documentação).
 
 **Exemplo:**
 ```bash
-/engineer/pre-pr
+/engineer-pre-pr
 ```
 
 ---
@@ -752,7 +752,7 @@ docs/technical-context/
 /engineer/work feature-x
 
 # 4. Criar Pull Request
-/engineer/pr
+/engineer-pr
 
 # 5. Finalizar feature
 /git/feature/finish
@@ -767,7 +767,7 @@ docs/technical-context/
 /engineer/hotfix "fix-critical-bug"
 
 # 3. Criar PR
-/engineer/pr
+/engineer-pr
 
 # 4. Finalizar hotfix
 /git/hotfix/finish

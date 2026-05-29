@@ -71,9 +71,9 @@ flowchart TD
     
     M --> N{Mais Fases?}
     N -->|Sim| J
-    N -->|Nao| O["/engineer/pr"]
+    N -->|Nao| O["/engineer-pr"]
     
-    O --> P["/engineer/pre-pr"]
+    O --> P["/engineer-pre-pr"]
     P --> Q[Code Review]
     Q --> R{Aprovado?}
     R -->|Nao| S[Correcoes]
@@ -175,9 +175,9 @@ flowchart LR
 
 ---
 
-#### 4. Preparação para PR (`/engineer/pre-pr`)
+#### 4. Preparação para PR (`/engineer-pre-pr`)
 ```bash
-/engineer/pre-pr
+/engineer-pre-pr
 ```
 
 **O que acontece:**
@@ -191,9 +191,9 @@ flowchart LR
 
 ---
 
-#### 5. Pull Request (`/engineer/pr`)
+#### 5. Pull Request (`/engineer-pr`)
 ```bash
-/engineer/pr
+/engineer-pr
 ```
 
 **O que acontece:**
@@ -237,8 +237,8 @@ flowchart LR
 | `/product/task` | Criar task estruturada | ✅ Opcional* | ✅ Sim | ✅ Sim |
 | `/engineer/start` | Análise + Arquitetura | ✅ Valida/Cria* | ✅ Valida | ✅ Sim |
 | `/engineer/work` | Implementação | ❌ Não | ❌ Não | ✅ Sim (por fase) |
-| `/engineer/pre-pr` | Validação pré-PR | ❌ Não | ❌ Não | ❌ Não |
-| `/engineer/pr` | Pull Request | ✅ Se necessário* | ❌ Não | ✅ Sim |
+| `/engineer-pre-pr` | Validação pré-PR | ❌ Não | ❌ Não | ❌ Não |
+| `/engineer-pr` | Pull Request | ✅ Se necessário* | ❌ Não | ✅ Sim |
 | `/engineer/hotfix` | Correção emergencial | ❌ Não | ✅ Sim | ✅ Sim |
 
 **\* Nota sobre Branches:** Os comandos `/product/task` e `/engineer/start` **gerenciam Git internamente**. Eles chamam comandos `/git/*` automaticamente quando necessário. O usuário **não precisa** executar comandos Git manualmente.
@@ -272,7 +272,7 @@ flowchart TD
     E --> F[Testes]
     F --> G{Testes OK?}
     G -->|Nao| E
-    G -->|Sim| H["/engineer/pr"]
+    G -->|Sim| H["/engineer-pr"]
     
     H --> I[Code Review Urgente]
     I --> J{Aprovado?}
@@ -295,7 +295,7 @@ flowchart TD
 /engineer/hotfix "fix-payment-timeout"
 
 # 2. Criar PR após implementação
-/engineer/pr
+/engineer-pr
 
 # 3. Finalizar hotfix após merge (merge + deploy)
 /git/hotfix/finish
@@ -339,7 +339,7 @@ flowchart TD
     F --> G[Testes Finais]
     G --> H{Testes OK?}
     H -->|Nao| D
-    H -->|Sim| I["/engineer/pr"]
+    H -->|Sim| I["/engineer-pr"]
     
     I --> J[Code Review]
     J --> K{Aprovado?}
@@ -368,7 +368,7 @@ flowchart TD
 /engineer/bump minor
 
 # 4. Criar PR
-/engineer/pr
+/engineer-pr
 
 # 5. Após merge, finalizar release
 /git/release/finish
@@ -475,7 +475,7 @@ sequenceDiagram
     participant CU as ClickUp
     participant ES as /engineer/start
     participant EW as /engineer/work
-    participant EP as /engineer/pr
+    participant EP as /engineer-pr
     participant GS as /git/sync
     
     U->>PT: Criar task
@@ -553,9 +553,9 @@ flowchart TD
 |---------|---------|-------|
 | **Iniciar desenvolvimento** | `/engineer/start` | Análise + arquitetura + setup de sessão |
 | **Implementar fase** | `/engineer/work` | Implementa código seguindo plan.md |
-| **Validar antes de PR** | `/engineer/pre-pr` | Checklist de qualidade completo |
-| **Criar Pull Request** | `/engineer/pr` | Abre PR e atualiza ClickUp |
-| **Atualizar PR** | `/engineer/pr-update` | Atualiza PR existente com novas mudanças |
+| **Validar antes de PR** | `/engineer-pre-pr` | Checklist de qualidade completo |
+| **Criar Pull Request** | `/engineer-pr` | Abre PR e atualiza ClickUp |
+| **Atualizar PR** | `/engineer-pr-update` | Atualiza PR existente com novas mudanças |
 | **Bug crítico em produção** | `/engineer/hotfix` | Análise rápida + implementação urgente |
 | **Validar fase** | `/engineer/validate-phase-sync` | Valida sincronização fase ↔ subtask |
 
@@ -702,7 +702,7 @@ Use comandos Git **apenas** nestas situações:
 /engineer/hotfix "fix-critical-bug"
 
 # 2. Criar PR
-/engineer/pr
+/engineer-pr
 
 # 3. Após merge, finalizar
 /git/hotfix/finish
@@ -770,7 +770,7 @@ flowchart LR
     D["/engineer/hotfix"] -->|chama| E["/git/hotfix/start"]
     E -->|cria| F["Branch hotfix/name"]
     
-    G["/engineer/pr"] -->|usa| C
+    G["/engineer-pr"] -->|usa| C
     G -->|usa| F
     
     H["Merge PR"] --> I{Tipo?}

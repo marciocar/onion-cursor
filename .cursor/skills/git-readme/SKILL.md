@@ -1,5 +1,5 @@
 ---
-name: readme
+name: git-readme
 description: Skill convertida de /git/README.md.
 disable-model-invocation: true
 ---
@@ -16,14 +16,14 @@ Todos os comandos deste módulo são **[Claude Code Commands](https://docs.curso
 
 ```markdown
 # ✅ CORRETO - No chat da Claude Code:
-/git/init
-/git/feature/start "user-authentication"
-/git/feature/publish
-/git/release/finish
+/git-init
+/git-feature-start "user-authentication"
+/git-feature-publish
+/git-release-finish
 
 # ❌ INCORRETO - NÃO são comandos bash/shell:
-$ /git/init                    # Não funciona no terminal
-$ ./git/feature/start          # Não é script executável
+$ /git-init                    # Não funciona no terminal
+$ ./git-feature-start          # Não é script executável
 ```
 
 ### 🧠 **Arquitetura dos Comandos**
@@ -38,17 +38,17 @@ $ ./git/feature/start          # Não é script executável
 
 ### **🆘 Setup e Ajuda**
 
-#### **`/git/help`** - Sistema de Ajuda Completo
+#### **`/git-help`** - Sistema de Ajuda Completo
 **Finalidade**: Cartão de referência e troubleshooting para todos workflows Gitflow  
-**Uso**: `/git/help`
+**Uso**: `/git-help`
 - ✅ Quick reference de todos os comandos
 - ✅ Troubleshooting automático com soluções
 - ✅ Examples práticos por workflow
 - ✅ Guidance vs execution (comandos vs @gitflow-specialist)
 
-#### **`/git/init`** - Setup Gitflow Automático
+#### **`/git-init`** - Setup Gitflow Automático
 **Finalidade**: Inicializar repositório com Gitflow e ClickUp integration  
-**Uso**: `/git/init`
+**Uso**: `/git-init`
 - ✅ Master/main detection automática
 - ✅ Setup develop branch + configurações
 - ✅ ClickUp integration se sessão ativa
@@ -58,17 +58,17 @@ $ ./git/feature/start          # Não é script executável
 
 ### **🌿 Feature Development**
 
-#### **`/git/feature/start "nome"`** - Criar Feature Backlog
+#### **`/git-feature-start "nome"`** - Criar Feature Backlog
 **Finalidade**: Criar task ClickUp para feature (planejamento, sem desenvolvimento)  
-**Uso**: `/git/feature/start "implementar-oauth-authentication"`
+**Uso**: `/git-feature-start "implementar-oauth-authentication"`
 - ✅ Task ClickUp com tag "backlog" criada
 - ✅ Descrição estruturada + próximos passos
-- ✅ Integração com `/engineer/start` para desenvolvimento
+- ✅ Integração com `/engineer-start` para desenvolvimento
 - ✅ Auto-detecção de lista ClickUp atual
 
-#### **`/git/feature/finish`** - Finalizar Feature Development
+#### **`/git-feature-finish`** - Finalizar Feature Development
 **Finalidade**: Merge feature → develop + cleanup automático  
-**Uso**: `/git/feature/finish` (na feature branch)
+**Uso**: `/git-feature-finish` (na feature branch)
 - ✅ Merge feature → develop com validações
 - ✅ Cleanup branches locais/remotos com confirmação
 - ✅ Update ClickUp task → "Done" + comentário
@@ -78,14 +78,14 @@ $ ./git/feature/start          # Não é script executável
 
 ### **🚀 Release Management**
 
-#### **`/git/release/start "version"`** - Iniciar Release
+#### **`/git-release-start "version"`** - Iniciar Release
 **Finalidade**: Preparar release com versionamento semântico automático  
 **Uso**: 
 ```bash
-/git/release/start "v2.1.0"    # Versão específica
-/git/release/start "patch"     # Auto-bump patch (2.0.1 → 2.0.2)
-/git/release/start "minor"     # Auto-bump minor (2.0.1 → 2.1.0)
-/git/release/start "major"     # Auto-bump major (2.0.1 → 3.0.0)
+/git-release-start "v2.1.0"    # Versão específica
+/git-release-start "patch"     # Auto-bump patch (2.0.1 → 2.0.2)
+/git-release-start "minor"     # Auto-bump minor (2.0.1 → 2.1.0)
+/git-release-start "major"     # Auto-bump major (2.0.1 → 3.0.0)
 ```
 - ✅ Release branch criada a partir de develop
 - ✅ Auto-versioning (package.json, version.txt, VERSION)
@@ -93,9 +93,9 @@ $ ./git/feature/start          # Não é script executável
 - ✅ ClickUp release task com checklist
 - ✅ Validações de conflito (branches e tags)
 
-#### **`/git/release/finish`** - Finalizar Release
+#### **`/git-release-finish`** - Finalizar Release
 **Finalidade**: Deploy production com duplo merge + tags  
-**Uso**: `/git/release/finish` (na release branch)
+**Uso**: `/git-release-finish` (na release branch)
 - ✅ Duplo merge: release → main + develop
 - ✅ Tag anotada com metadata completa
 - ✅ Deploy preparation hooks
@@ -106,18 +106,18 @@ $ ./git/feature/start          # Não é script executável
 
 ### **🔥 Emergency Hotfix**
 
-#### **`/git/hotfix/start "nome"`** - Emergency Hotfix Setup
+#### **`/git-hotfix-start "nome"`** - Emergency Hotfix Setup
 **Finalidade**: Hotfix emergencial a partir de produção (main/master)  
-**Uso**: `/git/hotfix/start "fix-payment-gateway-timeout"`
+**Uso**: `/git-hotfix-start "fix-payment-gateway-timeout"`
 - ✅ Hotfix branch a partir de main/master
 - ✅ Auto-versioning patch emergencial
 - ✅ ClickUp emergency task (prioridade 1)
 - ✅ Emergency auto-save de mudanças
 - ✅ Rollback preparation desde início
 
-#### **`/git/hotfix/finish`** - Deploy Crítico Emergency
+#### **`/git-hotfix-finish`** - Deploy Crítico Emergency
 **Finalidade**: Deploy emergencial com duplo merge acelerado  
-**Uso**: `/git/hotfix/finish` (na hotfix branch)
+**Uso**: `/git-hotfix-finish` (na hotfix branch)
 - ✅ Duplo merge emergencial (main + develop)
 - ✅ Production-first strategy com overrides
 - ✅ Emergency tag + monitoring requirements
@@ -128,12 +128,12 @@ $ ./git/feature/start          # Não é script executável
 
 ### **💥 Workflow Híbrido**
 
-#### **`/engineer/hotfix "desc" [params]`** - Emergency Workflow Completo
+#### **`/engineer-hotfix "desc" [params]`** - Emergency Workflow Completo
 **Finalidade**: Task ClickUp + Git hotfix + Session management em 1 comando  
 **Uso**:
 ```bash
-/engineer/hotfix "Fix critical payment timeout"
-/engineer/hotfix "Security auth patch" --related-tasks="123,456" --tags="security"
+/engineer-hotfix "Fix critical payment timeout"
+/engineer-hotfix "Security auth patch" --related-tasks="123,456" --tags="security"
 ```
 **Parâmetros**:
 - `--related-tasks="id1,id2"` - Link tasks relacionadas
@@ -141,7 +141,7 @@ $ ./git/feature/start          # Não é script executável
 - `--status="In Progress"` - Status inicial
 - `--priority=1` - Prioridade (1=urgent)
 
-- ✅ Executa `/product/task` + `/git/hotfix/start` internamente
+- ✅ Executa `/product-task` + `/git-hotfix-start` internamente
 - ✅ Session management completo (context, plan, notes)
 - ✅ Emergency automation: task + session + git
 - ✅ Parameter parsing + ClickUp linking
@@ -150,13 +150,13 @@ $ ./git/feature/start          # Não é script executável
 
 ### **🔄 Pós-Merge**
 
-#### **`/git/sync [branch]`** - Sincronização Automática
+#### **`/git-sync [branch]`** - Sincronização Automática
 **Finalidade**: Sincronização pós-merge com cleanup de branches  
 **Uso**:
 ```bash
-/git/sync              # Sincroniza com develop (padrão)
-/git/sync main         # Sincroniza com main
-/git/sync staging      # Sincroniza com staging
+/git-sync              # Sincroniza com develop (padrão)
+/git-sync main         # Sincroniza com main
+/git-sync staging      # Sincroniza com staging
 ```
 - ✅ Checkout automático + pull das mudanças
 - ✅ Limpeza segura de branch anterior
@@ -170,45 +170,45 @@ $ ./git/feature/start          # Não é script executável
 ### **🌟 Feature Development (Método 1 - Planejado):**
 ```mermaid
 flowchart LR
-    A["/git/feature/start 'nome'"] --> B["Task Backlog Created"]
-    B --> C["/engineer/start"]
-    C --> D["/engineer/work"]
-    D --> E["/git/feature/finish"]
-    E --> F["/git/sync develop"]
+    A["/git-feature-start 'nome'"] --> B["Task Backlog Created"]
+    B --> C["/engineer-start"]
+    C --> D["/engineer-work"]
+    D --> E["/git-feature-finish"]
+    E --> F["/git-sync develop"]
 ```
 
 ### **⚡ Feature Development (Método 2 - Direto):**
 ```mermaid
 flowchart LR
-    A["/product/task"] --> B["/engineer/start"]
-    B --> C["/engineer/work"]
-    C --> D["/git/feature/finish"]
-    D --> E["/git/sync develop"]
+    A["/product-task"] --> B["/engineer-start"]
+    B --> C["/engineer-work"]
+    C --> D["/git-feature-finish"]
+    D --> E["/git-sync develop"]
 ```
 
 ### **🚀 Release Workflow:**
 ```mermaid
 flowchart LR
-    A["/git/release/start 'v2.1.0'"] --> B["Testing & Validation"]
-    B --> C["/git/release/finish"]
+    A["/git-release-start 'v2.1.0'"] --> B["Testing & Validation"]
+    B --> C["/git-release-finish"]
     C --> D["Production Deploy"]
-    D --> E["/git/sync main"]
+    D --> E["/git-sync main"]
 ```
 
 ### **🔥 Emergency Hotfix (Método 1 - Separado):**
 ```mermaid
 flowchart LR
-    A["/git/hotfix/start 'critical-bug'"] --> B["Emergency Fix"]
-    B --> C["/git/hotfix/finish"]
+    A["/git-hotfix-start 'critical-bug'"] --> B["Emergency Fix"]
+    B --> C["/git-hotfix-finish"]
     C --> D["Production Deploy"]
 ```
 
 ### **💥 Emergency Hotfix (Método 2 - Híbrido):**
 ```mermaid
 flowchart LR
-    A["/engineer/hotfix 'desc' --params"] --> B["Auto: Task + Session + Git"]
+    A["/engineer-hotfix 'desc' --params"] --> B["Auto: Task + Session + Git"]
     B --> C["Emergency Fix"]
-    C --> D["/git/hotfix/finish"]
+    C --> D["/git-hotfix-finish"]
 ```
 
 ---
@@ -218,22 +218,22 @@ flowchart LR
 ### **Comandos por Categoria:**
 | Categoria | Comandos | Finalidade |
 |-----------|----------|-----------|
-| **Setup** | `/git/help`, `/git/init` | Help system + Gitflow setup |
-| **Feature** | `/git/feature/start`, `/git/feature/finish` | Development workflow |
-| **Release** | `/git/release/start`, `/git/release/finish` | Production deployment |
-| **Hotfix** | `/git/hotfix/start`, `/git/hotfix/finish` | Emergency fixes |
-| **Híbrido** | `/engineer/hotfix` | All-in-one emergency workflow |
-| **Sync** | `/git/sync` | Post-merge synchronization |
+| **Setup** | `/git-help`, `/git-init` | Help system + Gitflow setup |
+| **Feature** | `/git-feature-start`, `/git-feature-finish` | Development workflow |
+| **Release** | `/git-release-start`, `/git-release-finish` | Production deployment |
+| **Hotfix** | `/git-hotfix-start`, `/git-hotfix-finish` | Emergency fixes |
+| **Híbrido** | `/engineer-hotfix` | All-in-one emergency workflow |
+| **Sync** | `/git-sync` | Post-merge synchronization |
 
 ### **Integração com Outros Comandos:**
 | Comando Anterior | Comando Git | Resultado Final |
 |------------------|-------------|-----------------|  
-| `/product/task` | `/engineer/start` + `/git/feature/finish` | Feature completa |
-| `/git/feature/start` | `/engineer/start` + `/git/feature/finish` | Backlog → Production |
-| `/engineer/work` | `/git/feature/finish` | Development → Merge |
-| `/engineer/pr` | `/git/sync` | PR merge → Clean state |
-| `/git/release/start` | `/git/release/finish` | Version → Production |
-| Emergency issue | `/engineer/hotfix` | Issue → Fixed in production |
+| `/product-task` | `/engineer-start` + `/git-feature-finish` | Feature completa |
+| `/git-feature-start` | `/engineer-start` + `/git-feature-finish` | Backlog → Production |
+| `/engineer-work` | `/git-feature-finish` | Development → Merge |
+| `/engineer-pr` | `/git-sync` | PR merge → Clean state |
+| `/git-release-start` | `/git-release-finish` | Version → Production |
+| Emergency issue | `/engineer-hotfix` | Issue → Fixed in production |
 
 ---
 
@@ -260,8 +260,8 @@ minor: 2.0.1 → 2.1.0  # New features
 major: 2.0.1 → 3.0.0  # Breaking changes
 
 # Specific versions:
-/git/release/start "v2.1.0"  # Exact version
-/git/release/start "2.1.0"   # Without v prefix
+/git-release-start "v2.1.0"  # Exact version
+/git-release-start "2.1.0"   # Without v prefix
 ```
 
 ### **🚨 Emergency Features:**
@@ -299,20 +299,20 @@ major: 2.0.1 → 3.0.0  # Breaking changes
 ## 🎓 **Guias de Uso**
 
 ### **🌟 Para Iniciantes:**
-1. **Setup inicial**: `/git/init`
-2. **Criar feature**: `/git/feature/start "nome"`  
-3. **Desenvolver**: `/engineer/start nome-feature`
-4. **Finalizar**: `/git/feature/finish`
-5. **Limpar**: `/git/sync develop`
+1. **Setup inicial**: `/git-init`
+2. **Criar feature**: `/git-feature-start "nome"`  
+3. **Desenvolver**: `/engineer-start nome-feature`
+4. **Finalizar**: `/git-feature-finish`
+5. **Limpar**: `/git-sync develop`
 
 ### **⚡ Para Experts:**
-- **Release rápida**: `/git/release/start "minor"` → testing → `/git/release/finish`
-- **Emergency hotfix**: `/engineer/hotfix "Critical bug" --related-tasks="123"`
+- **Release rápida**: `/git-release-start "minor"` → testing → `/git-release-finish`
+- **Emergency hotfix**: `/engineer-hotfix "Critical bug" --related-tasks="123"`
 - **Batch operations**: Use parameters para efficiency
 
 ### **🆘 Para Emergências:**
-1. **Hotfix simples**: `/git/hotfix/start` → fix → `/git/hotfix/finish`
-2. **Hotfix completo**: `/engineer/hotfix "desc" --tags="urgent"`
+1. **Hotfix simples**: `/git-hotfix-start` → fix → `/git-hotfix-finish`
+2. **Hotfix completo**: `/engineer-hotfix "desc" --tags="urgent"`
 3. **Rollback**: Guidance automático se deploy falhar
 
 ---
@@ -327,7 +327,7 @@ major: 2.0.1 → 3.0.0  # Breaking changes
 git branch -a
 
 # Inicializar Gitflow se necessário
-/git/init
+/git-init
 ```
 
 #### **"Mudanças não commitadas"**
@@ -345,11 +345,11 @@ git commit -m "save progress"
 ls .cursor/sessions/
 
 # Criar sessão se necessário
-/engineer/start [feature-name]
+/engineer-start [feature-name]
 ```
 
 ### **🆘 Help Sempre Disponível:**
-- **Quick reference**: `/git/help`
+- **Quick reference**: `/git-help`
 - **Detailed guidance**: `@gitflow-specialist "sua pergunta"`
 - **Troubleshooting**: Automático em cada comando
 - **Examples**: Incluídos em every command
@@ -363,9 +363,9 @@ ls .cursor/sessions/
 - **Implementation**: Source code em cada comando
 
 ### **🔗 Comandos Relacionados:**
-- **Product Management**: `/product/task`, `/product/task-check`
-- **Engineering**: `/engineer/start`, `/engineer/work`, `/engineer/pr`  
-- **Meta Operations**: `/meta/all-tools`
+- **Product Management**: `/product-task`, `/product-task-check`
+- **Engineering**: `/engineer-start`, `/engineer-work`, `/engineer-pr`  
+- **Meta Operations**: `/meta-all-tools`
 - **Specialized Agents**: `@gitflow-specialist`, `@clickup-specialist`
 
 ### **📊 Sistema Completo:**
@@ -379,10 +379,10 @@ Este módulo faz parte do **Sistema Onion** com:
 
 **🌟 Framework completo de Git workflows com automação inteligente e integração ClickUp nativa!**
 
-**Para começar**: `/git/help` ou `/git/init`
-| `/engineer/pr` | `/git/sync` | Workflow completo finalizado |
-| Manual merge | `/git/sync main` | Sincronização com main |
-| Hotfix merge | `/git/sync develop` | Volta para develop |
+**Para começar**: `/git-help` ou `/git-init`
+| `/engineer-pr` | `/git-sync` | Workflow completo finalizado |
+| Manual merge | `/git-sync main` | Sincronização com main |
+| Hotfix merge | `/git-sync develop` | Volta para develop |
 
 ---
 
@@ -479,7 +479,7 @@ Solution: Commit or stash changes before sync
 Commands:
   git add .
   git commit -m "WIP: save before sync"
-  /git/sync
+  /git-sync
 
 Alternative: Use git stash to temporarily save changes
 ```
@@ -488,7 +488,7 @@ Alternative: Use git stash to temporarily save changes
 ```
 💡 SYNC TIPS
 
-Current situation: First time using /git/sync
+Current situation: First time using /git-sync
 Recommendation: develop branch will be created from main
 
 This follows GitFlow best practices:
@@ -496,7 +496,7 @@ This follows GitFlow best practices:
 - develop: Integration branch for features
 - feature/*: Individual feature branches
 
-Next time: /git/sync will use existing develop branch
+Next time: /git-sync will use existing develop branch
 ```
 
 ---
@@ -569,7 +569,7 @@ Preservadas:     feature, bug, improvement, research
 git checkout main
 git checkout -b develop  
 git push origin develop
-/git/sync
+/git-sync
 ```
 
 #### **"Mudanças não commitadas"**
@@ -577,11 +577,11 @@ git push origin develop
 # Commit temporário
 git add .
 git commit -m "WIP: save before sync"
-/git/sync
+/git-sync
 
 # Ou usar stash
 git stash push -m "WIP before sync"
-/git/sync
+/git-sync
 git stash pop  # Para recuperar depois
 ```
 
@@ -593,7 +593,7 @@ git stash pop  # Para recuperar depois
 #### **"Sessão não foi detectada"**
 - Comando funciona sem sessão
 - ClickUp integration fica limitada
-- Crie sessão com `/product/task` para próximas tasks
+- Crie sessão com `/product-task` para próximas tasks
 
 ### **Logs de Debug:**
 ```bash

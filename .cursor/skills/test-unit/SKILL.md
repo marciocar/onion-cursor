@@ -1,6 +1,7 @@
 ---
-name: unit
+name: test-unit
 description: Framework específico (sobrescreve auto-detecção: jest|vitest|pytest|junit)
+disable-model-invocation: true
 ---
 # 🧪 Test Unit
 
@@ -200,9 +201,9 @@ describe('nomeFuncao', () => {
 
 🚀 Próximos Passos:
 1. Revisar testes gerados e adicionar casos específicos
-2. Executar novamente: /test/unit {{file-path}} --run
-3. Integrar no pipeline: /validate/test-strategy/create
-4. Code review: /git/code-review
+2. Executar novamente: /test-unit {{file-path}} --run
+3. Integrar no pipeline: /validate-test-strategy-create
+4. Code review: /git-code-review
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -211,25 +212,25 @@ describe('nomeFuncao', () => {
 
 **1. Gerar e executar com coverage:**
 ```bash
-/test/unit src/utils/validation.js --generate --run --coverage
+/test-unit src/utils/validation.js --generate --run --coverage
 ```
 → Detecta framework, analisa código, gera `validation.test.js`, executa com coverage
 
 **2. Apenas gerar teste:**
 ```bash
-/test/unit app/models/user.py --generate --framework pytest
+/test-unit app/models/user.py --generate --framework pytest
 ```
 → Força PyTest, gera `test_user.py`, não executa
 
 **3. Executar com watch:**
 ```bash
-/test/unit components/Button.tsx --run --watch
+/test-unit components/Button.tsx --run --watch
 ```
 → Detecta framework, executa `Button.test.tsx` em modo watch
 
 **4. Executar teste existente:**
 ```bash
-/test/unit src/services/api.ts --run --coverage
+/test-unit src/services/api.ts --run --coverage
 ```
 → Encontra `api.test.ts`, executa com coverage, não gera novo arquivo
 
@@ -246,11 +247,11 @@ describe('nomeFuncao', () => {
 
 ## 🔗 Comandos Relacionados
 
-- `/test/integration` - Testes de integração (Grey-box)
-- `/test/e2e` - Testes end-to-end (Black-box)
-- `/validate/test-strategy/create` - Criar estratégia completa de testes
-- `/engineer/work` - Continuar desenvolvimento com testes
-- `/git/code-review` - Revisar código incluindo testes
+- `/test-integration` - Testes de integração (Grey-box)
+- `/test-e2e` - Testes end-to-end (Black-box)
+- `/validate-test-strategy-create` - Criar estratégia completa de testes
+- `/engineer-work` - Continuar desenvolvimento com testes
+- `/git-code-review` - Revisar código incluindo testes
 
 ## ⚠️ Validações e Regras
 

@@ -1,6 +1,6 @@
 # 📚 Índice - Knowledge Bases
 
-> **Última atualização**: 2025-12-20 | **Gerado por**: `/docs/build-index knowbase`
+> **Última atualização**: 2025-12-20 | **Gerado por**: `/docs-build-index knowbase`
 
 Bem-vindo ao índice das **Knowledge Bases** do Sistema Onion. Este documento organiza todos os 24 arquivos de conhecimento estruturado para consumo por IA e referência técnica.
 
@@ -311,8 +311,8 @@ Documentação de provedores de serviços integrados:
 - [Meta Especificações](../meta-specs/index.md) - Especificações de alto nível
 
 ### Comandos Relacionados
-- `/docs/build-index` - Reconstruir índices
-- `/meta/create-knowledge-base` - Criar novas knowledge bases
+- `/docs-build-index` - Reconstruir índices
+- `/meta-create-knowledge-base` - Criar novas knowledge bases
 
 ### Agentes Relacionados
 - `@research-agent` - Pesquisa e análise
@@ -355,12 +355,12 @@ Documentação de provedores de serviços integrados:
 
 ## 🔄 Manutenção
 
-Este índice é gerado automaticamente pelo comando `/docs/build-index knowbase`.
+Este índice é gerado automaticamente pelo comando `/docs-build-index knowbase`.
 
 **Para atualizar:**
 ```bash
-/docs/build-index knowbase     # Reconstruir este índice
-/docs/build-index              # Reconstruir índice principal
+/docs-build-index knowbase     # Reconstruir este índice
+/docs-build-index              # Reconstruir índice principal
 ```
 
 ---

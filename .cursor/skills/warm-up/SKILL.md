@@ -77,8 +77,8 @@ Estabelecer contexto completo do projeto incluindo:
 ## 🔗 Próximos Passos
 
 Após este warm-up geral, use warm-ups específicos:
-- `/product/warm-up` - Para trabalho de produto
-- `/engineer/warm-up` - Para trabalho de engenharia
+- `/product-warm-up` - Para trabalho de produto
+- `/engineer-warm-up` - Para trabalho de engenharia
 
 ## ⚠️ Notas
 

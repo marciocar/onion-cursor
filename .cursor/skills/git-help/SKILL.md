@@ -1,5 +1,5 @@
 ---
-name: help
+name: git-help
 description: Ajuda contextual para comandos GitFlow do Sistema Onion.
 disable-model-invocation: true
 ---
@@ -24,11 +24,11 @@ Fornecer ajuda contextual e interativa para todos os comandos GitFlow do Sistema
 ## 🚀 Como Usar
 
 ```bash
-/git/help                    # Help completo interativo
-/git/help feature           # Ajuda específica para features
-/git/help release           # Ajuda específica para releases  
-/git/help hotfix            # Ajuda específica para hotfixes
-/git/help init              # Ajuda para inicialização
+/git-help                    # Help completo interativo
+/git-help feature           # Ajuda específica para features
+/git-help release           # Ajuda específica para releases  
+/git-help hotfix            # Ajuda específica para hotfixes
+/git-help init              # Ajuda para inicialização
 ```
 
 ## 🤖 Integração com @gitflow-specialist
@@ -43,30 +43,30 @@ Para cada solicitação de ajuda:
 ## 📋 Comandos Disponíveis
 
 ### Setup e Inicialização
-- `/git/init` - Configurar Git Flow no repositório
-- `/git/help` - Este sistema de ajuda
+- `/git-init` - Configurar Git Flow no repositório
+- `/git-help` - Este sistema de ajuda
 
 ### Workflow de Features
-- `/git/feature/start "nome"` - Iniciar nova feature
-- `/git/feature/finish` - Finalizar e mergear feature
-- `/git/feature/publish` - Compartilhar feature em desenvolvimento
+- `/git-feature-start "nome"` - Iniciar nova feature
+- `/git-feature-finish` - Finalizar e mergear feature
+- `/git-feature-publish` - Compartilhar feature em desenvolvimento
 
 ### Workflow de Releases
-- `/git/release/start "versão"` - Iniciar processo de release
-- `/git/release/finish` - Finalizar e deployar release
+- `/git-release-start "versão"` - Iniciar processo de release
+- `/git-release-finish` - Finalizar e deployar release
 
 ### Workflow de Hotfixes
-- `/git/hotfix/start "nome"` - Iniciar correção urgente
-- `/git/hotfix/finish` - Finalizar e deployar hotfix
+- `/git-hotfix-start "nome"` - Iniciar correção urgente
+- `/git-hotfix-finish` - Finalizar e deployar hotfix
 
 ### Sincronização
-- `/git/sync [branch]` - Sincronizar após merge de PR
+- `/git-sync [branch]` - Sincronizar após merge de PR
 
 ## ⚠️ Troubleshooting Comum
 
 ### Repository não inicializado
 **Problema**: Git Flow não configurado
-**Solução**: Execute `/git/init` para configuração automática
+**Solução**: Execute `/git-init` para configuração automática
 
 ### Branch errada
 **Problema**: Não está na branch correta para operação
@@ -84,11 +84,11 @@ Para cada solicitação de ajuda:
 
 O sistema detectará automaticamente sua situação atual e sugerirá:
 
-- **Se Git Flow não inicializado**: `/git/init`
-- **Se em develop**: `/git/feature/start "nome-da-feature"`  
-- **Se em feature branch**: `/git/feature/finish` ou `/git/feature/publish`
-- **Se pronto para release**: `/git/release/start "versão"`
-- **Se problema em produção**: `/git/hotfix/start "correção"`
+- **Se Git Flow não inicializado**: `/git-init`
+- **Se em develop**: `/git-feature-start "nome-da-feature"`  
+- **Se em feature branch**: `/git-feature-finish` ou `/git-feature-publish`
+- **Se pronto para release**: `/git-release-start "versão"`
+- **Se problema em produção**: `/git-hotfix-start "correção"`
 
 ---
 

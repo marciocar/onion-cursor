@@ -1,6 +1,7 @@
 ---
-name: plan
+name: engineer-plan
 description: Planejamento de feature. Analisa e cria plano estruturado.
+disable-model-invocation: true
 paths:
   - .cursor/sessions/**
 ---

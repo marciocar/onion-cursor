@@ -172,10 +172,10 @@ AZURE_DEVOPS_PROJECT=myproject
 ### Comandos Afetados
 
 - `/git/pr` - Criar pull requests
-- `/git/sync` - Sincronizar branches
-- `/git/feature/start` - Criar branches
-- `/engineer/pre-pr` - Preparar PR
-- `/engineer/pr` - Abrir PR
+- `/git-sync` - Sincronizar branches
+- `/git-feature-start` - Criar branches
+- `/engineer-pre-pr` - Preparar PR
+- `/engineer-pr` - Abrir PR
 
 ---
 
@@ -856,7 +856,7 @@ getTask(taskId: string): Promise<TaskOutput>
 
 1. **Implementar Git Provider** (prioridade alta)
 2. **Implementar LLM Provider** (prioridade alta)
-3. **Criar comando `/meta/create-abstraction`** para automatizar
+3. **Criar comando `/meta-create-abstraction`** para automatizar
 4. **Documentar padrões em Knowledge Bases específicas**
 
 ---

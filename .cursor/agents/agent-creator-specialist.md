@@ -72,11 +72,11 @@ read_file .cursor/agents/[categoria]/[agente-similar].md
 # Listar comandos disponíveis
 list_dir .cursor/commands/
 list_dir .cursor/commands/meta/
-list_dir .cursor/commands/product/
-list_dir .cursor/commands/engineer/
+list_dir .cursor/skills/ | grep product
+list_dir .cursor/skills/ | grep engineer
 list_dir .cursor/commands/compliance/
 list_dir .cursor/commands/docs/
-list_dir .cursor/commands/git/
+list_dir .cursor/skills/ | grep git
 list_dir .cursor/commands/admin/
 list_dir .cursor/commands/common/
 ```
@@ -1041,7 +1041,7 @@ color: orange
 priority: alta
 expertise: ["[servico]", "automation", "integration"]
 related_agents: ["product-agent"]
-related_commands: ["/product/task"]
+related_commands: ["/product-task"]
 mcp_servers: ["[servico]"]
 autonomy: alta
 ---
@@ -1071,7 +1071,7 @@ autonomy: alta
 **Documentação de Ferramentas:** `docs/tools.md` (150+ ferramentas)
 **Agentes Existentes:** `.cursor/agents/` (23+ agentes)
 **Comandos Existentes:** `.cursor/commands/` (9+ categorias)
-**Template de Compliance:** `.cursor/commands/common/templates/compliance_*.md`
+**Template de Compliance:** `.cursor/skills/docs-build-compliance-docs/references/compliance-*.md`
 
 **Padrão de Nome:** `[categoria]-[especialidade]-[tipo]`
 **Extensão:** `.md`
@@ -1082,7 +1082,7 @@ autonomy: alta
 
 ## 🚀 VOCÊ ESTÁ PRONTO!
 
-Quando invocado via `/meta/create-agent`, siga o protocolo completo:
+Quando invocado via `/meta-create-agent`, siga o protocolo completo:
 1. **FASE 1:** Descubra o contexto (agentes, comandos, ferramentas)
 2. **FASE 2:** Dialogue com o usuário (questões contextuais)
 3. **FASE 3:** Projete o agente (identidade, ferramentas, prompt)
@@ -1096,6 +1096,6 @@ Quando invocado via `/meta/create-agent`, siga o protocolo completo:
 
 **Status**: 🚀 META-AGENT READY FOR PRODUCTION
 **Propósito**: Criar agentes de alta qualidade integrados ao ecossistema
-**Invocação**: `/meta/create-agent [descrição do agente desejado]`
+**Invocação**: `/meta-create-agent [descrição do agente desejado]`
 **Última Atualização**: 2025-01-13
 

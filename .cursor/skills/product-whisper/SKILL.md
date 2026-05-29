@@ -1,6 +1,7 @@
 ---
-name: whisper
+name: product-whisper
 description: Plataforma (windows/linux/macos) para comandos específicos
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -73,13 +74,13 @@ Apresentar workflow completo:
 🔗 **Próximos passos no Sistema Onion:**
 
 1. Extrair conhecimento estruturado:
-   /product/extract-meeting source={{arquivo_txt}} level=executive
+   /product-extract-meeting source={{arquivo_txt}} level=executive
 
 2. Consolidar múltiplas reuniões:
-   /product/consolidate-meetings source=docs/meet/
+   /product-consolidate-meetings source=docs/meet/
 
 3. Converter em tasks:
-   /product/convert-to-tasks source=docs/meet/consolidation-*.md
+   /product-convert-to-tasks source=docs/meet/consolidation-*.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -121,7 +122,7 @@ Apresentar workflow completo:
 ∟ GPU: {{device}} (se disponível)
 
 🔗 **Próximo passo:**
-/product/extract-meeting source={{arquivo_txt}}
+/product-extract-meeting source={{arquivo_txt}}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -151,54 +152,54 @@ Apresentar workflow completo:
 
 ```bash
 # Detectar plataforma automaticamente ou especificar
-/product/whisper "Como instalar Whisper?" platform=linux
+/product-whisper "Como instalar Whisper?" platform=linux
 
 # Ou deixar detectar automaticamente
-/product/whisper "Preciso instalar Whisper no Ubuntu"
+/product-whisper "Preciso instalar Whisper no Ubuntu"
 ```
 
 ### Caso 2: Transcrição Simples
 
 ```bash
 # Transcrever arquivo específico
-/product/whisper audio_file=reuniao.mp3
+/product-whisper audio_file=reuniao.mp3
 
 # Com pergunta específica
-/product/whisper "Qual melhor modelo para português?" audio_file=reuniao.mp3
+/product-whisper "Qual melhor modelo para português?" audio_file=reuniao.mp3
 ```
 
 ### Caso 3: Workflow Completo
 
 ```bash
 # 1. Transcrever
-/product/whisper audio_file=reuniao-28-nov.m4a
+/product-whisper audio_file=reuniao-28-nov.m4a
 
 # 2. Extrair conhecimento (comando gerado automaticamente)
-/product/extract-meeting source=reuniao-28-nov.txt
+/product-extract-meeting source=reuniao-28-nov.txt
 
 # 3. Consolidar e converter (workflow completo)
-/product/consolidate-meetings source=docs/meet/
-/product/convert-to-tasks source=docs/meet/consolidation-*.md
+/product-consolidate-meetings source=docs/meet/
+/product-convert-to-tasks source=docs/meet/consolidation-*.md
 ```
 
 ### Caso 4: Troubleshooting
 
 ```bash
 # Problema específico
-/product/whisper "FFmpeg não encontrado no Windows"
+/product-whisper "FFmpeg não encontrado no Windows"
 
 # Erro de GPU
-/product/whisper "GPU não detectada" platform=linux
+/product-whisper "GPU não detectada" platform=linux
 ```
 
 ### Caso 5: Ajuda Geral
 
 ```bash
 # Sem parâmetros - mostra ajuda
-/product/whisper
+/product-whisper
 
 # Pergunta geral
-/product/whisper "Como usar Whisper com eficiência?"
+/product-whisper "Como usar Whisper com eficiência?"
 ```
 
 ## 🔗 Integração com Sistema Onion
@@ -209,22 +210,22 @@ Este comando facilita o workflow completo:
 
 ```bash
 # 1. Transcrever reunião
-/product/whisper audio_file=reuniao.m4a
+/product-whisper audio_file=reuniao.m4a
 
 # → Gera: reuniao.txt
 
 # 2. Extrair conhecimento (Framework EXTRACT)
-/product/extract-meeting source=reuniao.txt level=executive
+/product-extract-meeting source=reuniao.txt level=executive
 
 # → Gera: conhecimento estruturado
 
 # 3. Consolidar múltiplas reuniões
-/product/consolidate-meetings source=docs/meet/sprint-planning/
+/product-consolidate-meetings source=docs/meet/sprint-planning/
 
 # → Gera: documento consolidado
 
 # 4. Converter em tasks
-/product/convert-to-tasks source=docs/meet/consolidation-*.md
+/product-convert-to-tasks source=docs/meet/consolidation-*.md
 
 # → Gera: tasks no Task Manager
 ```
@@ -278,9 +279,9 @@ Este comando facilita o workflow completo:
 - `@whisper-specialist` - Especialista técnico em Whisper
 
 **Comandos Relacionados:**
-- `/product/extract-meeting` - Extrair conhecimento de transcrições
-- `/product/consolidate-meetings` - Consolidar múltiplas reuniões
-- `/product/convert-to-tasks` - Converter em tasks acionáveis
+- `/product-extract-meeting` - Extrair conhecimento de transcrições
+- `/product-consolidate-meetings` - Consolidar múltiplas reuniões
+- `/product-convert-to-tasks` - Converter em tasks acionáveis
 
 **Knowledge Base:**
 - `docs/knowledge-base/tools/whisper.md` - Conhecimento completo sobre Whisper

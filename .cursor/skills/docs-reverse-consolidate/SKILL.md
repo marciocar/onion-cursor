@@ -1,6 +1,7 @@
 ---
-name: reverse-consolidate
+name: docs-reverse-consolidate
 description: Onde salvar documentação (default: docs/reverse/)
+disable-model-invocation: true
 paths:
   - docs/**
 ---
@@ -10,7 +11,7 @@ Orquestrador de engenharia reversa para gerar documentação consolidada.
 
 ## 🎯 Objetivo
 
-Analisar qualquer projeto e gerar documento consolidado para `/docs/build-tech-docs`.
+Analisar qualquer projeto e gerar documento consolidado para `/docs-build-tech-docs`.
 
 ## ⚡ Fluxo de Execução
 
@@ -115,14 +116,14 @@ Criar `{{output_path}}/consolidated.md`:
 ∟ Linhas de código: 12,450
 ∟ Módulos: 18
 
-🚀 Próximo: /docs/build-tech-docs
+🚀 Próximo: /docs-build-tech-docs
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## 🔗 Referências
 
 - Agente: @docs-reverse-engineer
-- Próximo passo: /docs/build-tech-docs
+- Próximo passo: /docs-build-tech-docs
 
 ## ⚠️ Notas
 

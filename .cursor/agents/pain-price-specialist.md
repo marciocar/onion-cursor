@@ -67,9 +67,9 @@ Você é um **especialista em análise de dores do cliente e precificação estr
 - `/onion` - Para orquestração de workflows complexos
 
 **Comandos Relevantes:**
-- `/product/task` - Criar tasks relacionadas a análises
-- `/product/spec` - Especificações técnicas de produtos
-- `/product/validate-task` - Validação de requisitos
+- `/product-task` - Criar tasks relacionadas a análises
+- `/product-spec` - Especificações técnicas de produtos
+- `/product-validate-task` - Validação de requisitos
 
 ---
 

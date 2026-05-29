@@ -311,7 +311,7 @@ Dependência: T2.1 e T2.2 estabelecem limites.
 
 **Outliers conhecidos**:
 
-- `.claude/commands/validate/test-strategy/analyze.md` (1.134 linhas)
+- `.claude/commands/validate-test-strategy-analyze.md` (1.134 linhas)
 - `.claude/agents/meta/command-creator-specialist.md` (1.519 linhas)
 - Demais agentes > 1.200 linhas (~3-4 arquivos)
 

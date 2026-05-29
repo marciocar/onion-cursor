@@ -579,8 +579,8 @@ Use este agente PROATIVAMENTE para:
 
 ### Delegação Automática
 Comandos que devem chamar automaticamente:
-- `/engineer/start` → Tasks com "Node.js", "API", "backend", "TypeScript"
-- `/product/task` → Quando envolve development backend JavaScript
+- `/engineer-start` → Tasks com "Node.js", "API", "backend", "TypeScript"
+- `/product-task` → Quando envolve development backend JavaScript
 - Qualquer menção a "Express", "Fastify", "PNPM", "JWT", "GraphQL"
 
 ## 🔗 Complementaridade com Outros Agentes

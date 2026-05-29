@@ -21,7 +21,7 @@ Um novo sistema de autenticação usando OAuth2 com Google e GitHub precisa ser 
 
 #### **Passo 1: Criação da Task**
 ```bash
-/product/task "Implementar sistema de autenticação OAuth2 com Google e GitHub"
+/product-task "Implementar sistema de autenticação OAuth2 com Google e GitHub"
 ```
 
 **Interação do Sistema**:
@@ -82,7 +82,7 @@ Sistema de autenticação para aplicação web React com:
 
 #### **Passo 2: Início do Desenvolvimento**
 ```bash
-/engineer/start
+/engineer-start
 ```
 
 **Interação do Sistema**:
@@ -130,7 +130,7 @@ Qual task ClickUp deseja trabalhar? (ex: AUTH-789, PROJ-123)
 
 #### **Passo 3: Desenvolvimento Iterativo**
 ```bash
-/engineer/work .cursor/sessions/auth-oauth2/
+/engineer-work .cursor/sessions/auth-oauth2/
 ```
 
 **Primeira Iteração**:
@@ -189,7 +189,7 @@ Continuar? (s/n)
 
 #### **Passo 4: Finalização e PR**
 ```bash
-/engineer/pr
+/engineer-pr
 ```
 
 **Resultado**:
@@ -237,7 +237,7 @@ Usuários relatam que após fazer login, o dashboard fica em branco e não carre
 
 #### **Passo 1: Reportar Bug**
 ```bash
-/product/collect "Dashboard não carrega dados após login - usuários veem tela branca"
+/product-collect "Dashboard não carrega dados após login - usuários veem tela branca"
 ```
 
 **Resultado**:
@@ -297,7 +297,7 @@ Por favor, forneça essas informações.
 
 #### **Passo 2: Investigação Rápida**
 ```bash
-/engineer/start
+/engineer-start
 ```
 
 **Input**: `BUG-445`
@@ -333,7 +333,7 @@ Por favor, forneça essas informações.
 
 #### **Passo 3: Fix Rápido**
 ```bash
-/engineer/work .cursor/sessions/bug-dashboard-data/
+/engineer-work .cursor/sessions/bug-dashboard-data/
 ```
 
 **Investigação**:
@@ -368,7 +368,7 @@ const items = response.items || [];
 
 #### **Passo 4: Deploy Urgente**
 ```bash
-/engineer/pr
+/engineer-pr
 ```
 
 **Resultado**:
@@ -407,7 +407,7 @@ Estimated Resolution Time: 2 hours"
 Um novo microserviço de notificações foi desenvolvido e precisa de documentação completa.
 
 ```bash
-/docs/build-tech-docs
+/docs-build-tech-docs
 ```
 
 **Resultado**:
@@ -443,7 +443,7 @@ Um novo microserviço de notificações foi desenvolvido e precisa de documenta�
 O sistema atual usa cache em memória e precisa migrar para Redis distribuído.
 
 ```bash
-/product/task "Refatoração: Migrar sistema de cache de memória para Redis distribuído"
+/product-task "Refatoração: Migrar sistema de cache de memória para Redis distribuído"
 ```
 
 **Resultado**:
@@ -479,7 +479,7 @@ O sistema atual usa cache em memória e precisa migrar para Redis distribuído.
 Sistema de pagamento está rejeitando todos os cartões válidos em produção.
 
 ```bash
-/product/collect "CRÍTICO: Sistema de pagamento rejeitando todos os cartões em produção"
+/product-collect "CRÍTICO: Sistema de pagamento rejeitando todos os cartões em produção"
 ```
 
 **Resultado Imediato**:
@@ -503,11 +503,11 @@ Sistema de pagamento está rejeitando todos os cartões válidos em produção.
 - PagerDuty: On-call engineer
 - Email: Tech leads + Product owner
 
-🚀 **Próximo passo**: /engineer/start URGENT-999
+🚀 **Próximo passo**: /engineer-start URGENT-999
 ```
 
 ```bash
-/engineer/start
+/engineer-start
 ```
 
 **Input**: `URGENT-999`
@@ -554,13 +554,13 @@ npx chrome-devtools-mcp@latest --version
 
 #### **Passo 1: Configurar Sessão de Teste**
 ```bash
-/engineer/start
+/engineer-start
 # → Input: E2E-CHECKOUT-789
 ```
 
 #### **Passo 2: Implementar Automação Browser**
 ```bash
-/engineer/work "implementar teste automatizado checkout"
+/engineer-work "implementar teste automatizado checkout"
 ```
 
 **Script de Automação Gerado**:
@@ -708,7 +708,7 @@ npx chrome-devtools-mcp@latest --channel beta
 
 ### **Multi-Agente Coordination**
 ```bash
-/engineer/work "implementar sistema de chat em tempo real"
+/engineer-work "implementar sistema de chat em tempo real"
 ```
 
 **Resultado**:
@@ -731,7 +731,7 @@ npx chrome-devtools-mcp@latest --channel beta
 
 ### **Detecção de Conflitos**
 ```bash
-/engineer/work "modificar sistema de autenticação"
+/engineer-work "modificar sistema de autenticação"
 ```
 
 **Alerta**:

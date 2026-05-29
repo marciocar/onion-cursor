@@ -1,6 +1,7 @@
 ---
-name: build-compliance-docs
+name: docs-build-compliance-docs
 description: Caminho para checklist de DD
+disable-model-invocation: true
 paths:
   - docs/**
 ---
@@ -16,16 +17,16 @@ Gerar arquitetura completa de docs de compliance multi-framework.
 
 ```bash
 # Modo 1: Seletivo
-/docs/build-compliance-docs frameworks="iso27001,soc2"
+/docs-build-compliance-docs frameworks="iso27001,soc2"
 
 # Modo 2: Due Diligence
-/docs/build-compliance-docs due_diligence="path/to/checklist.md"
+/docs-build-compliance-docs due_diligence="path/to/checklist.md"
 
 # Modo 3: Auto (analisa projeto)
-/docs/build-compliance-docs
+/docs-build-compliance-docs
 
 # Modo 4: Completo
-/docs/build-compliance-docs frameworks="all"
+/docs-build-compliance-docs frameworks="all"
 ```
 
 ## ⚡ Fluxo de Execução

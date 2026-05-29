@@ -1,6 +1,7 @@
 ---
-name: create-skill
+name: meta-create-skill
 description: claude (default, .cursor/skills/) | cross (.agents/skills/)
+disable-model-invocation: true
 ---
 # 🧩 Agent Skills — Criar / Validar / Otimizar / Migrar
 
@@ -206,8 +207,8 @@ Resuma as mudanças em 2-3 bullets e liste riscos.
 
 🚀 PRÓXIMOS PASSOS:
    ∟ Testar: /{{skill_name}} ou pergunta que bate com description
-   ∟ Otimizar trigger: /meta/create-skill optimize {{skill_name}}
-   ∟ Avaliar qualidade: /meta/create-skill eval {{skill_name}}
+   ∟ Otimizar trigger: /meta-create-skill optimize {{skill_name}}
+   ∟ Avaliar qualidade: /meta-create-skill eval {{skill_name}}
    ∟ Distribuir cross-client: copiar para .agents/skills/
 
 ━━━━━━━━━━━━━━
@@ -219,22 +220,22 @@ Resuma as mudanças em 2-3 bullets e liste riscos.
 
 ```bash
 # Criar skill no Claude Code (default)
-/meta/create-skill "processar faturas no formato TISS"
+/meta-create-skill "processar faturas no formato TISS"
 
 # Criar cross-client (também em .agents/skills/)
-/meta/create-skill create tiss-processor --scope cross
+/meta-create-skill create tiss-processor --scope cross
 
 # Validar skill existente
-/meta/create-skill validate .cursor/skills/pdf-processing/
+/meta-create-skill validate .cursor/skills/pdf-processing/
 
 # Otimizar description (trigger accuracy)
-/meta/create-skill optimize pdf-processing
+/meta-create-skill optimize pdf-processing
 
 # Migrar comando legacy para skill
-/meta/create-skill migrate .cursor/commands/deploy.md
+/meta-create-skill migrate .cursor/commands/deploy.md
 
 # Configurar evals de qualidade
-/meta/create-skill eval csv-analyzer
+/meta-create-skill eval csv-analyzer
 ```
 
 ---
@@ -245,8 +246,8 @@ Resuma as mudanças em 2-3 bullets e liste riscos.
 - **KB**: `docs/knowledge-base/tools/agent-skills.md`
 - **Docs oficiais**: https://code.cursor.com/docs/en/skills (Claude Code) | https://agentskills.io/specification (spec aberta)
 - **Exemplos reais**: https://github.com/anthropics/skills
-- **Relacionado**: `/meta/create-command` (commands legacy `.cursor/commands/`)
-- **Relacionado**: `/meta/create-agent` (subagents `.cursor/agents/`)
+- **Relacionado**: `/meta-create-command` (commands legacy `.cursor/commands/`)
+- **Relacionado**: `/meta-create-agent` (subagents `.cursor/agents/`)
 
 ## ⚠️ Notas
 

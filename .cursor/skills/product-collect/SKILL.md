@@ -1,6 +1,7 @@
 ---
-name: collect
+name: product-collect
 description: Coletar novas ideias de features ou bugs para o projeto.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**

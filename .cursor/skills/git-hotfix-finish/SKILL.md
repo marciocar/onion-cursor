@@ -1,6 +1,7 @@
 ---
-name: finish
+name: git-hotfix-finish
 description: Finalizar hotfix com merge para main e develop, tag e deploy.
+disable-model-invocation: true
 ---
 # ✅ Git Flow - Finalizar Hotfix
 
@@ -32,8 +33,8 @@ Finalizar correção emergencial realizando deploy para produção com merge em 
 ## 🚀 Como Usar
 
 ```bash
-/git/hotfix/finish                        # Auto-detecta hotfix atual
-/git/hotfix/finish fix-payment-gateway    # Finaliza hotfix específica  
+/git-hotfix-finish                        # Auto-detecta hotfix atual
+/git-hotfix-finish fix-payment-gateway    # Finaliza hotfix específica  
 ```
 
 **Pré-requisitos**: Em hotfix branch ou especificar nome da correção

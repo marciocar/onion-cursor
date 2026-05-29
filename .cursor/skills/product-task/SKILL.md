@@ -1,6 +1,7 @@
 ---
-name: task
+name: product-task
 description: Nome do projeto/lista (opcional)
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**
@@ -35,7 +36,7 @@ Antes de criar tasks, verificar configuração:
 1. ✅ **LER `.env` usando `read_file .env`** (OBRIGATÓRIO)
 2. Extrair `TASK_MANAGER_PROVIDER` do conteúdo lido
 3. Se não configurado ou "none":
-   - Avisar: "⚠️ Nenhum gerenciador configurado. Execute /meta/setup-integration"
+   - Avisar: "⚠️ Nenhum gerenciador configurado. Execute /meta-setup-integration"
    - Continuar com estrutura local (sem sincronização)
 4. Se configurado:
    - Usar adapter correspondente de `.cursor/utils/task-manager/adapters/`
@@ -83,7 +84,7 @@ Estabelecer base sólida para desenvolvimento com decomposição Task → Subtas
      
    SE TASK_MANAGER_PROVIDER extraído = 'none' ou não encontrado:
      ⚠️ Modo offline - tasks não serão sincronizadas
-     💡 Avisar: Execute /meta/setup-integration para configurar
+     💡 Avisar: Execute /meta-setup-integration para configurar
    ```
 
 3. **Resolver projeto/lista (se `project_name` fornecido):**
@@ -368,7 +369,7 @@ Criar documento local: .cursor/sessions/tasks/{parent-id}/subtasks/{subtask-id}.
 **Preparar comentário formatado:**
 ```markdown
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚀 TASK CRIADA VIA /product/task
+🚀 TASK CRIADA VIA /product-task
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 📊 COMPLEXIDADE: ${complexity}
@@ -483,7 +484,7 @@ Se a descrição da task indica trabalho que deve ser executado imediatamente (e
 💡 RECOMENDAÇÕES:
 ${recommendations}
 
-🚀 Próximo: /engineer/start [feature-slug]
+🚀 Próximo: /engineer-start [feature-slug]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -508,7 +509,7 @@ ${recommendations}
 
 ### Decomposição e Estimativas
 - **Decomposição:** @task-specialist
-- **Estimativas:** @story-points-framework-specialist, /product/estimate
+- **Estimativas:** @story-points-framework-specialist, /product-estimate
 - **Framework:** `docs/knowledge-base/frameworks/framework-story-points.md`
 
 ### Padrões de Formatação

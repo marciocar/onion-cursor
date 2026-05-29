@@ -186,7 +186,7 @@ login social para simplificar o acesso.
 
 #### 1. DRAFT (Rascunho)
 ```bash
-/product/spec "Nova funcionalidade X"
+/product-spec "Nova funcionalidade X"
 ```
 - Autor cria spec inicial
 - Estrutura básica preenchida
@@ -194,7 +194,7 @@ login social para simplificar o acesso.
 
 #### 2. REVIEW (Revisão)
 ```bash
-/product/refine spec-x.md
+/product-refine spec-x.md
 ```
 - Pares revisam especificação
 - Identificam gaps e ambiguidades
@@ -202,7 +202,7 @@ login social para simplificar o acesso.
 
 #### 3. APPROVED (Aprovado)
 ```bash
-/product/check spec-x.md
+/product-check spec-x.md
 ```
 - Gate-keeper valida conformidade
 - Spec está pronta para implementação
@@ -210,7 +210,7 @@ login social para simplificar o acesso.
 
 #### 4. IMPLEMENTED (Implementado)
 ```bash
-/engineer/start spec-x
+/engineer-start spec-x
 ```
 - IA gera código baseado na spec
 - Testes validam critérios de aceitação
@@ -356,31 +356,31 @@ docs/
 
 | Comando | Interação com Specs |
 |---------|---------------------|
-| `/product/task` | Cria task spec |
-| `/product/spec` | Cria feature spec |
-| `/engineer/start` | Lê spec e prepara contexto |
-| `/engineer/work` | Implementa baseado em spec |
+| `/product-task` | Cria task spec |
+| `/product-spec` | Cria feature spec |
+| `/engineer-start` | Lê spec e prepara contexto |
+| `/engineer-work` | Implementa baseado em spec |
 | `@metaspec-gate-keeper` | Valida conformidade |
 
 ### Fluxo Completo
 
 ```
-1. /product/task "Nova feature"
+1. /product-task "Nova feature"
    → Cria context.md com spec inicial
 
-2. /product/refine
+2. /product-refine
    → Refina spec com detalhes
 
 3. @metaspec-gate-keeper
    → Valida conformidade com meta-specs
 
-4. /engineer/start
+4. /engineer-start
    → Prepara ambiente baseado na spec
 
-5. /engineer/work
+5. /engineer-work
    → Implementa seguindo spec
 
-6. /engineer/pr
+6. /engineer-pr
    → Valida critérios de aceitação
 ```
 

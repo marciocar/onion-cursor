@@ -1,6 +1,7 @@
 ---
-name: sync-sessions
+name: docs-sync-sessions
 description: Sincronizar e organizar sessões de trabalho do Sistema Onion.
+disable-model-invocation: true
 paths:
   - docs/**
 ---
@@ -36,16 +37,16 @@ Este comando analisa o trabalho realizado na sessão atual, organiza a documenta
 
 ```bash
 # Sincronizar sessão atual
-/docs/sync-sessions
+/docs-sync-sessions
 
 # Sincronizar com nome customizado
-/docs/sync-sessions "implementacao-feature-x"
+/docs-sync-sessions "implementacao-feature-x"
 
 # Sincronizar e arquivar sessão
-/docs/sync-sessions --archive
+/docs-sync-sessions --archive
 
 # Apenas validar sem sincronizar
-/docs/sync-sessions --validate-only
+/docs-sync-sessions --validate-only
 ```
 
 ## 📋 Processo Executado
@@ -151,7 +152,7 @@ Este comando analisa o trabalho realizado na sessão atual, organiza a documenta
   - [Linhas afetadas]
 
 ## Comandos Executados
-1. `/docs/build-tech-docs` - [Resultado]
+1. `/docs-build-tech-docs` - [Resultado]
 2. `/git/create-branch` - [Branch criada]
 
 ## Testes Adicionados
@@ -179,13 +180,13 @@ Este comando convoca automaticamente:
 ### Exemplos Avançados
 ```bash
 # Sincronizar e arquivar sessão antiga
-/docs/sync-sessions "refactoring-api" --archive
+/docs-sync-sessions "refactoring-api" --archive
 
 # Validar integridade sem modificar
-/docs/sync-sessions --validate-only
+/docs-sync-sessions --validate-only
 
 # Sincronização forçada com relatório detalhado
-/docs/sync-sessions --force --detailed
+/docs-sync-sessions --force --detailed
 ```
 
 ## 📊 Métricas Capturadas
@@ -260,34 +261,34 @@ O comando valida:
 ### Caso 1: Fim de Sessão de Desenvolvimento
 ```bash
 # Ao terminar trabalho do dia
-/docs/sync-sessions "refactoring-contracts-module"
+/docs-sync-sessions "refactoring-contracts-module"
 ```
 
 ### Caso 2: Antes de Trocar de Branch
 ```bash
 # Preservar contexto antes de mudar de tarefa
-/docs/sync-sessions --detailed
+/docs-sync-sessions --detailed
 git checkout other-branch
 ```
 
 ### Caso 3: Auditoria de Trabalho Realizado
 ```bash
 # Gerar relatório completo da sessão
-/docs/sync-sessions --validate-only --detailed
+/docs-sync-sessions --validate-only --detailed
 ```
 
 ### Caso 4: Arquivar Trabalho Concluído
 ```bash
 # Mover sessão para archived após merge
-/docs/sync-sessions "feature-x-completed" --archive
+/docs-sync-sessions "feature-x-completed" --archive
 ```
 
 ## 🔗 Comandos Relacionados
 
-- `/docs/build-index` - Reconstrói índice de documentação
-- `/docs/docs-health` - Verifica saúde da documentação
-- `/docs/validate-docs` - Valida completude
-- `/git/help` - Ajuda com Git workflows
+- `/docs-build-index` - Reconstrói índice de documentação
+- `/docs-docs-health` - Verifica saúde da documentação
+- `/docs-validate-docs` - Valida completude
+- `/git-help` - Ajuda com Git workflows
 
 ## 📝 Notas Importantes
 

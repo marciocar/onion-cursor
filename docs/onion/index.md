@@ -9,7 +9,7 @@ Bem-vindo ao índice da documentação do **Sistema Onion**. Este documento orga
 ## 🎯 Visão Geral
 
 O **Sistema Onion** é um framework de comandos `.cursor/` para uso interno com:
-- 🤖 **94 comandos** Claude Code em 11 categorias
+- 🤖 **83 skills** Claude Code em 11 categorias
 - 🎯 **49 agentes de IA especializados** em 9 categorias
 - 🧩 **1 skill** em `.cursor/skills/` (`onion` — ativação automática)
 - 📚 **Knowledge Bases estruturadas** para consumo por IA
@@ -22,7 +22,7 @@ O **Sistema Onion** é um framework de comandos `.cursor/` para uso interno com:
 ## 📊 Estatísticas
 
 - **26 arquivos** em `docs/onion/`
-- **94 comandos** Claude Code em `.cursor/commands/`
+- **83 skills** Claude Code em `.cursor/commands/`
 - **49 agentes** IA em `.cursor/agents/`
 - **1 skill** em `.cursor/skills/`
 
@@ -35,7 +35,7 @@ O **Sistema Onion** é um framework de comandos `.cursor/` para uso interno com:
 **Comece aqui se você é novo no Sistema Onion:**
 
 1. **[Guia de Comandos](commands-guide.md)** - Documentação dos comandos disponíveis
-   - 94 comandos em 11 categorias
+   - 83 skills em 11 categorias
    - Exemplos de uso e workflows
    - Integrações com Task Managers
 
@@ -264,8 +264,8 @@ O **Sistema Onion** é um framework de comandos `.cursor/` para uso interno com:
 
 | Data | Mudança |
 |------|---------|
-| 2026-05-15 | Auditoria manual: 94 comandos / 49 agentes / 1 skill `onion`; agente @onion corrigido (agentes fantasmas removidos, 18 novos adicionados) |
-| 2026-05-15 | Índice revisado: estatísticas reais (91→94 comandos / 49 agentes / 26 arquivos), refs quebradas removidas |
+| 2026-05-15 | Auditoria manual: 83 skills / 49 agentes / 1 skill `onion`; agente @onion corrigido (agentes fantasmas removidos, 18 novos adicionados) |
+| 2026-05-15 | Índice revisado: estatísticas reais (91→83 skills / 49 agentes / 26 arquivos), refs quebradas removidas |
 | 2025-12-20 | Índice reconstruído |
 | 2025-12-02 | Adicionado Spec-Driven Development |
 

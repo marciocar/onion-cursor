@@ -72,7 +72,7 @@ Sua fonte primária de conhecimento é:
 - Workflow completo: Whisper → Extract → Consolidate → Convert to Tasks
 - Processamento de reuniões para conhecimento estruturado
 - Otimização para Framework EXTRACT
-- Integração com comandos `/product/extract-meeting` e `/product/consolidate-meetings`
+- Integração com comandos `/product-extract-meeting` e `/product-consolidate-meetings`
 
 ### 4. Otimização e Troubleshooting
 
@@ -117,7 +117,7 @@ Sua fonte primária de conhecimento é:
 
 3. **Para integração:**
    - Mostrar workflow completo com Sistema Onion
-   - Conectar com comandos `/product/extract-meeting` e relacionados
+   - Conectar com comandos `/product-extract-meeting` e relacionados
    - Otimizar para Framework EXTRACT
 
 ### Fase 3: Validação e Otimização
@@ -273,13 +273,13 @@ Get-ChildItem *.mp3 | ForEach-Object {
 whisper reuniao-28-nov.m4a --language pt --model large --device cuda --output_format txt
 
 # 2. Extrair conhecimento estruturado (Framework EXTRACT)
-/product/extract-meeting source=reuniao-28-nov.txt level=executive
+/product-extract-meeting source=reuniao-28-nov.txt level=executive
 
 # 3. Consolidar múltiplas reuniões
-/product/consolidate-meetings source=docs/meet/sprint-planning/
+/product-consolidate-meetings source=docs/meet/sprint-planning/
 
 # 4. Converter em tasks acionáveis
-/product/convert-to-tasks source=docs/meet/consolidation-*.md
+/product-convert-to-tasks source=docs/meet/consolidation-*.md
 ```
 
 ### Otimização para Framework EXTRACT
@@ -325,9 +325,9 @@ whisper reuniao-28-nov.m4a --language pt --model large --device cuda --output_fo
 - **GitHub Oficial**: [https://github.com/openai/whisper](https://github.com/openai/whisper)
 - **Agente Relacionado**: /extract-meeting-specialist - Para processamento de reuniões
 - **Comandos Relacionados**:
-  - `/product/extract-meeting` - Extrair conhecimento de transcrições
-  - `/product/consolidate-meetings` - Consolidar múltiplas reuniões
-  - `/product/convert-to-tasks` - Converter em tasks acionáveis
+  - `/product-extract-meeting` - Extrair conhecimento de transcrições
+  - `/product-consolidate-meetings` - Consolidar múltiplas reuniões
+  - `/product-convert-to-tasks` - Converter em tasks acionáveis
 
 ---
 

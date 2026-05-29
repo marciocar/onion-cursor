@@ -17,7 +17,7 @@ O **Task Manager Abstraction** é uma camada de abstração que permite ao Siste
 
 ### Problema Resolvido
 
-Antes da abstração, comandos como `/product/task` e `/engineer/start` tinham chamadas diretas ao ClickUp MCP, criando:
+Antes da abstração, comandos como `/product-task` e `/engineer-start` tinham chamadas diretas ao ClickUp MCP, criando:
 - **Acoplamento forte** a um provedor específico
 - **Impossibilidade de trocar** de gerenciador sem refatoração
 - **Código duplicado** em múltiplos comandos
@@ -37,7 +37,7 @@ Uma camada de abstração baseada no **Adapter Pattern** que:
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    COMANDOS ONION                           │
-│  /product/task  │  /engineer/start  │  /engineer/work       │
+│  /product-task  │  /engineer-start  │  /engineer-work       │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
@@ -192,7 +192,7 @@ const taskManager = getTaskManager();
 // 2. Verificar se está configurado
 if (!taskManager.isConfigured) {
   console.warn('⚠️ Nenhum gerenciador configurado');
-  console.warn('💡 Execute /meta/setup-integration');
+  console.warn('💡 Execute /meta-setup-integration');
   return; // Modo offline
 }
 
@@ -340,7 +340,7 @@ Provedor configurado: clickup
 - Interface: `.cursor/utils/task-manager/interface.md`
 - Factory: `.cursor/utils/task-manager/factory.md`
 - Adapters: `.cursor/utils/task-manager/adapters/`
-- Comando de setup: `/meta/setup-integration`
+- Comando de setup: `/meta-setup-integration`
 
 ---
 

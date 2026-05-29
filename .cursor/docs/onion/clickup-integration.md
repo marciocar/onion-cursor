@@ -538,7 +538,7 @@ await mcp_clickup_create_task_comment({
 updatePlanMd(currentPhase, "completed");
 ```
 
-### Pattern 3: Pull Request (`/engineer/pr`)
+### Pattern 3: Pull Request (`/engineer-pr`)
 
 ```javascript
 // 1. Atualizar status

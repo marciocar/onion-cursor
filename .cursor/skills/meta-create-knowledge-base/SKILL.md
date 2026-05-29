@@ -1,6 +1,7 @@
 ---
-name: create-knowledge-base
+name: meta-create-knowledge-base
 description: Categoria (concepts | frameworks | tools | platforms | providers)
+disable-model-invocation: true
 ---
 # 📚 Gerador de Knowledge Base
 

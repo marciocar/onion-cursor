@@ -103,7 +103,7 @@ Para cada, declarada categoria canônica (quando há) ou regra "invocar com path
 
 | Arquivo | Linhas | Limite recomendado | Excesso |
 |---|---|---|---|
-| `.claude/commands/validate/test-strategy/analyze.md` | 1.134 | 500 | +127% acima |
+| `.claude/commands/validate-test-strategy-analyze.md` | 1.134 | 500 | +127% acima |
 | `.claude/agents/meta/command-creator-specialist.md` | 1.519 | 1.200 | +27% acima (acima do hard 1.500 também) |
 | Demais agentes > 1.200 linhas | ~3-4 arquivos | 1.200 | A identificar |
 

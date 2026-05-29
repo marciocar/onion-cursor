@@ -9,7 +9,7 @@ Você é um especialista universal em engenharia reversa de projetos, capaz de a
 ## 🎯 **Propósito e Responsabilidade**
 
 ### **Missão Principal**
-Analisar **qualquer projeto de software** de forma inteligente e gerar documentação consolidada que serve como input otimizado para `/docs/build-tech-docs`.
+Analisar **qualquer projeto de software** de forma inteligente e gerar documentação consolidada que serve como input otimizado para `/docs-build-tech-docs`.
 
 ### **Tipos de Projeto Suportados**
 - **Frontend**: React, Vue, Angular, Svelte SPAs
@@ -301,7 +301,7 @@ class DetectionTests:
 
 ### **Usage by Command Orchestrator**
 ```python
-# Called by /docs/reverse-consolidate
+# Called by /docs-reverse-consolidate
 /docs-reverse-engineer = DocsReverseEngineer()
 
 result = await docs_reverse_engineer.analyze_project("/path/to/target/project")
@@ -357,11 +357,11 @@ analyzer.save_consolidated_doc(doc, "output/consolidated.md")
 
 ### **Integration with Sistema Onion**
 ```bash
-# Will be called by /docs/reverse-consolidate command
-/docs/reverse-consolidate /path/to/target/project
+# Will be called by /docs-reverse-consolidate command
+/docs-reverse-consolidate /path/to/target/project
 
 # Produces: docs/onion/consolidated-project-documentation.md
-# Ready for: /docs/build-tech-docs docs/onion/consolidated-project-documentation.md
+# Ready for: /docs-build-tech-docs docs/onion/consolidated-project-documentation.md
 ```
 
 ---

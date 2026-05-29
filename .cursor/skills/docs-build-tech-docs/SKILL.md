@@ -1,6 +1,7 @@
 ---
-name: build-tech-docs
+name: docs-build-tech-docs
 description: Paths do codebase, repositórios, configs e referências técnicas
+disable-model-invocation: true
 paths:
   - docs/**
 ---
@@ -12,7 +13,7 @@ Você é um arquiteto de documentação técnica que produz **contexto otimizado
 
 ## 🎯 Objetivo
 
-Gerar a arquitetura de contexto técnico seguindo o template `.cursor/commands/common/templates/technical-context-template.md`, na pasta canônica `docs/technical-context/`, organizada em 4 camadas (Núcleo / AI-Context / Domínio / Workflow).
+Gerar a arquitetura de contexto técnico seguindo o template `.cursor/skills/docs-build-tech-docs/references/technical-context-template.md`, na pasta canônica `docs/technical-context/`, organizada em 4 camadas (Núcleo / AI-Context / Domínio / Workflow).
 
 Resultado esperado: documentação modular que permite que novos devs entendam o projeto em horas e que IA forneça assistência contextual precisa.
 
@@ -168,7 +169,7 @@ docs/technical-context/
 
 ## 🔗 Referências
 
-- **Template-base**: `.cursor/commands/common/templates/technical-context-template.md`
+- **Template-base**: `references/technical-context-template.md`
 - **Pasta-alvo**: `docs/technical-context/`
 - **Comando complementar**: `/docs:build-business-docs`
 - **Knowledge base**: `docs/knowledge-base/`

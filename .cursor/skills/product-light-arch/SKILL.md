@@ -1,6 +1,7 @@
 ---
-name: light-arch
+name: product-light-arch
 description: Design de arquitetura leve para features.
+disable-model-invocation: true
 paths:
   - docs/**
   - .cursor/sessions/**

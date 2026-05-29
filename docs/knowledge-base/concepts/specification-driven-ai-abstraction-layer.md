@@ -443,7 +443,7 @@ function validateProviderMatch(taskId, currentProvider): ValidationResult {
 ```markdown
 ## Comando Onion Executa
 
-1. Usuário: `/engineer/start TASK-123`
+1. Usuário: `/engineer-start TASK-123`
 
 2. IA lê factory.md:
    - "Preciso chamar getTaskManager()"
@@ -576,8 +576,8 @@ O [Task Manager Abstraction](task-manager-abstraction.md) é a implementação d
 ## 📚 Recursos Adicionais
 
 ### Internos (Sistema Onion)
-- [Comando /meta/create-abstraction](../../../.cursor/commands/meta/create-abstraction.md) - Gerador automático de SDAAL
-- [Template de Abstração](../../../.cursor/commands/common/templates/abstraction-template.md) - Template base
+- [Comando /meta-create-abstraction](../../../.cursor/commands/meta-create-abstraction.md) - Gerador automático de SDAAL
+- [Template de Abstração](../../../.cursor/skills/meta-create-abstraction/references/abstraction-template.md) - Template base
 
 ### Externos
 - [Adapter Pattern - Refactoring Guru](https://refactoring.guru/design-patterns/adapter)

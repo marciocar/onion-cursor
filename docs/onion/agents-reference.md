@@ -544,7 +544,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 -  Performance optimization (batching, caching, query optimization)
 -  Configurações avançadas (webhooks, custom fields, templates)
 -  Time tracking automation e análise de produtividade
--  Integração com comandos `/engineer/*` para automação
+-  Integração com skills `engineer-*` para automação
 
 **Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `web_search`, **todas as 15+ ferramentas ClickUp MCP**
 
@@ -578,7 +578,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 -  Otimizar settings para workflows específicos
 -  Troubleshoot extension conflicts ou API connectivity
 -  Criar `CLAUDE.md` e `.cursorignore` templates
--  Setup automation para comandos `/engineer/*`
+-  Setup automation para skills `engineer-*`
 
 **Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `list_dir`, `glob_file_search`, `web_search`, `read_lints`, `todo_write`
 
@@ -599,7 +599,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 - 🚀 **Integração automática**: Chamado automaticamente por outros agentes quando há problemas de IDE
 - 🔧 **Criação de artefatos**: `CLAUDE.md`, `.cursorignore`, workspace settings otimizados
 - ⚡ **Performance focus**: Memory optimization, startup time, context caching
-- 🔗 **Delegation automática**: Integração com comandos `/engineer/*` para setup de ambiente
+- 🔗 **Delegation automática**: Integração com skills `engineer-*` para setup de ambiente
 
 ### **gitflow-specialist**
 **Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Light Green
@@ -735,7 +735,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 @react-developer "criar componente de dashboard"
 
 # Full-stack (coordenação automática)
-/engineer/work "sistema completo de notificações"
+/engineer-work "sistema completo de notificações"
 ```
 
 #### **🧪 Testes**
@@ -788,7 +788,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 
 #### **🔴 Tarefa Complexa** (múltiplos agentes paralelos)
 ```bash
-/engineer/work "sistema completo de e-commerce"
+/engineer-work "sistema completo de e-commerce"
 # → Coordenação automática de múltiplos agentes
 ```
 

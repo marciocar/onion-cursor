@@ -1,6 +1,7 @@
 ---
-name: consolidate-documents
+name: docs-consolidate-documents
 description: Caminho onde salvar o documento consolidado (opcional, padrão: docs/consolidated/)
+disable-model-invocation: true
 paths:
   - docs/**
 ---
@@ -249,9 +250,9 @@ O comando deve produzir:
 
 ## 🔗 Referências
 
-- **Comando Relacionado**: /product/consolidate-meetings (consolidação de reuniões)
-- **Comandos de Documentação**: /docs/build-tech-docs, /docs/build-business-docs
-- **Validação**: /docs/validate-docs
+- **Comando Relacionado**: /product-consolidate-meetings (consolidação de reuniões)
+- **Comandos de Documentação**: /docs-build-tech-docs, /docs-build-business-docs
+- **Validação**: /docs-validate-docs
 
 ## ⚠️ Notas Importantes
 
@@ -267,7 +268,7 @@ O comando deve produzir:
 
 ### Quando Usar Este Comando
 
-Use `/docs/consolidate-documents` quando:
+Use `/docs-consolidate-documents` quando:
 
 - Há múltiplos documentos sobre o mesmo tema
 - Necessita identificar padrões entre documentos
@@ -282,25 +283,25 @@ Use `/docs/consolidate-documents` quando:
 
 ```bash
 # Consolidar todos os documentos de uma pasta
-/docs/consolidate-documents "docs/business-context/"
+/docs-consolidate-documents "docs/business-context/"
 
 # Consolidar arquivos específicos
-/docs/consolidate-documents "docs/business-context/01-customer/journey.md docs/business-context/01-customer/personas.md docs/business-context/04-operations/customer-communication.md"
+/docs-consolidate-documents "docs/business-context/01-customer/journey.md docs/business-context/01-customer/personas.md docs/business-context/04-operations/customer-communication.md"
 
 # Foco em divergências
-/docs/consolidate-documents "docs/business-context/" --focus="divergences"
+/docs-consolidate-documents "docs/business-context/" --focus="divergences"
 
 # Foco em insights estratégicos
-/docs/consolidate-documents "docs/gamification/" --focus="insights"
+/docs-consolidate-documents "docs/gamification/" --focus="insights"
 
 # Foco em gaps de informação
-/docs/consolidate-documents "docs/meet/gamification-meetings/" --focus="gaps"
+/docs-consolidate-documents "docs/meet/gamification-meetings/" --focus="gaps"
 
 # Foco em estrutura otimizada
-/docs/consolidate-documents "docs/business-context/" --focus="structure"
+/docs-consolidate-documents "docs/business-context/" --focus="structure"
 
 # Especificar caminho de saída
-/docs/consolidate-documents "docs/business-context/" --output_path="docs/consolidated/business-context/"
+/docs-consolidate-documents "docs/business-context/" --output_path="docs/consolidated/business-context/"
 ```
 
 ### Focos Disponíveis
@@ -382,4 +383,4 @@ Antes de considerar a consolidação completa, verificar:
 
 **Última Atualização**: 2025-12-01  
 **Versão**: 3.0.0  
-**Baseado em**: /product/consolidate-meetings
+**Baseado em**: /product-consolidate-meetings

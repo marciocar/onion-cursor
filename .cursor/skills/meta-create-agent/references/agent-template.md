@@ -269,8 +269,8 @@ related_agents:
   - metaspec-gate-keeper
 
 related_commands:
-  - /engineer/pr
-  - /git/code-review
+  - /engineer-pr
+  - /git-code-review
 
 version: "3.0.0"
 updated: "2025-11-24"
@@ -322,8 +322,8 @@ related_agents:
   - product-agent
 
 related_commands:
-  - /product/task
-  - /product/check
+  - /product-task
+  - /product-check
 
 version: "3.0.0"
 updated: "2025-11-24"

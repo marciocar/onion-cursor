@@ -1,6 +1,7 @@
 ---
-name: refine-vision
+name: docs-refine-vision
 description: Refinar visão e estratégia do produto/projeto.
+disable-model-invocation: true
 paths:
   - docs/**
 ---

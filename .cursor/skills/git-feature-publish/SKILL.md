@@ -1,6 +1,7 @@
 ---
-name: publish
+name: git-feature-publish
 description: Publicar feature branch no remote para colaboração.
+disable-model-invocation: true
 ---
 # 🤝 Git Flow - Publicar Feature
 
@@ -31,8 +32,8 @@ Publicar feature branch para remote repository permitindo colaboração em equip
 ## 🚀 Como Usar
 
 ```bash
-/git/feature/publish                   # Publica branch atual (se feature)
-/git/feature/publish feature-name     # Publica feature específica
+/git-feature-publish                   # Publica branch atual (se feature)
+/git-feature-publish feature-name     # Publica feature específica
 ```
 
 **Pré-requisitos**: Branch deve existir localmente e ser uma feature branch

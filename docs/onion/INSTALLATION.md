@@ -239,7 +239,7 @@ claude .
 claude .
 
 # 3. Testar comandos antigos (via symlinks)
-/engineer/work
+/engineer-work
 
 # 4. Explorar nova estrutura
 /technical/work

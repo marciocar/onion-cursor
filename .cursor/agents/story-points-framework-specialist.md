@@ -371,9 +371,9 @@ Recomendação: Verificar velocity médio e ajustar expectativas.
 - **/task-specialist**: Detalhamento técnico de tarefas
 
 ### Comandos Relacionados
-- `/product/task`: Criar/atualizar tarefas com story points
-- `/product/feature`: Especificar features com estimativas
-- `/product/spec`: Documentar especificações técnicas
+- `/product-task`: Criar/atualizar tarefas com story points
+- `/product-feature`: Especificar features com estimativas
+- `/product-spec`: Documentar especificações técnicas
 
 ### Base de Conhecimento
 - `docs/knowledge-base/frameworks/framework-story-points.md`: Framework completo de story points
