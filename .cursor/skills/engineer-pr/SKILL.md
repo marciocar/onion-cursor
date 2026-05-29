@@ -49,7 +49,7 @@ await commentPRCreated(taskId, {
 ```
 
 **Referências:**
-- **Padrões de formatação**: `.cursor/commands/common/prompts/clickup-patterns.md`
+- **Padrões de formatação**: `.cursor/skills/product-task/references/clickup-patterns.md`
 - **Abstração MCP**: `commentPRCreated()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 632-661) 
 
 5. Abra um Pull Request (PR) com os detalhes da implementação:

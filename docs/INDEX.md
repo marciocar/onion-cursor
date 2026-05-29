@@ -14,7 +14,7 @@ Estado validado no workspace:
 - `49` subagentes em `.cursor/agents/`
 - `83` skills em `.cursor/skills/`
 - `4` rules em `.cursor/rules/`
-- `94` comandos legados em `.cursor/commands/` (compatibilidade/transição)
+- `94` comandos legados em `.cursor/skills/` (compatibilidade/transição)
 - `3` scripts de hook em `.cursor/hooks/` + `.cursor/hooks.json`
 - `1` configuração MCP em `.cursor/mcp.json`
 

@@ -52,7 +52,7 @@ related_agents:               ✅ Agentes relacionados corretos
 
 **Pontos de Atenção:**
 - ⚠️ Passo 6 aparece duplicado (linha 164 e 250) - apenas numeração incorreta
-- ⚠️ Referência a `common/prompts/clickup-patterns.md` (linha 302) - arquivo não verificado
+- ⚠️ Referência a `.cursor/skills/product-task/references/clickup-patterns.md` (linha 302) - arquivo não verificado
 
 **Score:** 75/80 ✅
 
@@ -217,14 +217,14 @@ Nenhum problema crítico identificado.
 ### 🟡 Avisos
 
 1. **Numeração Duplicada no Comando**
-   - **Localização:** `.cursor/commands/product/task.md` linha 164 e 250
+   - **Localização:** `.cursor/skills/product/task.md` linha 164 e 250
    - **Problema:** "Passo 6" aparece duas vezes
    - **Impacto:** Baixo (apenas numeração)
    - **Solução:** Renumerar para "Passo 7: Apresentar Resultado"
 
 2. **Referência a Arquivo Não Verificado**
-   - **Localização:** `.cursor/commands/product/task.md` linha 302
-   - **Problema:** Referência a `common/prompts/clickup-patterns.md`
+   - **Localização:** `.cursor/skills/product/task.md` linha 302
+   - **Problema:** Referência a `.cursor/skills/product-task/references/clickup-patterns.md`
    - **Impacto:** Baixo (referência opcional)
    - **Solução:** Verificar existência ou remover referência
 

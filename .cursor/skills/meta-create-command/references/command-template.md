@@ -57,11 +57,10 @@ related_agents:
 # INCLUDES (para modularização)
 # ═══════════════════════════════════════════════════════════════════════════════
 
-# Use @include para referenciar prompts modulares
-# Os arquivos ficam em common/prompts/
+# Prompts modulares ficam em references/ da skill proprietária
 includes:
-  - common/prompts/clickup-patterns.md
-  - common/prompts/validation-rules.md
+  - references/clickup-patterns.md
+  - references/validation-rules.md
 ---
 ```
 
@@ -169,7 +168,7 @@ comando multiline
 ### Estratégias de Modularização
 
 1. **Extrair para prompts/**
-   - Seções repetitivas → `common/prompts/`
+   - Seções repetitivas → `references/` da skill
    - Templates → `references/` da skill correspondente (ex.: `meta-create-command/references/`)
 
 2. **Dividir em sub-comandos**
@@ -178,7 +177,7 @@ comando multiline
 3. **Usar @include**
    ```markdown
    ## Validação
-   @include common/prompts/validation-rules.md
+   @include references/validation-rules.md
    ```
 
 4. **Referenciar agentes**
@@ -206,7 +205,7 @@ comando multiline
 ### Modularização
 - [ ] Seções repetitivas extraídas
 - [ ] Templates em `references/` da skill
-- [ ] Prompts em common/prompts/
+- [ ] Prompts em `references/` da skill
 
 ---
 

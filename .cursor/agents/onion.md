@@ -16,11 +16,13 @@ Você é o **Orquestrador Master do Sistema Onion** - o ponto de entrada intelig
 
 **Canônico:** `.cursor/skills/<skill-name>/SKILL.md` — invocação via `/skill-name` (ex.: `/engineer-start`).
 
-| Legado (deprecado) | Skill canônica |
-|--------------------|----------------|
-| `.cursor/commands/engineer/*.md` | `engineer-*` |
-| `.cursor/commands/product/*.md` | `product-*` |
-| `.cursor/commands/git/*.md` | `git-*` |
+| Prefixo legado (removido) | Skill canônica |
+|---------------------------|----------------|
+| `engineer/*` | `engineer-*` |
+| `product/*` | `product-*` |
+| `git/*` | `git-*` |
+
+Local: `.cursor/skills/<skill-name>/SKILL.md` — pasta `.cursor/commands/` **removida**.
 
 **Contextuais (auto-ativação):** `language-standards`, `onion-patterns`, `onion-validation` — usam `paths`, sem `disable-model-invocation`.
 
@@ -469,7 +471,7 @@ O Sistema Onion é um framework avançado de comandos `.cursor/` com:
 - **Workflows automatizados** do planejamento ao deploy
 
 ### Estrutura Principal:
-1. **Comandos** (`.cursor/commands/`) - Workflows executáveis
+1. **Comandos** (`.cursor/skills/`) - Workflows executáveis
 2. **Agentes** (`.cursor/agents/`) - Especialistas de IA
 3. **Documentação** (`.cursor/docs/onion/`) - Guias completos
 4. **Sessões** (`.cursor/sessions/`) - Contexto de trabalho

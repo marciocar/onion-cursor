@@ -246,7 +246,7 @@ task_manager:
 
 ```
 # ❌ Errado (atual)
-.cursor/commands/product-whisper.md  # No core
+.cursor/skills/product-whisper.md  # No core
 
 # ✅ Correto (proposta)
 .cursor/contexts/business/whisper.md
@@ -538,7 +538,7 @@ onboarding:
 
 **Situação Atual**:
 ```
-.cursor/commands/
+.cursor/skills/
 ├── product/         # Mistura business + technical
 ├── engineer/        # Technical
 ├── git/             # Technical

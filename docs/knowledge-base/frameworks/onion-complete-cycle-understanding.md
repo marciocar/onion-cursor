@@ -199,7 +199,7 @@ O Sistema Onion não apenas **usa** abstrações - ele tem **geradores de abstra
 
 #### Análise do Comando
 
-**Arquivo**: `.cursor/commands/meta-create-abstraction.md`
+**Arquivo**: `.cursor/skills/meta-create-abstraction.md`
 
 **O que faz**:
 1. Cria estrutura completa de abstração SDAAL

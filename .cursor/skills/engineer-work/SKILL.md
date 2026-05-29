@@ -131,6 +131,6 @@ Toda vez que completar uma fase do plano:
 - Abstração: `.cursor/utils/task-manager/`
 - Detector: `.cursor/utils/task-manager/detector.md`
 - Factory: `.cursor/utils/task-manager/factory.md`
-- Padrões de comentários: `common/prompts/clickup-patterns.md`
+- Padrões de comentários: `.cursor/skills/product-task/references/clickup-patterns.md`
 
 Agora, veja a fase atual de desenvolvimento e forneça um plano ao usuário sobre como abordá-la.

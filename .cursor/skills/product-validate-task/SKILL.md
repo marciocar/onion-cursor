@@ -21,7 +21,7 @@ Você é um especialista em produto e arquitetura encarregado de carregar, anali
 ### **2. Análise de Contexto do Projeto**
 - Revise a documentação atual do projeto (README.md, docs/, meta-specs/)
 - Identifique a arquitetura, stack tecnológico e padrões estabelecidos
-- Analise comandos existentes em `.cursor/commands/` para entender workflows
+- Analise comandos existentes em `.cursor/skills/` para entender workflows
 - Examine agentes especializados em `.cursor/agents/` para recursos disponíveis
 
 ### **3. Avaliação Crítica da Task**

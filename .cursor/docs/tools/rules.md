@@ -78,7 +78,7 @@ function calcularTotal(itens: Item[]): number {
 #### Estrutura de Arquivos
 ```typescript
 structure: {
-  commands: '.cursor/commands/',      // Organizados por categoria
+  commands: '.cursor/skills/',      // Organizados por categoria
   agents: '.cursor/agents/',          // YAML header + Markdown
   sessions: '.cursor/sessions/<feature>/', // Contexto de desenvolvimento
   docs: 'docs/',                      // Documentação geral
@@ -140,7 +140,7 @@ format: 'markdown_description'
 syntax: 'Markdown nativo'
 // USE: ## Headers, | Tabelas |, **Bold**, - Listas
 // QUANDO: create_task, update_task descriptions
-// TEMPLATE: '.cursor/commands/common/prompts/clickup-patterns.md' - seção DESCRIPTIONS
+// TEMPLATE: '.cursor/skills/product-task/references/clickup-patterns.md' - seção DESCRIPTIONS
 ```
 
 **Exemplo:**
@@ -165,7 +165,7 @@ format: 'commentText'
 syntax: 'Unicode visual'
 // USE: ━━━, ∟, ▶, ◆, ✅
 // QUANDO: create_task_comment, progress updates, PR comments
-// TEMPLATE: '.cursor/commands/common/prompts/clickup-patterns.md' - seção COMMENTS
+// TEMPLATE: '.cursor/skills/product-task/references/clickup-patterns.md' - seção COMMENTS
 // OBRIGATÓRIO: Timestamp + status em todos os comments
 ```
 

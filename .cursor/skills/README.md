@@ -1,14 +1,26 @@
-# Cursor Skills - Fase 3
+# Cursor Skills
 
-Este diretório contém skills convertidas dos comandos legados em `.cursor/commands`.
+Diretório canônico de automações do Sistema Onion (Cursor 3.6+).
 
 ## Regra de nomenclatura
 
-- Formato: `<categoria>-<subcategoria>-<comando>` em kebab-case.
-- Para comandos na raiz: usar o nome direto (`onion`, `warm-up`).
-- Para `README.md` de categoria: sufixo `-readme`.
+- Formato: `<categoria>-<subcategoria>-<comando>` em kebab-case achatado.
+- Exemplos: `engineer-start`, `product-task`, `git-feature-start`.
+- Para docs de categoria: sufixo `-readme` (`product-readme`, `git-readme`).
+- Ajuda global: skill `onion` (substitui `/global/help`).
 
-## Índice de skills convertidas
+## Prompts compartilhados (`references/`)
+
+| Arquivo | Skill proprietária |
+|---------|-------------------|
+| `clickup-patterns.md` | `product-task` |
+| `git-workflow-patterns.md` | `git-sync` |
+| `code-review-checklist.md` | `git-code-review` |
+| `validation-rules.md` | `meta-create-command` |
+| `output-formats.md` | `meta-create-command` |
+| `technical.md` | `docs-build-tech-docs` |
+
+## Índice de skills
 
 ### Engineer
 - `engineer-bump`

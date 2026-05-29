@@ -11,7 +11,7 @@ Orquestrador para o `@agent-skills-specialist`. Detecta o modo de operação, co
 
 Guiar a criação e manutenção de **Agent Skills** — formato que estende capacidades do Claude Code (e clientes compatíveis) via pastas com `SKILL.md`. No Sistema Onion, o padrão é `.cursor/skills/` (Claude Code-first).
 
-**Lembrete crítico**: no Claude Code, custom commands e skills foram **mesclados** — `.cursor/commands/X.md` e `.cursor/skills/X/SKILL.md` ambos criam `/X`. Skills é a forma recomendada para workflows novos (suporta supporting files, frontmatter rico, ativação automática).
+**Lembrete crítico**: no Claude Code, custom commands e skills foram **mesclados** — `.cursor/skills/X.md` e `.cursor/skills/X/SKILL.md` ambos criam `/X`. Skills é a forma recomendada para workflows novos (suporta supporting files, frontmatter rico, ativação automática).
 
 ---
 
@@ -26,12 +26,12 @@ Ler `argumentos-do-usuario` e determinar:
 | `create` (default) | **Criar** | Novo skill em `.cursor/skills/<name>/` |
 | `validate` | **Validar** | Checar skill existente (estrutura, frontmatter, lifecycle cost) |
 | `optimize` | **Otimizar** | Melhorar description trigger via eval set |
-| `migrate` | **Migrar** | Converter `.cursor/commands/X.md` em skill |
+| `migrate` | **Migrar** | Converter `.cursor/skills/X.md` em skill |
 | `eval` | **Avaliar** | Configurar test cases de qualidade |
 
 Defaults inteligentes:
 - Sem modo + path para SKILL.md existente → perguntar: validate/optimize/eval?
-- Sem modo + path para .cursor/commands/*.md → sugerir `migrate`
+- Sem modo + path para .cursor/skills/*.md → sugerir `migrate`
 - Sem modo + descrição livre → `create`
 
 ### Passo 2: Coletar Inputs
@@ -58,7 +58,7 @@ Defaults inteligentes:
 3. Output do `/doctor` se description estiver overflow
 
 **Modo `migrate`** — coletar:
-1. Path do comando legacy em `.cursor/commands/`
+1. Path do comando legacy em `.cursor/skills/`
 2. Razões para migrar (precisa scripts? supporting files? ativação automática?)
 3. Manter ou não `disable-model-invocation` (comando explícito → sim; queremos ativação semântica → não)
 
@@ -80,7 +80,7 @@ ls .agents/skills/ 2>/dev/null
 find . -name "SKILL.md" 2>/dev/null | xargs grep -l "^name:\s*<skill_name>\|^description:" 2>/dev/null
 
 # Commands legacy candidatos a migrar
-ls .cursor/commands/ 2>/dev/null
+ls .cursor/skills/ 2>/dev/null
 ```
 
 ### Passo 4: Delegar para @agent-skills-specialist
@@ -232,7 +232,7 @@ Resuma as mudanças em 2-3 bullets e liste riscos.
 /meta-create-skill optimize pdf-processing
 
 # Migrar comando legacy para skill
-/meta-create-skill migrate .cursor/commands/deploy.md
+/meta-create-skill migrate .cursor/skills/deploy.md
 
 # Configurar evals de qualidade
 /meta-create-skill eval csv-analyzer
@@ -246,13 +246,13 @@ Resuma as mudanças em 2-3 bullets e liste riscos.
 - **KB**: `docs/knowledge-base/tools/agent-skills.md`
 - **Docs oficiais**: https://code.cursor.com/docs/en/skills (Claude Code) | https://agentskills.io/specification (spec aberta)
 - **Exemplos reais**: https://github.com/anthropics/skills
-- **Relacionado**: `/meta-create-command` (commands legacy `.cursor/commands/`)
+- **Relacionado**: `/meta-create-command` (commands legacy `.cursor/skills/`)
 - **Relacionado**: `/meta-create-agent` (subagents `.cursor/agents/`)
 
 ## ⚠️ Notas
 
 - **Padrão Onion**: `.cursor/skills/` (Claude Code-nativo). `.agents/skills/` é opcional para distribuir cross-IDE
-- **Commands ⇄ Skills mesclados**: `.cursor/commands/X.md` e `.cursor/skills/X/SKILL.md` ambos criam `/X`
+- **Commands ⇄ Skills mesclados**: `.cursor/skills/X.md` e `.cursor/skills/X/SKILL.md` ambos criam `/X`
 - **Live reload**: Claude Code detecta mudanças em `.cursor/skills/` sem restart (exceto primeira criação da pasta)
 - Skill ativado permanece em contexto pelo resto da sessão — cada linha extra é custo recorrente
 - Skill gerado sem contexto de domínio real tem valor mínimo — sempre extrair de runbooks/schemas/PRs

@@ -22,7 +22,7 @@ tipo: retrospectiva
 Busca por arquivos `.md` em `.claude/commands/` sem delimitador `---`:
 
 - `common/prompts/README.md` — não é comando invocável, é README de pasta de prompts. Não precisa frontmatter.
-- `common/prompts/technical.md` — gerador de documentação técnica usado como template. Aceitável sem frontmatter por ser prompt reutilizável (não comando invocável diretamente).
+- `.cursor/skills/docs-build-tech-docs/references/technical.md` — gerador de documentação técnica usado como template. Aceitável sem frontmatter por ser prompt reutilizável (não comando invocável diretamente).
 
 **Conclusão**: nenhum comando invocável real sem frontmatter após corrigir `runflow-dev.md`. Total de comandos reduziu de 94 para 93 (remoção do symlink quebrado).
 

@@ -513,7 +513,7 @@ ${recommendations}
 - **Framework:** `docs/knowledge-base/frameworks/framework-story-points.md`
 
 ### Padrões de Formatação
-- **ClickUp:** `.cursor/commands/common/prompts/clickup-patterns.md`
+- **ClickUp:** `references/clickup-patterns.md`
 
 ## ⚠️ Notas
 

@@ -69,16 +69,14 @@ read_file .cursor/agents/[categoria]/[agente-similar].md
 
 #### 1.2. Análise de Comandos Existentes
 ```bash
-# Listar comandos disponíveis
-list_dir .cursor/commands/
-list_dir .cursor/commands/meta/
-list_dir .cursor/skills/ | grep product
-list_dir .cursor/skills/ | grep engineer
-list_dir .cursor/commands/compliance/
-list_dir .cursor/commands/docs/
-list_dir .cursor/skills/ | grep git
-list_dir .cursor/commands/admin/
-list_dir .cursor/commands/common/
+# Listar skills disponíveis
+ls .cursor/skills/ | wc -l
+ls .cursor/skills/meta-* 2>/dev/null
+ls .cursor/skills/ | grep product
+ls .cursor/skills/ | grep engineer
+ls .cursor/skills/ | grep docs
+ls .cursor/skills/ | grep git
+ls .cursor/skills/ | grep validate
 ```
 
 **Identificar:**
@@ -1070,7 +1068,7 @@ autonomy: alta
 
 **Documentação de Ferramentas:** `docs/tools.md` (150+ ferramentas)
 **Agentes Existentes:** `.cursor/agents/` (23+ agentes)
-**Comandos Existentes:** `.cursor/commands/` (9+ categorias)
+**Comandos Existentes:** `.cursor/skills/` (9+ categorias)
 **Template de Compliance:** `.cursor/skills/docs-build-compliance-docs/references/compliance-*.md`
 
 **Padrão de Nome:** `[categoria]-[especialidade]-[tipo]`

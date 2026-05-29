@@ -1,17 +1,17 @@
 ---
 title: Meta-spec — Padrões para Skills e Comandos do Sistema Onion
 date: 2026-05-28
-version: 2.0.0
+version: 2.1.0
 level: L0
 status: active
 gate-keeper: "@metaspec-gate-keeper"
 ---
 
-# Meta-spec — Padrões para Skills e Comandos do Sistema Onion
+# Meta-spec — Padrões para Skills do Sistema Onion
 
 ## Propósito
 
-Definir o padrão canônico de automações do Onion em Cursor 3.6+, com skills como mecanismo primário e comandos legados como camada de compatibilidade.
+Definir o padrão canônico de automações do Onion em Cursor 3.6+, com **skills** como único mecanismo de workflows invocáveis.
 
 ---
 
@@ -30,14 +30,15 @@ description: <o que faz e quando usar>
 ---
 ```
 
-### 1.2 Comandos (legado residual)
+Opcional por skill:
+- `references/` — templates, prompts e docs de apoio
+- `scripts/` — automações executáveis
+- `disable-model-invocation: true` — workflows explícitos (slash only)
+- `paths` — ativação contextual
 
-Local: `.cursor/commands/` — apenas:
-- `common/prompts/` — prompts compartilhados entre skills
-- Comandos **sem** skill equivalente (ex.: `development/runflow-dev.md`, `global/help.md`)
-- READMEs de categoria (`git/README.md`, `product/README.md`)
+### 1.2 Subagentes (complementar)
 
-Uso: compatibilidade pontual. **Novas automações devem ser skills.**
+Local: `.cursor/agents/<agent-name>.md` — delegação especializada (`@jira-specialist`, etc.)
 
 ### 1.3 Classificação `disable-model-invocation`
 
@@ -45,8 +46,6 @@ Uso: compatibilidade pontual. **Novas automações devem ser skills.**
 |------|-------------------|------|
 | Workflow explícito | `engineer-*`, `product-*`, `git-*`, `test-*`, `validate-*`, `docs-*`, `meta-*`, `onion`, `warm-up` | `true` |
 | Contextual | `language-standards`, `onion-patterns`, `onion-validation` | omitir; usar `paths` |
-
-Workloads explícitos não devem ser auto-invocados pelo modelo — apenas via `/skill-name`.
 
 ---
 
@@ -63,27 +62,30 @@ Cada fase deve manter input, output e persistência de estado em `.cursor/sessio
 
 ## 3. Naming e organização
 
-- Skills em kebab-case
+- Skills em kebab-case achatado (`engineer-start`, não `engineer/start`)
 - Nome da pasta deve casar com `name`
-- Comandos legados mantêm a estrutura por categoria para rastreabilidade
+- Prompts compartilhados em `references/` da skill proprietária
 
 ---
 
 ## 4. Limites de tamanho
 
 - Skill: recomendado até 500 linhas; hard limit 800
-- Comando legado: manter estável e migrar para skill quando houver refactor funcional
+- Conteúdo extenso → mover para `references/`
 
 ---
 
 ## 5. Proibições explícitas
 
-- Proibido criar automação nova apenas em `.cursor/commands/`
-- Proibido usar placeholders legados não suportados como base canônica
+- Proibido recriar `.cursor/commands/` para novas automações
 - Proibido quebrar os workflows invariantes
+- Proibido duplicar skill + command para o mesmo workflow
 
 ---
 
 ## 6. Legado
 
-A base histórica em `.cursor/commands/` foi substituída operacionalmente por `.cursor/skills/` e `.cursor/commands/`. Referências ao modelo antigo devem ser tratadas como documentação de migração.
+A pasta `.cursor/commands/` foi **removida** (2026-05-29). Conteúdo migrado para:
+- Skills em `.cursor/skills/<name>/SKILL.md`
+- Prompts em `references/` das skills consumidoras
+- Ajuda global absorvida em `/onion`

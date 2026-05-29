@@ -16,7 +16,7 @@
 ### **Checklist Completo:**
 
 - [ ] **1. Criar Arquivo do Comando**
-  - Criar arquivo `.md` em `.cursor/commands/[categoria]/`
+  - Criar arquivo `.md` em `.cursor/skills/[categoria]/`
   - Usar nomenclatura kebab-case
   - Seguir template padrão de comando
 
@@ -238,13 +238,13 @@
 
 ```bash
 # Contar comandos
-find .cursor/commands -name "*.md" -type f ! -name "README.md" | wc -l
+find .cursor/skills -name "SKILL.md" | wc -l
 
 # Contar agentes
 find .cursor/agents -name "*.md" -type f ! -name "README.md" | wc -l
 
 # Buscar nomenclatura antiga
-grep -r "task-slug\|task_slug\|feature_slug" .cursor/commands/
+grep -r "task-slug\|task_slug\|feature_slug" .cursor/skills/
 grep -r "task-slug\|task_slug\|feature_slug" .cursor/docs/onion/
 
 # Listar arquivos de documentação
@@ -307,7 +307,7 @@ ls -la .cursor/docs/onion/*.md
 **Solução:**
 ```bash
 # Recontar comandos
-find .cursor/commands -name "*.md" -type f ! -name "README.md" | wc -l
+find .cursor/skills -name "SKILL.md" | wc -l
 
 # Recontar agentes
 find .cursor/agents -name "*.md" -type f ! -name "README.md" | wc -l

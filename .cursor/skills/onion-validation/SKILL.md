@@ -9,69 +9,46 @@ description: >
 paths: [".cursor/**"]
 ---
 
-## Validação de Comandos
+## Validação de Skills (canônico)
 
-### Campos YAML obrigatórios
-| Campo | Tipo | Constraint |
-|-------|------|------------|
-| `name` | string | kebab-case, único |
-| `description` | string | 1-2 linhas claras |
-| `model` | string | `sonnet` \| `opus` \| `haiku` |
-| `category` | string | categoria válida (ver lista) |
-| `tags` | array | 3-7 itens |
-| `version` | string | `"3.0.0"` ou superior |
-| `updated` | string | `"YYYY-MM-DD"` |
+### Frontmatter mínimo
+| Campo | Constraint |
+|-------|------------|
+| `name` | kebab-case, igual à pasta |
+| `description` | imperativa + "use quando" |
+| `disable-model-invocation` | `true` em workflows explícitos |
+| `paths` | contextual skills only |
 
-### Categorias válidas (comandos)
-`engineer`, `product`, `git`, `docs`, `meta`, `validate`, `quick`, `test`, `common`, `development`, `global`
+### Checklist
+- [ ] `name` = nome da pasta
+- [ ] Description com verbo imperativo + contexto de uso
+- [ ] < 500 linhas (lifecycle persistente)
+- [ ] Conteúdo extenso em `references/`
+- [ ] Frontmatter YAML válido
 
-### Checklist de qualidade
-- [ ] Nome único em kebab-case
-- [ ] Descrição clara e concisa
-- [ ] Categoria válida (lista acima)
-- [ ] Tags relevantes (3-7)
-- [ ] < 400 linhas total
-- [ ] Seção "Objetivo" presente
-- [ ] Seção "Processo" ou "Fluxo de Execução" presente
-- [ ] Sem duplicação de nome
+## Validação de Comandos (legado — removido)
+
+`.cursor/commands/` não existe mais. Validar apenas skills.
 
 ## Validação de Agentes
 
-### Campos adicionais
-- `expertise` — array, 3-5 áreas
-
-### Categorias válidas (agentes)
-`development`, `product`, `compliance`, `meta`, `review`, `testing`, `research`, `git`, `deployment`
+### Campos mínimos
+- `name` — kebab-case, igual ao arquivo
+- `description` — gatilho de uso (quando invocar)
 
 ### Checklist de qualidade
 - [ ] Nome único em kebab-case
 - [ ] Descrição da especialização clara
-- [ ] Categoria válida
-- [ ] Expertise definida (3-5 áreas)
-- [ ] < 300 linhas total
+- [ ] < 1200 linhas recomendado
 - [ ] Seção "Identidade" ou "Propósito" presente
-- [ ] Seção "Expertise" ou "Conhecimento" presente
-
-## Validação de Skills
-
-### Frontmatter mínimo
-- `description` — imperativa, com cláusula "use quando"
-- `paths` (opcional) — glob para ativação por arquivo
-- `allowed-tools` (opcional) — escopo mínimo necessário
-
-### Checklist
-- [ ] Description com verbo imperativo + contexto de uso
-- [ ] < 500 linhas (lifecycle persistente)
-- [ ] Sem duplicação de SKILL.md em outras pastas
-- [ ] Frontmatter YAML válido
-- [ ] Sem prompts interativos em scripts (agentes não respondem TTY)
+- [ ] Escopo e delegação explícitos
 
 ## Validações Automatizadas
 
 ### Detectar duplicações de nome
 ```bash
-find .cursor/commands -name "*.md" -exec grep -l "^name:" {} \; | \
-  xargs grep "^name:" | awk -F: '{print $3}' | sort | uniq -d
+find .cursor/skills -name "SKILL.md" -exec grep -H "^name:" {} \; | \
+  awk -F: '{print $3}' | sort | uniq -d
 
 find .cursor/agents -name "*.md" -exec grep -l "^name:" {} \; | \
   xargs grep "^name:" | awk -F: '{print $3}' | sort | uniq -d
@@ -79,27 +56,25 @@ find .cursor/agents -name "*.md" -exec grep -l "^name:" {} \; | \
 
 ### Verificar limites de linhas
 ```bash
-# Comandos > 400 linhas
-find .cursor/commands -name "*.md" -exec wc -l {} \; | awk '$1 > 400'
+# Skills > 500 linhas
+find .cursor/skills -name "SKILL.md" -exec wc -l {} \; | awk '$1 > 500'
 
 # Agentes > 300 linhas
 find .cursor/agents -name "*.md" -exec wc -l {} \; | awk '$1 > 300'
-
-# Skills > 500 linhas
-find .cursor/skills -name "SKILL.md" -exec wc -l {} \; | awk '$1 > 500'
 ```
 
-### Verificar campos obrigatórios
+### Verificar name = pasta (skills)
 ```bash
-for field in "name:" "description:" "category:"; do
-  find .cursor/commands -name "*.md" -exec grep -L "^$field" {} \;
+for d in .cursor/skills/*/; do
+  skill=$(basename "$d")
+  name=$(grep '^name:' "$d/SKILL.md" 2>/dev/null | head -1 | awk '{print $2}')
+  [ "$name" != "$skill" ] && echo "MISMATCH: $skill -> $name"
 done
 ```
 
 ### Detectar agentes fantasmas referenciados
 ```bash
-# Lista agentes referenciados em texto que não existem como arquivos
-grep -rho "@[a-z-]\+" .cursor/commands docs/ | sort -u | while read ref; do
+grep -rho "@[a-z-]\+" .cursor/skills docs/ | sort -u | while read ref; do
   name="${ref#@}"
   find .cursor/agents -name "${name}.md" -q || echo "FANTASMA: $ref"
 done
@@ -135,7 +110,7 @@ done
 ## Regras de Negócio para Geradores
 
 ### Antes de criar comando
-1. Verificar se nome já existe em `.cursor/commands/`
+1. Verificar se nome já existe em `.cursor/skills/`
 2. Validar categoria está na lista permitida
 3. Confirmar campos obrigatórios presentes
 4. Verificar limite de 400 linhas

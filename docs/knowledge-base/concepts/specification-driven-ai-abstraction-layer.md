@@ -576,7 +576,7 @@ O [Task Manager Abstraction](task-manager-abstraction.md) é a implementação d
 ## 📚 Recursos Adicionais
 
 ### Internos (Sistema Onion)
-- [Comando /meta-create-abstraction](../../../.cursor/commands/meta-create-abstraction.md) - Gerador automático de SDAAL
+- [Comando /meta-create-abstraction](../../../.cursor/skills/meta-create-abstraction.md) - Gerador automático de SDAAL
 - [Template de Abstração](../../../.cursor/skills/meta-create-abstraction/references/abstraction-template.md) - Template base
 
 ### Externos

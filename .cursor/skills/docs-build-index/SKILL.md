@@ -58,7 +58,7 @@ Este índice central fornece:
 **Comportamento**:
 1. Escaneia todas as pastas em `@/docs/`
 2. Lê os arquivos `index.md` de cada seção
-3. Escaneia `.cursor/commands/` e `.cursor/agents/` para contar recursos
+3. Escaneia `.cursor/skills/` e `.cursor/agents/` para contar recursos
 4. Extrai informações relevantes (título, descrição, arquivos principais)
 5. Gera/atualiza `docs/INDEX.md` com estrutura completa
 6. Mantém estatísticas atualizadas:

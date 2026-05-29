@@ -1,7 +1,7 @@
 ## 🚀 **WORKFLOW ESPERANTO PARA PROJETO NOVO (Do Zero)**
 
 > **ℹ️ Sobre o Claude Code**  
-> O Claude Code é um IDE com IA integrada baseado no VS Code. Os comandos customizados (`.cursor/commands/`) e agentes (`.cursor/agents/`) são extensões do Sistema Onion e não recursos nativos do Claude Code. Use `@Docs`, `@Web` e `@Files` como símbolos nativos do Claude Code para contexto adicional.
+> O Claude Code é um IDE com IA integrada baseado no VS Code. Os comandos customizados (`.cursor/skills/`) e agentes (`.cursor/agents/`) são extensões do Sistema Onion e não recursos nativos do Claude Code. Use `@Docs`, `@Web` e `@Files` como símbolos nativos do Claude Code para contexto adicional.
 
 ### **🎯 ANÁLISE DE CONTEXTO**
 **Situação**: Repositório vazio + Documentação inicial  

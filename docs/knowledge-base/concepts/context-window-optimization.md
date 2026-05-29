@@ -328,7 +328,7 @@ logs/
 ### Modularização de Prompts
 
 ```
-.cursor/commands/
+.cursor/skills/
 └── common/
     └── prompts/
         ├── validation-rules.md    # Regras reutilizáveis
@@ -340,10 +340,10 @@ logs/
 **Uso em Comando:**
 ```markdown
 ## Validações
-@include common/prompts/validation-rules.md
+@include .cursor/skills/meta-create-command/references/validation-rules.md
 
 ## Formato de Saída
-@include common/prompts/output-formats.md
+@include .cursor/skills/meta-create-command/references/output-formats.md
 ```
 
 ---

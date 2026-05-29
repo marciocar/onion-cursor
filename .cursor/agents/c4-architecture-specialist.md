@@ -647,7 +647,7 @@ interface QualityAnalyzer {
 
 ### **Sistema Onion Integration**
 - **Meta-agent delegation**: /onion pode delegar automaticamente para /c4-architecture-specialist
-- **Command integration**: Comandos especializados em .cursor/commands/architect/
+- **Command integration**: Comandos especializados em .cursor/skills/architect/
 - **Documentation sync**: Diagramas salvos em docs/architecture/c4-models/
 
 ### **Performance Monitoring**

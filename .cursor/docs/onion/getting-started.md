@@ -532,7 +532,7 @@ git branch -a
 echo "🔍 Validando Sistema Onion..."
 
 # 1. Estrutura
-if [ -d ".cursor/commands" ] && [ -d ".cursor/agents" ]; then
+if [ -d ".cursor/skills" ] && [ -d ".cursor/agents" ]; then
   echo "✅ Estrutura de diretórios OK"
 else
   echo "❌ Estrutura de diretórios incompleta"
@@ -540,7 +540,7 @@ else
 fi
 
 # 2. Comandos
-COMMANDS=$(find .cursor/commands -name "*.md" | wc -l)
+SKILLS=$(find .cursor/skills -name "SKILL.md" | wc -l)
 echo "✅ Comandos encontrados: $COMMANDS"
 
 # 3. Agentes
@@ -644,7 +644,7 @@ curl -H "Authorization: $CLICKUP_API_KEY" \
 **Soluções:**
 ```bash
 # 1. Verificar estrutura
-ls .cursor/commands/
+ls .cursor/skills/
 
 # 2. Recarregar Claude Code
 # Cmd/Ctrl + Shift + P → "Reload Window"

@@ -170,7 +170,7 @@ Workflows multi-step. Descoberta automática e recursiva (incl. subpastas e mono
 
 > ⚠️ **Não existe** campo `model` nem `allowed-tools` em SKILL.md do Cursor. Diretórios auxiliares opcionais: `scripts/`, `references/`, `assets/`.
 
-### 3.4 Commands — `.cursor/commands/*.md`
+### 3.4 Commands — `.cursor/skills/*.md`
 
 Arquivos markdown executáveis pelo agente, invocados via `/nome-do-arquivo`. **Não há página oficial com schema dedicado** — o corpo markdown é o prompt. Diferença vs skill: command é single-shot explícito; skill pode ser invocada automaticamente. A skill embutida `/migrate-to-skills` (desde 2.4) converte rules dinâmicas e slash commands em skills.
 
@@ -219,7 +219,7 @@ Remoto: `{ "url": "https://...", "headers": { "Authorization": "Bearer ${env:TOK
 | Conceito Claude Code | Equivalente Cursor 3.6+ | Notas de conversão |
 |----------------------|--------------------------|--------------------|
 | `CLAUDE.md` (workspace rule) | `AGENTS.md` (raiz) **ou** `.cursor/rules/*.mdc` Always | Identidade + roteamento → `AGENTS.md`; regras granulares → rules |
-| `.cursor/commands/*.md` (slash) | `.cursor/skills/<n>/SKILL.md` (preferido) ou `.cursor/commands/*.md` | Workflows → skills; `disable-model-invocation: true` preserva `/comando` |
+| `.cursor/skills/*.md` (slash) | `.cursor/skills/<n>/SKILL.md` (preferido) ou `.cursor/skills/*.md` | Workflows → skills; `disable-model-invocation: true` preserva `/comando` |
 | `.cursor/agents/<cat>/*.md` | `.cursor/agents/*.md` (raiz, achatado) | Remover `tools:`; achatar subpastas; mapear para `model`/`readonly` |
 | `.cursor/skills/<n>/SKILL.md` | `.cursor/skills/<n>/SKILL.md` | `globs`→`paths`; remover `allowed-tools` e `` `cmd` `` |
 | `.cursor/rules/*.mdc` (histórico) | `.cursor/rules/*.mdc` | Direto; ajustar `description`/`globs`/`alwaysApply` |
@@ -437,7 +437,7 @@ Workflows faseados retomáveis; sessões em `.cursor/sessions/<feature-slug>/`.
 
 ### 6.3 Skills (conversão de comando → skill)
 
-Exemplo: `/engineer-start` → skill `engineer-start`. **Antes** (`.cursor/commands/engineer-start.md`):
+Exemplo: `/engineer-start` → skill `engineer-start`. **Antes** (`.cursor/skills/engineer-start.md`):
 
 ```yaml
 ---
@@ -914,7 +914,7 @@ Todos perdem `tools:`, `color`, `priority`, `category`, `expertise`; ganham `mod
 
 ### 10.2 Lacunas conhecidas (a confirmar empiricamente)
 
-- **Schema de `.cursor/commands/*.md`**: não há página oficial detalhando frontmatter. Decisão desta spec: priorizar **skills**; usar commands só se necessário, confirmando o formato via `/commands` no chat do Cursor.
+- **Schema de `.cursor/skills/*.md`**: não há página oficial detalhando frontmatter. Decisão desta spec: priorizar **skills**; usar commands só se necessário, confirmando o formato via `/commands` no chat do Cursor.
 - **Nomes/endpoints exatos dos servidores MCP** (Atlassian, ClickUp): confirmar na publicação de cada provider antes de fixar `mcp.json`.
 - **`disable-model-invocation`**: suportado; demais extensões Claude (`context: fork`, `${CLAUDE_SKILL_DIR}`) não — remover.
 

@@ -17,13 +17,13 @@ Criar comandos que se integram ao ecossistema existente.
 
 ```bash
 # Listar comandos existentes
-ls .cursor/commands/*/*.md | wc -l
+ls .cursor/skills/*/*.md | wc -l
 
 # Verificar categoria existe
-ls .cursor/commands/{{category}}/ 2>/dev/null
+ls .cursor/skills/{{category}}/ 2>/dev/null
 
 # Verificar duplicação
-grep -l "name: {{command_name}}" .cursor/commands/**/*.md
+grep -l "name: {{command_name}}" .cursor/skills/**/*.md
 ```
 
 ### Passo 2: Determinar Categoria
@@ -107,7 +107,7 @@ related_agents:
 
 ```bash
 # 1. DUPLICAÇÃO - Verificar nome único
-if grep -r "^name: {{command_name}}$" .cursor/commands/ 2>/dev/null; then
+if grep -r "^name: {{command_name}}$" .cursor/skills/ 2>/dev/null; then
   echo "❌ ERRO: Comando '{{command_name}}' já existe!"
   exit 1
 fi
@@ -128,7 +128,7 @@ fi
 ```
 
 **Checklist de Validação:**
-- [ ] Nome único (não existe em `.cursor/commands/`)
+- [ ] Nome único (não existe em `.cursor/skills/`)
 - [ ] Nome em kebab-case válido
 - [ ] Categoria válida (engineer|product|git|docs|meta|validate|quick|general)
 - [ ] YAML header completo
@@ -138,7 +138,7 @@ fi
 ### Passo 5: Criar Arquivo
 
 ```bash
-write .cursor/commands/{{category}}/{{command_name}}.md
+write .cursor/skills/{{category}}/{{command_name}}.md
 ```
 
 ## 📤 Output Esperado
@@ -148,7 +148,7 @@ write .cursor/commands/{{category}}/{{command_name}}.md
 ✅ COMANDO CRIADO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📁 Arquivo: .cursor/commands/{{category}}/{{command_name}}.md
+📁 Arquivo: .cursor/skills/{{category}}/{{command_name}}.md
 
 📋 Detalhes:
 ∟ Nome: {{command_name}}
@@ -167,5 +167,5 @@ write .cursor/commands/{{category}}/{{command_name}}.md
 ## ⚠️ Notas
 
 - Máximo 400 linhas por comando
-- Usar prompts modulares de `common/prompts/`
+- Usar prompts modulares de `references/` (ver `meta-create-command/references/`)
 - Sempre validar duplicação antes de criar

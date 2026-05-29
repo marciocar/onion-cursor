@@ -22,7 +22,7 @@ O **Sistema Onion** é um framework de comandos `.cursor/` para uso interno com:
 ## 📊 Estatísticas
 
 - **26 arquivos** em `docs/onion/`
-- **83 skills** Claude Code em `.cursor/commands/`
+- **83 skills** Claude Code em `.cursor/skills/`
 - **49 agentes** IA em `.cursor/agents/`
 - **1 skill** em `.cursor/skills/`
 

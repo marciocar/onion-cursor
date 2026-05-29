@@ -125,8 +125,8 @@ ls -la .onion/
 **Verificar**:
 ```bash
 # Comandos devem estar em:
-ls .cursor/commands/business/
-ls .cursor/commands/technical/
+ls .cursor/skills/business/
+ls .cursor/skills/technical/
 
 # Agentes devem estar em:
 ls .cursor/agents/

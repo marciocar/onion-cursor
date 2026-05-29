@@ -30,7 +30,8 @@
 
 **No Sistema Onion (Cursor-first):**
 - **Canônico:** `.cursor/skills/<skill-name>/SKILL.md` — invocação via `/skill-name`
-- **Legado:** `.cursor/commands/` — apenas prompts compartilhados em `common/prompts/` e comandos sem skill equivalente
+- **Canônico:** `.cursor/skills/<skill-name>/SKILL.md` — único mecanismo de workflows
+- **Complementar:** `.cursor/agents/` — subagentes especialistas
 - **Cross-client (opcional):** `.agents/skills/` para distribuição externa
 
 ---
@@ -383,7 +384,7 @@ python3 ${CLAUDE_SKILL_DIR}/scripts/visualize.py .
 
 **Importante**: no Claude Code, custom commands foram **mesclados** com skills.
 
-| | `.cursor/commands/deploy.md` | `.cursor/skills/deploy/SKILL.md` |
+| | `.cursor/skills/deploy.md` | `.cursor/skills/deploy/SKILL.md` |
 |--|------------------------------|----------------------------------|
 | Cria `/deploy` | ✅ | ✅ |
 | Frontmatter rico | ❌ básico | ✅ completo |
@@ -393,20 +394,20 @@ python3 ${CLAUDE_SKILL_DIR}/scripts/visualize.py .
 
 **Recomendação no Onion**:
 - **Workflows novos** → criar como skill em `.cursor/skills/`
-- **Comandos existentes em `.cursor/commands/`** → continuam funcionando, migrar quando precisar de supporting files ou ativação automática
+- **Comandos existentes em `.cursor/skills/`** → continuam funcionando, migrar quando precisar de supporting files ou ativação automática
 - **Para distribuir cross-IDE** → cópia em `.agents/skills/`
 
 ### Localização recomendada no projeto
 
 ```
 .cursor/skills/          # ✅ Padrão Onion (Claude Code-first)
-.cursor/commands/        # ✅ Legacy / comandos puramente explícitos
+.cursor/skills/        # ✅ Legacy / comandos puramente explícitos
 .agents/skills/          # Opcional — cross-client distribution
 ```
 
 ### Agentes relacionados
 - `@agent-skills-specialist` — criar, validar e otimizar skills
-- `@command-creator-specialist` — comandos `.cursor/commands/` (legacy)
+- `@command-creator-specialist` — comandos `.cursor/skills/` (legacy)
 - `@agent-creator-specialist` — subagents customizados
 - `@claude-code-specialist` — config e troubleshooting Claude Code
 

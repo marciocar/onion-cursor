@@ -1,6 +1,9 @@
 ---
 name: onion
-description: Sua pergunta ou necessidade
+description: >
+  Orquestrador e ajuda global do Sistema Onion. Use para descobrir skills,
+  workflows, agentes especialistas e roteamento skills-first. Substitui
+  /global/help e ponto de entrada quando não souber qual skill invocar.
 disable-model-invocation: true
 paths:
   - .cursor/**
@@ -22,6 +25,18 @@ Acessar o Sistema Onion para navegação, recomendações e orquestração **ski
 /onion "workflow de PR"   # Orientação de workflow
 ```
 
+## 🆘 Ajuda Global (ex-/global/help)
+
+1. Leia `AGENTS.md` — identidade, task manager e roteamento base
+2. Ajuda por domínio:
+   - `/engineer-help` — fluxos de engenharia
+   - `/product-help` — fluxos de produto
+   - `/docs-help` — documentação
+   - `/git-help` — GitFlow e comandos git
+   - `/git-readme` / `/product-readme` — workflows detalhados
+3. Dúvida de especialista → delegar para `@onion` ou skill `/onion`
+4. Runflow SDK → `@runflow-specialist` (sem command legado)
+
 ## 🧭 Roteamento
 
 | Intenção | Skill recomendada |
@@ -33,6 +48,7 @@ Acessar o Sistema Onion para navegação, recomendações e orquestração **ski
 | Pull Request | `/engineer-pr` |
 | GitFlow feature | `/git-feature-start` |
 | Sincronizar | `/git-sync` |
+| Compliance | `/docs-build-compliance-docs` |
 
 **Contextuais (auto):** `language-standards`, `onion-patterns`, `onion-validation`
 
@@ -48,6 +64,7 @@ Acessar o Sistema Onion para navegação, recomendações e orquestração **ski
 - Agente master: @onion
 - Docs: `docs/onion/`
 - Meta-spec: `docs/meta-specs/commands.md`
+- Skills index: `.cursor/skills/README.md`
 
 ## 🔴 REGRA CRÍTICA: Tasks no Task Manager
 

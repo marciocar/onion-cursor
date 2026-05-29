@@ -61,7 +61,7 @@ Consultar @gitflow-specialist para estratégia:
 | `hotfix/*` | `main` | `hotfix-sync` |
 | `develop` | `main` | `protected-sync` |
 
-Referência: `common/prompts/git-workflow-patterns.md`
+Referência: `references/git-workflow-patterns.md`
 
 ### Passo 4: Executar Sync
 
@@ -164,7 +164,7 @@ SE sessão ativa com task_id:
 
 ## 🔗 Referências
 
-- Padrões: `common/prompts/git-workflow-patterns.md`
+- Padrões: `references/git-workflow-patterns.md`
 - Agente: @gitflow-specialist
 
 ## ⚠️ Notas

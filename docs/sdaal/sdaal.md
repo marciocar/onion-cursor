@@ -303,7 +303,7 @@ O efeito prático: **o LLM ganha um modelo mental estável do domínio**, o que 
 
 ### 10.4 SDAAL como ativo arquitetural *compounding*
 
-Cada abstração SDAAL que o time adiciona ao Onion **multiplica o valor** sem multiplicar a complexidade. O comando [`/meta:create-abstraction`](../../.cursor/commands/meta-create-abstraction.md) materializa o padrão em segundos, e o [`abstraction-template`](../../.cursor/skills/meta-create-abstraction/references/abstraction-template.md) garante consistência estrutural. O catálogo planejado inclui:
+Cada abstração SDAAL que o time adiciona ao Onion **multiplica o valor** sem multiplicar a complexidade. O comando [`/meta:create-abstraction`](../../.cursor/skills/meta-create-abstraction.md) materializa o padrão em segundos, e o [`abstraction-template`](../../.cursor/skills/meta-create-abstraction/references/abstraction-template.md) garante consistência estrutural. O catálogo planejado inclui:
 
 | Abstração | Provedores | Status |
 |---|---|---|
@@ -658,7 +658,7 @@ E um checklist de revisão em `README.md`:
 - KB técnica completa: [`docs/knowledge-base/concepts/specification-driven-ai-abstraction-layer.md`](../knowledge-base/concepts/specification-driven-ai-abstraction-layer.md)
 - Apresentação visual: [`docs/sdaal/index.html`](./index.html)
 - Implementação de referência: [`.cursor/utils/task-manager/`](../../.cursor/utils/task-manager/)
-- Comando gerador: [`.cursor/commands/meta-create-abstraction.md`](../../.cursor/commands/meta-create-abstraction.md)
+- Comando gerador: [`.cursor/skills/meta-create-abstraction.md`](../../.cursor/skills/meta-create-abstraction.md)
 - Template canônico: [`.cursor/skills/meta-create-abstraction/references/abstraction-template.md`](../../.cursor/skills/meta-create-abstraction/references/abstraction-template.md)
 - Conceito complementar (negócio): [`docs/knowledge-base/concepts/spec-as-code-strategy.md`](../knowledge-base/concepts/spec-as-code-strategy.md)
 - Conceito complementar (geração): [`docs/knowledge-base/concepts/spec-driven-development.md`](../knowledge-base/concepts/spec-driven-development.md)

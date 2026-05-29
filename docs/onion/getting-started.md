@@ -464,7 +464,7 @@ sudo apt install google-chrome-stable
 #### **Solução**:
 ```bash
 # 1. Verificar estrutura .cursor/
-ls -la .cursor/commands/
+ls -la .cursor/skills/
 
 # 2. Verificar se está no diretório do projeto
 pwd  # Deve estar na raiz com .cursor/

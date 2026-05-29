@@ -83,7 +83,7 @@ jobs:
    - Secrets configurados?
 
 2. **Analisar Configuração**
-   Usar checklist de `common/prompts/code-review-checklist.md`
+   Usar checklist de `references/code-review-checklist.md`
 
 3. **Gerar Relatório**
    ```
@@ -176,8 +176,8 @@ Executar auto-fix? (s/n)
 
 ## 🔗 Referências
 
-- Checklist: `common/prompts/code-review-checklist.md`
-- Padrões Git: `common/prompts/git-workflow-patterns.md`
+- Checklist: `references/code-review-checklist.md`
+- Padrões Git: `.cursor/skills/git-sync/references/git-workflow-patterns.md`
 - Agente: @code-reviewer para reviews manuais
 
 ## ⚠️ Notas

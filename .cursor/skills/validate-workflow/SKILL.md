@@ -264,8 +264,8 @@ function validateBranchCleanup() {
 function validateCompliance() {
   # Verificar se sistema de proteção está ativo
   # (Simplified check - would need more sophisticated validation)
-  [[ -f ".cursor/commands/git-sync.md" ]] && 
-  grep -q "Branch Protection" ".cursor/commands/git-sync.md"
+  [[ -f ".cursor/skills/git-sync.md" ]] && 
+  grep -q "Branch Protection" ".cursor/skills/git-sync.md"
 }
 
 function validateClickUpIntegration() {

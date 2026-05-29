@@ -38,7 +38,7 @@ await commentPrePRValidation(taskId, {
 ```
 
 **Referências:**
-- **Padrões de formatação**: `.cursor/commands/common/prompts/clickup-patterns.md`
+- **Padrões de formatação**: `.cursor/skills/product-task/references/clickup-patterns.md`
 - **Abstrações MCP**: 
   - `validateAcceptanceCriteria()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 534-600)
   - `commentPrePRValidation()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 603-629)

@@ -61,7 +61,7 @@ export const UserProfileCard: React.FC<UserProfileCardProps> = ({ userId }) => {
 ## Workflow obrigatório
 
 ### Antes de finalizar uma tarefa
-1. **Consultar documentação existente** em `docs/`, `.cursor/commands/`, `.cursor/agents/`
+1. **Consultar documentação existente** em `docs/`, `.cursor/skills/`, `.cursor/agents/`
 2. **Validar conformidade de idioma** (código EN, comentários/docs PT-BR)
 3. **Propor próximo passo lógico** com 1-2 opções recomendadas
 4. **Sugerir comando de continuação** quando aplicável

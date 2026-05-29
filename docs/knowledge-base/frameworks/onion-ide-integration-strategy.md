@@ -30,7 +30,7 @@ Cada IDE tem seu próprio mecanismo de descoberta:
 
 | IDE | Estrutura Esperada |
 |-----|-------------------|
-| **Claude Code** | `.cursor/commands/`, `.cursor/agents/`, `.cursor/rules/` |
+| **Claude Code** | `.cursor/skills/`, `.cursor/agents/`, `.cursor/rules/` |
 | **Claude Code** | Desconhecido (provavelmente `.cursor/` ou similar) |
 | **Windsurf** | Desconhecido (provavelmente `.windsurf/` ou similar) |
 | **Outros** | Cada um com sua convenção |

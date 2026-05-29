@@ -91,11 +91,11 @@ $(date +'%d-%m-%Y %H:%M')
 ### **🔍 Comandos de Verificação:**
 ```bash
 # Buscar padrões incorretos
-grep -r "Y-%m-%d %H:%M" .cursor/commands/
+grep -r "Y-%m-%d %H:%M" .cursor/skills/
 grep -r "toLocaleString()" .cursor/utils/
 
 # Buscar padrões corretos
-grep -r "%d/%m/%Y %H:%M" .cursor/commands/
+grep -r "%d/%m/%Y %H:%M" .cursor/skills/
 ```
 
 ---
@@ -116,12 +116,12 @@ sed -i 's/\$(date +'\''%Y-%m-%d %H:%M'\'')/\$(date +'\''%d\/%m\/%Y %H:%M'\'')/g'
 ## 📚 **Referências**
 
 ### **Documentos Corrigidos:**
-- ✅ `.cursor/commands/git/feature/start.md`
-- ✅ `.cursor/commands/engineer/hotfix.md`
-- ✅ `.cursor/commands/git/hotfix/start.md`
+- ✅ `.cursor/skills/git-feature-start/SKILL.md`
+- ✅ `.cursor/skills/engineer-hotfix/SKILL.md`
+- ✅ `.cursor/skills/git-hotfix-start/SKILL.md`
 
 ### **Documentos Já Corretos:**
-- ✅ `.cursor/commands/git/README.md` (linha 464)
+- ✅ `.cursor/skills/git-readme/SKILL.md`
 
 ---
 

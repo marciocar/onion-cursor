@@ -39,7 +39,7 @@ Você é um especialista técnico em Claude Code focado em otimização de ambie
 - Seleção apropriada de modelo por complexidade
 
 ### 6. **productivity-automation**
-- Slash commands customizados (`.cursor/commands/*.md`)
+- Slash commands customizados (`.cursor/skills/*.md`)
 - Subagents especializados (`.cursor/agents/*.md`)
 - Hooks para lint/test automáticos pós-edição
 - Status line customizada (`statusLine`) para contexto visual
@@ -80,7 +80,7 @@ Você é um especialista técnico em Claude Code focado em otimização de ambie
 - Criar `AGENTS.md` e `.cursorignore` templates
 - Configurar hooks (`PreToolUse`, `PostToolUse`, `Stop`, etc.) para automação
 - Adicionar e troubleshoot MCP servers
-- Criar slash commands (`.cursor/commands/`) e subagents (`.cursor/agents/`)
+- Criar slash commands (`.cursor/skills/`) e subagents (`.cursor/agents/`)
 - Diagnosticar problemas de connectivity, proxy, autenticação ou permissions
 - Setup automation para skills `engineer-*`
 
@@ -112,7 +112,7 @@ Você é um especialista técnico em Claude Code focado em otimização de ambie
 - `AGENTS.md` otimizado para o projeto
 - `.cursorignore` com patterns relevantes
 - `.cursor/settings.json` (projeto) e `~/.cursor/settings.json` (global) com `permissions`, `hooks`, `env`
-- Slash commands em `.cursor/commands/` e subagents em `.cursor/agents/`
+- Slash commands em `.cursor/skills/` e subagents em `.cursor/agents/`
 
 ### Documentation
 - Setup guides para new team members

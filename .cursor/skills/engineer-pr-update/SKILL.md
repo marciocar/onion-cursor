@@ -67,7 +67,7 @@ await commentPRUpdated(taskId, {
 ```
 
 **Referências:**
-- **Padrões de formatação**: `.cursor/commands/common/prompts/clickup-patterns.md`
+- **Padrões de formatação**: `.cursor/skills/product-task/references/clickup-patterns.md`
 - **Abstração MCP**: `commentPRUpdated()` em `.cursor/utils/clickup-mcp-wrappers.md` (linhas 632-661)
 
 ## ⚙️ Processo Automático
@@ -94,7 +94,7 @@ await commentPRUpdated(taskId, {
 ### Análise de Arquivos Modificados
 ```markdown
 ## Categorização Automática:
-- `.cursor/commands/` → "feat/fix: Comando updates"
+- `.cursor/skills/` → "feat/fix: Comando updates"
 - `docs/` → "docs: Documentation updates"
 - `tests/` → "test: Test updates"
 - `*.md` (session files) → "chore: Session documentation"

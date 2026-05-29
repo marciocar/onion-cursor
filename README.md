@@ -23,7 +23,7 @@ Snapshot validado em 2026-05-28:
 - **83 skills** em `.cursor/skills/`
 - **49 subagentes** em `.cursor/agents/` (achatado, raiz)
 - **4 rules** em `.cursor/rules/`
-- **94 comandos legados** em `.cursor/commands/` (compatibilidade e transição)
+- **94 comandos legados** em `.cursor/skills/` (compatibilidade e transição)
 - **Task Manager Abstraction** em `.cursor/utils/task-manager/` (Jira, ClickUp, Asana, Linear)
 
 Invariantes do framework:

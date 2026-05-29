@@ -65,23 +65,20 @@ Todo comando deve ser:
 #### 1.1. Análise de Comandos Existentes
 
 ```bash
-# 1. Listar TODOS os comandos por categoria
-list_dir .cursor/commands/
-list_dir .cursor/commands/meta/
-list_dir .cursor/skills/ | grep engineer
-list_dir .cursor/skills/ | grep product
-list_dir .cursor/skills/ | grep git
-list_dir .cursor/commands/compliance/
-list_dir .cursor/commands/docs/
-list_dir .cursor/commands/admin/
-list_dir .cursor/commands/validate/
-list_dir .cursor/commands/common/
+# 1. Listar skills por prefixo
+ls .cursor/skills/ | wc -l
+ls .cursor/skills/meta-* 2>/dev/null
+ls .cursor/skills/ | grep engineer
+ls .cursor/skills/ | grep product
+ls .cursor/skills/ | grep git
+ls .cursor/skills/ | grep docs
+ls .cursor/skills/ | grep validate
 
-# 2. Ler comandos similares
-read_file .cursor/commands/[categoria]/[comando-similar].md
+# 2. Ler skill similar
+read_file .cursor/skills/[skill-similar]/SKILL.md
 
 # 3. Identificar padrões
-codebase_search "padrão de workflow similar" [".cursor/commands/"]
+codebase_search "padrão de workflow similar" [".cursor/skills/"]
 ```
 
 **Extrair para cada comando:**
@@ -133,10 +130,10 @@ read_file docs/onion/commands-guide.md
 
 ```bash
 # Buscar comandos com propósito similar
-codebase_search "comando que faz [propósito similar]" [".cursor/commands/"]
+codebase_search "comando que faz [propósito similar]" [".cursor/skills/"]
 
 # Verificar nomes existentes
-grep "# " .cursor/commands/**/*.md | grep "[nome-proposto]"
+grep "# " .cursor/skills/**/*.md | grep "[nome-proposto]"
 ```
 
 **Validar:**
@@ -277,8 +274,8 @@ Exemplos:
 
 **Estrutura de Arquivo:**
 ```
-.cursor/commands/[categoria]/[comando].md
-.cursor/commands/[categoria]/[sub-categoria]/[comando].md
+.cursor/skills/[categoria]/[comando].md
+.cursor/skills/[categoria]/[sub-categoria]/[comando].md
 ```
 
 **Título e Descrição:**
@@ -643,7 +640,7 @@ Após executar este comando, você pode:
 
 **Estrutura de Diretórios:**
 ```
-.cursor/commands/
+.cursor/skills/
 ├── meta/              # Meta-operações (criar agentes/comandos)
 ├── engineer/          # Workflows de desenvolvimento
 ├── product/           # Gestão de produto e tasks
@@ -676,9 +673,9 @@ Apenas se:
 #### 4.3. Criar Arquivo
 
 ```bash
-write .cursor/commands/[categoria]/[comando].md
+write .cursor/skills/[categoria]/[comando].md
 # ou
-write .cursor/commands/[categoria]/[sub-categoria]/[comando].md
+write .cursor/skills/[categoria]/[sub-categoria]/[comando].md
 ```
 
 ---
@@ -772,13 +769,13 @@ Para testar o novo comando, use no **chat da Claude Code**:
 
 ```bash
 # Buscar comandos similares
-grep -r "# " .cursor/commands/ | grep "[termo-chave]"
+grep -r "# " .cursor/skills/ | grep "[termo-chave]"
 
 # Buscar workflows similares
-codebase_search "workflow similar a [descrição]" [".cursor/commands/"]
+codebase_search "workflow similar a [descrição]" [".cursor/skills/"]
 
 # Validar unicidade na categoria
-list_dir .cursor/commands/[categoria]/
+list_dir .cursor/skills/[categoria]/
 ```
 
 **Se detectar duplicação:**
@@ -797,7 +794,7 @@ Após criar o comando, **SEMPRE** documente:
 
 ### 🎉 Novo Comando: `/[categoria]/[comando]`
 
-**Localização:** `.cursor/commands/[categoria]/[comando].md`
+**Localização:** `.cursor/skills/[categoria]/[comando].md`
 
 **Propósito:** [Resumo em uma linha]
 
@@ -856,7 +853,7 @@ Após criar o comando, **SEMPRE** documente:
 
 ### 🎯 Validação Final
 
-- [x] Comando criado em `.cursor/commands/[categoria]/[comando].md`
+- [x] Comando criado em `.cursor/skills/[categoria]/[comando].md`
 - [x] Estrutura markdown completa
 - [x] Workflow documentado (configuração, execução, validações)
 - [x] Agentes integrados corretamente
@@ -1452,7 +1449,7 @@ graph TD
 - `docs/onion/claude-code-commands-architecture.md`
 - `docs/onion/commands-guide.md`
 
-**Comandos Existentes:** `.cursor/commands/` (60+ comandos)
+**Comandos Existentes:** `.cursor/skills/` (60+ comandos)
 **Agentes Disponíveis:** `.cursor/agents/` (24+ agentes)
 **Templates:** `.cursor/skills/*/references/` (por skill)
 

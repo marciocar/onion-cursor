@@ -1,6 +1,10 @@
 ---
 name: docs-build-compliance-docs
-description: Caminho para checklist de DD
+description: >
+  Gera documentação de compliance multi-framework (ISO 27001, ISO 22301, SOC2,
+  PMBOK) para auditorias e due diligence. Use quando precisar de docs
+  auditáveis, checklist DD ou certificação. Delega para especialistas via
+  @security-information-master.
 disable-model-invocation: true
 paths:
   - docs/**
@@ -61,7 +65,16 @@ Coordenação via @security-information-master
 
 ### Passo 4: Gerar Documentação
 
-Estrutura de saída:
+**Leia o template do framework antes de gerar:**
+
+| Framework | Template | Output |
+|-----------|----------|--------|
+| ISO 27001 | `references/compliance-iso27001-template.md` | `docs/compliance-context/security/` |
+| ISO 22301 | `references/compliance-iso22301-template.md` | `docs/compliance-context/business-continuity/` |
+| SOC2 | `references/compliance-soc2-template.md` | `docs/compliance-context/soc2/` |
+| PMBOK | `references/compliance-pmbok-template.md` | `docs/compliance-context/project-management/` |
+
+Estrutura consolidada:
 ```
 docs/compliance-context/
 ├── index.md
@@ -106,8 +119,10 @@ docs/compliance-context/
 ## 🔗 Referências
 
 - Orquestrador: @security-information-master
-- ISO 27001: @iso-27001-specialist
-- SOC2: @soc2-specialist
+- ISO 27001: @iso-27001-specialist — `references/compliance-iso27001-template.md`
+- ISO 22301: @iso-22301-specialist — `references/compliance-iso22301-template.md`
+- SOC2: @soc2-specialist — `references/compliance-soc2-template.md`
+- PMBOK: @pmbok-specialist — `references/compliance-pmbok-template.md`
 
 ## ⚠️ Notas
 

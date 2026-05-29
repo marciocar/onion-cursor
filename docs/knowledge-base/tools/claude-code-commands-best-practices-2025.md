@@ -264,8 +264,8 @@ Sem integrações, gere output em formato compatível.
 # Comando Modular
 
 ## Prompts Compartilhados
-@include common/prompts/validation-rules.md
-@include common/prompts/output-formats.md
+@include .cursor/skills/meta-create-command/references/validation-rules.md
+@include .cursor/skills/meta-create-command/references/output-formats.md
 
 ## Processo
 [Lógica específica do comando]

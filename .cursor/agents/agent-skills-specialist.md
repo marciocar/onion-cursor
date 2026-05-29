@@ -53,7 +53,7 @@ ls ~/.cursor/skills/ 2>/dev/null  # skills pessoais
 find . -name "SKILL.md" -path "*/.agents/skills/*" 2>/dev/null
 
 # Custom commands legacy (que poderiam virar skills)
-ls .cursor/commands/ 2>/dev/null
+ls .cursor/skills/ 2>/dev/null
 
 # Verificar duplicação por nome
 grep -r "^name:\s*<nome>" .cursor/skills/ .agents/skills/ 2>/dev/null
@@ -62,7 +62,7 @@ grep -r "^name:\s*<nome>" .cursor/skills/ .agents/skills/ 2>/dev/null
 **Decisão importante**: o skill deveria ser criado em…
 - `.cursor/skills/<name>/` — **default no Sistema Onion** (Claude Code nativo)
 - `.agents/skills/<name>/` — quando se quer distribuir para outros clientes (VS Code Copilot, Cursor, etc.)
-- Migrar `.cursor/commands/<name>.md` → `.cursor/skills/<name>/SKILL.md` — quando o comando precisa de supporting files ou ativação automática
+- Migrar `.cursor/skills/<name>.md` → `.cursor/skills/<name>/SKILL.md` — quando o comando precisa de supporting files ou ativação automática
 
 ### Fase 2: Design do Skill
 
@@ -197,7 +197,7 @@ Use `/doctor` no Claude Code para verificar se descriptions estão sendo cortada
 
 ## 🔄 Migração Commands → Skills
 
-Quando um comando em `.cursor/commands/X.md` se beneficiaria de virar skill:
+Quando um comando em `.cursor/skills/X.md` se beneficiaria de virar skill:
 
 | Sinal | Migrar para skill? |
 |-------|--------------------|
@@ -205,14 +205,14 @@ Quando um comando em `.cursor/commands/X.md` se beneficiaria de virar skill:
 | Precisa de reference docs | ✅ sim — usar `references/` |
 | Deveria ativar automaticamente em certos contextos | ✅ sim — remover `disable-model-invocation` |
 | Precisa de contexto dinâmico | ✅ sim (preferir skills + hooks) |
-| Comando puramente explícito (sempre `/cmd`) | ⚠️ opcional — `.cursor/commands/` continua funcionando |
+| Comando puramente explícito (sempre `/cmd`) | ⚠️ opcional — `.cursor/skills/` continua funcionando |
 
 **Passos da migração:**
 1. `mkdir .cursor/skills/<name>`
 2. Mover/recriar o conteúdo em `SKILL.md` com frontmatter rico
 3. Adicionar `disable-model-invocation: true` se o comando original sempre era explícito
 4. Bundle scripts em `scripts/` referenciados via path relativo (Cursor) ou `${CLAUDE_SKILL_DIR}` (Claude Code)
-5. Apagar o `.cursor/commands/<name>.md` (o `/comando` continua funcionando via skill)
+5. Apagar o `.cursor/skills/<name>.md` (o `/comando` continua funcionando via skill)
 
 ---
 
@@ -267,5 +267,5 @@ import pdfplumber
 - **Optimizing descriptions**: https://agentskills.io/skill-creation/optimizing-descriptions
 - **Exemplos reais**: https://github.com/anthropics/skills
 - **Comando**: `/meta-create-skill` — orquestrador deste agente
-- **Agente relacionado**: /command-creator-specialist (commands legacy `.cursor/commands/`)
+- **Agente relacionado**: /command-creator-specialist (commands legacy `.cursor/skills/`)
 - **Agente relacionado**: /agent-creator-specialist (subagents `.cursor/agents/`)

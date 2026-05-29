@@ -30,7 +30,7 @@ $ bash /git-init               # Não é script bash direto
 
 ### 📁 **Estrutura de Arquivos**
 ```
-.cursor/commands/
+.cursor/skills/
 ├── git/
 │   ├── init.md               # Define /git-init command
 │   ├── help.md               # Define /git-help command
@@ -52,7 +52,7 @@ $ bash /git-init               # Não é script bash direto
 |-------|--------|------------|--------|
 | 1 | **Interface** | Claude Code Chat | Usuário digita `/git-init` |
 | 2 | **Detecção** | Claude Code AI | Reconhece comando personalizado |
-| 3 | **Carregamento** | File System | Lê `.cursor/commands/git-init.md` |
+| 3 | **Carregamento** | File System | Lê `.cursor/skills/git-init.md` |
 | 4 | **Interpretação** | Claude Code AI | Analisa workflow definido |
 | 5 | **Execução** | Scripts | Executa bash/python dentro do workflow |
 | 6 | **UX** | Modern CLI | `.cursor/utils/modern-cli-ux.sh` |
@@ -70,7 +70,7 @@ User: /git-init
 
 ### 📄 **2. Claude Code Carrega Definição**
 ```markdown
-# Arquivo: .cursor/commands/git-init.md
+# Arquivo: .cursor/skills/git-init.md
 # Define workflow completo de inicialização Git Flow
 ```
 
@@ -123,7 +123,7 @@ User: /git-init
 ### 📝 **Criando Novos Comandos**
 ```markdown
 # 1. Criar arquivo markdown:
-.cursor/commands/category/command.md
+.cursor/skills/category/command.md
 
 # 2. Definir cabeçalho com metadados
 # 3. Escrever workflow em bash/python
@@ -185,7 +185,7 @@ session_update $NAME                # Atualizar contexto
 
 ### ✅ **São Claude Code Commands Porque:**
 -  **Executados no chat** da Claude Code
--  **Definidos em markdown** na pasta `.cursor/commands/`
+-  **Definidos em markdown** na pasta `.cursor/skills/`
 -  **Interpretados pela Claude Code AI** com context awareness
 -  **Integrados ao ambiente** de desenvolvimento
 

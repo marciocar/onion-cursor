@@ -11,21 +11,28 @@ paths: [".cursor/**", "docs/onion/**"]
 
 ## Estrutura de Diretórios
 
-### `.cursor/commands/` (83 skills em 11 categorias)
+### `.cursor/skills/` (83 skills — estrutura achatada)
 ```
-.cursor/commands/
-├── engineer/        # Fluxos de desenvolvimento
-├── product/         # Gestão de produto e descoberta
-├── git/             # GitFlow (feature/, hotfix/, release/)
-├── docs/            # Documentação técnica e business
-├── meta/            # Meta-comandos (criar agente, skill, command)
-├── validate/        # Validações (test-strategy/, qa-points/, collab/)
-├── test/            # Test unit, integration, e2e
-├── common/          # Templates e prompts compartilhados
-├── development/     # Comandos de desenvolvimento (runflow-dev)
-├── quick/           # Ações rápidas
-└── global/          # Helpers globais
+.cursor/skills/
+├── engineer-start/          # Fluxos de desenvolvimento
+├── engineer-work/
+├── product-task/            # Gestão de produto
+├── product-spec/
+├── git-feature-start/       # GitFlow
+├── git-sync/
+├── docs-build-tech-docs/    # Documentação
+├── meta-create-skill/       # Meta (criar agente, skill)
+├── validate-workflow/       # Validações
+├── test-unit/               # Testes
+├── onion/                   # Orquestrador + ajuda global
+└── ...                      # Ver .cursor/skills/README.md
 ```
+
+Prompts compartilhados migrados para `references/` das skills consumidoras:
+- `product-task/references/clickup-patterns.md`
+- `git-sync/references/git-workflow-patterns.md`
+- `git-code-review/references/code-review-checklist.md`
+- `meta-create-command/references/validation-rules.md`
 
 ### `.cursor/agents/` (49 agentes em 9 categorias)
 ```
@@ -82,7 +89,7 @@ Cada skill em pasta própria com `SKILL.md`. Opcionalmente:
 
 ## YAML Headers Obrigatórios
 
-### Comando (`.cursor/commands/*.md`)
+### Comando (`.cursor/skills/*.md`)
 ```yaml
 ---
 name: nome-comando

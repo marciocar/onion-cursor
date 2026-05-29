@@ -144,7 +144,7 @@ EOF
 
 ## 🔗 Referências
 
-- Padrões: `common/prompts/git-workflow-patterns.md`
+- Padrões: `.cursor/skills/git-sync/references/git-workflow-patterns.md`
 - Agente: @gitflow-specialist
 
 ## ⚠️ Notas
