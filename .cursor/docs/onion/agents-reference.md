@@ -66,7 +66,7 @@ O Sistema Onion oferece **38 agentes especializados** organizados por categoria 
 **Exemplo:**
 ```bash
 @onion "Como desenvolver uma feature completa do zero?"
-@onion "Qual comando usar para criar uma task no ClickUp?"
+@onion "Qual comando usar para criar uma task no Task Manager configurado?"
 @onion "Preciso otimizar minhas operações de bulk"
 ```
 
@@ -76,7 +76,7 @@ O Sistema Onion oferece **38 agentes especializados** organizados por categoria 
 - ✅ Recomendação de comandos/agentes apropriados
 - ✅ Orquestração de workflows end-to-end
 - ✅ Delegação para agentes especializados
-- ✅ Integração com ClickUp MCP
+- ✅ Integração com Task Manager via MCP
 - ✅ Troubleshooting e diagnóstico
 - ✅ Alta autonomia e execução proativa
 
@@ -88,7 +88,7 @@ O `@onion` é o **ponto de entrada inteligente** do Sistema Onion. Ele analisa s
 ## 🔧 Agentes de Desenvolvimento
 
 ### @clickup-specialist
-**Especialidade:** Otimizações técnicas do ClickUp MCP
+**Especialidade:** Otimizações técnicas do Task Manager via MCP
 
 **Quando usar:**
 - Otimizar bulk operations
@@ -357,7 +357,7 @@ O `@onion` é o **ponto de entrada inteligente** do Sistema Onion. Ele analisa s
 
 **Capacidades:**
 - ✅ Estratégia de produto
-- ✅ Gestão ClickUp
+- ✅ Gestão Task Manager configurado
 - ✅ Priorização
 - ✅ Roadmap planning
 - ✅ Stakeholder management
@@ -735,7 +735,7 @@ O `@onion` é o **ponto de entrada inteligente** do Sistema Onion. Ele analisa s
 | Situação | Agente Recomendado | Razão |
 |----------|-------------------|-------|
 | Criar task estruturada | @task-specialist | Decomposição hierárquica |
-| Otimizar ClickUp | @clickup-specialist | Expert em ClickUp MCP |
+| Otimizar ClickUp | @clickup-specialist | Expert em Task Manager via MCP |
 | Problemas Git | @gitflow-specialist | Expert em GitFlow |
 | Documentar arquitetura | @c4-architecture-specialist | Diagramas C4 |
 | Code review | @code-reviewer | Review geral |

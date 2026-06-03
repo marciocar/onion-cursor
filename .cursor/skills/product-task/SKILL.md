@@ -307,7 +307,7 @@ Preparar estrutura normalizada seguindo interface ITaskManager:
    - list_id: [projectId resolvido]
    - name: [nome normalizado]
    - markdown_description: [descrição markdown completa]
-   - priority: 'high' (mapear: high → 'high' no ClickUp)
+   - priority: 'high' (mapear: high → 'high' no Task Manager configurado)
    - tags: ['feature']
    - workspace_id: [CLICKUP_WORKSPACE_ID do .env, se disponível]
 
@@ -503,7 +503,7 @@ ${recommendations}
 - **Interface:** `.cursor/utils/task-manager/interface.md` - Formato de entrada/saída normalizado
 - **Detector:** `.cursor/utils/task-manager/detector.md` - Como detectar provedor do .env
 - **Adapters (Guias de Mapeamento):**
-  - `.cursor/utils/task-manager/adapters/clickup.md` - Mapeamento ClickUp MCP
+  - `.cursor/utils/task-manager/adapters/clickup.md` - Mapeamento Task Manager via MCP
   - `.cursor/utils/task-manager/adapters/asana.md` - Mapeamento Asana MCP
   - `.cursor/utils/task-manager/types.md` - Tipos compartilhados
 

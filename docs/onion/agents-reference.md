@@ -92,16 +92,16 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 ### **clickup-specialist**
 **Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Orange
 
-**Especialidades**: ClickUp MCP técnico, automações avançadas, performance, workflows
+**Especialidades**: Task Manager via MCP técnico, automações avançadas, performance, workflows
 
 **Quando usar**:
--  Otimizações técnicas do ClickUp
+-  Otimizações técnicas do Task Manager configurado
 -  Automações de workflow complexas
 -  Bulk operations e performance
 -  Configurações avançadas (webhooks, custom fields)
 -  Time tracking e análise de produtividade
 
-**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `web_search`, **todas as 15+ ferramentas ClickUp MCP** (bulk operations, webhooks, time tracking, etc.)
+**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `web_search`, **todas as 15+ ferramentas Task Manager via MCP** (bulk operations, webhooks, time tracking, etc.)
 
 **Exemplo de uso**:
 ```bash
@@ -292,7 +292,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 
 **Quando usar**:
 -  Gerar documentação de compliance multi-framework
--  Analisar requisitos de due diligence (ex: Serasa Experian)
+-  Analisar requisitos de due diligence (ex: [cliente enterprise de referência])
 -  Coordenar múltiplos specialists de compliance
 -  Preparar documentação para auditorias e certificações
 -  Consolidar outputs de frameworks diferentes
@@ -304,7 +304,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 **Exemplo de uso**:
 ```bash
 # Orquestração automática baseada em checklist
-@security-information-master "Analisar checklist Serasa e gerar documentação necessária"
+@security-information-master "Analisar checklist DD do cliente e gerar documentação necessária"
 
 # Due diligence completo
 @security-information-master "Preparar docs para auditoria ISO 27001 + SOC2"
@@ -379,7 +379,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 -  Business Continuity Plan (BCP) com Business Impact Analysis
 -  Disaster Recovery Plan (DRP) para ambientes tecnológicos
 -  Crisis Management Plan com canais de comunicação
--  **Due Diligence Serasa Experian** (5 de 8 requisitos cobertos) 🔥
+-  **Due Diligence [cliente enterprise de referência]** (5 de 8 requisitos cobertos) 🔥
 -  Documentação de RTOs/RPOs por criticidade de sistema
 
 **Ferramentas disponíveis**: `read_file`, `write`, `search_replace`, `codebase_search`, `grep`
@@ -389,22 +389,22 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 # BC/DR completo
 @iso-22301-specialist "Gerar BCP + DRP para infraestrutura AWS Multi-AZ"
 
-# Due Diligence Serasa
-@iso-22301-specialist "Documentar 5 requisitos Serasa: BCP, DRP, Crisis, Testing, RTOs/RPOs"
+# Due Diligence [cliente enterprise]
+@iso-22301-specialist "Documentar 5 requisitos DD: BCP, DRP, Crisis, Testing, RTOs/RPOs"
 
 # Testes de resiliência
 @iso-22301-specialist "Documentar DR Drill 2024 com RTO 30min alcançado"
 ```
 
 **5 Documentos Gerados** (`docs/compliance-context/business-continuity/`):
-1. `business-continuity-plan.md` - BCP com BIA (Serasa Req #1) ✅
-2. `disaster-recovery-plan.md` - DRP com runbooks (Serasa Req #2) ✅
-3. `crisis-management.md` - CMT + Serasa contacts (Serasa Req #3) ✅
-4. `resilience-testing.md` - Evidências 2024 (Serasa Req #4) ✅
-5. `recovery-objectives.md` - RTOs/RPOs por tier (Serasa Req #5) ✅
+1. `business-continuity-plan.md` - BCP com BIA ([cliente enterprise] Req #1) ✅
+2. `disaster-recovery-plan.md` - DRP com runbooks ([cliente enterprise] Req #2) ✅
+3. `crisis-management.md` - CMT + [cliente enterprise] contacts ([cliente enterprise] Req #3) ✅
+4. `resilience-testing.md` - Evidências 2024 ([cliente enterprise] Req #4) ✅
+5. `recovery-objectives.md` - RTOs/RPOs por tier ([cliente enterprise] Req #5) ✅
 
 **Características únicas**:
-- 🚨 **Serasa-Ready**: 5 de 8 requisitos Serasa Experian (62.5%) ✅
+- 🚨 **[cliente enterprise]-Ready**: 5 de 8 requisitos [cliente enterprise de referência] (62.5%) ✅
 - ⏱️ **RTOs/RPOs Realistas**: Baseados em BIA, não aspiracionais
 - 📊 **Scenario-Based**: Planos baseados em cenários reais de desastre
 - 🧪 **Testable**: Todos planos são testáveis (evidências de testes anuais)
@@ -462,7 +462,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 **Quando usar**:
 -  Preparação para SOC2 Type II audit
 -  Trust Services Criteria (Security, Availability, Confidentiality)
--  **Due Diligence Serasa Experian** (3 de 8 requisitos cobertos) 🔥
+-  **Due Diligence [cliente enterprise de referência]** (3 de 8 requisitos cobertos) 🔥
 -  Estratégia de coleta de evidências (12 meses)
 -  Integração com ISO 27001 (~70% overlap)
 
@@ -473,30 +473,30 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 # SOC2 Type II completo
 @soc2-specialist "Preparar documentação SOC2 Type II para fintech SaaS"
 
-# Due Diligence Serasa
-@soc2-specialist "Documentar 3 requisitos Serasa: Relatório SOC2 + SLAs + Contratos"
+# Due Diligence [cliente enterprise]
+@soc2-specialist "Documentar 3 requisitos DD: Relatório SOC2 + SLAs + Contratos"
 
 # Evidence Collection
 @soc2-specialist "Criar estratégia de evidências para 12 meses de audit period"
 ```
 
 **5 Documentos Gerados** (`docs/compliance-context/soc2/`):
-1. `trust-services-criteria.md` - 5 TSC principles, Type II overview (Serasa Req #6) ✅
+1. `trust-services-criteria.md` - 5 TSC principles, Type II overview ([cliente enterprise] Req #6) ✅
 2. `security-controls.md` - CC6/CC7 (auth, encryption, monitoring, incidents)
-3. `availability-controls.md` - A1 (HA, SLAs, DR) (Serasa Req #7, #8) ✅
+3. `availability-controls.md` - A1 (HA, SLAs, DR) ([cliente enterprise] Req #7, #8) ✅
 4. `confidentiality-controls.md` - C1 (classification, NDAs, DLP, disposal)
 5. `evidence-collection.md` - Automation matrix, audit prep checklist
 
 **Características únicas**:
-- 🚨 **Serasa-Ready**: 3 de 8 requisitos Serasa Experian (37.5%) ✅
-- 🎯 **Combined Coverage**: ISO 22301 + SOC2 = 8/8 Serasa (100%) ✅
+- 🚨 **[cliente enterprise]-Ready**: 3 de 8 requisitos [cliente enterprise de referência] (37.5%) ✅
+- 🎯 **Combined Coverage**: ISO 22301 + SOC2 = 8/8 [cliente enterprise] (100%) ✅
 - 🔗 **ISO 27001 Cross-Ref**: ~70% controles sobrepõem (documentado)
 - 📊 **Evidence-First**: Todo controle tem evidência coletável para Type II
 - 🤖 **Automation**: Scripts de coleta automática de evidências (monthly)
 
 ---
 
-**Mapeamento Serasa Experian** (8 requisitos totais):
+**Mapeamento [cliente enterprise de referência]** (8 requisitos totais):
 | Requisito | Framework | Specialist | Documento |
 |-----------|-----------|------------|-----------|
 | #1: BCP | ISO 22301 | `@iso-22301-specialist` | business-continuity-plan.md ✅ |
@@ -521,13 +521,13 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 
 **Quando usar**:
 -  Criação e refinamento de tasks
--  Coordenação com ClickUp
+-  Coordenação com Task Manager
 -  Análise de requisitos
 -  Gestão de roadmap
 
 **Ferramentas disponíveis**: `read_file`, `write`, `codebase_search`, `web_search`, `todo_write`, `mcp_clickup-mcp-server_create_task`, `mcp_clickup-mcp-server_update_task`, `mcp_clickup-mcp-server_get_task`, `mcp_clickup-mcp-server_create_task_comment`
 
-**Integração ClickUp**:
+**Integração Task Manager configurado**:
 -  Cria tasks estruturadas
 -  Atualiza status e progresso  
 -  Adiciona comentários contextuais
@@ -536,17 +536,17 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 ### **clickup-specialist**
 **Modelo**: Sonnet | **Prioridade**: Alta | **Cor**: Orange
 
-**Especialidades**: ClickUp MCP técnico, automações avançadas, performance, workflows
+**Especialidades**: Task Manager via MCP técnico, automações avançadas, performance, workflows
 
 **Quando usar**:
--  Otimizações técnicas do ClickUp (bulk operations, rate limiting)
+-  Otimizações técnicas do Task Manager configurado (bulk operations, rate limiting)
 -  Automações de workflow complexas (triggers, status changes)
 -  Performance optimization (batching, caching, query optimization)
 -  Configurações avançadas (webhooks, custom fields, templates)
 -  Time tracking automation e análise de produtividade
 -  Integração com skills `engineer-*` para automação
 
-**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `web_search`, **todas as 15+ ferramentas ClickUp MCP**
+**Ferramentas disponíveis**: `read_file`, `write`, `MultiEdit`, `run_terminal_cmd`, `codebase_search`, `web_search`, **todas as 15+ ferramentas Task Manager via MCP**
 
 **Exemplo de uso**:
 ```bash
@@ -564,7 +564,7 @@ Este guia documenta todos os agentes especializados disponíveis no sistema `.cu
 - 🚀 **Complementa product-agent**: Técnico vs Estratégico
 - ⚡ **Performance first**: Bulk operations, rate limiting, query optimization
 - 🔧 **Automação avançada**: Workflows inteligentes, triggers, status automation
-- 📊 **15+ ferramentas ClickUp MCP**: Cobertura completa da API ClickUp
+- 📊 **15+ ferramentas Task Manager via MCP**: Cobertura completa da API ClickUp
 - 🎯 **7 especialidades técnicas**: workflow-automation, performance-optimization, webhooks
 
 ### **claude-code-specialist**

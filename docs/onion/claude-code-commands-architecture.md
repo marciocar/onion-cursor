@@ -13,7 +13,7 @@ Claude Code Commands são comandos personalizados executados diretamente no **ch
 /git-init                      # Inicializar Git Flow
 /git-feature-start "login"     # Criar feature branch
 /engineer-work "implement API" # Iniciar desenvolvimento
-/product-task "add dashboard"  # Criar task no ClickUp
+/product-task "add dashboard"  # criar task no Task Manager configurado
 ```
 
 ### ❌ **Como NÃO Usar (INCORRETO)**
@@ -144,7 +144,7 @@ cli_progress_start "message"        # Progress indicators
 
 ### 🔗 **Integrações**
 ```bash
-# ClickUp MCP
+# Task Manager via MCP
 clickup_get_task_id_from_session    # Detectar task ativa
 clickup_add_comment $TASK_ID        # Adicionar comentário
 clickup_update_task $TASK_ID        # Atualizar status

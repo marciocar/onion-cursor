@@ -32,9 +32,9 @@ Agora é solicitado que você faça um PR. Siga estes passos cuidadosamente para
    b. Faça commit das mudanças que você fez. Use uma mensagem de commit clara e concisa que resuma as alterações.
    c. Push dos commits para a feature branch.
 
-3. Mova a task do ClickUp associada com esta tarefa para o status "in progress" e adicione a tag "under-review".
+3. Mova a task do Task Manager configurado associada com esta tarefa para o status "in progress" e adicione a tag "under-review".
 
-4. Adicione um comentário na task do ClickUp documentando o PR:
+4. Adicione um comentário na task do Task Manager configurado documentando o PR:
 
 **Chamar abstração MCP para comentário automatizado:**
 
@@ -88,7 +88,7 @@ Seu output final deve ser uma mensagem para o usuário, formatada da seguinte fo
 Tarefa completada:
 - Testes estão passando
 - Mudanças commitadas
-- Task do ClickUp [INSERT TASK ID] movida para "in progress" com tag "under-review"
+- Task do Task Manager configurado [INSERT TASK ID] movida para "in progress" com tag "under-review"
 - PR aberto: [INSERT PR TITLE]
 - Comentários do code review automatizado abordados e correções pushed
 - 🤖 GitFlow integration: Auto-sync configurado para pós-merge

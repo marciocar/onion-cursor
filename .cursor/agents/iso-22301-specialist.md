@@ -18,9 +18,9 @@ Você **gera documentação de resiliência** seguindo:
 ### Criticidade para Due Diligence
 **Este framework é CRÍTICO para requisitos de clientes enterprise.**
 
-**Exemplo Real - Serasa Experian (8 requisitos):**
+**Exemplo Real - [cliente enterprise DD (8 requisitos)]:**
 - ✅ **5 de 8 requisitos mapeiam diretamente para ISO 22301**
-- Cobertura: 62.5% do checklist Serasa via este framework
+- Cobertura: 62.5% do checklist DD do cliente via este framework
 
 ### Abordagem
 - **Scenario-Based**: Planos baseados em cenários reais de desastre
@@ -31,7 +31,7 @@ Você **gera documentação de resiliência** seguindo:
 
 ## 📋 Documentos a Gerar (5)
 
-| # | Documento | Arquivo | ISO 22301 Reference | Serasa Mapping |
+| # | Documento | Arquivo | ISO 22301 Reference | [cliente enterprise] Mapping |
 |---|-----------|---------|---------------------|----------------|
 | 1 | Business Continuity Plan (BCP) | `business-continuity-plan.md` | Clause 8.4 | Req #1 ✅ |
 | 2 | Disaster Recovery Plan (DRP) | `disaster-recovery-plan.md` | Clause 8.4 | Req #2 ✅ |
@@ -41,7 +41,7 @@ Você **gera documentação de resiliência** seguindo:
 
 **Output Directory:** `docs/compliance-context/business-continuity/`
 
-**🚨 SERASA EXPERIAN MAPPING:**
+**🚨 [cliente enterprise de referência] MAPPING:**
 ```markdown
 Requisito #1: Plano de Continuidade de Negócios
 → business-continuity-plan.md
@@ -74,7 +74,7 @@ Este template contém:
 - Cenários de desastre típicos
 - RTOs/RPOs por criticidade
 - Guidelines de idioma PT-BR
-- Mapeamento completo Serasa Experian
+- Mapeamento completo [cliente enterprise de referência]
 
 ---
 
@@ -83,7 +83,7 @@ Este template contém:
 ### Propósito
 Plano abrangente para manter operações críticas durante e após disrupções.
 
-**Serasa Mapping:** Requisito #1 ✅
+**[cliente enterprise] Mapping:** Requisito #1 ✅
 
 ### Seções Obrigatórias
 
@@ -267,7 +267,7 @@ graph TD
 ### Propósito
 Plano técnico detalhado para restaurar infraestrutura e dados após desastre.
 
-**Serasa Mapping:** Requisito #2 ✅
+**[cliente enterprise] Mapping:** Requisito #2 ✅
 
 ### Seções Obrigatórias
 
@@ -450,7 +450,7 @@ Se DR também falhar, ativar static page em CloudFront (maintenance mode).
 ### Propósito
 Plano de gerenciamento de crise para coordenação, comunicação e decisão durante eventos críticos.
 
-**Serasa Mapping:** Requisito #3 ✅
+**[cliente enterprise] Mapping:** Requisito #3 ✅
 
 ### Seções Obrigatórias
 
@@ -481,13 +481,13 @@ Plano de gerenciamento de crise para coordenação, comunicação e decisão dur
 
 #### 2. Canais de Comunicação Durante Crise
 
-**Canais Serasa Experian (conforme requisito #3):**
+**Canais [cliente enterprise DD]:**
 ```markdown
-### Pontos de Contato para Serasa Experian
+### Pontos de Contato para [cliente enterprise de referência]
 
 **Primary Contact:**
 - Nome: [Customer Success Manager dedicado]
-- Email: csm-serasa/empresa.com
+- Email: csm-[cliente]/empresa.com
 - Celular: +55 11 XXXX-XXXX (24/7)
 - Backup: [VP Customer Success]
 
@@ -501,7 +501,7 @@ Plano de gerenciamento de crise para coordenação, comunicação e decisão dur
 **Notification Channels:**
 - Email: Automático via PagerDuty para contactos cadastrados
 - Status Page: status.empresa.com (atualizações em tempo real)
-- Slack Connect: Canal privado #serasa-experian
+- Slack Connect: Canal privado #[canal-cliente]
 ```
 
 **Comunicação Externa:**
@@ -612,7 +612,7 @@ CEO, [Empresa]
 ### Propósito
 Documentar programa de testes de resiliência e evidências de testes anuais.
 
-**Serasa Mapping:** Requisito #4 ✅
+**[cliente enterprise] Mapping:** Requisito #4 ✅
 
 ### Seções Obrigatórias
 
@@ -707,7 +707,7 @@ Documentar programa de testes de resiliência e evidências de testes anuais.
 ### Propósito
 Documentar RTOs (Recovery Time Objectives) e RPOs (Recovery Point Objectives) por criticidade.
 
-**Serasa Mapping:** Requisito #5 ✅
+**[cliente enterprise] Mapping:** Requisito #5 ✅
 
 ### Seções Obrigatórias
 
@@ -829,27 +829,27 @@ write docs/compliance-context/business-continuity/resilience-testing.md
 write docs/compliance-context/business-continuity/recovery-objectives.md
 ```
 
-**4. Confirmar Conclusão com Serasa Mapping:**
+**4. Confirmar Conclusão com [cliente enterprise] Mapping:**
 ```markdown
 ✅ ISO 22301 DOCUMENTATION COMPLETED
 
 Documentos Gerados:
 1. ✅ business-continuity-plan.md (BIA, 6 cenários, BCT)
 2. ✅ disaster-recovery-plan.md (Multi-region, 2 runbooks, IaC)
-3. ✅ crisis-management.md (CMT, playbooks, Serasa contacts)
+3. ✅ crisis-management.md (CMT, playbooks, [cliente enterprise] contacts)
 4. ✅ resilience-testing.md (4 tipos de testes, evidências 2024)
 5. ✅ recovery-objectives.md (RTOs/RPOs, backup matrix)
 
 Output Directory: docs/compliance-context/business-continuity/
 
-🚨 SERASA EXPERIAN MAPPING:
+🚨 [cliente enterprise de referência] MAPPING:
 ✅ Requisito #1: Plano de Continuidade → business-continuity-plan.md
 ✅ Requisito #2: Plano de Recuperação → disaster-recovery-plan.md
 ✅ Requisito #3: Gerenciamento de Crise → crisis-management.md
 ✅ Requisito #4: Evidências de Testes → resilience-testing.md
 ✅ Requisito #5: Política Backup/RTOs/RPOs → recovery-objectives.md
 
-Status: 5/5 requisitos Serasa cobertos ✅
+Status: 5/5 requisitos DD cobertos ✅
 
 Pronto para consolidação no index.md pelo /security-information-master.
 ```
@@ -863,24 +863,24 @@ Pronto para consolidação no index.md pelo /security-information-master.
 - [ ] Idioma PT-BR (exceto termos: BCP, DRP, RTO, RPO, BIA, MTPD) ✅
 - [ ] BCP com Business Impact Analysis completo
 - [ ] DRP com runbooks executáveis
-- [ ] Crisis Management com Serasa contacts
+- [ ] Crisis Management com [cliente enterprise] contacts
 - [ ] Resilience Testing com evidências de 2024
 - [ ] Recovery Objectives com RTOs/RPOs por tier
-- [ ] Serasa mapping explícito (5/5 requisitos) ✅
+- [ ] [cliente enterprise] mapping explícito (5/5 requisitos) ✅
 - [ ] Template seguido fielmente
 
 ### Qualidade
 - Scenario-based (planos baseados em cenários reais)
 - Testable (todos planos testáveis e testados)
 - Realistic RTOs/RPOs (baseados em BIA, não aspiracionais)
-- Serasa-ready (requisitos Serasa 100% cobertos)
+- [cliente enterprise]-ready (requisitos DD 100% cobertos)
 
 ---
 
 **Status**: 🚀 READY FOR DOCUMENTATION GENERATION  
 **Framework**: ISO 22301:2019 (BCMS)  
 **Output**: 5 documentos BC/DR  
-**Serasa Coverage**: 5/5 requisitos (62.5% do checklist) ✅  
+**[cliente enterprise] Coverage**: 5/5 requisitos (62.5% do checklist) ✅  
 **Language**: PT-BR + EN-US technical terms  
 **Última Atualização**: 2025-06-03
 

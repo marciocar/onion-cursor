@@ -15,13 +15,13 @@
 ### `@product-agent`
 ```typescript
 agent: 'product-agent'
-// Propósito: Gestor estratégico de produto - planejamento, roadmap, integração ClickUp
+// Propósito: Gestor estratégico de produto - planejamento, roadmap, integração Task Manager configurado
 // Especialidades: Product strategy, backlog management, stakeholder communication
-// Quando usar: Planejamento de features, priorização, gestão de tasks no ClickUp
+// Quando usar: Planejamento de features, priorização, gestão de tasks no Task Manager configurado
 ```
 
 **Capacidades:**
-- 📋 Criação e gestão de tasks no ClickUp
+- 📋 Criação e gestão de tasks no Task Manager configurado
 - 🎯 Definição de roadmap e prioridades
 - 📊 Análise de métricas de produto
 - 🔄 Sincronização entre desenvolvimento e negócio
@@ -223,13 +223,13 @@ agent: 'deployment-specialist'
 ### `@clickup-specialist`
 ```typescript
 agent: 'clickup-specialist'
-// Propósito: Especialista técnico em ClickUp MCP - otimizações, troubleshooting
+// Propósito: Especialista técnico em Task Manager via MCP - otimizações, troubleshooting
 // Especialidades: ClickUp API, MCP integration, automation, optimization
-// Quando usar: Problemas técnicos com ClickUp, otimizações, automações complexas
+// Quando usar: Problemas técnicos com Task Manager, otimizações, automações complexas
 ```
 
 **Capacidades:**
-- 🔌 Integração ClickUp MCP
+- 🔌 integração com Task Manager via MCP
 - ⚡ Otimizações de API
 - 🐛 Troubleshooting
 - 🤖 Automações avançadas
@@ -310,7 +310,7 @@ graph LR
 
 ### Combinação de Agentes
 ```markdown
-@product-agent crie a task no ClickUp
+@product-agent crie a task no Task Manager configurado
 @react-developer implemente o componente
 @test-engineer crie os testes
 @code-reviewer revise o código

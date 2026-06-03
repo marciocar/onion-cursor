@@ -329,7 +329,7 @@ tools:
 tools:
   - read_file
   - write
-  - mcp_ClickUp_*      # Acoplado ao ClickUp
+  - mcp_ClickUp_*      # Acoplado ao Task Manager configurado
 # Útil, mas menos portável
 ```
 
@@ -338,7 +338,7 @@ tools:
 **Princípio:** Comportamento alternativo quando ferramenta indisponível.
 
 ```markdown
-## Integração ClickUp
+## Integração Task Manager configurado
 
 SE mcp_ClickUp disponível:
   → Usar para criar/atualizar tasks

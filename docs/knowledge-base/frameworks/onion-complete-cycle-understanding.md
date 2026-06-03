@@ -341,7 +341,7 @@ O Onion tem **geradores para tudo**:
 #   - Divergência: +5 story points
 
 # Sistema automaticamente:
-# → Atualiza task no ClickUp/Linear com divergência
+# → Atualiza task no Task Manager configurado/Linear com divergência
 # → Cria comment explicando diferença
 # → Notifica business context
 
@@ -650,7 +650,7 @@ O Onion tem **geradores para tudo**:
 ∟ /business/spec        - Criar especificação de feature
 ∟ /business/refine      - Refinar especificação existente
 ∟ /business/estimate    - Estimar story points
-∟ /business/task        - Criar task no ClickUp
+∟ /business/task        - criar task no Task Manager configurado
 ∟ /business/help        - Mostrar esta ajuda
 
 💡 Use STARTER para começar. Quando precisar de mais:

@@ -17,7 +17,7 @@ O **Task Manager Abstraction** é uma camada de abstração que permite ao Siste
 
 ### Problema Resolvido
 
-Antes da abstração, comandos como `/product-task` e `/engineer-start` tinham chamadas diretas ao ClickUp MCP, criando:
+Antes da abstração, comandos como `/product-task` e `/engineer-start` tinham chamadas diretas ao Task Manager via MCP, criando:
 - **Acoplamento forte** a um provedor específico
 - **Impossibilidade de trocar** de gerenciador sem refatoração
 - **Código duplicado** em múltiplos comandos

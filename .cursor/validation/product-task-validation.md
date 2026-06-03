@@ -129,7 +129,7 @@ related_commands:             ✅ Comandos relacionados corretos
 **Pontos Fortes:**
 - ✅ Foco estratégico (modelo Opus apropriado)
 - ✅ Gestão de produto e coordenação de equipes
-- ✅ Integração com ClickUp e task management
+- ✅ Integração com Task Manager e task management
 - ✅ Roadmap planning e stakeholder communication
 
 **Score:** 75/80 ✅
@@ -260,7 +260,7 @@ Nenhum problema crítico identificado.
 |--------|--------|------------|
 | Nomenclatura kebab-case | ✅ | Todos os nomes corretos |
 | Estrutura de diretórios | ✅ | Arquivos nos locais corretos |
-| Integração ClickUp | ✅ | Formatação Unicode correta |
+| Integração Task Manager configurado | ✅ | Formatação Unicode correta |
 | Feature slugs | ✅ | Padrão respeitado |
 
 ---

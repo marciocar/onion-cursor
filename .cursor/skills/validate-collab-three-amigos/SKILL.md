@@ -93,7 +93,7 @@ Estruturar e facilitar sessões Three Amigos que resultem em:
 **SE** `{{task_manager}}` = `clickup`:
 
 ```bash
-# Usar ClickUp MCP para buscar:
+# Usar Task Manager via MCP para buscar:
 # - Detalhes da task/story
 # - Descrição atual
 # - Critérios de aceitação existentes
@@ -308,7 +308,7 @@ Gerar checklist para validar completude da sessão:
 #    - Cross Points
 ```
 
-**Formato de Comentário ClickUp:**
+**Formato de Comentário Task Manager configurado:**
 
 ```markdown
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -442,7 +442,7 @@ Gerar checklist para validar completude da sessão:
 - Agenda gerada automaticamente
 - Template de ata criado
 - Checklist preparado
-- Story atualizada no ClickUp
+- Story atualizada no Task Manager configurado
 
 ### Exemplo 2: Sessão Manual (sem agenda)
 

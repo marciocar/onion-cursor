@@ -113,7 +113,7 @@ SE `{{output}}` = "clickup":
 ## 🔗 Referências
 
 - Decomposição: @task-specialist
-- Criação no ClickUp: /product-task
+- Criação no Task Manager configurado: /product-task
 
 ## ⚠️ Notas
 

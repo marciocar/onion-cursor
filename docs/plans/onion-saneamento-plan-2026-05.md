@@ -209,7 +209,7 @@ Importante: meta-specs são do Onion, não do projeto-alvo. Cada uma define padr
 - Estrutura obrigatória de adapter
 - Gestão de `.env` (obrigatórias vs opcionais, fallback)
 - MCPs suportados
-- Formatação por provider (ADF Jira v3, Markdown ClickUp descriptions, Unicode ClickUp comments)
+- Formatação por provider (ADF Jira v3, Markdown ClickUp descriptions, Unicode comentários do Task Manager)
 
 **Critério de pronto**:
 - Documento existe

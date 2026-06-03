@@ -10,7 +10,7 @@ Este template orienta a geração de documentação **SOC2 Type II** conforme **
 
 **Use para:**
 - Preparação para auditoria SOC2 Type II (6–12 meses)
-- Due diligence enterprise (ex.: Serasa Experian — 3/8 requisitos)
+- Due diligence enterprise (ex.: [cliente enterprise de referência] — 3/8 requisitos)
 - Complemento a ISO 27001 (~70% overlap em Security)
 - Evidências operacionais coletáveis
 
@@ -34,7 +34,7 @@ docs/compliance-context/
     └── evidence-collection.md
 ```
 
-### Mapeamento Serasa Experian
+### Mapeamento [cliente enterprise de referência]
 
 | Requisito | Documento | Foco |
 |-----------|-----------|------|
@@ -42,13 +42,13 @@ docs/compliance-context/
 | #7 Confirmação SLAs | availability-controls.md | A1.2 monitoring + SLAs |
 | #8 Documentação SLAs contratuais | availability-controls.md | A1.2 em contratos |
 
-**Combined ISO 22301 + SOC2:** cobertura 8/8 requisitos Serasa (referência DD)
+**Combined ISO 22301 + SOC2:** cobertura 8/8 requisitos DD (referência DD)
 
 ---
 
 ## Documento 1: trust-services-criteria.md
 
-**TSC:** Overview | **Serasa Req #6**
+**TSC:** Overview | **[cliente enterprise] Req #6**
 
 ```markdown
 # Trust Services Criteria (TSC) — Overview SOC2
@@ -136,7 +136,7 @@ Service Organization Control 2 — framework AICPA para avaliar controles de ser
 
 ## Documento 3: availability-controls.md
 
-**TSC:** Availability (A1) | **Serasa Req #7, #8**
+**TSC:** Availability (A1) | **[cliente enterprise] Req #7, #8**
 
 ```markdown
 # Controles de Disponibilidade (Availability)
@@ -275,7 +275,7 @@ Service Organization Control 2 — framework AICPA para avaliar controles de ser
 
 - [ ] Type I vs Type II explicado claramente
 - [ ] In-scope principles definidos (Security + Availability + Confidentiality mínimo)
-- [ ] SLAs documentados em controles E referência contratual (Serasa #7/#8)
+- [ ] SLAs documentados em controles E referência contratual ([cliente enterprise] #7/#8)
 - [ ] Matriz controle → evidência com fontes reais
 - [ ] Cross-ref ISO 27001 e ISO 22301 onde overlap
 - [ ] Nenhuma certificação inventada — usar "preparação para" se não certificado

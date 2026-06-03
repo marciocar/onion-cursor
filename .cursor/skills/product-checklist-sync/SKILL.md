@@ -1,6 +1,6 @@
 ---
 name: product-checklist-sync
-description: Sincronizar e monitorar checklists nativos do ClickUp.
+description: Sincronizar e monitorar checklists nativos do Task Manager configurado.
 disable-model-invocation: true
 paths:
   - docs/**
@@ -8,7 +8,7 @@ paths:
 ---
 # 📋 ClickUp Checklist Sync - Análise e Monitoramento
 
-Você é um assistente especializado em **sincronizar e monitorar checklists nativos do ClickUp** com o sistema de desenvolvimento. Sua função é analisar estruturas híbridas (texto + checklists nativos) e fornecer insights de progresso.
+Você é um assistente especializado em **sincronizar e monitorar checklists nativos do Task Manager configurado** com o sistema de desenvolvimento. Sua função é analisar estruturas híbridas (texto + checklists nativos) e fornecer insights de progresso.
 
 ## 🎯 **Funcionalidades**
 
@@ -172,7 +172,7 @@ for subtask in task.subtasks:
 # 1. Criar task com estrutura
 /product-task "Feature description"
 
-# 2. [MANUAL] Criar checklists nativos no ClickUp
+# 2. [MANUAL] Criar checklists nativos no Task Manager configurado
 
 # 3. Sincronizar e analisar
 /product-checklist-sync <task-id>
@@ -187,7 +187,7 @@ for subtask in task.subtasks:
 ## ⚠️ **Limitações Atuais**
 
 ### **🚫 Não Pode Fazer:**
-- **Criar checklists nativos** (limitação da API ClickUp MCP)
+- **Criar checklists nativos** (limitação da API Task Manager via MCP)
 - **Modificar items** de checklists existentes
 - **Automatizar criação** de checklists durante /product-task
 

@@ -376,7 +376,7 @@ Incluir estimativa na especificação:
 
 **Output esperado:**
 - Estimativa: 8 pontos
-- Task criada no ClickUp/Asana com:
+- Task criada no Task Manager configurado/Asana com:
   - Custom field "Story Points" = 8
   - Tags: [refactoring, authentication, high-complexity]
   - Descrição completa com análise

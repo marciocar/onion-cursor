@@ -20,7 +20,7 @@ SE `{{integration}}` foi fornecido:
 SENÃO:
 - Pergunte qual integração configurar:
   - **task-manager** - Configurar gerenciador de tarefas (ClickUp, Asana, Linear) - **RECOMENDADO PRIMEIRO**
-  - **clickup** - ClickUp MCP para gestão de tarefas
+  - **clickup** - Task Manager via MCP para gestão de tarefas
   - **asana** - Asana MCP para gestão de tarefas
   - **linear** - Linear API para gestão de tarefas
   - **gamma** - Gamma.App API para apresentações
@@ -62,14 +62,14 @@ TASK_MANAGER_PROVIDER=clickup  # clickup | asana | linear | none
 
 **2. Configurar ClickUp (se escolhido):**
 ```env
-# ClickUp MCP
+# Task Manager via MCP
 CLICKUP_API_TOKEN=pk_xxxxxxx_xxxxxxxxxxxxxxx
 CLICKUP_WORKSPACE_ID=your_workspace_id  # Opcional, detectado automaticamente
 CLICKUP_DEFAULT_LIST_ID=your_list_id  # Opcional, lista padrão
 ```
 
 **Como obter:**
-- **API Token**: Settings > Apps > API Token no ClickUp
+- **API Token**: Settings > Apps > API Token no Task Manager configurado
 - **Workspace ID**: URL do workspace `https://app.clickup.com/XXXXXXXX/home` → `XXXXXXXX`
 - **List ID**: URL da lista `https://app.clickup.com/XXXXXXXX/v/li/YYYYYYYY` → `YYYYYYYY`
 
@@ -225,7 +225,7 @@ Apresente um resumo formatado:
 
 - **Task Manager Abstraction**: `.cursor/utils/task-manager/README.md`
 - **Detector de Provedor**: `.cursor/utils/task-manager/detector.md`
-- **Documentação ClickUp**: `.cursor/docs/onion/clickup-integration.md`
+- **Documentação Task Manager configurado**: `.cursor/docs/onion/clickup-integration.md`
 - **Comando de Task**: `/product-task` - Criar tasks com decomposição
 
 ## ⚠️ Notas Importantes

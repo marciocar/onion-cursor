@@ -22,7 +22,7 @@ Analisar `{{topic}}` para determinar fonte:
 
 | Pattern | Tipo | Ação |
 |---------|------|------|
-| `86adf...` | Task ID | Buscar dados no ClickUp |
+| `86adf...` | Task ID | Buscar dados no Task Manager configurado |
 | `docs/...` | Documento | Ler arquivo |
 | Texto livre | Tema | Pesquisar codebase |
 

@@ -16,7 +16,7 @@ Você **conhece profundamente** a arquitetura de comandos:
 - **Padrões de workflows** estabelecidos (engineer, product, git)
 - **24+ agentes** que podem ser invocados por comandos
 - **Diferença crítica** entre Claude Code Commands vs Terminal Commands
-- **Integrações** com ClickUp, Git, Sessions
+- **Integrações** com Task Manager, Git, Sessions
 
 ### Claude Code Commands Philosophy
 
@@ -122,7 +122,7 @@ read_file docs/onion/commands-guide.md
 **Compreender:**
 - Fluxo de execução de comandos
 - Padrões de UX (modern-cli-ux.sh)
-- Integrações com ClickUp MCP
+- Integrações com Task Manager via MCP
 - Session management
 - Estrutura de diretórios
 
@@ -164,7 +164,7 @@ Olá! Analisei o ambiente de comandos e encontrei:
   - Development: [listar]
   - Compliance: [listar]
   
-- **Integrações:** ClickUp MCP, Sessions, Git Flow
+- **Integrações:** Task Manager via MCP, Sessions, Git Flow
 
 ### 🔍 Análise do Seu Pedido:
 **Você quer criar:** [resumir pedido do usuário]
@@ -207,7 +207,7 @@ O comando deve:
 - **A) Invocar agente específico** - Delegar para especialista
 - **B) Executar workflow automatizado** - Steps bem definidos
 - **C) Orquestrar múltiplos agentes** - Coordenação complexa
-- **D) Integrar com ClickUp** - Criar/atualizar tasks
+- **D) Integrar com Task Manager** - Criar/atualizar tasks
 - **E) Gerenciar Git Flow** - Branches e commits
 
 #### 3️⃣ **Invocação de Agentes**
@@ -222,7 +222,7 @@ O comando deve invocar:
 
 #### 4️⃣ **Integrações Necessárias**
 O comando precisa de:
-- **ClickUp MCP** (gestão de tasks)
+- **Task Manager via MCP** (gestão de tasks)
 - **Session Management** (contexto de desenvolvimento)
 - **Git Operations** (branches, commits)
 - **File Operations** (criar/editar arquivos)
@@ -417,9 +417,9 @@ Analise o contexto atual e proponha [solução]
 
 #### 3.4. Integrações
 
-**ClickUp MCP Integration:**
+**Task Manager via MCP Integration:**
 ```markdown
-## Integração ClickUp
+## Integração Task Manager configurado
 
 ### Leitura de Task
 ```bash
@@ -706,7 +706,7 @@ write .cursor/skills/[categoria]/[sub-categoria]/[comando].md
 - [ ] Formato de resposta esperado está definido
 
 ### ✓ Integrações
-- [ ] ClickUp MCP usado apropriadamente (se aplicável)
+- [ ] Task Manager via MCP usado apropriadamente (se aplicável)
 - [ ] Git operations validadas (se aplicável)
 - [ ] Session management implementado (se aplicável)
 - [ ] Integrações documentadas na seção apropriada
@@ -905,7 +905,7 @@ Comando meta que [ação] do sistema.
 **Propósito:** Comandos para workflows de desenvolvimento (start, work, pr, etc.)
 
 **Padrões:**
-- Integram com ClickUp MCP (tasks)
+- Integram com Task Manager via MCP (tasks)
 - Gerenciam sessions (.cursor/sessions/)
 - Coordenam múltiplos agentes
 - Workflows complexos e iterativos
@@ -958,7 +958,7 @@ TASK_ID=$(clickup_get_task_id_from_session)
 **Propósito:** Comandos para gestão de produto e criação de tasks
 
 **Padrões:**
-- Focam em ClickUp MCP
+- Focam em Task Manager via MCP
 - Criam/atualizam tasks, checklists, subtasks
 - Invocam `/product-agent` ou `/task-specialist`
 - Workflows de decomposição e especificação
@@ -992,7 +992,7 @@ Decomponha [funcionalidade] em:
 - Checklists
 ```
 
-### Step 2: Criação no ClickUp
+### Step 2: Criação no Task Manager configurado
 ```bash
 # Criar task principal
 TASK_ID=$(clickup_create_task "$TASK_NAME" "$LIST_ID")
@@ -1012,7 +1012,7 @@ TASK_ID=$(clickup_create_task "$TASK_NAME" "$LIST_ID")
 - Invocam `/gitflow-specialist`
 - Validam estado do repositório
 - Operações de branch management
-- Integram com ClickUp (opcional)
+- Integram com Task Manager (opcional)
 
 **Exemplos:**
 - `/git-init` - Inicializar Git Flow
@@ -1431,7 +1431,7 @@ graph TD
 **Agente:** /reviewer-agent
 [instruções]
 
-## Integração ClickUp
+## Integração Task Manager configurado
 
 [lógica de integração]
 

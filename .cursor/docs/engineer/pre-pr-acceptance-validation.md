@@ -77,7 +77,7 @@ Status: 7/7 critérios completados ✅ PRONTO PARA PR
 
 ```typescript
 async function validateAcceptanceCriteria(taskId) {
-  // 1. Buscar task do ClickUp
+  // 1. Buscar task do Task Manager configurado
   const task = await clickup_get_task({ task_id: taskId });
   
   // 2. Extrair checkboxes da description
@@ -155,7 +155,7 @@ async function validateAcceptanceCriteria(taskId) {
 🔧 AÇÕES NECESSÁRIAS:
    1. Implementar testes de segurança
    2. Completar documentação da API
-   3. Marcar checkboxes no ClickUp
+   3. Marcar checkboxes no Task Manager configurado
    4. Fazer commit + push
    5. Executar /engineer-pre-pr novamente
 
@@ -182,7 +182,7 @@ async function validateAcceptanceCriteria(taskId) {
    ├── Validar critérios de aceitação ← NOVO!
    ├── Se incompleto: ❌ Bloqueia e lista pendentes
    ├── Se completo: ✅ Continua com validações técnicas
-   └── Adiciona comentário no ClickUp
+   └── Adiciona comentário no Task Manager configurado
    
 3. /engineer-pr
    └── Abrir Pull Request (se pré-PR passou)
@@ -198,7 +198,7 @@ async function validateAcceptanceCriteria(taskId) {
 - [ ] Contagem precisa de completos vs pendentes
 - [ ] Percentual de cobertura calculado
 - [ ] Identificação de critérios pendentes
-- [ ] Comentário informativo no ClickUp
+- [ ] Comentário informativo no Task Manager configurado
 - [ ] Bloqueio de PR se critérios incompletos
 - [ ] Atualização de tag ('ready-for-pr' ou 'needs-fixes')
 
@@ -232,7 +232,7 @@ async function validateAcceptanceCriteria(taskId) {
 
 ## 🚀 Próximos Passos
 
-1. **Testar validação** com task real no ClickUp
+1. **Testar validação** com task real no Task Manager configurado
 2. **Implementar feedback** de usuários
 3. **Integrar com CI/CD** para validação automática
 4. **Criar dashboard** de status de critérios

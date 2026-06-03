@@ -1,13 +1,13 @@
 # 🔌 Ferramentas MCP (Model Context Protocol)
 
 ## 📑 Índice
-- [ClickUp MCP](#clickup-mcp)
+- [Task Manager via MCP](#clickup-mcp)
 - [Postman MCP](#postman-mcp)
 - [Nx MCP](#nx-mcp)
 
 ---
 
-## ClickUp MCP
+## Task Manager via MCP
 
 ### 🔍 Busca e Consulta
 
@@ -428,7 +428,7 @@ function clickup_create_document(params: {
   create_page: boolean;
   workspace_id?: string;
 }): Document
-// Propósito: Cria documento no ClickUp
+// Propósito: Cria documento no Task Manager configurado
 ```
 
 #### `mcp_ClickUp_clickup_list_document_pages`

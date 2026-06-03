@@ -377,7 +377,7 @@ find .cursor/agents -name "*.md" -type f ! -name "README.md" | wc -l
 - [Fluxos de Engenharia](.cursor/docs/onion/engineering-flows.md)
 - [Exemplos Práticos](.cursor/docs/onion/practical-examples.md)
 - [Configuração Inicial](.cursor/docs/onion/getting-started.md)
-- [Integração ClickUp](.cursor/docs/onion/clickup-integration.md)
+- [Integração Task Manager configurado](.cursor/docs/onion/clickup-integration.md)
 - [Padrões de Nomenclatura](.cursor/docs/onion/naming-conventions.md)
 
 ---

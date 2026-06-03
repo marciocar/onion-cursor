@@ -593,7 +593,7 @@ Comandos que devem chamar automaticamente:
 3. Ambos: Validam contratos de API em desenvolvimento
 ```
 
-### **Com clickup-specialist**  
+### **com Task Manager-specialist**  
 ```typescript
 // Automação de development workflow
 1. clickup-specialist: Cria tasks para features backend

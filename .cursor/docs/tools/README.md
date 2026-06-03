@@ -7,7 +7,7 @@
 ### 🔌 [Ferramentas MCP](./mcps.md)
 Integrações com Model Context Protocol - ClickUp, Postman, Nx
 - **50+ funções** para gestão de projeto e workflow
-- Integração completa com ClickUp (tasks, time tracking, docs)
+- Integração completa com Task Manager (tasks, time tracking, docs)
 - Postman API management (collections, mocks, monitors)
 - Nx monorepo tools (generators, CI/CD)
 
@@ -29,7 +29,7 @@ Integrações com Model Context Protocol - ClickUp, Postman, Nx
 Regras do workspace, padrões e convenções
 - Convenções de linguagem (EN code, PT-BR docs)
 - Estrutura de projeto
-- Formatação ClickUp (Markdown vs Unicode)
+- Formatação Task Manager configurado (Markdown vs Unicode)
 - Padrões de código e testes
 
 ### 🛠️ [Ferramentas Core do Claude Code](./claude-code.md)
@@ -57,7 +57,7 @@ Ferramentas fundamentais do Claude Code
 | 👀 Review código | `@code-reviewer` + `/git/code-review` |
 | 🚀 Fazer deploy | `@deployment-specialist` |
 | 📚 Gerar docs | `/docs/build-tech-docs` |
-| 🔧 Problema técnico ClickUp | `@clickup-specialist` |
+| 🔧 Problema técnico Task Manager configurado | `@clickup-specialist` |
 | ⚙️ Problema Claude Code | `@claude-code-specialist` |
 
 ### Por Fase do Projeto
@@ -221,7 +221,7 @@ search_replace()              # Editar código
 
 | Problema | Solução |
 |----------|---------|
-| 🔌 Erro ClickUp MCP | `@clickup-specialist` |
+| 🔌 Erro Task Manager via MCP | `@clickup-specialist` |
 | 🖥️ Problema Claude Code | `@claude-code-specialist` |
 | 💻 Dúvida técnica React | `@react-developer` |
 | 🐍 Dúvida técnica Python | `@python-developer` |

@@ -122,7 +122,7 @@ Mostrar dashboard:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### Passo 3: Atualizar ClickUp
+### Passo 3: atualizar o Task Manager
 
 SE há task associada:
 - Adicionar comentário com resultado

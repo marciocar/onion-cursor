@@ -36,7 +36,7 @@ command: '/meta/all-tools'
 ```typescript
 command: '/product/feature'
 // Propósito: Inicia planejamento completo de nova feature
-// Integração: ClickUp task creation, technical planning
+// Integração: task do Task Manager creation, technical planning
 ```
 
 **Localização:** `.cursor/skills/product/feature.md`
@@ -44,8 +44,8 @@ command: '/product/feature'
 ### `/product/task`
 ```typescript
 command: '/product/task'
-// Propósito: Cria e gerencia task no ClickUp
-// Integração: ClickUp MCP
+// Propósito: Cria e gerencia task no Task Manager configurado
+// Integração: Task Manager via MCP
 ```
 
 **Localização:** `.cursor/skills/product/task.md`
@@ -89,8 +89,8 @@ command: '/product/check'
 ### `/product/task-check`
 ```typescript
 command: '/product/task-check'
-// Propósito: Verifica status e qualidade de task no ClickUp
-// Integração: ClickUp MCP
+// Propósito: Verifica status e qualidade de task no Task Manager configurado
+// Integração: Task Manager via MCP
 ```
 
 **Localização:** `.cursor/skills/product/task-check.md`

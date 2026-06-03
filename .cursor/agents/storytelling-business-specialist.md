@@ -112,7 +112,7 @@ Outputs:
 Fontes:
   - Documentos técnicos
   - Dados e métricas
-  - Tasks do ClickUp
+  - Tasks do Task Manager configurado
   - Pesquisas e análises
   - Conversas e contexto
 

@@ -6,7 +6,7 @@
 - [Exemplo 2: Hotfix Urgente](#-exemplo-2-hotfix-urgente)
 - [Exemplo 3: Release e Deploy](#-exemplo-3-release-e-deploy)
 - [Exemplo 4: Gerar Documentação](#-exemplo-4-gerar-documentação)
-- [Exemplo 5: Integração ClickUp Completa](#-exemplo-5-integração-clickup-completa)
+- [Exemplo 5: Integração Task Manager configurado Completa](#-exemplo-5-integração-clickup-completa)
 - [Anti-Patterns](#-anti-patterns-o-que-não-fazer)
 - [Troubleshooting Comum](#-troubleshooting-comum)
 
@@ -61,7 +61,7 @@ Você precisa implementar um sistema completo de autenticação JWT com refresh 
 ```
 
 4. Após confirmação (`y`):
-   - Cria task no ClickUp (ID: `86xyz123`)
+   - Cria task no Task Manager configurado (ID: `86xyz123`)
    - Cria 4 subtasks com parent relationship
    - Executa `/git/feature/start jwt-authentication`
    - Cria sessão `.cursor/sessions/jwt-authentication/`
@@ -85,7 +85,7 @@ Você precisa implementar um sistema completo de autenticação JWT com refresh 
 
 **O que acontece:**
 1. Valida branch (já criada pelo `/product/task`)
-2. Lê task do ClickUp com subtasks
+2. Lê task do Task Manager configurado com subtasks
 3. Faz 5-7 questões de clarificação:
 
 ```markdown
@@ -189,7 +189,7 @@ Você precisa implementar um sistema completo de autenticação JWT com refresh 
 - [ ] Documentation
 ```
 
-6. Atualiza ClickUp:
+6. atualiza o Task Manager:
    - Status → "In Progress"
    - Comentário de início
    - Cria mapeamento fase→subtask
@@ -241,7 +241,7 @@ export class JWTService {
 2. Usuário revisa e aprova (`y`)
 3. Sistema automaticamente:
    - Atualiza subtask "Backend JWT Service" → "done"
-   - Adiciona comentário no ClickUp:
+   - Adiciona comentário no Task Manager configurado:
 
 ```
 🔧 PROGRESSO DE DESENVOLVIMENTO
@@ -302,7 +302,7 @@ export class JWTService {
 **O que acontece:**
 1. Valida que todos os testes passam
 2. Commit e push das mudanças
-3. Atualiza ClickUp:
+3. atualiza o Task Manager:
    - Status → "in progress"
    - Tag → "under-review"
    - Comentário com PR link
@@ -322,7 +322,7 @@ export class JWTService {
 1. GitFlow analysis
 2. Cleanup de branches
 3. Session archiving
-4. Atualiza ClickUp → "Done"
+4. atualiza o Task Manager → "Done"
 5. Sincroniza branches locais
 
 ---
@@ -568,10 +568,10 @@ docs/technical-context/
 
 ---
 
-## 🔗 Exemplo 5: Integração ClickUp Completa
+## 🔗 Exemplo 5: Integração Task Manager configurado Completa
 
 ### Cenário
-Usar ClickUp MCP para gerenciar todo o ciclo de vida de uma feature.
+Usar Task Manager via MCP para gerenciar todo o ciclo de vida de uma feature.
 
 ### Workflow Detalhado
 
@@ -610,7 +610,7 @@ Usar ClickUp MCP para gerenciar todo o ciclo de vida de uma feature.
 # Sistema automaticamente:
 # - Lê checklists nativos
 # - Calcula progresso (3/9 items = 33%)
-# - Atualiza ClickUp em tempo real
+# - atualiza o Task Manager em tempo real
 ```
 
 ---
@@ -770,7 +770,7 @@ npm test -- --verbose
 
 - [Guia de Comandos](./commands-guide.md) - Todos os comandos
 - [Fluxos de Engenharia](./engineering-flows.md) - Workflows detalhados
-- [Integração ClickUp](./clickup-integration.md) - ClickUp MCP
+- [Integração Task Manager configurado](./clickup-integration.md) - Task Manager via MCP
 - [Referência de Agentes](./agents-reference.md) - Agentes disponíveis
 - [Configuração Inicial](./getting-started.md) - Setup do sistema
 

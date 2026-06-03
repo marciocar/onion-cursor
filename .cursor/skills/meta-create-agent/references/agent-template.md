@@ -294,8 +294,8 @@ updated: "2025-11-24"
 ---
 name: clickup-specialist
 description: |
-  Especialista em ClickUp MCP para otimizações técnicas e operações em bulk.
-  Use para operações avançadas no ClickUp, automações e integrações.
+  Especialista em Task Manager via MCP para otimizações técnicas e operações em bulk.
+  Use para operações avançadas no Task Manager configurado, automações e integrações.
 model: sonnet
 tools:
   - read_file
@@ -339,7 +339,7 @@ updated: "2025-11-24"
 | Variável | Obrigatória | Descrição | Como Obter |
 |----------|-------------|-----------|------------|
 | `CLICKUP_API_TOKEN` | ✅ | Token de API | [ClickUp Settings](https://app.clickup.com/settings/apps) |
-| `CLICKUP_WORKSPACE_ID` | ✅ | ID do workspace | URL do ClickUp |
+| `CLICKUP_WORKSPACE_ID` | ✅ | ID do workspace | URL do Task Manager configurado |
 
 ## 📋 Protocolo de Operação
 [...]

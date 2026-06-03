@@ -19,7 +19,7 @@ Finalizar processo de release realizando merge seguro para main/master e develop
 ### Publishing e Deployment Integration  
 - Tag publishing para remote repository
 - Release notes generation baseada em changelog
-- ClickUp task completion e status updates
+- task do Task Manager completion e status updates
 - Team notification via release completion workflow
 - Integration com CI/CD pipelines através de tags
 
@@ -47,7 +47,7 @@ Finalizar processo de release realizando merge seguro para main/master e develop
 5. **Merge Strategy**: Executa merge para main + back-merge para develop
 6. **Tag Creation**: Cria tag anotada com release notes automáticas
 7. **Publishing**: Publica tags e atualiza remote branches
-8. **Cleanup**: Remove release branch e atualiza ClickUp completion
+8. **Cleanup**: Remove release branch e atualiza o Task Manager completion
 
 ### Merge Strategy Intelligence
 Durante execução, aplica strategy inteligente:

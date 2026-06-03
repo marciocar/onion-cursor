@@ -66,8 +66,8 @@ $ ./engineer-start             # Não é executável
 
 ### `/engineer-start`
 **Propósito**: Iniciar desenvolvimento de uma funcionalidade  
-**Input**: Tasks do ClickUp para trabalhar  
-**Integração ClickUp**: ✅ Lê tasks e context
+**Input**: Tasks do Task Manager configurado para trabalhar  
+**Integração Task Manager configurado**: ✅ Lê tasks e context
 
 ```bash
 # Exemplo de uso
@@ -87,7 +87,7 @@ $ ./engineer-start             # Não é executável
 ### `/engineer-work`
 **Propósito**: Trabalhar em uma funcionalidade específica  
 **Input**: Pasta ou especificação de trabalho  
-**Integração ClickUp**: ✅ Atualiza progresso
+**Integração Task Manager configurado**: ✅ Atualiza progresso
 
 ```bash
 # Exemplo de uso
@@ -105,9 +105,9 @@ $ ./engineer-start             # Não é executável
 5. Atualiza progresso no plan.md
 
 ### `/engineer-pr`
-**Propósito**: Criar Pull Request e atualizar ClickUp  
+**Propósito**: Criar Pull Request e atualizar o Task Manager  
 **Input**: Branch com código para review  
-**Integração ClickUp**: ✅ Move para "in progress" + tag "under-review"
+**Integração Task Manager configurado**: ✅ Move para "in progress" + tag "under-review"
 
 ```bash
 # Exemplo de uso
@@ -128,7 +128,7 @@ $ ./engineer-start             # Não é executável
 ### `/engineer-pr-update` 🆕
 **Propósito**: Atualizar Pull Request existente com mudanças adicionais  
 **Input**: Mudanças pendentes após PR criado  
-**Integração ClickUp**: ✅ Documenta updates automáticos
+**Integração Task Manager configurado**: ✅ Documenta updates automáticos
 
 ```bash
 # Exemplo de uso
@@ -136,7 +136,7 @@ $ ./engineer-start             # Não é executável
 # → Detecta mudanças pendentes automaticamente
 # → Commit inteligente com tipo contextual
 # → Push para branch do PR existente
-# → Atualiza ClickUp com detalhes
+# → atualiza o Task Manager com detalhes
 ```
 
 **Fluxo detalhado**:
@@ -144,12 +144,12 @@ $ ./engineer-start             # Não é executável
 2. Analisa mudanças para categorização automática
 3. Gera commit inteligente (fix/feat/docs/refactor)
 4. Push automático para atualizar PR
-5. Comentário detalhado no ClickUp
+5. Comentário detalhado no Task Manager configurado
 
 ### `/engineer-validate-phase-sync` 🆕
 **Propósito**: Validar sincronização entre fases e subtasks ClickUp  
 **Input**: Sessão de desenvolvimento ativa  
-**Integração ClickUp**: ✅ Corrige inconsistências automaticamente
+**Integração Task Manager configurado**: ✅ Corrige inconsistências automaticamente
 
 ```bash
 # Exemplo de uso
@@ -168,7 +168,7 @@ $ ./engineer-start             # Não é executável
 ### `/engineer-pre-pr`
 **Propósito**: Validações antes do Pull Request  
 **Input**: Código atual da branch  
-**Integração ClickUp**: ✅ Valida status da task
+**Integração Task Manager configurado**: ✅ Valida status da task
 
 ```bash
 # Exemplo de uso
@@ -181,7 +181,7 @@ $ ./engineer-start             # Não é executável
 ### `/engineer-plan`
 **Propósito**: Criar ou revisar plano de desenvolvimento  
 **Input**: Especificações da funcionalidade  
-**Integração ClickUp**: ✅ Sincroniza com task details
+**Integração Task Manager configurado**: ✅ Sincroniza com task details
 
 ```bash
 # Exemplo de uso
@@ -194,7 +194,7 @@ $ ./engineer-start             # Não é executável
 ### `/engineer-docs`
 **Propósito**: Gerar documentação técnica da implementação  
 **Input**: Código implementado  
-**Integração ClickUp**: ✅ Adiciona docs como comentário
+**Integração Task Manager configurado**: ✅ Adiciona docs como comentário
 
 ```bash
 # Exemplo de uso
@@ -207,7 +207,7 @@ $ ./engineer-start             # Não é executável
 ### `/engineer-bump`
 **Propósito**: Atualizar versão e preparar release  
 **Input**: Tipo de versão (major/minor/patch)  
-**Integração ClickUp**: ✅ Cria task de release
+**Integração Task Manager configurado**: ✅ Cria task de release
 
 ```bash
 # Exemplo de uso
@@ -220,22 +220,22 @@ $ ./engineer-start             # Não é executável
 ### `/engineer-warm-up`
 **Propósito**: Aquecimento e configuração do ambiente de engenharia  
 **Input**: Contexto do projeto  
-**Integração ClickUp**: ✅ Verifica configuração workspace
+**Integração Task Manager configurado**: ✅ Verifica configuração workspace
 
 ---
 
 ## 📋 Comandos de Produto
 
 ### `/product-task`
-**Propósito**: Criar nova task no ClickUp  
+**Propósito**: Criar nova task no Task Manager configurado  
 **Input**: Descrição da funcionalidade/bug  
-**Integração ClickUp**: ✅ Cria task completa com detalhes
+**Integração Task Manager configurado**: ✅ Cria task completa com detalhes
 
 ```bash
 # Exemplo de uso
 /product-task "Implementar sistema de autenticação OAuth2"
 # → Analisa requisitos
-# → Cria task estruturada no ClickUp
+# → Cria task no Task Manager configurado
 # → Define critérios de aceitação
 ```
 
@@ -244,7 +244,7 @@ $ ./engineer-start             # Não é executável
 2. Analisa documentação existente do projeto
 3. Formula perguntas para esclarecer ambiguidades
 4. Confirma entendimento com usuário
-5. Cria task no ClickUp com:
+5. Cria task no Task Manager configurado com:
    - Título claro e descritivo
    - Descrição detalhada
    - Critérios de aceitação
@@ -254,31 +254,31 @@ $ ./engineer-start             # Não é executável
 ### `/product-collect`
 **Propósito**: Coletar e salvar ideias/bugs  
 **Input**: Descrição da ideia ou problema  
-**Integração ClickUp**: ✅ Salva no backlog ClickUp
+**Integração Task Manager configurado**: ✅ Salva no backlog ClickUp
 
 ```bash
 # Exemplo de uso
 /product-collect "Usuários reportam lentidão no carregamento da dashboard"
 # → Esclarece detalhes do problema
 # → Categoriza o tipo (bug/feature)
-# → Salva no ClickUp com prioridade apropriada
+# → Salva no Task Manager configurado com prioridade apropriada
 ```
 
 **Fluxo detalhado**:
 1. Entende a solicitação através de perguntas
 2. Classifica como funcionalidade ou bug
 3. Determina prioridade e urgência
-4. Salva no ClickUp com informações estruturadas
+4. Salva no Task Manager configurado com informações estruturadas
 
 ### `/product-refine`
 **Propósito**: Refinar requisitos de uma funcionalidade  
 **Input**: Task existente ou especificação inicial  
-**Integração ClickUp**: ✅ Atualiza task com refinamentos
+**Integração Task Manager configurado**: ✅ Atualiza task com refinamentos
 
 ```bash
 # Exemplo de uso
 /product-refine 
-# → Analisa task atual do ClickUp
+# → Analisa task atual do Task Manager configurado
 # → Identifica gaps nos requisitos
 # → Adiciona detalhes e esclarecimentos
 ```
@@ -292,30 +292,30 @@ $ ./engineer-start             # Não é executável
 ### `/product-light-arch`
 **Propósito**: Esboçar arquitetura inicial  
 **Input**: Requisitos da funcionalidade  
-**Integração ClickUp**: ✅ Adiciona detalhes como comentário
+**Integração Task Manager configurado**: ✅ Adiciona detalhes como comentário
 
 ```bash
 # Exemplo de uso
 /product-light-arch
 # → Discute abordagem arquitetural
 # → Define componentes principais
-# → Salva decisões no ClickUp
+# → Salva decisões no Task Manager configurado
 ```
 
 ### `/product-spec`
 **Propósito**: Criar especificação técnica detalhada  
 **Input**: Requisitos refinados  
-**Integração ClickUp**: ✅ Vincula spec à task
+**Integração Task Manager configurado**: ✅ Vincula spec à task
 
 ### `/product-check`
 **Propósito**: Verificar qualidade e completude dos requisitos  
 **Input**: Documentação de requisitos  
-**Integração ClickUp**: ✅ Adiciona checklist de validação
+**Integração Task Manager configurado**: ✅ Adiciona checklist de validação
 
 ### `/product-warm-up`
 **Propósito**: Aquecimento do contexto de produto  
 **Input**: Informações do projeto/produto  
-**Integração ClickUp**: ✅ Sincroniza com workspace data
+**Integração Task Manager configurado**: ✅ Sincroniza com workspace data
 
 ---
 
@@ -324,7 +324,7 @@ $ ./engineer-start             # Não é executável
 ### `/docs-build-tech-docs`
 **Propósito**: Gerar documentação técnica abrangente  
 **Input**: Codebase e especificações  
-**Integração ClickUp**: ✅ Cria task de documentação
+**Integração Task Manager configurado**: ✅ Cria task de documentação
 
 ```bash
 # Exemplo de uso
@@ -337,12 +337,12 @@ $ ./engineer-start             # Não é executável
 ### `/docs-build-business-docs`
 **Propósito**: Gerar documentação de negócio  
 **Input**: Informações de produto e mercado  
-**Integração ClickUp**: ✅ Organiza docs por workspace
+**Integração Task Manager configurado**: ✅ Organiza docs por workspace
 
 ### `/docs/build-compliance` 🆕
 **Propósito**: Gerar documentação de compliance (ISO 27001, ISO 22301, PMBOK, SOC2)  
 **Input**: Frameworks desejados ou checklist de due diligence  
-**Integração ClickUp**: ✅ Rastreia compliance requirements  
+**Integração Task Manager configurado**: ✅ Rastreia compliance requirements  
 **Agentes**: `@security-information-master`, `@iso-27001-specialist`, `@iso-22301-specialist`, `@pmbok-specialist`, `@soc2-specialist`
 
 ```bash
@@ -352,7 +352,7 @@ $ ./engineer-start             # Não é executável
 # → Output: docs/compliance-context/security/ + docs/compliance-context/soc2/
 
 # Exemplo de uso - Modo Due Diligence
-/docs/build-compliance due-diligence="docs/serasa-requirements.md"
+/docs/build-compliance due-diligence="docs/[cliente enterprise]-requirements.md"
 # → Analisa checklist automaticamente
 # → Detecta frameworks necessários (ISO 22301 + SOC2)
 # → Gera docs/compliance-context/ com 8/8 requisitos cobertos
@@ -387,18 +387,18 @@ $ ./engineer-start             # Não é executável
 **Idioma**: PT-BR (conteúdo) + EN-US (termos técnicos preservados: "Risk Assessment (Avaliação de Riscos)")
 
 **Mapeamento Due Diligence**:
-- **Serasa Experian**: 8/8 requisitos cobertos (ISO 22301: 5 reqs, SOC2: 3 reqs) ✅
+- **[cliente enterprise de referência]**: 8/8 requisitos cobertos (ISO 22301: 5 reqs, SOC2: 3 reqs) ✅
 - Cross-references automáticos entre frameworks (ISO 27001 ↔ SOC2: ~70% overlap)
 
 ### `/docs-build-index`
 **Propósito**: Criar índice de projetos  
 **Input**: Múltiplos projetos  
-**Integração ClickUp**: ✅ Inclui IDs de space/workspace
+**Integração Task Manager configurado**: ✅ Inclui IDs de space/workspace
 
 ### `/docs-refine-vision`
 **Propósito**: Refinar visão e estratégia do produto  
 **Input**: Visão atual e feedback  
-**Integração ClickUp**: ✅ Atualiza descrições de projeto
+**Integração Task Manager configurado**: ✅ Atualiza descrições de projeto
 
 ---
 
@@ -407,7 +407,7 @@ $ ./engineer-start             # Não é executável
 ### `/meta-create-agent`
 **Propósito**: Criar novo agente especializado  
 **Input**: Requisitos e especialidade do agente  
-**Integração ClickUp**: ➖ Não aplicável
+**Integração Task Manager configurado**: ➖ Não aplicável
 
 ```bash
 # Exemplo de uso
@@ -424,12 +424,12 @@ $ ./engineer-start             # Não é executável
 ### `/all-tools`
 **Propósito**: Listar todas as ferramentas e comandos disponíveis  
 **Input**: Nenhum  
-**Integração ClickUp**: ➖ Informacional apenas
+**Integração Task Manager configurado**: ➖ Informacional apenas
 
 ### `/warm-up`
 **Propósito**: Aquecimento geral do sistema  
 **Input**: Contexto geral  
-**Integração ClickUp**: ✅ Valida conectividade
+**Integração Task Manager configurado**: ✅ Valida conectividade
 
 ---
 
@@ -437,7 +437,7 @@ $ ./engineer-start             # Não é executável
 
 ```mermaid
 graph TD
-    A[/product-task] --> B[Task criada no ClickUp]
+    A[/product-task] --> B[Task criada no Task Manager configurado]
     B --> C[/engineer-start]
     C --> D[Análise e planejamento]
     D --> E[/engineer-work]
@@ -456,7 +456,7 @@ graph TD
     style J fill:#fff3e0
 ```
 
-## 📊 Status de Integração ClickUp
+## 📊 Status de Integração Task Manager configurado
 
 | Comando | Status | Ação |
 |---------|--------|------|
@@ -476,7 +476,7 @@ graph TD
 1. **Sempre comece com `/product-task`** para funcionalidades novas
 2. **Use `/engineer-start`** para iniciar desenvolvimento organizado
 3. **Execute `/engineer-pr`** quando código estiver pronto para review
-4. **Aproveite a integração ClickUp** para rastreamento automático
+4. **Aproveite a integração Task Manager configurado** para rastreamento automático
 5. **Consulte `/all-tools`** quando não souber qual comando usar
 
 ---

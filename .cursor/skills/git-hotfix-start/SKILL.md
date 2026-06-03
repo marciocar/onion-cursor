@@ -12,7 +12,7 @@ Iniciar correção emergencial criando hotfix branch a partir de main/master par
 ### Emergency Hotfix Workflow
 - Criação imediata de hotfix branch a partir de main/master (produção)
 - Auto-versioning para patch releases emergenciais
-- ClickUp task urgente com prioridade máxima automática
+- task do Task Manager urgente com prioridade máxima automática
 - Validações críticas de estado de produção
 - Setup otimizado para correção imediata
 
@@ -24,7 +24,7 @@ Iniciar correção emergencial criando hotfix branch a partir de main/master par
 - Emergency documentation e tracking setup
 
 ### Criticidade e Tracking Urgente
-- Tags de urgência automáticas no ClickUp
+- Tags de urgência automáticas no Task Manager configurado
 - Notificações escaladas para team awareness
 - Emergency workflow prioritization
 - Integration com @gitflow-specialist para emergency guidance
@@ -53,7 +53,7 @@ Iniciar correção emergencial criando hotfix branch a partir de main/master par
 Durante execução emergencial:
 - Working directory: Emergency stash se necessário
 - Branch detection: Main/master identification automática  
-- Priority escalation: ClickUp task com urgência máxima
+- Priority escalation: task do Task Manager com urgência máxima
 - Team alerts: Notification automática de emergency workflow
 
 ## 🤝 Integração @gitflow-specialist

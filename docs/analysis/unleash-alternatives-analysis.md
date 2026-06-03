@@ -513,5 +513,5 @@ Após implementar as recomendações:
 
 ---
 
-*Análise gerada pelo Sistema Onion - Desacoplamento ClickUp FASE 5*
+*Análise gerada pelo Sistema Onion - Desacoplamento Task Manager configurado FASE 5*
 

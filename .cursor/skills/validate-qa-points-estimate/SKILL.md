@@ -336,7 +336,7 @@ read_file .env
 **Para Asana:**
 - Usar `mcp_asana_*` tools apropriados
 - Custom field "QA Story Points"
-- Seguir padrão similar ao ClickUp
+- Seguir padrão similar ao Task Manager configurado
 
 **Para Jira:**
 - Usar API Jira ou adapter apropriado
@@ -490,7 +490,7 @@ Base Complexity: {{complexity}} = {{base_points}} points
 
 **Output esperado:**
 - Calcula: simple (2) + low risk (+0) + ui (+3) = 5 pontos
-- Atualiza task CU-456 no ClickUp com:
+- Atualiza task CU-456 no Task Manager configurado com:
   - Custom field "QA Story Points" = 5
   - Comentário com análise completa
 

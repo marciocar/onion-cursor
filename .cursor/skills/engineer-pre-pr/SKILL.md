@@ -9,7 +9,7 @@ paths:
 
 Estamos nos aproximando de finalizar o trabalho nesta branch e nos preparar para um pull request. Agora, é hora de fazer verificações finais e limpezas para garantir que estamos alinhados com nossos padrões e objetivos.
 
-## 🔄 **Auto-Update ClickUp**
+## 🔄 **Auto-Atualizar Task Manager**
 
 Este comando **automaticamente atualiza** a task ClickUp durante preparação para PR:
 
@@ -63,7 +63,7 @@ await commentPrePRValidation(taskId, {
 
 ### 📋 AUTO-UPDATE:
 5. **Validar critérios de aceitação** - Verificar todos os checkboxes
-6. **Adicionar comentário de preparação** no ClickUp automaticamente
+6. **Adicionar comentário de preparação** no Task Manager configurado automaticamente
 7. **Aplicar tags** (ready-for-pr ou needs-fixes)
 8. **Atualizar progresso** para 90%
 

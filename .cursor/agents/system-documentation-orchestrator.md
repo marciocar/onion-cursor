@@ -1086,7 +1086,7 @@ O diagrama abaixo mostra todos os containers e seus relacionamentos:
 
 **Input do Usuário:**
 ```
-Preciso de documentação completa de arquitetura para o projeto Granaai. 
+Preciso de documentação completa de arquitetura para o projeto [nome-da-empresa]. 
 Temos 19 apps e 400+ libs em NX monorepo.
 ```
 

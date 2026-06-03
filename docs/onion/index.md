@@ -48,7 +48,7 @@ O **Sistema Onion** é um framework de comandos `.cursor/` para uso interno com:
    - Feature Development completo
    - Correção de bugs
    - Refatoração e hotfixes
-   - Integração ClickUp por fluxo
+   - Integração Task Manager configurado por fluxo
 
 4. **[Sistema de Testes e Validação](testing-validation-system.md)** - Framework completo de testes e validação
    - 4 camadas integradas (Knowledge Base, Agentes, Comandos de Teste, Comandos de Validação)

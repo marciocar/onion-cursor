@@ -236,7 +236,7 @@ Usuário: /product:task "Implementar feature X"
 [5] IA chama mcp_ClickUp_clickup_create_task(payload)
   │
   ▼
-[6] Resposta crua do ClickUp → normalize() → TaskOutput { id, url, provider, ... }
+[6] Resposta crua do Task Manager configurado → normalize() → TaskOutput { id, url, provider, ... }
   │
   ▼
 [7] Comando devolve TaskOutput padronizado, alheio a qual provedor respondeu
@@ -296,7 +296,7 @@ A interface `ITaskManager` (ver [interface.md](../../.cursor/utils/task-manager/
 LLMs alucinam quando precisam **decidir** sem informação suficiente. SDAAL elimina decisões discricionárias:
 
 - O agente que executa `/product:task` **não escolhe** qual MCP tool chamar — ele lê `factory.md`, segue para `detector.md`, vai até `adapters/<provider>.md`, e encontra a chamada exata documentada.
-- Cada mapeamento de campo está em uma **tabela explícita** no adapter. Não há "o agente decide como mapear `priority`" — está escrito que `urgent → 1` no ClickUp e `urgent → Highest` no Jira.
+- Cada mapeamento de campo está em uma **tabela explícita** no adapter. Não há "o agente decide como mapear `priority`" — está escrito que `urgent → 1` no Task Manager configurado e `urgent → Highest` no Jira.
 - O fallback `none.md` garante que **nunca há um caminho indefinido**. Se o provedor falha, o agente segue um spec determinístico de degradação.
 
 O efeito prático: **o LLM ganha um modelo mental estável do domínio**, o que tornaria o agente mais preciso, mais auditável e mais reutilizável entre sessões.
@@ -610,7 +610,7 @@ title: Task Manager Abstraction
 ```yaml
 ---
 title: Task Manager Abstraction
-owner: marcio@grana.ai
+owner: marcio@[nome-da-empresa]
 last_reviewed: 2026-05-10
 review_cadence: trimestral
 status: active
@@ -700,7 +700,7 @@ E um checklist de revisão em `README.md`:
 
 É o criador do **Sistema Onion**, framework de orquestração de produto e engenharia onde o SDAAL foi materializado pela primeira vez como abstração executável. Acredita que o próximo salto de produtividade em desenvolvimento de software não vem de "IA que gera mais código", mas de **arquiteturas onde a IA precisa gerar menos código** — e onde a documentação versionada substitui o que antes precisava ser compilado.
 
-- **Email**: [marcio@grana.ai](mailto:marcio@grana.ai)
+- **Email**: [marcio@[nome-da-empresa]](mailto:marcio@[nome-da-empresa])
 - **Sistema Onion**: https://github.com/grana-ai/onion (referência)
 
 ---

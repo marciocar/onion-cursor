@@ -14,7 +14,7 @@ Iniciar processo de release criando branch de release com versionamento automát
 - Auto-detecção e bump inteligente de versionamento (semver)
 - Preparação automática de changelog baseada em commits
 - Validações de estado pré-release (working directory, conflicts)
-- Setup de ClickUp task para release tracking completo
+- Setup de task do Task Manager para release tracking completo
 
 ### Versionamento Inteligente e Automação
 - Detecção automática de package.json e version files

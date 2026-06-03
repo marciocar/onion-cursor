@@ -50,9 +50,9 @@ Por favor, esclareça estes pontos para uma task mais precisa.
 **Resposta do Usuário**: 
 "Sistema web com React, login/logout apenas, armazenar JWT no localStorage, refresh tokens sim"
 
-**Resultado ClickUp**:
+**Resultado Task Manager configurado**:
 ```
-✅ Task criada no ClickUp: AUTH-789
+✅ Task criada no Task Manager configurado: AUTH-789
 
 📋 **Título**: 🔐 Implementar sistema de autenticação OAuth2 com Google e GitHub
 
@@ -96,7 +96,7 @@ Qual task ClickUp deseja trabalhar? (ex: AUTH-789, PROJ-123)
 
 **Resultado**:
 ```
-✅ Task AUTH-789 recuperada do ClickUp
+✅ Task AUTH-789 recuperada do Task Manager configurado
 🔄 Status atualizado: "to do" → "in progress"
 📁 Pasta criada: .cursor/sessions/auth-oauth2/
 
@@ -212,7 +212,7 @@ git commit -m "feat(auth): implement OAuth2 with Google and GitHub
 
 Closes: AUTH-789"
 
-🔄 Atualizando ClickUp...
+🔄 Atualizando Task Manager configurado...
 ✅ Status mantido: "in progress"
 ✅ Tag adicionada: "under-review"
 
@@ -225,7 +225,7 @@ Closes: AUTH-789"
 ✅ PR criado com sucesso!
 ⏱️ Aguardando feedback automatizado (3min)...
 
-💬 Comentário adicionado no ClickUp: "🔍 Pull Request criado: #156 - Pronto para review"
+💬 Comentário adicionado no Task Manager configurado: "🔍 Pull Request criado: #156 - Pronto para review"
 ```
 
 ---
@@ -268,7 +268,7 @@ Por favor, forneça essas informações.
 **Input do Usuário**: 
 "Começou após deploy de sexta. Chrome e Firefox. Console mostra erro 'Cannot read property data of undefined'. Afeta ~70% dos usuários. Refresh da página às vezes resolve."
 
-**Resultado ClickUp**:
+**Resultado Task Manager configurado**:
 ```
 ✅ Task criada: BUG-445
 
@@ -306,7 +306,7 @@ Por favor, forneça essas informações.
 ```
 🕵️ Investigando bug BUG-445...
 
-✅ Task recuperada do ClickUp
+✅ Task recuperada do Task Manager configurado
 🔄 Status: "to do" → "in progress"
 📁 Sessão: .cursor/sessions/bug-dashboard-data/
 
@@ -769,7 +769,7 @@ Qual abordagem preferir?
 - ⚡ **50% mais rápido** que workflow manual
 - 🎯 **30% menos bugs** pós-deploy
 - 📚 **100% documentação** sempre atualizada  
-- 🔄 **Zero overhead** de sincronização ClickUp
+- 🔄 **Zero overhead** de sincronização Task Manager configurado
 
 ---
 

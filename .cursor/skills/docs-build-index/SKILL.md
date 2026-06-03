@@ -5,9 +5,9 @@ disable-model-invocation: true
 paths:
   - docs/**
 ---
-Este comando gerencia os índices de documentação do Granaai, mantendo a estrutura organizada e navegável.
+Este comando gerencia os índices de documentação do [nome-da-empresa], mantendo a estrutura organizada e navegável.
 
-**Estrutura de Documentação do Granaai**:
+**Estrutura de Documentação do [nome-da-empresa]**:
 ```
 docs/
 ├── INDEX.md                    # Índice principal (hub central)
@@ -46,7 +46,7 @@ docs/
 **Sem argumentos**: Reconstrói o arquivo `INDEX.md` principal na pasta `@/docs/`.
 
 Este índice central fornece:
-- Visão geral do projeto Granaai
+- Visão geral do projeto [nome-da-empresa]
 - Links para todas as seções de documentação
 - Descrição de cada seção
 - Estatísticas da documentação (80 arquivos, 59 comandos, 27 agentes)

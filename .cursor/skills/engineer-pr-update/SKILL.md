@@ -25,7 +25,7 @@ Atualizar um Pull Request existente com mudanças adicionais. Este comando autom
 
 ### Sincronização Automática
 - Push automático para branch do PR existente
-- Atualização do ClickUp com comentário detalhado
+- Atualização do Task Manager configurado com comentário detalhado
 - Validação de que PR foi atualizado com sucesso
 - Timestamp e métricas das mudanças aplicadas
 
@@ -43,7 +43,7 @@ Atualizar um Pull Request existente com mudanças adicionais. Este comando autom
 /engineer-pr-update --dry-run               # Preview sem executar
 ```
 
-## 🤝 Integração ClickUp MCP
+## 🤝 integração com Task Manager via MCP
 
 ### Detecção de Task Ativa
 - Lê task ID do arquivo `.cursor/sessions/[slug]/context.md`
@@ -77,7 +77,7 @@ await commentPRUpdated(taskId, {
 3. **Geração de Commit**: Cria mensagem contextual e descritiva
 4. **Staging Inteligente**: Adiciona apenas arquivos relevantes
 5. **Commit & Push**: Executa commit + push para branch do PR
-6. **Atualização ClickUp**: Documenta mudanças com comentário formatado
+6. **Atualização Task Manager configurado**: Documenta mudanças com comentário formatado
 7. **Validação Final**: Confirma que PR foi atualizado com sucesso
 
 ## 🧠 Detecção Inteligente de Tipos
@@ -181,13 +181,13 @@ git pull origin [branch-name]  # Sincronizar primeiro
 
 ---
 
-**🎯 VALOR AGREGADO: Este comando elimina o processo manual de atualização de PRs, automatizando commit inteligente, push, e documentação ClickUp em uma única operação otimizada.**
+**🎯 VALOR AGREGADO: Este comando elimina o processo manual de atualização de PRs, automatizando commit inteligente, push, e documentação Task Manager configurado em uma única operação otimizada.**
 
 ## 📈 Benefícios
 
 - ⚡ **Automação completa** do processo de update
 - 🧠 **Commits inteligentes** com mensagens contextuais
-- 📝 **Documentação automática** no ClickUp
+- 📝 **Documentação automática** no Task Manager configurado
 - 🔄 **Consistência** no workflow de PRs
 - ⏰ **Economia de tempo** significativa
 - 🎯 **Redução de erros** manuais

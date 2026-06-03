@@ -93,7 +93,7 @@ O Sistema Onion v3.0 usa uma **camada de abstração** que permite trabalhar com
 
 | Provedor | Status | Configuração | Notas |
 |----------|--------|--------------|-------|
-| **ClickUp** | ✅ Completo | `TASK_MANAGER_PROVIDER=clickup` | Via ClickUp MCP |
+| **ClickUp** | ✅ Completo | `TASK_MANAGER_PROVIDER=clickup` | Via Task Manager via MCP |
 | **Asana** | ✅ Completo | `TASK_MANAGER_PROVIDER=asana` | Via Asana MCP |
 | **Linear** | 📝 Stub | `TASK_MANAGER_PROVIDER=linear` | Em desenvolvimento |
 | **None** | ✅ Offline | `TASK_MANAGER_PROVIDER=none` | Modo local sem sincronização |
@@ -116,7 +116,7 @@ Após configurar o Task Manager, valide a configuração:
 
 # Testar integração de Task Manager (se configurado)
 /product-task "Task de teste do sistema"
-# → Deve criar task no gerenciador configurado (ClickUp, Asana, etc)
+# → Deve criar task no Task Manager configurado (Jira, Asana, ClickUp, Linear, etc)
 
 # Validar conectividade (depende do provedor configurado)
 /warm-up  # Valida conectividade do Task Manager configurado
@@ -126,7 +126,7 @@ Após configurar o Task Manager, valide a configuração:
 - Execute `/meta-setup-integration` novamente para revisar configuração
 - Verifique se `.env` está no `.gitignore` (o comando faz isso automaticamente)
 - Consulte especialistas específicos:
-  - `@clickup-specialist` para problemas com ClickUp
+  - `@clickup-specialist` para problemas com Task Manager
   - Para Asana, verifique variáveis `ASANA_*` no `.env`
   - Para modo offline, certifique-se que `TASK_MANAGER_PROVIDER=none`
 
@@ -276,7 +276,7 @@ graph LR
 - 🔍 PR criado com detalhes
 - ✅ Conclusão com métricas
 
-**Nota:** Todos esses recursos funcionam igualmente com ClickUp, Asana ou qualquer outro provedor suportado através da abstração.
+**Nota:** Todos esses recursos funcionam igualmente com Task Manager, Asana ou qualquer outro provedor suportado através da abstração.
 
 ---
 
@@ -369,7 +369,7 @@ npm test  # ou comando apropriado do projeto
 2. **[Referência de Ferramentas](tools-reference.md)** - Todas as ferramentas disponíveis em TypeScript
 3. **[Fluxos de Engenharia](engineering-flows.md)** - Workflows detalhados  
 4. **[Task Manager Abstraction](../knowledge-base/concepts/task-manager-abstraction.md)** - Entenda como funciona a abstração
-5. **[Integração ClickUp](clickup-integration.md)** - Configuração avançada do ClickUp (se usar)
+5. **[Integração Task Manager configurado](clickup-integration.md)** - Configuração avançada do Task Manager configurado (se usar)
 
 ### **🎯 Cenários Avançados**
 1. **[Exemplos Práticos](practical-examples.md)** - Casos reais de uso
@@ -483,7 +483,7 @@ echo $TASK_MANAGER_PROVIDER
 
 # 2. Verificar variáveis de ambiente conforme provedor:
 
-# Se usando ClickUp:
+# Se usando Task Manager configurado:
 echo $CLICKUP_API_TOKEN
 echo $CLICKUP_WORKSPACE_ID
 echo $CLICKUP_DEFAULT_LIST_ID

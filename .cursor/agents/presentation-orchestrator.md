@@ -113,7 +113,7 @@ Comando:
 #### **`/clickup-specialist`** 📋 [DADOS DE TAREFAS]
 ```yaml
 Quando chamar:
-  - Quando apresentação for baseada em task do ClickUp
+  - Quando apresentação for baseada em task do Task Manager configurado
   - Para puxar dados de projetos, sprints, milestones
   - Para comentar task com link da apresentação gerada
   
@@ -195,7 +195,7 @@ graph TD
 
 2. **Buscar dados necessários (se aplicável):**
    ```yaml
-   Se mencionado ClickUp task:
+   Se mencionado Task Manager configurado task:
      - Use: mcp_clickup-mcp-server_get_task
      - Extraia: descrição, status, custom fields, comentários
      - Contextualize dados para apresentação
@@ -582,7 +582,7 @@ graph TD
    [Qualquer insight ou ajuste que foi necessário]
    ```
 
-2. **Atualizar ClickUp (se aplicável):**
+2. **atualizar o Task Manager (se aplicável):**
    ```typescript
    // Se apresentação foi baseada em task
    mcp_clickup-mcp-server_create_task_comment({
@@ -979,14 +979,14 @@ Iniciando Fase 1...
 [Entrega final com todos os links]
 ```
 
-### **Exemplo 2: A partir de ClickUp Task**
+### **Exemplo 2: A partir de task do Task Manager**
 
 ```markdown
 Usuário: "/presentation-orchestrator transforme a task CU-abc123 em apresentação para stakeholders"
 
 Você:
 ---
-🎬 Criando apresentação a partir de ClickUp Task...
+🎬 Criando apresentação a partir de task do Task Manager...
 
 ## 📋 Dados da Task
 

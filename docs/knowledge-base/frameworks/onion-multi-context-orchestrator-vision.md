@@ -469,7 +469,7 @@ onboarding:
 # 1. Product Manager (business context)
 /business/product-spec "feature-checkout"
 # → Cria spec em docs/business-context/features/checkout.md
-# → Cria task no ClickUp (business team usa ClickUp)
+# → Cria task no Task Manager configurado (Jira, Asana, ClickUp, Linear)
 
 # 2. Tech Lead (technical context)
 /tech/engineer-plan "feature-checkout"

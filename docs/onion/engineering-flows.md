@@ -2,12 +2,12 @@
 
 > **Versão**: 3.0.0 | **Última atualização**: 2025-11-24
 
-Este guia documenta os workflows completos de desenvolvimento, desde a concepção até a entrega, com integração total ao ClickUp MCP.
+Este guia documenta os workflows completos de desenvolvimento, desde a concepção até a entrega, com integração total ao Task Manager via MCP.
 
 ## 🆕 Novidades v3.0
 
 - **Sessions estruturadas** em `.cursor/sessions/<feature-slug>/`
-- **Comentários duais** no ClickUp (detalhado + resumido)
+- **Comentários duais** no Task Manager configurado (detalhado + resumido)
 - **Mapeamento fase→subtask** automático
 - **Prompts modulares** em `common/prompts/`
 
@@ -34,17 +34,17 @@ Este guia documenta os workflows completos de desenvolvimento, desde a concepç�
 
 **O que acontece**:
 -  Sistema analisa requisitos e contexto do projeto
--  Cria task estruturada no ClickUp com:
+-  Cria task no Task Manager configurado com:
   - Título descritivo
   - Descrição detalhada
   - Critérios de aceitação
   - Estimativa inicial
   - Tags relevantes (`feature`, `auth`, `oauth2`)
--  Task fica com status `to do` no ClickUp
+-  Task fica com status `to do` no Task Manager configurado
 
 **Output esperado**:
 ```
-✅ Task criada no ClickUp: AUTH-123
+✅ Task criada no Task Manager configurado: AUTH-123
 📋 Título: "🔐 Implementar sistema de autenticação OAuth2"
 📝 Descrição: Funcionalidade completa de autenticação...
 🏷️ Tags: feature, auth, oauth2, high-priority
@@ -73,7 +73,7 @@ Este guia documenta os workflows completos de desenvolvimento, desde a concepç�
 **O que acontece**:
 -  Verifica se está em feature branch apropriada
 -  Cria pasta `.cursor/sessions/auth-oauth2/`
--  Busca detalhes da task no ClickUp
+-  Busca detalhes da task no Task Manager configurado
 -  Analisa contexto, objetivos e dependências
 -  Identifica arquivos e componentes necessários
 -  Cria plan.md inicial
@@ -157,7 +157,7 @@ Durante o desenvolvimento, o sistema:
 **O que acontece**:
 1. ✅ Execução final de todos os testes
 2. ✅ Commit final com mensagem padronizada
-3. ✅ **Atualização ClickUp**: Task → `in progress` + tag `under-review`
+3. ✅ **Atualização Task Manager configurado**: Task → `in progress` + tag `under-review`
 4. ✅ Criação do PR com:
    - Descrição detalhada da implementação
    - Checklist de validações
@@ -176,7 +176,7 @@ Durante o desenvolvimento, o sistema:
 - Criados testes unitários e de integração
 
 ### 🔗 Relacionado
-- ClickUp Task: AUTH-123
+- task do Task Manager: AUTH-123
 - Sessão: .cursor/sessions/auth-oauth2/
 
 ### ✅ Checklist
@@ -198,7 +198,7 @@ Quando feedback é recebido:
 #### 5.2 Merge e Finalização
 Após aprovação:
 - 🔄 Merge do PR
--  **Atualização ClickUp**: Task → `done`
+-  **Atualização Task Manager configurado**: Task → `done`
 - 📝 Adição de comentário final com resumo
 - 🏷️ Adição de tags de conclusão
 - 📊 Atualização de métricas de tempo
@@ -281,7 +281,7 @@ Após aprovação:
 - 🤖 Contexto otimizado para IA
 - 📋 Guias de desenvolvimento
 
-**Integração ClickUp**:
+**Integração Task Manager configurado**:
 -  Cria task de documentação
 - 📊 Organiza por workspace/space
 - 🏷️ Tags por tipo de documentação
@@ -337,7 +337,7 @@ Após aprovação:
 ```
 
 **Características do fluxo de hotfix**:
-- 🚨 Prioridade máxima no ClickUp
+- 🚨 Prioridade máxima no Task Manager configurado
 - ⚡ Branch `hotfix/*` automaticamente
 - 🧪 Testes mínimos mas críticos
 - 📢 Notificações para todos stakeholders
@@ -347,7 +347,7 @@ Após aprovação:
 
 ## 🎯 Integrações ClickUp por Fluxo
 
-### **Estados da Task no ClickUp**
+### **Estados da Task no Task Manager configurado**
 
 ```mermaid
 graph LR
@@ -370,7 +370,7 @@ graph LR
 | **Após merge** | `in progress + under-review` | `done` | `completed` |
 | **Se blockeado** | Qualquer | `blocked` | `blocked` + razão |
 
-### **Comentários Automáticos no ClickUp**
+### **Comentários Automáticos no Task Manager configurado**
 
 | Evento | Comentário Adicionado |
 |--------|----------------------|
@@ -382,7 +382,7 @@ graph LR
 
 ### **Campos Customizados Sincronizados**
 
-| Campo ClickUp | Origem | Atualização |
+| Campo Task Manager configurado | Origem | Atualização |
 |---------------|--------|-------------|
 | **Tempo Estimado** | `/product-task` análise | Refinado durante desenvolvimento |
 | **Tempo Real** | Timer automático | Durante `/engineer-work` |
@@ -427,7 +427,7 @@ graph LR
 4. ✅ **Faça commits pequenos e frequentes** durante o desenvolvimento
 5. ✅ **Use `/engineer-pre-pr`** antes de submeter para review
 
-### **Para Integração ClickUp Otimizada**
+### **Para Integração Task Manager configurado Otimizada**
 1. 🏷️ **Use tags consistentes** para facilitar filtros e busca
 2. 📝 **Mantenha descrições atualizadas** durante o desenvolvimento
 3. 🔗 **Vincule sempre** PRs às tasks correspondentes
@@ -528,7 +528,7 @@ graph LR
 @clickup-specialist "Configurar automações avançadas ClickUp"
 
 # Melhorias técnicas específicas
-/engineer-work "otimizar sincronização ClickUp MCP"
+/engineer-work "otimizar sincronização Task Manager via MCP"
 ```
 
 ### **Coordenação Multi-Agente**
@@ -551,4 +551,4 @@ graph LR
 
 ---
 
-**Próximo**: [Integração ClickUp Detalhada →](clickup-integration.md)
+**Próximo**: [Integração Task Manager configurado Detalhada →](clickup-integration.md)

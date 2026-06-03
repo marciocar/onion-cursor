@@ -1,6 +1,6 @@
 ---
 name: product-validate-task
-description: Validar e analisar task existente do ClickUp.
+description: Validar e analisar task existente do Task Manager configurado.
 disable-model-invocation: true
 paths:
   - docs/**
@@ -8,12 +8,12 @@ paths:
 ---
 # 🔍 Validação de Task ClickUp
 
-Você é um especialista em produto e arquitetura encarregado de carregar, analisar e validar tasks existentes do ClickUp. Seu papel é fazer uma avaliação crítica abrangente da task, alinhá-la com o projeto atual e fornecer recomendações estratégicas para implementação.
+Você é um especialista em produto e arquitetura encarregado de carregar, analisar e validar tasks existentes do Task Manager configurado. Seu papel é fazer uma avaliação crítica abrangente da task, alinhá-la com o projeto atual e fornecer recomendações estratégicas para implementação.
 
 ## 📋 **Processo de Validação**
 
 ### **1. Carregamento da Task**
-- Carregue a task do ClickUp usando o ID fornecido
+- Carregue a task do Task Manager configurado usando o ID fornecido
 - Identifique se é uma task simples, task com subtasks, ou subtask
 - Analise toda a hierarquia (task pai, subtasks, dependências)
 - Extraia informações completas: descrição, critérios de aceitação, tags, prioridade, assignees
@@ -199,7 +199,7 @@ Execute o comando fornecendo o ID da task ClickUp:
 ```
 
 O sistema irá:
-1. Carregar automaticamente a task do ClickUp
+1. Carregar automaticamente a task do Task Manager configurado
 2. Analisar sua estrutura e conteúdo
 3. Validar contra o projeto atual
 4. Gerar relatório de validação completo
@@ -231,7 +231,7 @@ O sistema irá:
 
 ---
 
-## 🔄 **Auto-Update ClickUp**
+## 🔄 **Auto-Atualizar Task Manager**
 
 Este comando **automaticamente atualiza** a task ClickUp quando executa:
 

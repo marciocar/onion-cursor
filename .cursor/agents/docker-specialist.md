@@ -273,12 +273,12 @@ services:
   # PostgreSQL Database
   postgres:
     image: postgres:17-alpine
-    container_name: granaai-postgres
+    container_name: [nome-da-empresa]-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-granaai}
+      POSTGRES_USER: ${POSTGRES_USER:-[nome-da-empresa]}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me_in_production}
-      POSTGRES_DB: ${POSTGRES_DB:-granaai_db}
+      POSTGRES_DB: ${POSTGRES_DB:-[nome-da-empresa]_db}
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
@@ -286,9 +286,9 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./prisma/migrations:/docker-entrypoint-initdb.d:ro
     networks:
-      - granaai-network
+      - [nome-da-empresa]-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-granaai}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-[nome-da-empresa]}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -300,19 +300,19 @@ services:
       dockerfile: apps/api-admin/Dockerfile
       args:
         APP_NAME: api-admin
-    container_name: granaai-api
+    container_name: [nome-da-empresa]-api
     restart: unless-stopped
     depends_on:
       postgres:
         condition: service_healthy
     environment:
       NODE_ENV: production
-      DATABASE_URL: postgresql://${POSTGRES_USER:-granaai}:${POSTGRES_PASSWORD:-change_me_in_production}/postgres:5432/${POSTGRES_DB:-granaai_db}?schema=public
+      DATABASE_URL: postgresql://${POSTGRES_USER:-[nome-da-empresa]}:${POSTGRES_PASSWORD:-change_me_in_production}/postgres:5432/${POSTGRES_DB:-[nome-da-empresa]_db}?schema=public
       PORT: 3000
     ports:
       - "${API_PORT:-3000}:3000"
     networks:
-      - granaai-network
+      - [nome-da-empresa]-network
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
       interval: 30s
@@ -325,7 +325,7 @@ services:
     build:
       context: .
       dockerfile: apps/ui-admin/Dockerfile
-    container_name: granaai-ui
+    container_name: [nome-da-empresa]-ui
     restart: unless-stopped
     depends_on:
       - api
@@ -335,10 +335,10 @@ services:
     ports:
       - "${UI_PORT:-4200}:3000"
     networks:
-      - granaai-network
+      - [nome-da-empresa]-network
 
 networks:
-  granaai-network:
+  [nome-da-empresa]-network:
     driver: bridge
 
 volumes:
@@ -354,9 +354,9 @@ version: '3.9'
 services:
   postgres:
     image: postgres:17-alpine
-    container_name: granaai-postgres-dev
+    container_name: [nome-da-empresa]-postgres-dev
     environment:
-      POSTGRES_USER: granaai
+      POSTGRES_USER: [nome-da-empresa]
       POSTGRES_PASSWORD: change_me_for_local_dev
       POSTGRES_DB: app_dev
     ports:
@@ -365,12 +365,12 @@ services:
       - postgres_dev_data:/var/lib/postgresql/data
       - ./prisma/migrations:/docker-entrypoint-initdb.d:ro
     networks:
-      - granaai-dev
+      - [nome-da-empresa]-dev
 
   # PgAdmin (opcional - para gerenciar database visualmente)
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: granaai-pgadmin
+    container_name: [nome-da-empresa]-pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: admin/example.com
       PGADMIN_DEFAULT_PASSWORD: admin
@@ -380,22 +380,22 @@ services:
     depends_on:
       - postgres
     networks:
-      - granaai-dev
+      - [nome-da-empresa]-dev
 
   # Redis (cache/queue)
   redis:
     image: redis:7-alpine
-    container_name: granaai-redis
+    container_name: [nome-da-empresa]-redis
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
     networks:
-      - granaai-dev
+      - [nome-da-empresa]-dev
     command: redis-server --appendonly yes
 
 networks:
-  granaai-dev:
+  [nome-da-empresa]-dev:
     driver: bridge
 
 volumes:
@@ -412,12 +412,12 @@ services:
   # PostgreSQL Primary
   postgres-primary:
     image: postgres:17-alpine
-    container_name: granaai-postgres-primary
+    container_name: [nome-da-empresa]-postgres-primary
     restart: unless-stopped
     environment:
-      POSTGRES_USER: granaai
+      POSTGRES_USER: [nome-da-empresa]
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: granaai_prod
+      POSTGRES_DB: [nome-da-empresa]_prod
       POSTGRES_REPLICATION_MODE: master
       POSTGRES_REPLICATION_USER: replicator
       POSTGRES_REPLICATION_PASSWORD: ${REPLICATION_PASSWORD}
@@ -426,57 +426,57 @@ services:
     volumes:
       - postgres_primary_data:/var/lib/postgresql/data
     networks:
-      - granaai-network
+      - [nome-da-empresa]-network
 
   # Multiple APIs
   api-admin:
     build:
       context: .
       dockerfile: apps/api-admin/Dockerfile
-    container_name: granaai-api-admin
+    container_name: [nome-da-empresa]-api-admin
     restart: unless-stopped
     depends_on:
       - postgres-primary
     environment:
-      DATABASE_URL: postgresql://granaai:${POSTGRES_PASSWORD}/postgres-primary:5432/granaai_prod
+      DATABASE_URL: postgresql://[nome-da-empresa]:${POSTGRES_PASSWORD}/postgres-primary:5432/[nome-da-empresa]_prod
     ports:
       - "3001:3000"
     networks:
-      - granaai-network
+      - [nome-da-empresa]-network
 
   api-creditors:
     build:
       context: .
       dockerfile: apps/api-creditors/Dockerfile
-    container_name: granaai-api-creditors
+    container_name: [nome-da-empresa]-api-creditors
     restart: unless-stopped
     depends_on:
       - postgres-primary
     environment:
-      DATABASE_URL: postgresql://granaai:${POSTGRES_PASSWORD}/postgres-primary:5432/granaai_prod
+      DATABASE_URL: postgresql://[nome-da-empresa]:${POSTGRES_PASSWORD}/postgres-primary:5432/[nome-da-empresa]_prod
     ports:
       - "3002:3000"
     networks:
-      - granaai-network
+      - [nome-da-empresa]-network
 
   # UIs
   ui-admin:
     build:
       context: .
       dockerfile: apps/ui-admin/Dockerfile
-    container_name: granaai-ui-admin
+    container_name: [nome-da-empresa]-ui-admin
     restart: unless-stopped
     environment:
       NEXT_PUBLIC_API_URL: http://api-admin:3000
     ports:
       - "4201:3000"
     networks:
-      - granaai-network
+      - [nome-da-empresa]-network
 
   # Nginx Reverse Proxy
   nginx:
     image: nginx:alpine
-    container_name: granaai-nginx
+    container_name: [nome-da-empresa]-nginx
     restart: unless-stopped
     ports:
       - "80:80"
@@ -489,10 +489,10 @@ services:
       - api-creditors
       - ui-admin
     networks:
-      - granaai-network
+      - [nome-da-empresa]-network
 
 networks:
-  granaai-network:
+  [nome-da-empresa]-network:
     driver: bridge
 
 volumes:
@@ -570,9 +570,9 @@ temp/
 
 ```env
 # PostgreSQL Configuration
-POSTGRES_USER=granaai
+POSTGRES_USER=[nome-da-empresa]
 POSTGRES_PASSWORD=change_me_in_production
-POSTGRES_DB=granaai_db
+POSTGRES_DB=[nome-da-empresa]_db
 POSTGRES_PORT=5432
 
 # Application Ports
@@ -596,28 +596,28 @@ ENCRYPTION_KEY=change_me_in_production
 
 ```bash
 # Build image
-docker build -t granaai-api:latest -f apps/api-admin/Dockerfile .
+docker build -t [nome-da-empresa]-api:latest -f apps/api-admin/Dockerfile .
 
 # Build com build args
 docker build \
   --build-arg APP_NAME=api-admin \
-  -t granaai-api-admin:latest \
+  -t [nome-da-empresa]-api-admin:latest \
   .
 
 # Run container
 docker run -d \
-  --name granaai-api \
+  --name [nome-da-empresa]-api \
   -p 3000:3000 \
   -e DATABASE_URL="postgresql://..." \
-  granaai-api:latest
+  [nome-da-empresa]-api:latest
 
 # Run com volume mount (desenvolvimento)
 docker run -d \
-  --name granaai-api-dev \
+  --name [nome-da-empresa]-api-dev \
   -p 3000:3000 \
   -v $(pwd):/app \
   -v /app/node_modules \
-  granaai-api:latest
+  [nome-da-empresa]-api:latest
 ```
 
 ### 5.2 Docker Compose
@@ -680,19 +680,19 @@ docker volume prune
 
 ```bash
 # Conectar ao PostgreSQL via docker
-docker exec -it granaai-postgres psql -U granaai -d granaai_db
+docker exec -it [nome-da-empresa]-postgres psql -U [nome-da-empresa] -d [nome-da-empresa]_db
 
 # Backup database
-docker exec granaai-postgres pg_dump -U granaai granaai_db > backup.sql
+docker exec [nome-da-empresa]-postgres pg_dump -U [nome-da-empresa] [nome-da-empresa]_db > backup.sql
 
 # Restore database
-docker exec -i granaai-postgres psql -U granaai granaai_db < backup.sql
+docker exec -i [nome-da-empresa]-postgres psql -U [nome-da-empresa] [nome-da-empresa]_db < backup.sql
 
 # Ver logs PostgreSQL
-docker logs -f granaai-postgres
+docker logs -f [nome-da-empresa]-postgres
 
 # Executar SQL file
-docker exec -i granaai-postgres psql -U granaai -d granaai_db < migration.sql
+docker exec -i [nome-da-empresa]-postgres psql -U [nome-da-empresa] -d [nome-da-empresa]_db < migration.sql
 ```
 
 ## 6. Otimização de Performance
@@ -783,10 +783,10 @@ docker secret create db_password ./password.txt
 
 ```bash
 # Scan image por vulnerabilidades
-docker scan granaai-api:latest
+docker scan [nome-da-empresa]-api:latest
 
 # Ou usar Trivy
-trivy image granaai-api:latest
+trivy image [nome-da-empresa]-api:latest
 ```
 
 ## 8. Integração com /postgres-specialist
@@ -864,7 +864,7 @@ docker build --target builder .
 ```bash
 # Verificar network
 docker network ls
-docker network inspect granaai-network
+docker network inspect [nome-da-empresa]-network
 
 # Ping entre containers
 docker exec api ping postgres
@@ -937,7 +937,7 @@ services:
   postgres:
     image: postgres:17-alpine
     environment:
-      POSTGRES_USER: granaai
+      POSTGRES_USER: [nome-da-empresa]
       POSTGRES_PASSWORD: change_me_for_local_dev
       POSTGRES_DB: app_dev
     ports:
@@ -954,7 +954,7 @@ services:
       - .:/app
       - /app/node_modules
     environment:
-      DATABASE_URL: postgresql://granaai:change_me_for_local_dev/postgres:5432/app_dev
+      DATABASE_URL: postgresql://[nome-da-empresa]:change_me_for_local_dev/postgres:5432/app_dev
       NODE_ENV: development
     ports:
       - "3000:3000"
@@ -976,13 +976,13 @@ services:
   postgres:
     image: postgres:17-alpine
     environment:
-      POSTGRES_USER: granaai
+      POSTGRES_USER: [nome-da-empresa]
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: granaai_prod
+      POSTGRES_DB: [nome-da-empresa]_prod
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - granaai
+      - [nome-da-empresa]
 
   # Admin API
   api-admin:
@@ -992,13 +992,13 @@ services:
       args:
         APP_NAME: api-admin
     environment:
-      DATABASE_URL: postgresql://granaai:${POSTGRES_PASSWORD}/postgres:5432/granaai_prod
+      DATABASE_URL: postgresql://[nome-da-empresa]:${POSTGRES_PASSWORD}/postgres:5432/[nome-da-empresa]_prod
     ports:
       - "3001:3000"
     depends_on:
       - postgres
     networks:
-      - granaai
+      - [nome-da-empresa]
 
   # Creditors API
   api-creditors:
@@ -1008,13 +1008,13 @@ services:
       args:
         APP_NAME: api-creditors
     environment:
-      DATABASE_URL: postgresql://granaai:${POSTGRES_PASSWORD}/postgres:5432/granaai_prod
+      DATABASE_URL: postgresql://[nome-da-empresa]:${POSTGRES_PASSWORD}/postgres:5432/[nome-da-empresa]_prod
     ports:
       - "3002:3000"
     depends_on:
       - postgres
     networks:
-      - granaai
+      - [nome-da-empresa]
 
   # Admin UI
   ui-admin:
@@ -1028,10 +1028,10 @@ services:
     depends_on:
       - api-admin
     networks:
-      - granaai
+      - [nome-da-empresa]
 
 networks:
-  granaai:
+  [nome-da-empresa]:
     driver: bridge
 
 volumes:

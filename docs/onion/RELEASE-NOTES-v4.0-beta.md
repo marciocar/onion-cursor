@@ -178,7 +178,7 @@ Cada comando **sugere próximos passos**:
 ## 🚀 Próximos Passos
 
 Depois de criar a spec, você pode:
-1. `/business/task` - Criar task no ClickUp
+1. `/business/task` - criar task no Task Manager configurado
 2. `/technical/work` - Iniciar desenvolvimento
 3. `/business/refine` - Refinar requisitos
 ```

@@ -217,7 +217,7 @@ class RateLimitManager:
         return result
 ```
 
-### Integration Pattern com ClickUp
+### Integration Pattern com Task Manager
 
 ```python
 # Como trabalhar com /clickup-specialist
@@ -298,7 +298,7 @@ POST /v0.2/generations
     "source": "aiGenerated" | "pictographic" | "unsplash" | "giphy" | 
               "webAllImages" | "webFreeToUse" | "webFreeToUseCommercially" | 
               "placeholder" | "noImages",
-    "model": string,             // Ex: "imagen-4-pro", "flux-1-pro"
+    "model": string,             // Ex: "i[projeto]-4-pro", "flux-1-pro"
     "style": string              // Ex: "photorealistic, minimal"
   },
   "cardOptions": {               // Opcional
@@ -401,12 +401,12 @@ Processing Time:
 
 ## 🎯 Casos de Uso Específicos
 
-### **Caso 1: Gerar Apresentação de Task do ClickUp**
+### **Caso 1: Gerar Apresentação de Task do Task Manager configurado**
 
 ```typescript
 // Workflow completo automatizado
 async function generatePresentationFromTask(taskId: string) {
-  // 1. Buscar task do ClickUp
+  // 1. Buscar task do Task Manager configurado
   const task = await clickup.getTask(taskId);
   
   // 2. Construir input text estruturado
@@ -722,7 +722,7 @@ task_planning → gamma_execution → validation → delivery
 /gamma/create-presentation "tema" --theme=Beam --mode=generate
 
 # /gamma/create-from-task
-# Gera apresentação de uma task do ClickUp
+# Gera apresentação de uma task do Task Manager configurado
 /gamma/create-from-task [task-id] --export=pdf
 
 # /gamma/create-social
@@ -1012,7 +1012,7 @@ Phase 1 - Foundation (Atual):
   - ✅ Wrappers e SDKs
 
 Phase 2 - Automation:
-  - 🔄 Integração com ClickUp
+  - 🔄 Integração com Task Manager
   - 🔄 Batch processing inteligente
   - 🔄 Templates customizados
   - 🔄 Comandos CLI completos

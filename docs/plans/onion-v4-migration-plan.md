@@ -302,7 +302,7 @@ Technical Context (20-25 comandos):
 ### Testes de Integração
 1. **Multi-IDE**: Mesmo projeto funciona em Claude Code + Windsurf + Claude
 2. **Multi-Context**: Business + Technical contextos funcionam independentemente
-3. **Task Manager**: Abstraction funciona com ClickUp, Asana, Linear
+3. **Task Manager**: Abstraction funciona com Task Manager, Asana, Linear
 4. **Story Points**: Ciclo cross-context funciona corretamente
 
 ### Testes de Performance

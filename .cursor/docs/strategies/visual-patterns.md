@@ -205,7 +205,7 @@ Use os símbolos corretos para indentação de listas:
 
 **Problemas:**
 - Separadores com 34 caracteres (muito longos)
-- Visualmente pesado no ClickUp
+- Visualmente pesado no Task Manager configurado
 - Não segue novo padrão centralizado
 
 ### ✅ Depois (Correto)
@@ -296,7 +296,7 @@ Use checkboxes para rastreamento:
 
 ## 📚 Relacionado
 
-- **Padrões de Formatação ClickUp**: `.cursor/skills/product-task/references/clickup-patterns.md`
+- **Padrões de Formatação Task Manager configurado**: `.cursor/skills/product-task/references/clickup-patterns.md`
 - **Abstrações MCP**: `.cursor/utils/clickup-mcp-wrappers.md`
 
 ---

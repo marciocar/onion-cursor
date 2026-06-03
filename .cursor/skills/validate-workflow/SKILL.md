@@ -59,7 +59,7 @@ Validar que workflows do Sistema Onion foram executados completamente:
 - GitFlow best practices
 - Security validations
 
-#### **6. 🔗 Integração ClickUp**
+#### **6. 🔗 Integração Task Manager configurado**
 - Status de tasks sincronizado
 - Comments e updates realizados
 - Tags apropriadas aplicadas
@@ -141,7 +141,7 @@ function executeWorkflowValidation() {
   ((total_checks++))
   
   # 6. VALIDAÇÃO DE INTEGRAÇÃO
-  echo "🔗 [6/6] Integração ClickUp"
+  echo "🔗 [6/6] Integração Task Manager configurado"
   if validateClickUpIntegration; then
     validation_results+=("✅ ClickUp: Integração sincronizada")
     ((passed_checks++))
@@ -184,11 +184,11 @@ function executeWorkflowValidation() {
       echo "✅ Todos os critérios atendidos"
       echo "🚀 Sistema pronto para próximas operações"
       
-      # Adicionar comentário no ClickUp se aplicável
+      # Adicionar comentário no Task Manager configurado se aplicável
       if [[ -n "$CLICKUP_TASK_ID" ]]; then
         echo ""
-        echo "📝 Adicionando validação ao ClickUp..."
-        # Aqui seria a integração real com ClickUp
+        echo "📝 Adicionando validação ao Task Manager configurado..."
+        # Aqui seria a integração real com Task Manager
       fi
       
       return 0
@@ -324,7 +324,7 @@ esac
 📁 [3/6] Gestão de Sessões
 🌿 [4/6] Limpeza de Branches
 🛡️ [5/6] Compliance e Segurança
-🔗 [6/6] Integração ClickUp
+🔗 [6/6] Integração Task Manager configurado
 
 📊 RESULTADO FINAL DA VALIDAÇÃO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

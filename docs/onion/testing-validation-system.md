@@ -248,7 +248,7 @@ Escala:
 - Validação de gestão de sessões
 - Validação de limpeza de branches
 - Validação de compliance e segurança
-- Validação de integração ClickUp
+- Validação de integração Task Manager configurado
 
 **Parâmetros**:
 ```bash
@@ -400,7 +400,7 @@ Escala:
 1. /validate-test-strategy-create checkout --risk-level alto
    → Lê framework-testes.md
    → Calcula QA points automaticamente
-   → Cria épico no ClickUp com subtasks
+   → Cria épico no Task Manager configurado com subtasks
    ↓
 2. @test-agent "Validar estratégia criada"
    → Revisa conformidade com framework
@@ -423,7 +423,7 @@ Escala:
      - Black-box: 9 pontos (E2E + exploratório)
    ↓
 2. /validate-qa-points-estimate --task-id CU-456 --update
-   → Atualiza task no ClickUp com 17 QA points
+   → Atualiza task no Task Manager configurado com 17 QA points
 ```
 
 ---

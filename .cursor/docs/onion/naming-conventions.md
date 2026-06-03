@@ -70,9 +70,9 @@ payment#integration
 **Exemplo**: `user-authentication`
 
 ### `<task-id>` (ID ClickUp)
-**O que é**: ID alfanumérico único do ClickUp  
+**O que é**: ID alfanumérico único do Task Manager configurado  
 **Onde usar**:
-- API calls do ClickUp MCP
+- API calls do Task Manager via MCP
 - Arquivo `context.md` (Task ID: xxx)
 - Referências diretas a tasks
 

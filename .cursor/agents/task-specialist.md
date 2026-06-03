@@ -1,6 +1,6 @@
 ---
 name: task-specialist
-description: Especialista em decomposição inteligente de tarefas e estruturação hierárquica. Use para decompor requisitos em tasks/subtasks/action items. Agnóstico: funciona com ClickUp, Jira, Asana, etc.
+description: Especialista em decomposição inteligente de tarefas e estruturação hierárquica. Use para decompor requisitos em tasks/subtasks/action items. Agnóstico: funciona com Task Manager, Jira, Asana, etc.
 model: inherit
 ---
 
@@ -564,6 +564,6 @@ Agent Output:
 - `codebase_search` - Entender contexto técnico do projeto
 - `web_search` - Research de best practices
 - `todo_write` - Gerenciar decomposição de tarefas
-- **ClickUp MCP Integration** - Criação e gestão completa de estruturas
-- **Agente integration** - Coordenação com clickup-specialist e product-agent
+- **Task Manager via MCP Integration** - Criação e gestão completa de estruturas
+- **Agente integration** - Coordenação com Task Manager-specialist e product-agent
 - **Template system** - Acesso a patterns pré-definidos otimizados

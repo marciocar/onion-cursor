@@ -4,7 +4,7 @@
 
 - [Pré-requisitos](#-pré-requisitos)
 - [Instalação](#-instalação)
-- [Configuração do ClickUp MCP](#-configuração-do-clickup-mcp)
+- [Configuração do Task Manager via MCP](#-configuração-do-clickup-mcp)
 - [Configuração do Workspace](#-configuração-do-workspace)
 - [Padrões de Nomenclatura](#-padrões-de-nomenclatura)
 - [Primeiro Uso](#-primeiro-uso)
@@ -123,7 +123,7 @@ seu-projeto/
 
 ---
 
-## 🔗 Configuração do ClickUp MCP
+## 🔗 Configuração do Task Manager via MCP
 
 ### Passo 1: Obter API Key
 
@@ -183,7 +183,7 @@ curl -H "Authorization: pk_XXXXXXXX..." \
 
 ### Passo 4: Obter List ID
 
-1. Acesse seu workspace no ClickUp
+1. Acesse seu workspace no Task Manager configurado
 2. Navegue para a **List** onde deseja criar tasks
 3. Copie o ID da URL:
 ```
@@ -236,7 +236,7 @@ Criar/editar `AGENTS.md`:
 - Branches: `feature/<feature-slug>`
 - Commits: Conventional Commits (feat:, fix:, docs:, etc)
 
-## Integração ClickUp
+## Integração Task Manager configurado
 - Workspace ID: 90131412
 - List ID (Tarefas): <list_id>
 - Auto-update: Habilitado
@@ -354,9 +354,9 @@ user@auth               # ❌ caracteres especiais
 **Exemplo:** `user-authentication`
 
 #### `<task-id>` (ID ClickUp)
-**O que é:** ID alfanumérico único do ClickUp  
+**O que é:** ID alfanumérico único do Task Manager configurado  
 **Onde usar:**
-- API calls do ClickUp MCP
+- API calls do Task Manager via MCP
 - Arquivo `context.md` (Task ID: xxx)
 - Referências diretas a tasks
 
@@ -427,7 +427,7 @@ Para mais detalhes:
 2. Questões de clarificação
 3. Criação de arquitetura
 4. Geração de plano
-5. Atualização do ClickUp
+5. Atualização do Task Manager configurado
 
 ---
 
@@ -440,7 +440,7 @@ Para mais detalhes:
 1. Lê plano
 2. Implementa fase atual
 3. Pede validação
-4. Atualiza ClickUp
+4. atualiza o Task Manager
 5. Próxima fase
 
 ---
@@ -503,12 +503,12 @@ ls -la .cursor/
 # Deve responder com informações sobre o Claude Code
 ```
 
-#### 4. ClickUp MCP
+#### 4. Task Manager via MCP
 ```bash
 # Criar task de teste
 /product/task "Task de teste do sistema"
 
-# Deve criar task no ClickUp
+# Deve criar task no Task Manager configurado
 ```
 
 #### 5. GitFlow
@@ -614,7 +614,7 @@ cat .cursor/docs/onion/clickup-integration.md
 
 ## 🔧 Troubleshooting
 
-### Problema 1: ClickUp MCP não conecta
+### Problema 1: Task Manager via MCP não conecta
 
 **Sintomas:**
 - Comandos `/product/task` falham
@@ -629,7 +629,7 @@ echo $CLICKUP_API_KEY
 curl -H "Authorization: $CLICKUP_API_KEY" \
      https://api.clickup.com/api/v2/team
 
-# 3. Regenerar API key no ClickUp
+# 3. Regenerar API key no Task Manager configurado
 # 4. Atualizar .cursor/mcp.json
 ```
 
@@ -714,7 +714,7 @@ mkdir -p .cursor/sessions/<feature-slug>
 ### Documentação
 - [Guia de Comandos](./commands-guide.md)
 - [Fluxos de Engenharia](./engineering-flows.md)
-- [Integração ClickUp](./clickup-integration.md)
+- [Integração Task Manager configurado](./clickup-integration.md)
 - [Referência de Agentes](./agents-reference.md)
 - [Exemplos Práticos](./practical-examples.md)
 

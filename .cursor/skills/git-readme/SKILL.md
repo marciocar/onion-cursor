@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 **Framework completo de comandos Git com workflows Gitflow integrados ao Sistema Onion.**
 
-Este módulo oferece automação completa para desenvolvimento com Git, desde planejamento até deploy, com integração nativa ClickUp MCP.
+Este módulo oferece automação completa para desenvolvimento com Git, desde planejamento até deploy, com integração com Task Manager MCP.
 
 ## ⚡ **CRÍTICO: Claude Code Commands vs Terminal**
 
@@ -71,7 +71,7 @@ $ ./git-feature-start          # Não é script executável
 **Uso**: `/git-feature-finish` (na feature branch)
 - ✅ Merge feature → develop com validações
 - ✅ Cleanup branches locais/remotos com confirmação
-- ✅ Update ClickUp task → "Done" + comentário
+- ✅ Atualizar Task Manager task → "Done" + comentário
 - ✅ Archive automático da sessão de trabalho
 
 ---
@@ -339,7 +339,7 @@ git commit -m "save progress"
 # Então executar comando desejado
 ```
 
-#### **"ClickUp task não atualiza"**
+#### **"task do Task Manager não atualiza"**
 ```bash
 # Verificar sessão ativa
 ls .cursor/sessions/
@@ -372,12 +372,12 @@ ls .cursor/sessions/
 Este módulo faz parte do **Sistema Onion** com:
 - **28+ comandos especializados** organizados por categoria
 - **17 agentes de IA especializados**
-- **Integração ClickUp MCP** completa
+- **integração com Task Manager via MCP** completa
 - **Workflows automatizados** do planejamento ao deploy
 
 ---
 
-**🌟 Framework completo de Git workflows com automação inteligente e integração ClickUp nativa!**
+**🌟 Framework completo de Git workflows com automação inteligente e integração Task Manager configurado nativa!**
 
 **Para começar**: `/git-help` ou `/git-init`
 | `/engineer-pr` | `/git-sync` | Workflow completo finalizado |
@@ -586,7 +586,7 @@ git stash pop  # Para recuperar depois
 ```
 
 #### **"ClickUp não atualizou"**
-- Verifique credenciais ClickUp MCP
+- Verifique credenciais Task Manager via MCP
 - Operações git continuam normalmente
 - ClickUp pode ser atualizado manualmente depois
 

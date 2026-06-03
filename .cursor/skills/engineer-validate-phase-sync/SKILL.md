@@ -7,13 +7,13 @@ paths:
 ---
 # 🔄 Validate Phase-Subtask Sync
 
-Validar e corrigir sincronização automática entre fases do plan.md e status das subtasks no ClickUp. Este comando identifica discrepâncias e corrige status desatualizados.
+Validar e corrigir sincronização automática entre fases do plan.md e status das subtasks no Task Manager configurado. Este comando identifica discrepâncias e corrige status desatualizados.
 
 ## 🎯 Funcionalidades
 
 ### Validação Automática de Status
 - Lê todas as fases do plan.md e identifica status atual (Completada ✅, Em Progresso ⏰, Não Iniciada ⏳)
-- Verifica status das subtasks correspondentes no ClickUp via Phase-Subtask Mapping
+- Verifica status das subtasks correspondentes no Task Manager configurado via Phase-Subtask Mapping
 - Identifica discrepâncias entre plan.md e ClickUp
 - Gera relatório de inconsistências encontradas
 
@@ -42,7 +42,7 @@ Validar e corrigir sincronização automática entre fases do plan.md e status d
 /engineer-validate-phase-sync --report-only     # Apenas relatório, não aplica correções
 ```
 
-## 🤝 Integração ClickUp MCP
+## 🤝 integração com Task Manager via MCP
 
 ### Operações Automáticas
 - **Leitura de Task**: Usa `get_task` com `subtasks=true` para estrutura completa
@@ -69,7 +69,7 @@ Lê o mapeamento do arquivo `.cursor/sessions/[slug]/context.md`:
 1. **Detecta Sessão Ativa**: Identifica sessão em `.cursor/sessions/`
 2. **Lê Context.md**: Carrega mapeamento Phase-Subtask e task ID principal
 3. **Analisa Plan.md**: Extrai status atual de todas as fases
-4. **Consulta ClickUp**: Obtém status atual das subtasks via ClickUp MCP
+4. **Consulta ClickUp**: Obtém status atual das subtasks via Task Manager via MCP
 5. **Identifica Discrepâncias**: Compara status plan.md vs ClickUp
 6. **Aplica Correções**: Atualiza status das subtasks conforme necessário
 7. **Documenta Ações**: Registra todas correções aplicadas
@@ -83,9 +83,9 @@ Lê o mapeamento do arquivo `.cursor/sessions/[slug]/context.md`:
 /engineer/create-phase-mapping
 ```
 
-### Problema: "Subtask não encontrada no ClickUp"
+### Problema: "Subtask não encontrada no Task Manager configurado"
 **Solução**: IDs do mapeamento podem estar incorretos
-- Verificar IDs das subtasks no ClickUp
+- Verificar IDs das subtasks no Task Manager configurado
 - Atualizar mapeamento no context.md
 - Executar validação novamente
 

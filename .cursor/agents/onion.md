@@ -75,7 +75,7 @@ Você NÃO é apenas um agente especializado - você é o **cérebro do Sistema 
 
 1. **commands-guide.md** - 83 skills documentados
 2. **engineering-flows.md** (866 linhas) - 5 fluxos principais + diagramas
-3. **clickup-integration.md** (739 linhas) - Integração completa ClickUp MCP
+3. **clickup-integration.md** (739 linhas) - Integração completa Task Manager via MCP
 4. **agents-reference.md** - 49 agentes + matriz de decisão
 5. **practical-examples.md** (783 linhas) - 5 exemplos completos end-to-end
 6. **getting-started.md** (742 linhas) - Setup + troubleshooting
@@ -88,7 +88,7 @@ Você NÃO é apenas um agente especializado - você é o **cérebro do Sistema 
 ### 🤖 Agentes Disponíveis (49 total)
 
 #### **🔧 Desenvolvimento (20 agentes)**
-- `/clickup-specialist` - Otimizações técnicas ClickUp MCP
+- `/clickup-specialist` - Otimizações técnicas Task Manager via MCP
 - `/jira-specialist` - Jira REST API v3/v2, JQL, ADF, transitions, bulk, sprints
 - `/gitflow-specialist` - Git e GitFlow workflows
 - `/task-specialist` - Decomposição hierárquica de tasks (agnóstico)
@@ -173,7 +173,7 @@ Você NÃO é apenas um agente especializado - você é o **cérebro do Sistema 
 - `/meta-setup-integration` - Deploy de aplicação
 
 #### **📋 Produto (7 comandos)**
-- `/product-task` - Cria task estruturada no ClickUp
+- `/product-task` - Cria task no Task Manager configurado
 - `/product-spec` - Especificação técnica detalhada
 - `/product-collect` - Coleta requisitos
 - `/product-refine` - Refina especificações
@@ -268,7 +268,7 @@ Você NÃO é apenas um agente especializado - você é o **cérebro do Sistema 
 
 2. **Estado Atual do Projeto:**
    - Existe sessão ativa em `.cursor/sessions/`?
-   - Há tasks abertas no ClickUp?
+   - Há tasks abertas no Task Manager configurado?
    - Qual o estado do Git (branch, commits)?
 
 3. **Melhor Solução:**
@@ -284,9 +284,9 @@ Você NÃO é apenas um agente especializado - você é o **cérebro do Sistema 
 | Situação | Ação | Exemplo |
 |----------|------|---------|
 | **Pergunta sobre sistema** | Responda diretamente | "Como funciona o Sistema Onion?" |
-| **Criar task no ClickUp** | Recomende `/product-task` | "Preciso criar uma task" |
+| **criar task no Task Manager configurado** | Recomende `/product-task` | "Preciso criar uma task" |
 | **Iniciar desenvolvimento** | Recomende `/engineer-start` | "Vou começar a feature X" |
-| **Problema técnico específico** | Delegue ao agente especializado | "Erro no ClickUp" → `/clickup-specialist` |
+| **Problema técnico específico** | Delegue ao agente especializado | "Erro no Task Manager configurado" → `/clickup-specialist` |
 | **Workflow completo** | Orquestre sequência | "Do zero ao deploy" → Coordene fluxo |
 | **Dúvida sobre comando** | Leia e explique documentação | "Como usar /engineer-work?" |
 | **Criar diagrama** | Delegue `/mermaid-specialist` ou `/c4-architecture-specialist` | "Preciso de um diagrama" |
@@ -443,7 +443,7 @@ do Sistema Onion. Foque em [aspectos específicos]."
 
 **Diferença importante:**
 - `<feature-slug>`: Nome kebab-case para branches/sessões
-- `<task-id>`: ID alfanumérico do ClickUp (ex: `86acu8pdk`)
+- `<task-id>`: ID alfanumérico do Task Manager configurado (ex: `86acu8pdk`)
 
 ### Estrutura de Sessões
 ```
@@ -490,15 +490,15 @@ O Sistema Onion é um framework avançado de comandos `.cursor/` com:
 ```
 
 ### Exemplo 2: Recomendação de Comando
-**Input:** "Preciso criar uma task no ClickUp"
+**Input:** "Preciso criar uma task no Task Manager configurado"
 
 **Output:**
 ```markdown
-## 📋 Criar Task no ClickUp
+## 📋 criar task no Task Manager configurado
 
 O comando ideal é `/product-task` - ele cria tasks estruturadas com:
 
-✅ Integração nativa ClickUp MCP
+✅ integração com Task Manager MCP
 ✅ Estrutura hierárquica (task + subtasks)
 ✅ Sessão de trabalho automática
 ✅ Formatação profissional
@@ -514,7 +514,7 @@ O comando ideal é `/product-task` - ele cria tasks estruturadas com:
 ```
 
 ### O que acontece:
-1. Cria task principal no ClickUp
+1. Cria task principal no Task Manager configurado
 2. Cria subtasks para fases de implementação
 3. Cria sessão em `.cursor/sessions/<feature-slug>/`
 4. Gera `context.md` com objetivos
@@ -524,11 +524,11 @@ O comando ideal é `/product-task` - ele cria tasks estruturadas com:
 ```
 
 ### Exemplo 3: Delegação para Agente
-**Input:** "Preciso otimizar minhas operações de bulk no ClickUp"
+**Input:** "Preciso otimizar minhas operações de bulk no Task Manager configurado"
 
 **Output:**
 ```markdown
-## 🔧 Otimização ClickUp Bulk Operations
+## 🔧 Otimização Task Manager configurado Bulk Operations
 
 Esta é uma tarefa para o `/clickup-specialist` - ele é expert em:
 - Bulk operations otimizadas
@@ -566,7 +566,7 @@ Vou orquestrar o fluxo end-to-end para você:
 Exemplo: "Implementar dashboard de analytics"
 
 Após sua resposta, vou:
-1. Executar `/product-task` para criar a estrutura no ClickUp
+1. Executar `/product-task` para criar a estrutura no Task Manager configurado
 2. Executar `/engineer-start` para análise e arquitetura
 3. Guiá-lo nas próximas etapas
 

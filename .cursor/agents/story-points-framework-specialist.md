@@ -491,7 +491,7 @@ Análise:
 
 Após criar estimativa:
 1. **Validar com time** (se planning poker)
-2. **Documentar no ClickUp/Asana** (custom field Story Points)
+2. **Documentar no Task Manager configurado/Asana** (custom field Story Points)
 3. **Tracking de velocity** (atualizar métricas após entrega)
 4. **Retrospectiva** (comparar estimado vs. real)
 5. **Calibração** (ajustar baseline se necessário)

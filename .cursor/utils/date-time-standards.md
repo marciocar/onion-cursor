@@ -153,7 +153,7 @@ sed -i 's/\$(date +'\''%Y-%m-%d %H:%M'\'')/\$(date +'\''%d\/%m\/%Y %H:%M'\'')/g'
 4. **JavaScript Templates** - Locale correto vs fallback
 
 ### **🚨 ERRO CRÍTICO IDENTIFICADO:**
-**NEVER use bash commands in ClickUp comments!**
+**NEVER use bash commands in comentários do Task Manager!**
 
 ❌ **INCORRETO**:
 ```bash
@@ -165,7 +165,7 @@ sed -i 's/\$(date +'\''%Y-%m-%d %H:%M'\'')/\$(date +'\''%d\/%m\/%Y %H:%M'\'')/g'
 ```bash
 # Gerar timestamp ANTES de enviar para ClickUp
 TIMESTAMP=$(date +'%d/%m/%Y %H:%M:%S')
-# Então usar $TIMESTAMP no comentário ClickUp
+# Então usar $TIMESTAMP no comentário Task Manager configurado
 ⏰ Setup Complete: 29/09/2025 00:18
 ```
 

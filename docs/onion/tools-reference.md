@@ -21,7 +21,7 @@ Este documento lista todas as ferramentas disponíveis no sistema Onion em forma
 - [🧠 Memórias](#-memórias)
 - [✅ Gestão de Tarefas](#-gestão-de-tarefas)
 - [🔌 MCP Resources](#-mcp-resources)
-- [📋 ClickUp MCP](#-clickup-mcp-gestão-de-projetos)
+- [📋 Task Manager via MCP](#-clickup-mcp-gestão-de-projetos)
 - [📚 Context7 MCP](#-context7-mcp-documentação)
 - [🧭 Sequential Thinking MCP](#-sequential-thinking-mcp-análise-complexa)
 - [💻 Code Understanding MCP](#-code-understanding-mcp-análise-de-repositórios)
@@ -288,7 +288,7 @@ function fetch_mcp_resource(
 
 ---
 
-## 📋 ClickUp MCP (Gestão de Projetos)
+## 📋 Task Manager via MCP (Gestão de Projetos)
 
 ### Gestão de Workspace
 ```typescript
@@ -981,7 +981,7 @@ function mcp_extension_nx_available_plugins(
 ### **🚀 Para Máxima Performance**
 1. **Use ferramentas paralelas**: Execute múltiplas operações read-only simultaneamente
 2. **Cache inteligente**: Aproveite `maxAge` no Firecrawl e cache strategies no Code Understanding
-3. **Bulk operations**: Prefira operações bulk do ClickUp para múltiplas tasks
+3. **Bulk operations**: Prefira operações bulk do Task Manager configurado para múltiplas tasks
 4. **Filtros server-side**: Use filtros avançados em `get_workspace_tasks`
 
 ### **🎯 Para Precisão**
@@ -1010,7 +1010,7 @@ graph TD
     E --> F[read_file detalhes]
 ```
 
-### **Workflow de Desenvolvimento com ClickUp**
+### **Workflow de Desenvolvimento com Task Manager**
 ```mermaid
 graph TD
     A[create_task] --> B[start_time_tracking]
@@ -1041,7 +1041,7 @@ Sistema completo de comandos Git com workflows Gitflow integrados ao Sistema Oni
 - **DE**: Scripts bash complexos (500-1000+ linhas cada) 
 - **PARA**: Markdown AI-interpretável (79-146 linhas cada)
 - **RESULTADO**: 87.3% redução de código + funcionalidade aprimorada
-- **INTEGRAÇÃO**: @gitflow-specialist nativo + ClickUp MCP ativo
+- **INTEGRAÇÃO**: @gitflow-specialist nativo + Task Manager via MCP ativo
 
 ### Comandos Implementados
 ```typescript
@@ -1107,7 +1107,7 @@ Sistema completo de comandos Git com workflows Gitflow integrados ao Sistema Oni
 
 ### Integração Sistema Onion
 - **Workflows Completos**: Planejamento → Desenvolvimento → Deploy
-- **ClickUp MCP**: Tracking automático de progresso e decisões técnicas
+- **Task Manager via MCP**: Tracking automático de progresso e decisões técnicas
 - **Session Context**: Mantém estado entre comandos e sessões
 - **Agent Integration**: Complementa `@gitflow-specialist` (guidance vs execution)
 

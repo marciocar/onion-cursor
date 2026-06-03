@@ -19,7 +19,7 @@ Finalizar desenvolvimento de feature realizando merge seguro para develop branch
 ### GitFlow Compliance e Automação
 - Merge seguindo padrão oficial GitFlow (feature → develop)
 - Cleanup automático de branch local e remote após merge
-- Atualização de ClickUp task e session archival
+- Atualização de task do Task Manager e session archival
 - Integração preservada com @gitflow-specialist para operações complexas
 
 ### Educação e UX
@@ -42,7 +42,7 @@ Finalizar desenvolvimento de feature realizando merge seguro para develop branch
 3. **Preview**: Exibe impacto das mudanças (commits, files, lines)
 4. **Confirmação**: Solicita confirmação explícita do usuário  
 5. **Merge**: Executa merge seguro feature → develop
-6. **Cleanup**: Remove branch local/remote e atualiza ClickUp task
+6. **Cleanup**: Remove branch local/remote e atualiza o Task Manager task
 7. **Archive**: Move session para estado finalizado
 
 ### Educational Context

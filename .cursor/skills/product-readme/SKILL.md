@@ -36,10 +36,10 @@ flowchart TD
 ## 🛠️ **Comandos Disponíveis**
 
 ### 1. **`/product-task <description>`** 🚀
-**Objetivo**: Criar task no ClickUp + Setup completo para desenvolvimento
+**Objetivo**: criar task no Task Manager configurado + Setup completo para desenvolvimento
 
 **O que faz**:
-- ✅ Cria task estruturada no ClickUp
+- ✅ Cria task no Task Manager configurado
 - ✅ Cria feature branch `feature/<slug>`
 - ✅ Inicializa sessão em `.cursor/sessions/<slug>/`
 - ✅ Cria arquivos: `context.md`, `plan.md`, `notes.md`
@@ -50,7 +50,7 @@ flowchart TD
 **Objetivo**: Verificar se task foi realmente implementada
 
 **O que faz**:
-- ✅ Carrega task do ClickUp
+- ✅ Carrega task do Task Manager configurado
 - ✅ Audita projeto atual buscando implementação
 - ✅ Compara requisitos vs código real
 - ✅ Determina se pode avançar para próxima fase
@@ -85,9 +85,9 @@ flowchart TD
 - **`/product-collect`**: Coleta de informações
 - **`/product-refine`**: Refinamento de requisitos
 
-## 🔄 **Sistema de Auto-Update ClickUp**
+## 🔄 **Sistema de Auto-Atualizar Task Manager**
 
-Todos os comandos seguem uma **estratégia consistente de atualização automática** do ClickUp:
+Todos os comandos seguem uma **estratégia consistente de atualização automática** do Task Manager configurado:
 
 ### **✅ Updates Automáticos (Sem Confirmação)**
 - **Comments informativos** com progresso e resultados
@@ -227,10 +227,10 @@ Depois de criar uma task com `/product-task`:
 
 ## 💡 **Benefícios da Estratégia**
 
-1. **Rastreabilidade Total**: Cada ação gera histórico automático no ClickUp
+1. **Rastreabilidade Total**: Cada ação gera histórico automático no Task Manager configurado
 2. **Produtividade Máxima**: Elimina atualizações manuais repetitivas  
 3. **Controle Inteligente**: Confirma apenas mudanças críticas
-4. **Sincronização**: Sessões locais sempre sincronizadas com ClickUp
+4. **Sincronização**: Sessões locais sempre sincronizadas com Task Manager
 5. **Visibilidade**: Stakeholders veem progresso em tempo real
 
 ---

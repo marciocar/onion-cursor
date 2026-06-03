@@ -330,7 +330,7 @@ class AsanaAdapter implements ITaskManager {
 
 ## ⚠️ Limitações do Asana
 
-1. **Apenas 1 assignee** por task (vs múltiplos no ClickUp)
+1. **Apenas 1 assignee** por task (vs múltiplos no Task Manager configurado)
 2. **Sem prioridade nativa** - usar custom fields ou tags
 3. **Status binário** - completed ou não (usar seções para workflow)
 4. **IDs numéricos longos** - 16+ dígitos

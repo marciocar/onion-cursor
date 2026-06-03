@@ -25,7 +25,7 @@ Iniciar desenvolvimento de uma nova funcionalidade criando uma branch GitFlow ap
 - Criar diretório `.cursor/sessions/<feature-slug>/` automaticamente
 - Gerar `context.md` com metadados da feature
 - Criar `plan.md` com template de desenvolvimento
-- Integração opcional com ClickUp tasks existentes
+- Integração opcional com Task Manager tasks existentes
 
 ## 🚀 Como Usar
 

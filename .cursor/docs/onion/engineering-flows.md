@@ -18,7 +18,7 @@
 
 ## 🎯 Visão Geral
 
-O Sistema Onion oferece workflows automatizados centrados em **comandos de engenharia** (`/engineer/*`) e **produto** (`/product/*`), com integração automática ao ClickUp e Git. Todos os fluxos seguem o padrão de nomenclatura `<feature-slug>` (kebab-case).
+O Sistema Onion oferece workflows automatizados centrados em **comandos de engenharia** (`/engineer/*`) e **produto** (`/product/*`), com integração automática ao Task Manager configurado e Git. Todos os fluxos seguem o padrão de nomenclatura `<feature-slug>` (kebab-case).
 
 ### Princípios dos Fluxos
 1. **Engineering-First**: Comandos `/engineer/*` são o core do desenvolvimento
@@ -67,7 +67,7 @@ flowchart TD
     J --> K[Implementar Fase]
     K --> L{Fase Completa?}
     L -->|Nao| K
-    L -->|Sim| M[Auto-Update ClickUp]
+    L -->|Sim| M[Auto-Atualizar Task Manager]
     
     M --> N{Mais Fases?}
     N -->|Sim| J
@@ -104,7 +104,7 @@ flowchart TD
 1. ✅ Análise de documentação (README.md, docs/)
 2. ✅ Identificação de complexidade e pattern
 3. ✅ Apresentação do plano para confirmação
-4. ✅ Criação no ClickUp (Task + Subtasks + Action Items)
+4. ✅ Criação no Task Manager configurado (Task + Subtasks + Action Items)
 5. ✅ Integração Git automática (`/git/feature/start` ou branch direta)
 6. ✅ Setup de sessão (`.cursor/sessions/<feature-slug>/`)
 7. ✅ Criação de context files
@@ -125,12 +125,12 @@ flowchart TD
 
 **O que acontece:**
 1. ✅ Valida/cria feature branch
-2. ✅ Lê task do ClickUp (com subtasks e checklists)
+2. ✅ Lê task do Task Manager configurado (com subtasks e checklists)
 3. ✅ Análise profunda (5-7 questões de clarificação)
 4. ✅ Cria `context.md` com entendimento
 5. ✅ Desenvolve `architecture.md` detalhada
 6. ✅ Gera `plan.md` com fases de implementação
-7. ✅ Atualiza ClickUp (status → "In Progress")
+7. ✅ atualiza o Task Manager (status → "In Progress")
 8. ✅ Cria mapeamento fase→subtask
 
 **Arquivos Criados:**
@@ -153,7 +153,7 @@ flowchart TD
 2. ✅ Identifica fase atual no `plan.md`
 3. ✅ Implementa código da fase
 4. ✅ Ao completar fase:
-   - Adiciona comentário no ClickUp
+   - Adiciona comentário no Task Manager configurado
    - Atualiza status da subtask para "done"
    - Atualiza `plan.md` com decisões
 5. ✅ Repete para próximas fases
@@ -166,7 +166,7 @@ flowchart LR
     C --> D[Validar com Usuario]
     D --> E{Aprovado?}
     E -->|Nao| C
-    E -->|Sim| F[Auto-Update ClickUp]
+    E -->|Sim| F[Auto-Atualizar Task Manager]
     F --> G[Atualizar plan.md]
     G --> H{Mais Fases?}
     H -->|Sim| A
@@ -199,7 +199,7 @@ flowchart LR
 **O que acontece:**
 1. ✅ Cria feature branch (se necessário)
 2. ✅ Commit e push das mudanças
-3. ✅ Atualiza ClickUp:
+3. ✅ atualiza o Task Manager:
    - Status → "in progress"
    - Tag → "under-review"
    - Comentário com link do PR
@@ -224,7 +224,7 @@ flowchart LR
    - decisions.md (decisões tomadas)
    - changes.md (mudanças realizadas)
 5. ✅ Atualiza índice de sessões
-6. ✅ Atualiza ClickUp para "Done"
+6. ✅ atualiza o Task Manager para "Done"
 
 ---
 
@@ -232,7 +232,7 @@ flowchart LR
 
 #### 🎯 **Comandos CORE (Prioridade Máxima)**
 
-| Comando | Responsabilidade | Cria Branch? | Cria Sessão? | Atualiza ClickUp? |
+| Comando | Responsabilidade | Cria Branch? | Cria Sessão? | atualiza o Task Manager? |
 |---------|------------------|--------------|--------------|-------------------|
 | `/product/task` | Criar task estruturada | ✅ Opcional* | ✅ Sim | ✅ Sim |
 | `/engineer/start` | Análise + Arquitetura | ✅ Valida/Cria* | ✅ Valida | ✅ Sim |
@@ -309,7 +309,7 @@ flowchart TD
 - ✅ Criação de tag de patch
 - ✅ Preparação para deploy de produção
 - ✅ Cleanup de branches
-- ✅ Atualização do ClickUp
+- ✅ Atualização do Task Manager configurado
 
 **Diferenças do Fluxo de Feature:**
 - ⚡ **Análise mais rápida** (foco no problema)
@@ -466,7 +466,7 @@ flowchart TD
 
 ## 🔗 Integração entre Comandos
 
-### Fluxo de Integração ClickUp
+### Fluxo de Integração Task Manager configurado
 
 ```mermaid
 sequenceDiagram
@@ -543,7 +543,7 @@ flowchart TD
 
 | Cenário | Comando | Razão |
 |---------|---------|-------|
-| **Criar nova feature** | `/product/task` | Cria task estruturada no ClickUp + branch + sessão |
+| **Criar nova feature** | `/product/task` | Cria task no Task Manager configurado + branch + sessão |
 | **Planejar épico** | `/product/epic` | Decompõe épico em tasks menores |
 | **Revisar backlog** | `/product/backlog` | Organiza e prioriza tasks pendentes |
 
@@ -554,7 +554,7 @@ flowchart TD
 | **Iniciar desenvolvimento** | `/engineer/start` | Análise + arquitetura + setup de sessão |
 | **Implementar fase** | `/engineer/work` | Implementa código seguindo plan.md |
 | **Validar antes de PR** | `/engineer-pre-pr` | Checklist de qualidade completo |
-| **Criar Pull Request** | `/engineer-pr` | Abre PR e atualiza ClickUp |
+| **Criar Pull Request** | `/engineer-pr` | Abre PR e atualiza o Task Manager |
 | **Atualizar PR** | `/engineer-pr-update` | Atualiza PR existente com novas mudanças |
 | **Bug crítico em produção** | `/engineer/hotfix` | Análise rápida + implementação urgente |
 | **Validar fase** | `/engineer/validate-phase-sync` | Valida sincronização fase ↔ subtask |
@@ -563,7 +563,7 @@ flowchart TD
 
 | Cenário | Comando | Razão |
 |---------|---------|-------|
-| **Após merge concluído** | `/docs/sync-sessions` | Arquiva sessão e atualiza ClickUp |
+| **Após merge concluído** | `/docs/sync-sessions` | Arquiva sessão e atualiza o Task Manager |
 | **Gerar docs de negócio** | `/docs/build-business-docs` | Documentação de contexto de negócio |
 | **Gerar docs técnicos** | `/docs/build-tech-docs` | Documentação de arquitetura e stack |
 | **Criar índice** | `/docs/build-index` | Índice navegável de toda documentação |
@@ -608,18 +608,18 @@ ls .cursor/sessions/
 
 ### Problema: ClickUp não atualiza
 
-**Sintoma:** Comandos não atualizam status no ClickUp
+**Sintoma:** Comandos não atualizam status no Task Manager configurado
 
 **Solução:**
 1. Verificar se `context.md` tem task-id correto
-2. Verificar conexão com ClickUp MCP
+2. Verificar conexão com Task Manager via MCP
 3. Verificar permissões da API key
 
 ```bash
 # Verificar task-id no context.md
 cat .cursor/sessions/<feature-slug>/context.md | grep "Task ID"
 
-# Testar conexão ClickUp
+# Testar conexão Task Manager configurado
 # (usar ferramenta de teste do MCP)
 ```
 
@@ -714,7 +714,7 @@ Use comandos Git **apenas** nestas situações:
 - ✅ Criação de tag de patch
 - ✅ Preparação para deploy
 - ✅ Cleanup de branches
-- ✅ Atualização do ClickUp
+- ✅ Atualização do Task Manager configurado
 
 ---
 
@@ -746,7 +746,7 @@ Use comandos Git **apenas** nestas situações:
 - ✅ Tag anotada com metadata
 - ✅ Preparação para deploy
 - ✅ Cleanup de branches
-- ✅ Atualização do ClickUp
+- ✅ Atualização do Task Manager configurado
 
 ---
 
@@ -852,7 +852,7 @@ Antes de usar comandos Git diretamente, verifique:
 ## 🔗 Documentos Relacionados
 
 - [Guia de Comandos](./commands-guide.md) - Referência completa de comandos
-- [Integração ClickUp](./clickup-integration.md) - Detalhes do ClickUp MCP
+- [Integração Task Manager configurado](./clickup-integration.md) - Detalhes do Task Manager via MCP
 - [Referência de Agentes](./agents-reference.md) - Agentes especializados
 - [Exemplos Práticos](./practical-examples.md) - Casos de uso reais
 - [Configuração Inicial](./getting-started.md) - Setup do sistema

@@ -24,7 +24,7 @@ performance_indicators: {
 }
 ---
 
-# Granaai - Documentação Consolidada do Projeto
+# [nome-da-empresa] - Documentação Consolidada do Projeto
 
 > **🎯 Propósito**: Documentação abrangente gerada por engenharia reversa para acelerar onboarding, desenvolvimento assistido por IA e compreensão arquitetural completa.
 
@@ -60,7 +60,7 @@ performance_indicators: {
 
 ### Monorepo Structure (NX 19.5.3)
 ```
-granaai/
+[nome-da-empresa]/
 ├── apps/                    # 19 aplicações
 │   ├── admin/              # Admin dashboard (API + UI)
 │   ├── creditors-dashboard/ # Creditors management 
@@ -247,7 +247,7 @@ O **Sistema Esperanto** é um framework avançado de comandos e agentes especial
 1. **@admin-screen-specialist**: Geração automatizada de telas admin
 2. **@c4-architecture-specialist**: Diagramas arquiteturais C4
 3. **@c4-documentation-specialist**: Documentação C4 completa
-4. **@clickup-specialist**: Integração e automação ClickUp
+4. **@clickup-specialist**: Integração e automação Task Manager configurado
 5. **@claude-code-specialist**: Otimização de desenvolvimento Claude Code
 6. **@docs-reverse-engineer**: Engenharia reversa e documentação
 7. **@gitflow-specialist**: Workflows GitFlow complexos
@@ -369,7 +369,7 @@ O **Sistema Esperanto** é um framework avançado de comandos e agentes especial
 
 ### Domínio Central: Antecipação de Recebíveis
 
-O Granaai conecta **Asset Holders** (estabelecimentos comerciais com recebíveis de cartão) com **Credores** (fundos, bancos, securitizadoras) para antecipar valores futuros com taxas competitivas.
+O [nome-da-empresa] conecta **Asset Holders** (estabelecimentos comerciais com recebíveis de cartão) com **Credores** (fundos, bancos, securitizadoras) para antecipar valores futuros com taxas competitivas.
 
 ### Entidades de Negócio Principais
 
@@ -955,4 +955,4 @@ Este documento foi gerado automaticamente via `/docs-reverse-consolidate`. Para 
 
 **Última Atualização**: Outubro 2025  
 **Próxima Review**: Janeiro 2026  
-**Owner**: Equipe Granaai + Sistema Esperanto
+**Owner**: Equipe [nome-da-empresa] + Sistema Esperanto

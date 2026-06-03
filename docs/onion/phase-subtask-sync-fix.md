@@ -5,9 +5,9 @@
 Durante o desenvolvimento do projeto "Refatorar Comandos Git para Padrão Claude Code Commands Oficial", foi identificada uma **falha arquitetural crítica** no Sistema Onion:
 
 ### **Issue Summary:**
-- **Problem**: Status das subtasks do ClickUp não eram atualizados automaticamente quando fases eram completadas no development
+- **Problem**: Status das subtasks do Task Manager configurado não eram atualizados automaticamente quando fases eram completadas no development
 - **Impact**: Descorrelação entre progresso real (plan.md) e tracking (ClickUp subtasks)  
-- **Root Cause**: Falta de integração automática entre `/engineer-work` e ClickUp MCP para subtasks
+- **Root Cause**: Falta de integração automática entre `/engineer-work` e Task Manager via MCP para subtasks
 
 ### **Manifestation:**
 ```diff
@@ -33,7 +33,7 @@ Durante o desenvolvimento do projeto "Refatorar Comandos Git para Padrão Claude
 + 3. **🆕 PHASE-SUBTASK MAPPING**: Cria mapeamento automático fase→subtask no context.md
 + ### **🗺️ OBRIGATÓRIO: Criar Phase-Subtask Mapping**
 + Quando subtasks existem, o sistema deve **automaticamente**:
-+ 1. **Detectar subtasks** da task principal via ClickUp MCP
++ 1. **Detectar subtasks** da task principal via Task Manager via MCP
 + 2. **Correlacionar com fases** do plan.md (por ordem ou nome)
 + 3. **Salvar mapeamento** no context.md para uso pelo `/engineer-work`
 + 4. **Validar correlação** e alertar se houver mismatch

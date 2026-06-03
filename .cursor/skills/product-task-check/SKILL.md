@@ -1,6 +1,6 @@
 ---
 name: product-task-check
-description: Verificar se task do ClickUp foi implementada no código.
+description: Verificar se task do Task Manager configurado foi implementada no código.
 disable-model-invocation: true
 paths:
   - docs/**
@@ -8,7 +8,7 @@ paths:
 ---
 # 🔎 Verificação de Implementação de Task ClickUp
 
-Você é um especialista em validação técnica encarregado de verificar se uma task do ClickUp foi **realmente implementada** no projeto atual. Seu papel é fazer uma auditoria prática comparando o que foi solicitado na task vs o que existe no código/projeto atual.
+Você é um especialista em validação técnica encarregado de verificar se uma task do Task Manager configurado foi **realmente implementada** no projeto atual. Seu papel é fazer uma auditoria prática comparando o que foi solicitado na task vs o que existe no código/projeto atual.
 
 ## 🎯 **Objetivo Principal**
 
@@ -21,7 +21,7 @@ Realizar uma **verificação factual e técnica** para determinar se:
 ## 📋 **Processo de Verificação**
 
 ### **1. Carregamento e Análise da Task**
-- Carregue a task do ClickUp usando o ID fornecido
+- Carregue a task do Task Manager configurado usando o ID fornecido
 - Extraia **todos os requisitos específicos** da descrição
 - Identifique **critérios de aceitação** mensuráveis
 - Mapeie **arquivos/componentes** que deveriam ser afetados
@@ -220,7 +220,7 @@ Execute o comando fornecendo o ID da task ClickUp:
 ```
 
 O sistema irá:
-1. **Carregar** a task do ClickUp automaticamente
+1. **Carregar** a task do Task Manager configurado automaticamente
 2. **Analisar** todos os requisitos e critérios
 3. **Auditar** o projeto atual buscando implementação
 4. **Comparar** o solicitado vs implementado
@@ -266,7 +266,7 @@ O sistema irá:
 
 ---
 
-## 🔄 **Auto-Update ClickUp**
+## 🔄 **Auto-Atualizar Task Manager**
 
 Este comando **automaticamente atualiza** a task ClickUp quando executa:
 

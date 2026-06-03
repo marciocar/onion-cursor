@@ -31,9 +31,9 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 
 **Funcionalidades:**
 - Cria/valida feature branch
-- Analisa tasks do ClickUp (com suporte a checklists nativos)
+- Analisa tasks do Task Manager configurado (com suporte a checklists nativos)
 - Gera `context.md`, `architecture.md` e `plan.md`
-- Atualiza automaticamente status no ClickUp
+- Atualiza automaticamente status no Task Manager configurado
 - Cria mapeamento fase→subtask
 
 **Exemplo:**
@@ -41,7 +41,7 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 /engineer/start user-authentication
 ```
 
-**Integração ClickUp:**
+**Integração Task Manager configurado:**
 - ✅ Atualiza status para "In Progress"
 - ✅ Adiciona comentário de início
 - ✅ Cria mapeamento de fases
@@ -65,7 +65,7 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 /engineer/work user-authentication
 ```
 
-**Auto-Update ClickUp:**
+**Auto-Atualizar Task Manager:**
 - ✅ Comentário de progresso ao completar fase
 - ✅ Atualiza status da subtask para "done"
 - ✅ Atualiza `plan.md` com decisões
@@ -81,7 +81,7 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 - Valida testes antes do PR
 - Cria feature branch (se necessário)
 - Atualiza task ClickUp com tag "under-review"
-- Adiciona comentário formatado no ClickUp
+- Adiciona comentário formatado no Task Manager configurado
 - Integração com `/git/sync` pós-merge
 
 **Exemplo:**
@@ -89,7 +89,7 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 /engineer-pr
 ```
 
-**Integração ClickUp:**
+**Integração Task Manager configurado:**
 - ✅ Move task para "in progress"
 - ✅ Adiciona tag "under-review"
 - ✅ Comentário com link do PR
@@ -183,7 +183,7 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 ### `/engineer/validate-phase-sync`
 **Sintaxe:** `/engineer/validate-phase-sync`
 
-**Descrição:** Valida sincronização entre fases do plan.md e subtasks do ClickUp.
+**Descrição:** Valida sincronização entre fases do plan.md e subtasks do Task Manager configurado.
 
 **Exemplo:**
 ```bash
@@ -197,7 +197,7 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 ### `/product/task`
 **Sintaxe:** `/product/task "<descrição-da-task>"`
 
-**Descrição:** Cria task estruturada no ClickUp com decomposição hierárquica inteligente.
+**Descrição:** Cria task no Task Manager configurado com decomposição hierárquica inteligente.
 
 **Funcionalidades:**
 - Análise profunda e compreensão da tarefa
@@ -220,11 +220,11 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 **Workflow:**
 1. Análise de documentação (README.md, docs/)
 2. Apresentação do plano para confirmação
-3. Criação da estrutura no ClickUp
+3. Criação da estrutura no Task Manager configurado
 4. Integração Git automática
 5. Setup de ambiente de desenvolvimento
 
-**Integração ClickUp:**
+**Integração Task Manager configurado:**
 - ✅ Cria task principal + subtasks + action items
 - ✅ Adiciona tags apropriadas
 - ✅ Define prioridade e estimativa
@@ -283,7 +283,7 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 ### `/product/task-check`
 **Sintaxe:** `/product/task-check <task-id>`
 
-**Descrição:** Valida task do ClickUp quanto a completude e qualidade.
+**Descrição:** Valida task do Task Manager configurado quanto a completude e qualidade.
 
 **Exemplo:**
 ```bash
@@ -307,7 +307,7 @@ O Sistema Onion oferece **56 comandos especializados** organizados em categorias
 ### `/product/checklist-sync`
 **Sintaxe:** `/product/checklist-sync <task-id>`
 
-**Descrição:** Sincroniza checklists nativos do ClickUp com documentação local.
+**Descrição:** Sincroniza checklists nativos do Task Manager configurado com documentação local.
 
 **Exemplo:**
 ```bash
@@ -793,7 +793,7 @@ docs/technical-context/
 ## 🔗 Documentos Relacionados
 
 - [Fluxos de Engenharia](./engineering-flows.md) - Workflows detalhados
-- [Integração ClickUp](./clickup-integration.md) - Guia completo ClickUp MCP
+- [Integração Task Manager configurado](./clickup-integration.md) - Guia completo Task Manager via MCP
 - [Referência de Agentes](./agents-reference.md) - Todos os agentes disponíveis
 - [Exemplos Práticos](./practical-examples.md) - Casos de uso reais
 - [Sistema de Testes e Validação](../onion/testing-validation-system.md) - Framework completo de testes e validação

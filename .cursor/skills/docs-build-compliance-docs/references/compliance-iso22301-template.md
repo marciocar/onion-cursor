@@ -10,7 +10,7 @@ Este template orienta a geração de documentação **ISO 22301:2019** alinhada 
 
 **Use para:**
 - Certificação ISO 22301 ou preparação para auditoria
-- Due diligence enterprise (ex.: Serasa Experian — 5/8 requisitos)
+- Due diligence enterprise (ex.: [cliente enterprise de referência] — 5/8 requisitos)
 - Complemento a SOC2 Availability (A1.x)
 - Evidências de testes anuais BC/DR
 
@@ -34,9 +34,9 @@ docs/compliance-context/
     └── recovery-objectives.md
 ```
 
-### Mapeamento Serasa Experian (referência DD)
+### Mapeamento [cliente enterprise de referência] (referência DD)
 
-| Requisito Serasa | Documento | Status |
+| requisitos DD | Documento | Status |
 |------------------|-----------|--------|
 | #1 Plano de Continuidade | business-continuity-plan.md | ☐ |
 | #2 Plano de Recuperação | disaster-recovery-plan.md | ☐ |
@@ -48,7 +48,7 @@ docs/compliance-context/
 
 ## Documento 1: business-continuity-plan.md
 
-**Referência:** ISO 22301 Clause 8.4 | **Serasa Req #1**
+**Referência:** ISO 22301 Clause 8.4 | **[cliente enterprise] Req #1**
 
 ```markdown
 # Business Continuity Plan (BCP)
@@ -95,7 +95,7 @@ Metodologia: ISO/TS 22317:2021
 
 ## Documento 2: disaster-recovery-plan.md
 
-**Referência:** ISO 22301 Clause 8.4 | **Serasa Req #2**
+**Referência:** ISO 22301 Clause 8.4 | **[cliente enterprise] Req #2**
 
 ```markdown
 # Disaster Recovery Plan (DRP)
@@ -138,7 +138,7 @@ Metodologia: ISO/TS 22317:2021
 
 ## Documento 3: crisis-management.md
 
-**Referência:** ISO 22301 Clause 8.4 | **Serasa Req #3**
+**Referência:** ISO 22301 Clause 8.4 | **[cliente enterprise] Req #3**
 
 ```markdown
 # Plano de Gerenciamento de Crise
@@ -173,7 +173,7 @@ Detecção → Triagem → Ativação CMT → War Room → Decisões → Comunic
 
 ## Documento 4: resilience-testing.md
 
-**Referência:** ISO 22301 Clause 8.5 | **Serasa Req #4**
+**Referência:** ISO 22301 Clause 8.5 | **[cliente enterprise] Req #4**
 
 ```markdown
 # Testes de Resiliência (BC/DR)
@@ -206,7 +206,7 @@ Detecção → Triagem → Ativação CMT → War Room → Decisões → Comunic
 
 ## Documento 5: recovery-objectives.md
 
-**Referência:** ISO 22301 Clause 8.2 | **Serasa Req #5**
+**Referência:** ISO 22301 Clause 8.2 | **[cliente enterprise] Req #5**
 
 ```markdown
 # Recovery Objectives (RTOs / RPOs)
@@ -245,7 +245,7 @@ Detecção → Triagem → Ativação CMT → War Room → Decisões → Comunic
 - [ ] RTOs/RPOs realistas (baseados em BIA, não aspiracionais)
 - [ ] Runbooks testáveis com passos concretos
 - [ ] Evidência de ≥ 1 teste BC/DR nos últimos 12 meses (ou plano)
-- [ ] Mapeamento Serasa 5/5 documentado no index
+- [ ] Mapeamento [cliente enterprise] 5/5 documentado no index
 - [ ] Cross-ref com SOC2 Availability (A1.x) quando aplicável
 
 ---

@@ -286,7 +286,7 @@ SENÃO:
 ## 📋 Exemplos de Uso
 
 **Checkout Flow:** `/test-strategy/create "checkout-flow" alto complexo --task-manager clickup --project-id 123456`  
-→ ~13-14 QA points, Epic no ClickUp
+→ ~13-14 QA points, Epic no Task Manager configurado
 
 **User Profile (Dry-run):** `/test-strategy/create "user-profile" médio simples --dry-run`  
 → ~5-6 QA points, relatório local apenas

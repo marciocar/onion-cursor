@@ -35,7 +35,7 @@ location: '.cursor/rules/language-and-documentation.mdc'
 system: 'Onion Framework'
 version: '1.0'
 // Propósito: Framework de comandos .cursor/ e agentes especializados
-// Componentes: 46 comandos, 14+ agentes, ClickUp MCP integration
+// Componentes: 46 comandos, 14+ agentes, Task Manager via MCP integration
 ```
 
 ### 🎯 Contexto do Projeto
@@ -43,7 +43,7 @@ version: '1.0'
 Sistema Onion - Framework avançado de comandos .cursor/
 ├── 26 comandos organizados por categoria
 ├── 14 agentes especializados de IA  
-├── Integração completa com ClickUp MCP
+├── Integração completa com Task Manager via MCP
 └── Workflows automatizados de desenvolvimento
 ```
 
@@ -108,7 +108,7 @@ invocation: '@agente-nome'
 ```typescript
 agents: {
   strategic: '@product-agent',           // Gestão de produto e ClickUp
-  technical: '@clickup-specialist',      // Otimizações técnicas ClickUp MCP
+  technical: '@clickup-specialist',      // Otimizações técnicas Task Manager via MCP
   ide: '@claude-code-specialist',             // Problemas IDE e configuração
   development: {
     python: '@python-developer',
@@ -132,7 +132,7 @@ optimization: {
 }
 ```
 
-### 🎨 Formatação ClickUp MCP - Estratégia Dual
+### 🎨 Formatação Task Manager via MCP - Estratégia Dual
 
 #### Task Descriptions
 ```typescript
@@ -183,7 +183,7 @@ syntax: 'Unicode visual'
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### 🔗 Integração ClickUp
+### 🔗 Integração Task Manager configurado
 
 #### Boas Práticas
 ```typescript

@@ -193,7 +193,7 @@ openspec create feature-auth
 
 **Ferramentas NÃO-SDD no Onion** (não relacionadas a specs):
 - ❌ `/git-sync` - Git automation (não é SDD)
-- ❌ `/product-task` - Task creation no ClickUp (não é SDD, é task management)
+- ❌ `/product-task` - Task creation no Task Manager configurado (não é SDD, é task management)
 - ❌ `/product-whisper` - Audio transcription (não é SDD)
 - ❌ `/product-estimate` - Story points (não é SDD, é agile estimation)
 - ❌ `/docs/build-*` - Documentation generation (não é SDD)

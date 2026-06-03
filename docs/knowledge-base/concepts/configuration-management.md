@@ -116,7 +116,7 @@ CONTEXT7_ENABLED=false               # true para ativar
 # Configurações do Sistema Onion
 
 ONION_DEFAULT_LANGUAGE=pt-BR         # Idioma padrão (pt-BR, en-US)
-ONION_AUTO_CLICKUP_SYNC=true         # Sincronizar automaticamente com ClickUp
+ONION_AUTO_CLICKUP_SYNC=true         # Sincronizar automaticamente com Task Manager
 ONION_SESSION_AUTO_SAVE=true         # Salvar sessões automaticamente
 # ONION_LOG_LEVEL=info               # debug, info, warn, error
 
@@ -212,7 +212,7 @@ ONION_SESSION_AUTO_SAVE=true         # Salvar sessões automaticamente
 ```
 ⚠️ Arquivo .env não encontrado.
 
-Este comando usa a integração ClickUp para gerenciar tasks.
+Este comando usa a integração Task Manager configurado para gerenciar tasks.
 Para configurar:
 
 1. Copie o template: cp .env.example .env
@@ -229,11 +229,11 @@ Deseja:
 ```
 ⚠️ CLICKUP_API_TOKEN não configurado.
 
-Para usar a integração ClickUp:
+Para usar a integração Task Manager configurado:
 1. Obtenha um token em: https://app.clickup.com/settings/apps
 2. Adicione ao .env: CLICKUP_API_TOKEN=seu_token
 
-Deseja continuar sem a integração ClickUp?
+Deseja continuar sem a integração Task Manager configurado?
 ```
 
 ---
@@ -287,7 +287,7 @@ async function validateToken(service: string, token: string): Promise<Validation
 
 ## 🔌 Integrações Suportadas
 
-### ClickUp MCP
+### Task Manager via MCP
 
 **Variáveis:**
 | Variável | Obrigatória | Descrição |
@@ -300,7 +300,7 @@ async function validateToken(service: string, token: string): Promise<Validation
 1. Acesse https://app.clickup.com/settings/apps
 2. Clique em "Generate" ou "Regenerate"
 3. Copie o token
-4. Para Workspace ID: URL do ClickUp contém (ex: `app.clickup.com/<workspace_id>/...`)
+4. Para Workspace ID: URL do Task Manager configurado contém (ex: `app.clickup.com/<workspace_id>/...`)
 
 **Validação:**
 ```bash
@@ -354,7 +354,7 @@ Este agente requer as seguintes variáveis de ambiente:
 | Variável | Obrigatória | Descrição | Como Obter |
 |----------|-------------|-----------|------------|
 | `CLICKUP_API_TOKEN` | ✅ | Token de API | [ClickUp Settings](https://app.clickup.com/settings/apps) |
-| `CLICKUP_WORKSPACE_ID` | ✅ | ID do workspace | URL do ClickUp |
+| `CLICKUP_WORKSPACE_ID` | ✅ | ID do workspace | URL do Task Manager configurado |
 
 ### Verificação
 Ao ser invocado, este agente:

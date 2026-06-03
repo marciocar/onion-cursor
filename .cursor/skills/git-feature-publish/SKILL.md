@@ -5,7 +5,7 @@ disable-model-invocation: true
 ---
 # 🤝 Git Flow - Publicar Feature
 
-Publicar feature branch para remote repository permitindo colaboração em equipe com setup automático de tracking, validações de readiness e integração com ClickUp para team awareness e code review workflow.
+Publicar feature branch para remote repository permitindo colaboração em equipe com setup automático de tracking, validações de readiness e integração com Task Manager para team awareness e code review workflow.
 
 ## 🎯 Funcionalidades
 
@@ -19,7 +19,7 @@ Publicar feature branch para remote repository permitindo colaboração em equip
 ### Git Flow Compliance e Automação  
 - Publicação seguindo padrão oficial GitFlow (feature → remote)
 - Automatic branch tracking configuration
-- ClickUp task status update para "In Review"
+- task do Task Manager status update para "In Review"
 - Team guidance para next steps após publicação
 - Integration com workflows de code review
 

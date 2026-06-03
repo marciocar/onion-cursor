@@ -134,9 +134,9 @@ Confirma frameworks: ISO 22301 + SOC2 + ISO 27001?
 [C] Custom selection
 ```
 
-**Exemplo Real (Serasa Experian):**
+**Exemplo Real ([cliente enterprise de referência]):**
 ```markdown
-Checklist Serasa (8 requisitos):
+checklist DD do cliente (8 requisitos):
 1. Plano de Continuidade de Negócios
 2. Plano de Recuperação de Desastres
 3. Plano de Gerenciamento de Crise
@@ -173,20 +173,20 @@ Resultado: ISO 22301 + SOC2 (8/8 requisitos cobertos ✅)
 
 Inferências:
 - Fintech + dados sensíveis → ISO 27001 (recomendado)
-- Clientes enterprise (Serasa, bancos) → SOC2 (recomendado)
+- [cliente enterprise] → SOC2 (recomendado)
 - Infraestrutura distribuída crítica → ISO 22301 (recomendado)
 - NX monorepo + múltiplos projetos → PMBOK (opcional)
 ```
 
 **Sugestão Interativa:**
 ```markdown
-🎯 ANÁLISE DO PROJETO GRANAAI
+🎯 ANÁLISE DO PROJETO [nome-da-empresa]
 
 Baseado na documentação existente:
 
 📊 PERFIL DETECTADO:
 - Setor: Fintech (marketplace de resíduos)
-- Clientes: Enterprise (Serasa Experian mencionada)
+- Clientes: Enterprise ([cliente enterprise de referência] mencionada)
 - Stack: React Native + NX Monorepo + AWS
 - Dados: Sensíveis (transações, usuários, conformidade FEPAM/MTR)
 
@@ -201,7 +201,7 @@ Baseado na documentação existente:
    Benefício: Resiliência, DR plan documentado
 
 ✅ SOC2 Type II - RECOMENDADO
-   Justificativa: Requisito comum de clientes enterprise (Serasa)
+   Justificativa: Requisito comum de [cliente enterprise]
    Benefício: Desbloqueio de contratos, confiança
 
 ⚪ PMBOK (Governança) - OPCIONAL
@@ -268,7 +268,7 @@ Antes de delegar, consolidar contexto do projeto:
 
 **Clientes:**
 - Perfil: [B2B enterprise, B2C, B2B2C]
-- Exemplos: [Serasa Experian, grandes bancos]
+- Exemplos: [[cliente enterprise de referência], grandes bancos]
 - Requisitos de compliance: [SOC2, ISO, due diligence]
 
 **Objetivos de Compliance:**
@@ -335,7 +335,7 @@ Confirme quando concluir para eu consolidar no index.md.
 
 **Template:** Leia e siga `.cursor/skills/docs-build-compliance-docs/references/compliance-iso22301-template.md`
 
-🚨 **SERASA MAPPING**: Este framework mapeia 5 de 8 requisitos da Serasa Experian. Garanta que:
+🚨 **[cliente enterprise] MAPPING**: Este framework mapeia 5 de 8 requisitos da [cliente enterprise de referência]. Garanta que:
 - Req #1: Plano de Continuidade → business-continuity-plan.md ✅
 - Req #2: Plano de Recuperação → disaster-recovery-plan.md ✅
 - Req #3: Gerenciamento de Crise → crisis-management.md ✅
@@ -404,7 +404,7 @@ Confirme quando concluir para eu consolidar no index.md.
 
 **Template:** Leia e siga `.cursor/skills/docs-build-compliance-docs/references/compliance-soc2-template.md`
 
-🚨 **SERASA MAPPING**: Este framework mapeia 3 de 8 requisitos da Serasa Experian. Garanta que:
+🚨 **[cliente enterprise] MAPPING**: Este framework mapeia 3 de 8 requisitos da [cliente enterprise de referência]. Garanta que:
 - Req #6: Certificado/Relatório SOC2 → trust-services-criteria.md ✅
 - Req #7: Confirmação SLAs → availability-controls.md ✅
 - Req #8: Documentação SLAs → availability-controls.md ✅
@@ -670,7 +670,7 @@ Alternativa: Gerar documentação manualmente seguindo template
 ```markdown
 ❌ ERRO: Checklist não encontrado: path/to/checklist.md
 Ação: Verificar path relativo ao workspace root
-Exemplo correto: docs/due-diligence/serasa-requirements.md
+Exemplo correto: docs/due-diligence/[cliente enterprise]-requirements.md
 ```
 
 ---
@@ -695,9 +695,9 @@ docs/compliance-context/
 Tempo: ~2 minutos
 ```
 
-### Exemplo 2: Modo Due Diligence (Serasa)
+### Exemplo 2: Modo Due Diligence ([cliente enterprise])
 ```bash
-Usuário: /docs/build-compliance due-diligence="docs/due-diligence/serasa-requirements.md"
+Usuário: /docs/build-compliance due-diligence="docs/due-diligence/[cliente enterprise]-requirements.md"
 
 Detecção automática:
 Keywords: continuidade (3x), disaster recovery (2x), rto (2x), rpo (2x), testes (1x), soc2 (1x), sla (2x)
@@ -710,9 +710,9 @@ docs/compliance-context/
 ├── business-continuity/ (5 docs)
 ├── soc2/ (5 docs)
 └── due-diligence/
-    └── serasa-experian-response.md (resposta estruturada)
+    └── [cliente enterprise]-experian-response.md (resposta estruturada)
 
-Cobertura: 8/8 requisitos Serasa ✅
+Cobertura: 8/8 requisitos DD ✅
 Tempo: ~3 minutos
 ```
 

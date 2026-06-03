@@ -141,7 +141,7 @@ write docs/analysis/[slug]-analysis.md
 
 🚀 Próximos Passos:
 ∟ Revisar com stakeholders
-∟ Criar tasks no ClickUp
+∟ criar task no Task Manager configurado
 ∟ Iniciar implementação
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```

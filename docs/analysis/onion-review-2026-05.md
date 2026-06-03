@@ -274,7 +274,7 @@ Localização: [.claude/utils/task-manager/](../../.claude/utils/task-manager/) 
 1. Lê `.env` → `TASK_MANAGER_PROVIDER`
 2. Valida variáveis obrigatórias do provider
 3. Delega ao agente especialista (`@jira-specialist`, `@clickup-specialist`) ou ao agnóstico `@task-specialist`
-4. Aplica formatação correta (ADF para Jira v3, Markdown para ClickUp descriptions, Unicode para ClickUp comments, HTML para Asana, Markdown para Linear)
+4. Aplica formatação correta (ADF para Jira v3, Markdown para ClickUp descriptions, Unicode para comentários do Task Manager, HTML para Asana, Markdown para Linear)
 
 **Forças**: padrão SDAAL real, fallback gracioso quando provider ausente, formatação tipada por provider, documentação de operação em ADRs externos.
 
@@ -701,7 +701,7 @@ Conteúdo mínimo:
 - Estrutura obrigatória de adapter (factory + interface + types + detector + provider docs)
 - Gestão de `.env` (variáveis obrigatórias vs opcionais, fallback gracioso)
 - MCPs suportados e como declarar no YAML de agente
-- Formatação por provider (ADF para Jira v3, Markdown para ClickUp descriptions, Unicode para ClickUp comments, etc.)
+- Formatação por provider (ADF para Jira v3, Markdown para ClickUp descriptions, Unicode para comentários do Task Manager, etc.)
 
 **14. Validar via `@metaspec-gate-keeper` em PR experimental**
 

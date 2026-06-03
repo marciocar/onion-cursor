@@ -240,7 +240,7 @@ updateEstimate(taskId, newEstimate);
 
 ## 🚀 Próximos Passos
 
-1. **Configurar Custom Field:** Garantir que "Story Points" existe no ClickUp/Asana
+1. **Configurar Custom Field:** Garantir que "Story Points" existe no Task Manager configurado/Asana
 2. **Calibrar Baseline:** Estabelecer histórias de referência
 3. **Tracking de Velocity:** Implementar dashboard de velocity
 4. **Accuracy Rate:** Calcular precisão das estimativas ao longo do tempo

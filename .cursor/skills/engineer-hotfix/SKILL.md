@@ -33,7 +33,7 @@ fi
 
 ### Passo 2: Criar Task Emergencial
 
-Via ClickUp MCP:
+Via Task Manager via MCP:
 
 ```yaml
 name: "🔥 HOTFIX: {{description}}"
@@ -83,7 +83,7 @@ cat > .cursor/sessions/hotfix-$(date +%Y%m%d)/context.md << EOF
 
 ## Task
 - ID: [task_id criado]
-- URL: [url do clickup]
+- URL: [url do Task Manager configurado]
 
 ## Branch
 - Nome: $BRANCH
@@ -101,7 +101,7 @@ EOF
 🔥 HOTFIX INICIADO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📋 Task: [URL do ClickUp]
+📋 Task: [URL do Task Manager configurado]
 🌿 Branch: hotfix/X.X.X-description
 
 ⚡ Próximos Passos:

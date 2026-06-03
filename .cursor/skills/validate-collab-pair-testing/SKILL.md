@@ -120,7 +120,7 @@ Participante 2: [NOME/ROLE]
 **SE** `{{feature-id}}` fornecido **E** `{{task-manager}}` = `clickup`:
 
 ```bash
-# Usar ClickUp MCP para buscar:
+# Usar Task Manager via MCP para buscar:
 # - Detalhes da task/feature
 # - Descrição atual
 # - Critérios de aceitação
@@ -415,7 +415,7 @@ Gerar checklist para guiar a sessão:
 # 5. Atualizar custom fields se disponíveis
 ```
 
-**Formato de Comentário ClickUp:**
+**Formato de Comentário Task Manager configurado:**
 
 ```markdown
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -555,7 +555,7 @@ Gerar checklist para guiar a sessão:
 - Template de documentação criado
 - Checklist preparado
 - Evento criado no calendário
-- Comentário adicionado na task CU-123 no ClickUp
+- Comentário adicionado na task CU-123 no Task Manager configurado
 
 ### Exemplo 2: Pair Testing Black-box Manual
 

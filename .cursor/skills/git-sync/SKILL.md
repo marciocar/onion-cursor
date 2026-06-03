@@ -100,7 +100,7 @@ else
 fi
 ```
 
-### Passo 6: Atualizar ClickUp
+### Passo 6: atualizar o Task Manager
 
 SE sessão ativa com task_id:
 - Comentário de sync realizado

@@ -24,7 +24,7 @@ Finalizar correção emergencial realizando deploy para produção com merge em 
 - Emergency testing validation
 
 ### Critical Operations Management
-- ClickUp task completion com emergency status
+- task do Task Manager completion com emergency status
 - Team notification de emergency deployment
 - Emergency documentation automática
 - Production deployment tracking
@@ -46,7 +46,7 @@ Finalizar correção emergencial realizando deploy para produção com merge em 
 4. **Emergency Confirmation**: Solicita confirmação para production release
 5. **Production Merge**: Executa merge para main + back-merge para develop
 6. **Emergency Tagging**: Cria patch tag com emergency release notes
-7. **Production Deploy**: Prepara deployment e atualiza ClickUp status
+7. **Production Deploy**: Prepara deployment e atualiza o Task Manager status
 8. **Emergency Cleanup**: Remove hotfix branch e finaliza emergency workflow
 
 ### Emergency Deployment Strategy
