@@ -6,6 +6,13 @@ Repositório canônico: [github.com/marciocar/onion-cursor](https://github.com/m
 
 ---
 
+## 🧅 Parte da família Onion
+
+Esta é a porta **Cursor** do Onion — a mesma metodologia (Spec-as-Code + SDD), expressa no primitivo nativo da plataforma. Veja a história completa e as outras 5 portas no hub:
+**[onion (hub)](https://github.com/marciocar/onion)**.
+
+---
+
 ## O que é
 
 O Onion é um framework template para uso interno, com base canônica em artefatos do Cursor (`.cursor/`, `AGENTS.md` e `docs/`). O objetivo é padronizar o ciclo completo de desenvolvimento em três dimensões peer:
