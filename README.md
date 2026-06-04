@@ -1,62 +1,111 @@
-# Onion
+<div align="center">
 
-**Framework Cursor-first para orquestrar produto, engenharia e compliance com workflows faseados e retomáveis.**
+# 🧅 Onion
 
-Repositório canônico: [github.com/marciocar/onion-cursor](https://github.com/marciocar/onion-cursor)
+### Organize produto, engenharia e governança no mesmo ritmo — nativo do **Cursor**.
 
----
+[![Licença: MIT](https://img.shields.io/github/license/marciocar/onion-cursor?color=success)](LICENSE)
+![Plataforma](https://img.shields.io/badge/plataforma-Cursor_3.6%2B-000000)
+![Metodologia](https://img.shields.io/badge/metodologia-Spec--as--Code_%2B_SDD-blue)
+[![Família Onion](https://img.shields.io/badge/família-Onion-8A2BE2)](https://github.com/marciocar/onion)
 
-## 🧅 Parte da família Onion
+**[O que é](#-o-que-é) · [Início rápido](#-início-rápido) · [Família Onion](#-família-onion) · [Documentação](#-documentação) · [Contribuir](#-contribuir)**
 
-Esta é a porta **Cursor** do Onion — a mesma metodologia (Spec-as-Code + SDD), expressa no primitivo nativo da plataforma. Veja a história completa e as outras 5 portas no hub:
-**[onion (hub)](https://github.com/marciocar/onion)**.
-
----
-
-## O que é
-
-O Onion é um framework template para uso interno, com base canônica em artefatos do Cursor (`.cursor/`, `AGENTS.md` e `docs/`). O objetivo é padronizar o ciclo completo de desenvolvimento em três dimensões peer:
-
-- Produto
-- Engenharia
-- Compliance/governança
-
-O framework **não é produto npm**, **não tem distribuição pública** e **não possui CLI standalone**.
+</div>
 
 ---
 
-## Estado canônico atual
+> [!NOTE]
+> Esta é a porta **Cursor** da família Onion — a mesma metodologia, expressa no primitivo nativo da plataforma. Conheça as outras 5 portas no hub: **[github.com/marciocar/onion](https://github.com/marciocar/onion)**.
 
-Snapshot validado em 2026-05-28:
+## 🎯 O que é
+
+O Onion é um **framework template em `.cursor/`** (com `AGENTS.md` e `docs/`) que se instala em qualquer projeto — novo, legado ou regulado — para padronizar o ciclo completo de desenvolvimento no **Cursor**. Separa o trabalho em três dimensões peer — **produto**, **engenharia** e **compliance/governança** — conectadas por fluxos e padrões repetíveis.
+
+O Onion **não é produto npm**, **não tem distribuição pública** e **não possui CLI standalone**. Plataforma única: Cursor 3.6+.
+
+## ⚡ Início rápido
+
+1. Abra um projeto que já tenha o Onion instalado (`.cursor/` + `AGENTS.md` na raiz) no **Cursor 3.6+**.
+2. Rode **`/onion`** para orientação inteligente, ou **`/warm-up`** para carregar o contexto.
+
+**Como invocar:**
+
+| Primitivo | Sintaxe | Exemplo |
+|---|---|---|
+| Skill (comando) | `/skill` | `/engineer-start`, `/product-task` |
+| Subagente | `@agente` | `@code-reviewer`, `@gitflow-specialist` |
+
+## 🧩 O que muda no dia a dia
+
+- Menos retrabalho por decisões perdidas ou mal comunicadas.
+- **Contexto explícito** antes de cada ação: todo mundo sabe em qual dimensão está trabalhando (produto, engenharia ou compliance).
+- **Workflows faseados retomáveis** com sessões persistentes (`.cursor/sessions/<feature-slug>/`) que permitem pausar e continuar.
+- Documentação e fluxo de trabalho **mais próximos do que o time realmente faz**.
+- Práticas de **configuração e segurança** integradas (credenciais fora do repositório, templates seguros).
+
+## 🌐 Família Onion
+
+| Porta | Plataforma | Repositório |
+|---|---|---|
+| 🌐 onion (hub) | a história de todas | [onion](https://github.com/marciocar/onion) |
+| 🟠 claude | Claude Code | [onion-claude](https://github.com/marciocar/onion-claude) |
+| 🔵 **cursor** | **Cursor** | **◀ você está aqui** |
+| 🟣 antigravity | Google Antigravity | [onion-antigravity](https://github.com/marciocar/onion-antigravity) |
+| ⚡ zed | Zed | [onion-zed](https://github.com/marciocar/onion-zed) |
+| 🟢 codex | OpenAI Codex | [onion-codex](https://github.com/marciocar/onion-codex) |
+| 🐙 copilot | GitHub Copilot + VS Code | [onion-copilot](https://github.com/marciocar/onion-copilot) |
+
+## 📚 Documentação
+
+- **[Índice geral de docs](docs/INDEX.md)** · **[Regras do projeto (AGENTS.md)](AGENTS.md)** · **[Guia Onion](docs/onion/)**
+- **[Documento de migração Claude Code → Cursor](docs/migration/onion-to-cursor-transformation.md)**
+
+<details>
+<summary><b>Estado canônico atual e compatibilidade</b></summary>
+
+<br>
+
+**Snapshot validado em 2026-05-28:**
 
 - **83 skills** em `.cursor/skills/`
 - **49 subagentes** em `.cursor/agents/` (achatado, raiz)
 - **4 rules** em `.cursor/rules/`
 - **Task Manager Abstraction** em `.cursor/utils/task-manager/` (Jira, ClickUp, Asana, Linear)
 
-Invariantes do framework:
+**Invariantes do framework:**
 
-- Workflow de produto: `collect -> refine -> spec -> feature`
-- Workflow de engenharia: `plan -> start -> work -> pre-pr -> pr -> pr-update`
+- Workflow de produto: `collect → refine → spec → feature`
+- Workflow de engenharia: `plan → start → work → pre-pr → pr → pr-update`
 - Sessões persistentes em `.cursor/sessions/<feature-slug>/`
 
----
+**Legado e compatibilidade** — o histórico em Claude Code é mantido como referência de migração. A orientação operacional atual é Cursor 3.6+; referências legadas devem ser tratadas como contexto histórico quando não refletirem a estrutura `.cursor/`.
 
-## Legado e compatibilidade
+</details>
 
-O histórico em Claude Code é mantido como referência de migração e compatibilidade documental. A orientação operacional atual é Cursor 3.6+; referências legadas devem ser tratadas como contexto histórico quando não refletirem a estrutura `.cursor/`.
+<details>
+<summary><b>Para quem é e como funciona em três passos</b></summary>
 
----
+<br>
 
-## Próximos passos
+**Para quem é** — squads de produto, engenharia e compliance que precisam alinhar prioridade, implementação, qualidade e conformidade; times que sentem falta de contexto compartilhado; organizações que querem padrão sem burocracia; projetos novos, legados ou regulados (ISO 27001, ISO 22301, SOC2, PMBOK).
 
-- Navegação geral: [docs/INDEX.md](docs/INDEX.md)
-- Regras do projeto: [AGENTS.md](AGENTS.md)
-- Documento de migração: [docs/migration/onion-to-cursor-transformation.md](docs/migration/onion-to-cursor-transformation.md)
-- Contribuição: [CONTRIBUTING.md](CONTRIBUTING.md)
+**Como funciona em três passos**
 
----
+1. **Definir a intenção** no contexto certo — produto, engenharia ou compliance.
+2. **Executar com apoio** de skills padronizadas e subagentes, em ciclos faseados retomáveis.
+3. **Validar e registrar** — qualidade, segurança e conhecimento ficam sincronizados para o próximo ciclo.
 
-## Licença
+</details>
 
-Distribuído sob licença MIT. Veja `LICENSE`.
+## 🤝 Contribuir
+
+Veja **[CONTRIBUTING.md](CONTRIBUTING.md)**.
+
+## 📄 Licença
+
+Distribuído sob a licença **MIT** — veja **[LICENSE](LICENSE)**.
+
+O Onion se inspira em ideias de **interface unificada** para orquestração com IA; referência conceitual: [Esperanto, de Luis Novo](https://github.com/lfnovo/esperanto).
+
+<div align="center"><sub>🧅 Onion — contexto certo, decisão melhor, entrega contínua.</sub></div>
